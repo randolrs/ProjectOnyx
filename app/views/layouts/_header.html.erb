@@ -10,10 +10,22 @@
 
     <div class="header-inside-right">
 
-      <%= link_to "Login", root_path %>
-      <%= link_to "Signup", about_path %>
+      <% if user_signed_in? %>
 
-        <a href="/about" class="request_button"> Make Predictions </a>
+          <%= link_to "Logout", destroy_musician_session_path, method: :delete %>
+
+            <a href="/about" class="request_button"> Make Predictions </a>
+      
+
+        <% else %>
+
+          <%= link_to "Login", new_user_session_path %>
+          <%= link_to "Signup", new_user_registration_path %>
+
+          <a href="/about" class="request_button"> Make Predictions </a>
+
+
+        <% end %>
 
 
     </div>
@@ -22,10 +34,10 @@
 
   <div class="header-below">
 
-      <a href="/about"> Make Predictions </a>
-      <a href="/about"> Make Predictions </a>
-      <a href="/about"> Make Predictions </a>
-      <a href="/about"> Make Predictions </a>
+      <a href="/about"> All </a>
+      <a href="/about"> Sports </a>
+      <a href="/about"> Finance </a>
+      <a href="/about"> Miscellaneous </a>
 
   </div>
 

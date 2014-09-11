@@ -69,13 +69,15 @@ a.request_button:hover{
 }
 
 .header-below a{
+
 	padding: 5px 5px 5px 5px;
-  background-color:#fff;
   font-size: 18px;
   color:black;
   text-align:center;
   position:relative;
    text-decoration:none;
+   font-family: "RobotoMedium";
+   font-weight: normal;
 	
 }
 
@@ -111,4 +113,9 @@ a.hero_cta{
   text-align:center;
   position:relative;
 
+}
+
+h2{
+	font-family: "RobotoMedium";
+	font-weight: normal;
 }

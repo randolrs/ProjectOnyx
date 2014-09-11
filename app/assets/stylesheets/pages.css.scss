@@ -1,0 +1,114 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header-container{
+	top:0px;
+	height:90px;
+}
+
+.header-inside{
+	width:1000px;
+	position:relative;
+	margin-left:auto;
+    margin-right:auto;
+    height:40px;
+
+}
+
+.header-inside a{
+	text-decoration:none;
+}
+
+.header-inside-left{
+	position:absolute;
+	width:300px;
+	height:30px;
+	left: 0px;
+	display:table;
+
+	}
+
+
+.header-inside-right{
+	position:absolute;
+	width:300px;
+	height:30px;
+	right: 0px;
+	display:table;
+
+}
+
+
+
+a.request_button{
+  padding: 5px 5px 5px 5px;
+  text-decoration:none;
+  background-color:#00C100;
+  font-size: 18px;
+  color:white;
+  border-radius:2.4px;
+  text-align:center;
+  position:relative;
+
+}
+
+a.request_button:hover{
+	
+	background-color:#00AB00;
+}
+
+
+.header-below{
+	width:1000px;
+	position:relative;
+	margin-left:auto;
+    margin-right:auto;
+    height:40px;
+
+}
+
+.header-below a{
+	padding: 5px 5px 5px 5px;
+  background-color:#fff;
+  font-size: 18px;
+  color:black;
+  text-align:center;
+  position:relative;
+   text-decoration:none;
+	
+}
+
+.header-below a:hover{
+  background-color:#eee;
+	
+}
+
+.home-wrap{
+	width:100%;
+}
+
+.home-content{
+	width:1000px;
+	position:relative;
+	margin-left:auto;
+    margin-right:auto;
+    padding-top:25px;
+	
+}
+
+.hero-wrap{
+	text-align:center;
+}
+
+a.hero_cta{
+  padding: 5px 5px 5px 5px;
+  text-decoration:none;
+  background-color:#00C100;
+  font-size: 18px;
+  color:white;
+  border-radius:2.4px;
+  text-align:center;
+  position:relative;
+
+}

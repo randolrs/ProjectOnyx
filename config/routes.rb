@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  devise_for :predictors
+  resources :predictions
+
   devise_for :users
   root :to => 'pages#home'
 
   get "about" => "pages#about"
+
+
+
+  get 'dashboard' => 'predictions#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

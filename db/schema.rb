@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141010224517) do
+ActiveRecord::Schema.define(version: 20141011145659) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20141010224517) do
     t.string   "category2"
     t.time     "deadline"
     t.string   "type"
+    t.integer  "predictor_id"
   end
 
   create_table "predictors", force: true do |t|

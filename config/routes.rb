@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sports
+
   devise_for :admins
   devise_for :predictors
   resources :predictions

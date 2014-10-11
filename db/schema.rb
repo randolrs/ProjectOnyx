@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011145659) do
+ActiveRecord::Schema.define(version: 20141011154133) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(version: 20141011145659) do
 
   add_index "predictors", ["email"], name: "index_predictors_on_email", unique: true
   add_index "predictors", ["reset_password_token"], name: "index_predictors_on_reset_password_token", unique: true
+
+  create_table "sports", force: true do |t|
+    t.string   "subcat"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "TeamA"
+    t.string   "TeamB"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

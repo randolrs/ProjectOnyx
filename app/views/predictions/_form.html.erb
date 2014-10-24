@@ -26,6 +26,10 @@
 
     <%= f.select :category, [['Sports','sport'],['Finance','finance'],['Politics','politics'],['Miscellaneous','misc']], :include_blank => true %>
 
+    <%=collection_select(:predictor,:category2,Sport.all,:id,:subcat) %>
+
+
+
   </div>
 
 

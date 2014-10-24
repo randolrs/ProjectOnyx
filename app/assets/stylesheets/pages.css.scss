@@ -42,7 +42,7 @@
 .header-inside-right a{
 	padding: 5px 5px 5px 5px;
 	font-size: 18px;
-	color:black;
+	color:white;
 	text-align:center;
 	position:relative;
 	text-decoration:none;
@@ -53,6 +53,12 @@
 	border-radius:2.4px;
 	margin-left:15px;
 }
+
+.header-inside-right a:hover{
+
+	background-color:#008700;
+
+	}
 
 
 
@@ -183,7 +189,9 @@ h2{
 
 
 
-
+.container{
+	min-height:300px;
+}
 
 .footer-wrap{
   
@@ -201,4 +209,106 @@ h2{
   text-align:center;
   color:white;
   height:80px;
+  }
+
+
+    .footer-wrap{
+  
+  height:250px;
+  background-color: #333333;
+  position:relative;
+  bottom:0px;
+  width:100%;
+  }
+
+  .footer-container{
+  width:1100px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  color:white;
+  height:80px;
+  }
+
+  .footer-container a{
+
+    color:white;
+  }
+
+  .footer-container a:visited{
+
+    color:white;
+  }
+
+  .footer-container a:hover{
+
+    color:grey;
+    text-decoration:none;
+
+  }
+
+
+  .footer-link{
+
+    font-size: 16px;
+    display: inline-block;
+    margin: 40px 20px;
+    text-decoration:none;
+  }
+
+.footer-extras{
+
+  width:1100px;
+  margin-left:auto;
+  margin-right:auto;
+  
+  color:white;
+
+  height:170px;
+
+
+
+  width:1100px;
+  
+  font-family: 'Cutive', Georgia, Times, serif;
+  
+}
+
+ul#footer{
+  list-style-type: none;
+  font-size:12px;
+  text-decoration:bold;
+  display:inline-block;
+  float:left;
+}
+
+ul#footer a:visited{
+  color:white;
+}
+
+.footer-extras a{
+
+  color:white;
+  
+}
+
+.footer-extras a:hover{
+
+  color:grey;
+  text-decoration:none;
+  
+}
+
+  .listings{
+  width:350px;
+  padding:40px;
+  display:block;
+  float:left;
+  }
+
+  .locations{
+    width:550px;
+    padding:40px;
+    display:inline-block;
+    float:left;
   }

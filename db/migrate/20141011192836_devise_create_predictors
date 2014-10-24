@@ -1,5 +1,5 @@
-class DeviseCreatePredictors < ActiveRecord::Migration
-  def change
+class DeviseCreatePredictors:predictors < ActiveRecord::Migration
+  def self.up
     create_table(:predictors) do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -32,6 +32,10 @@ class DeviseCreatePredictors < ActiveRecord::Migration
 
 
       t.timestamps
+    end
+
+    def self.down
+      drop_table :predictors:predictors
     end
 
     add_index :predictors, :email,                unique: true

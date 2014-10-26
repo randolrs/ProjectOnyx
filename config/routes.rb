@@ -25,6 +25,14 @@ devise_for :predictors
 
   get 'predictor_signin' => 'predictors#session#new'
 
+  get 'predictiontype' => 'predictions#typeselect'
+
+  get 'sportsprediction' => 'predictions#newsportsprediction'
+
+  get 'financeprediction' => 'predictions#newfinanceprediction'
+
+  get 'miscprediction' => 'predictions#newmiscprediction'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

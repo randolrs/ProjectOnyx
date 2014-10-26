@@ -1,3 +1,75 @@
 // Place all the styles related to the predictions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.typeselect-wrap{
+	width:1000px;
+}
+
+.sportswrap{
+
+	position:absolute;
+	top:0px;
+	left:50px;
+	width:250px;
+	
+
+	border:1.5px solid;
+  	border-radius:6px;
+  	border-color:#f0f0f0;
+
+}
+
+		     
+
+.financewrap{
+
+	position:absolute;
+	top:0px;
+	left:350px;
+	width:250px;
+	
+
+	border:1.5px solid;
+  	border-radius:6px;
+  	border-color:#f0f0f0;
+}
+
+		        
+.miscwrap{
+
+	position:absolute;
+	top:0px;
+	left:650px;
+	width:250px;
+	
+
+	border:1.5px solid;
+  	border-radius:6px;
+  	border-color:#f0f0f0;
+}
+
+.typeselect-cta{
+	height:100px;
+	vertical-align:middle;
+	width:250px;
+	text-align:center;
+}
+
+.typeselect-cta a{
+	padding: 5px 5px 5px 5px;
+	text-decoration:none;
+	background-color:#00C100;
+	font-size: 18px;
+	color:white;
+	border-radius:2.4px;
+	text-align:center;
+	position:relative;
+	
+}
+
+.typeselect-cta a:hover{
+  background-color:#eee;
+	
+}

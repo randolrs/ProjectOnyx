@@ -17,6 +17,18 @@ class PredictionsController < ApplicationController
     @prediction = Prediction.new
   end
 
+  def newsportsprediction
+    @prediction = Prediction.new
+  end
+
+  def newfinanceprediction
+    @prediction = Prediction.new
+  end
+
+  def newmiscprediction
+    @prediction = Prediction.new
+  end
+
   # GET /predictions/1/edit
   def edit
   end

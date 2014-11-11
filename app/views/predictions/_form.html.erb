@@ -1,8 +1,9 @@
+
 <%= form_for(@prediction) do |f| %>
   
   <% if @prediction.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@prediction.errors.count, "error") %> prohibited this prediction from being saved:</h2>
+      <h2><%= pluralize(@prediction.errors.count, "error") %> prohibited this prediction from being created:</h2>
 
       <ul>
       <% @prediction.errors.full_messages.each do |message| %>
@@ -19,14 +20,19 @@
   <div class="field">
 
     <%= f.hidden_field :predictor_id, as: :integer, :label => false, :placeholder => current_predictor.id %>
+      <%= f.hidden_field :category, as: :integer, :label => false, :placeholder => "sport" %>
 
+    
+    <h5> League </h5>
+    <%=collection_select(:predictor,:category2,Sport.all,:id,:subcat) %>
+
+    <br>
 
     <%= f.label :event %><br>
     <%= f.text_field :event %>
 
-    <%= f.select :category, [['Sports','sport'],['Finance','finance'],['Politics','politics'],['Miscellaneous','misc']], :include_blank => true %>
 
-    <%=collection_select(:predictor,:category2,Sport.all,:id,:subcat) %>
+   
 
 
 

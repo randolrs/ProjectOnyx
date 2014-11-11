@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :teams
+
   resources :sports
 
   resources :predictions
@@ -11,9 +13,13 @@ Rails.application.routes.draw do
 
   get "about" => "pages#about"
 
+  get "signup" => "pages#selectsignup"
+
 
 
   get 'dashboard' => 'predictions#index'
+
+  get 'sportdashboard' => 'sports#index'
 
   get 'editor' => 'sports#new'
 
@@ -32,6 +38,12 @@ devise_for :predictors
   get 'financeprediction' => 'predictions#newfinanceprediction'
 
   get 'miscprediction' => 'predictions#newmiscprediction'
+
+  get 'admineditor' => 'admin#editor'
+
+  get 'sportedit' => 'sports#index'
+
+  get 'teamedit' => 'teams#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

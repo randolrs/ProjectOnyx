@@ -1,1 +1,13 @@
-bb
+<% if predictor_signed_in? %>
+
+<h1>New Miscellaneous Prediction</h1>
+
+
+
+
+
+<%= render 'form3' %>
+
+<%= link_to 'Back', predictions_path %>
+
+<% end %>

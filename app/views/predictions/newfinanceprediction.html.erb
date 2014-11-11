@@ -1,1 +1,13 @@
-cc
+<% if predictor_signed_in? %>
+
+<h1>New Finance Prediction</h1>
+
+
+
+
+
+<%= render 'form2' %>
+
+<%= link_to 'Back', predictions_path %>
+
+<% end %>

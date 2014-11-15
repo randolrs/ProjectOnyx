@@ -17,7 +17,7 @@
 
     <%= f.label :league %><br>
 
-        <%= collection_select(:league, :league_id, Sport.all, :subcat, :subcat) %>
+        <%= collection_select(:team, :league, Sport.all, :subcat, :subcat) %>
 
 
   </div>

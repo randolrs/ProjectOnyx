@@ -21,6 +21,13 @@ class TeamsController < ApplicationController
   def edit
   end
 
+  def teamindex(subcat)
+
+    @gigs = Gig.find(:all, :conditions => {:league => subcat})
+
+
+  end
+
 
   # POST /teams
   # POST /teams.json

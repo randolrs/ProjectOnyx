@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :games
+
   resources :teams
 
   resources :sports
@@ -44,6 +46,8 @@ devise_for :predictors
   get 'sportedit' => 'sports#index'
 
   get 'teamedit' => 'teams#index'
+
+  get 'add_teams' => 'teams#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

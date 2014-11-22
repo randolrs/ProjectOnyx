@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game winner:</strong>
+  <%= @prediction_game.game_winner %>
+</p>
+
+<p>
+  <strong>Teama score:</strong>
+  <%= @prediction_game.teama_score %>
+</p>
+
+<p>
+  <strong>Teamh score:</strong>
+  <%= @prediction_game.teamh_score %>
+</p>
+
+<strong>Spread</strong>
+  <%= @prediction_game.spread %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_prediction_game_path(@prediction_game) %> |
+<%= link_to 'Back', prediction_games_path %>

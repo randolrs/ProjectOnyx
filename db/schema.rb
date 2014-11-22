@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115001559) do
+ActiveRecord::Schema.define(version: 20141122221041) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 20141115001559) do
     t.datetime "updated_at"
     t.datetime "event_time"
     t.string   "league"
+    t.integer  "teama_score"
+    t.integer  "teamh_score"
+    t.integer  "score_spread"
+    t.string   "status"
   end
 
   create_table "pred2s", force: true do |t|
@@ -58,6 +62,23 @@ ActiveRecord::Schema.define(version: 20141115001559) do
   add_index "pred2s", ["email"], name: "index_pred2s_on_email", unique: true
   add_index "pred2s", ["reset_password_token"], name: "index_pred2s_on_reset_password_token", unique: true
 
+  create_table "prediction_games", force: true do |t|
+    t.string   "game_winner"
+    t.integer  "teama_score"
+    t.integer  "teamh_score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "game_id"
+    t.integer  "predictor_id"
+    t.string   "teama"
+    t.string   "teamh"
+    t.string   "league"
+    t.integer  "spread"
+  end
+
+  add_index "prediction_games", ["game_id"], name: "index_prediction_games_on_game_id"
+  add_index "prediction_games", ["predictor_id"], name: "index_prediction_games_on_predictor_id"
+
   create_table "predictions", force: true do |t|
     t.string   "event"
     t.datetime "created_at"
@@ -67,7 +88,10 @@ ActiveRecord::Schema.define(version: 20141115001559) do
     t.time     "deadline"
     t.string   "type"
     t.integer  "predictor_id"
+    t.integer  "game_id"
   end
+
+  add_index "predictions", ["game_id"], name: "index_predictions_on_game_id"
 
   create_table "predictors", force: true do |t|
     t.string   "email",                  default: "", null: false

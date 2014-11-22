@@ -1,3 +1,5 @@
+<% if admin_signed_in? %>
+
 <%= form_for(@game) do |f| %>
   <% if @game.errors.any? %>
     <div id="error_explanation">
@@ -31,8 +33,27 @@
     <%= f.datetime_select :event_time %>
   </div>
 
+  <div class="field">
+    <%= f.label :teama_score %><br>
+    <%= f.number_field :teama_score %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teamh_score %><br>
+    <%= f.number_field :teamh_score %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.select :status, [['Open','o'],['Closed','c']], :placeholder => @game.status %>
+  </div>
+
+
+
 
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+
 <% end %>

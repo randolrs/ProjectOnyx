@@ -1,0 +1,2 @@
+module PredictionGamesHelper
+end

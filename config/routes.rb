@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :prediction_games
+
   resources :games
 
   resources :teams
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
   get "about" => "pages#about"
 
   get "signup" => "pages#selectsignup"
+
+
 
 
 
@@ -48,6 +52,15 @@ devise_for :predictors
   get 'teamedit' => 'teams#index'
 
   get 'add_teams' => 'teams#new'
+
+  get 'gamescore' => 'games#score'
+
+  get 'sportpredictiontype' => 'pages#selectsportsprediction'
+
+  get 'gameprediction' => 'prediction_games#index' #need
+
+  get 'gameselect' => 'games#gameselect'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

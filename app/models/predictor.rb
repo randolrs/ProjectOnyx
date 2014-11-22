@@ -4,5 +4,5 @@ class Predictor < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         has_many :predictions
+         has_many :prediction_games
 end

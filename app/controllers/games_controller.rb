@@ -21,6 +21,17 @@ class GamesController < ApplicationController
   def edit
   end
 
+  # Get /games/1/score
+  def score
+  end
+
+  def gameselect
+
+    @games = Game.all
+    #@games = Game.find(:all, :conditions => {:event_time => Time.now})
+
+  end
+
   # POST /games
   # POST /games.json
   def create
@@ -64,11 +75,22 @@ class GamesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
-      @game = Game.find(params[:id])
+
+        if admin_signed_in?
+
+          @game = Game.find(params[:id])
+
+        else
+
+          redirect_to root_url # halts request cycle
+          flash[:error] = "Get out of here - Beat it! -- You heard me"
+        end
+
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:teamh, :teama, :league, :event_time)
+      params.require(:game).permit(:teamh, :teama, :league, :event_time, :teama_score, :teamh_score, :score_spread, :status)
     end
 end

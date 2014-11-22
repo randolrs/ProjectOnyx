@@ -24,5 +24,26 @@
   <%= @game.event_time %>
 </p>
 
+<p>
+  <strong>Home Score</strong>
+  <%= @game.teamh_score %>
+</p>
+
+<p>
+  <strong>Away Score</strong>
+  <%= @game.teama_score %>
+</p>
+
+<p>
+  <strong>Status</strong>
+  <%= @game.status %>
+</p>
+
+<p>
+
+  <strong>Id</strong>
+  <%= @game.id %>
+</p>
+
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

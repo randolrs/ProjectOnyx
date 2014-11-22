@@ -1,0 +1,34 @@
+<%= form_for(@prediction_game) do |f| %>
+  <% if @prediction_game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prediction_game.errors.count, "error") %> prohibited this prediction_game from being saved:</h2>
+
+      <ul>
+      <% @prediction_game.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+
+
+
+    <%= f.label :game_winner %><br>
+
+    <%= f.select :game_winner, [[@prediction_game.teama,@prediction_game.teama],[@prediction_game.teamh,@prediction_game.teamh]], :prompt => "Select the Game Winner"  %>
+
+  </div>
+  <div class="field">
+    <%= f.label :teama_score %><br>
+    <%= f.number_field :teama_score %>
+  </div>
+  <div class="field">
+    <%= f.label :teamh_score %><br>
+    <%= f.number_field :teamh_score %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

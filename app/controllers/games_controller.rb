@@ -45,14 +45,35 @@ class GamesController < ApplicationController
         format.html { render :new }
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
+
     end
+
   end
 
   # PATCH/PUT /games/1
   # PATCH/PUT /games/1.json
   def update
+    
+
     respond_to do |format|
       if @game.update(game_params)
+
+          if @game.status = "c"
+
+              @prediction_games = PredictionGame.all
+              
+              
+
+                @prediction_games.each do |prediction_game|
+
+                    if prediction_game.game_id = @game.id
+                      prediction_game.update(status: "c")
+                    end
+
+                end
+          
+          end
+
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @game }
       else
@@ -60,6 +81,10 @@ class GamesController < ApplicationController
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
+
+    
+
+
   end
 
   # DELETE /games/1

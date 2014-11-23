@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122221041) do
+ActiveRecord::Schema.define(version: 20141122232645) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 20141122221041) do
     t.string   "teamh"
     t.string   "league"
     t.integer  "spread"
+    t.string   "status"
+    t.datetime "event_time"
   end
 
   add_index "prediction_games", ["game_id"], name: "index_prediction_games_on_game_id"

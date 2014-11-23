@@ -4,22 +4,30 @@
   <thead>
     <tr>
       <th>Game winner</th>
-      <th>Teama score</th>
-      <th>Teamh score</th>
+      <th>Away Team Score</th>
+      <th>Home Team Score</th>
+      <th>Score Spread</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @prediction_games.each do |prediction_game| %>
+
+    <% if prediction_game.predictor_id == current_predictor.id %>
       <tr>
         <td><%= prediction_game.game_winner %></td>
         <td><%= prediction_game.teama_score %></td>
         <td><%= prediction_game.teamh_score %></td>
+        <td><%= prediction_game.spread %></td>
         <td><%= link_to 'Show', prediction_game %></td>
-        <td><%= link_to 'Edit', edit_prediction_game_path(prediction_game) %></td>
         <td><%= link_to 'Destroy', prediction_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
+
+      <% end %>
+
+
     <% end %>
   </tbody>
 </table>

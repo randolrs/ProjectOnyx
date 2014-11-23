@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122232645) do
+ActiveRecord::Schema.define(version: 20141123174522) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20141122232645) do
     t.integer  "teamh_score"
     t.integer  "score_spread"
     t.string   "status"
+    t.string   "game_winner"
   end
 
   create_table "pred2s", force: true do |t|
@@ -76,6 +77,10 @@ ActiveRecord::Schema.define(version: 20141122232645) do
     t.integer  "spread"
     t.string   "status"
     t.datetime "event_time"
+    t.integer  "teama_tscore"
+    t.integer  "teamh_tscore"
+    t.integer  "spreadt"
+    t.string   "game_winnert"
   end
 
   add_index "prediction_games", ["game_id"], name: "index_prediction_games_on_game_id"

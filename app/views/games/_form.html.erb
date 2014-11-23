@@ -43,6 +43,15 @@
     <%= f.number_field :teamh_score %>
   </div>
 
+  <% if @game.teamh != nil && @game.teama != nil %>
+
+    <div class="field">
+      <%= f.label :game_winner %><br>
+      <%= f.select :game_winner, [[@game.teama,@game.teama],[@game.teamh,@game.teamh]], :prompt => "Select the Game Winner" %>
+    </div>
+
+  <% end %>
+
   <div class="field">
     <%= f.label :status %><br>
     <%= f.select :status, [['Open','o'],['Closed','c']], :placeholder => @game.status %>

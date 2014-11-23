@@ -18,24 +18,20 @@
     <%= f.label :game_winner %><br>
 
     <%= f.select :game_winner, [[@prediction_game.teama,@prediction_game.teama],[@prediction_game.teamh,@prediction_game.teamh]], :prompt => "Select the Game Winner"  %>
-
-     <% if @prediction_game.event_time > Time.now %>
-
-     <%= @prediction_game.event_time %>
-
-     <% end %>
-
+    
     <%= f.hidden_field :game_id, as: :integer, :label => false, :placeholder => @prediction_game.game_id %>
     <%= f.hidden_field :event_time, as: :integer, :label => false, :placeholder => @prediction_game.event_time %>
+    <%= f.hidden_field :teamh, as: :string, :label => false, :placeholder => @prediction_game.teamh %>
+    <%= f.hidden_field :teama, as: :string, :label => false, :placeholder => @prediction_game.teama %>
 
-  </div>
-  <div class="field">
-    <%= f.label :teama_score %><br>
-    <%= f.number_field :teama_score %>
   </div>
   <div class="field">
     <%= f.label :teamh_score %><br>
     <%= f.number_field :teamh_score %>
+  </div>
+  <div class="field">
+    <%= f.label :teama_score %><br>
+    <%= f.number_field :teama_score %>
   </div>
   <div class="actions">
     <%= f.submit %>

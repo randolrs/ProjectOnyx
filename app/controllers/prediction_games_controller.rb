@@ -47,7 +47,14 @@ class PredictionGamesController < ApplicationController
     
     if @prediction_game.event_time > Time.now
 
-          @prediction_game.spread = @prediction_game.teama_score - @prediction_game.teamh_score
+          if @prediction_game.game_winner == @prediction_game.teamh
+            @prediction_game.spread = @prediction_game.teamh_score - @prediction_game.teama_score
+
+          elsif @prediction_game.game_winner == @prediction_game.teama
+            @prediction_game.spread = @prediction_game.teama_score - @prediction_game.teama_score
+
+          end
+
           @prediction_game.predictor_id = current_predictor.id
 
           respond_to do |format|
@@ -99,6 +106,6 @@ class PredictionGamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prediction_game_params
-      params.require(:prediction_game).permit(:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status)
+      params.require(:prediction_game).permit(:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status, :teama, :teamh)
     end
 end

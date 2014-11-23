@@ -54,23 +54,30 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1.json
   def update
     
-
     respond_to do |format|
       if @game.update(game_params)
 
-          if @game.status = "c"
+          if @game.status == "c"
 
-              @prediction_games = PredictionGame.all
-              
-              
+              #all predictions got closed - updated records for all prediction games
 
-                @prediction_games.each do |prediction_game|
+                  @prediction_games = PredictionGame.all
 
-                    if prediction_game.game_id = @game.id
+                  @prediction_games.each do |prediction_game|
+
+                    if prediction_game.game_id == @game.id and @game.status == "c"
+
                       prediction_game.update(status: "c")
+                      prediction_game.update(teama_tscore: @game.teama_score)
+                      prediction_game.update(teamh_tscore: @game.teamh_score)
+                      prediction_game.update(game_winnert: @game.game_winner)
+                      
+
                     end
 
                 end
+
+              #end
           
           end
 

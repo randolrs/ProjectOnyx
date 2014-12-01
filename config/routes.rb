@@ -19,11 +19,7 @@ Rails.application.routes.draw do
 
   get "signup" => "pages#selectsignup"
 
-
-
-
-
-  get 'dashboard' => 'predictions#index'
+  get 'dashboard' => 'prediction_games#index'
 
   get 'sportdashboard' => 'sports#index'
 

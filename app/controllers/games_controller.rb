@@ -1,85 +1,65 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
 
-  # GET /games
-  # GET /games.json
-  def index
-    @games = Game.all
-  end
-
-  # GET /games/1
-  # GET /games/1.json
-  def show
-  end
 
   # GET /games/new
   def new
     @game = Game.new
   end
 
+# GET /predictions/1
+  # GET /predictions/1.json
+  def show
+    @game = Game.find(params[:id])
+  end
+
+
   # GET /games/1/edit
   def edit
+
+    @game = Game.find(params[:id])
   end
 
-  # Get /games/1/score
-  def score
-  end
-
-  def gameselect
-
-    @games = Game.all
-    #@games = Game.find(:all, :conditions => {:event_time => Time.now})
-
-  end
-
-  # POST /games
-  # POST /games.json
   def create
-    @game = Game.new(game_params)
-
-    respond_to do |format|
-      if @game.save
-        format.html { redirect_to @game, notice: 'Game was successfully created.' }
-        format.json { render :show, status: :created, location: @game }
-      else
-        format.html { render :new }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
-      end
-
-    end
-
   end
 
-  # PATCH/PUT /games/1
-  # PATCH/PUT /games/1.json
   def update
-    
+
+    @game = Game.find(params[:id])
+
     respond_to do |format|
+
       if @game.update(game_params)
 
-          if @game.status == "c"
+        
 
-              #all predictions got closed - updated records for all prediction games
+        if @game.status = "c"
 
-                  @prediction_games = PredictionGame.all
+          #@prediction_games = PredictionGame.find(:all, :conditions => {:game_id => [@game.id]})
+          @prediction_games = PredictionGame.all
 
-                  @prediction_games.each do |prediction_game|
+            @prediction_games.each do |prediction_game|
 
-                    if prediction_game.game_id == @game.id and @game.status == "c"
+              if prediction_game.game_id = @game.id
 
-                      prediction_game.update(status: "c")
-                      prediction_game.update(teama_tscore: @game.teama_score)
-                      prediction_game.update(teamh_tscore: @game.teamh_score)
-                      prediction_game.update(game_winnert: @game.game_winner)
-                      
+                prediction_game.update(status: "c")
+                prediction_game.update(teama_score: @game.teama_score)
+                prediction_game.update(teamh_score: @game.teamh_score)
 
-                    end
+              if @game.teama_score > @game.teamh_score
+                prediction_game.update(spread: @game.teama_score - @game.teamh_score)
+              elsif @game.teamh_score > @game.teama_score
+                prediction_game.update(spread: @game.teamh_score - @game.teama_score)
+              end
 
-                end
+              end
 
-              #end
-          
-          end
+
+
+            end
+
+        end
+
+
 
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @game }
@@ -88,9 +68,15 @@ class GamesController < ApplicationController
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
+  end
 
-    
+  def index
 
+    if admin_signed_in?
+
+    @games = Game.all
+
+    end
 
   end
 
@@ -120,9 +106,9 @@ class GamesController < ApplicationController
 
     end
 
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
       params.require(:game).permit(:teamh, :teama, :league, :event_time, :teama_score, :teamh_score, :score_spread, :status)
     end
+
 end

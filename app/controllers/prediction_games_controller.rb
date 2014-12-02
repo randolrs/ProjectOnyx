@@ -28,6 +28,8 @@ class PredictionGamesController < ApplicationController
 
     @prediction_game.event_time = @game.event_time
 
+    @prediction_game.status = "o"
+
 
   end
 
@@ -51,7 +53,7 @@ class PredictionGamesController < ApplicationController
             @prediction_game.spread = @prediction_game.teamh_score - @prediction_game.teama_score
 
           elsif @prediction_game.game_winner == @prediction_game.teama
-            @prediction_game.spread = @prediction_game.teama_score - @prediction_game.teama_score
+            @prediction_game.spread = @prediction_game.teama_score - @prediction_game.teamh_score
 
           end
 

@@ -6,10 +6,14 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
-# GET /predictions/1
-  # GET /predictions/1.json
+# GET /games/1
+  # GET /games/1.json
   def show
     @game = Game.find(params[:id])
+  end
+
+  def gameselect
+    @games = Game.all
   end
 
 
@@ -20,6 +24,18 @@ class GamesController < ApplicationController
   end
 
   def create
+
+    @game = Game.new(game_params)
+
+    respond_to do |format|
+      if @game.save
+        format.html { redirect_to @game, notice: 'Game was successfully created.' }
+        format.json { render :show, status: :created, location: @game }
+      else
+        format.html { render :new }
+        format.json { render json: @game.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
@@ -32,23 +48,24 @@ class GamesController < ApplicationController
 
         
 
-        if @game.status = "c"
+        if @game.status == "c"
 
           #@prediction_games = PredictionGame.find(:all, :conditions => {:game_id => [@game.id]})
           @prediction_games = PredictionGame.all
 
             @prediction_games.each do |prediction_game|
 
-              if prediction_game.game_id = @game.id
+              if prediction_game.game_id == @game.id
 
                 prediction_game.update(status: "c")
-                prediction_game.update(teama_score: @game.teama_score)
-                prediction_game.update(teamh_score: @game.teamh_score)
+                prediction_game.update(teama_tscore: @game.teama_score)
+                prediction_game.update(teamh_tscore: @game.teamh_score)
+                prediction_game.update(game_winnert: @game.game_winner)
 
               if @game.teama_score > @game.teamh_score
-                prediction_game.update(spread: @game.teama_score - @game.teamh_score)
+                prediction_game.update(spreadt: @game.teama_score - @game.teamh_score)
               elsif @game.teamh_score > @game.teama_score
-                prediction_game.update(spread: @game.teamh_score - @game.teama_score)
+                prediction_game.update(spreadt: @game.teamh_score - @game.teama_score)
               end
 
               end

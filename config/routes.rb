@@ -12,8 +12,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   devise_for :admins
+  devise_for :predictors
 
   root :to => 'pages#home'
+
+  #temporary route XXX---XXXXX remove this
+  get "javatest" => "javascripts#dynamicgames.js"
 
   get "about" => "pages#about"
 
@@ -29,7 +33,7 @@ Rails.application.routes.draw do
 
   #get 'predictor_signin' => 'predictor#sessions#new'
 
-devise_for :predictors
+
 
   get 'predictor_signin' => 'predictors#session#new'
 

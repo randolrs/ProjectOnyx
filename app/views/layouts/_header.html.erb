@@ -4,28 +4,31 @@
 
     <div class="header-inside-left">
 
-    Name, Logo, Stuff
+      <h2>
+        ONYX
+      </h2>
 
   </div>
 
     <div class="header-inside-right">
 
-      <% if user_signed_in? %>
+
+        <% if user_signed_in? %>
 
 
-        <%= link_to "Dashboard", dashboard_path %>
+          <%= link_to "Dashboard", dashboard_path %>
 
-        <%= link_to "Account Settings", edit_user_registration_path %>
+          <%= link_to "Account Settings", edit_user_registration_path %>
 
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
- 
+   
 
-      <% elsif predictor_signed_in? %>
+        <% elsif predictor_signed_in? %>
 
 
-        <%= link_to "Dashboard", dashboard_path %>
+          <%= link_to "Dashboard", dashboard_path %>
 
-        <%= link_to "Account Settings", edit_predictor_registration_path %>
+          <%= link_to "Account Settings", edit_predictor_registration_path %>
 
           <%= link_to "Logout", destroy_predictor_session_path, method: :delete %>
 
@@ -39,28 +42,24 @@
           <%= link_to "Account Settings", edit_admin_registration_path %>
 
           <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
-      
+        
 
         <% else %>
+
+          <a href="/about"> About </a>
+          <a href="/about"> Markets </a>
+          <a href="/about"> Blog </a>
 
           <%= link_to "Login", new_user_session_path %>
           <%= link_to "Signup", signup_path %>
 
         <% end %>
 
-
     </div>
 
   </div>
 
-  <div class="header-below">
-
-      <a href="/about"> All </a>
-      <a href="/about"> Sports </a>
-      <a href="/about"> Finance </a>
-      <a href="/about"> Miscellaneous </a>
-
-  </div>
+  
 
 
 

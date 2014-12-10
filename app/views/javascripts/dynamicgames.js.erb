@@ -1,0 +1,27 @@
+var games = new Array();
+<% @games.each do |game| %>
+  games.push(new Array(<%= game.league %>, '<%=h game.id %>', <%= game.id %>));
+<% end %>
+
+/*
+function leagueSelected() {
+  league = $('prediction_league_id').getValue();
+  options = $('prediction_game_id').options;
+  options.length = 1;
+  games.each(function(game) {
+    if (game[0] == league) {
+      options[options.length] = new Option(game[1], game[2]);
+    }
+  });
+
+  if (options.length == 1) {
+    $('game_field').hide();
+  } else {
+    $('game_field').show();
+  }
+}
+
+document.observe('dom:loaded', function() {
+  leagueSelected();
+  $('prediction_league_id').observe('change', leagueSelected);
+});

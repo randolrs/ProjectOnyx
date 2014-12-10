@@ -1,6 +1,8 @@
 class Game < ActiveRecord::Base
 
-	has_many :predictions
+	has_many :prediction_games
+
+	belongs_to :sports
 
 	
 	#validates :teama_score, :numericality => { :only_integer => true }

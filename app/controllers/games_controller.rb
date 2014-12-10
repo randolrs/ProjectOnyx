@@ -62,9 +62,9 @@ class GamesController < ApplicationController
                 prediction_game.update(teamh_tscore: @game.teamh_score)
                 prediction_game.update(game_winnert: @game.game_winner)
 
-              if @game.teama_score > @game.teamh_score
+              if prediction_game.game_winner == prediction_game.teama
                 prediction_game.update(spreadt: @game.teama_score - @game.teamh_score)
-              elsif @game.teamh_score > @game.teama_score
+              elsif prediction_game.game_winner == prediction_game.teamh
                 prediction_game.update(spreadt: @game.teamh_score - @game.teama_score)
               end
 
@@ -125,7 +125,7 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:teamh, :teama, :league, :event_time, :teama_score, :teamh_score, :score_spread, :status)
+      params.require(:game).permit(:teamh, :teama, :league, :event_time, :teama_score, :teamh_score, :score_spread, :status, :game_winner)
     end
 
 end

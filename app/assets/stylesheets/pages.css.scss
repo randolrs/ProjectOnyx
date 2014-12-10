@@ -4,7 +4,10 @@
 
 .header-container{
 	top:0px;
+  padding-top:12px;
 	height:90px;
+  color:white;
+  
 }
 
 .header-inside{
@@ -33,11 +36,15 @@
 .header-inside-right{
 	position:absolute;
 	width:450px;
-	height:30px;
+	height:22px;
 	right: 0px;
 	display:table;
+  text-align:right;
+  vertical-align:middle;
 
 }
+
+
 
 .header-inside-right a{
 	padding: 5px 5px 5px 5px;
@@ -49,17 +56,26 @@
 	font-family: "RobotoMedium";
 	font-weight: normal;
 
-	background-color:#00C100;
+	/* background-color:#00C100; */
 	border-radius:2.4px;
 	margin-left:15px;
 }
 
+/*
 .header-inside-right a:hover{
 
 	background-color:#008700;
 
 	}
 
+  */
+
+  .header-sub-right{
+    margin-right:50px;
+    position:relative;
+    width:300px;
+    display:block;
+  }
 
 
 a.request_button{
@@ -107,6 +123,17 @@ a.request_button:hover{
 	
 }
 
+.intro{
+  top:0px;
+  background-color: black;
+  height:600px;
+  width:100%;
+  background-image: url("https://s3.amazonaws.com/projectonyx/footer_lodyas.png");
+  position:absolute;
+  z-index:-10;
+
+}
+
 .home-wrap{
 	width:100%;
 }
@@ -117,6 +144,8 @@ a.request_button:hover{
 	margin-left:auto;
     margin-right:auto;
     padding-top:25px;
+    color:white;
+    
 	
 }
 

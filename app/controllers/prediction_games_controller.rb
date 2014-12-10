@@ -12,23 +12,45 @@ class PredictionGamesController < ApplicationController
   def show
   end
 
-  # GET /prediction_games/new
-  def new
+  def gameselect
+
     @prediction_game = PredictionGame.new
 
-    @game = Game.find(params[:game])
+  end
 
-    @prediction_game.game_id = @game.id
+  # GET /prediction_games/new
+  def new
 
-    @prediction_game.teama = @game.teama
+    game = Game.find(params[:game])
 
-    @prediction_game.teamh = @game.teamh
+    if game.event_time > Time.now and game.status == "o" and not PredictionGame.where(:game_id => game.id, :predictor_id => current_predictor.id).present?
 
-    @prediction_game.league = @game.league
+      @prediction_game = PredictionGame.new
 
-    @prediction_game.event_time = @game.event_time
+      @prediction_game.game_id = game.id
 
-    @prediction_game.status = "o"
+      @prediction_game.teama = game.teama
+
+      @prediction_game.teamh = game.teamh
+
+      @prediction_game.league = game.league
+
+      @prediction_game.event_time = game.event_time
+
+      @prediction_game.status = "o"
+
+    else
+
+        @prediction_games = PredictionGame.all
+
+        respond_to do |format|
+          format.html { render :index }
+          format.json { render json: @prediction_game.errors, status: :unprocessable_entity }
+        end
+    end
+
+
+    
 
 
   end
@@ -44,10 +66,12 @@ class PredictionGamesController < ApplicationController
   # POST /prediction_games
   # POST /prediction_games.json
   def create
-    
+
     @prediction_game = PredictionGame.new(prediction_game_params)
+
+    game = Game.find(@prediction_game.game_id)
     
-    if @prediction_game.event_time > Time.now
+    if @prediction_game.event_time > Time.now and game.status == "o" and not PredictionGame.where(:game_id => game.id, :predictor_id => current_predictor.id).present?
 
           if @prediction_game.game_winner == @prediction_game.teamh
             @prediction_game.spread = @prediction_game.teamh_score - @prediction_game.teama_score

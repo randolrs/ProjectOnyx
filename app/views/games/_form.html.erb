@@ -6,9 +6,9 @@
       <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
 
       <ul>
-      <% @game.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @game.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

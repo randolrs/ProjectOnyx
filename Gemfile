@@ -54,3 +54,5 @@ gem 'bootstrap-sass'
 
 #Install Devise
 gem 'devise', '~> 3.3.0'
+
+gem 'bootstrap-sass'

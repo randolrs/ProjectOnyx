@@ -1,96 +1,105 @@
-<h1>My Predictions</h1>
+<%= render 'layouts/predictor_sidebar' %>
 
-<br>
+  <div class = "tab-content">
 
-<h1>Open Predictions</h1>
+    <div class="tab-pane active">
 
-<table>
-  <thead>
-    <tr>
-      <th>Home Team</th>
-      <th>Away Team</th>
-      <th>Game winner</th>
-      <th>Home Team Score</th>
-      <th>Away Team Score</th>
-      <th>Score Spread</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <h1>My Predictions</h1>
 
-  <tbody>
-    <% @prediction_games.each do |prediction_game| %>
+      <br>
 
-    <% if prediction_game.predictor_id == current_predictor.id && prediction_game.status == nil %>
-      <tr>
-        <td><%= prediction_game.teamh %></td>
-        <td><%= prediction_game.teama %></td>
-        <td><%= prediction_game.game_winner %></td>
-        <td><%= prediction_game.teamh_score %></td>
-        <td><%= prediction_game.teama_score %></td>
-        <td><%= prediction_game.spread %></td>
-        <td><%= link_to 'Show', prediction_game %></td>
-        <td><%= link_to 'Destroy', prediction_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        
-      </tr>
+      <h2>Open Predictions</h2>
 
-      <% end %>
+      <table>
+        <thead>
+          <tr>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Game winner</th>
+            <th>Home Team Score</th>
+            <th>Away Team Score</th>
+            <th>Score Spread</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
+        <tbody>
+          <% @prediction_games.each do |prediction_game| %>
 
-    <% end %>
-  </tbody>
-</table>
+          <% if prediction_game.predictor_id == current_predictor.id && prediction_game.status == nil %>
+            <tr>
+              <td><%= prediction_game.teamh %></td>
+              <td><%= prediction_game.teama %></td>
+              <td><%= prediction_game.game_winner %></td>
+              <td><%= prediction_game.teamh_score %></td>
+              <td><%= prediction_game.teama_score %></td>
+              <td><%= prediction_game.spread %></td>
+              <td><%= link_to 'Show', prediction_game %></td>
+              <td><%= link_to 'Destroy', prediction_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              
+            </tr>
 
-<br>
-
-<h1>Closed Predictions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Home Team</th>
-      <th>Away Team</th>
-      <th>Game winner (Predicted)</th>
-      <th>Game winner (Actual)</th>
-      <th>Home Team Score (Predicted)</th>
-      <th>Home Team Score (Actual)</th>
-      <th>Away Team Score (Predicted)</th>
-      <th>Away Team Score (Actual)</th>
-      <th>Score Spread (Predicted)</th>
-      <th>Score Spread (Actual)</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @prediction_games.each do |prediction_game| %>
-
-    <% if prediction_game.predictor_id == current_predictor.id && prediction_game.status != nil %>
-      <tr>
-        <td><%= prediction_game.teamh %></td>
-        <td><%= prediction_game.teama %></td>
-        <td><%= prediction_game.game_winner %></td>
-        <td><%= prediction_game.game_winnert %></td>
-        <td><%= prediction_game.teamh_score %></td>
-        <td><%= prediction_game.teamh_tscore %></td>
-        <td><%= prediction_game.teama_score %></td>
-        <td><%= prediction_game.teama_tscore %></td>
-        <td><%= prediction_game.spread %></td>
-        <td><%= prediction_game.spreadt %></td>
-        <td><%= prediction_game.status %></td>
+            <% end %>
 
 
+          <% end %>
+        </tbody>
+      </table>
 
-        <td><%= link_to 'Show', prediction_game %></td>
-        <td><%= link_to 'Destroy', prediction_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        
-      </tr>
+      <br>
 
-      <% end %>
+      <h2>Closed Predictions</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Game winner (Predicted)</th>
+            <th>Game winner (Actual)</th>
+            <th>Home Team Score (Predicted)</th>
+            <th>Home Team Score (Actual)</th>
+            <th>Away Team Score (Predicted)</th>
+            <th>Away Team Score (Actual)</th>
+            <th>Score Spread (Predicted)</th>
+            <th>Score Spread (Actual)</th>
+            <th>Status</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @prediction_games.each do |prediction_game| %>
+
+          <% if prediction_game.predictor_id == current_predictor.id && prediction_game.status != nil %>
+            <tr>
+              <td><%= prediction_game.teamh %></td>
+              <td><%= prediction_game.teama %></td>
+              <td><%= prediction_game.game_winner %></td>
+              <td><%= prediction_game.game_winnert %></td>
+              <td><%= prediction_game.teamh_score %></td>
+              <td><%= prediction_game.teamh_tscore %></td>
+              <td><%= prediction_game.teama_score %></td>
+              <td><%= prediction_game.teama_tscore %></td>
+              <td><%= prediction_game.spread %></td>
+              <td><%= prediction_game.spreadt %></td>
+              <td><%= prediction_game.status %></td>
 
 
-    <% end %>
-  </tbody>
-</table>
 
-<%= link_to 'New Prediction game', gameselect_path %>
+              <td><%= link_to 'Show', prediction_game %></td>
+              <td><%= link_to 'Destroy', prediction_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              
+            </tr>
+
+            <% end %>
+
+
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= link_to 'New Prediction game', gameselect_path %>
+
+    </div>
+  </div>

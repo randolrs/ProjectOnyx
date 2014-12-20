@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   get "signup" => "pages#selectsignup"
 
+  get "signin" => "devise/registrations#new"
+
   get 'dashboard' => 'prediction_games#index'
 
   get 'sportdashboard' => 'sports#index'
@@ -38,6 +40,8 @@ Rails.application.routes.draw do
   get 'predictor_signin' => 'predictors#session#new'
 
   get 'predictiontype' => 'predictions#typeselect'
+
+  get 'predictorpricing' => 'pages#predictorpricing'
 
   get 'sportsprediction' => 'predictions#newsportsprediction'
 

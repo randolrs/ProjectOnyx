@@ -1,17 +1,32 @@
+
+<% if @action == 'home'%>
 <div class="header-container">
+
+<%else%>
+
+<div class="header-container2">
+
+<%end%>
 
   <div class="header-inside">
 
     <div class="header-inside-left">
 
-      <h2>
+      <a href="/">
         ONYX
-      </h2>
+      </a>
 
   </div>
 
-    <div class="header-inside-right">
+    <% if @action == 'home'%>
+    
+      <div class="header-inside-right">
 
+    <%else%>
+
+      <div class="header-inside-right2">
+
+    <%end%>
 
         <% if user_signed_in? %>
 
@@ -51,7 +66,8 @@
           <a href="/about"> Blog </a>
 
           <%= link_to "Login", new_user_session_path %>
-          <%= link_to "Signup", signup_path %>
+
+          <%= link_to "Signup", new_user_registration_path, class: "signup-header" %>
 
         <% end %>
 

@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
   get 'predictor_signin' => 'predictors#session#new'
 
+  get 'myclosedpredictions' => 'prediction_games#index_closed'
+
   get 'predictiontype' => 'predictions#typeselect'
 
   get 'predictorpricing' => 'pages#predictorpricing'

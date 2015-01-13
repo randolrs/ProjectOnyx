@@ -40,10 +40,7 @@
 
         <% elsif predictor_signed_in? %>
 
-
-          <%= link_to "Dashboard", dashboard_path %>
-
-          <%= link_to "Account Settings", edit_predictor_registration_path %>
+          <%= link_to "My Profile", dashboard_path %>
 
           <%= link_to "Logout", destroy_predictor_session_path, method: :delete %>
 

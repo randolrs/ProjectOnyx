@@ -7,6 +7,10 @@ class PredictionGamesController < ApplicationController
     @prediction_games = PredictionGame.all
   end
 
+  def index_closed
+    @prediction_games = PredictionGame.all
+  end
+
   # GET /prediction_games/1
   # GET /prediction_games/1.json
   def show

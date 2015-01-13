@@ -14,7 +14,7 @@
   padding-top:32px;
   height:55px;
   color:white;
-  background-color: #089BA1;
+  background-color: #0D0005;
 }
 
 .header-inside{
@@ -162,11 +162,11 @@ a.request_button:hover{
 }
 
 .header-inside-right a:hover{
-    color: #BD5513;
+    color: #1fbad6;;
 }
 
 .header-inside-right2 a:hover{
-    color: #15181C;
+    color: #1fbad6;;
 }
 
 
@@ -208,8 +208,6 @@ a.signup-header{
     margin-right:auto;
     padding-top:25px;
     color:white;
-    
-	
 }
 
 .home-content h1{
@@ -228,11 +226,16 @@ a.signup-header{
   text-decoration: none;
 }
 
+.side-bar{
+  left:0px;
+  width:200px;
+  height:600px;
+  display:block;
+}
+
 .hero-wrap{
 	text-align:center;
 }
-
-
 
 a.hero_cta{
   padding: 10px 10px 10px 10px;
@@ -274,9 +277,7 @@ h2{
 }
 
 .signup-container{
-	
 	width: 400px;
-
 	position:relative;
 	margin-left:auto;
   margin-right:auto;
@@ -291,12 +292,11 @@ h2{
 
 	}
 
-  .signup-container h2{
-  
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 24px;
-  font-weight:normal;
-  color: #3e4552;
+  .signup-container h2{  
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 24px;
+    font-weight:normal;
+    color: #3e4552;
 
   }
 
@@ -330,7 +330,6 @@ h2{
   margin-bottom:10px;
 }
 
-
 .signup-extras{
   width: 400px;
   position:relative;
@@ -345,9 +344,7 @@ h2{
 
 
 .signin-container{
-  
   width: 400px;
-
   position:relative;
   margin-left:auto;
   margin-right:auto;
@@ -359,15 +356,13 @@ h2{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #3e4552;
   background-color:white;
-
   }
 
   .signin-container h2{
-  
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 24px;
-  font-weight:normal;
-  color: #3e4552;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 24px;
+    font-weight:normal;
+    color: #3e4552;
 
   }
 
@@ -400,7 +395,6 @@ h2{
   margin-bottom:10px;
   text-indent:10px;
 }
-
 
 .signin-extras{
   width: 400px;
@@ -438,13 +432,70 @@ h2{
   color: #3e4552;
 }
 
-
 .container-dash{
 	min-height:500px;
   width:1000px;
   margin-left:auto;
   margin-right:auto;
 }
+
+.table-holder{
+  width:50px;  
+}
+
+.prediction-section-header{
+  margin-left:auto;
+  margin-right:auto;
+  width:700px;
+  text-align:center;  
+  padding-bottom:10px;
+  margin-bottom:30px;
+  border-bottom: 1px solid #efefef;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.prediction-section-header a{
+  font-size:24px; 
+  border-bottom-color: #e47911;
+  padding-left:10px;
+}
+
+.prediction-section-header a:visited{
+  font-size:24px; 
+  padding-left:10px;
+  text-decoration:none;
+}
+
+prediction-header-inactive a{
+  text-decoration:none;
+}
+
+prediction-header-inactive{
+  text-decoration:none;
+}
+
+a.prediction-header-inactive{
+  padding: 5px 5px 5px 5px;
+  line-height:20px;
+  text-decoration:none;
+  background-color:#8E28C8;
+  font-size: 17px;
+  color:white;
+  border-radius:2.4px;
+  text-align:center;
+  position:relative;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+a.prediction-header-inactive:hover{
+  background-color:#661D90;
+}
+
+.prediction-section-header li{
+  
+}
+
+
 
 .prediction-holder{
 
@@ -459,8 +510,13 @@ h2{
   border-color:#B8B8B8;
   border-radius:2.4px;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    
-    
+}
+
+.prediction-table-holder{
+  width:700px;
+  margin-left:auto;
+  margin-right:auto;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .prediction-header{
@@ -469,8 +525,6 @@ h2{
   background-color: #E6E6E6;
   font-size:14px;
   margin-bottom:10px;
-  
-  
 }
 
 .prediction-header th{
@@ -479,6 +533,10 @@ h2{
 
 .prediction-header td{
   text-align:center;
+}
+
+.prediction-header-active{
+    text-decoration: underline;
 }
 
 a.prediction-detail{
@@ -500,7 +558,6 @@ a.prediction-detail:hover{
 }
 
 .prediction-index-body{
-  position:absolute;
   font-size:14px;
   width:608px;
 
@@ -529,6 +586,44 @@ a.prediction-detail:hover{
   font-size:18px;
   line-height:60px;
   text-align:center;
+}
+
+.prediction-index-fold{
+  border-collapse: collapse;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.prediction-index-fold-th{
+  width:150px;
+  font-size:14px;
+  padding: 7px 10px;
+  color:#4C4C4C;
+}
+
+.prediction-index-fold td{
+  text-align:center;
+  padding: 18px 10px;
+  color:#5A5A5A;
+  width:150px;
+}
+
+
+.prediction-index-fold tr{
+  border-bottom: 1px solid #efefef;
+  padding-bottom:8px;
+  row-height:60px; 
+}
+
+.prediction-table-row{
+  font-size:14px;
+  border-left: 1px solid #efefef;
+  border-right: 1px solid #efefef;
+}
+
+.prediction-table-row:hover{
+  background-color: #F2FCFC;
+  cursor:pointer;
+  font-color: #3e4552;
 }
 
 .content-wrap{

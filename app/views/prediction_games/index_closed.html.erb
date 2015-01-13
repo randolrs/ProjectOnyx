@@ -1,0 +1,57 @@
+<% render 'layouts/predictor_sidebar' %>
+
+
+<div class="container-dash">
+
+      <h1>My Predictions</h1>
+
+      <div class="prediction-section-header">
+          <a class="prediction-header-inactive" href="/dashboard">Open Predictions</a>
+          <a class="prediction-header-active">Closed Predictions</a>
+      </div>
+
+
+      <div class="prediction-table-holder">
+
+        <table class ="prediction-index-fold table table-hover">
+          <thead>
+          <tr>
+
+            <th class="table-holder"></th>
+            <th class="prediction-index-fold-th">Prediction Date</th>
+            <th class="prediction-index-fold-th">League</th>
+            <th class="prediction-index-fold-th">Event Date</th>
+            <th class="prediction-index-fold-th">Home Team</th>
+            <th class="prediction-index-fold-th">Away Team</th>
+            <th class="prediction-index-fold-th">Prediction Rating</th>
+            
+          </tr>
+          </thead>
+
+
+          <% @prediction_games.each do |prediction_game| %>
+
+            <% if prediction_game.predictor_id == current_predictor.id && prediction_game.status == "c" %>
+
+                  <tbody>
+                  
+                  <tr class="prediction-table-row" href="/">
+                      <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
+                      <td> <%= prediction_game.created_at.strftime("%D") %></td>
+                      <td><%= prediction_game.league %></td>
+                      <td><%= prediction_game.event_time.strftime("%D") %></td>
+                      <td><%= prediction_game.teamh %></td>
+                      <td><%= prediction_game.teama %></td>
+                      <td> 55?</td>
+                      
+                    </div>
+                  </tr>
+
+                  </tbody>
+
+                <% end %>
+
+              <% end %>
+
+              </table>
+      </div>

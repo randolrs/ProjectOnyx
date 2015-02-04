@@ -31,6 +31,10 @@ Rails.application.routes.draw do
 
   get 'editor' => 'sports#new'
 
+  get 'watchlist' =>'pages#mywatchlist'
+
+  get 'find_predictions' => 'pages#findpredictions'
+
   #get 'predictor_signup' => 'predictor#registrations#new'
 
   #get 'predictor_signin' => 'predictor#sessions#new'

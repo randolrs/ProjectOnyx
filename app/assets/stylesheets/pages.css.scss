@@ -180,7 +180,7 @@ a.signup-header{
 .intro{
   top:0px;
   background-color: black;
-  height:580px;
+  height:800px;
   width:100%;
   background-image: url("https://s3.amazonaws.com/projectonyx/footer_lodyas.png");
   position:absolute;
@@ -491,6 +491,28 @@ a.prediction-header-inactive:hover{
   background-color:#661D90;
 }
 
+prediction-header-active a{
+  text-decoration:none;
+}
+
+prediction-header-active{
+  text-decoration:none;
+}
+
+a.prediction-header-active{
+  padding: 5px 5px 5px 5px;
+  line-height:20px;
+  text-decoration:none;
+  background-color:#3932BA;
+  font-size: 17px;
+  color:white;
+  border-radius:2.4px;
+  text-align:center;
+  position:relative;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  right:50px;
+}
+
 .prediction-section-header li{
   
 }
@@ -498,8 +520,6 @@ a.prediction-header-inactive:hover{
 
 
 .prediction-holder{
-
-  height:170px;
   width:608px;
   margin-left:auto;
   margin-right:auto;
@@ -533,10 +553,6 @@ a.prediction-header-inactive:hover{
 
 .prediction-header td{
   text-align:center;
-}
-
-.prediction-header-active{
-    text-decoration: underline;
 }
 
 a.prediction-detail{

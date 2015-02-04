@@ -16,7 +16,15 @@
 					Onyx is the world's popular prediction marketplace.  We make it easy to find the world's most reliable predictions for Sports, Finance, and Everything Else(beyond).]
 				</p>
 
-				<%= link_to "GET STARTED", new_user_registration_path, class: "hero_cta" %>
+				<!-- Want to add specific pages in the about section for the conditionals on the button below that pertain to user/preictor roles; maybe a conditional page tha explains the role of the user-->
+
+				<% if user_signed_in? %>
+					<%= link_to "GET STARTED", about_path, class: "hero_cta" %>
+				<% elsif predictor_signed_in? %>
+					<%= link_to "GET STARTED", about_path, class: "hero_cta" %>
+				<% else %>
+					<%= link_to "GET STARTED", new_user_registration_path, class: "hero_cta" %>
+				<% end %>
 
 				<p> or see a video about how it works (link to youtube)
 				</p>

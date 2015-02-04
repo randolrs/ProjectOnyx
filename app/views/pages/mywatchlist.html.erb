@@ -1,0 +1,75 @@
+
+	Can provide links for index of individual sections (games, finance, fantasy)
+
+	Can index mass statistics on this home page -- just have to get controller correct to call variables in repetition, count, etc.
+
+	Default to "ALL"
+
+	<div class="container-dash">
+
+      <h1>My WatchList</h1>
+
+      <div class="prediction-section-header">
+      		<!-- <if user has sports game prediction> -->
+          <a class="prediction-header-active">All</a>
+
+          <a class="prediction-header-inactive" href="/dashboard">Sports Games</a>
+          	<!-- <if user has fantasy sport prediction> -->
+          <a class="prediction-header-inactive"  href="/dashboard">Fantasy Sports</a>
+          	<!-- <if user has sports finance prediction> -->
+          <a class="prediction-header-inactive" href="/dashboard">Finance</a>
+          	<!-- <if user has political prediction> -->
+          <a class="prediction-header-inactive" href="/dashboard">Politics</a>
+
+      </div>
+
+      	probably need to put the exact time somewhere on this line
+
+      <div class="prediction-table-holder">
+
+        <table class ="prediction-index-fold table table-hover">
+          <thead>
+          <tr>
+
+            <th class="table-holder"></th>
+            <th class="prediction-index-fold-th">Prediction Type</th>
+            <th class="prediction-index-fold-th">Event Date</th>
+            <th class="prediction-index-fold-th">Time to Event</th>
+            <th class="prediction-index-fold-th">Prediction Status</th>
+            <th class="prediction-index-fold-th">Prediction Rating</th>
+            
+          </tr>
+          </thead>
+
+          <!-- <somehow render this as all predictions, just need different info in header - macro states> -->
+
+          <% @prediction_games.each do |prediction_game| %>
+
+          		<!-- <could add ownership conditional here for user> -->
+
+                  <tbody>
+                  
+                  <a href="http://one-world-whey.com">
+                    <div>
+                  <tr class="prediction-table-row" href="/">
+                      <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
+                      <td> Add type variable </td>
+                      <td> <%= prediction_game.event_time.strftime("%D") %></td>
+                      <td><%= prediction_game.league %></td>
+                      <td><%= Time.at(prediction_game.timetoevent).utc.strftime("%y %m %d %H:%M") %></td>
+                      <td><%= prediction_game.teamh %></td>
+                      <td><%= prediction_game.teama %></td>
+                      <td> 55?</td>
+                      
+                    </div>
+                  </tr>
+                </div>
+                </a>
+
+                  </tbody>
+
+                <% end %>
+
+              </table>
+
+      </div>

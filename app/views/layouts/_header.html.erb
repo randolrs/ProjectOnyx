@@ -31,16 +31,16 @@
         <% if user_signed_in? %>
 
 
-          <%= link_to "Dashboard", dashboard_path %>
+          <%= link_to "My Watchlist", watchlist_path %>
 
-          <%= link_to "Account Settings", edit_user_registration_path %>
+          <%= link_to "Dashboard", find_predictions_path %>
 
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
    
 
         <% elsif predictor_signed_in? %>
 
-          <%= link_to "My Profile", dashboard_path %>
+          <%= link_to "My Predictions", dashboard_path %>
 
           <%= link_to "Logout", destroy_predictor_session_path, method: :delete %>
 

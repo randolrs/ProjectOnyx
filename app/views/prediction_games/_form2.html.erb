@@ -1,0 +1,49 @@
+You want to take parameters and give an index
+
+<%= form_for(@prediction_game) do |f| %>
+  
+  <% if @prediction_game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prediction_game.errors.count, "error") %> prohibited this prediction_game from being saved:</h2>
+
+      <ul>
+      <% @prediction_game.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+		  <div class="field">
+
+				   <div class="field">
+				    <%= f.label :league %><br>
+				    <%= collection_select(:game, :league, Sport.all, :subcat, :subcat) %>
+				  </div>
+
+				  <div class="field">
+				    <%= f.label :teamh %><br>
+				    <%= collection_select(:game, :teamh, Team.all, :name, :name) %>
+				  </div>
+
+				  <div class="field">
+				    <%= f.label :teama %><br>
+				    <%= collection_select(:game, :teama, Team.all, :name, :name) %>
+				  </div>
+
+				  <div class="field">
+				    <%= f.label :event_time %><br>
+				    <%= f.datetime_select :event_time %>
+				  </div>
+
+		  </div>
+
+	<div class="actions">
+		<%= f.submit 'Hola' %>
+	</div>
+ 
+  </div>
+
+
+
+<% end %>

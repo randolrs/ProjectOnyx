@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
   get 'find_predictions' => 'pages#findpredictions'
 
+  get 'findsportspredictions' => 'prediction_games#findpredictiongames'
+
   #get 'predictor_signup' => 'predictor#registrations#new'
 
   #get 'predictor_signin' => 'predictor#sessions#new'

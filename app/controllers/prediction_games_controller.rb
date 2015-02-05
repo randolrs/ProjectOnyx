@@ -16,6 +16,10 @@ class PredictionGamesController < ApplicationController
   def show
   end
 
+  def findpredictiongames
+      @prediction_game = PredictionGame.new
+  end
+
   def gameselect
 
     @prediction_game = PredictionGame.new
@@ -54,7 +58,11 @@ class PredictionGamesController < ApplicationController
     end
 
 
-    
+  def sportsfindindex
+
+      @prediction_games = PredictionGame.all
+
+  end
 
 
   end
@@ -69,7 +77,21 @@ class PredictionGamesController < ApplicationController
 
   # POST /prediction_games
   # POST /prediction_games.json
+  
+
+
+
+
   def create
+
+      if params[:commit] == 'Hola'
+          
+        respond_to do |format|
+          format.html { render :sportsfindindex }
+          format.json { render :show, status: :created, location: @prediction_game }
+        end
+      else
+
 
     @prediction_game = PredictionGame.new(prediction_game_params)
 
@@ -101,6 +123,8 @@ class PredictionGamesController < ApplicationController
               format.json { render json: @prediction_game.errors, status: :unprocessable_entity }
 
       end
+
+    end
 
   end
 

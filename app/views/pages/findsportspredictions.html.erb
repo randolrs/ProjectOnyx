@@ -1,0 +1,29 @@
+
+<%= form_for(@gameparameter) do |f| %>
+  
+  <% if @gameparameter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gameparameter.errors.count, "error") %> prohibited this gameparameter from being saved:</h2>
+
+      <ul>
+      <% @gameparameter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field"
+    
+    <%= f.hidden_field :game_id, as: :integer, :label => false, :placeholder => @gameparameter.game_id %>
+    <%= f.hidden_field :event_time, as: :integer, :label => false, :placeholder => @gameparameter.event_time %>
+    <%= f.hidden_field :league, as: :string, :label => false, :placeholder => @gameparameter.league %>
+    <%= f.hidden_field :teamh, as: :string, :label => false, :placeholder => @gameparameter.teamh %>
+    <%= f.hidden_field :teama, as: :string, :label => false, :placeholder => @gameparameter.teama %>
+
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

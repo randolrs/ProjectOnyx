@@ -769,3 +769,27 @@ ul#footer a:visited{
     display:inline-block;
     float:left;
   }
+
+  .typeselect-cta{
+  height:100px;
+  vertical-align:middle;
+  width:250px;
+  text-align:center;
+}
+
+.typeselect-cta a{
+  padding: 5px 5px 5px 5px;
+  text-decoration:none;
+  background-color:#BD13AE;
+  font-size: 18px;
+  color:white;
+  border-radius:2.4px;
+  text-align:center;
+  position:relative;
+  
+}
+
+.typeselect-cta a:hover{
+  background-color:#ccc;
+  
+}

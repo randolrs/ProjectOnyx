@@ -16,6 +16,7 @@ class PredictionGamesController < ApplicationController
       if params[:prediction_game].nil?
 
           @prediction_games = PredictionGame.all
+          #@prediction_games = PredictionGame.where(:status => "o")
 
       else
 
@@ -110,48 +111,35 @@ class PredictionGamesController < ApplicationController
 
   def create
 
-      if params[:commit] == 'Hola'
-          
-        respond_to do |format|
-          format.html { render :sportsfindindex }
-          format.json { render :show, status: :created, location: @prediction_game }
-        end
-      else
-
-
     @prediction_game = PredictionGame.new(prediction_game_params)
 
     game = Game.find(@prediction_game.game_id)
     
     if @prediction_game.event_time > Time.now and game.status == "o" and not PredictionGame.where(:game_id => game.id, :predictor_id => current_predictor.id).present?
 
-          if @prediction_game.game_winner == @prediction_game.teamh
-            @prediction_game.spread = @prediction_game.teamh_score - @prediction_game.teama_score
+      if @prediction_game.game_winner == @prediction_game.teamh
+        @prediction_game.spread = @prediction_game.teamh_score - @prediction_game.teama_score
 
-          elsif @prediction_game.game_winner == @prediction_game.teama
-            @prediction_game.spread = @prediction_game.teama_score - @prediction_game.teamh_score
-
-          end
-
-          @prediction_game.predictor_id = current_predictor.id
-
-          respond_to do |format|
-            if @prediction_game.save
-              format.html { redirect_to @prediction_game, notice: 'Prediction game was successfully created.' }
-              format.json { render :show, status: :created, location: @prediction_game }
-            else
-              format.html { render :new }
-              format.json { render json: @prediction_game.errors, status: :unprocessable_entity }
-            end
-          end
-      else
-              format.html { render :new }
-              format.json { render json: @prediction_game.errors, status: :unprocessable_entity }
+      elsif @prediction_game.game_winner == @prediction_game.teama
+        @prediction_game.spread = @prediction_game.teama_score - @prediction_game.teamh_score
 
       end
 
-    end
+      @prediction_game.predictor_id = current_predictor.id
 
+      respond_to do |format|
+        if @prediction_game.save
+          format.html { redirect_to @prediction_game, notice: 'Prediction game was successfully created.' }
+          format.json { render :show, status: :created, location: @prediction_game }
+        else
+          format.html { render :new }
+          format.json { render json: @prediction_game.errors, status: :unprocessable_entity }
+        end
+      end
+        else
+          format.html { render :new }
+          format.json { render json: @prediction_game.errors, status: :unprocessable_entity }
+        end
   end
 
   # PATCH/PUT /prediction_games/1

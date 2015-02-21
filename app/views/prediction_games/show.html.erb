@@ -21,8 +21,11 @@
 
                       <% if user_signed_in? %>
                         <th>Predictor</th>
-                        <th>Predictor Rating</th>
-                        <th>Prediction Rating</th>
+                        
+                        <% if @prediction_game.status == "c" %>
+                          <th>Prediction Rating</th>
+                        <% end %>
+
                       <%end%>
 
                       <th colspan="5"></th>
@@ -36,10 +39,10 @@
                     <td><%= @prediction_game.league %></td>
 
                     <% if user_signed_in? %>
-                        <td> Predictor Username Placeholder </td>
-                        <td><%= @prediction_game.league %></td>
-                        <td><%= @prediction_game.league %></td>
-                      <%end%>
+                      
+                      <td> Predictor Username Placeholder </td>
+
+                    <%end%>
 
 
                       <% if predictor_signed_in? %>
@@ -51,11 +54,8 @@
                     <td>
                       <% if @prediction_game.status == "c" %>
                         rating image placeholder
-                      <% else %>
-                        rating image pending
                       <%end%>
                     </td>
-                    
                     
                   </tr>
 
@@ -67,92 +67,95 @@
 
                 <div class="prediction-index-body">
 
-
-
                   <table>
                     <thead>
-                    <tr>
-                      <th>Game Date</th>
-                      <th>Game Time</th>
-                      <th>Home Team</th>
-                      <th>Away Team</th>
+                      <tr>
+                        <th>Game Date</th>
+                        <th>Game Time</th>
+                        <th>Home Team</th>
+                        <th>Away Team</th>
 
-                      <th colspan="5"></th>
-                    </tr>
-                  </thead>
+                        <th colspan="5"></th>
+                      </tr>
+                    </thead>
 
-                  <tbody>
+                    <tbody>
 
-                  <tr>
-                    <td> <%= @prediction_game.event_time.strftime("%D")  %></td>
-                    <td> <%= @prediction_game.event_time.strftime("%l:%d %p %Z") %></td>
-                    <td> <%= @prediction_game.teamh %> </td>
-                    <td> <%= @prediction_game.teama %> </td>
+                      <tr>
+                        <td> <%= @prediction_game.event_time.strftime("%D")  %></td>
+                        <td> <%= @prediction_game.event_time.strftime("%l:%d %p %Z") %></td>
+                        <td> <%= @prediction_game.teamh %> </td>
+                        <td> <%= @prediction_game.teama %> </td>
+                      </tr>
 
-          
-                  </tr>
+                    </tbody>
 
-                  </tbody>
-
-                </table>
+                  </table>
 
                 <h2> Prediction Details </h2>
 
                   <table>
                     <thead>
-                    <tr>
-                      <th>Home Team Score</th>
-                      <th>Away Team Score</th>
-                      <th>Spread</th>
+                      <tr>
+                        <th>Home Team Score</th>
+                        <th>Away Team Score</th>
+                        <th>Spread</th>
+                        <th colspan="5"></th>
+                      </tr>
+                    </thead>
 
-                      <th colspan="5"></th>
-                    </tr>
-                  </thead>
+                    <tbody>
 
-                  <tbody>
+                      <% if predictor_signed_in? && predictor.id == prediction_game.predictor_id or admin_signed_in?  %>
 
-                  <tr>
-                    <td> <%= @prediction_game.teamh_score %> </td>
-                    <td> <%= @prediction_game.teama_score %> </td>
-                    <td> <%= @prediction_game.spread %></td>
+                        <tr>
+                          <td> <%= @prediction_game.teamh_score %> </td>
+                          <td> <%= @prediction_game.teama_score %> </td>
+                          <td> <%= @prediction_game.spread %></td>
+                        </tr>
 
-          
-                  </tr>
+                      <% elsif user_signed_in?  %>
+
+                        <tr>
+                          <td> ? </td>
+                          <td> ? </td>
+                          <td> ? </td>
+                        </tr>
+
+                      <%end%>
 
                   </tbody>
 
                 </table>
 
-                <h2> Result Details </h2>
+              <h2> Result Details </h2>
 
-                  <table>
-                    <thead>
+                <table>
+                  <thead>
                     <tr>
                       <th>Home Team Score (Actual)</th>
                       <th>Away Team Score (Actual)</th>
                       <th>Spread (Actual)</th>
-
                       <th colspan="5"></th>
                     </tr>
                   </thead>
 
                   <tbody>
 
-                  <tr>
-                    
-                    <% if @prediction_game.teamh_score.nil? %>
-                      <td> <%= @prediction_game.teamh_tscore %> </td>
-                      <td> <%= @prediction_game.teama_tscore %> </td>
-                      <td> <%= @prediction_game.spreadt %></td>
+                    <tr>
+                      
+                      <% if @prediction_game.teamh_tscore.nil? %>
+                        <td>Pending</td>
+                        <td>Pending</td>
+                        <td>Pending</td>  
 
-                    <% else %>
-                      <td>Pending</td>
-                      <td>Pending</td>
-                      <td>Pending</td>
-                    <% end %>
-
-          
-                  </tr>
+                      <% else %>
+                        <td> <%= @prediction_game.teamh_tscore %> </td>
+                        <td> <%= @prediction_game.teama_tscore %> </td>
+                        <td> <%= @prediction_game.spreadt %></td>
+                        
+                      <% end %>
+                    </tr>
 
                   </tbody>
 

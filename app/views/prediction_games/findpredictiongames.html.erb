@@ -1,6 +1,8 @@
 
 <h1>Find Game Predictions</h1>
 
+<%= select("ligua", "league", PredictionGame.all.collect(&:league)) %>
+
 <%= render 'form2' %>
 
-<%= link_to 'Back', find_predictions_path %>
+<%= link_to 'Dashboard', dashboard_path %>

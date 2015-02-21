@@ -53,17 +53,20 @@
 
   <tbody>
     <% @games.each do |game| %>
-      <tr>
-        <td><%= game.league %></td>
-        <td><%= game.teamh %></td>
-        <td><%= game.teama %></td>
-        <td><%= game.event_time %></td>
 
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Score', gamescore_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if game.event_time > Time.now && game.status ="o" %>
+        <tr>
+          <td><%= game.league %></td>
+          <td><%= game.teamh %></td>
+          <td><%= game.teama %></td>
+          <td><%= game.event_time %></td>
+
+          <td><%= link_to 'Show', game %></td>
+          <td><%= link_to 'Edit', edit_game_path(game) %></td>
+          <td><%= link_to 'Score', gamescore_path(game) %></td>
+          <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

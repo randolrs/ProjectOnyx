@@ -93,6 +93,10 @@ class GamesController < ApplicationController
 
     @games = Game.all
 
+    elsif predictor_signed_in?
+
+      @games = Game.all
+
     end
 
   end

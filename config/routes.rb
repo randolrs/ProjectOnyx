@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :predictions
 
+ #get ':prediction_game(/:league(/:team))' => "prediction_games#findpredictiongames"
+
   devise_for :users
   devise_for :admins
   devise_for :predictors
@@ -36,6 +38,10 @@ Rails.application.routes.draw do
   get 'find_predictions' => 'pages#findpredictions'
 
   get 'findsportspredictions' => 'prediction_games#findpredictiongames'
+
+  # get 'gamesearch' =>'prediction_games#findpredictiongames'
+
+  #prediction_games.search "gamesearch", :controller => "search"
 
   #get 'predictor_signup' => 'predictor#registrations#new'
 

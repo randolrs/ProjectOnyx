@@ -3,9 +3,35 @@ class PredictionGamesController < ApplicationController
 
   # GET /prediction_games
   # GET /prediction_games.json
+  
   def index
+
     @prediction_games = PredictionGame.all
+
+    if predictor_signed_in?
+      @prediction_games = PredictionGame.all
+
+    elsif user_signed_in?
+      
+      if params[:prediction_game].nil?
+
+          @prediction_games = PredictionGame.all
+
+      else
+
+        if (params[:prediction_game][:league] && PredictionGame.all.collect(&:league).include?(params[:league]))
+          
+          @prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
+
+        else
+           @prediction_games = PredictionGame.all
+        end
+      end
+
+    end
+
   end
+
 
   def index_closed
     @prediction_games = PredictionGame.all
@@ -17,7 +43,7 @@ class PredictionGamesController < ApplicationController
   end
 
   def findpredictiongames
-      @prediction_game = PredictionGame.new
+      @prediction_game = PredictionGame.all
   end
 
   def gameselect
@@ -160,6 +186,6 @@ class PredictionGamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prediction_game_params
-      params.require(:prediction_game).permit(:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status, :teama, :teamh)
+      params.require(:prediction_game).permit(:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status, :teama, :teamh, :league)
     end
 end

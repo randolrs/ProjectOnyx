@@ -2,6 +2,9 @@
 <% render 'layouts/predictor_sidebar' %>
 
 
+
+<% if predictor_signed_in? %>
+
 <div class="container-dash">
 
       <h1>My Predictions</h1>
@@ -19,11 +22,12 @@
           <tr>
 
             <th class="table-holder"></th>
-            <th class="prediction-index-fold-th">Prediction Date</th>
+            
             <th class="prediction-index-fold-th">League</th>
             <th class="prediction-index-fold-th">Event Date</th>
             <th class="prediction-index-fold-th">Home Team</th>
             <th class="prediction-index-fold-th">Away Team</th>
+            <th class="prediction-index-fold-th">Prediction Date</th>
             <th class="prediction-index-fold-th"></th>
             
           </tr>
@@ -38,11 +42,12 @@
                   
                   <tr class="prediction-table-row" href="/">
                       <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
-                      <td> <%= prediction_game.created_at.strftime("%D") %></td>
+                      
                       <td><%= prediction_game.league %></td>
                       <td><%= prediction_game.event_time.strftime("%D") %></td>
                       <td><%= prediction_game.teamh %></td>
                       <td><%= prediction_game.teama %></td>
+                      <td> <%= prediction_game.created_at.strftime("%D") %></td>
                       <td><%= link_to 'Show Details',  prediction_game %></td>
                       
                     </div>
@@ -65,3 +70,87 @@
       <%= link_to 'New Prediction game', gameselect_path %>
 
 </div>
+
+<% end %>
+
+
+XXXXX
+
+<% if user_signed_in? %>
+
+XXXXX
+
+  <form class="filter_form">
+    <%= select("prediction_game", "league", Sport.all.collect(&:subcat)) %>
+    <input type="submit" value="Filter" />
+  </form>
+
+<div class="container-dash">
+
+      <h1>My Predictions</h1>
+
+      <div class="prediction-section-header">
+          <a class="prediction-header-active">Open Predictions</a>
+          <%= link_to "Closed Predictions", myclosedpredictions_path, class: "prediction-header-inactive" %>
+      </div>
+
+
+      <div class="prediction-table-holder">
+
+        <table class ="prediction-index-fold table table-hover">
+          <thead>
+          <tr>
+
+            <th class="table-holder"></th>
+            
+            <th class="prediction-index-fold-th">League</th>
+            <th class="prediction-index-fold-th">Event Date</th>
+            <th class="prediction-index-fold-th">Home Team</th>
+            <th class="prediction-index-fold-th">Away Team</th>
+            <th class="prediction-index-fold-th">Prediction Date</th>
+            <th class="prediction-index-fold-th"></th>
+            
+          </tr>
+          </thead>
+
+
+          <% @prediction_games.each do |prediction_game| %>
+
+            <% if prediction_game.status == nil %>
+
+                  <tbody>
+                  
+                  <tr class="prediction-table-row" href="/">
+                      <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
+                      
+                      <td><%= prediction_game.league %></td>
+                      <td><%= prediction_game.event_time.strftime("%D") %></td>
+                      <td><%= prediction_game.teamh %></td>
+                      <td><%= prediction_game.teama %></td>
+                      <td> <%= prediction_game.created_at.strftime("%D") %></td>
+                      <td><%= link_to 'Show Details',  prediction_game %></td>
+                      
+                    </div>
+                  </tr>
+
+                  </tbody>
+
+              <% end %>
+
+          <% end %>
+
+              </table>
+      </div>
+
+<!--         </tbody>
+      </table> -->
+
+      <br>
+
+      <%= link_to 'New Prediction game', gameselect_path %>
+
+</div>
+
+<% end %>
+
+

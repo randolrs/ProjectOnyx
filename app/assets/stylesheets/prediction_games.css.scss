@@ -1,3 +1,20 @@
 // Place all the styles related to the prediction_games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a.buy_prediction_cta{
+  padding: 10px 10px 10px 10px;
+  line-height:20px;
+  text-decoration:none;
+  background-color:#0BB9CA;
+  font-size: 18px;
+  color:white;
+  border-radius:2.4px;
+  text-align:center;
+  position:relative;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+a.buy_prediction_cta:hover{
+  background-color:#0A9AA8;
+}

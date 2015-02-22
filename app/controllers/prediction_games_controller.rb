@@ -9,24 +9,30 @@ class PredictionGamesController < ApplicationController
     @prediction_games = PredictionGame.all
 
     if predictor_signed_in?
-      @prediction_games = PredictionGame.all
 
     elsif user_signed_in?
+
       
       if params[:prediction_game].nil?
-
-          @prediction_games = PredictionGame.all
-          #@prediction_games = PredictionGame.where(:status => "o")
 
       else
 
         if (params[:prediction_game][:league] && PredictionGame.all.collect(&:league).include?(params[:league]))
           
-          @prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
+          #@prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
 
-        else
-           @prediction_games = PredictionGame.all
+          @prediction_games = @prediction_games.all.where(:league => params[:prediction_game][:league])
+
+
         end
+
+         if (params[:prediction_game][:teama] )
+          
+          @prediction_games =  @prediction_games.where(:teama => params[:prediction_game][:teama])
+
+        end
+
+
       end
 
     end

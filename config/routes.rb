@@ -21,11 +21,13 @@ Rails.application.routes.draw do
   #temporary route XXX---XXXXX remove this
   get "javatest" => "javascripts#dynamicgames.js"
 
+  get 'home' => 'pages#home'
+
   get "about" => "pages#about"
 
   get "signup" => "pages#selectsignup"
 
-  get "signin" => "devise/registrations#new"
+  get "login" => "devise/sessions#new"
 
   get 'dashboard' => 'prediction_games#index'
 

@@ -33,7 +33,17 @@
 
           <%= link_to "My Watchlist", watchlist_path %>
 
-          <%= link_to "Find Predictions", find_predictions_path %>
+          <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                      Find Predictions
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="dashboard">Sports Predictions</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Finance Predictions</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Political Predictions</a></li>
+                    </ul>
+                 </div>
 
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
    

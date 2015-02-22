@@ -1,3 +1,35 @@
-/*
-*	@import 'bootstrap';
-*/
+@import 'bootstrap';
+
+.dropdown {
+	width:100px;
+}
+
+.navbar{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.navbar-right{
+	color:blue;
+}
+
+.nav navbar-nav navbar-right{
+	color:red;
+}
+
+a.signup-header{
+  
+  padding: 10px 15px;
+
+  border: 2px solid;
+  border-color:white;
+  border-radius:2.4px;
+}
+
+li.dropdown{
+	width:150px;
+}
+
+.nav.pull-right {
+	width:350px;
+}

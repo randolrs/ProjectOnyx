@@ -1,11 +1,12 @@
 @import 'bootstrap';
 
 .dropdown {
-	width:100px;
+	
 }
 
 .navbar{
-	margin-top:10px;
+	padding-top:5px;
+	padding-bottom:5px;
 	margin-bottom:10px;
 }
 
@@ -27,9 +28,15 @@ a.signup-header{
 }
 
 li.dropdown{
-	width:150px;
+	
 }
 
 .nav.pull-right {
-	width:350px;
+	
+}
+
+.navbar-default{
+	background-color: white;
+	border:none;
+
 }

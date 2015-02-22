@@ -8,15 +8,15 @@
 			<h2>Log in</h2>
 
 			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-			  <div><%= f.label :email %><br />
+			  <div><%= f.label :email %>
 			  <%= f.email_field :email, autofocus: true, placeholder: "you@example.com", class: "signin-text" %></div>
 
-			  <div><%= f.label :password %><br />
+			  <div><%= f.label :password %>
 			    <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "signin-text"  %></div>
 
-			  <% if devise_mapping.rememberable? -%>
+			  <% if devise_mapping.rememberable? %>
 			    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-			  <% end -%>
+			  <% end %>
 
 			  <div><%= f.submit "SIGN IN", class: "signin-submit" %></div>
 			<% end %>

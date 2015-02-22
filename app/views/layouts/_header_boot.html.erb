@@ -1,4 +1,14 @@
-<nav class="navbar navbar-default">
+
+<% if @action == 'home'%>
+
+  <nav class="navbar navbar-default-home">
+
+<%else%>
+
+  <nav class="navbar navbar-default">
+
+<%end%>
+
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     
@@ -81,7 +91,7 @@
 
         <% else %>
 
-          <li><%= link_to "Signup", new_user_registration_path, class: "signup-header" %></li>
+          <li><%= link_to "Signup", new_user_registration_path %></li>
           <li><%= link_to "Login", new_user_session_path %></li>
 
         <% end %>
@@ -90,18 +100,4 @@
     <!-- </div>/.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-
-        <% if user_signed_in? %>
-
-        <% elsif predictor_signed_in? %>
-
-        <% elsif admin_signed_in? %>
-      
-
-        <% else %>
-
-          
-
-        <% end %>
 

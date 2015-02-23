@@ -15,4 +15,13 @@ class PagesController < ApplicationController
 
   end
 
+  def sportswatchlist
+    @prediction_games = PredictionGame.all
+
+    @prediction_games.each do |prediction_game|
+      prediction_game.update(timetoevent: prediction_game.event_time - Time.now)
+    end
+
+  end
+
 end

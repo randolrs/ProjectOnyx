@@ -37,7 +37,10 @@ Rails.application.routes.draw do
 
   get 'watchlist' =>'pages#mywatchlist'
 
-  get 'sportswatchlist' => 'pages#sportswatchlist'
+  get 'sports-watchlist' => 'pages#sportswatchlist'
+  get 'finance-watchlist' => 'pages#financewatchlist'
+  get 'politics-watchlist' => 'pages#politicswatchlist'
+  get 'misc-watchlist' => 'pages#miscwatchlist'
 
   get 'find_predictions' => 'pages#findpredictions'
 

@@ -1,29 +1,18 @@
 
-	Can provide links for index of individual sections (games, finance, fantasy)
-
-	Can index mass statistics on this home page -- just have to get controller correct to call variables in repetition, count, etc.
-
-	Default to "ALL"
 
 	<div class="container-dash">
 
       <h1>My WatchList</h1>
 
-      <div class="prediction-section-header">
-      		<!-- <if user has sports game prediction> -->
-          <a class="prediction-header-active">All</a> <!-- will need to change all to another page -->
+      <ul class="nav nav-pills watchlist-header">
+        <li role="presentation" class="active"><a href="#">All</a></li>
+        <li role="presentation"><a href="#">Sports</a></li>
+        <li role="presentation"><a href="#">Finance</a></li>
+        <li role="presentation"><a href="#">Politics</a></li>
+        <li role="presentation"><a href="#">Miscellaneous</a></li>
+      </ul>
 
-          <a class="prediction-header-inactive" href="/watchlist">Sports Games</a>
-          	<!-- <if user has fantasy sport prediction> -->
-          <a class="prediction-header-inactive"  href="/dashboard">Fantasy Sports</a>
-          	<!-- <if user has sports finance prediction> -->
-          <a class="prediction-header-inactive" href="/dashboard">Finance</a>
-          	<!-- <if user has political prediction> -->
-          <a class="prediction-header-inactive" href="/dashboard">Politics</a>
-
-      </div>
-
-      	probably need to put the exact time somewhere on this line
+      Summary table here: 1. Count, 2. active count, 3. closed count
 
       <div class="prediction-table-holder">
 
@@ -34,7 +23,6 @@
             <th class="table-holder"></th>
             <th class="prediction-index-fold-th">Prediction Type</th>
             <th class="prediction-index-fold-th">Event Date</th>
-            <th class="prediction-index-fold-th"></th>
             <th class="prediction-index-fold-th">Time to Event</th>
             <th class="prediction-index-fold-th">Home Team</th>
             <th class="prediction-index-fold-th">Away Team</th>
@@ -51,13 +39,11 @@
 
                   <tbody>
                   
-                  <a href="http://one-world-whey.com">
                     <div>
                   <tr class="prediction-table-row" href="/">
                       <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
                       <td> Add type variable </td>
                       <td> <%= prediction_game.event_time.strftime("%D") %></td>
-                      <td><%= prediction_game.league %></td>
                       <td><%= Time.at(prediction_game.timetoevent).utc.strftime("%y %m %d %H:%M") %></td>
                       <td><%= prediction_game.teamh %></td>
                       <td><%= prediction_game.teama %></td>
@@ -75,3 +61,11 @@
               </table>
 
       </div>
+
+      Can provide links for index of individual sections (games, finance, fantasy)
+
+  Can index mass statistics on this home page -- just have to get controller correct to call variables in repetition, count, etc.
+
+  Default to "ALL"
+
+          probably need to put the exact time somewhere on this page

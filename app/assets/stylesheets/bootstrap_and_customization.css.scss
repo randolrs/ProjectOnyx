@@ -14,8 +14,8 @@
 	color:blue;
 }
 
-.nav navbar-nav navbar-right{
-	color:red;
+.nav li {
+	color:green;
 }
 
 a.signup-header{
@@ -35,8 +35,25 @@ li.dropdown{
 	
 }
 
-.navbar-default{
-	background-color: white;
+.home{
+	background-color: none;
 	border:none;
+	color:home;
+}
 
+
+
+.container-fluid a{
+	color: white;
+}
+
+.navbar nav {
+	color: white;
+}
+
+.watchlist-header {
+	width:475px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size: 20px;
 }

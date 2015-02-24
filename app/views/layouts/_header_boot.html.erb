@@ -28,7 +28,7 @@
         <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
         <li><a href="/">ONYX</a></li>
 
-        <li><a href="/">Dont ask Elise for anymore advice on this</a></li>
+        <li><a href="/">FAQ</a></li>
 
         <% if user_signed_in? %>
 
@@ -38,7 +38,9 @@
 
         <% else %>
 
-            <li class="dropdown">
+          <li><a href="#">Blog</a></li>
+
+          <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Markets <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">Sports</a></li>
@@ -46,9 +48,6 @@
               <li><a href="#">Politics</a></li>
             </ul>
           </li>
-
-          <li><a href="/about">About</a></li>
-          <li><a href="#">Blog</a></li>
 
         <% end %>
         
@@ -63,12 +62,12 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Find Predictions<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             
-            <li class="dropdown-submenu"><a href="dashboard">Sports</a>
+            <li class="dropdown-submenu"><a>Sports</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">NBA</a></li>
-                  <li><a href="#">NFL</a></li>
-                  <li><a href="#">MLB</a></li>
-                  <li><a href="#">NHL</a></li>
+                  <li><%= link_to "NBA", find_NBA_predictions_path %></li>
+                  <li><%= link_to "NFL", find_NFL_predictions_path %></li>
+                  <li><%= link_to "MLB", find_MLB_predictions_path %></li>
+                  <li><%= link_to "NHL", find_NHL_predictions_path %></li>
                 </ul>
             </li>
 
@@ -109,6 +108,7 @@
 
         <% else %>
 
+          <li><%= link_to "Become a Predictor", new_predictor_registration_path %></li>
           <li><%= link_to "Signup", new_user_registration_path %></li>
           <li><%= link_to "Login", new_user_session_path %></li>
 

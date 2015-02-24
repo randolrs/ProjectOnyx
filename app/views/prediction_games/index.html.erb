@@ -77,7 +77,7 @@
       <h1>Find Sports Predictions</h1>
 
       <form class="filter_form">
-        <%= select("prediction_game", "league", Sport.all.collect(&:subcat)) %>
+        <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
         <%= select("prediction_game", "teama", Team.all.collect(&:name)) %>
         <input type="submit" value="Filter" />
       </form>

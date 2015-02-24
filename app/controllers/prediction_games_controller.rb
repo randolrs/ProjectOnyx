@@ -12,21 +12,28 @@ class PredictionGamesController < ApplicationController
 
     elsif user_signed_in?
 
-      
+      if params[:league].nil?
+
+      else
+        @prediction_games = @prediction_games.where(:league => params[:league])
+      end
+
       if params[:prediction_game].nil?
 
       else
 
-        if (params[:prediction_game][:league] && PredictionGame.all.collect(&:league).include?(params[:league]))
+        # works
+
+        # if (params[:prediction_game][:league] && PredictionGame.all.collect(&:league).include?(params[:league]))
           
-          #@prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
+        #   #@prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
 
-          @prediction_games = @prediction_games.all.where(:league => params[:prediction_game][:league])
+        #   @prediction_games = @prediction_games.all.where(:league => params[:prediction_game][:league])
 
 
-        end
+        # end
 
-         if (params[:prediction_game][:teama] )
+         if (params[:prediction_game][:teama] && PredictionGame.all.collect(&:teama).include?(params[:teama]) )
           
           @prediction_games =  @prediction_games.where(:teama => params[:prediction_game][:teama])
 
@@ -36,6 +43,171 @@ class PredictionGamesController < ApplicationController
       end
 
     end
+
+  end
+
+  def findnbapredictiongames
+
+    @prediction_games = PredictionGame.all.where(:league => "NBA")
+
+    if predictor_signed_in?
+
+
+    elsif user_signed_in?
+
+      if params[:prediction_game].nil?
+
+
+      else
+
+        # works
+
+        # if (params[:prediction_game][:league] && PredictionGame.all.collect(&:league).include?(params[:league]))
+          
+        #   #@prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
+
+        #   @prediction_games = @prediction_games.all.where(:league => params[:prediction_game][:league])
+
+
+        # end
+
+        if (params[:prediction_game][:teama] && Team.all.collect(&:name).include?(params[:prediction_game][:teama]) )
+          
+          @prediction_games =  @prediction_games.where("teama = :teama or teamh = :teama", {teama: params[:prediction_game][:teama]})
+
+          #@prediction_games =  @prediction_games.where(:teama => params[:prediction_game][:teama])
+          #"teama = :teama or teamh = :teama", { teama: params[:prediction_game][:teama], teama: params[:prediction_game][:teama] }
+
+        end
+
+
+      end
+
+    end
+
+
+  end
+
+  def findnflpredictiongames
+
+    @prediction_games = PredictionGame.all.where(:league => "NFL")
+
+    if predictor_signed_in?
+
+
+    elsif user_signed_in?
+
+      if params[:prediction_game].nil?
+
+      else
+
+        # works
+
+        # if (params[:prediction_game][:league] && PredictionGame.all.collect(&:league).include?(params[:league]))
+          
+        #   #@prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
+
+        #   @prediction_games = @prediction_games.all.where(:league => params[:prediction_game][:league])
+
+
+        # end
+
+        if (params[:prediction_game][:teama] && Team.all.collect(&:name).include?(params[:prediction_game][:teama]) )
+          
+          @prediction_games =  @prediction_games.where("teama = :teama or teamh = :teama", {teama: params[:prediction_game][:teama]})
+
+          #@prediction_games =  @prediction_games.where(:teama => params[:prediction_game][:teama])
+          #"teama = :teama or teamh = :teama", { teama: params[:prediction_game][:teama], teama: params[:prediction_game][:teama] }
+
+        end
+
+
+      end
+
+    end
+
+
+  end
+
+  def findmlbpredictiongames
+
+    @prediction_games = PredictionGame.all.where(:league => "MLB")
+
+    if predictor_signed_in?
+
+
+    elsif user_signed_in?
+
+      if params[:prediction_game].nil?
+
+      else
+
+        # works
+
+        # if (params[:prediction_game][:league] && PredictionGame.all.collect(&:league).include?(params[:league]))
+          
+        #   #@prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
+
+        #   @prediction_games = @prediction_games.all.where(:league => params[:prediction_game][:league])
+
+
+        # end
+
+        if (params[:prediction_game][:teama] && Team.all.collect(&:name).include?(params[:prediction_game][:teama]) )
+          
+          @prediction_games =  @prediction_games.where("teama = :teama or teamh = :teama", {teama: params[:prediction_game][:teama]})
+
+          #@prediction_games =  @prediction_games.where(:teama => params[:prediction_game][:teama])
+          #"teama = :teama or teamh = :teama", { teama: params[:prediction_game][:teama], teama: params[:prediction_game][:teama] }
+
+        end
+
+
+      end
+
+    end
+
+
+  end
+
+  def findnhlpredictiongames
+
+    @prediction_games = PredictionGame.all.where(:league => "NHL")
+
+    if predictor_signed_in?
+
+
+    elsif user_signed_in?
+
+      if params[:prediction_game].nil?
+
+      else
+
+        # works
+
+        # if (params[:prediction_game][:league] && PredictionGame.all.collect(&:league).include?(params[:league]))
+          
+        #   #@prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
+
+        #   @prediction_games = @prediction_games.all.where(:league => params[:prediction_game][:league])
+
+
+        # end
+
+        if (params[:prediction_game][:teama] && Team.all.collect(&:name).include?(params[:prediction_game][:teama]) )
+          
+          @prediction_games =  @prediction_games.where("teama = :teama or teamh = :teama", {teama: params[:prediction_game][:teama]})
+
+          #@prediction_games =  @prediction_games.where(:teama => params[:prediction_game][:teama])
+          #"teama = :teama or teamh = :teama", { teama: params[:prediction_game][:teama], teama: params[:prediction_game][:teama] }
+
+        end
+
+
+      end
+
+    end
+
 
   end
 

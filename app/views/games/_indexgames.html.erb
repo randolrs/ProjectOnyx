@@ -1,0 +1,74 @@
+
+<% if admin_signed_in? %>
+
+
+
+<% elsif predictor_signed_in? or user_signed_in? %>
+
+
+
+      <form class="filter_form">
+        <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
+        <%= select("game", "team", Team.all.collect(&:name), :prompt => "Select a Team") %>
+        <!-- select("game", "event_time", ???, :prompt => "Select a Date")  -->
+        <input type="submit" value="Filter" />
+      </form>
+
+      <div class="prediction-table-holder">
+
+        <table class ="prediction-index-fold table table-hover">
+          <thead>
+          <tr>
+
+            <th class="table-holder"></th>
+            
+            <th class="prediction-index-fold-th">Home Team</th>
+            <th class="prediction-index-fold-th">Away Team</th>
+            <th class="prediction-index-fold-th">Game Date</th>
+            <th class="prediction-index-fold-th">Game Time</th>
+            <th class="prediction-index-fold-th">Total Predictions</th>
+            <th class="prediction-index-fold-th"></th>
+            
+          </tr>
+          </thead>
+
+
+          <% @games.each do |game| %>
+
+              <% if game.event_time > Time.now && game.status ="o" %>
+
+                  <tbody>
+                  
+                  <tr class="prediction-table-row" href="/">
+                      <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
+                      
+                      <td><%= game.teamh %></td>
+                      <td><%= game.teama %></td>
+                      <td> <%= game.event_time.strftime("%D") %></td>
+                      <td><%= game.event_time.strftime("%H:%M") %></td>
+                      <td><%= "count" %></td>
+                      <td><%= link_to 'Show Predictions', game %></td>
+                      
+                    </div>
+                  </tr>
+
+                  </tbody>
+
+              <% end %>
+
+          <% end %>
+
+              </table>
+      </div>
+
+
+<% else %>
+
+Beat it
+
+
+<% end %>
+
+
+
+

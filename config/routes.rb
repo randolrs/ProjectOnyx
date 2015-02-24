@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get 'find_MLB_predictions' => 'prediction_games#findmlbpredictiongames'
   get 'find_NHL_predictions' => 'prediction_games#findnhlpredictiongames'
 
+  get 'find_NBA_games' => 'games#findnbagames'
+
   get 'editor' => 'sports#new'
 
   get 'watchlist' =>'pages#mywatchlist'

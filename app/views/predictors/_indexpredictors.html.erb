@@ -1,10 +1,5 @@
 <div class="container-dash">
 
-	<h1>NBA Game Predictors</h1>
-
-	<%# render '_indexpredictors' %>
-
-
 <% if user_signed_in? %>
 
 <div class="container-dash">
@@ -37,31 +32,31 @@
 
           <% @predictors.each do |predictor| %>
 
-	          <tbody>
+            <tbody>
 
-	          	<% if predictor.prediction_games.where(:league =>params[:league]).count > 0 %>
-	          
-		          	<tr class="prediction-table-row" href="/">
-		              <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
-		              
-		              <td><%= predictor.id %></td>
-		              <td><%= "rating placeholder" %></td>
-		              <td><%= "89" %></td>
-		              <td><%= predictor.created_at.strftime("%D %l:%d %p %Z") %></td>
-		              <td><%= predictor.prediction_games.where(:league =>params[:league]).count %></td>
-		              <td><%= link_to 'View Predictions',  root_path %></td>
-		              
-		            </div>
-		          	</tr>
+              <% if predictor.prediction_games.where(:league =>params[:league]).count > 0 %>
+            
+                <tr class="prediction-table-row" href="/">
+                  <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
+                  
+                  <td><%= predictor.id %></td>
+                  <td><%= "rating placeholder" %></td>
+                  <td><%= "89" %></td>
+                  <td><%= predictor.created_at.strftime("%D %l:%d %p %Z") %></td>
+                  <td><%= predictor.prediction_games.where(:league =>params[:league]).count %></td>
+                  <td><%= link_to "See " + "predictor.name" + "'s " + params[:league] + " Predictions", root_path(:league=> params[:league]) %></td>
+                  
+                </div>
+                </tr>
 
-	          	<% end %>
+              <% end %>
 
-	          </tbody>
+            </tbody>
 
           <% end %>
 
-		</table>
-		
+    </table>
+
       </div>
 
 </div>

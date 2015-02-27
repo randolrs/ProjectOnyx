@@ -48,7 +48,54 @@ class PredictionGamesController < ApplicationController
 
   def findnbapredictiongames
 
-    @prediction_games = PredictionGame.all.where(:league => "NBA")
+    #single game specified?
+
+    if params[:prediction_game]
+
+      if params[:prediction_game][:game_id]
+        @prediction_games = PredictionGame.all.where(:league => "NBA", :game_id => params[:prediction_game][:game_id])
+
+      else
+        @prediction_games = PredictionGame.all.where(:league => "NBA")
+        
+      end
+
+      if params[:prediction_game][:sort_param]
+
+        if params[:prediction_game][:sort_param] == "Date: Newest"
+
+          @prediction_games = @prediction_games.sort_by(&:created_at).reverse
+
+        elsif params[:prediction_game][:sort_param] == "Date: Oldest"
+
+          @prediction_games = @prediction_games.sort_by(&:created_at)
+
+        elsif params[:prediction_game][:sort_param] == "Rating (Predictor)"
+
+
+        elsif params[:prediction_game][:sort_param] == "Rating (Prediction)"
+
+
+        elsif params[:prediction_game][:sort_param] == "Price"
+
+          
+          
+        end
+
+      end
+
+    else
+
+      if params[:game_id]
+
+        @prediction_games = PredictionGame.all.where(:league => "NBA", :game_id => params[:game_id])
+
+      else
+        @prediction_games = PredictionGame.all.where(:league => "NBA")
+        
+      end
+
+    end
 
     if predictor_signed_in?
 

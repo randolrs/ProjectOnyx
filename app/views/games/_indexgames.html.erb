@@ -24,6 +24,7 @@
             
             <th class="prediction-index-fold-th">Home Team</th>
             <th class="prediction-index-fold-th">Away Team</th>
+            <th class="prediction-index-fold-th">League (test)</th>
             <th class="prediction-index-fold-th">Game Date</th>
             <th class="prediction-index-fold-th">Game Time</th>
             <th class="prediction-index-fold-th">Total Predictions</th>
@@ -44,10 +45,28 @@
                       
                       <td><%= game.teamh %></td>
                       <td><%= game.teama %></td>
+                      <td><%= game.league %></td>
                       <td> <%= game.event_time.strftime("%D") %></td>
                       <td><%= game.event_time.strftime("%H:%M") %></td>
                       <td><%= "count" %></td>
-                      <td><%= link_to 'Show Predictions', game %></td>
+
+                      <% if game.league == "NBA" %>
+
+                        <td><%= link_to "See All Predictions", find_NBA_predictions_path(:game_id=> game.id) %></td>
+
+                      <% elsif game.league == "NFL" %>
+
+                        <td><%= link_to "See All Predictions", find_NFL_predictions_path(:game_id=> game.id) %></td>
+
+                      <% elsif game.league == "MLB" %>
+
+                        <td><%= link_to "See All Predictions", find_MLB_predictions_path(:game_id=> game.id) %></td>
+
+                      <% elsif game.league == "NHL" %>
+
+                        <td><%= link_to "See All Predictions", find_NHL_predictions_path(:game_id=> game.id) %></td>
+
+                      <% end %>
                       
                     </div>
                   </tr>

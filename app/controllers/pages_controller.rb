@@ -24,4 +24,10 @@ class PagesController < ApplicationController
 
   end
 
+  def nbapredictors
+    @predictors = Predictor.all
+    params[:league] = "NBA"
+
+  end
+
 end

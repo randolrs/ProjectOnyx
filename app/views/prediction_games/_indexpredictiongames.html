@@ -73,13 +73,37 @@
 
 <div class="container-dash">
 
-      <h1>Find Sports Predictions</h1>
+      <% if params[:game_id] or params[:prediction_game][:game_id]  %>
 
-      <form class="filter_form">
-        <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
-        <%= select("prediction_game", "teama", Team.all.collect(&:name), :prompt => "Select a Team") %>
-        <input type="submit" value="Search" />
-      </form>
+        <% if params[:game_id] %>
+
+          <form class="filter_form">
+            <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
+            <%= select("prediction_game", "sort_param", ["Date: Newest","Date: Oldest","Rating (Predictor)", "Rating (Prediction)", "Price"], :prompt => "Sort By") %>
+            <%= hidden_field(:prediction_game, :game_id, :value => params[:game_id]) %>
+            <input type="submit" value="Sort" />
+          </form>
+
+        <% elsif params[:prediction_game][:game_id] %>
+
+          <form class="filter_form">
+            <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
+            <%= select("prediction_game", "sort_param", ["Date: Newest","Date: Oldest","Rating (Predictor)", "Rating (Prediction)", "Price"], :prompt => "Sort By") %>
+            <%= hidden_field(:prediction_game, :game_id, :value => params[:prediction_game][:game_id]) %>
+            <input type="submit" value="Sort" />
+          </form>
+
+        <% end %>
+
+      <% else %>
+
+        <form class="filter_form">
+          <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
+          <%= select("prediction_game", "teama", Team.all.collect(&:name), :prompt => "Select a Team") %>
+          <input type="submit" value="Search" />
+        </form>
+
+      <% end %>
 
       <div class="prediction-table-holder">
 
@@ -94,6 +118,7 @@
             <th class="prediction-index-fold-th">Home Team</th>
             <th class="prediction-index-fold-th">Away Team</th>
             <th class="prediction-index-fold-th">Prediction Date</th>
+            <th class="prediction-index-fold-th">Predictor ID</th>
             <th class="prediction-index-fold-th"></th>
             
           </tr>
@@ -113,7 +138,8 @@
                       <td><%= prediction_game.event_time.strftime("%D") %></td>
                       <td><%= prediction_game.teamh %></td>
                       <td><%= prediction_game.teama %></td>
-                      <td> <%= prediction_game.created_at.strftime("%D") %></td>
+                      <td> <%= prediction_game.created_at.strftime("%D %l:%d %p %Z") %></td>
+                      <td> <%= prediction_game.predictor_id %></td>
                       <td><%= link_to 'Show Details',  prediction_game %></td>
                       
                     </div>

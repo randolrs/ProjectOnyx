@@ -59,27 +59,66 @@
         <% if user_signed_in? %>
 
           <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Top Predictors<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            
+            <li class="dropdown-submenu"><a>Sports</a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "NBA", find_NBA_predictors_path %></li>
+                  <li><%= link_to "NFL", find_NFL_predictors_path %></li>
+                  <li><%= link_to "MLB", find_MLB_predictors_path %></li>
+                  <li><%= link_to "NHL", find_NHL_predictors_path %></li>
+                </ul>
+            </li>
+
+            <li class="dropdown-submenu"><a>Finance</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu"><a href="#">Commodities</a></li>
+                    <!-- <ul class="dropdown-menu left">
+                        <li><a href="#">Metals</a></li>
+                        <li><a href="#">Energy</a></li>
+                        <li><a href="#">Food</a></li>
+                    </ul> -->
+
+                  <li><a href="#">Currencies</a></li>
+                  <li><a href="#">Indexes</a></li>
+                </ul>
+
+            </li>
+            <li class="disabled"><a href="#">Politics</a></li>
+            <li class="disabled"><a href="#">Weather</a></li>
+          </ul>
+        </li>
+
+          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Find Predictions<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             
             <li class="dropdown-submenu"><a>Sports</a>
                 <ul class="dropdown-menu">
                   <li><%= link_to "NBA", find_NBA_games_path %></li>
-                  <li><%= link_to "NFL", find_NFL_predictions_path %></li>
-                  <li><%= link_to "MLB", find_MLB_predictions_path %></li>
-                  <li><%= link_to "NHL", find_NHL_predictions_path %></li>
+                  <li><%= link_to "NFL", find_NFL_games_path %></li>
+                  <li><%= link_to "MLB", find_MLB_games_path %></li>
+                  <li><%= link_to "NHL", find_NHL_games_path %></li>
                 </ul>
             </li>
 
-            <li class="dropdown-submenu"><a href="dashboard">Finance</a>
+            <li class="dropdown-submenu"><a>Finance</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Commodities</a></li>
+                  <li class="dropdown-submenu"><a href="#">Commodities</a></li>
+                    <!-- <ul class="dropdown-menu left">
+                        <li><a href="#">Metals</a></li>
+                        <li><a href="#">Energy</a></li>
+                        <li><a href="#">Food</a></li>
+                    </ul> -->
+
                   <li><a href="#">Currencies</a></li>
-                  <li><a href="#">Indices</a></li>
+                  <li><a href="#">Indexes</a></li>
                 </ul>
 
             </li>
             <li class="disabled"><a href="#">Politics</a></li>
+            <li class="disabled"><a href="#">Weather</a></li>
           </ul>
         </li>
 

@@ -123,6 +123,72 @@ class GamesController < ApplicationController
 
   end
 
+  def findnflgames
+    @games = Game.where(:league => "NFL")
+
+    if user_signed_in?
+
+      if params[:game].nil?
+
+      else
+
+        if (params[:game][:team] && Team.all.collect(&:name).include?(params[:game][:team]) )
+          
+          @games =  @games.where("teama = :team or teamh = :team", {team: params[:game][:team]})
+
+        end
+
+      end
+
+    end
+
+
+  end
+
+  def findmlbgames
+    @games = Game.where(:league => "MLB")
+
+    if user_signed_in?
+
+      if params[:game].nil?
+
+      else
+
+        if (params[:game][:team] && Team.all.collect(&:name).include?(params[:game][:team]) )
+          
+          @games =  @games.where("teama = :team or teamh = :team", {team: params[:game][:team]})
+
+        end
+
+      end
+
+    end
+
+
+  end
+
+  def findnhlgames
+    @games = Game.where(:league => "NHL")
+
+    if user_signed_in?
+
+      if params[:game].nil?
+
+      else
+
+        if (params[:game][:team] && Team.all.collect(&:name).include?(params[:game][:team]) )
+          
+          @games =  @games.where("teama = :team or teamh = :team", {team: params[:game][:team]})
+
+        end
+
+      end
+
+    end
+
+
+  end
+
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy

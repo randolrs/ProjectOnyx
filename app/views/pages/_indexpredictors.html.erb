@@ -1,0 +1,58 @@
+
+<% if user_signed_in? %>
+
+<div class="container-dash">
+
+
+          <form class="filter_form">
+            <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
+            <%= select("predictor", "sort_param", ["Rating (League)", "Rating (Overall)", "# of Predictions","Joined Date", "Subscription Price"], :prompt => "Sort By") %>
+            <input type="submit" value="Sort" />
+          </form>
+
+      <div class="prediction-table-holder">
+
+        <table class ="prediction-index-fold table table-hover">
+          <thead>
+          <tr>
+
+            <th class="table-holder"></th>
+            
+            <th class="prediction-index-fold-th">Name</th>
+            <th class="prediction-index-fold-th">Predictor Rating (League param)</th>
+            <th class="prediction-index-fold-th">Predictor Rating (Overall)</th>
+            <th class="prediction-index-fold-th">Join Date</th>
+            <th class="prediction-index-fold-th"># of Predictions (league param)</th>
+            <th class="prediction-index-fold-th"></th>
+            
+          </tr>
+          </thead>
+
+
+          <% @predictors.each do |predictor| %>
+
+                  <tbody>
+                  
+                  <tr class="prediction-table-row" href="/">
+                      <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
+                      
+                      <td><%= predictors.id %></td>
+                      <td><%= "rating placeholder" %></td>
+                      <td><%= "89" %></td>
+                      <td><%= predictors.created_at.strftime("%D %l:%d %p %Z") %></td>
+                      <td><%= predictors.prediction_games.where(:league =>params[:league]).count %></td>
+                      <td><%= link_to 'View Predictions',  root_path %></td>
+                      
+                    </div>
+                  </tr>
+
+                  </tbody>
+
+          <% end %>
+
+              </table>
+      </div>
+
+</div>
+
+<% end %>

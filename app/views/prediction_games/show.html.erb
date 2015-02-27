@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1> Sports Prediction Details </h1>
+<h1>Prediction Details</h1>
 
 <div class="prediction-holder">
 
@@ -12,8 +12,6 @@
       <thead>
       <tr>
         
-        
-
         <% if predictor_signed_in? %>
 
           <th>Prediction ID</th>
@@ -117,7 +115,7 @@
 
         <tbody>
 
-          <% if predictor_signed_in? && current_predictor.id == prediction_game.predictor_id or admin_signed_in?  %>
+          <% if predictor_signed_in? && current_predictor.id == @prediction_game.predictor_id or admin_signed_in?  %>
 
             <tr>
               <td> <%= @prediction_game.teamh_score %> </td>

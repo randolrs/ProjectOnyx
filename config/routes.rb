@@ -39,6 +39,14 @@ Rails.application.routes.draw do
   get 'find_NHL_predictions' => 'prediction_games#findnhlpredictiongames'
 
   get 'find_NBA_games' => 'games#findnbagames'
+  get 'find_NFL_games' => 'games#findnflgames'
+  get 'find_MLB_games' => 'games#findmlbgames'
+  get 'find_NHL_games' => 'games#findnhlgames'
+
+  get 'find_NBA_predictors' => 'pages#nbapredictors'
+  get 'find_NFL_predictors' => 'predictors#nflpredictors'
+  get 'find_MLB_predictors' => 'predictors#mlbpredictors'
+  get 'find_NHL_predictors' => 'predictors#nhlpredictors'
 
   get 'editor' => 'sports#new'
 

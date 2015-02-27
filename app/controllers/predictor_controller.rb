@@ -8,6 +8,11 @@ class PredictorController < ApplicationController
   		new_session_path(@predictor)
   	end
 
+  	def nbapredictors
+
+  		@predictors = Predictor.all.where(Predictor.prediction_games.all.where(:league => "NBA").count => 2)
+  	end
+
 
 
 

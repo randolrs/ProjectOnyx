@@ -272,6 +272,12 @@ class PredictionGamesController < ApplicationController
       @prediction_game = PredictionGame.all
   end
 
+  def nbapredictorindexpredictiongame
+
+    @prediction_games = PredictionGame.all.where(:league => "NBA")
+
+  end
+
   def gameselect
 
     @prediction_game = PredictionGame.new

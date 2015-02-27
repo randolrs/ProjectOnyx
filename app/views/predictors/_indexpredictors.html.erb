@@ -4,12 +4,12 @@
 
 <div class="container-dash">
 
+  <form class="filter_form">
 
-          <form class="filter_form">
-            <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
-            <%= select("predictor", "sort_param", ["Rating (League)", "Rating (Overall)", "# of Predictions","Joined Date", "Subscription Price"], :prompt => "Sort By") %>
-            <input type="submit" value="Sort" />
-          </form>
+      <%= select("predictor", "sort_param", ["Rating (League)", "Rating (Overall)", "# of Predictions","Date Joined", "Subscription Price"], :prompt => "Sort By") %>
+
+    <input type="submit" value="Sort" />
+  </form>
 
       <div class="prediction-table-holder">
 
@@ -44,7 +44,7 @@
                   <td><%= "89" %></td>
                   <td><%= predictor.created_at.strftime("%D %l:%d %p %Z") %></td>
                   <td><%= predictor.prediction_games.where(:league =>params[:league]).count %></td>
-                  <td><%= link_to "See " + "predictor.name" + "'s " + params[:league] + " Predictions", root_path(:league=> params[:league]) %></td>
+                  <td><%= link_to "Index Link", predictor_NBA_predictions_path %></td>
                   
                 </div>
                 </tr>

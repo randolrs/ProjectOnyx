@@ -1,0 +1,67 @@
+should be relative straightforward index of prediction games by league based on controller action on pages
+
+css may be a challenge but float:left may be helpful, per twitter
+
+partial should be something like watchlist index
+
+  <div class="container-dash">
+
+      <ul class="nav nav-pills watchlist-header">
+        <!-- <div class="watchlist-nav"> -->
+          <li role="presentation" class="active"><a href="#">All</a></li>
+          <li role="presentation"><a href="/sports-watchlist">Sports</a></li>
+          <li role="presentation"><a href="/finance-watchlist">Finance</a></li>
+          <li role="presentation"><a href="/politics-watchlist">Politics</a></li>
+          <li role="presentation"><a href="/misc-watchlist">Miscellaneous</a></li>
+        <!-- </div> -->
+      </ul>
+
+      Summary table here: 1. Count, 2. active count, 3. closed count
+
+      <div class="prediction-table-holder">
+
+        <table class ="prediction-index-fold table table-hover">
+          <thead>
+          <tr>
+
+            <th class="table-holder"></th>
+            <th class="prediction-index-fold-th">Prediction Type</th>
+            <th class="prediction-index-fold-th">Event Date</th>
+            <th class="prediction-index-fold-th">Time to Event</th>
+            <th class="prediction-index-fold-th">Home Team</th>
+            <th class="prediction-index-fold-th">Away Team</th>
+            <th class="prediction-index-fold-th">Prediction Rating</th>
+            
+          </tr>
+          </thead>
+
+          <!-- <somehow render this as all predictions, just need different info in header - macro states> -->
+
+          <% @prediction_games.each do |prediction_game| %>
+
+              <!-- <could add ownership conditional here for user> -->
+
+                  <tbody>
+                  
+                    <div>
+                  <tr class="prediction-table-row" href="/">
+                      <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
+                      <td> Add type variable </td>
+                      <td> <%= prediction_game.event_time.strftime("%D") %></td>
+                      <td><%= Time.at(prediction_game.timetoevent).utc.strftime("%y %m %d %H:%M") %></td>
+                      <td><%= prediction_game.teamh %></td>
+                      <td><%= prediction_game.teama %></td>
+                      <td> 55?</td>
+                      
+                    </div>
+                  </tr>
+                </div>
+                </a>
+
+                  </tbody>
+
+                <% end %>
+
+              </table>
+
+      </div>

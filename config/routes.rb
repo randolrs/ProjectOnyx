@@ -48,6 +48,9 @@ Rails.application.routes.draw do
   get 'find_MLB_predictors' => 'predictors#mlbpredictors'
   get 'find_NHL_predictors' => 'predictors#nhlpredictors'
 
+  get 'predictor_NBA_predictions' => 'prediction_games#nbapredictorindexpredictiongame'
+    #going to need more sophisticated url structure for predictors' predictions, something with / forinstance
+
   get 'editor' => 'sports#new'
 
   get 'watchlist' =>'pages#mywatchlist'

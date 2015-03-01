@@ -36,7 +36,7 @@
 
           <% @games.each do |game| %>
 
-              <% if game.event_time > Time.now && game.status ="o" %>
+              <% if game.event_time > Time.now and game.status ="o" and PredictionGame.all.where(:game_id => game.id).count > 0 %>
 
                   <tbody>
                   
@@ -48,25 +48,8 @@
                       <td><%= game.league %></td>
                       <td> <%= game.event_time.strftime("%D") %></td>
                       <td><%= game.event_time.strftime("%H:%M") %></td>
-                      <td><%= "count" %></td>
-
-                      <% if game.league == "NBA" %>
-
-                        <td><%= link_to "See All Predictions", find_NBA_predictions_path(:game_id=> game.id) %></td>
-
-                      <% elsif game.league == "NFL" %>
-
-                        <td><%= link_to "See All Predictions", find_NFL_predictions_path(:game_id=> game.id) %></td>
-
-                      <% elsif game.league == "MLB" %>
-
-                        <td><%= link_to "See All Predictions", find_MLB_predictions_path(:game_id=> game.id) %></td>
-
-                      <% elsif game.league == "NHL" %>
-
-                        <td><%= link_to "See All Predictions", find_NHL_predictions_path(:game_id=> game.id) %></td>
-
-                      <% end %>
+                      <td><%= PredictionGame.all.where(:game_id => game.id).count %></td>
+                      <td><%= link_to "See All Predictions", find_sports_predictions_path(game.league,game.id) %></td>
                       
                     </div>
                   </tr>

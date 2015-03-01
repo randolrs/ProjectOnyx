@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :predictions
 
+  #resources :predictors
+
  #get ':prediction_game(/:league(/:team))' => "prediction_games#findpredictiongames"
 
   devise_for :users
@@ -38,18 +40,15 @@ Rails.application.routes.draw do
   get 'find_MLB_predictions' => 'prediction_games#findmlbpredictiongames'
   get 'find_NHL_predictions' => 'prediction_games#findnhlpredictiongames'
 
-  get 'find_NBA_games' => 'games#findnbagames'
-  get 'find_NFL_games' => 'games#findnflgames'
-  get 'find_MLB_games' => 'games#findmlbgames'
-  get 'find_NHL_games' => 'games#findnhlgames'
+  
+  get '/events/sports/:league' => 'games#findgames', as: 'find_prediction_games'
 
-  get 'find_NBA_predictors' => 'predictors#nbapredictors'
-  get 'find_NFL_predictors' => 'predictors#nflpredictors'
-  get 'find_MLB_predictors' => 'predictors#mlbpredictors'
-  get 'find_NHL_predictors' => 'predictors#nhlpredictors'
+   get '/events/sports/:league/predictions/:game_id' => 'prediction_games#findpredictiongames', as: 'find_sports_predictions'
+  
+  get '/find_predictors/sports/:league' => 'predictors#findsportspredictors', as: 'find_sports_predictors'
 
-  get 'predictor_NBA_predictions' => 'prediction_games#nbapredictorindexpredictiongame'
-    #going to need more sophisticated url structure for predictors' predictions, something with / forinstance
+  get '/predictors/:id/:league' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorNBA'
+  #need to replace with generic predictorleagueindex
 
   get 'editor' => 'sports#new'
 

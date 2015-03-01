@@ -1,7 +1,15 @@
 <div class="container-dash">
 
-	<h1>My WatchList</h1>
+	<%= render 'predictors/predictorcard' %>
 
-	<%= render 'predictorindexpredictiongames' %>
+	<div class="predictor-prediction-index">
+
+		<h1> <%= @predictor.id %>'s <%= params[:league] %> Predictions</h1>
+
+		<% #replace with a name %>
+
+		<%= render 'predictorindexpredictiongames' %>
+		
+	</div>
 
 </div>

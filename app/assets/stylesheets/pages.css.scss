@@ -532,6 +532,13 @@ a.prediction-header-active{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.prediction-index-table-holder{
+  
+  margin-left:auto;
+  margin-right:auto;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 .prediction-header{
   margin-left:auto;
   margin-right:auto;
@@ -649,6 +656,16 @@ th.prediction-index-fold-th{
   color: #3e4552;
 }
 
+.predictor-card{
+  width:300px;
+  height:150px;
+  float:left;  
+}
+
+.predictor-prediction-index{
+  width:700px;
+  float:left; 
+}
 
 .footer-wrap{
   

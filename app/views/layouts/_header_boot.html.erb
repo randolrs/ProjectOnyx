@@ -64,10 +64,10 @@
             
             <li class="dropdown-submenu"><a>Sports</a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "NBA", find_NBA_predictors_path %></li>
-                  <li><%= link_to "NFL", find_NFL_predictors_path %></li>
-                  <li><%= link_to "MLB", find_MLB_predictors_path %></li>
-                  <li><%= link_to "NHL", find_NHL_predictors_path %></li>
+                  <li><%= link_to "NBA", find_sports_predictors_path("NBA") %></li>
+                  <li><%= link_to "NFL", find_sports_predictors_path("NFL") %></li>
+                  <li><%= link_to "MLB", find_sports_predictors_path("MLB") %></li>
+                  <li><%= link_to "NHL", find_sports_predictors_path("NHL") %></li>
                 </ul>
             </li>
 
@@ -96,10 +96,10 @@
             
             <li class="dropdown-submenu"><a>Sports</a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "NBA", find_NBA_games_path %></li>
-                  <li><%= link_to "NFL", find_NFL_games_path %></li>
-                  <li><%= link_to "MLB", find_MLB_games_path %></li>
-                  <li><%= link_to "NHL", find_NHL_games_path %></li>
+                  <li><%= link_to "NBA", find_prediction_games_path("NBA") %></li>
+                  <li><%= link_to "NFL", find_prediction_games_path("NFL") %></li>
+                  <li><%= link_to "MLB", find_prediction_games_path("MLB") %></li>
+                  <li><%= link_to "NHL", find_prediction_games_path("NHL") %></li>
                 </ul>
             </li>
 

@@ -221,39 +221,7 @@ class PredictionGamesController < ApplicationController
 
     @prediction_games = PredictionGame.all.where(:league => "NHL")
 
-    if predictor_signed_in?
 
-
-    elsif user_signed_in?
-
-      if params[:prediction_game].nil?
-
-      else
-
-        # works
-
-        # if (params[:prediction_game][:league] && PredictionGame.all.collect(&:league).include?(params[:league]))
-          
-        #   #@prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
-
-        #   @prediction_games = @prediction_games.all.where(:league => params[:prediction_game][:league])
-
-
-        # end
-
-        if (params[:prediction_game][:teama] && Team.all.collect(&:name).include?(params[:prediction_game][:teama]) )
-          
-          @prediction_games =  @prediction_games.where("teama = :teama or teamh = :teama", {teama: params[:prediction_game][:teama]})
-
-          #@prediction_games =  @prediction_games.where(:teama => params[:prediction_game][:teama])
-          #"teama = :teama or teamh = :teama", { teama: params[:prediction_game][:teama], teama: params[:prediction_game][:teama] }
-
-        end
-
-
-      end
-
-    end
 
 
   end
@@ -269,13 +237,47 @@ class PredictionGamesController < ApplicationController
   end
 
   def findpredictiongames
-      @prediction_game = PredictionGame.all
+    
+    @prediction_games = PredictionGame.all.where(:game_id => params[:game_id])
+
+    if predictor_signed_in?
+
+    elsif user_signed_in?
+
+      if params[:prediction_game]
+
+        if params[:prediction_game][:sort_param]
+
+          if params[:prediction_game][:sort_param] == "Date: Newest"
+
+            @prediction_games = @prediction_games.sort_by(&:created_at).reverse
+
+          elsif params[:prediction_game][:sort_param] == "Date: Oldest"
+
+            @prediction_games = @prediction_games.sort_by(&:created_at)
+
+          elsif params[:prediction_game][:sort_param] == "Rating (Predictor)"
+
+          elsif params[:prediction_game][:sort_param] == "Rating (Prediction)"
+
+          elsif params[:prediction_game][:sort_param] == "Price"
+   
+          end
+
+        end
+
+      end
+
+    end
+
   end
 
   def nbapredictorindexpredictiongame
 
-    @prediction_games = PredictionGame.all.where(:league => "NBA")
+    @predictor = Predictor.find(params[:id])
 
+    @prediction_games = PredictionGame.all.where(:league => params[:league], :predictor_id => params[:id])
+      
   end
 
   def gameselect

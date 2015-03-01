@@ -44,9 +44,8 @@
                   <td><%= "89" %></td>
                   <td><%= predictor.created_at.strftime("%D %l:%d %p %Z") %></td>
                   <td><%= predictor.prediction_games.where(:league =>params[:league]).count %></td>
-                  <td><%= link_to "Index Link", predictor_NBA_predictions_path %></td>
-                  
-                </div>
+                  <td> <%= link_to "See (Name's) " + params[:league] +  " Predictions", predictorNBA_path(predictor.id, params[:league]) %> </td>
+
                 </tr>
 
               <% end %>
@@ -55,11 +54,11 @@
 
           <% end %>
 
-    </table>
+      </table>
 
       </div>
 
-</div>
+  </div>
 
 <% end %>
 

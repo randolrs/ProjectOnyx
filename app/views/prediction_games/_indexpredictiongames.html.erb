@@ -73,23 +73,21 @@
 
 <div class="container-dash">
 
-      <% if params[:game_id] or params[:prediction_game][:game_id]  %>
+      <% if params[:game_id] or params[:prediction_game]  %>
 
         <% if params[:game_id] %>
 
           <form class="filter_form">
             <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
             <%= select("prediction_game", "sort_param", ["Date: Newest","Date: Oldest","Rating (Predictor)", "Rating (Prediction)", "Price"], :prompt => "Sort By") %>
-            <%= hidden_field(:prediction_game, :game_id, :value => params[:game_id]) %>
             <input type="submit" value="Sort" />
           </form>
 
-        <% elsif params[:prediction_game][:game_id] %>
+        <% elsif params[:prediction_game] %>
 
           <form class="filter_form">
             <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
             <%= select("prediction_game", "sort_param", ["Date: Newest","Date: Oldest","Rating (Predictor)", "Rating (Prediction)", "Price"], :prompt => "Sort By") %>
-            <%= hidden_field(:prediction_game, :game_id, :value => params[:prediction_game][:game_id]) %>
             <input type="submit" value="Sort" />
           </form>
 

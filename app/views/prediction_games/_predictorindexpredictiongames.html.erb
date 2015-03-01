@@ -1,10 +1,5 @@
-should be relative straightforward index of prediction games by league based on controller action on pages
 
-css may be a challenge but float:left may be helpful, per twitter
-
-partial should be something like watchlist index
-
-  <div class="container-dash">
+      Summary table here: 1. Count, 2. active count, 3. closed count, 4. rating
 
       <ul class="nav nav-pills watchlist-header">
         <!-- <div class="watchlist-nav"> -->
@@ -16,9 +11,7 @@ partial should be something like watchlist index
         <!-- </div> -->
       </ul>
 
-      Summary table here: 1. Count, 2. active count, 3. closed count
-
-      <div class="prediction-table-holder">
+      <div class="prediction-index-table-holder">
 
         <table class ="prediction-index-fold table table-hover">
           <thead>
@@ -27,6 +20,7 @@ partial should be something like watchlist index
             <th class="table-holder"></th>
             <th class="prediction-index-fold-th">Prediction Type</th>
             <th class="prediction-index-fold-th">Event Date</th>
+            <th class="prediction-index-fold-th">League</th>
             <th class="prediction-index-fold-th">Time to Event</th>
             <th class="prediction-index-fold-th">Home Team</th>
             <th class="prediction-index-fold-th">Away Team</th>
@@ -48,6 +42,7 @@ partial should be something like watchlist index
                       <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
                       <td> Add type variable </td>
                       <td> <%= prediction_game.event_time.strftime("%D") %></td>
+                      <td> <%= prediction_game.league%></td>
                       <td><%= Time.at(prediction_game.timetoevent).utc.strftime("%y %m %d %H:%M") %></td>
                       <td><%= prediction_game.teamh %></td>
                       <td><%= prediction_game.teama %></td>
@@ -63,5 +58,3 @@ partial should be something like watchlist index
                 <% end %>
 
               </table>
-
-      </div>

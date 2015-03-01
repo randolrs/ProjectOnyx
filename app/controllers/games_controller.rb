@@ -101,6 +101,29 @@ class GamesController < ApplicationController
 
   end
 
+
+def findgames
+    @games = Game.where(:league => params[:league])
+
+    if user_signed_in?
+
+      if params[:game].nil?
+
+      else
+
+        if (params[:game][:team] && Team.all.collect(&:name).include?(params[:game][:team]) )
+          
+          @games =  @games.where("teama = :team or teamh = :team", {team: params[:game][:team]})
+
+        end
+
+      end
+
+    end
+
+
+  end
+
   def findnbagames
     @games = Game.where(:league => "NBA")
 

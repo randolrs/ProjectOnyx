@@ -1,8 +1,10 @@
 
-<h1>Find Game Predictions</h1>
+<div class="container-dash">
 
-<%= select("ligua", "league", PredictionGame.all.collect(&:league)) %>
+	<h1>Single Game Predictions</h1>
 
-<%= render 'form2' %>
+		Add table summarizing game
 
-<%= link_to 'Dashboard', dashboard_path %>
+	<%= render 'indexpredictiongames' %>
+
+</div>

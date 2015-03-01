@@ -42,7 +42,7 @@
                   <td><%= predictor.id %></td>
                   <td><%= "rating placeholder" %></td>
                   <td><%= "89" %></td>
-                  <td><%= predictor.created_at.strftime("%D %l:%d %p %Z") %></td>
+                  <td><%= predictor.created_at.strftime("%D at %l:%d%p") %></td>
                   <td><%= predictor.prediction_games.where(:league =>params[:league]).count %></td>
                   <td> <%= link_to "See (Name's) " + params[:league] +  " Predictions", predictorNBA_path(predictor.id, params[:league]) %> </td>
 

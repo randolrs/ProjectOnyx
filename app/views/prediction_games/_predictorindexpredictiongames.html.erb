@@ -18,12 +18,9 @@
           <tr>
 
             <th class="table-holder"></th>
-            <th class="prediction-index-fold-th">Prediction Type</th>
-            <th class="prediction-index-fold-th">Event Date</th>
-            <th class="prediction-index-fold-th">League</th>
-            <th class="prediction-index-fold-th">Time to Event</th>
-            <th class="prediction-index-fold-th">Home Team</th>
-            <th class="prediction-index-fold-th">Away Team</th>
+            <th class="prediction-index-fold-th">Matchup</th>
+            <th class="prediction-index-fold-th">Date</th>
+            <th class="prediction-index-fold-th">Time (EST)</th>
             <th class="prediction-index-fold-th">Prediction Rating</th>
             
           </tr>
@@ -40,12 +37,10 @@
                     <div>
                   <tr class="prediction-table-row" href="/">
                       <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
-                      <td> Add type variable </td>
+                      <td> <%= prediction_game.teamh %> at <%= prediction_game.teama %></td>
                       <td> <%= prediction_game.event_time.strftime("%D") %></td>
-                      <td> <%= prediction_game.league%></td>
-                      <td><%= Time.at(prediction_game.timetoevent).utc.strftime("%y %m %d %H:%M") %></td>
-                      <td><%= prediction_game.teamh %></td>
-                      <td><%= prediction_game.teama %></td>
+                      <td> <%= prediction_game.event_time.strftime("%l:%M %p") %></td>
+                      
                       <td> 55?</td>
                       
                     </div>

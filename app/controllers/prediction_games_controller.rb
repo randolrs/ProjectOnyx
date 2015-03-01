@@ -48,8 +48,6 @@ class PredictionGamesController < ApplicationController
 
   def findnbapredictiongames
 
-    #single game specified?
-
     if params[:prediction_game]
 
       if params[:prediction_game][:game_id]
@@ -276,8 +274,15 @@ class PredictionGamesController < ApplicationController
 
     @predictor = Predictor.find(params[:id])
 
-    @prediction_games = PredictionGame.all.where(:league => params[:league], :predictor_id => params[:id])
+    if params[:league] == "All"
+
+      @prediction_games = PredictionGame.all
       
+    else
+
+      @prediction_games = PredictionGame.all.where(:league => params[:league], :predictor_id => params[:id])
+
+    end
   end
 
   def gameselect

@@ -1,13 +1,13 @@
 
       Summary table here: 1. Count, 2. active count, 3. closed count, 4. rating
 
-      <ul class="nav nav-pills watchlist-header">
+      <ul class="nav nav-pills watchlist-header-sports">
         <!-- <div class="watchlist-nav"> -->
-          <li role="presentation" class="active"><a href="#">All</a></li>
-          <li role="presentation"><a href="/sports-watchlist">Sports</a></li>
-          <li role="presentation"><a href="/finance-watchlist">Finance</a></li>
-          <li role="presentation"><a href="/politics-watchlist">Politics</a></li>
-          <li role="presentation"><a href="/misc-watchlist">Miscellaneous</a></li>
+          <li role="presentation" <% if params[:league] == "All" %> class="active" <%end%>><%= link_to "All", predictorNBA_path(@predictor.id, "All") %></li>
+          <li role="presentation" <% if params[:league] == "NBA" %> class="active" <%end%>><%= link_to "NBA", predictorNBA_path(@predictor.id, "NBA") %></li>
+          <li role="presentation" <% if params[:league] == "NFL" %> class="active" <%end%>><%= link_to "NFL", predictorNBA_path(@predictor.id, "NFL") %></li>
+          <li role="presentation" <% if params[:league] == "MLB" %> class="active" <%end%>><%= link_to "MLB", predictorNBA_path(@predictor.id, "MLB") %></li>
+          <li role="presentation" <% if params[:league] == "NHL" %> class="active" <%end%>><%= link_to "NHL", predictorNBA_path(@predictor.id, "NHL") %></li>
         <!-- </div> -->
       </ul>
 

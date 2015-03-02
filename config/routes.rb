@@ -40,14 +40,18 @@ Rails.application.routes.draw do
   get 'find_MLB_predictions' => 'prediction_games#findmlbpredictiongames'
   get 'find_NHL_predictions' => 'prediction_games#findnhlpredictiongames'
 
+
+  get '/predictors/:predictor_id/sports/:league/:id' => 'prediction_games#show', as: 'show_prediction_games'
   
   get '/events/sports/:league' => 'games#findgames', as: 'find_prediction_games'
 
-   get '/events/sports/:league/predictions/:game_id' => 'prediction_games#findpredictiongames', as: 'find_sports_predictions'
+  get '/events/sports/:league/predictions/:game_id' => 'prediction_games#findpredictiongames', as: 'find_sports_predictions'
   
   get '/predictors/sports/:league' => 'predictors#findsportspredictors', as: 'find_sports_predictors'
 
   get '/predictors/:id/sports/:league' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorNBA'
+
+  get '/buyprediction/sports/:id' => 'prediction_games#buy', as: 'buypredictiongame'
   #need to replace with generic predictorleagueindex
 
   get 'editor' => 'sports#new'

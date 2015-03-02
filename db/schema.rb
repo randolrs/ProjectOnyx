@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204021235) do
+ActiveRecord::Schema.define(version: 20150301021235) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -87,6 +87,15 @@ ActiveRecord::Schema.define(version: 20150204021235) do
   add_index "prediction_games", ["game_id"], name: "index_prediction_games_on_game_id"
   add_index "prediction_games", ["predictor_id"], name: "index_prediction_games_on_predictor_id"
 
+  create_table "prediction_games_users", id: false, force: true do |t|
+    t.string  "user_id"
+    t.integer "prediction_game_id"
+    t.time    "purchasetime"
+  end
+
+  add_index "prediction_games_users", ["prediction_game_id"], name: "index_prediction_games_users_on_prediction_game_id"
+  add_index "prediction_games_users", ["user_id"], name: "index_prediction_games_users_on_user_id"
+
   create_table "predictions", force: true do |t|
     t.string   "event"
     t.datetime "created_at"
@@ -157,6 +166,14 @@ ActiveRecord::Schema.define(version: 20150204021235) do
   end
 
   add_index "teams", ["sport_id"], name: "index_teams_on_sport_id"
+
+  create_table "user_prediction_games", id: false, force: true do |t|
+    t.string  "user_id"
+    t.integer "prediction_game_id"
+  end
+
+  add_index "user_prediction_games", ["prediction_game_id"], name: "index_user_prediction_games_on_prediction_game_id"
+  add_index "user_prediction_games", ["user_id"], name: "index_user_prediction_games_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

@@ -73,6 +73,8 @@
 
 <div class="container-dash">
 
+
+
       <% if params[:game_id] or params[:prediction_game]  %>
 
         <% if params[:game_id] %>
@@ -132,7 +134,7 @@
                       <td> <%= prediction_game.created_at.strftime("%D") %></td>
                       <td> <%= prediction_game.created_at.strftime("%l:%M %p") %></td>
                       <td> 55? </td>
-                      <td><%= link_to 'Show Details',  prediction_game %></td>
+                      <td><%= link_to 'Show Details',  show_prediction_games_path(prediction_game.predictor_id, prediction_game.league, prediction_game.id) %></td>
                       
                     </div>
                   </tr>

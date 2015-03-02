@@ -4,5 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         has_many :predictions
+         has_many :prediction_games 
+         has_and_belongs_to_many :predictors
+         has_and_belongs_to_many :prediction_games
 end

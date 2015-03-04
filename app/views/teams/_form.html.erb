@@ -19,6 +19,9 @@
 
         <%= collection_select(:team, :league, Sport.all, :subcat, :subcat) %>
 
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control" %>
+
 
   </div>
   <div class="actions">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301021235) do
+ActiveRecord::Schema.define(version: 20150303044737) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20150301021235) do
     t.integer  "score_spread"
     t.string   "status"
     t.string   "game_winner"
+    t.integer  "teama_id"
+    t.integer  "teamh_id"
   end
 
   create_table "pred2s", force: true do |t|
@@ -163,6 +165,10 @@ ActiveRecord::Schema.define(version: 20150301021235) do
     t.datetime "updated_at"
     t.string   "league"
     t.integer  "sport_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "teams", ["sport_id"], name: "index_teams_on_sport_id"

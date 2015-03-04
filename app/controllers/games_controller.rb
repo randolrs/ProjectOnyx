@@ -4,6 +4,7 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
+
   end
 
 # GET /games/1
@@ -26,6 +27,13 @@ class GamesController < ApplicationController
   def create
 
     @game = Game.new(game_params)
+
+    teama = Team.find_by_name(@game.teama)
+    teamh = Team.find_by_name(@game.teamh)
+
+    @game.teama_id = teama.id
+    @game.teamh_id = teamh.id
+
 
     respond_to do |format|
       if @game.save
@@ -69,8 +77,6 @@ class GamesController < ApplicationController
               end
 
               end
-
-
 
             end
 
@@ -124,94 +130,6 @@ def findgames
 
   end
 
-  def findnbagames
-    @games = Game.where(:league => "NBA")
-
-    if user_signed_in?
-
-      if params[:game].nil?
-
-      else
-
-        if (params[:game][:team] && Team.all.collect(&:name).include?(params[:game][:team]) )
-          
-          @games =  @games.where("teama = :team or teamh = :team", {team: params[:game][:team]})
-
-        end
-
-      end
-
-    end
-
-
-  end
-
-  def findnflgames
-    @games = Game.where(:league => "NFL")
-
-    if user_signed_in?
-
-      if params[:game].nil?
-
-      else
-
-        if (params[:game][:team] && Team.all.collect(&:name).include?(params[:game][:team]) )
-          
-          @games =  @games.where("teama = :team or teamh = :team", {team: params[:game][:team]})
-
-        end
-
-      end
-
-    end
-
-
-  end
-
-  def findmlbgames
-    @games = Game.where(:league => "MLB")
-
-    if user_signed_in?
-
-      if params[:game].nil?
-
-      else
-
-        if (params[:game][:team] && Team.all.collect(&:name).include?(params[:game][:team]) )
-          
-          @games =  @games.where("teama = :team or teamh = :team", {team: params[:game][:team]})
-
-        end
-
-      end
-
-    end
-
-
-  end
-
-  def findnhlgames
-    @games = Game.where(:league => "NHL")
-
-    if user_signed_in?
-
-      if params[:game].nil?
-
-      else
-
-        if (params[:game][:team] && Team.all.collect(&:name).include?(params[:game][:team]) )
-          
-          @games =  @games.where("teama = :team or teamh = :team", {team: params[:game][:team]})
-
-        end
-
-      end
-
-    end
-
-
-  end
-
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
@@ -240,7 +158,7 @@ def findgames
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:teamh, :teama, :league, :event_time, :teama_score, :teamh_score, :score_spread, :status, :game_winner)
+      params.require(:game).permit(:teamh, :teama, :teama_id, :teamh_id, :league, :event_time, :teama_score, :teamh_score, :score_spread, :status, :game_winner)
     end
 
 end

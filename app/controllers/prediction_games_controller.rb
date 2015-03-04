@@ -151,12 +151,16 @@ class PredictionGamesController < ApplicationController
 
     @user.prediction_games << @prediction_game
 
+    redirect_to home_path
+
   end
 
   def findpredictiongames
     
     @game = Game.find(params[:game_id])
     @prediction_games = @game.prediction_games
+    @teama = Team.find(@game.teama_id)
+    @teamh = Team.find(@game.teamh_id)
 
     #@prediction_games = PredictionGame.all.where(:game_id => params[:game_id])
 
@@ -272,7 +276,7 @@ class PredictionGamesController < ApplicationController
     @prediction_game = PredictionGame.new(prediction_game_params)
 
     game = Game.find(@prediction_game.game_id)
-    
+
     if @prediction_game.event_time > Time.now and game.status == "o" and not PredictionGame.where(:game_id => game.id, :predictor_id => current_predictor.id).present?
 
       if @prediction_game.game_winner == @prediction_game.teamh

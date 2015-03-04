@@ -1,0 +1,34 @@
+
+<div class = "show-game-header">
+
+  <div class = "game-header-date">
+    <%= @game.event_time.strftime("%B %e, %Y at %l:%M %p") %>
+
+  </div>
+
+  <div class = "game-header-body">
+
+    <div class = "game-header-body-teams">
+
+      <%= image_tag @teama.image.url(:medium) %>
+      <%= @teama.name %>
+
+       @ 
+       
+      <%= image_tag @teamh.image.url(:medium) %>
+      <%= @teamh.name %>
+
+    </div>
+
+    <div class = "game-header-body-venue">
+
+      My house
+    </div>
+
+
+
+  </div>
+
+
+
+</div>

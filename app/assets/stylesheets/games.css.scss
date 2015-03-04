@@ -1,3 +1,45 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.show-game-header{
+	width:400px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left:auto;
+	margin-right:auto;
+	border: 1px solid #B8B8B8;
+	
+}
+
+.game-header-date {
+	padding: 5px;
+	border-bottom: 1px solid #B8B8B8;
+	font-size:20px;
+}
+
+.game-header-body {
+	
+	padding: 5px;
+	height:100px;
+	
+}
+
+.game-header-body-teams{
+	
+	height:80px;
+	font-size:18px;
+
+	margin-left:auto;
+	margin-right:auto;
+
+}
+
+.game-header-body-venue{
+
+	height:20px;
+	margin-left:auto;
+	margin-right:auto;
+
+}

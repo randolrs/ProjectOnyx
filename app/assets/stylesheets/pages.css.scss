@@ -233,7 +233,7 @@ a.request_button:hover{
 }
 
 a.hero_cta{
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
   line-height:20px;
   text-decoration:none;
   background-color:#13BD63;
@@ -243,10 +243,23 @@ a.hero_cta{
   text-align:center;
   position:relative;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-bottom: 2px solid rgba(0,0,0,.2);
 }
 
 a.hero_cta:hover{
   background-color:#10A254;
+}
+
+a.become-predictor {
+  padding: 5px;
+  background-color:#CA7615;
+  border-radius:4px;
+  border-bottom: 2px solid rgba(0,0,0,.2);
+  color:white;
+}
+
+a.become-predictor:hover {
+  background-color:#A15E11;
 }
 
 h2{

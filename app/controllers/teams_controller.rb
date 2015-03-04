@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+      @games = Game.all.where(:league => @team.league)
   end
 
   # GET /teams/new
@@ -77,6 +78,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name, :league, :sport_id)
+      params.require(:team).permit(:name, :league, :sport_id, :image)
     end
 end

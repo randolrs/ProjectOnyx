@@ -4,7 +4,7 @@
 
 		<div class = "signup-form">
 
-		<h2>Predictor Login</h2>
+		<h2>Login</h2>
 
 			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 			  <%= devise_error_messages! %>
@@ -19,17 +19,13 @@
 			  <div><%= f.submit "LOGIN", class: "signup-submit" %></div>
 			<% end %>
 
-			
-
 		</div>
-
-		
 
 	</div>
 
 	<div class ="signup-extras">
 				Already have an account? <%= link_to "Sign In", new_predictor_session_path, class: "signin-text-extra" %> <br>
-				-OR- Sign Up for a Free User Account <%= link_to "Free User Account", new_user_registration_path, class: "extra-text" %>
+				-OR- Get a Free <%= link_to "User Account", new_user_registration_path, class: "extra-text" %>
 		</div>
 	
 </div>

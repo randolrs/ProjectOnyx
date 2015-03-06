@@ -106,6 +106,8 @@ Rails.application.routes.draw do
   get 'gameprediction' => 'prediction_games#index' #need
 
   get 'gameselect' => 'games#gameselect'
+
+  get '/buyprediction/sports/:id' => 'prediction_games#show', as: 'showpredictiongame'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

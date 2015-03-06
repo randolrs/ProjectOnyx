@@ -9,26 +9,28 @@
 	margin-bottom: 15px;
 	margin-left:auto;
 	margin-right:auto;
-	border: 1px solid #B8B8B8;
+	border: 1px solid #E0E0E0;
+	border-radius:4px;
 	
 }
 
 .game-header-date {
 	padding: 5px;
-	border-bottom: 1px solid #B8B8B8;
+	border-bottom: 1px solid #E0E0E0;
 	font-size:20px;
+	background-color: #E0E0E0;
 }
 
 .game-header-body {
 	
 	padding: 5px;
-	height:100px;
+	height:75px;
 	
 }
 
 .game-header-body-teams{
 	
-	height:80px;
+	height:50px;
 	font-size:18px;
 
 	margin-left:auto;

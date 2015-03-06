@@ -2,7 +2,11 @@
 <div class = "show-game-header">
 
   <div class = "game-header-date">
-    <%= @game.event_time.strftime("%B %e, %Y at %l:%M %p") %>
+
+
+    <h4> <%= @game.league + " Game:" %> </h4>
+    
+    <h4> <%= @game.event_time.strftime("%B %e, %Y at %l:%M %p") %> </h4>
 
   </div>
 
@@ -22,7 +26,18 @@
 
     <div class = "game-header-body-venue">
 
-      My house
+      <% if @game.event_venue %>
+        <%=@game.event_venue%>
+      <% end %>
+      
+      <% if @game.event_venue and @game.event_city %>
+      , 
+      <% end %>
+
+      <% if @game.event_city %>
+        <%= @game.event_city %>
+      <% end %>
+
     </div>
 
 

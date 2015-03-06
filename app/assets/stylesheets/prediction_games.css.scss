@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 a.buy_prediction_cta{
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
   line-height:20px;
   text-decoration:none;
   background-color:#0BB9CA;
@@ -13,8 +13,40 @@ a.buy_prediction_cta{
   text-align:center;
   position:relative;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-bottom: 2px solid rgba(0,0,0,.2);
 }
 
 a.buy_prediction_cta:hover{
   background-color:#0A9AA8;
+}
+
+a.prediction_purchased{
+  padding: 10px;
+  line-height:20px;
+  text-decoration:none;
+  background-color:#0CD43E;
+  font-size: 18px;
+  color:white;
+  border-radius:2.4px;
+  text-align:center;
+  position:relative;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+a.final_score_pending{
+  padding: 5px;
+  line-height:20px;
+  text-decoration:none;
+  background-color:#FFE02B;
+  font-size: 14px;
+  color:grey;
+  font-weight:bold;
+  border-radius:2.4px;
+  text-align:center;
+  position:relative;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.prediction-index-body table{
+  padding:5px;
 }

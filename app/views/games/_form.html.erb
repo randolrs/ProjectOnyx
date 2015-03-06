@@ -43,6 +43,16 @@
     <%= f.number_field :teamh_score %>
   </div>
 
+  <div class="field">
+    <%= f.label :event_city %><br>
+    <%= f.text_field :event_city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :event_venue %><br>
+    <%= f.text_field :event_venue %>
+  </div>
+
   <% if @game.teamh != nil && @game.teama != nil %>
 
     <div class="field">

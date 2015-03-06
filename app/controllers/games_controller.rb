@@ -158,7 +158,7 @@ def findgames
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:teamh, :teama, :teama_id, :teamh_id, :league, :event_time, :teama_score, :teamh_score, :score_spread, :status, :game_winner)
+      params.require(:game).permit(:teamh, :teama, :teama_id, :teamh_id, :league, :event_time, :teama_score, :teamh_score, :score_spread, :status, :game_winner, :event_city, :event_venue)
     end
 
 end

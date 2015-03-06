@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Prediction Details</h1>
 
 <div class="prediction-holder">
@@ -126,13 +124,23 @@
 
           <% elsif user_signed_in?  %>
 
-            <tr>
-              <td> ? </td>
-              <td> ? </td>
-              <td> ? </td>
-              <td> <%= link_to "BUY PREDICTION", buypredictiongame_path(@prediction_game.id), class: "buy_prediction_cta" %> </td>
 
-            </tr>
+            <% if @user.prediction_games.exists?(@prediction_game.id) %>
+
+                  <td> <%= @prediction_game.teamh_score %> </td>
+                  <td> <%= @prediction_game.teama_score %> </td>
+                  <td> <%= @prediction_game.spread %></td>
+                  <td> <a class = "prediction_purchased">Purchased</a> </td>
+            
+
+            <% else %>
+                <tr>
+                  <td> ? </td>
+                  <td> ? </td>
+                  <td> ? </td>
+                  <td> <%= link_to "BUY PREDICTION", buypredictiongame_path(@prediction_game.id), class: "buy_prediction_cta" %> </td>
+                </tr>
+            <% end %>
 
           <%end%>
 
@@ -156,9 +164,9 @@
         <tr>
           
           <% if @prediction_game.teamh_tscore.nil? %>
-            <td>Pending</td>
-            <td>Pending</td>
-            <td>Pending</td>  
+            <td> <a class = "final_score_pending">Pending</a> </td>
+            <td> <a class = "final_score_pending">Pending</a> </td>
+            <td> <a class = "final_score_pending">Pending</a> </td> 
 
           <% else %>
             <td> <%= @prediction_game.teamh_tscore %> </td>

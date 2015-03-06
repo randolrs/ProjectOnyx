@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303044737) do
+ActiveRecord::Schema.define(version: 20150305175941) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20150303044737) do
     t.string   "game_winner"
     t.integer  "teama_id"
     t.integer  "teamh_id"
+    t.string   "event_city"
+    t.string   "event_venue"
   end
 
   create_table "pred2s", force: true do |t|
@@ -182,19 +184,22 @@ ActiveRecord::Schema.define(version: 20150303044737) do
   add_index "user_prediction_games", ["user_id"], name: "index_user_prediction_games_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                                          default: "",    null: false
+    t.string   "encrypted_password",                             default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                                  default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "predictor",              default: false
+    t.boolean  "predictor",                                      default: false
+    t.decimal  "balance",                precision: 8, scale: 2
+    t.string   "name"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -169,7 +169,9 @@ a.request_button:hover{
     color: #1fbad6;;
 }
 
-
+.badge{
+  background-color:#45AD02;
+}
 
 
 .intro{
@@ -243,6 +245,7 @@ a.hero_cta{
   text-align:center;
   position:relative;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-right: 2px solid rgba(0,0,0,.2);
   border-bottom: 2px solid rgba(0,0,0,.2);
 }
 
@@ -279,7 +282,8 @@ h2{
 .console-container{
 
   background-color: #F8F8F8;
-  height:500px;
+  padding-top:40px;
+  padding-bottom:40px;
 }
 
 .signup-container{
@@ -287,15 +291,12 @@ h2{
 	position:relative;
 	margin-left:auto;
   margin-right:auto;
-  top:50px;
-	height:330px;
 	border: 1px solid #F0F0F0;
 	border-radius: 1px;
 	box-shadow: 0px 0px 1px #040307;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #3e4552;
   background-color:white;
-
 	}
 
   .signup-container h2{  
@@ -308,6 +309,7 @@ h2{
 
   .signup-form{
     padding: 20px;
+
   }
 
   .signup-submit{
@@ -337,15 +339,16 @@ h2{
 }
 
 .signup-extras{
-  width: 400px;
   position:relative;
+  width:400px;
+  padding-top:20px;
   margin-left:auto;
   margin-right:auto;
-  padding-top:60px;
   text-align:center;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #3e4552;
   font-size: 14px;
+  z-index:10;
 }
 
 
@@ -531,6 +534,7 @@ a.prediction-header-active{
   margin-right:auto;
   position:relative;
   margin-bottom:20px;
+  padding:10px;
 
   border: 1px solid;
   border-color:#B8B8B8;

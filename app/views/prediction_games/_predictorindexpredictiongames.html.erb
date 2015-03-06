@@ -31,7 +31,7 @@
 
       <ul class="nav nav-pills watchlist-header-sports">
         <!-- <div class="watchlist-nav"> -->
-          <li role="presentation" <% if params[:league] == "All" %> class="active" <%end%>><%= link_to "All", predictorNBA_path(@predictor.id, "All") %></li>
+          <li role="presentation" <% if params[:league] == "All" %> class="active" <%end%>><%= link_to "All", predictorindexpredictions_path(@predictor.id) %></li>
           <li role="presentation" <% if params[:league] == "NBA" %> class="active" <%end%>><%= link_to "NBA", predictorNBA_path(@predictor.id, "NBA") %></li>
           <li role="presentation" <% if params[:league] == "NFL" %> class="active" <%end%>><%= link_to "NFL", predictorNBA_path(@predictor.id, "NFL") %></li>
           <li role="presentation" <% if params[:league] == "MLB" %> class="active" <%end%>><%= link_to "MLB", predictorNBA_path(@predictor.id, "MLB") %></li>

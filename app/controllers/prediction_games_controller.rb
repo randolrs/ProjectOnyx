@@ -203,10 +203,12 @@ class PredictionGamesController < ApplicationController
 
     @prediction_games = @predictor.prediction_games
 
-    if params[:league] != "All"
+    if params[:league] 
 
-      @prediction_games = @prediction_games.all.where(:league => params[:league])
+      if params[:league]!= "All"
 
+        @prediction_games = @prediction_games.all.where(:league => params[:league])
+      end
     end
   end
 

@@ -49,7 +49,9 @@ Rails.application.routes.draw do
   
   get '/predictors/sports/:league' => 'predictors#findsportspredictors', as: 'find_sports_predictors'
 
-  get '/predictors/:id/sports/:league' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorNBA'
+  get '/:id/sports/:league' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorNBA'
+
+  get '/:id/sports' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictions'
 
   get '/buyprediction/sports/:id' => 'prediction_games#buy', as: 'buypredictiongame'
   #need to replace with generic predictorleagueindex

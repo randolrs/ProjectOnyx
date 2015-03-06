@@ -7,7 +7,16 @@ class PagesController < ApplicationController
   end
 
   def mywatchlist
-    @prediction_games = current_user.prediction_games
+
+    if user_signed_in?
+      @prediction_games = current_user.prediction_games
+
+    elsif predictor_signed_in?
+      @prediction_games = current_predictor.prediction_games
+
+    elsif admin_signed_in?
+      @prediction_games = PredictionGame.all
+    end
 
     @prediction_games.each do |prediction_game|
     	prediction_game.update(timetoevent: prediction_game.event_time - Time.now)

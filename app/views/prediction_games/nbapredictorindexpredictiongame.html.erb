@@ -2,29 +2,34 @@
 
 </div>
 
-<div class ="predictor-summary-head">
+<div class = "predictor-summary-container">
 
-	<div class ="summary-head-container-left">
+	<div class ="predictor-summary-head">
+
+		<div class ="summary-head-container-left">
+
+		</div>
+
+		<div class ="summary-head-container-right">
+
+			<%= render 'predictiongamesummary' %>
+
+		</div>
 
 	</div>
-
-	<div class ="summary-head-container-right">
-
-		<%= render 'predictiongamesummary' %>
-
-	</div>
-
 </div>
 
-<div class="predictor-profile-container">
+<div class = "predictor-profile">
 
-	<%= render 'predictors/predictorcard' %>
+	<div class="predictor-profile-container">
 
-	<div class="predictor-prediction-index">
+		<%= render 'predictors/predictorcard' %>
+
+		<div class="predictor-prediction-index">
 
 
-		<%= render 'predictorindexpredictiongames' %>
-		
+			<%= render 'predictorindexpredictiongames' %>
+			
+		</div>
 	</div>
-
 </div>

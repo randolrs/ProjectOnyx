@@ -7,17 +7,13 @@
       <%= image_tag @predictor.image.url(:medium, :width => 100, :height => 100,)%>
       	</div>
       <br>
-      <%= @predictor.name%>
+      <%= link_to @predictor.name, predictorindexpredictions_path(@predictor.username), class: "predictor-name"%>
       <br>
-      <%= @predictor.username%>
+      <%= link_to "@" + @predictor.username, predictorindexpredictions_path(@predictor.username)%>
 
       <br>
       <br>
-      bio
-      <br>
-      bio
-      <br>
-      bio
+      I am going to right here about my modeling and approach to making predictions.
       <br>
       <br>
       City

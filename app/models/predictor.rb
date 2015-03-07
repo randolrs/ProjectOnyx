@@ -6,7 +6,7 @@ class Predictor < ActiveRecord::Base
 
          has_many :prediction_games
 
-has_attached_file :image, :styles => { :medium => "100x100>", :thumb => "50x50>", :default_url => "images/blank_user_image.png" }
+has_attached_file :image, :styles => { :medium => "194x194>", :thumb => "30x30>", :default_url => "images/blank_user_image.png" }
 validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 def PredictionGame

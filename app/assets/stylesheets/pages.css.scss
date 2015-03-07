@@ -115,6 +115,10 @@
     display:block;
   }
 
+  .image-header{
+    margin-right:4px;
+  }
+
 
 a.request_button{
   padding: 5px 5px 5px 5px;
@@ -682,7 +686,7 @@ th.prediction-index-summary-th{
 .prediction-index-summary{
   border-collapse: collapse;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  width:700px;
+  width:600px;
   background-color:white;
   border-radius:3px;
 }
@@ -698,7 +702,6 @@ th.prediction-index-summary-th{
 
 .prediction-index-summary td{
   text-align:center;
-  padding: 18px 10px;
   font-size:16px;
   color:#5A5A5A;
   width:150px;
@@ -739,9 +742,14 @@ th.prediction-index-summary-th{
 }
 
 .predictor-card{
-  
-  
   float:left;  
+  top:-160px;
+  position:relative;
+}
+
+.predictor-container{
+   word-wrap: break-word;
+   width:200px
 }
 
 .predictor-prediction-index{

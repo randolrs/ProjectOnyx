@@ -3,11 +3,29 @@
 
     <div class = "predictor-container">
 
-      stuff here
+    	<div class = "predictor-image-container">
+      <%= image_tag @predictor.image.url(:medium, :width => 100, :height => 100,)%>
+      	</div>
       <br>
-      break
+      <%= @predictor.name%>
       <br>
-      predictor stuff
+      <%= @predictor.username%>
+
+      <br>
+      <br>
+      bio
+      <br>
+      bio
+      <br>
+      bio
+      <br>
+      <br>
+      City
+      <br>
+      <%= @predictor.created_at%>
+      <br>
+      <br>
+      <%= link_to "Subscribe to " + @predictor.username, new_user_registration_path, class: "subscribe_cta" %>
 
     </div>
 

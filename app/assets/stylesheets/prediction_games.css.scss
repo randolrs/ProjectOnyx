@@ -50,3 +50,55 @@ a.final_score_pending{
 .prediction-index-body table{
   padding:5px;
 }
+
+.predictor-sub-head{
+  width:100%;
+  height:200px;
+  background-color:#1472BD;
+}
+
+.predictor-summary-head{
+  width:100%;
+  height:100px;
+  background-color:white;
+}
+
+.predictor-summary-head{
+  width:1000px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.summary-head-container{
+  width:1000px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.summary-head-container-left{
+  width:300px;
+  float:left;
+  height:100px;
+}
+
+.summary-head-container-right{
+  width:700px;
+  float:left;
+  height:100px;
+}
+
+.predictor-profile-container{
+  width:1000px;
+  margin-left:auto;
+  margin-right:auto;
+  min-height:500px;
+  top:-130px;
+  position:relative;
+}
+
+.predictor-image-container{
+  padding:10px;
+  border-radius:3px;
+
+  background-color:white;
+}

@@ -1,13 +1,11 @@
-
   <div class="prediction-index-table-holder">
 
-    <table class ="prediction-index-fold table table-hover">
+    <table class ="prediction-index-summary">
       <thead>
       <tr>
-        <th class="prediction-index-fold-th">Overall Rating</th>
-        <th class="prediction-index-fold-th">Total Predictions</th>
-        <th class="prediction-index-fold-th">Active Predictions</th>
-        <th class="prediction-index-fold-th">Closed Predictions</th>
+        <th class="prediction-index-summary-th">Total Predictions</th>
+        <th class="prediction-index-summary-th">Open Predictions</th>
+        <th class="prediction-index-summary-th">Subscribers</th>
        
         
       </tr>
@@ -16,10 +14,9 @@
       <tbody>
         
           <tr class="prediction-summary-table-row" href="/">
-            <td> 55? </td>
             <td><%= @prediction_games.count %></td>
             <td><%= @prediction_games.all.where(:status => "o").count %></td>
-            <td><%= @prediction_games.all.where(:status => "c").count %></td>
+            <td>90001</td>
             
           </tr>  
 

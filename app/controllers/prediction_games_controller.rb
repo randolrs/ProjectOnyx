@@ -199,7 +199,7 @@ class PredictionGamesController < ApplicationController
 
   def nbapredictorindexpredictiongame
 
-    @predictor = Predictor.find(params[:id])
+    @predictor = Predictor.find_by_username(params[:username])
 
     @prediction_games = @predictor.prediction_games
 

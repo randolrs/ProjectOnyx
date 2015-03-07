@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306013347) do
+ActiveRecord::Schema.define(version: 20150307005836) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -130,6 +130,10 @@ ActiveRecord::Schema.define(version: 20150306013347) do
     t.string   "name"
     t.string   "username"
     t.decimal  "balance"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "predictors", ["email"], name: "index_predictors_on_email", unique: true

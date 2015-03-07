@@ -1,12 +1,27 @@
-<div class="container-dash">
+<div class ="predictor-sub-head">
+
+</div>
+
+<div class ="predictor-summary-head">
+
+	<div class ="summary-head-container-left">
+
+	</div>
+
+	<div class ="summary-head-container-right">
+
+		<%= render 'predictiongamesummary' %>
+
+	</div>
+
+</div>
+
+<div class="predictor-profile-container">
 
 	<%= render 'predictors/predictorcard' %>
 
 	<div class="predictor-prediction-index">
 
-		<h1> <%= @predictor.id %>'s <%= params[:league] %> Predictions</h1>
-
-		<% #replace with a name %>
 
 		<%= render 'predictorindexpredictiongames' %>
 		

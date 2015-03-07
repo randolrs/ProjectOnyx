@@ -253,6 +253,27 @@ a.hero_cta:hover{
   background-color:#10A254;
 }
 
+a.subscribe_cta{
+  padding: 10px;
+  line-height:20px;
+  text-decoration:none;
+  background-color:#2b9af3;
+  font-size: 18px;
+  color:white;
+  border-radius:2.4px;
+  text-align:center;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-right: 2px solid rgba(0,0,0,.2);
+  border-bottom: 2px solid rgba(0,0,0,.2);
+}
+
+a.subscribe_cta:hover{
+  background-color:#13446B;
+}
+
 a.become-predictor {
   padding: 5px;
   background-color:#CA7615;
@@ -635,6 +656,15 @@ th.prediction-index-fold-th{
 
 }
 
+th.prediction-index-summary-th{
+  width:150px;
+  font-size:18px;
+  padding: 7px 10px;
+  color:#4C4C4C;
+  text-align: center;
+
+}
+
 .prediction-index-fold td{
   text-align:center;
   padding: 18px 10px;
@@ -645,6 +675,37 @@ th.prediction-index-fold-th{
 
 .prediction-index-fold tr{
   border-bottom: 1px solid #efefef;
+  padding-bottom:8px;
+  row-height:60px; 
+}
+
+.prediction-index-summary{
+  border-collapse: collapse;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  width:700px;
+  background-color:white;
+  border-radius:3px;
+}
+
+.prediction-index-summary-th{
+  width:150px;
+  font-size:18px;
+  padding: 7px 10px;
+  color:#4C4C4C;
+  text-align: center;
+
+}
+
+.prediction-index-summary td{
+  text-align:center;
+  padding: 18px 10px;
+  font-size:16px;
+  color:#5A5A5A;
+  width:150px;
+}
+
+
+.prediction-index-summary tr{
   padding-bottom:8px;
   row-height:60px; 
 }
@@ -663,8 +724,6 @@ th.prediction-index-fold-th{
 
 .prediction-summary-table-row{
   font-size:14px;
-  border-left: 1px solid #efefef;
-  border-right: 1px solid #efefef;
 }
 
 .prediction-holder table{
@@ -680,14 +739,15 @@ th.prediction-index-fold-th{
 }
 
 .predictor-card{
-  width:300px;
-  height:150px;
+  
+  
   float:left;  
 }
 
 .predictor-prediction-index{
   width:700px;
   float:left; 
+  padding:20px;
 }
 
 .footer-wrap{
@@ -758,17 +818,9 @@ th.prediction-index-fold-th{
   width:1100px;
   margin-left:auto;
   margin-right:auto;
-  
   color:white;
-
   height:170px;
-
-
-
-  width:1100px;
-  
   font-family: 'Cutive', Georgia, Times, serif;
-  
 }
 
 ul#footer{

@@ -199,17 +199,30 @@ class PredictionGamesController < ApplicationController
 
   def nbapredictorindexpredictiongame
 
+    #params[:username] = params[:username].downcase
+
+    #@predictor = Predictor.find(:first, :conditions => ["lower(username) = ?", params[:username].downcase]) 
     @predictor = Predictor.find_by_username(params[:username])
 
-    @prediction_games = @predictor.prediction_games
+    if params[:category] 
 
-    if params[:league] 
+      if params[:category] = "sports"
 
-      if params[:league]!= "All"
+        @predictions = @predictor.prediction_games
 
-        @prediction_games = @prediction_games.all.where(:league => params[:league])
+      elsif params[:category] = "finance"
+
+      elsif params[:category] = "politics"
+
+      elsif params[:category] = "weather"
+
       end
+
+    else
+        @predictions = @predictor.prediction_games
+
     end
+    
   end
 
   def gameselect

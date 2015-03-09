@@ -1,5 +1,5 @@
 <table class ="prediction-index-summary">
-  
+
   <thead>
     <tr>
       <th class="prediction-index-summary-th">Total Predictions</th>
@@ -10,8 +10,8 @@
 
   <tbody>
     <tr class="prediction-summary-table-row" href="/">
-      <td><%= @prediction_games.count %></td>
-      <td><%= @prediction_games.all.where(:status => "o").count %></td>
+      <td><%= @predictions.count %></td>
+      <td><%= @predictions.all.where(:status => "o").count %></td>
       <td>90001</td>
     </tr>  
   </tbody>

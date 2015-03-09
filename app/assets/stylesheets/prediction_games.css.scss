@@ -62,12 +62,14 @@ a.final_score_pending{
   height:60px;
   background-color:white;
   border-bottom: 1px solid #e1e8ed;
+  box-shadow: 0px 2px 5px #888888;
 }
 
 .predictor-summary-head{
-  width:1000px;
+  width:1100px;
   margin-left:auto;
   margin-right:auto;
+
 }
 
 .summary-head-container{
@@ -77,7 +79,7 @@ a.final_score_pending{
 }
 
 .summary-head-container-left{
-  width:250px;
+  width:200px;
   float:left;
   height:60px;
 }
@@ -86,6 +88,7 @@ a.final_score_pending{
   width:700px;
   float:left;
   height:60px;
+  padding-left:20px;
 }
 
 .predictor-profile{
@@ -94,6 +97,11 @@ a.final_score_pending{
 
 }
 
+.prediction-index-header{
+  
+  
+  border-bottom: 2px solid rgba(0,0,0,.2);
+}
 
 .predictor-profile-container{
   width:1100px;

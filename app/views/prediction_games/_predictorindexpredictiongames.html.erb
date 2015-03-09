@@ -1,23 +1,9 @@
 
-
-
-      <ul class="nav nav-pills watchlist-header-sports">
-        <!-- <div class="watchlist-nav"> -->
-          <li role="presentation" <% if params[:league] == "All" %> class="active" <%end%>><%= link_to "All", predictorindexpredictions_path(@predictor.id) %></li>
-          <li role="presentation" <% if params[:league] == "NBA" %> class="active" <%end%>><%= link_to "NBA", predictorNBA_path(@predictor.id, "NBA") %></li>
-          <li role="presentation" <% if params[:league] == "NFL" %> class="active" <%end%>><%= link_to "NFL", predictorNBA_path(@predictor.id, "NFL") %></li>
-          <li role="presentation" <% if params[:league] == "MLB" %> class="active" <%end%>><%= link_to "MLB", predictorNBA_path(@predictor.id, "MLB") %></li>
-          <li role="presentation" <% if params[:league] == "NHL" %> class="active" <%end%>><%= link_to "NHL", predictorNBA_path(@predictor.id, "NHL") %></li>
-        <!-- </div> -->
-      </ul>
-
       <div class="prediction-index-table-holder">
 
         <table class ="prediction-index-fold table table-hover">
           <thead>
           <tr>
-
-            <th class="table-holder"></th>
             <th class="prediction-index-fold-th">Matchup</th>
             <th class="prediction-index-fold-th">Date</th>
             <th class="prediction-index-fold-th">Time (EST)</th>
@@ -26,20 +12,15 @@
           </tr>
           </thead>
 
-          <!-- <somehow render this as all predictions, just need different info in header - macro states> -->
-
-          <% @prediction_games.each do |prediction_game| %>
-
-              <!-- <could add ownership conditional here for user> -->
+          <% @predictions.each do |prediction| %>
 
                   <tbody>
                   
                     <div>
                   <tr class="prediction-table-row" href="/">
-                      <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
-                      <td> <%= prediction_game.teamh %> at <%= prediction_game.teama %></td>
-                      <td> <%= prediction_game.event_time.strftime("%D") %></td>
-                      <td> <%= prediction_game.event_time.strftime("%l:%M %p") %></td>
+                      <td> <%= prediction.teamh %> at <%= prediction.teama %></td>
+                      <td> <%= prediction.event_time.strftime("%D") %></td>
+                      <td> <%= prediction.event_time.strftime("%l:%M %p") %></td>
                       
                       <td> 55?</td>
                       

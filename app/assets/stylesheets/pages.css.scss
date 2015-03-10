@@ -751,6 +751,24 @@ th.prediction-index-summary-th{
 
 .predictor-container{
    word-wrap: break-word;
+   margin-left:20px;
+   margin-right:20px;
+   width:200px
+}
+
+.predictor-card-short{
+  float:left;  
+  position:relative;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius:3px;
+  margin-left:20px;
+  margin-right:20px;
+}
+
+.predictor-container-short{
+   word-wrap: break-word;
+   margin-left:20px;
+   margin-right:20px;
    width:200px
 }
 
@@ -774,6 +792,11 @@ th.prediction-index-summary-th{
   border: 2px solid rgba(0,0,0,.2);
   background-color:white;
   border-radius:3px;
+}
+
+.presentation-descriptor{
+  padding:8px;
+
 }
 
 .footer-wrap{

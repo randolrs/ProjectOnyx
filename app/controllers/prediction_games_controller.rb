@@ -210,6 +210,31 @@ class PredictionGamesController < ApplicationController
 
         @predictions = @predictor.prediction_games
 
+        if params[:league]
+
+            if params[:league] == "NBA"
+
+              @predictions == @predictor.prediction_games.where(:league => "NBA")
+
+            elsif params[:league] == "NFL"
+
+              @predictions = @predictor.prediction_games.where(:league => "NFL")
+
+            elsif params[:league] == "MLB"
+
+              @predictions = @predictor.prediction_games.where(:league => "MLB")
+
+            elsif params[:league] == "NHL"
+
+              @predictions = @predictor.prediction_games.where(:league => "NHL")
+
+            end
+
+        else
+
+
+        end
+
       elsif params[:category] = "finance"
 
       elsif params[:category] = "politics"

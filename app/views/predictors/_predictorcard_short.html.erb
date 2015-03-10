@@ -1,0 +1,17 @@
+
+<div class = "predictor-card-short">
+
+    <div class = "predictor-container-short">
+
+    	<div class = "predictor-image-container">
+      <%= image_tag @predictor.image.url(:medium, :width => 100, :height => 100), class: "predictor-image"%>
+      	</div>
+      <br>
+      <%= link_to @predictor.name, predictorindexpredictionsall_path(@predictor.username), class: "predictor-name"%>
+      <br>
+      <%= link_to "@" + @predictor.username, predictorindexpredictionsall_path(@predictor.username)%>
+
+    </div>
+
+
+  </div>

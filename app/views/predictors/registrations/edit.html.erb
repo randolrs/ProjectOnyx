@@ -7,56 +7,52 @@
     <div class = "predictor-edit-form">
 
       <div class = "header-inner">
-        <h2>Edit Profile</h2>
-        <h3>Change your basic profile settings</h3>
+        <h3>Edit Profile</h3>
+        <h4>Change your basic profile settings</h4>
       </div>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
+      <div class ="predictor-edit-basic">
 
-      <div><%= f.label :email %>
-      <%= f.email_field :email %></div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
 
-      <div><%= f.label :name %>
-      <%= f.text_field :name %></div>
+          <div><%= f.label :email %>
+          <%= f.email_field :email %></div>
 
-      <div><%= f.label :username %>
-      <%= f.text_field :username %></div>
+          <div><%= f.label :name %>
+          <%= f.text_field :name %></div>
 
-      <%= f.label :image %>
-      <%= image_tag current_predictor.image.url(:medium)%>
-      <br>
-      <%= f.file_field :image, class: "form-control" %>
+          <div><%= f.label :username %>
+          <%= f.text_field :username %></div>
 
-      <h3>Security Settings</h3>     
+          <p> Profile Image </p>
+          <%= image_tag current_predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%>
+          <br>
+          <%= f.file_field :image, class: "form-control" %>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
+      </div>
 
-      <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off" %></div>
+      <div class = "predictor-edit-confirm">
 
-      <div><%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+        <h3>Confirm Update</h3>
 
-      
+        <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "off" %></div>
 
-      <h3>Line Here</h3>
+        <div><%= f.submit "Update", :class => 'predictor-edit-submit' %></div>
 
-      <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off" %></div>
+      </div>
 
-      <div><%= f.submit "Update", :class => 'predictor-edit-submit' %></div>
     <% end %>
 
-    <h3>Cancel my account</h3>
+      <div class = "predictor-edit-cancel">
+        <h3>Cancel my account</h3>
 
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => 'predictor-delete-button' %>
+
+      </div>
 
     </div>
 
   </div>
 </div>
-
-<%= link_to "Back", :back %>

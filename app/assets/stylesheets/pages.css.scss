@@ -761,14 +761,12 @@ th.prediction-index-summary-th{
   position:relative;
   border: 1px solid rgba(0,0,0,.2);
   border-radius:3px;
-  margin-left:20px;
-  margin-right:20px;
+  padding:10px;
+  margin:20px 20px 20px 50px;
 }
 
 .predictor-container-short{
    word-wrap: break-word;
-   margin-left:20px;
-   margin-right:20px;
    width:200px
 }
 
@@ -784,6 +782,15 @@ th.prediction-index-summary-th{
   margin-right:auto;
   width:196px;
   height:196px;
+  border-radius:3px;
+  
+}
+
+.predictor-image-small{
+  margin-left:auto;
+  margin-right:auto;
+  width:96px;
+  height:96px;
   border-radius:3px;
   
 }
@@ -923,11 +930,7 @@ ul#footer a:visited{
   margin-right:auto;
 }
 
-.filter_form{
-  width:900px;
-  margin-left:auto;
-  margin-right:auto;
-}
+
 
 .typeselect-cta a{
   padding: 5px 5px 5px 5px;

@@ -41,12 +41,13 @@
 	float:left;
 	border: 1px solid rgba(0,0,0,.2);
   	border-radius:3px;
-  	padding:20px;
+  	margin: 20px;
+  	
 }
 
 input.predictor-edit-submit{
    	background-color: #13BD63;
-    width:444px;
+    width:404px;
     height:36px;
     color:white;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -59,6 +60,66 @@ input.predictor-edit-submit:hover{
    	background-color: #10A254;
 }
 
+input.predictor-index-sort-teams{
+   	background-color: #B535FF;
+    width:100px;
+    height:30px;
+    color:white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    border: none;
+    box-shadow: 1px 1px 1px #888888;
+    margin-left:10px;
+
+}
+
+input.predictor-index-sort-teams:hover{
+   	background-color: #9E2EDE;
+}
+
+form.filter_form{
+    text-align: center;
+    margin:20px;
+}
+
+select#team_filter_team{
+	margin:0px;
+}
+
 .header-inner{
 	border-bottom: 1px solid rgba(0,0,0,.2);
+	padding:10px 20px 10px 20px;
+}
+
+.predictor-edit-basic{
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	padding:20px 20px 0px 20px;
+}
+
+.predictor-edit-confirm{
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	padding:10px 20px 10px 20px;
+}
+
+.predictor-edit-cancel{
+	padding:10px 20px 10px 20px;
+}
+
+.predictor-delete-button{
+   	background-color: #FF3A25;
+    width:404px;
+    height:36px;
+    color:white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    border: none;
+    border-shadow: 10px 10px 5px #888888;
+    margin-top:15px;
+}
+
+.predictor-delete-button:hover{
+   	background-color: #ED1903;
+}
+
+.predictor-edit-label{
+	width:100px;
+	margin:0px;
 }

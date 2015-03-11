@@ -214,7 +214,7 @@ class PredictionGamesController < ApplicationController
 
             if params[:league] == "NBA"
 
-              @predictions == @predictor.prediction_games.where(:league => "NBA")
+              @predictions = @predictor.prediction_games.where(:league => "NBA")
 
             elsif params[:league] == "NFL"
 
@@ -229,11 +229,13 @@ class PredictionGamesController < ApplicationController
               @predictions = @predictor.prediction_games.where(:league => "NHL")
 
             end
-
-        else
-
-
         end
+            
+          if params[:team_filter]
+            #@predictions = @predictions.all.where(:teama => params[:prediction_game][:team])
+
+            @predictions = @predictions.where("teama = :team or teamh = :team", {team: params[:team_filter][:team]})
+          end
 
       elsif params[:category] = "finance"
 

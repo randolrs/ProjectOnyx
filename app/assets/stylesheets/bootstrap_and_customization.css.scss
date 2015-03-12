@@ -65,9 +65,6 @@ li.dropdown{
 	color:home;
 }
 
-.container-fluid a{
-	color: white;
-}
 
 .navbar nav {
 	color: white;
@@ -87,4 +84,16 @@ li.dropdown{
 	margin-left:auto;
 	margin-right:auto;
 	width:430px;
+}
+
+a.dropdown-toggle.header-make-prediction {
+	padding: 5px 5px 5px 5px;
+	text-decoration:none;
+	background-color:#BD13AE;
+	color:white;
+	border-radius:2.4px;	
+}
+
+a.dropdown-toggle.header-make-prediction:hover{
+	background-color:#BD13AE;
 }

@@ -17,6 +17,11 @@ class GamesController < ApplicationController
     @games = Game.all
   end
 
+  def sportsgamesselect
+    @games = Game.all
+    @predictor = current_predictor
+  end
+
 
   # GET /games/1/edit
   def edit

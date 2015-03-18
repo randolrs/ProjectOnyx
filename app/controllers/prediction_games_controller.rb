@@ -261,7 +261,7 @@ class PredictionGamesController < ApplicationController
   # GET /prediction_games/new
   def new
 
-    game = Game.find(params[:game])
+    game = Game.find(params[:id])
 
     if game.event_time > Time.now and game.status == "o" and not PredictionGame.where(:game_id => game.id, :predictor_id => current_predictor.id).present?
 

@@ -5,14 +5,17 @@
 
 <% elsif predictor_signed_in? or user_signed_in? %>
 
-      <form class="filter_form">
-        <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
-        <%= select("game", "team", Team.all.collect(&:name), :prompt => "Select a Team") %>
-        <!-- select("game", "event_time", ???, :prompt => "Select a Date")  -->
-        <input type="submit" value="Filter" />
-      </form>
+      <!-- <form class="filter_form"> -->
+        
+        <%# select("game", "team", Team.all.collect(&:name), :prompt => "Select a Team") %>
+        <!-- <input type="submit" value="Filter" />
+      </form> -->
 
-      <div class="prediction-table-holder">
+      Game Predictions
+
+      <div class="game-table-holder">
+
+        <%= render 'games/gamecategoryheader' %>
 
         <table class ="prediction-index-fold table table-hover">
           <thead>
@@ -48,7 +51,7 @@
 
                       <%elsif predictor_signed_in?%>
 
-                        <td><%= link_to "Make a Prediction", root_path %></td>
+                        <td><%= link_to "Make a Prediction", newpredictiongame_path(game.id) %></td>
 
                       <%end%>
                       

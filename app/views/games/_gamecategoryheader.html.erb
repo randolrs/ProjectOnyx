@@ -1,0 +1,15 @@
+<div class = "game-index-header">
+
+  <ul class="nav nav-pills watchlist-header-league">
+      <li role="presentation" <% if params[:league].nil?%> class="active" <%end%>><%= link_to "All", root_path %></li>
+      
+      <li role="presentation" <% if params[:league] == "NBA" %> class="active" <%end%>><%= link_to "NBA", root_path %></li>
+      
+      <li role="presentation" <% if params[:league] == "NFL" %> class="active" <%end%>><%= link_to "NFL", root_path %></li>
+      
+      <li role="presentation" <% if params[:league] == "MLB" %> class="active" <%end%>><%= link_to "MLB", root_path %></li>
+      
+      <li role="presentation" <% if params[:league] == "NHL" %> class="active" <%end%>><%= link_to "NHL", root_path %></li>
+  </ul>
+
+</div>

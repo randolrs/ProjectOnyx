@@ -57,7 +57,7 @@ Rails.application.routes.draw do
 
   get '/buyprediction/sports/:id' => 'prediction_games#buy', as: 'buypredictiongame'
 
-  get '/prediction/sports/new' => 'games#sportsgamesselect', as: 'sportsgamesselect'
+  get ':username/prediction/sports/new' => 'games#sportsgamesselect', as: 'sportsgamesselect'
 
   get 'editor' => 'sports#new'
 
@@ -111,6 +111,8 @@ Rails.application.routes.draw do
   get 'gameprediction' => 'prediction_games#index' #need
 
   get 'gameselect' => 'games#gameselect'
+
+  get 'prediction/sports/new/:id' => 'prediction_games#new', as: 'newpredictiongame'
 
   get '/buyprediction/sports/:id' => 'prediction_games#show', as: 'showpredictiongame'
   

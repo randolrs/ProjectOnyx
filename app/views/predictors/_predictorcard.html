@@ -21,7 +21,16 @@
       [img ptk] <%= @predictor.created_at.strftime("%b %d, %Y")%>
       <br>
       <br>
-      <%= link_to "Subscribe to " + @predictor.username, new_user_registration_path, class: "subscribe_cta" %>
+
+      <% if current_predictor.id == @predictor.id %>
+
+        <%= link_to "Make a Prediction", sportsgamesselect_path(current_predictor.username), class: "subscribe_cta" %>
+
+      <% elsif user_signed_in? %>
+        
+        <%= link_to "Subscribe to " + @predictor.username, new_user_registration_path, class: "subscribe_cta" %>
+
+      <% end %>
 
     </div>
 

@@ -18,8 +18,20 @@ class GamesController < ApplicationController
   end
 
   def sportsgamesselect
-    @games = Game.all
+
     @predictor = current_predictor
+
+    if params[:league]
+
+      if params[:league] == "all"
+        @games = Game.all
+      else 
+        @games = Game.all.where(:league => params[:league])
+      end
+    else
+      @games = Game.all
+    end
+    
   end
 
 

@@ -1,15 +1,16 @@
 <div class = "game-index-header">
 
   <ul class="nav nav-pills watchlist-header-league">
-      <li role="presentation" <% if params[:league].nil?%> class="active" <%end%>><%= link_to "All", root_path %></li>
+  		<li class="li-league-header"> League: </li>
+      <li role="presentation" <% if params[:league] =="all"%> class="active" <%end%>><%= link_to "All", sportsgamesselect_path("all") %></li>
       
-      <li role="presentation" <% if params[:league] == "NBA" %> class="active" <%end%>><%= link_to "NBA", root_path %></li>
+      <li role="presentation" <% if params[:league] == "NBA" %> class="active" <%end%>><%= link_to "NBA", sportsgamesselect_path("NBA") %></li>
       
-      <li role="presentation" <% if params[:league] == "NFL" %> class="active" <%end%>><%= link_to "NFL", root_path %></li>
+      <li role="presentation" <% if params[:league] == "NFL" %> class="active" <%end%>><%= link_to "NFL", sportsgamesselect_path("NFL") %></li>
       
-      <li role="presentation" <% if params[:league] == "MLB" %> class="active" <%end%>><%= link_to "MLB", root_path %></li>
+      <li role="presentation" <% if params[:league] == "MLB" %> class="active" <%end%>><%= link_to "MLB", sportsgamesselect_path("MLB") %></li>
       
-      <li role="presentation" <% if params[:league] == "NHL" %> class="active" <%end%>><%= link_to "NHL", root_path %></li>
+      <li role="presentation" <% if params[:league] == "NHL" %> class="active" <%end%>><%= link_to "NHL", sportsgamesselect_path("NHL") %></li>
   </ul>
 
 </div>

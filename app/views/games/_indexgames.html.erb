@@ -11,9 +11,9 @@
         <!-- <input type="submit" value="Filter" />
       </form> -->
 
-      Game Predictions
-
       <div class="game-table-holder">
+
+      <h1>Select a Game</h1>
 
         <%= render 'games/gamecategoryheader' %>
 
@@ -51,7 +51,7 @@
 
                       <%elsif predictor_signed_in?%>
 
-                        <td><%= link_to "Make a Prediction", newpredictiongame_path(game.id) %></td>
+                        <td><%= link_to "Make a Prediciton", newpredictiongame_path(game.id), class: "make_prediction_cta" %></td>
 
                       <%end%>
                       

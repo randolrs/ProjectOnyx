@@ -26,9 +26,9 @@
 
     <p>
 
-    <%= f.label :game_winner %>
+    <%#f.label :game_winner %>
 
-    <%= f.select :game_winner, [[@prediction_game.teama,@prediction_game.teama],[@prediction_game.teamh, @prediction_game.teamh]], :prompt => "Select the Game Winner"  %>
+    <%#f.select :game_winner, [[@prediction_game.teama,@prediction_game.teama],[@prediction_game.teamh, @prediction_game.teamh]], :prompt => "Select the Game Winner"  %>
     
     <%= f.hidden_field :game_id, as: :integer, :label => false, :placeholder => @prediction_game.game_id %>
     <%= f.hidden_field :event_time, as: :integer, :label => false, :placeholder => @prediction_game.event_time %>

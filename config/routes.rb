@@ -53,11 +53,11 @@ Rails.application.routes.draw do
 
   get '/:username/:category' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionscategory'
 
-  get '/:username/:category/:league' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionsleague'
+  get '/:username/:category/league/:league' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionsleague'
 
   get '/buyprediction/sports/:id' => 'prediction_games#buy', as: 'buypredictiongame'
 
-  get ':username/prediction/sports/new' => 'games#sportsgamesselect', as: 'sportsgamesselect'
+  get '/makepredictions/sports/:league' => 'games#sportsgamesselect', as: 'sportsgamesselect'
 
   get 'editor' => 'sports#new'
 

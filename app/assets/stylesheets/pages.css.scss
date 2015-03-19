@@ -278,6 +278,27 @@ a.subscribe_cta:hover{
   background-color:#13446B;
 }
 
+a.make_prediction_cta{
+  padding: 3px;
+  text-decoration:none;
+  background-color:#911BFF;
+  font-size: 16px;
+  color:white;
+  border-radius:1px;
+  text-align:center;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-right: 1px solid rgba(0,0,0,.2);
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  
+}
+
+a.make_prediction_cta:hover{
+  background-color:#5C00B2;
+}
+
 a.become-predictor {
   padding: 5px;
   background-color:#CA7615;
@@ -575,8 +596,9 @@ a.prediction-header-active{
 }
 
 .game-table-holder{
-  width:700px;
-  float:left;
+  width:900px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .prediction-index-table-holder{

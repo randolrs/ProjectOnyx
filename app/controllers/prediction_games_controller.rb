@@ -144,6 +144,7 @@ class PredictionGamesController < ApplicationController
 
     @prediction_game = PredictionGame.find(params[:id])
     @user = current_user
+    @game = Game.find(@prediction_game.game_id)
   end
 
   def buy

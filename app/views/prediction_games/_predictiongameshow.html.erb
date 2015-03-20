@@ -1,0 +1,72 @@
+<table class ="game-show-table">
+  Prediction Game Info
+  <thead>
+    <tr>
+      <th colspan="4">Prediction</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th><%=@game.teama%></th>
+      <th>@</th>
+      <th><%=@game.teamh%></th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr class="game-show-table-row">
+      <td>Predicted Score</td>
+      <td><%= @game.teama_score %></td>
+      <td></td>
+      <td><%= @game.teamh_score %></td>
+    </tr>
+
+    <tr class="game-show-table-row">
+      <td>Predicted Winner</td>
+      <td><%= @game.teama + " @ " + @game.teamh %></td>
+      <td> <%= @prediction_game.game_winner %></td>
+      <td><%= @game.event_time.strftime("%l:%M %p") %></td>
+    </tr>
+
+    <tr class="game-show-table-row">
+      <td>Predicted Spread</td>
+      <td></td>
+      <td> <%= @game.event_time.strftime("%D") %></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <th colspan="4">Actual</th>
+    </tr>
+
+    <tr>
+      <th></th>
+      <th><%=@game.teama%></th>
+      <th>@</th>
+      <th><%=@game.teamh%></th>
+    </tr>
+
+    <tr class="game-show-table-row">
+      <td>Final Score</td>
+      <td><%= @game.teama_score %></td>
+      <td></td>
+      <td><%= @game.teamh_score %></td>
+    </tr>
+
+    <tr class="game-show-table-row">
+      <td>Actual Winner</td>
+      <td><%= "placeholder" %></td>
+      <td> <%= @game.game_winner %></td>
+      <td><%= "bl" %></td>
+    </tr>
+
+    <tr class="game-show-table-row">
+      <td>Actual Spread</td>
+      <td></td>
+      <td> <%= @game.event_time.strftime("%D") %></td>
+      <td></td>
+    </tr>
+
+  </tbody>
+</table>

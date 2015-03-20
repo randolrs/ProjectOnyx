@@ -75,6 +75,21 @@ class GamesController < ApplicationController
 
         if @game.status == "c"
 
+          if game.game_winner
+
+            if game.game_winner == game.teama
+
+              @game.score_spread = @game.teama_score - @game.teamh_score
+
+            elsif game.game_winner == game.teamh
+
+              @game.score_spread = @game.teamh_score - @game.teama_score
+
+            end
+
+          end
+            
+
           #@prediction_games = PredictionGame.find(:all, :conditions => {:game_id => [@game.id]})
           @prediction_games = PredictionGame.all
 

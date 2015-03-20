@@ -2,37 +2,35 @@
   Prediction Game Info
   <thead>
     <tr>
-      <th colspan="4"><%=@predictor.username + "'s "%> Prediction</th>
+      <th colspan="4">Final Outcome</th>
     </tr>
+  </thead>
+
     <tr>
       <th></th>
       <th><%=@game.teama%></th>
       <th>@</th>
       <th><%=@game.teamh%></th>
-
     </tr>
-  </thead>
-
-  <tbody>
 
     <tr class="game-show-table-row">
       <td>Final Score</td>
-      <td><%= @prediction_game.teama_score %></td>
+      <td><%= @game.teama_score %></td>
       <td></td>
-      <td><%= @prediction_game.teamh_score %></td>
+      <td><%= @game.teamh_score %></td>
     </tr>
 
     <tr class="game-show-table-row">
       <td>Game Winner</td>
-      <td><%# %></td>
-      <td> <%= @prediction_game.game_winner %></td>
-      <td><%# %></td>
+      <td><%= "placeholder" %></td>
+      <td> <%= @game.game_winner %></td>
+      <td><%= "bl" %></td>
     </tr>
 
     <tr class="game-show-table-row">
       <td>Final Spread</td>
       <td></td>
-      <td> <%= @prediction_game.spread %></td>
+      <td> <%= @game.score_spread %></td>
       <td></td>
     </tr>
 

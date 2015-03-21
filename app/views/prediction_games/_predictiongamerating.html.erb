@@ -1,8 +1,8 @@
 <table class ="game-show-table">
-  Prediction Game Info
+  Prediction Game Rating
   <thead>
     <tr>
-      <th class="game-show-table-label" colspan="4"><%=@predictor.username + "'s "%> Prediction</th>
+      <th class="game-show-table-label" colspan="4"><%="Prediction Results"%></th>
     </tr>
     <tr class="game-show-table-subhead">
       <th></th>
@@ -16,21 +16,28 @@
   <tbody>
 
     <tr class="game-show-table-row">
-      <td>Final Score</td>
+      <td>Score Differential</td>
       <td><%= @prediction_game.teama_score %></td>
       <td></td>
       <td><%= @prediction_game.teamh_score %></td>
     </tr>
 
     <tr class="game-show-table-row">
-      <td>Game Winner</td>
+      <td>Winner</td>
       <td><%# %></td>
       <td> <%= @prediction_game.game_winner %></td>
       <td><%# %></td>
     </tr>
 
     <tr class="game-show-table-row">
-      <td>Final Spread</td>
+      <td>Spread Differential</td>
+      <td></td>
+      <td> <%= @prediction_game.spread %></td>
+      <td></td>
+    </tr>
+
+    <tr class="game-show-table-row">
+      <td>Rating</td>
       <td></td>
       <td> <%= @prediction_game.spread %></td>
       <td></td>

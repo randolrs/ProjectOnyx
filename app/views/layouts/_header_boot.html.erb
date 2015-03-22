@@ -155,8 +155,6 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= image_tag current_predictor.image.url(:thumb), class: "image-header"%><%= current_predictor.name %><span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
                 <li><a href= <%= predictorindexpredictionsall_path(current_predictor.username) %>> My Predictions <span class="badge"><%= current_predictor.prediction_games.count %></span></a></li>
-                <li><a href="#">My Money</a></li>
-
                 <li><%= link_to "Edit Profile", edit_predictor_registration_path %></li>
                 <li><a href="#">Invite Friends</a></li>
                 <li role="presentation" class="divider"></li>

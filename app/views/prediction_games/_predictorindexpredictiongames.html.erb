@@ -7,7 +7,7 @@
             <th class="prediction-index-fold-th">Matchup</th>
             <th class="prediction-index-fold-th">Date</th>
             <th class="prediction-index-fold-th">Time (EST)</th>
-            <th class="prediction-index-fold-th">Prediction Rating</th>
+            <th class="prediction-index-fold-th">Game ID</th>
             
           </tr>
           </thead>
@@ -21,7 +21,7 @@
                       <td> <%= prediction.teamh %> at <%= prediction.teama %></td>
                       <td> <%= prediction.event_time.strftime("%D") %></td>
                       <td> <%= prediction.event_time.strftime("%l:%M %p") %></td>
-                      
+                      <td> <%= prediction.game_id %></td>
                       <td> <%= link_to 'Show Details',  prediction %></td>
                       
                     </div>

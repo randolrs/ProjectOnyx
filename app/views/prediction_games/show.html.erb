@@ -1,13 +1,70 @@
 <div class ="prediction-game-show-container">
 
-Float the small predictor card to the left; YESS!!
-  <%= render'games/showgamesheader'%>
-  <br>
-  <%= render'prediction_games/predictiongameshow'%>
-  <br>
-  <%= render'games/gameoutcomeshow'%>
-  <br>
-  <%= render'prediction_games/predictiongamerating'%>
-  <br>
+  <div class = "predictor-card-float">
+    <%= render 'predictors/predictorcard_short' %>
+
+  </div>
+
+  <div class = "prediction-game-info-float">
+
+    <%= render'games/showgamesheader'%>
+
+    <br> should add a div wrapper with padding
+    <br>
+
+    need to add conditionals for open games (pending/N/A)
+
+    <table class ="game-show-table">
+  <thead>
+    <tr>
+      <th class="game-show-table-label" colspan="7">Results</th>
+    </tr>
+  </thead>
+
+    <tr class="game-show-table-subhead">
+      <th></th>
+      <th colspan="2"><%= @predictor.username + "'s Prediction" %></th>
+      <th colspan="2">Actual</th>
+      <th colspan="2">Differential</th>
+    </tr>
+
+    <tr class="game-show-table-subhead">
+      <th></th>
+      <th><%=@game.teama%></th>
+      <th><%=@game.teamh%></th>
+      <th><%=@game.teama%></th>
+      <th><%=@game.teamh%></th>
+      <th><%=@game.teama%></th>
+      <th><%=@game.teamh%></th>
+    </tr>
+
+    <tr class="game-show-table-row">
+      <td>Final Score</td>
+      <td><%=@prediction_game.teama_score%></td>
+      <td><%=@prediction_game.teamh_score%></td>
+      <td><%=@game.teama_score%></td>
+      <td><%=@game.teamh_score%></td>
+      <td><%=@prediction_game.teama_diff%></td>
+      <td><%=@prediction_game.teamh_diff%></td>
+    </tr>
+
+    <tr class="game-show-table-row">
+      <td>Game Winner</td>
+      <td colspan="2"><%=@prediction_game.game_winner%></td>
+      <td colspan="2"><%=@game.game_winner%></td>
+      <td colspan="2"><%=@prediction_game.game_winner_yesno%></td>
+    </tr>
+
+    <tr class="game-show-table-row">
+      <td>Spread</td>
+      <td colspan="2"><%=@prediction_game.spread%></td>
+      <td colspan="2"><%=@game.score_spread%></td>
+      <td colspan="2"><%=@prediction_game.spread_diff%></td>
+    </tr>
+
+  </tbody>
+</table>
+
+  </div>
 
 </div>

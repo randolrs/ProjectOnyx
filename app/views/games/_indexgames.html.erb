@@ -36,7 +36,7 @@
 
           <% @games.each do |game| %>
 
-              <% if game.event_time > Time.now and game.status ="o" and PredictionGame.all.where(:game_id => game.id).count > 0 %>
+              <% if game.event_time > Time.now and game.status ="o" and not current_predictor.prediction_games.where(:game_id => game.id).present? %>
 
                   <tbody>
                   
@@ -51,7 +51,7 @@
 
                       <%elsif predictor_signed_in?%>
 
-                        <td><%= link_to "Make a Prediciton", newpredictiongame_path(game.id), class: "make_prediction_cta" %></td>
+                        <td><%= link_to "Make a Prediction", newpredictiongame_path(game.id), class: "make_prediction_cta" %> <%=current_predictor.prediction_games.where(:game_id => game.id).present?%></td>
 
                       <%end%>
                       

@@ -36,15 +36,26 @@
 </p>
 
 <p>
+  <strong>Spread</strong>
+  <%= @game.score_spread %>
+</p>
+
+<p>
+  <strong>Game Winner</strong>
+  <%= @game.game_winner %>
+</p>
+
+<p>
   <strong>Status</strong>
   <%= @game.status %>
 </p>
 
 <p>
-
   <strong>Id</strong>
   <%= @game.id %>
 </p>
+
+<p>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

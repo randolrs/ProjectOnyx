@@ -265,7 +265,7 @@ class PredictionGamesController < ApplicationController
 
     game = Game.find(params[:id])
 
-    if game.event_time > Time.now and game.status == "o" and not PredictionGame.where(:game_id => game.id, :predictor_id => current_predictor.id).present?
+    if game.event_time > Time.now and game.status == "o" and not current_predictor.prediction_games.where(:game_id => game.id).present?
 
       @prediction_game = PredictionGame.new
 
@@ -311,10 +311,6 @@ class PredictionGamesController < ApplicationController
 
   # POST /prediction_games
   # POST /prediction_games.json
-  
-
-
-
 
   def create
 

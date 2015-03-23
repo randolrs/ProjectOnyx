@@ -36,7 +36,7 @@
 
           <% @games.each do |game| %>
 
-              <% if game.event_time > Time.now and game.status ="o" and not current_predictor.prediction_games.where(:game_id => game.id).present? %>
+              <% if game.event_time > Time.now and game.status =="o" and not current_predictor.prediction_games.where(:game_id => game.id).present? %>
 
                   <tbody>
                   

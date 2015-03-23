@@ -152,3 +152,69 @@ a.final_score_pending{
   width:700px;
 }
 
+.new-prediction-game{
+  width:400px;
+  margin-left:auto;
+  margin-right:auto;
+  border: 1px solid #F0F0F0;
+}
+
+.new-prediction-game-header{
+  background:#BFBFBF;
+  border-bottom: 1px solid #F0F0F0;
+  text-align:center;
+  font-size:24px;
+  padding:10px;
+
+}
+
+input#prediction_game_teamh_score{
+  width:30px;
+  margin:0px;
+  text-align:center;
+}
+
+input#prediction_game_teama_score{
+  width:30px;
+  margin:0px;
+  text-align:center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.prediction-game-form{
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:20px;
+  margin-bottom:20px;
+  text-align:center;
+  
+}
+.prediction-game-form th{
+  width:100px;
+}
+
+.prediction-game-form td{
+  text-align:center;
+}
+
+input.submit-prediction-game{
+  width:300px;
+  background-color:#2b9af3;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  border:none;
+}
+
+input.submit-prediction-game:hover{
+  background-color:#2585D1;
+}
+
+.actions{
+  text-align:center;
+}

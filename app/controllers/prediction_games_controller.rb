@@ -263,21 +263,21 @@ class PredictionGamesController < ApplicationController
   # GET /prediction_games/new
   def new
 
-    game = Game.find(params[:id])
+    @game = Game.find(params[:id])
 
-    if game.event_time > Time.now and game.status == "o" and not current_predictor.prediction_games.where(:game_id => game.id).present?
+    if @game.event_time > Time.now and @game.status == "o" and not current_predictor.prediction_games.where(:game_id => @game.id).present?
 
       @prediction_game = PredictionGame.new
 
-      @prediction_game.game_id = game.id
+      @prediction_game.game_id = @game.id
 
-      @prediction_game.teama = game.teama
+      @prediction_game.teama = @game.teama
 
-      @prediction_game.teamh = game.teamh
+      @prediction_game.teamh = @game.teamh
 
-      @prediction_game.league = game.league
+      @prediction_game.league = @game.league
 
-      @prediction_game.event_time = game.event_time
+      @prediction_game.event_time = @game.event_time
 
       @prediction_game.status = "o"
 

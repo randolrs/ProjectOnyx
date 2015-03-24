@@ -1,9 +1,5 @@
 @import 'bootstrap';
 
-A{
-	color:3e4552;;
-}
-
 .dropdown {
 	
 }
@@ -27,8 +23,10 @@ input[type="submit"]{
 	width:364px;
 }
 
-.navbar-right{
-	color:blue;
+.navbar-default{
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	padding-bottom:20px;
+	padding-top:20px;
 }
 
 .nav li {
@@ -37,6 +35,37 @@ input[type="submit"]{
 
 li.presentation-header{
 	padding-top:8px;
+}
+
+a.header-left{
+	line-height:30px;
+	font-size:16px;
+}
+
+a.header-make-prediction{
+	color:white;
+	background-color:#2A61FF;
+	padding:10px 30px 10px 30px;
+	margin-right:170px;
+	font-weight:bold;
+	font-size:20px;
+}
+
+a.header-make-prediction:hover{
+	background-color:#204CC7;
+}
+
+.header-balance{
+	line-height:28px;
+	border-color:#F0F0F0;
+	border: 1px solid;
+		
+}
+
+.container-fluid.sub-header{
+	padding-top:10px;
+	padding-bottom:10px;
+	border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 a.signup-header{

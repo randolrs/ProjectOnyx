@@ -12,26 +12,27 @@
       </form> -->
 
       <div class="game-table-holder">
+        <div class="game-index-table">
 
-      <h1>Select a Game</h1>
+        <h1>Select a Game</h1>
 
         <%= render 'games/gamecategoryheader' %>
 
-        <table class ="prediction-index-fold table table-hover">
-          <thead>
-          <tr>        
-            <th class="prediction-index-fold-th">Matchup</th>
-            <th class="prediction-index-fold-th">Date</th>
-            <th class="prediction-index-fold-th">Time</th>
+          <table class ="prediction-index-fold table table-hover">
+            <thead>
+            <tr>        
+              <th class="prediction-index-fold-th">Matchup</th>
+              <th class="prediction-index-fold-th">Date</th>
+              <th class="prediction-index-fold-th">Time</th>
 
-            <% if user_signed_in? %>
-              <th class="prediction-index-fold-th">Total Predictions</th>
-            <%end%>
+              <% if user_signed_in? %>
+                <th class="prediction-index-fold-th">Total Predictions</th>
+              <%end%>
 
-            <th class="prediction-index-fold-th"></th>
-            
-          </tr>
-          </thead>
+              <th class="prediction-index-fold-th"></th>
+              
+            </tr>
+            </thead>
 
 
           <% @games.each do |game| %>
@@ -51,7 +52,7 @@
 
                       <%elsif predictor_signed_in?%>
 
-                        <td><%= link_to "Make a Prediction", newpredictiongame_path(game.id), class: "make_prediction_cta" %> <%=current_predictor.prediction_games.where(:game_id => game.id).present?%></td>
+                        <td><%#link_to "Make a Prediction", newpredictiongame_path(game.id), class: "make_prediction_cta" %> make row clickable (use comment to set path)</td>
 
                       <%end%>
                       
@@ -65,6 +66,7 @@
           <% end %>
 
               </table>
+            </div>
       </div>
 
 

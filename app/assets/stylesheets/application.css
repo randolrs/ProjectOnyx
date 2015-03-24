@@ -19,6 +19,7 @@
  	margin-left:auto;
     margin-right:auto;
     min-height: 500px;
+    background-color: #ECF4F0;
  }
 
  .body{
@@ -122,4 +123,8 @@ select#team_filter_team{
 .predictor-edit-label{
 	width:100px;
 	margin:0px;
+}
+
+a.header-make-prediction{
+  color:white;
 }

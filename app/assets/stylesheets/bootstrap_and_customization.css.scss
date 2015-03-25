@@ -24,13 +24,31 @@ input[type="submit"]{
 }
 
 .navbar-default{
-	border-bottom: 1px solid rgba(0,0,0,.2);
-	padding-bottom:20px;
-	padding-top:20px;
+	padding-bottom:5px;
+	padding-top:5px;
+	background-color:#2F1170;
 }
 
-.nav li {
-	color:green;
+.navbar-default.top{
+	box-shadow: inset 0px -3px 10px #261057;
+}
+
+.navbar .nav > li > a{
+	color:#F2F2F2;
+	text-shadow:none;
+}
+
+.navbar .nav > li > a.top-header{
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+.navbar .nav > li > a:hover{
+	color:#EBEBEB;
+}
+
+.navbar .nav > li > a:focus, .navbar .nav > li > a.header-make-prediction:hover {
+	background-color:#D97F16;
 }
 
 li.presentation-header{
@@ -39,16 +57,22 @@ li.presentation-header{
 
 a.header-left{
 	line-height:30px;
-	font-size:16px;
+	font-size:28px;
 }
 
 a.header-make-prediction{
 	color:white;
-	background-color:#2A61FF;
-	padding:10px 30px 10px 30px;
-	margin-right:170px;
+	background-color:#F58F19;
+	padding:10px 50px 10px 50px;
 	font-weight:bold;
 	font-size:20px;
+	width:200px;
+	text-align:center;
+	border-radius:2px;
+	margin-left:30px;
+	border-right: 2px solid rgba(0,0,0,.2);
+  	border-bottom: 2px solid rgba(0,0,0,.2);
+  	line-height:28px;
 }
 
 a.header-make-prediction:hover{
@@ -58,14 +82,13 @@ a.header-make-prediction:hover{
 .header-balance{
 	line-height:28px;
 	border-color:#F0F0F0;
-	border: 1px solid;
+	border: 2px solid;
 		
 }
 
 .container-fluid.sub-header{
 	padding-top:10px;
 	padding-bottom:10px;
-	border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 a.signup-header{
@@ -85,13 +108,17 @@ li.dropdown{
 }
 
 .navbar .nav li a{
-	padding:10px;	
+		
 }
 
 .home{
 	background-color: none;
 	border:none;
 	color:home;
+}
+
+.sub{
+	padding:5px;
 }
 
 

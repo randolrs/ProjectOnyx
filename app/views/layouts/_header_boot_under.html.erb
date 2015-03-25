@@ -1,42 +1,156 @@
 
 <% if not @action == 'home'%>
 
+  <nav class="navbar navbar-default sub">
+
     <div class="container-fluid sub-header">
+
+      <ul class="nav navbar-nav">
+       
+        <li class="dropdown">
+          <a href="#" class="header-make-prediction" data-toggle="dropdown" role="button" aria-expanded="false">Make a Prediction</a>
+            <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "Sports", sportsgamesselect_path("all") %></li>
+                <li><%= link_to "Finance", edit_predictor_registration_path %></li>
+                <li><%= link_to "Politics", edit_predictor_registration_path %></li>
+                <li><%= link_to "Weather", edit_predictor_registration_path %></li>
+                <li><%= link_to "Entertainment", edit_predictor_registration_path %></li>
+            </ul>
+        </li>
         
-      <ul class="nav navbar-nav navbar-right pull-right">
+      </ul>
+        
+     <ul class="nav navbar-nav navbar-right pull-right">
 
-          <% if user_signed_in? %>
+        <% if user_signed_in? %>
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle header-make-prediction" data-toggle="dropdown" role="button" aria-expanded="false">Find Predictions</a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><%= link_to "Sports", find_sports_predictors_path("all") %></li>
-                  <li class="disabled"><%= link_to "Finance", edit_predictor_registration_path %></li>
-                  <li class="disabled"><%= link_to "Politics", edit_predictor_registration_path %></li>
-                  <li class="disabled"><%= link_to "Weather", edit_predictor_registration_path %></li>
-                  <li class="disabled"><%= link_to "Entertainment", edit_predictor_registration_path %></li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Top Predictors<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            
+            <li class="dropdown-submenu"><a>Sports</a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "NBA", find_sports_predictors_path("NBA") %></li>
+                  <li><%= link_to "NFL", find_sports_predictors_path("NFL") %></li>
+                  <li><%= link_to "MLB", find_sports_predictors_path("MLB") %></li>
+                  <li><%= link_to "NHL", find_sports_predictors_path("NHL") %></li>
                 </ul>
             </li>
 
-          <% elsif predictor_signed_in? %>
+            <li class="dropdown-submenu"><a>Finance</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu"><a href="#">Commodities</a></li>
+                    <!-- <ul class="dropdown-menu left">
+                        <li><a href="#">Metals</a></li>
+                        <li><a href="#">Energy</a></li>
+                        <li><a href="#">Food</a></li>
+                    </ul> -->
 
-            <li class="dropdown">
-            <a href="#" class="header-make-prediction" data-toggle="dropdown" role="button" aria-expanded="false">Make a Prediction</a>
-              <ul class="dropdown-menu" role="menu">
-                  <li><%= link_to "Sports", sportsgamesselect_path("all") %></li>
-                  <li><%= link_to "Finance", edit_predictor_registration_path %></li>
-                  <li><%= link_to "Politics", edit_predictor_registration_path %></li>
-                  <li><%= link_to "Weather", edit_predictor_registration_path %></li>
-                  <li><%= link_to "Entertainment", edit_predictor_registration_path %></li>
-              </ul>
+                  <li><a href="#">Currencies</a></li>
+                  <li><a href="#">Indexes</a></li>
+                </ul>
+
+            </li>
+            <li class="disabled"><a href="#">Politics</a></li>
+            <li class="disabled"><a href="#">Weather</a></li>
+          </ul>
+        </li>
+
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Find Predictions<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            
+            <li class="dropdown-submenu"><a>Sports</a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "NBA", find_prediction_games_path("NBA") %></li>
+                  <li><%= link_to "NFL", find_prediction_games_path("NFL") %></li>
+                  <li><%= link_to "MLB", find_prediction_games_path("MLB") %></li>
+                  <li><%= link_to "NHL", find_prediction_games_path("NHL") %></li>
+                </ul>
             </li>
 
-          <% end %>
-          
-        </ul>
+            <li class="dropdown-submenu"><a>Finance</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu"><a href="#">Commodities</a></li>
+                    <!-- <ul class="dropdown-menu left">
+                        <li><a href="#">Metals</a></li>
+                        <li><a href="#">Energy</a></li>
+                        <li><a href="#">Food</a></li>
+                    </ul> -->
+
+                  <li><a href="#">Currencies</a></li>
+                  <li><a href="#">Indexes</a></li>
+                </ul>
+
+            </li>
+            <li class="disabled"><a href="#">Politics</a></li>
+            <li class="disabled"><a href="#">Weather</a></li>
+          </ul>
+        </li>
+
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %><span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="/watchlist">My Watchlist <span class="badge"><%= current_user.prediction_games.count %></span></a></li>
+                <li><a href="#">My Subscriptions</a></li>
+                <li><%= link_to "My Profile", edit_user_registration_path %></li>
+                <li><a href="#">Invite Friends</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><a href="#">Settings</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><a href="#">Help</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+
+        <% elsif predictor_signed_in? %>
+
+        <li>
+        <a href="#" class="header-balance">Current Balance: $0.00</a>
+        </li>
+
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= image_tag current_predictor.image.url(:thumb), class: "image-header"%><%= current_predictor.name %><span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href= <%= predictorindexpredictionsall_path(current_predictor.username) %>> My Predictions <span class="badge"><%= current_predictor.prediction_games.count %></span></a></li>
+                <li><%= link_to "Edit Profile", edit_predictor_registration_path %></li>
+                <li><a href="#">Invite Friends</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><a href="#">Settings</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><a href="#">Help</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><%= link_to "Logout", destroy_predictor_session_path, method: :delete %></li>
+            </ul>
+          </li>
+
+        <% elsif admin_signed_in? %>
+
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+
+          <li><%= link_to "SportsDash", sportdashboard_path %></li>
+
+          <li><%= link_to "Editor", editor_path %></li>
+
+          <li><%= link_to "Account Settings", edit_admin_registration_path %></li>
+
+          <li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
+      
+
+        <% else %>
+
+          <li><%= link_to "Signup", new_user_registration_path %></li>
+          <li><%= link_to "Login", new_user_session_path %></li>
+          <li><%= link_to "Make Predictions", new_predictor_registration_path, class: "become-predictor" %></li>
+
+        <% end %>
+        
+      </ul>
       <!-- </div>/.navbar-collapse -->
     </div><!-- /.container-fluid -->
 
+  </nav>
 <%end%>
 
 

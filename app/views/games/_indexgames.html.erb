@@ -47,7 +47,7 @@
 
                   <tbody>
                   
-                  <tr data-link="<%=home_path%>", class= "game-index-table-row">
+                  <tr data-link="<%=newpredictiongame_path(game.id)%>", class= "game-index-table-row">
                     <% if params[:league] == "all" %>
                       <td><%= game.league %></td>
                     <% end %>

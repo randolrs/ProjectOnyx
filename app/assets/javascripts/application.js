@@ -15,12 +15,15 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-jQuery(function($) {
-$("tr[data-link]").click(function() {
-window.location = this.dataset.link
-});
-})
 
+//=previous
+// jQuery(function($) {
+// $("tr[data-link]").click(function() {
+// window.location = this.dataset.link
+// });
+// })
+
+//=previous, previous
 // jQuery(document).ready(function($) {
 //     $(".clickable-row").click(function() {
 //         window.document.location = $(this).data("href");

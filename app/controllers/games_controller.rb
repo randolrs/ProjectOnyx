@@ -21,15 +21,16 @@ class GamesController < ApplicationController
 
     @predictor = current_predictor
 
+    @games = Game.where("event_time > :time and status = :open", {time: Time.now, open: "o"})
+
     if params[:league]
 
       if params[:league] == "all"
-        @games = Game.all
+        #@games = Game.all
       else 
-        @games = Game.all.where(:league => params[:league])
+        @games = @games.all.where(:league => params[:league])
       end
-    else
-      @games = Game.all
+      
     end
     
   end

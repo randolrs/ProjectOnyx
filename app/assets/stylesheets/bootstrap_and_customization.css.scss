@@ -48,7 +48,7 @@ input[type="submit"]{
 }
 
 .navbar .nav > li > a:focus, .navbar .nav > li > a.header-make-prediction:hover {
-	background-color:#D97F16;
+	background-color:#dd3618;
 }
 
 li.presentation-header{
@@ -62,7 +62,7 @@ a.header-left{
 
 a.header-make-prediction{
 	color:white;
-	background-color:#F58F19;
+	background-color:#fd5a25;
 	padding:10px 50px 10px 50px;
 	font-weight:bold;
 	font-size:20px;
@@ -73,10 +73,11 @@ a.header-make-prediction{
 	border-right: 2px solid rgba(0,0,0,.2);
   	border-bottom: 2px solid rgba(0,0,0,.2);
   	line-height:28px;
+  	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
 
 a.header-make-prediction:hover{
-	background-color:#204CC7;
+	background-color:#dd3618;
 }
 
 .header-balance{
@@ -151,18 +152,6 @@ li.dropdown{
 	margin-bottom:10px;
 	margin-left:auto;
 	margin-right:auto;
-}
-
-a.dropdown-toggle.header-make-prediction {
-	padding: 5px 5px 5px 5px;
-	text-decoration:none;
-	background-color:#BD13AE;
-	color:white;
-	border-radius:2.4px;	
-}
-
-a.dropdown-toggle.header-make-prediction:hover{
-	background-color:#BD13AE;
 }
 
 .li-league-header{

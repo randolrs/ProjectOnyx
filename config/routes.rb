@@ -59,6 +59,8 @@ Rails.application.routes.draw do
 
   get '/makepredictions/sports/:league' => 'games#sportsgamesselect', as: 'sportsgamesselect'
 
+  get '/:username/gamepredictions/:id' => 'prediction_games#show', as: 'predictiongamesshow'
+
   get 'editor' => 'sports#new'
 
   get 'watchlist' =>'pages#mywatchlist'

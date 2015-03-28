@@ -52,6 +52,14 @@
   margin-right:auto;
   margin-top:50px;
   margin-bottom:50px;
+  border: 1px solid black;
+  border-radius:2px;
+  background-color:#2F1170;
+}
+
+.game-table-holder h1{
+	padding-left:30px;
+	color:white;
 }
 
 .game-show-table{
@@ -119,7 +127,7 @@ th.game-row{
 
 .game-index-table-row:hover{
 	background-color: #F2FCFC;
-	border: 2px solid #13BD63;
+	border: 2px solid #fd5a25;
   	cursor:pointer;
 }
 

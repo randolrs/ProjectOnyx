@@ -11,22 +11,23 @@
     </tr>
     </thead>
 
+      <tbody>
+      
+        <div>
+
           <% @predictions.each do |prediction| %>
 
-            <tbody>
-            
-              <div>
-                <tr data-link="<%=predictiongamesshow_path(@predictor.username,prediction.id)%>", class="prediction-table-row" href="/">
-                  <td> <%= prediction.teamh %> at <%= prediction.teama %></td>
-                  <td> <%= prediction.event_time.strftime("%D") %></td>
-                  <td> <%= prediction.event_time.strftime("%l:%M %p") %></td>
-                </tr>
-              </div>
-
-            </tbody>
+          <tr data-link="<%=predictiongamesshow_path(@predictor.username,prediction.id)%>", class="prediction-table-row" href="/">
+            <td> <%= prediction.teamh %> at <%= prediction.teama %></td>
+            <td> <%= prediction.event_time.strftime("%D") %></td>
+            <td> <%= prediction.event_time.strftime("%l:%M %p") %></td>
+          </tr>
 
           <% end %>
+        </div>
 
-      </table>
+      </tbody>
+
+  </table>
 
 </div>

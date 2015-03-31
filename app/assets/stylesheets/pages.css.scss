@@ -177,7 +177,6 @@ a.request_button:hover{
   background-color:#45AD02;
 }
 
-
 .intro{
   top:0px;
   background-color: black;
@@ -185,8 +184,6 @@ a.request_button:hover{
   width:100%;
   background-image: url("https://s3.amazonaws.com/projectonyx/footer_lodyas.png");
   position:absolute;
-  z-index:-10;
-
 }
 
 .home-wrap{
@@ -670,6 +667,8 @@ a.prediction-detail:hover{
 .prediction-index-fold{
   border-collapse: collapse;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border: 1px solid #dddddd;
+  background-color:white;
 }
 
 th.prediction-index-fold-th{
@@ -699,9 +698,7 @@ th.prediction-index-summary-th{
 
 
 .prediction-index-fold tr{
-  border-bottom: 1px solid #efefef;
   padding-bottom:8px;
-  row-height:60px; 
 }
 
 .prediction-index-summary{
@@ -738,12 +735,10 @@ th.prediction-index-summary-th{
 
 .prediction-table-row{
   font-size:14px;
-  border-left: 1px solid #efefef;
-  border-right: 1px solid #efefef;
 }
 
 .prediction-table-row:hover{
-  background-color: #F2FCFC;
+  background-color: black;
   cursor:pointer;
   font-color: #3e4552;
 }
@@ -824,8 +819,6 @@ th.prediction-index-summary-th{
 }
 
 .predictor-prediction-index-container{
-  border: 2px solid rgba(0,0,0,.2);
-  background-color:white;
   border-radius:3px;
 }
 

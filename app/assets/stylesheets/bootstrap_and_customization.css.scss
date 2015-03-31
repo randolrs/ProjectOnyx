@@ -10,7 +10,6 @@
 	margin-bottom:0px;
 	border:none;
 	border-radius:0px;
-
 }
 
 .navbar a{
@@ -50,8 +49,16 @@ input[type="submit"]{
 	color:#EBEBEB;
 }
 
-.navbar .nav > li > a:focus, .navbar .nav > li > a.header-make-prediction:hover {
+.navbar .nav > li > a.header-make-prediction:hover, .navbar .nav > li > a.header-make-prediction:focus{
 	background-color:#dd3618;
+}
+
+.navbar .nav > li > a:focus{
+	color:white;
+}
+
+.nav-tabs{
+	border:none;
 }
 
 li.presentation-header{
@@ -69,7 +76,6 @@ a.header-make-prediction{
 	padding:10px 50px 10px 50px;
 	font-weight:bold;
 	font-size:20px;
-	width:200px;
 	text-align:center;
 	border-radius:2px;
 	margin-left:30px;
@@ -116,9 +122,7 @@ li.dropdown{
 }
 
 .home{
-	background-color: none;
 	border:none;
-	color:home;
 }
 
 .sub{

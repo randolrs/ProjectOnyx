@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   get 'home' => 'pages#home'
 
+  get 'gamedash' => "games#index"
+
   get "about" => "pages#about"
 
   get "signup" => "pages#selectsignup"

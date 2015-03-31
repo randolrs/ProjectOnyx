@@ -13,7 +13,7 @@
   
       <ul class="nav navbar-nav">
        
-        <li><a class="header-left" href="/">ONYX Predictions</a></li>
+        <li><a class="header-left" href="/">ONYX</a></li>
 
         <% if user_signed_in? %>
 
@@ -46,7 +46,7 @@
 
         <% elsif predictor_signed_in? %>
 
-          <li><%= link_to "Edit Profile", edit_predictor_registration_path, class: "top-header" %></li>
+          <li><a href= <%= predictorindexpredictionsall_path(current_predictor.username) %> class="top-header"> My Predictions <span class="badge"><%= current_predictor.prediction_games.count %></span></a></li>
 
           <li><%= link_to "Logout", destroy_predictor_session_path, class: "top-header", method: :delete %></li>
 

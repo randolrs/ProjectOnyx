@@ -22,4 +22,22 @@ class ApplicationController < ActionController::Base
 
 	  end
 
+	  def after_sign_in_path_for(predictor)
+	  	
+	  	if predictor_signed_in?
+
+  			predictorindexpredictionsall_path(current_predictor.username)
+
+  		elsif user_signed_in?
+
+  			home_path
+
+  		elsif admin_signed_in?
+
+  			gamedash_path
+
+  		end
+
+	end
+
 end

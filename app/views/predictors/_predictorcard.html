@@ -6,31 +6,34 @@
     	<div class = "predictor-image-container">
       <%= image_tag @predictor.image.url(:medium, :width => 100, :height => 100), class: "predictor-image"%>
       </div>
-      <br>
-      <%= link_to @predictor.name, predictorindexpredictionsall_path(@predictor.username), class: "predictor-name"%>
-      <br>
-      <%= link_to "@" + @predictor.username, predictorindexpredictionsall_path(@predictor.username)%>
+      
+      <div class = "predictor-description-container">
+        <%= link_to @predictor.name, predictorindexpredictionsall_path(@predictor.username), class: "predictor-name"%>
+        <br>
+        <%= link_to "@" + @predictor.username, predictorindexpredictionsall_path(@predictor.username)%>
 
-      <br>
-      <br>
-      I am going to right here about my modeling and approach to making predictions.
-      <br>
-      <br>
-      City
-      <br>
-      [img ptk] <%= @predictor.created_at.strftime("%b %d, %Y")%>
-      <br>
-      <br>
+        <br>
+        <br>
+        I am going to write here about my modeling and approach to making predictions.
+        <br>
+        <br>
+        City
+        <br>
+        [img ptk] <%= @predictor.created_at.strftime("%b %d, %Y")%>
+        <br>
+        <br>
 
-      <% if current_predictor.id == @predictor.id %>
+        <% if current_predictor.id == @predictor.id %>
 
-        <%= link_to "Make a Prediction", sportsgamesselect_path(current_predictor.username), class: "subscribe_cta" %>
+          <%= link_to "Make a Prediction", sportsgamesselect_path(current_predictor.username), class: "subscribe_cta" %>
 
-      <% elsif user_signed_in? %>
-        
-        <%= link_to "Subscribe to " + @predictor.username, new_user_registration_path, class: "subscribe_cta" %>
+        <% elsif user_signed_in? %>
+          
+          <%= link_to "Subscribe to " + @predictor.username, new_user_registration_path, class: "subscribe_cta" %>
 
-      <% end %>
+        <% end %>
+
+      </div>
 
     </div>
 

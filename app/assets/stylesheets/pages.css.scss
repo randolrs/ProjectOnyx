@@ -735,12 +735,17 @@ th.prediction-index-summary-th{
 
 .prediction-table-row{
   font-size:14px;
+  border: 1px solid #E0E0E0;
 }
 
-.prediction-table-row:hover{
-  background-color: black;
+table.prediction-index-fold{
+  width:700px;
+}
+
+tr.prediction-table-row:hover{
+  background-color: #F2FCFC;
+  border: 2px solid #fd5a25;
   cursor:pointer;
-  font-color: #3e4552;
 }
 
 .prediction-summary-table-row{

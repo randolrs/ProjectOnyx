@@ -15,42 +15,47 @@
     <!-- </div> -->
   </ul>
 
-  <div class = "category-header">
+  <% if admin_signed_in? %>
 
-    <div class = "category-header-container">
-      <% if params[:category] == "sports" %>
+    <div class = "category-header">
 
-        <ul class="nav nav-pills watchlist-header-sports">
-            
-            <li class="presentation-descriptor">League:</li>
+      <div class = "category-header-container">
 
-            <li role="presentation" <% if params[:league].nil?%> class="active" <%end%>><%= link_to "All", predictorindexpredictionscategory_path(@predictor.username, "sports") %></li>
-            
-            <li role="presentation" <% if params[:league] == "NBA" %> class="active" <%end%>><%= link_to "NBA", predictorindexpredictionsleague_path(@predictor.username, "sports", "NBA") %></li>
-            
-            <li role="presentation" <% if params[:league] == "NFL" %> class="active" <%end%>><%= link_to "NFL", predictorindexpredictionsleague_path(@predictor.username,"sports","NFL") %></li>
-            
-            <li role="presentation" <% if params[:league] == "MLB" %> class="active" <%end%>><%= link_to "MLB", predictorindexpredictionsleague_path(@predictor.username, "sports", "MLB") %></li>
-            
-            <li role="presentation" <% if params[:league] == "NHL" %> class="active" <%end%>><%= link_to "NHL", predictorindexpredictionsleague_path(@predictor.username, "sports", "NHL") %></li>
-            
-        </ul>
+        <% if params[:category] == "sports" %>
 
-        <%#if @predictions.count > 10 %>
+          <ul class="nav nav-pills watchlist-header-sports">
+              
+              <li class="presentation-descriptor">League:</li>
 
-          <form class="filter_form">
+              <li role="presentation" <% if params[:league].nil?%> class="active" <%end%>><%= link_to "All", predictorindexpredictionscategory_path(@predictor.username, "sports") %></li>
+              
+              <li role="presentation" <% if params[:league] == "NBA" %> class="active" <%end%>><%= link_to "NBA", predictorindexpredictionsleague_path(@predictor.username, "sports", "NBA") %></li>
+              
+              <li role="presentation" <% if params[:league] == "NFL" %> class="active" <%end%>><%= link_to "NFL", predictorindexpredictionsleague_path(@predictor.username,"sports","NFL") %></li>
+              
+              <li role="presentation" <% if params[:league] == "MLB" %> class="active" <%end%>><%= link_to "MLB", predictorindexpredictionsleague_path(@predictor.username, "sports", "MLB") %></li>
+              
+              <li role="presentation" <% if params[:league] == "NHL" %> class="active" <%end%>><%= link_to "NHL", predictorindexpredictionsleague_path(@predictor.username, "sports", "NHL") %></li>
+              
+          </ul>
 
-            <%= select("team_filter", "team", Team.all.collect(&:name), :prompt => "Filter by Team", :class => 'predictor-sort-teams-drop') %>
+          <%#if @predictions.count > 10 %>
 
-            <input type="submit" value="Filter" class ="predictor-index-sort-teams"/>
+            <form class="filter_form">
 
-          </form>
+              <%= select("team_filter", "team", Team.all.collect(&:name), :prompt => "Filter by Team", :class => 'predictor-sort-teams-drop') %>
 
-        <%#end%>
+              <input type="submit" value="Filter" class ="predictor-index-sort-teams"/>
 
-      <%end%>
-    
+            </form>
+
+          <%#end%>
+
+        <%end%>
+      
+      </div>
     </div>
-  </div>
+
+  <% end %>
   
 </div>

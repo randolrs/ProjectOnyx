@@ -92,8 +92,7 @@ a.header-make-prediction:hover{
 .header-balance{
 	line-height:34px;
 	border-color:#F0F0F0;
-	border: 2px solid;
-		
+	border: 2px solid;	
 }
 
 .container-fluid.sub-header{
@@ -102,7 +101,6 @@ a.header-make-prediction:hover{
 }
 
 a.signup-header{
-  
   padding: 10px 15px;
   border: 2px solid;
   border-color:white;
@@ -132,6 +130,17 @@ li.dropdown{
 
 .navbar nav {
 	color: white;
+}
+
+.nav-tabs > li > a {
+	background-color:#999898;
+	color:white;
+}
+
+.nav-tabs > li > a:hover {
+	background-color:#6B6B6B;
+	color:white;
+	border:none;
 }
 
 .watchlist-header {

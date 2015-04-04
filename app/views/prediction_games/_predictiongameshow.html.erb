@@ -1,40 +1,73 @@
 <table class ="game-show-table">
-  Prediction Game Info
-  <thead>
-    <tr>
-      <th class="game-show-table-label" colspan="4"><%=@predictor.username + "'s "%> Prediction</th>
-    </tr>
+    <thead>
+      <tr>
+        <th class="table-clear"></th>
+        <th class="table-main-color" colspan="7">Prediction Results</th>
+      </tr>
+    </thead>
+
     <tr class="game-show-table-subhead">
-      <th></th>
-      <th><%=@game.teama%></th>
-      <th>@</th>
-      <th><%=@game.teamh%></th>
-
-    </tr>
-  </thead>
-
-  <tbody>
-
-    <tr class="game-show-table-row">
-      <td>Final Score</td>
-      <td><%= @prediction_game.teama_score %></td>
-      <td></td>
-      <td><%= @prediction_game.teamh_score %></td>
+      <th class="table-clear" width=200px></th>
+      <th class="right-outline table-green" colspan="3"><%= @predictor.username + "'s Prediction" %></th>
+      <th class="table-blue" colspan="3">Actual</th>
     </tr>
 
-    <tr class="game-show-table-row">
-      <td>Game Winner</td>
-      <td><%# %></td>
-      <td> <%= @prediction_game.game_winner %></td>
-      <td><%# %></td>
+    <tr class="game-show-table-subhead-detail">
+      <th class="table-clear"></th>
+      <th class="table-green-lite"><%=@game.teama%></th>
+      <th class="table-green-lite">VS</th>
+      <th class="right-outline table-green-lite"><%=@game.teamh%></th>
+      <th class="table-blue-lite"><%=@game.teama%></th>
+      <th class="table-blue-lite">VS</th>
+      <th class="table-blue-lite"><%=@game.teamh%></th>
     </tr>
 
-    <tr class="game-show-table-row">
-      <td>Final Spread</td>
-      <td></td>
-      <td> <%= @prediction_game.spread %></td>
-      <td></td>
-    </tr>
+    <% if @game.status == "c" %>
+
+      <tr class="game-show-table-row">
+        <td class="game-row">Final Score</td>
+        <td><%=@prediction_game.teama_score%></td>
+        <td></td>
+        <td class="right-outline"><%=@prediction_game.teamh_score%></td>
+        <td><%=@game.teama_score%></td>
+        <td></td>
+        <td><%=@game.teamh_score%></td>
+      </tr>
+
+      <tr class="game-show-table-row">
+        <td class="game-row">Game Winner</td>
+        <td class="right-outline" colspan="3"><%=@prediction_game.game_winner%></td>
+        <td colspan="3"><%=@game.game_winner%></td>
+      </tr>
+
+      <tr class="game-show-table-row">
+        <td class="game-row">Spread</td>
+        <td class="right-outline" colspan="3"><%=@prediction_game.spread%></td>
+        <td colspan="3"><%=@game.score_spread%></td>
+      </tr>
+
+    <% elsif @game.status == "o" %>  
+
+      <tr class="game-show-table-row">
+        <td class="game-row">Final Score</td>
+        <td><%=@prediction_game.teama_score%></td>
+        <td></td>
+        <td class="right-outline"><%=@prediction_game.teamh_score%></td>
+        <td class="results-pending" colspan="3" rowspan="3">Pending</td>
+      </tr>
+
+      <tr class="game-show-table-row">
+        <td class="game-row">Game Winner</td>
+        <td class="right-outline" colspan="3"><%=@prediction_game.game_winner%></td>
+      </tr>
+
+      <tr class="game-show-table-row">
+        <td class="game-row">Spread</td>
+        <td class="right-outline" colspan="3"><%=@prediction_game.spread%></td>
+      </tr>
+
+
+    <% end %>
 
   </tbody>
 </table>

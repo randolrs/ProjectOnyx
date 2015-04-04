@@ -7,64 +7,11 @@
 
   <div class = "prediction-game-info-float">
 
-    <%= render'games/showgamesheader'%>
+    <%# render'games/showgamesheader'%>
 
-  <table class ="game-show-table">
-    <thead>
-      <tr>
-        <th class="game-show-table-label" colspan="10">Results</th>
-      </tr>
-    </thead>
-
-    <tr class="game-show-table-subhead">
-      <th width="100px"></th>
-      <th colspan="3"><%= @predictor.username + "'s Prediction" %></th>
-      <th colspan="3">Actual</th>
-      <th colspan="3">Differential</th>
-    </tr>
-
-    <tr class="game-show-table-subhead">
-      <th></th>
-      <th><%=@game.teama%></th>
-      <th>VS</th>
-      <th><%=@game.teamh%></th>
-      <th><%=@game.teama%></th>
-      <th>VS</th>
-      <th><%=@game.teamh%></th>
-      <th><%=@game.teama%></th>
-      <th>VS</th>
-      <th><%=@game.teamh%></th>
-    </tr>
-
-    <tr class="game-show-table-row">
-      <td class="game-row">Final Score</td>
-      <td><%=@prediction_game.teama_score%></td>
-      <td></td>
-      <td><%=@prediction_game.teamh_score%></td>
-      <td><%=@game.teama_score%></td>
-      <td></td>
-      <td><%=@game.teamh_score%></td>
-      <td><%=@prediction_game.teama_diff%></td>
-      <td></td>
-      <td><%=@prediction_game.teamh_diff%></td>
-    </tr>
-
-    <tr class="game-show-table-row">
-      <td class="game-row">Game Winner</td>
-      <td colspan="3"><%=@prediction_game.game_winner%></td>
-      <td colspan="3"><%=@game.game_winner%></td>
-      <td colspan="3"><% if @prediction_game.game_winner_yesno%> <font size="6px" color="green"> &#10004; </font> <%elsif not @prediction_game.game_winner_yesno%> <font size="6px" color="red"> &#10006; </font> <%end%> </td>
-    </tr>
-
-    <tr class="game-show-table-row">
-      <td class="game-row">Spread</td>
-      <td colspan="3"><%=@prediction_game.spread%></td>
-      <td colspan="3"><%=@game.score_spread%></td>
-      <td colspan="3"><%=@prediction_game.spread_diff%></td>
-    </tr>
-
-  </tbody>
-</table>
+    <%= render 'predictiongameshowgamedetails' %>
+    <%# render 'predictiongameshow' %>
+  
 
   </div>
 

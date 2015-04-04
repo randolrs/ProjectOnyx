@@ -1,0 +1,67 @@
+<table class ="game-show-table">
+    <thead>
+      <tr>
+        <th class="table-clear" colspan="1" rowspan="3"></th>
+        <th class="table-main-color" colspan="7">Prediction Results</th>
+      </tr>
+    </thead>
+
+    <tr class="game-show-table-subhead">
+      
+      <th class="table-clear"></th>
+      <th class="right-outline table-green" colspan="3"><%= @predictor.username + "'s Prediction" %></th>
+      <th class="table-blue" colspan="3">Actual</th>
+    </tr>
+
+    <tr class="game-show-table-subhead-detail">
+      <th class="table-clear"></th>
+      <th class="table-green-lite">Final Score</th>
+      <th class="table-green-lite">Winner</th>
+      <th class="right-outline table-green-lite">Spread</th>
+      <th class="table-blue-lite">Final Score</th>
+      <th class="table-blue-lite">Winner</th>
+      <th class="table-blue-lite">Spread</th>
+    </tr>
+
+    <% if @game.status == "c" %>
+
+      <tr class="game-show-table-row home">
+        <td class="game-row"><%=@game.teamh%></td>
+        <td><%=@prediction_game.teamh_score%></td>
+        <td><%if @prediction_game.game_winner == @game.teamh %>&#10004;<%end%></td>
+        <td class="right-outline"><%if @prediction_game.game_winner == @game.teamh %><%=@prediction_game.spread%><%end%></td>
+        <td><%=@game.teamh_score%></td>
+        <td><%if @game.game_winner == @game.teamh %>&#10004;<%end%></td>
+        <td><%if @game.game_winner == @game.teamh %><%=@game.score_spread%><%end%></td>
+      </tr>
+
+      <tr class="game-show-table-row away">
+        <td class="game-row"><%=@game.teama%></td>
+        <td><%=@prediction_game.teama_score%></td>
+        <td color="green"><%if @prediction_game.game_winner == @game.teama %>&#10004;<%end%></td>
+        <td class="right-outline"><%if @prediction_game.game_winner == @game.teama %><%=@prediction_game.spread%><%end%></td>
+        <td><%=@game.teama_score%></td>
+        <td><%if @game.game_winner == @game.teama %>&#10004;<%end%></td>
+        <td><%if @game.game_winner == @game.teama %><%=@game.score_spread%><%end%></td>
+      </tr>
+
+    <% elsif @game.status == "o" %>  
+
+      <tr class="game-show-table-row home">
+        <td class="game-row"><%=@game.teamh%></td>
+        <td><%=@prediction_game.teamh_score%></td>
+        <td><%if @prediction_game.game_winner == @game.teamh %>&#10004;<%end%></td>
+        <td class="right-outline"><%if @prediction_game.game_winner == @game.teamh %><%=@prediction_game.spread%><%end%></td>
+        <td class="results-pending" colspan="3" rowspan="2">Pending</td>
+      </tr>
+
+      <tr class="game-show-table-row away">
+        <td class="game-row"><%=@game.teama%></td>
+        <td><%=@prediction_game.teama_score%></td>
+        <td color=green><%if @prediction_game.game_winner == @game.teama %>&#10004;<%end%></td>
+        <td class="right-outline"><%if @prediction_game.game_winner == @game.teama %><%=@prediction_game.spread%><%end%></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>

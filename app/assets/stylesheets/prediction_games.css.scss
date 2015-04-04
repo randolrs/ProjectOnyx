@@ -114,9 +114,11 @@ a.final_score_pending{
 .predictor-image-container{
   padding:10px;
   border-radius:3px;
-
-
   background-color:white;
+}
+
+.rotate{
+  writing-mode: tb-rl;
 }
 
 .predictor-name{
@@ -134,6 +136,7 @@ a.final_score_pending{
   width:1100px;
   margin-left:auto;
   margin-right:auto;
+  margin-top:50px;
 }
 
 .predictor-card-float{
@@ -147,7 +150,7 @@ a.final_score_pending{
 
 .prediction-game-info-float{
   float: left;
-  width:700px;
+  margin-top:50px;
 }
 
 .new-prediction-game{
@@ -218,4 +221,79 @@ input.submit-prediction-game:hover{
 }
 .new-prediction-game{
   background-color:white;
+}
+
+th.table-main-color{
+  background-color:#2F1170;
+  font-size:24px;
+}
+
+th.table-clear{
+  background-color:transparent;
+  color:black;
+}
+
+th.table-green{
+  background-color:#2ECF52;
+}
+
+th.table-blue{
+  background-color:#609BFF;
+}
+
+th.table-green-lite{
+  background-color:#58D173;
+}
+
+th.table-blue-lite{
+  background-color:#A1C4FF;
+}
+
+td.game-row{
+  color:black;
+  font-size: 16px;
+  font-weight: bold;
+  text-align:right;
+}
+
+th.left-outline{
+  border-left: 1px solid #828282;
+}
+
+th.right-outline{
+  border-right: 2px solid white;
+}
+
+td.right-outline{
+  border-right: 2px solid white;
+}
+
+td.results-pending{
+  color: #F06B22;
+  font-size:20px;
+  background-color: #BFBFBF;
+  }
+
+tr.game-show-table-subhead-detail{
+
+}
+
+tr.game-show-table-row.home{
+  background-color: #FFA4A4;
+}
+
+.game-show-table-row.home td{
+  padding:10px;
+  font-weight:bold;
+  font-size:20px;
+}
+
+tr.game-show-table-row.away{
+  background-color: #FFF78B;
+}
+
+.game-show-table-row.away td{
+  padding:10px;
+  font-weight:bold;
+  font-size:20px;
 }

@@ -39,11 +39,9 @@
 }
 
 .game-header-body-venue{
-
 	height:20px;
 	margin-left:auto;
 	margin-right:auto;
-
 }
 
 .game-table-holder{
@@ -53,13 +51,14 @@
   margin-top:50px;
   margin-bottom:50px;
   border-radius:2px;
-  background-color:#561FCC;
+  background-color:white;
   padding:15px;
+  border: 2px solid #BFBFBF;
 }
 
 .game-table-holder h1{
 	padding-left:30px;
-	color:white;
+	color:black;
 }
 
 .game-show-table{
@@ -113,9 +112,7 @@ th.game-row{
 
 .game-table-index-wrapper{
 	padding:30px;
-	border-left: 1px solid #ddd;
-	border-right: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
+	border: 1px solid #ddd;
 	background-color:white;
 }
 

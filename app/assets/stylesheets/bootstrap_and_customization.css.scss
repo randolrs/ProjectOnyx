@@ -140,7 +140,6 @@ li.dropdown{
 .nav-tabs > li > a:hover {
 	background-color:#6B6B6B;
 	color:white;
-	border:none;
 }
 
 .watchlist-header {
@@ -178,6 +177,10 @@ li.dropdown{
 
 .league-header{
 	margin-bottom:0px;
+}
+
+.nav-pills.league-header > li > a{
+	margin:0px;
 }
 
 

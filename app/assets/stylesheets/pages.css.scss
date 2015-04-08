@@ -774,16 +774,13 @@ tr.prediction-table-row:hover{
    word-wrap: break-word;
    margin-left:20px;
    margin-right:20px;
-   width:200px
+   width:225px
 }
 
 .predictor-card-short{
   float:left;  
   position:relative;
-  border: 1px solid rgba(0,0,0,.2);
-  border-radius:3px;
   padding:10px;
-  margin:20px 20px 20px 50px;
   background-color:white;
 }
 
@@ -796,11 +793,12 @@ tr.prediction-table-row:hover{
   width:700px;
   float:left; 
   padding:20px;
+  margin-bottom:80px;
 
 }
 
 .sports-game-select-container{
-  width:1100px;
+  width:1130px;
   margin-left:auto;
   margin-right:auto;
 }

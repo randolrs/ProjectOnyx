@@ -15,11 +15,11 @@
  */
 
  .container {
- 	width:100%;
- 	margin-left:auto;
+ 	  width:100%;
+ 	  margin-left:auto;
     margin-right:auto;
     min-height: 500px;
-    background-color: #ECF4F0;
+    background-color: #F0E5FF;
     z-index:-11;
     padding:0px;
  }
@@ -136,4 +136,6 @@ select#team_filter_team{
 
 .predictor-description-container{
   padding:10px;
+  padding-bottom:20px;
+  background-color:white;
 }

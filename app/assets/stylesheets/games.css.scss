@@ -53,7 +53,8 @@
   border-radius:2px;
   background-color:white;
   padding:15px;
-  border: 2px solid #BFBFBF;
+  border: 1px solid #BFBFBF;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .game-table-holder h1{
@@ -67,6 +68,8 @@
 	margin-top:20px;
 	margin-bottom:20px;
 	width:800px;
+	-webkit-box-shadow: 5px 5px 10px 0px #9E9E9E;
+	box-shadow: 11px 11px 10px -7px #9E9E9E;
 }
 
 .game-show-table-row{
@@ -121,6 +124,11 @@ th.game-row{
   	margin-top:-1px;
 }
 
+.game-index-table-row-no{
+	border: 1px solid #E0E0E0;
+  	margin-top:-1px;
+}
+
 .game-index-table-row:hover{
 	background-color: #F2FCFC;
 	border: 2px solid #fd5a25;
@@ -133,6 +141,12 @@ th.game-row{
 	padding-bottom:10px;
 }
 
+.game-index-table-row-no td{
+	text-align:center;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
 th.game-index-fold-th{
   width:170px;
   font-size:14px;
@@ -140,6 +154,10 @@ th.game-index-fold-th{
   color:#4C4C4C;
   text-align: center;
 
+}
+
+td.no-active-games{
+	font-weight:bold;
 }
 
   

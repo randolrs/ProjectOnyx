@@ -32,6 +32,12 @@
 			<%= render 'predictorindexpredictiongames' %>
 
 			</div>
+
+			<nav>
+
+			<div class="center">
+   				<%= will_paginate @predictions, renderer: BootstrapPagination::Rails %>
+			</div>
 			
 		</div>
 	</div>

@@ -140,7 +140,8 @@ a.final_score_pending{
   margin-bottom:50px;
   height:300px;
   background-color:white;
-  border: 2px solid #BFBFBF;
+  border: 1px solid #BFBFBF;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .predictor-card-float{
@@ -161,6 +162,7 @@ a.final_score_pending{
   margin-left:auto;
   margin-right:auto;
   border: 1px solid #BFBFBF;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .new-prediction-game-header{
@@ -283,7 +285,7 @@ td.right-outline{
 td.results-pending{
   color: #F06B22;
   font-size:20px;
-  background-color: #BFBFBF;
+  margin:0px;
   }
 
 tr.game-show-table-subhead-detail{
@@ -321,5 +323,30 @@ tr.game-show-table-row.away{
   padding:15px;
   background-color:white;
   border: 1px solid #ddd;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   
+}
+
+a.game-details {
+  padding: 5px 10px 5px 10px;
+  background-color:#A39CBA;
+  border-radius:4px;
+  border-bottom: 2px solid rgba(0,0,0,.2);
+  color:white;
+  font-size:20px;
+}
+
+a.game-details:hover {
+  background-color:#696478;
+  text-decoration:none;
+}
+
+ul.game-details-drop{
+  list-style-type: none;
+  margin:0px;
+}
+
+.game-details-dropdown{
+  padding:10px;
+  margin-top:5px;
 }

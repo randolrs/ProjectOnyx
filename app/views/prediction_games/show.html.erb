@@ -14,6 +14,20 @@
       <%= render 'predictiongameshowgamedetails' %>
       <%# render 'predictiongameshow' %>
     
+      <div class ="prediction-game-details">
+        <ul class="game-details-drop">
+          <li class="dropdown">
+            <a href="#" class="game-details" data-toggle="dropdown" role="button" aria-expanded="false">Game Details</a>
+              <ul class="dropdown-menu game-details-dropdown" role="menu">
+                  <li><b>Home Team:</b> <%= @game.teamh %></li>
+                  <li><b>Away Team:</b> <%= @game.teama %></li>
+                  <li><b>Game Date:</b> <%= @game.event_time.strftime("%D") %></li>
+                  <li><b>Game Time:</b> <%= @game.event_time.strftime("%l:%M %p") %></li>
+                  <li><b>Venue:</b> <%= @game.event_venue %></li>
+              </ul>
+          </li>
+        </ul>
+      </div>
 
     </div>
 

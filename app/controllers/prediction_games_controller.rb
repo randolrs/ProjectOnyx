@@ -251,7 +251,9 @@ class PredictionGamesController < ApplicationController
         @predictions = @predictor.prediction_games
 
     end
-    
+
+       @predictions = @predictions.order("created_at DESC").paginate(:page =>params[:page], :per_page => 10)
+
   end
 
   def gameselect

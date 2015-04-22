@@ -25,7 +25,7 @@
 
         <% if current_predictor.id == @predictor.id %>
 
-          <%= link_to "Make a Prediction", sportsgamesselect_path(current_predictor.username), class: "subscribe_cta" %>
+          <%= link_to "Make a Prediction", sportsgamesselect_path("all"), class: "subscribe_cta" %>
 
         <% elsif user_signed_in? %>
           

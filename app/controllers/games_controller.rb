@@ -23,6 +23,8 @@ class GamesController < ApplicationController
 
     @games = Game.where("event_time > :time and status = :open", {time: Time.now, open: "o"})
 
+    @counter = 0
+
     if params[:league]
 
       if params[:league] == "all"

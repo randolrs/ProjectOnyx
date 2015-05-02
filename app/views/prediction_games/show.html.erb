@@ -1,36 +1,16 @@
-<div class ="prediction-game-container">
+<div class = "content-container">
 
-  <div class ="prediction-game-show-container">
+  <div class="predictor-panel">
+    <%= render 'predictors/predictorcard' %>
+  </div>
 
-    <div class = "predictor-card-float">
-      <%= render 'predictors/predictorcard_short' %>
+  <div class="content-panel">
 
-    </div>
+    <h2 class="prediction-index-header-text"><%=@predictor.name%>'s <%= @game.league %> Prediction</h2>
+    <h4><%= @game.teamh %> versus <%= @game.teama %> on <%= @game.event_time.strftime("%D") %></h4>
 
-    <div class = "prediction-game-info-float">
-
-      <%# render'games/showgamesheader'%>
-
-      <%= render 'predictiongameshowgamedetails' %>
-      <%# render 'predictiongameshow' %>
-    
-      <div class ="prediction-game-details">
-        <ul class="game-details-drop">
-          <li class="dropdown">
-            <a href="#" class="game-details" data-toggle="dropdown" role="button" aria-expanded="false">Game Details</a>
-              <ul class="dropdown-menu game-details-dropdown" role="menu">
-                  <li><b>Home Team:</b> <%= @game.teamh %></li>
-                  <li><b>Away Team:</b> <%= @game.teama %></li>
-                  <li><b>Game Date:</b> <%= @game.event_time.strftime("%D") %></li>
-                  <li><b>Game Time:</b> <%= @game.event_time.strftime("%l:%M %p") %></li>
-                  <li><b>Venue:</b> <%= @game.event_venue %></li>
-              </ul>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-
+    <%= render 'predictiongameshowgamedetails' %>
+    <%# render 'games/gamedetailsdrop' %>
   </div>
   
 </div>

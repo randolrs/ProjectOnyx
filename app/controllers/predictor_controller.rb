@@ -15,4 +15,5 @@ class PredictorController < ApplicationController
   		@predictors = Predictor.all.where(Predictor.prediction_games.all.where(:league => "NBA").count => 2)
   	end
 
+
 end

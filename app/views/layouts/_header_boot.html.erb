@@ -48,6 +48,25 @@
 
           <li><a href= <%= predictorindexpredictionsall_path(current_predictor.username) %> class="top-header"> My Predictions <span class="badge"><%= current_predictor.prediction_games.count %></span></a></li>
 
+          <li class="dropdown">
+            <% if current_predictor.name %>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= image_tag current_predictor.image.url(:thumb), class: "image-header"%><%= current_predictor.name %><span class="caret"></span></a>
+            <% end %>
+
+            <ul class="dropdown-menu" role="menu">
+                <li><a href= <%= predictorindexpredictionsall_path(current_predictor.username) %>> My Predictions <span class="badge"><%= current_predictor.prediction_games.count %></span></a></li>
+                <li><%= link_to "Edit Profile", edit_predictor_registration_path %></li>
+                <li><a href="#">Invite Friends</a></li>
+                <li><%= link_to "My Articles", predictorindexarticlessall_path %></li>
+                <li role="presentation" class="divider"></li>
+                <li><a href="#">Settings</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><a href="#">Help</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><%= link_to "Logout", destroy_predictor_session_path, method: :delete %></li>
+            </ul>
+          </li>
+
           <li><%= link_to "Logout", destroy_predictor_session_path, class: "top-header", method: :delete %></li>
 
         <% elsif admin_signed_in? %>

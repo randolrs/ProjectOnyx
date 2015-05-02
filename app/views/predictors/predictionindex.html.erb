@@ -1,0 +1,25 @@
+<div class = "content-container">
+
+	<div class="predictor-panel">
+		<%= render 'predictors/predictorcard' %>
+	</div>
+
+	<div class="content-panel">
+
+		<h2 class="prediction-index-header-text"><%=@predictor.name%>'s Predictions</h2>
+		<div class="predictor-prediction-index-container">
+
+		<%= render 'prediction_games/predictiongameheadernav' %>
+		<%= render 'prediction_games/predictorindexpredictiongames' %>
+
+		</div>
+
+		<nav>
+			<div class="center">
+				<% will_paginate @predictions, renderer: BootstrapPagination::Rails %>
+			</div>
+		</nav>
+		
+	</div>
+	
+</div>

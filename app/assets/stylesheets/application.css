@@ -25,8 +25,52 @@
  }
 
  .body{
- 	margin:0px;
+    margin:0px;
  }
+
+ .content-container{
+    margin-left:auto;
+    margin-right:auto;
+    overflow: hidden;
+    background-color: white;
+    width:1200px;
+    margin-top:80px;
+    margin-bottom:80px;
+    position:relative;
+    border: 1px solid rgba(0,0,0,.2);
+ }
+
+ .predictor-panel{
+    overflow: hidden;
+    padding:50px 20px 50px 20px;
+    width:230px;
+    float:left;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    height:100%;
+    display: inline-block;
+    top:0;
+    bottom:0;
+    position:absolute;
+    border-right: 1px solid rgba(0,0,0,.2);
+ }
+
+ .content-panel{
+    width:890px;
+    float:right; 
+    padding:50px 20px 50px 20px;
+    min-height:500px;
+}
+
+h2{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:50px;
+}
+
+h4{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:20px;
+  text-align:center;
+}
 
  .dropdown-menu.make-prediction-header{
   width:200px;

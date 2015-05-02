@@ -51,11 +51,21 @@ Rails.application.routes.draw do
   
   get '/predictors/sports/:league' => 'predictors#findsportspredictors', as: 'find_sports_predictors'
 
-  get '/:username' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionsall'
+  #get '/:username' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionsall'
 
-  get '/:username/:category' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionscategory'
+  #get '/:username/:category' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionscategory'
 
-  get '/:username/:category/league/:league' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionsleague'
+  #get '/:username/:category/league/:league' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionsleague'
+
+  get '/:username' => 'predictors#predictionindex', as: 'predictorindexpredictionsall'
+
+  get '/:username/articles' => 'predictors#articleindex', as: 'predictorindexarticlessall'
+
+  get '/:username/:category' => 'predictors#predictionindex', as: 'predictorindexpredictionscategory'
+
+  get '/:username/:category/league/:league' => 'predictors#predictionindex', as: 'predictorindexpredictionsleague'
+
+
 
   get '/buyprediction/sports/:id' => 'prediction_games#buy', as: 'buypredictiongame'
 

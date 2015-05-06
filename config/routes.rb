@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :articles
+
   resources :prediction_games
 
   resources :games
@@ -57,9 +59,15 @@ Rails.application.routes.draw do
 
   #get '/:username/:category/league/:league' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionsleague'
 
-  get '/:username' => 'predictors#predictionindex', as: 'predictorindexpredictionsall'
+  get '/:username/predictions' => 'predictors#predictionindex', as: 'predictorindexpredictionsall'
+
+  get '/:username/' => 'predictors#predictordashboard', as: 'predictordashboard'
 
   get '/:username/articles' => 'predictors#articleindex', as: 'predictorindexarticlessall'
+
+  get '/:username/articles/new' => 'articles#new', as: 'predictorarticlenew'
+
+  get '/:username/articles/:id' => 'articles#show', as: 'predictorarticleshow'
 
   get '/:username/:category' => 'predictors#predictionindex', as: 'predictorindexpredictionscategory'
 
@@ -69,7 +77,7 @@ Rails.application.routes.draw do
 
   get '/buyprediction/sports/:id' => 'prediction_games#buy', as: 'buypredictiongame'
 
-  get '/makepredictions/sports/:league' => 'games#sportsgamesselect', as: 'sportsgamesselect'
+  get '/:username/predictions/sports/new' => 'games#sportsgamesselect', as: 'sportsgamesselect'
 
   get '/:username/gamepredictions/:id' => 'prediction_games#show', as: 'predictiongamesshow'
 

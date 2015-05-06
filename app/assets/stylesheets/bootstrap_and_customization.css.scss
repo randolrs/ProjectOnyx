@@ -25,6 +25,11 @@ input[type="submit"]{
 	width:364px;
 }
 
+input[type="text"]{
+	
+}
+
+
 .navbar-default{
 	padding-bottom:5px;
 	padding-top:5px;
@@ -140,6 +145,7 @@ li.dropdown{
 .nav-tabs > li > a:hover {
 	background-color:#6B6B6B;
 	color:white;
+	margin:none;
 }
 
 .watchlist-header {

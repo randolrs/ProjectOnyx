@@ -1,0 +1,59 @@
+
+
+<div class = "content-container">
+
+	<div class="predictor-panel">
+		<%= render 'predictors/predictorcard' %>
+	</div>
+
+	<div class="content-panel">
+
+		<h2>Overview</h2>
+
+		<div class ="summary-header">
+			<table class ="prediction-index-summary">
+			  <thead>
+			    <tr>
+			      <th class="prediction-index-summary-th">Posts</th>
+			      <th class="prediction-index-summary-th">Predictions</th>
+			      <th class="prediction-index-summary-th">Fans</th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <tr class="prediction-summary-table-row" href="/">
+			      <td><%= @predictor.articles.count %></td>
+			      <td><%= @predictor.prediction_games.count %></td>
+			      <td>90001</td>
+			    </tr>  
+			  </tbody>
+
+			</table>
+		</div>
+
+		<div class ="article-title-header">
+			<h3>Recent Posts</h3>
+			<h5><%= link_to "Full Archive »", predictorindexarticlessall_path %></h5>
+		</div>
+
+		<div class="article-index-dashboard">
+			<%= render 'predictorarticlesummary'%>
+		</div>
+		
+
+		<div class ="prediction-title-header">
+			<h3>Recent Predictions</h3>
+			<h5><%= link_to "Full Archive »", predictorindexpredictionsall_path %></h5>
+
+			<%= render 'predictorpredictionssummary'%>
+		</div>
+
+		<nav>
+			<div class="center">
+				<%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
+			</div>
+		</nav>
+		
+	</div>
+	
+</div>

@@ -1,0 +1,24 @@
+
+<table class ="prediction-index-fold table table-hover">
+  
+  <thead>
+    <tr>
+      <th class="prediction-index-fold-th">Prediction Type</th>
+      <th class="prediction-index-fold-th">Description</th>
+      <th class="prediction-index-fold-th">Event Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @predictions.each do |prediction| %>
+      <tr data-link="<%=predictiongamesshow_path(@predictor.username,prediction.id)%>", class="prediction-table-row">
+        <td><%= prediction.league %> Game</td>
+        <td><%= prediction.teama %> @ <%= prediction.teamh %></td>
+        <td> <%= prediction.created_at.strftime("%D") %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+
+</table>
+

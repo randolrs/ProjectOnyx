@@ -38,14 +38,15 @@
     margin-bottom:80px;
     position:relative;
     border: 1px solid rgba(0,0,0,.2);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
  }
 
  .predictor-panel{
     overflow: hidden;
-    padding:50px 20px 50px 20px;
+    padding:20px 20px 50px 20px;
     width:230px;
     float:left;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     height:100%;
     display: inline-block;
     top:0;
@@ -55,15 +56,53 @@
  }
 
  .content-panel{
-    width:890px;
+    width:860px;
     float:right; 
-    padding:50px 20px 50px 20px;
+    padding:35px;
     min-height:500px;
+}
+
+ .content-panel h2{
+    margin-bottom:30px;
+    font-weight:bold;
+}
+
+.header-list li{
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+}
+
+.summary-header{
+  border:1px solid #CBCCC8;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+}
+
+.prediction-title-header{
+  border-top: 3px solid #E0E0E0;
+  margin-top:50px;
+  font-size:20px;
+  overflow: hidden;
+}
+
+.prediction-title-header h3{
+  font-size:20px;
+  float:left;
+  line-height: 20px;
+  margin-bottom: 30px;
+}
+
+.prediction-title-header h5{
+  float:right;
 }
 
 h2{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size:50px;
+}
+
+h3{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 h4{

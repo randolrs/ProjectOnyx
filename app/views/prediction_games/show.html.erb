@@ -6,6 +6,8 @@
 
   <div class="content-panel">
 
+  	<%= render 'predictors/predictorlinks' %>
+
     <h2 class="prediction-index-header-text"><%=@predictor.name%>'s <%= @game.league %> Prediction</h2>
     <h4><%= @game.teamh %> versus <%= @game.teama %> on <%= @game.event_time.strftime("%D") %></h4>
 

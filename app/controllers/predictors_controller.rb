@@ -68,4 +68,10 @@ class PredictorsController < ApplicationController
 
   end
 
+  def predictordashboard
+    @predictor = Predictor.find_by_username(params[:username])
+    @predictions = @predictor.prediction_games.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @articles = @predictor.articles.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+  end
+
 end

@@ -1,0 +1,56 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.article-title-header{
+  border-top: 3px solid #E0E0E0;
+  margin-top:50px;
+  font-size:20px;
+  overflow: hidden;
+}
+
+.article-title-header h3{
+  font-size:20px;
+  float:left;
+  line-height: 20px;
+  margin-bottom: 30px;
+}
+
+.article-title-header h5{
+  float:right;
+}
+
+.article-field{
+	width:1100px;
+	background-color:white;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.article-title-text{
+	width:400px;
+}
+
+.article-index-dashboard{
+	width:100%;
+	overflow:hidden;
+}
+
+.article-summary{
+	padding:10px;
+	overflow: hidden;
+	border: 2px solid #941DD3;
+	width:180px;
+	float:left;
+	margin-right:10px;
+}
+
+.article-summary h3{
+	font-size:16px;
+	line-height:16px;
+}
+
+.article-summary p{
+	font-size:12px;
+	margin:0px;
+}

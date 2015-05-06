@@ -133,7 +133,6 @@ a.request_button{
 }
 
 a.request_button:hover{
-	
 	background-color:#00AB00;
 }
 
@@ -671,11 +670,18 @@ a.prediction-detail:hover{
   background-color:white;
 }
 
+tr.prediction-table-row:hover{
+  background-color: #F2FCFC;
+  border: 2px solid #fd5a25;
+  cursor:pointer;
+}
+
 th.prediction-index-fold-th{
   width:150px;
   font-size:14px;
   padding: 7px 10px;
-  color:#4C4C4C;
+  background-color:#4C4C4C;
+  color:white;
   text-align: center;
 
 }
@@ -705,7 +711,6 @@ th.prediction-index-summary-th{
   border-collapse: collapse;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   width:600px;
-  background-color:white;
   border-radius:3px;
   margin-left:auto;
   margin-right:auto;
@@ -739,14 +744,17 @@ th.prediction-index-summary-th{
 }
 
 table.prediction-index-fold{
-  width:700px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin-left:auto;
+  margin-right:auto;
+}
+
+table.prediction-summary-index{
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-tr.prediction-table-row:hover{
-  background-color: #F2FCFC;
-  border: 2px solid #fd5a25;
-  cursor:pointer;
+th.prediction-summary-index{
+  color:red;
 }
 
 .prediction-summary-table-row{
@@ -826,6 +834,7 @@ tr.prediction-table-row:hover{
 
 .prediction-index-header-text{
   text-align:center;
+  margin-top:50px;
   margin-bottom:50px; 
 }
 
@@ -877,10 +886,8 @@ tr.prediction-table-row:hover{
   }
 
   .footer-container a:hover{
-
     color:grey;
     text-decoration:none;
-
   }
 
 
@@ -921,10 +928,8 @@ ul#footer a:visited{
 }
 
 .footer-extras a:hover{
-
   color:grey;
   text-decoration:none;
-  
 }
 
   .listings{

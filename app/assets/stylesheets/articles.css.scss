@@ -39,10 +39,16 @@
 .article-summary{
 	padding:10px;
 	overflow: hidden;
-	border: 2px solid #941DD3;
+	border: 2px solid #E0E0E0;
 	width:180px;
 	float:left;
 	margin-right:10px;
+	cursor:pointer;
+}
+
+.article-summary:hover{
+	background-color: #F2FCFC;
+  	border: 2px solid #fd5a25;
 }
 
 .article-summary h3{
@@ -53,4 +59,24 @@
 .article-summary p{
 	font-size:12px;
 	margin:0px;
+}
+
+.article-detail{
+	padding:15px;
+	overflow: hidden;
+	border: 1px solid #E3E3E3;
+	margin:20px;
+	cursor:pointer;
+	box-shadow: 0 0px 15px rgba(0, 0, 0, 0.15);
+}
+
+.article-detail:hover{
+	background-color: #F2FCFC;
+  	border: 1px solid #fd5a25;
+  	box-shadow: 0 0px 0px;
+}
+
+.article-detail h3{
+	font-size:24px;
+	line-height:24px;
 }

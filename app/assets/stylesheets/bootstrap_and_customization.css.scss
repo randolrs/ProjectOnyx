@@ -148,6 +148,10 @@ li.dropdown{
 	margin:none;
 }
 
+.table-hover tbody tr:hover td{
+	background-color:#F2FCFC;
+}
+
 .watchlist-header {
 	width:480px;
 	margin-left:auto;

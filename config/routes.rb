@@ -65,7 +65,7 @@ Rails.application.routes.draw do
 
   get '/:username/articles' => 'predictors#articleindex', as: 'predictorindexarticlessall'
 
-  get '/:username/articles/new' => 'articles#new', as: 'predictorarticlenew'
+  get '/:username/articles/new/sports/:game' => 'articles#new', as: 'predictorarticlenew'
 
   get '/:username/articles/:id' => 'articles#show', as: 'predictorarticleshow'
 
@@ -77,7 +77,7 @@ Rails.application.routes.draw do
 
   get '/buyprediction/sports/:id' => 'prediction_games#buy', as: 'buypredictiongame'
 
-  get '/:username/predictions/sports/new' => 'games#sportsgamesselect', as: 'sportsgamesselect'
+  get '/:username/:type/new/sports' => 'games#sportsgamesselect', as: 'sportsgamesselect'
 
   get '/:username/gamepredictions/:id' => 'prediction_games#show', as: 'predictiongamesshow'
 

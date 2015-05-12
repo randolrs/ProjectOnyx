@@ -59,7 +59,12 @@
                   <% @counter = @counter + 1 %>
                   <tbody>
                       
-                    <tr data-link="<%=newpredictiongame_path(game.id)%>", class= "game-index-table-row">
+                    <% if params[:type]=="predictions"%>
+                      <tr data-link="<%=newpredictiongame_path(game.id)%>", class= "game-index-table-row">
+                      <% elsif params[:type]=="articles"%>
+                      <tr data-link="<%=predictorarticlenew_path(current_predictor.username, game.id)%>", class= "game-index-table-row">
+                    <%end%>
+
                       
                       <% if params[:league] == "all" %>
                         <td><%= game.league %></td>

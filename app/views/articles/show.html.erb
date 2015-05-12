@@ -15,5 +15,21 @@
   <%= @article.hits %>
 </p>
 
+<p>
+  <strong>Prediction Count:</strong>
+  <%= @article.prediction_games.count %>
+</p>
+
+	
+
+<ul>
+	<% for prediction_game in @article.prediction_games %>
+		<li><%= prediction_game.teama%></li>
+		<li><%= prediction_game.teamh%></li>
+    <li><%= prediction_game.predictor_id%></li>
+
+	<% end %>
+</ul>
+
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

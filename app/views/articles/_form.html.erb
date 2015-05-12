@@ -21,6 +21,14 @@
     <%= f.text_area :body, :rows => "10", class: "article-title-text" %>
   </div>
 
+
+  <%= f.fields_for :prediction_games do |builder| %>
+
+    <%= render "predictiongames_fields", :f => builder %>
+    
+  <% end %>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

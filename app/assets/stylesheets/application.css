@@ -37,8 +37,8 @@
     margin-top:80px;
     margin-bottom:80px;
     position:relative;
-    border: 1px solid rgba(0,0,0,.2);
-    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #E3E3E3;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.15);
  }
 
  .predictor-panel{
@@ -46,13 +46,13 @@
     padding:20px 20px 50px 20px;
     width:230px;
     float:left;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.15);
     height:100%;
     display: inline-block;
     top:0;
     bottom:0;
     position:absolute;
-    border-right: 1px solid rgba(0,0,0,.2);
+    border-right: 1px solid #E3E3E3;
  }
 
  .content-panel{

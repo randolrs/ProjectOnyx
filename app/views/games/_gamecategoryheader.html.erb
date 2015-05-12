@@ -3,12 +3,12 @@
 	<span class="glyphicon glyphicon-envelope"></span>
 
 	<ul class="nav nav-tabs league-header">
-		<li <% if params[:league] =="all"%> class="active" <%end%>> <%= link_to "All", sportsgamesselect_path("all") %></li>
+		<li <% if params[:league] =="all" or params[:league].nil? %> class="active" <%end%>> <%= link_to "All", sportsgamesselect_path(current_predictor.username, "article") %></li>
 
-		<li <% if params[:league] =="NBA"%> class="active" <%end%>><%= link_to "NBA", sportsgamesselect_path("NBA") %> </li>
-		<li <% if params[:league] =="NFL"%> class="active" <%end%>><%= link_to "NFL", sportsgamesselect_path("NFL") %> </li>
-		<li <% if params[:league] =="MLB"%> class="active" <%end%>><%= link_to "MLB", sportsgamesselect_path("MLB") %> </li>
-		<li <% if params[:league] =="NHL"%> class="active" <%end%>><%= link_to "NHL", sportsgamesselect_path("NHL") %> </li>
+		<li <% if params[:league] =="NBA"%> class="active" <%end%>><%= link_to "NBA", sportsgamesselect_path(current_predictor.username, "article") %> </li>
+		<li <% if params[:league] =="NFL"%> class="active" <%end%>><%= link_to "NFL", sportsgamesselect_path(current_predictor.username, "article") %> </li>
+		<li <% if params[:league] =="MLB"%> class="active" <%end%>><%= link_to "MLB", sportsgamesselect_path(current_predictor.username, "article") %> </li>
+		<li <% if params[:league] =="NHL"%> class="active" <%end%>><%= link_to "NHL", sportsgamesselect_path(current_predictor.username, "article") %> </li>
 	</ul>
 
 </div>

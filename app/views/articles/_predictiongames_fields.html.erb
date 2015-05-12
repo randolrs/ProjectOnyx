@@ -1,0 +1,20 @@
+<div class="new-prediction-game">
+
+  <div class="new-prediction-game-header">
+   Final Score Prediction
+  </div>
+
+  <table class = "prediction-game-form">
+    <thead>
+      <th><%= @game.teama %> </th>
+      <th> VS </th>
+      <th><%= @game.teamh %> </th>
+    </thead>
+      
+    <tbody>
+      <td> <%= f.number_field :teama_score %> </td>
+      <td> - </td>
+      <td> <%= f.number_field :teamh_score %> </td>
+    </tbody>
+  </table>
+</div>

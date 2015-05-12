@@ -65,6 +65,7 @@ class PredictorsController < ApplicationController
 
   def articleindex
     @predictor = Predictor.find_by_username(params[:username])
+    @articles = @predictor.articles.all
 
   end
 

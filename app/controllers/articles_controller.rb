@@ -16,6 +16,14 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
     @predictor = Predictor.find_by_username(params[:username])
+    @prediction_game = @article.prediction_games.build 
+    @game = Game.find(params[:game])
+
+    respond_to do |format|
+    format.html # new.html.erb
+    format.json { render json: @article }
+    end
+
   end
 
   # GET /articles/1/edit
@@ -27,6 +35,10 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.predictor_id = current_predictor.id
+
+    for prediction_game in @article.prediction_games
+      prediction_game.predictor_id = current_predictor.id
+    end
 
     respond_to do |format|
       if @article.save
@@ -71,6 +83,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body, :hits)
+      params.require(:article).permit(:title, :body, :hits, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id])
     end
 end

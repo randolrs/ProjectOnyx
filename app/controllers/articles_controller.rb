@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article = Article.find(params[:id])
+    @article.update(hits: @article.hits+1)
   end
 
   # GET /articles/new
@@ -17,7 +19,9 @@ class ArticlesController < ApplicationController
     @article = Article.new
     @predictor = Predictor.find_by_username(params[:username])
     @prediction_game = @article.prediction_games.build 
+    
     @game = Game.find(params[:game])
+    @article.event_id = @game.id
 
     respond_to do |format|
     format.html # new.html.erb
@@ -35,9 +39,11 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.predictor_id = current_predictor.id
+    @article.hits = 0
 
     for prediction_game in @article.prediction_games
       prediction_game.predictor_id = current_predictor.id
+      prediction_game.game_id = @article.event_id
     end
 
     respond_to do |format|
@@ -83,6 +89,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body, :hits, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id])
+      params.require(:article).permit(:title, :body, :hits, :event_id, :event_type, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id])
     end
 end

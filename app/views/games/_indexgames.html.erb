@@ -27,7 +27,8 @@
 
             <% if params[:league] == "all" %>
               <th class="game-index-fold-th">League</th>     
-            <% end %>   
+            <% end %>
+
               <th class="game-index-fold-th">Matchup</th>
               <th class="game-index-fold-th">Date</th>
               <th class="game-index-fold-th">Time</th>
@@ -57,6 +58,7 @@
                 <% if not current_predictor.prediction_games.where(:game_id => game.id).present? %>
 
                   <% @counter = @counter + 1 %>
+                  
                   <tbody>
                       
                     <% if params[:type]=="predictions"%>

@@ -69,56 +69,56 @@ class GamesController < ApplicationController
 
     @game = Game.find(params[:id])
 
-        if @game.status == "c"
+      if @game.status == "c"
 
-          if @game.teama_score > @game.teamh_score
+        if @game.teama_score > @game.teamh_score
 
-            @game.game_winner = @game.teama
+          @game.game_winner = @game.teama
 
-            @game.score_spread = @game.teama_score - @game.teamh_score
+          @game.score_spread = @game.teama_score - @game.teamh_score
 
-          elsif @game.teama_score < @game.teamh_score
+        elsif @game.teama_score < @game.teamh_score
 
-            @game.game_winner = @game.teamh
+          @game.game_winner = @game.teamh
 
-            @game.score_spread = @game.teamh_score - @game.teama_score
+          @game.score_spread = @game.teamh_score - @game.teama_score
 
-          end
+        end
             
           #@prediction_games = PredictionGame.find(:all, :conditions => {:game_id => [@game.id]})
           #@prediction_games = PredictionGame.all.where(:game_id => game.id)
 
-          @prediction_games = PredictionGame.where("game_id = :gameid", {gameid: @game.id})
+        @prediction_games = PredictionGame.where("game_id = :gameid", {gameid: @game.id})
 
-            @prediction_games.each do |prediction_game|
+          @prediction_games.each do |prediction_game|
 
-              prediction_game.update(status: "c")
-              prediction_game.update(teama_tscore: @game.teama_score)
-              prediction_game.update(teamh_tscore: @game.teamh_score)
-              prediction_game.update(game_winnert: @game.game_winner)
-              prediction_game.update(teama_diff: prediction_game.teama_score - @game.teama_score)
-              prediction_game.update(teamh_diff: prediction_game.teamh_score - @game.teamh_score)
+            prediction_game.update(status: "c")
+            prediction_game.update(teama_tscore: @game.teama_score)
+            prediction_game.update(teamh_tscore: @game.teamh_score)
+            prediction_game.update(game_winnert: @game.game_winner)
+            prediction_game.update(teama_diff: prediction_game.teama_score - @game.teama_score)
+            prediction_game.update(teamh_diff: prediction_game.teamh_score - @game.teamh_score)
 
-              if prediction_game.game_winner == prediction_game.teama
-                prediction_game.update(spreadt: @game.teama_score - @game.teamh_score)
-              elsif prediction_game.game_winner == prediction_game.teamh
-                prediction_game.update(spreadt: @game.teamh_score - @game.teama_score)
-              end
-
-              if prediction_game.game_winner == prediction_game.game_winner
-                prediction_game.update(game_winner_yesno: true)
-              else
-                prediction_game.update(game_winner_yesno: false)
-              end
-
-              prediction_game.update(spread_diff: prediction_game.spread - @game.score_spread)
-
-
+            if prediction_game.game_winner == prediction_game.teama
+              prediction_game.update(spreadt: @game.teama_score - @game.teamh_score)
+            elsif prediction_game.game_winner == prediction_game.teamh
+              prediction_game.update(spreadt: @game.teamh_score - @game.teama_score)
             end
 
-        end
+            if prediction_game.game_winner == prediction_game.game_winner
+              prediction_game.update(game_winner_yesno: true)
+            else
+              prediction_game.update(game_winner_yesno: false)
+            end
 
-      respond_to do |format|
+            prediction_game.update(spread_diff: prediction_game.spread - @game.score_spread)
+
+
+          end
+
+      end
+
+    respond_to do |format|
 
       if @game.update(game_params)
 
@@ -128,6 +128,7 @@ class GamesController < ApplicationController
         format.html { render :edit }
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
+      
     end
   end
 

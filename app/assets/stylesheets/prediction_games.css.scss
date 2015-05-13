@@ -161,6 +161,7 @@ a.final_score_pending{
   width:400px;
   margin-left:auto;
   margin-right:auto;
+  background-color:white;
   border: 1px solid #BFBFBF;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -219,10 +220,6 @@ input.submit-prediction-game{
 
 input.submit-prediction-game:hover{
   background-color:#2585D1;
-}
-
-.new-prediction-game{
-  background-color:white;
 }
 
 th.table-main-color{

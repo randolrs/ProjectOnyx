@@ -1,4 +1,4 @@
-<div class="new-prediction-game">
+<div class="new-article-prediction-game">
 
   <div class="new-prediction-game-header">
    Final Score Prediction
@@ -9,12 +9,13 @@
       <th><%= @game.teama %> </th>
       <th> VS </th>
       <th><%= @game.teamh %> </th>
+      <th><%= @prediction_game.game_id %> </th>
     </thead>
       
     <tbody>
-      <td> <%= f.number_field :teama_score %> </td>
+      <td> <%= f.number_field :teama_score, input_html: {maxlength: 15, size: 100}, class: "score-input" %> </td>
       <td> - </td>
-      <td> <%= f.number_field :teamh_score %> </td>
+      <td> <%= f.number_field :teamh_score, class: "score-input" %> </td>
     </tbody>
   </table>
 </div>

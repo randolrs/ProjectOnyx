@@ -17,6 +17,7 @@
     <%= f.text_field :title, autofocus: true, class: "article-title-text" %>
   </div>
   <div class="field">
+    <%= f.hidden_field :event_time, as: :datetime, :label => false, :placeholder => @article.event_time %>
     <%= f.label :body %><br>
     <%= f.text_area :body, :rows => "10", class: "article-title-text" %>
     <%= f.hidden_field :event_id, as: :integer, :label => false, :placeholder => @game.id %>

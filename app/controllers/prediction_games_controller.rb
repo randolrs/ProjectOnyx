@@ -141,7 +141,6 @@ class PredictionGamesController < ApplicationController
   # GET /prediction_games/1
   # GET /prediction_games/1.json
   def show
-
     @prediction_game = PredictionGame.find(params[:id])
     @user = current_user
     @game = Game.find(@prediction_game.game_id)
@@ -248,11 +247,12 @@ class PredictionGamesController < ApplicationController
       end
 
     else
-        @predictions = @predictor.prediction_games
+      
+      @predictions = @predictor.prediction_games
 
     end
 
-       @predictions = @predictions.order("created_at DESC").paginate(:page =>params[:page], :per_page => 10)
+      @predictions = @predictions.order("created_at DESC").paginate(:page =>params[:page], :per_page => 10)
 
   end
 

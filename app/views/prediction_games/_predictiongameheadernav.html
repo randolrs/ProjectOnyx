@@ -2,7 +2,6 @@
 
   <ul class="nav nav-tabs watchlist-header-sports">
 
-    <!-- <div class = "league-header-wrap"> -->
       <li role="presentation" <% if params[:category].nil?%> class="active" <%end%>><%= link_to "All", predictorindexpredictionsall_path(@predictor.username) %></li>
       
       <li role="presentation" <% if params[:category] == "sports" %> class="active" <%end%>><%= link_to "Sports", predictorindexpredictionscategory_path(@predictor.username, "sports") %></li>
@@ -12,7 +11,7 @@
       <li role="presentation" <% if params[:category] == "politics" %> class="active" <%end%>><%= link_to "Politics", predictorindexpredictionscategory_path(@predictor.username, "politics") %></li>
       
       <li role="presentation" <% if params[:category] == "weather" %> class="active" <%end%>><%= link_to "Weather", predictorindexpredictionscategory_path(@predictor.username, "weather") %></li>
-    <!-- </div> -->
+
   </ul>
 
   <% if admin_signed_in? %>

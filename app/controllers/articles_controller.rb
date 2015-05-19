@@ -12,6 +12,14 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @article.update(hits: @article.hits+1)
+    @predictor = Predictor.find(@article.predictor_id)
+
+    for prediction_game in @article.prediction_games
+      @prediction_game = prediction_game
+
+    end
+
+    @game = Game.find(@article.event_id)
   end
 
   # GET /articles/new
@@ -22,6 +30,7 @@ class ArticlesController < ApplicationController
     
     @game = Game.find(params[:game])
     @article.event_id = @game.id
+    @article.event_time = @game.event_time
 
     respond_to do |format|
     format.html # new.html.erb
@@ -41,15 +50,38 @@ class ArticlesController < ApplicationController
     @article.predictor_id = current_predictor.id
     @article.hits = 0
 
+    @game = Game.find(@article.event_id)
+
     for prediction_game in @article.prediction_games
       prediction_game.predictor_id = current_predictor.id
       prediction_game.game_id = @article.event_id
+      prediction_game.event_time = @article.event_time
+      prediction_game.teama = @game.teama
+      prediction_game.teamh = @game.teamh
+      if Time.now > prediction_game.event_time
+        prediction_game.status = "o"
+      end
+
+      prediction_game.league = @game.league
+
+      if prediction_game.teama_score > prediction_game.teamh_score
+        prediction_game.game_winner = prediction_game.teama
+        prediction_game.spread = prediction_game.teama_score - prediction_game.teamh_score
+      elsif prediction_game.teama_score < prediction_game.teamh_score
+        prediction_game.game_winner = prediction_game.teamh
+        prediction_game.spread = prediction_game.teamh_score - prediction_game.teama_score
+      elsif prediction_game.teama_score == prediction_game.teamh_score
+        prediction_game.game_winner = "N/A"
+        prediction_game.spread = 0
+      end
+
     end
 
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
+
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }
@@ -89,6 +121,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body, :hits, :event_id, :event_type, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id])
+      params.require(:article).permit(:title, :body, :hits, :event_id, :event_type, :event_time, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :spread, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id])
     end
 end

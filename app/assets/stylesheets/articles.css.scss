@@ -64,7 +64,7 @@
 .article-detail{
 	padding:15px;
 	overflow: hidden;
-	border: 1px solid #E3E3E3;
+	border: 2px solid #E3E3E3;
 	margin:20px;
 	cursor:pointer;
 	box-shadow: 0 0px 15px rgba(0, 0, 0, 0.15);
@@ -72,7 +72,7 @@
 
 .article-detail:hover{
 	background-color: #F2FCFC;
-  	border: 1px solid #fd5a25;
+  	border: 2px solid #fd5a25;
   	box-shadow: 0 0px 0px;
 }
 
@@ -93,4 +93,37 @@
 .score-input{
 	width:25px;
 	text-align:center;
+}
+
+.article-top{
+	border-bottom: 3px solid #BFBFBF;
+	padding-bottom:30px;
+	overflow:hidden;
+	display:block;
+}
+
+.article-show-title{
+	padding-left:10px;
+
+}
+
+.article-show-detail{
+	float:left;
+}
+
+.article-show-detail h3{
+	margin:0px;
+	line-height:30px;
+}
+
+.article-show-sub-detail{
+	padding-left:10px;
+	float:left;
+	font-size:12px;
+}
+
+.article-show-body{
+	float:left;
+	width:100%;
+	padding:20px 80px 20px 80px;
 }

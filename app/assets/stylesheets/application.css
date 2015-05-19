@@ -34,11 +34,11 @@
     overflow: hidden;
     background-color: white;
     width:1200px;
-    margin-top:80px;
-    margin-bottom:80px;
+    margin-top:60px;
+    margin-bottom:60px;
     position:relative;
-    border: 1px solid #E3E3E3;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.15);
+    border: 1px solid #BFBFBF;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
  }
 
  .predictor-panel{
@@ -55,9 +55,30 @@
     border-right: 1px solid #E3E3E3;
  }
 
+ .side-panel{
+    overflow: hidden;
+    padding:20px 20px 50px 20px;
+    width:230px;
+    float:right;
+    border-left: 2px solid #E3E3E3;
+    height:100%;
+    display: inline-block;
+    top:0;
+    bottom:0;
+    position:absolute;
+    border-right: 1px solid #E3E3E3;
+ }
+
  .content-panel{
     width:860px;
     float:right; 
+    padding:35px;
+    min-height:500px;
+}
+
+ .article-panel{
+    width:860px;
+    float:left; 
     padding:35px;
     min-height:500px;
 }

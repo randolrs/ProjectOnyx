@@ -10,7 +10,9 @@
 
 		<h2 class="prediction-index-header-text">Posts</h2>
 		
-		<%= render 'predictors/predictorarticleindex' %>
+		<% @articles.each do |article| %>
+			<%= render 'predictors/predictorarticleindex' %>
+		<% end %>
 
 		<nav>
 			<div class="center">

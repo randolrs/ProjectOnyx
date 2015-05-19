@@ -6,8 +6,6 @@ class PredictorController < ApplicationController
 
   	def session
   		new_session_path(@predictor)
-
-  		redirect_to predictorindexpredictionsall_path(current_predictor.username)
   	end
 
   	def nbapredictors

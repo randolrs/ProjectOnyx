@@ -61,6 +61,8 @@ Rails.application.routes.draw do
 
   get '/:username/predictions' => 'predictors#predictionindex', as: 'predictorindexpredictionsall'
 
+   get '/:username/predictions/:category' => 'predictors#predictionindex', as: 'predictorindexpredictionscategory'
+
   get '/:username/' => 'predictors#predictordashboard', as: 'predictordashboard'
 
   get '/:username/articles' => 'predictors#articleindex', as: 'predictorindexarticlessall'
@@ -68,8 +70,6 @@ Rails.application.routes.draw do
   get '/:username/articles/new/sports/:game' => 'articles#new', as: 'predictorarticlenew'
 
   get '/:username/articles/:id' => 'articles#show', as: 'predictorarticleshow'
-
-  get '/:username/:category' => 'predictors#predictionindex', as: 'predictorindexpredictionscategory'
 
   get '/:username/:category/league/:league' => 'predictors#predictionindex', as: 'predictorindexpredictionsleague'
 

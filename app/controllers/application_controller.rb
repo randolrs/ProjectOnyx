@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 	  	
 	  	if predictor_signed_in?
 
-  			predictorindexpredictionsall_path(current_predictor.username)
+  			predictordashboard_path(current_predictor.username)
 
   		elsif user_signed_in?
 

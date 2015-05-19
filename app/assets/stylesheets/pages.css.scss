@@ -782,6 +782,9 @@ th.prediction-summary-index{
   position:relative;
   padding:10px;
   background-color:white;
+  margin: 20px;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius:3px;
 }
 
 .predictor-container-short{
@@ -815,9 +818,10 @@ th.prediction-summary-index{
 .predictor-image-small{
   margin-left:auto;
   margin-right:auto;
-  width:96px;
-  height:96px;
-  border-radius:3px;
+  width:70px;
+  height:70px;
+  border-radius:35px;
+  float:left;
   
 }
 

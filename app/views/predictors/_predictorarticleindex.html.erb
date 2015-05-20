@@ -1,9 +1,12 @@
 
-  <div class = "article-detail">
+<% @articles.each do |article| %>
 
-    <h3><%= link_to @article.title, predictorarticleshow_path(@predictor.username,@article.id) %></h3>
-    <p><%= @article.body %></p>
-    <p>submitted <%= @article.created_at.strftime("%D") %></p>
+  <div class = "article-detail">
+    <h3><%= link_to article.title, predictorarticleshow_path(@predictor.username,article.id) %></h3>
+    <p><%= article.body %></p>
+    <p>submitted <%= article.created_at.strftime("%D") %></p>
     <p>/category</p>
-    <%= link_to "xxx comments", predictorarticleshow_path(@predictor.username,@article.id) %>
+    <%= link_to "xxx comments", predictorarticleshow_path(@predictor.username,article.id) %>
   </div>
+
+  <%end%>

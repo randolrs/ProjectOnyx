@@ -73,8 +73,6 @@ Rails.application.routes.draw do
 
   get '/:username/:category/league/:league' => 'predictors#predictionindex', as: 'predictorindexpredictionsleague'
 
-
-
   get '/buyprediction/sports/:id' => 'prediction_games#buy', as: 'buypredictiongame'
 
   get '/:username/:type/new/sports' => 'games#sportsgamesselect', as: 'sportsgamesselect'
@@ -82,6 +80,8 @@ Rails.application.routes.draw do
   get '/:username/gamepredictions/:id' => 'prediction_games#show', as: 'predictiongamesshow'
 
   get 'editor' => 'sports#new'
+
+  get '/articles/all/:type' => 'articles#index', as: 'articledashboard'
 
   get 'watchlist' =>'pages#mywatchlist'
 

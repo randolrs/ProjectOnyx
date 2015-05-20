@@ -801,7 +801,7 @@ th.prediction-summary-index{
 }
 
 .sports-game-select-container{
-  width:1130px;
+  width:1200px;
   margin-left:auto;
   margin-right:auto;
 }
@@ -830,7 +830,7 @@ th.prediction-summary-index{
   width:700px;
   margin-left:auto;
   margin-right:auto;
-  margin-bottom:80px;
+  margin-bottom:60px;
 }
 
 .presentation-descriptor{
@@ -979,5 +979,10 @@ ul#footer a:visited{
 
 .typeselect-cta a:hover{
   background-color:#ccc;
-  
+}
+
+a.header-category{
+  font-size:28px;
+  line-height:30px;
+  font-family: "Tungsten Bold",Tahoma,Arial,sans-serif;
 }

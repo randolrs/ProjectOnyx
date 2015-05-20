@@ -1,14 +1,14 @@
 
 <div class = "article-show-header">
  	<div class="article-author-picture">
- 		<%= image_tag current_predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%>
+ 		<%= image_tag @predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%>
  	</div>
 
  	<div class="article-show-detail">
  		<h3><%= link_to @article.title, predictorarticleshow_path(@predictor.username,@article.id), class: "article-show-title" %></h3>
 		
  		<div class="article-show-sub-detail">
-			submitted <%= @article.created_at.strftime("%D") %> by <%= link_to @predictor.username, predictorarticleshow_path(@predictor.username,@article.id) %> to /category
+			submitted <%= @article.created_at.strftime("%D") %> by <%= link_to @predictor.username, predictordashboard_path(@predictor.username) %> to /category
 		</div>
 
 		<br>

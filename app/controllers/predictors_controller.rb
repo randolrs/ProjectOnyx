@@ -65,7 +65,7 @@ class PredictorsController < ApplicationController
 
   def articleindex
     @predictor = Predictor.find_by_username(params[:username])
-    @articles = @predictor.articles.all
+    @articles = @predictor.articles.all.order("created_at DESC")
 
   end
 

@@ -7,6 +7,11 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  def articleindex
+      @predictor = Predictor.where(:username=>params[:username])
+      @articles = @predictor.articles
+  end
+
   # GET /articles/1
   # GET /articles/1.json
   def show

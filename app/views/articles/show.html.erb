@@ -7,7 +7,8 @@
     	<%= render 'articles/articleshow' %>
 	</div>
 
-    <h3>Predicition:</h3>
+    <h3><u>Prediction</u></h3>
+    <h4><%=@game.league%> Game: <%=@game.teama%> at <%=@game.teamh%> on <%=@game.event_time.strftime("%b %d, %Y")%></h4>
     <%= render 'prediction_games/predictiongameshowgamedetails'%>
 
   </div>

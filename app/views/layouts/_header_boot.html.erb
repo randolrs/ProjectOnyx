@@ -105,7 +105,7 @@
             <% end %>
 
             <ul class="dropdown-menu" role="menu">
-                <li><a href= <%= predictordashboard_path(current_predictor.username) %>> My Profile <span class="badge"><%= current_predictor.prediction_games.count %></span></a></li>
+                <li><a href= <%= predictordashboard_path(current_predictor.username) %>>Profile <span class="badge"><%= current_predictor.prediction_games.count %></span></a></li>
                 <li role="presentation" class="divider"></li>
                 <li><%= link_to "New Article", sportsgamesselect_path(current_predictor.username, "articles") %></li>
                 <li><%= link_to "New Prediction", sportsgamesselect_path(current_predictor.username, "predictions") %></li>

@@ -1,0 +1,43 @@
+<li><b><u>Upcoming <%= params[:league]%> Games:</u></b></li>
+<ul class="subheader-menu-list">
+
+  <% @games.each do |game| %>
+
+      <li><%= link_to game.teama + " @ " + game.teamh + ", " + game.event_time.strftime("%D"), gameshow_path(params[:league],game.id)%></li>
+
+  <%end%>
+
+</ul>
+
+<li role="presentation" class="divider"></li>
+
+<li><%= link_to "More Games", home_path %></li>
+
+<!-- <table class ="game-show-table">
+
+  <tr>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+  </tr>
+
+  <tr>
+    <th>a</th>
+    <th>b</th>
+    <th>c</th>
+  </tr>
+
+    <tr>
+      <td>z</td>
+      <td>y</td>
+      <td>x</td>
+      <td>w</td>
+    </tr>
+
+    <tr>
+      <td>a1</td>
+      <td>b2</td>
+      <td>c3</td>
+      <td>d4</td>
+    </tr>
+</table> -->

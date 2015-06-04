@@ -1,10 +1,17 @@
-<%= render 'pages/league_home_header' %>
+<%= render 'league_home_header' %>
 
 <div class = "content-container">
 
 	<div class="content-wrap-outline">
 
-		<h3><%= @game.league + " Game: " + @game.teama + " @ " + @game.teamh + " on " + @game.event_time.strftime("%D") %></h3>
+		<div class ="article-title-header">
+			<h3>Hot Games</h3>
+			<h5><%# link_to "Full Archive »", predictorindexarticlessall_path %></h5>
+		</div>
+
+		<div class="article-index-dashboard">
+			<%= render 'games/gamesummarydashboard'%>
+		</div>
 
 		<div class ="article-title-header">
 			<h3>Top Posts</h3>
@@ -12,7 +19,7 @@
 		</div>
 
 		<div class="article-index-dashboard">
-			<%# render 'predictors/predictorarticlesummary'%>
+			<%= render 'predictors/predictorarticlesummary'%>
 		</div>
 		
 

@@ -11,6 +11,11 @@ class GamesController < ApplicationController
   # GET /games/1.json
   def show
     @game = Game.find(params[:id])
+    @predictions = PredictionGame.all.where(:game_id=>params[:id]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    @articles = Article.all.where(:game_id=>params[:id]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    @teams = Team.all.where(:league=>params[:league])
+    @games = Game.all.where(:league=>params[:league]).order("event_time DESC").paginate(:page => params[:page], :per_page => 5)
+
   end
 
   def gameselect

@@ -1,26 +1,19 @@
-<div class = "content-container">
+<%= render 'predictors/predictorcover' %>
 
-	<div class="predictor-panel">
-		<%= render 'predictors/predictorcard' %>
-	</div>
+<div class = "content-container">
 
 	<div class="content-panel">
 
-		<%= render 'predictors/predictorlinks' %>
-		
-		<h2 class="prediction-index-header-text"><%=@predictor.name%>'s Predictions</h2>
-		<div class="predictor-prediction-index-container">
-
-		<%= render 'prediction_games/predictiongameheadernav' %>
-		<%= render 'prediction_games/predictorindexpredictiongames' %>
-
+		<div class ="article-title-header">
+			<h3><%=@predictor.name%>'s Predictions</h3>
 		</div>
 
-		<nav>
-			<div class="center">
-				<% will_paginate @predictions, renderer: BootstrapPagination::Rails %>
-			</div>
-		</nav>
+		<div class="predictor-prediction-index-container">
+
+			<%= render 'prediction_games/predictiongameheadernav' %>
+			<%= render 'prediction_games/predictorindexpredictiongames' %>
+
+		</div>
 		
 	</div>
 	

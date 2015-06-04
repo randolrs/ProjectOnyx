@@ -1,0 +1,38 @@
+<ul class="subheader-menu-list">
+
+  <% @teams.each do |team| %>
+
+      <li><%= link_to team.name, teamshow_path(params[:league],team.id)%></li>
+
+  <%end%>
+
+</ul>
+
+<!-- <table class ="game-show-table">
+
+  <tr>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+  </tr>
+
+  <tr>
+    <th>a</th>
+    <th>b</th>
+    <th>c</th>
+  </tr>
+
+    <tr>
+      <td>z</td>
+      <td>y</td>
+      <td>x</td>
+      <td>w</td>
+    </tr>
+
+    <tr>
+      <td>a1</td>
+      <td>b2</td>
+      <td>c3</td>
+      <td>d4</td>
+    </tr>
+</table> -->

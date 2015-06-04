@@ -50,8 +50,6 @@
     text-decoration:none;
   }
 
-
-
 .header-inside-right{
 	position:absolute;
 	width:450px;
@@ -60,10 +58,7 @@
 	display:table;
   text-align:right;
   vertical-align:middle;
-
 }
-
-
 
 .header-inside-right a{
 	padding: 8px 10px;
@@ -773,6 +768,10 @@ th.prediction-summary-index{
   color: #3e4552;
 }
 
+.content-wrap-outline{
+  padding:40px;
+}
+
 .predictor-container{
    word-wrap: break-word;
 }
@@ -823,6 +822,11 @@ th.prediction-summary-index{
   border-radius:35px;
   float:left;
   
+}
+
+predictor-image-small-container{
+  border-color: white;
+  float:left;
 }
 
 .predictor-prediction-index-container{
@@ -982,6 +986,6 @@ ul#footer a:visited{
 }
 
 a.header-category{
-  font-size:28px;
+  font-size:16px;
   line-height:30px;
 }

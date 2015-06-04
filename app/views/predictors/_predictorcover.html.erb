@@ -1,0 +1,44 @@
+
+<div class="predictor-cover">
+  
+  <div class="predictor-cover-container"> 
+    
+    <div class="predictor-cover-summary"> 
+
+      <div class="predictor-image-small-container">
+      <%= image_tag @predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%>
+      </div>
+
+      <div class="predictor-cover-summary-bio">
+        <%= link_to @predictor.name, predictordashboard_path(@predictor.username), class: "predictor-name"%>
+        <br>
+        <a class="white-text">I am going to write here about my modeling and approach to making predictions. CMSMIEAMDFIMRIMRIGMRG</a>
+      </div>
+
+    </div>
+
+    <div class="predictor-cover-details"> 
+      <a class="white-text">Douche McGee</a>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="content-header-container">
+  <div class="cover-sub-header">
+
+    <nav class="navbar navbar-default">
+
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Overview", predictordashboard_path(@predictor.username), { :class=>"subheader active" } %></li>
+        <li><%= link_to "Posts", predictorindexarticlessall_path(@predictor.username), { :class=>"subheader" } %></li>
+        <li><%= link_to "Predictions", predictorindexpredictionsall_path(@predictor.username), { :class=>"subheader" } %></li>
+       
+      </ul>
+
+  </nav>  
+
+  </div>
+</div>

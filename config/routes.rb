@@ -49,6 +49,10 @@ Rails.application.routes.draw do
   
   get '/events/sports/:league' => 'games#findgames', as: 'find_prediction_games'
 
+  get '/:league/games/:id' => 'games#show', as: 'gameshow'
+
+  get '/:league/teams/:id' => 'teams#show', as: 'teamshow'
+
   get '/events/sports/:league/predictions/:game_id' => 'prediction_games#findpredictiongames', as: 'find_sports_predictions'
   
   get '/predictors/sports/:league' => 'predictors#findsportspredictors', as: 'find_sports_predictors'
@@ -61,7 +65,7 @@ Rails.application.routes.draw do
 
   get '/:username/predictions' => 'predictors#predictionindex', as: 'predictorindexpredictionsall'
 
-   get '/:username/predictions/:category' => 'predictors#predictionindex', as: 'predictorindexpredictionscategory'
+  get '/:username/predictions/:category' => 'predictors#predictionindex', as: 'predictorindexpredictionscategory'
 
   get '/:username/' => 'predictors#predictordashboard', as: 'predictordashboard'
 
@@ -77,7 +81,9 @@ Rails.application.routes.draw do
 
   get '/:username/:type/new/sports' => 'games#sportsgamesselect', as: 'sportsgamesselect'
 
-  get '/:username/gamepredictions/:id' => 'prediction_games#show', as: 'predictiongamesshow'
+  get '/:username/predictions/sports/:id' => 'prediction_games#show', as: 'predictiongamesshow'
+
+  get 'sports/leagues/:league' => 'pages#leaguehome', as: 'leaguehome'
 
   get 'editor' => 'sports#new'
 
@@ -101,8 +107,6 @@ Rails.application.routes.draw do
   #get 'predictor_signup' => 'predictor#registrations#new'
 
   #get 'predictor_signin' => 'predictor#sessions#new'
-
-
 
   get 'predictor_signin' => 'predictors#session#new'
 

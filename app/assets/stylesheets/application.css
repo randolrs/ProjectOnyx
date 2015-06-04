@@ -33,8 +33,8 @@
     margin-right:auto;
     overflow: hidden;
     background-color: white;
-    width:1200px;
-    margin-top:60px;
+    width:1000px;
+    margin-top:30px;
     margin-bottom:60px;
     position:relative;
     border: 1px solid #BFBFBF;
@@ -202,6 +202,48 @@ select#team_filter_team{
 	padding:10px 20px 10px 20px;
 }
 
+.predictor-cover{
+  background-color: #333;
+}
+
+.predictor-cover-container{
+  margin-left: auto;
+  margin-right: auto;
+  width:900px;
+  height:150px;
+}
+
+.predictor-cover-summary{
+  float:left;
+  width:400px;
+  padding:25px;
+  border-color:white;
+}
+
+.predictor-cover-summary-bio{
+  float:left;
+  margin-left:10px;
+  word-wrap:break-word;
+  width:300px;
+  color:white;
+}
+
+.white-text{
+  color:white;
+}
+
+.white-text:hover{
+  color:white;
+  text-decoration: none;
+}
+
+.predictor-cover-details{
+  float:left;
+  width:300px;
+  padding:50px;
+  text-align: center;
+}
+
 .predictor-edit-basic{
 	border-bottom: 1px solid rgba(0,0,0,.2);
 	padding:20px 20px 0px 20px;
@@ -248,10 +290,29 @@ select#team_filter_team{
 }
 
 .content-header{
-  height:65px;
+  height:50px;
   width:1200px;
-  padding:15px;
   margin-left: auto;
   margin-right: auto;
-  
+}
+
+.cover-sub-header{
+  height:50px;
+  width:900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left:25px;
+}
+
+.submenu-header{
+  padding:5px;
+}
+
+.subheader-menu-list{
+  list-style-type:none;
+  margin:0px;
+}
+
+.submenu-drop{
+  padding:10px;
 }

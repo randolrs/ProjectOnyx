@@ -11,7 +11,7 @@
 
   <tbody>
     <% @predictions.each do |prediction| %>
-      <tr data-link="<%=predictiongamesshow_path(@predictor.username,prediction.id)%>", class="prediction-table-row">
+      <tr data-link="<%=predictiongamesshow_path(Predictor.find(prediction.predictor_id).username,prediction.id)%>", class="prediction-table-row">
         <td><%= prediction.league %> Game</td>
         <td><%= prediction.teama %> @ <%= prediction.teamh %></td>
         <td> <%= prediction.created_at.strftime("%D") %></td>

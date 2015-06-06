@@ -5,11 +5,12 @@
 	<div class="content-panel">
 
 		<div class ="article-title-header">
-			<h3>All <%=@league%> Posts</h3>
+			<h3>All <%=@league%> Games</h3>
+			<h5><%= link_to @league + " Home »", leaguehome_path(@league), { :class=>"subheader" } %></h5>
 		</div>
 
-		<%= render 'games/indexgames' %>
-		
+	<%= render 'games/indexgamesarchive' %>
+
 	</div>
 	
 </div>

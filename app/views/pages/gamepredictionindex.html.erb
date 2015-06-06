@@ -5,8 +5,8 @@
 	<div class="content-panel">
 
 		<div class ="article-title-header">
-			<h3>All <%=@league%> Picks</h3>
-			<h5><%= link_to @league + " Home »", leaguehome_path(@league) %></h5>
+			<h3>Picks for <%=@game.league + " Game: " + @game.teama + " @ " + @game.teamh + " on " + @game.event_time.strftime("%D")%></h3>
+			<h5><%= link_to "Game Details", gameshow_path %></h5>
 		</div>
 
 		<div class="predictor-prediction-index-container">

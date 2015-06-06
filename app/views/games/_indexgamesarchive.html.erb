@@ -1,0 +1,70 @@
+
+
+
+      <!-- <form class="filter_form"> -->
+        
+        <%# select("game", "team", Team.all.collect(&:name), :prompt => "Select a Team") %>
+        <!-- <input type="submit" value="Filter" />
+      </form> -->
+
+        <div class="prediction-index-table-holder">
+          <table class ="prediction-index-fold">
+            <thead>
+              <tr>
+                <th class="prediction-index-fold-th">Matchup</th>
+                <th class="prediction-index-fold-th">Date</th>
+                <th class="prediction-index-fold-th">Time</th>
+                <th class="prediction-index-fold-th">City</th>
+                <th class="prediction-index-fold-th">Venue</th>
+                <th class="prediction-index-fold-th">Final Score Predictions</th>
+              </tr>
+            </thead>
+
+            <% if @games.count == 0 %>
+              <tbody>
+
+                <tr class= "game-index-table-row">
+                 <td>No Game</td>
+                </tr>
+
+              </tbody>
+
+            <% else %>
+
+                  <tbody>
+
+                    <% @games.each do |game| %>
+                    
+                      <tr data-link="<%=gameshow_path(game.league,game.id)%>", class= "prediction-table-row">
+
+                      <% if params[:league] == "all" %>
+                        <td><%= game.league %></td>
+                      <% end %>
+                      
+                      <td><%= game.teama + " at " + game.teamh %></td>
+                      <td><%= game.event_time.strftime("%D") %></td>
+                      <td><%= game.event_time.strftime("%l:%M %p") %></td>
+                      <td><%= game.event_city %></td>
+                      <td><%= game.event_venue %></td>
+                      <td><%= PredictionGame.all.where(:game_id => game.id).count %></td>
+                          
+                    </tr>
+
+                    <% end %>
+
+                  </tbody>
+
+            <% end %>
+
+          </table>
+        </div>
+
+<%# if admin_signed_in? %>
+
+
+
+<%# elsif predictor_signed_in? or user_signed_in? %>
+
+
+
+

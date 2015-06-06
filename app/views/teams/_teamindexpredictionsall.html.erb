@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th class="prediction-index-fold-th">Matchup</th>
-      <th class="prediction-index-fold-th">Prediction Date</th>
+      <th class="prediction-index-fold-th">Game Date</th>
+      <th class="prediction-index-fold-th">Predictor</th>
       <th class="prediction-index-fold-th">Onyx Rating</th>
     </tr>
   </thead>
@@ -12,15 +13,16 @@
   <tbody>
     <% @predictions.each do |prediction| %>
       <tr data-link="<%=predictiongamesshow_path(Predictor.find(prediction.predictor_id).username,prediction.id)%>", class="prediction-table-row">
-        <td><%=prediction.teama %> @ <%=prediction.teamh %></td>
-        <td><%= prediction.created_at.strftime("%D") %></td>
+        <td> <%= prediction.teamh %> at <%= prediction.teama %></td>
+        <td> <%= prediction.event_time.strftime("%D") %></td>
+        <td><%= Predictor.find(prediction.predictor_id).name %></td>
         <td>88</td>
       </tr>
     <% end %>
 
     <% if @predictions.count == 0 %>  
       <tr class= "game-index-table-row-no">              
-        <td colspan="3" class="no-active-games">No Active Predictions</td>
+        <td colspan="4" class="no-active-games">No Active Predictions</td>
       </tr>
     <% end %>
 

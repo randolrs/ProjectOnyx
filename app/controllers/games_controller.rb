@@ -15,7 +15,7 @@ class GamesController < ApplicationController
     @articles = Article.all.where(:game_id=>params[:id]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
     @teams = Team.all.where(:league=>params[:league])
     @games = Game.all.where(:league=>params[:league]).order("event_time DESC").paginate(:page => params[:page], :per_page => 5)
-
+    @league = @game.league
   end
 
   def gameselect

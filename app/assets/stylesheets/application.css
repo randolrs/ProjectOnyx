@@ -22,6 +22,7 @@
     background-color: white;
     z-index:-11;
     padding:0px;
+    background-color: #F0F0F0;
  }
 
  .body{
@@ -34,11 +35,10 @@
     overflow: hidden;
     background-color: white;
     width:1000px;
-    margin-top:30px;
-    margin-bottom:60px;
-    position:relative;
-    border: 1px solid #BFBFBF;
-    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+    margin-top:50px;
+    margin-bottom:50px;
+    padding:35px;
+    border: 1px solid #E0E0E0;
  }
 
  .predictor-panel{
@@ -71,15 +71,8 @@
 
  .content-panel{
     width:860px;
-    float:right; 
-    padding:35px;
-    min-height:500px;
-}
-
- .article-panel{
-    width:860px;
-    float:left; 
-    padding:35px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
  .content-panel h2{
@@ -287,6 +280,8 @@ select#team_filter_team{
 .content-header-container{
   width:100%;
   border-bottom: 1px solid #e0e4e8;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .content-header{

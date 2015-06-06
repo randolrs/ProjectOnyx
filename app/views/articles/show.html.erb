@@ -1,23 +1,14 @@
+<%= render 'predictors/predictorcover' %>
 
 <div class = "content-container">
 
-  <div class="article-panel">
-
-  	<div class="article-top">
-    	<%= render 'articles/articleshow' %>
-	</div>
-
-    <h3><u>Prediction</u></h3>
-    <h4><%=@game.league%> Game: <%=@game.teama%> at <%=@game.teamh%> on <%=@game.event_time.strftime("%b %d, %Y")%></h4>
-    <%= render 'prediction_games/predictiongameshowgamedetails'%>
-
+  <div class="article-top">
+    <%= render 'articles/articleshow' %>
   </div>
 
-  <div class="side-panel">
-  	<% if predictor_signed_in? %>
-    	<%= render 'predictors/predictorcard' %>
-    <% end %>
-    
-  </div>
+  <h3><u>Prediction</u></h3>
+  <h4><%=@game.league%> Game: <%=@game.teama%> at <%=@game.teamh%> on <%=@game.event_time.strftime("%b %d, %Y")%></h4>
+
+  <%= render 'prediction_games/predictiongameshowgamedetails'%>
   
 </div>

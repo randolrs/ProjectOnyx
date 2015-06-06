@@ -40,10 +40,11 @@ class PagesController < ApplicationController
   end
 
   def leaguehome
-    @predictions = PredictionGame.all.where(:league=>params[:league]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
-    @articles = Article.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    @league = params[:league]
+    @predictions = PredictionGame.all.where(:league=>params[:league]).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @articles = Article.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @teams = Team.all.where(:league=>params[:league])
-    @games = Game.all.where(:league=>params[:league]).order("event_time DESC").paginate(:page => params[:page], :per_page => 5)
+    @games = Game.all.where(:league=>params[:league]).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
 
   end
 

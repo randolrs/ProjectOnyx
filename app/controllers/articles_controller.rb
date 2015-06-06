@@ -8,8 +8,8 @@ class ArticlesController < ApplicationController
   end
 
   def articleindex
-      @predictor = Predictor.where(:username=>params[:username])
-      @articles = @predictor.articles
+    @predictor = Predictor.where(:username=>params[:username])
+    @articles = @predictor.articles
   end
 
   # GET /articles/1
@@ -21,7 +21,6 @@ class ArticlesController < ApplicationController
 
     for prediction_game in @article.prediction_games
       @prediction_game = prediction_game
-
     end
 
     @game = Game.find(@article.event_id)
@@ -36,6 +35,8 @@ class ArticlesController < ApplicationController
     @game = Game.find(params[:game])
     @article.event_id = @game.id
     @article.event_time = @game.event_time
+    @article.teama = @game.teama
+    @article.teamh = @game.teamh
 
     respond_to do |format|
     format.html # new.html.erb

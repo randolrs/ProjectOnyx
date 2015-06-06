@@ -11,12 +11,27 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
       @team = Team.find(params[:id])
-      @games = Game.all.where(:league => @team.league)
+      @league = @team.league
+      @teams = Team.all.where(:league=>@league)
+      @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
+      @articles = Article.all.where("teama = :team or teamh = :team", {team: @team.name})
+      @predictions = PredictionGame.all.where("teama = :team or teamh = :team", {team: @team.name})
+      @teamgames = Game.all.where(:league => @team.league)
+      @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
   end
 
   # GET /teams/new
   def new
     @team = Team.new
+  end
+
+  def predictionindex
+    @team = Team.find(params[:id])
+    @league = @team.league
+    @teams = Team.all.where(:league=>@league)
+    @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
+    @predictions = PredictionGame.all.where("teama = :team or teamh = :team", {team: @team.name})
+
   end
 
   # GET /teams/1/edit

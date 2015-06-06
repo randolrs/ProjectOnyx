@@ -2,33 +2,29 @@
 
 <div class = "content-container">
 
-	<div class="content-wrap-outline">
+	<h3><%= @game.league + " Game: " + @game.teama + " @ " + @game.teamh + " on " + @game.event_time.strftime("%D") %></h3>
 
-		<h3><%= @game.league + " Game: " + @game.teama + " @ " + @game.teamh + " on " + @game.event_time.strftime("%D") %></h3>
-
-		<div class ="article-title-header">
-			<h3>Top Posts</h3>
-			<h5><%# link_to "Full Archive »", predictorindexarticlessall_path %></h5>
-		</div>
-
-		<div class="article-index-dashboard">
-			<%# render 'predictors/predictorarticlesummary'%>
-		</div>
-		
-
-		<div class ="prediction-title-header">
-			<h3>Recent Predictions</h3>
-			<h5><%# link_to "Full Archive »", predictorindexpredictionsall_path %></h5>
-
-			<%= render 'predictors/predictorpredictionssummary'%>
-		</div>
-
-		<nav>
-			<div class="center">
-				<%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
-			</div>
-		</nav>
-		
+	<div class ="article-title-header">
+		<h3>Popular Posts</h3>
+		<h5><%# link_to "Full Archive »", predictorindexarticlessall_path %></h5>
 	</div>
+
+	<div class="article-index-dashboard">
+		<%# render 'predictors/predictorarticlesummary'%>
+	</div>
+	
+
+	<div class ="prediction-title-header">
+		<h3>Recent Picks</h3>
+		<h5><%# link_to "Full Archive »", predictorindexpredictionsall_path %></h5>
+
+		<%= render 'games/gamepredictionsummary'%>
+	</div>
+
+	<nav>
+		<div class="center">
+			<%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
+		</div>
+	</nav>
 	
 </div>

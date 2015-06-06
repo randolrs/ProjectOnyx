@@ -18,27 +18,9 @@
     </div>
 
     <div class="predictor-cover-details"> 
-      <a class="white-text">Douche McGee</a>
+      <a class="white-text"><%=@predictor.prediction_games.count%> PREDICTIONS / <%=@predictor.prediction_games.count%> SUBSCRIBERS</a>
     </div>
 
   </div>
 
-</div>
-
-
-<div class="content-header-container">
-  <div class="cover-sub-header">
-
-    <nav class="navbar navbar-default">
-
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Overview", predictordashboard_path(@predictor.username), { :class=>"subheader active" } %></li>
-        <li><%= link_to "Posts", predictorindexarticlessall_path(@predictor.username), { :class=>"subheader" } %></li>
-        <li><%= link_to "Predictions", predictorindexpredictionsall_path(@predictor.username), { :class=>"subheader" } %></li>
-       
-      </ul>
-
-  </nav>  
-
-  </div>
 </div>

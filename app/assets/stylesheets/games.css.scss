@@ -64,8 +64,9 @@
 	margin-top:30px;
 	margin-bottom:30px;
 	width:800px;
-	-webkit-box-shadow: 5px 5px 10px 0px #9E9E9E;
-	box-shadow: 11px 11px 10px -7px #9E9E9E;
+	-webkit-box-shadow: 3px 3px 3px 1px rgba(219,219,219,1);
+	-moz-box-shadow: 3px 3px 3px 1px rgba(219,219,219,1);
+	box-shadow: 3px 3px 3px 1px rgba(219,219,219,1);
 }
 
 .game-show-table-row{
@@ -126,8 +127,7 @@ th.game-row{
 }
 
 .game-index-table-row:hover{
-	background-color: #F2FCFC;
-	border: 2px solid #fd5a25;
+	background-color: #E0E0E0;
   	cursor:pointer;
 }
 

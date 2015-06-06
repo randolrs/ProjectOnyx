@@ -83,6 +83,8 @@ Rails.application.routes.draw do
 
   get '/:username/predictions/sports/:id' => 'prediction_games#show', as: 'predictiongamesshow'
 
+  get '/:league/teams/:id/picks' => 'teams#predictionindex', as: 'teamindexpredictionsall'
+
   get 'sports/leagues/:league' => 'pages#leaguehome', as: 'leaguehome'
 
   get 'editor' => 'sports#new'
@@ -99,14 +101,6 @@ Rails.application.routes.draw do
   get 'find_predictions' => 'pages#findpredictions'
 
   get 'findsportspredictions' => 'prediction_games#findpredictiongames'
-
-  # get 'gamesearch' =>'prediction_games#findpredictiongames'
-
-  #prediction_games.search "gamesearch", :controller => "search"
-
-  #get 'predictor_signup' => 'predictor#registrations#new'
-
-  #get 'predictor_signin' => 'predictor#sessions#new'
 
   get 'predictor_signin' => 'predictors#session#new'
 

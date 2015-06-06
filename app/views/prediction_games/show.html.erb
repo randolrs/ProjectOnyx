@@ -1,18 +1,13 @@
-<div class = "content-container">
+<%= render 'predictors/predictorcover' %>
 
-  <div class="predictor-panel">
-    <%= render 'predictors/predictorcard' %>
-  </div>
+<div class = "content-container">
 
   <div class="content-panel">
 
-  	<%= render 'predictors/predictorlinks' %>
-
-    <h2 class="prediction-index-header-text"><%= @game.league %> Prediction</h2>
+    <h2 class="prediction-index-header-text"><%= @predictor.name %>'s <%= @game.league %> Prediction</h2>
     <h4><%= @game.teamh %> versus <%= @game.teama %> on <%= @game.event_time.strftime("%D") %></h4>
-
     <%= render 'predictiongameshowgamedetails' %>
-    <%# render 'games/gamedetailsdrop' %>
+
   </div>
   
 </div>

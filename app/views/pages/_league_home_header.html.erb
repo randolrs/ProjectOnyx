@@ -7,23 +7,23 @@
 	  	<ul class="nav navbar-nav">
 	  		
 	  		<li><a class="subheader" href="/">Picture</a></li>
-	  		<li><a class="subheader-league" href="/"><%=params[:league]%></a></li>
-	        <li><%= link_to "Home", leaguehome_path(params[:league]), { :class=>"subheader" } %></li>
-	        <li class="dropdown">
-              <a href="#" class="subheader" data-toggle="dropdown" role="button" aria-expanded="false">Games<span class="caret"></span></a>
-              <ul class="dropdown-menu submenu-drop" role="menu">
-                
-                <%=render'games/gamesummarymenu'%>
-              </ul>
-            </li>
+	  		<li><a class="subheader-league" href="/"><%=@league%></a></li>
+        <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader" } %></li>
+        <li class="dropdown">
+          <a href="#" class="subheader" data-toggle="dropdown" role="button" aria-expanded="false">Games<span class="caret"></span></a>
+          <ul class="dropdown-menu submenu-drop" role="menu">
+            
+            <%=render'games/gamesummarymenu'%>
+          </ul>
+        </li>
 	         <%#add dropdown for today's games with option for "More Games" that goes to index page for games%>
-	        <li class="dropdown">
-              <a href="#" class="subheader" data-toggle="dropdown" role="button" aria-expanded="false">Teams<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                
-                <%=render'sports/leaguesummarymenu'%>
-              </ul>
-            </li>
+        <li class="dropdown">
+            <a href="#" class="subheader" data-toggle="dropdown" role="button" aria-expanded="false">Teams<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              
+              <%=render'sports/leaguesummarymenu'%>
+            </ul>
+          </li>
 
 	        <li><a class="subheader" href="#">Top Predictions</a></li>
 	    </ul>

@@ -587,7 +587,6 @@ a.prediction-header-active{
 }
 
 .prediction-index-table-holder{
-  
   margin-left:auto;
   margin-right:auto;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -666,8 +665,7 @@ a.prediction-detail:hover{
 }
 
 tr.prediction-table-row:hover{
-  background-color: #F2FCFC;
-  border: 2px solid #fd5a25;
+  background-color: #E0E0E0;
   cursor:pointer;
 }
 
@@ -739,7 +737,7 @@ th.prediction-index-summary-th{
 }
 
 table.prediction-index-fold{
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin-left:auto;
   margin-right:auto;
 }
@@ -769,7 +767,8 @@ th.prediction-summary-index{
 }
 
 .content-wrap-outline{
-  padding:40px;
+  padding-left:40px;
+  padding-right:40px;
 }
 
 .predictor-container{

@@ -2,7 +2,7 @@
 
   <% @teams.each do |team| %>
 
-      <li><%= link_to team.name, teamshow_path(params[:league],team.id)%></li>
+      <li><%= link_to team.name, teamshow_path(@league,team.id)%></li>
 
   <%end%>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514005519) do
+ActiveRecord::Schema.define(version: 20150606001337) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20150514005519) do
     t.string   "event_type"
     t.integer  "event_id"
     t.datetime "event_time"
+    t.string   "teama"
+    t.string   "teamh"
   end
 
   create_table "descriptions", force: true do |t|

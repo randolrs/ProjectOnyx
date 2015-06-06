@@ -1,0 +1,19 @@
+<%= render 'pages/league_home_header' %>
+
+<div class = "content-container">
+
+	<div class="content-panel">
+
+		<div class ="article-title-header">
+			<h3><%=@team.name%>'s Picks</h3>
+		</div>
+
+		<div class="predictor-prediction-index-container">
+
+			<%= render 'teams/teamindexpredictionsall' %>
+
+		</div>
+		
+	</div>
+	
+</div>

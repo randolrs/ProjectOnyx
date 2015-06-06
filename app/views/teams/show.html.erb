@@ -1,49 +1,35 @@
-<p id="notice"><%= notice %></p>
+<%= render 'pages/league_home_header' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @team.name %>
+<div class = "content-container">
 
-  <br>
+  <%= image_tag @team.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small" %>  <h3><%= @team.name %></h3>
 
-  <strong>Id:</strong>
-  <%= @team.id %>
+  <div class ="article-title-header">
+    <h3>Upcoming <%= @team.name %> Games</h3>
+    <div class="article-index-dashboard">
+      <%= render 'teams/gamesummarydashboard'%>
+    </div>
+  </div>
 
-  <br>
+  <div class="article-title-header">
+    <h3>Popular <%= @team.name %> Posts</h3>
+    <h5><%# link_to "Full Archive »", teamindexarticlesall_path %></h5>
+    <%= render 'predictors/predictorarticlesummary'%>
+  </div>
+  
 
-  <strong>League:</strong>
-  <%= @team.league %>
+  <div class ="article-title-header">
+    <h3>Recent <%= @team.name %> Picks</h3>
+    <h5><%= link_to "Full Archive »", teamindexpredictionsall_path(@team.league,@team.id) %></h5>
+    <h5><%# link_to "Full Archive »", predictorindexpredictionsall_path %></h5>
 
-  <strong>Team Image:</strong>
-  <%= image_tag @team.image.url(:medium) %>
-</p>
+    <%= render 'pages/league_home_predictions'%>
+  </div>
 
-
-Games:
-
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Home Team</th>
-      <th>Away Team</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @games.each do |game| %>
-
-      <% if game.teama_id == @team.id or game.teamh_id == @team.id %>
-        <tr>
-          <td><%= game.event_time.strftime("%D")  %></td>
-          <td><%= game.teamh %></td>
-          <td><%= game.teama %></td>
-        </tr>
-
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+  <nav>
+    <div class="center">
+      <%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
+    </div>
+  </nav>
+  
+</div>

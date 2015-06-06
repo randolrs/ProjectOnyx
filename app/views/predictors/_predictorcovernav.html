@@ -4,10 +4,25 @@
     <nav class="navbar navbar-default">
 
       <ul class="nav navbar-nav">
-        <li><%= link_to "Overview", predictordashboard_path(@predictor.username), { :class=>"subheader active" } %></li>
-        <li><%= link_to "Posts", predictorindexarticlessall_path(@predictor.username), { :class=>"subheader" } %></li>
-        <li><%= link_to "Predictions", predictorindexpredictionsall_path(@predictor.username), { :class=>"subheader" } %></li>
-       
+
+      	<% if @action == 'predictordashboard'%>
+	        <li><%= link_to "Overview", predictordashboard_path(@predictor.username), { :class=>"subheader active" } %></li>
+	        <li><%= link_to "Posts", predictorindexarticlessall_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Predictions", predictorindexpredictionsall_path(@predictor.username), { :class=>"subheader" } %></li>
+	    <%elsif @action == 'articleindex'%>
+
+	    	<li><%= link_to "Overview", predictordashboard_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Posts", predictorindexarticlessall_path(@predictor.username), { :class=>"subheader active" } %></li>
+	        <li><%= link_to "Predictions", predictorindexpredictionsall_path(@predictor.username), { :class=>"subheader" } %></li>
+
+	    <%elsif @action == 'predictionindex'%>
+
+	    	<li><%= link_to "Overview", predictordashboard_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Posts", predictorindexarticlessall_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Predictions", predictorindexpredictionsall_path(@predictor.username), { :class=>"subheader active" } %></li>
+
+	    <% end %>
+	    	
       </ul>
 
   </nav>  

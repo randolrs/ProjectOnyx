@@ -1,210 +1,32 @@
-<% if predictor_signed_in? %>
 
-<div class="container-dash">
+<div class="prediction-index-table-holder">
 
-      <h1>My Predictions</h1>
+  <table class ="prediction-index-fold">
+    <thead>
+    <tr>
+      <th class="prediction-index-fold-th">Prediction Date</th>
+      <th class="prediction-index-fold-th">Matchup</th>
+      <th class="prediction-index-fold-th">Date</th>
+      <th class="prediction-index-fold-th">Time (EST)</th>
+      
+    </tr>
+    </thead>
 
-      <div class="prediction-section-header">
-          <a class="prediction-header-active">Open Predictions</a>
-          <%= link_to "Closed Predictions", myclosedpredictions_path, class: "prediction-header-inactive" %>
-      </div>
+      <tbody>
 
+          <% @predictions.each do |prediction| %>
 
-      <div class="prediction-table-holder">
-
-        <table class ="prediction-index-fold table table-hover">
-          <thead>
-          <tr>
-
-            <th class="table-holder"></th>
-            
-            <th class="prediction-index-fold-th">League</th>
-            <th class="prediction-index-fold-th">Event Date</th>
-            <th class="prediction-index-fold-th">Home Team</th>
-            <th class="prediction-index-fold-th">Away Team</th>
-            <th class="prediction-index-fold-th">Prediction Date</th>
-            <th class="prediction-index-fold-th"></th>
-            
+          <tr data-link="<%=predictiongamesshow_path(Predictor.find(prediction.predictor_id).username,prediction.id)%>", class="prediction-table-row">
+            <td> <%= prediction.created_at.strftime("%D") %></td>
+            <td> <%= prediction.teamh %> at <%= prediction.teama %></td>
+            <td> <%= prediction.event_time.strftime("%D") %></td>
+            <td> <%= prediction.event_time.strftime("%l:%M %p") %></td>
           </tr>
-          </thead>
-
-
-          <% @prediction_games.each do |prediction_game| %>
-
-            <% if prediction_game.predictor_id == current_predictor.id && (prediction_game.status == nil or prediction_game.status == "o")  %>
-
-                  <tbody>
-                  
-                  <tr class="prediction-table-row" href="/">
-                      <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
-                      
-                      <td><%= prediction_game.league %></td>
-                      <td><%= prediction_game.event_time.strftime("%D") %></td>
-                      <td><%= prediction_game.teamh %></td>
-                      <td><%= prediction_game.teama %></td>
-                      <td> <%= prediction_game.created_at.strftime("%D") %></td>
-                      <td><%= link_to 'Show Details',  prediction_game %></td>
-                      
-                    </div>
-                  </tr>
-
-                  </tbody>
-
-                <% end %>
-
-              <% end %>
-
-              </table>
-      </div>
-
-<!--         </tbody>
-      </table> -->
-
-      <br>
-
-      <%= link_to 'New Prediction game', gameselect_path %>
-
-</div>
-
-<% end %>
-
-
-<% if user_signed_in? %>
-
-  <div class="container-dash">
-
-      <% if params[:game_id] or params[:prediction_game]  %>
-
-        <% if params[:game_id] %>
-
-          <form class="filter_form">
-            <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
-            <%= select("prediction_game", "sort_param", ["Date: Newest","Date: Oldest","Rating (Predictor)", "Rating (Prediction)", "Price"], :prompt => "Sort By") %>
-            <input type="submit" value="Sort" />
-          </form>
-
-        <% elsif params[:prediction_game] %>
-
-          <form class="filter_form">
-            <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
-            <%= select("prediction_game", "sort_param", ["Date: Newest","Date: Oldest","Rating (Predictor)", "Rating (Prediction)", "Price"], :prompt => "Sort By") %>
-            <input type="submit" value="Sort" />
-          </form>
-
-        <% end %>
-
-      <% else %>
-
-        <form class="filter_form">
-          <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
-          <%= select("prediction_game", "teama", Team.all.collect(&:name), :prompt => "Select a Team") %>
-          <input type="submit" value="Search" />
-        </form>
-
-      <% end %>
-
-      <div class="prediction-table-holder">
-
-        <table class ="prediction-index-fold table table-hover">
-          <thead>
-          <tr>
-
-            <th class="table-holder"></th>
-            <th class="prediction-index-fold-th">Predictor ID</th>
-            <th class="prediction-index-fold-th">Prediction Date</th>
-            <th class="prediction-index-fold-th">Prediction Time (EST)</th>
-            <th class="prediction-index-fold-th">Prediction Rating</th>
-            <th class="prediction-index-fold-th"></th>
-            
-          </tr>
-          </thead>
-
-
-          <% @prediction_games.each do |prediction_game| %>
-
-            <% if prediction_game.status == nil or prediction_game.status == "o" %>
-
-                  <tbody>
-                  
-                  <tr class="prediction-table-row" href="/">
-                      <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
-                      <td> <%= prediction_game.predictor_id %></td>
-                      <td> <%= prediction_game.created_at.strftime("%D") %></td>
-                      <td> <%= prediction_game.created_at.strftime("%l:%M %p") %></td>
-                      <td> 55? </td>
-                      <td><%= link_to 'Show Details',  show_prediction_games_path(prediction_game.predictor_id, prediction_game.league, prediction_game.id) %></td>
-                      
-                    </div>
-                  </tr>
-
-                  </tbody>
-
-              <% end %>
 
           <% end %>
 
-              </table>
-      </div>
+      </tbody>
+
+  </table>
 
 </div>
-
-<% end %>
-
-
-<% if admin_signed_in? %>
-
-<div class="container-dash">
-
-      <h1>Admin Sports Predictions</h1>
-
-      <div class="prediction-table-holder">
-
-        <table class ="prediction-index-fold table table-hover">
-          <thead>
-          <tr>
-
-            <th class="table-holder"></th>
-            
-            <th class="prediction-index-fold-th">League</th>
-            <th class="prediction-index-fold-th">Event Date</th>
-            <th class="prediction-index-fold-th">Home Team</th>
-            <th class="prediction-index-fold-th">Away Team</th>
-            <th class="prediction-index-fold-th">Prediction Date</th>
-            <th class="prediction-index-fold-th">Status</th>
-            <th class="prediction-index-fold-th">Predictor ID</th>
-            <th class="prediction-index-fold-th"></th>
-            
-          </tr>
-          </thead>
-
-
-          <% @prediction_games.each do |prediction_game| %>
-
-            <tbody>
-                  
-              <tr class="prediction-table-row" href="/">
-                <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
-                      
-                  <td><%= prediction_game.league %></td>
-                  <td><%= prediction_game.event_time.strftime("%D") %></td>
-                  <td><%= prediction_game.teamh %></td>
-                  <td><%= prediction_game.teama %></td>
-                  <td> <%= prediction_game.created_at.strftime("%D") %></td>
-                  <td><%= prediction_game.status %></td>
-                  <td><%= prediction_game.predictor_id %></td>
-                  <td><%= link_to 'Show Details',  prediction_game %></td>
-                      
-                </div>
-              </tr>
-
-            </tbody>
-
-          <% end %>
-
-          </table>
-
-      </div>
-
-  </div>
-
-<% end %>

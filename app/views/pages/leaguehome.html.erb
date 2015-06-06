@@ -2,19 +2,19 @@
 
 <div class = "content-container">
 
-	<div class="content-wrap-outline">
+	<div class="content-panel">
 
 		<div class ="article-title-header">
-			<h3>Hot <%= params[:league]%> Games</h3>
-			<h5><%# link_to "Full Archive »", predictorindexarticlessall_path %></h5>
+			<h3>Hot <%= @league%> Games</h3>
+			<h5><%= link_to "Full Archive »", leaguegameindex_path %></h5>
 			<div class="article-index-dashboard">
 				<%= render 'games/gamesummarydashboard'%>
 			</div>
 		</div>
 
 		<div class ="article-title-header">
-			<h3>Popular <%= params[:league]%> Posts</h3>
-			<h5><%# link_to "Full Archive »", predictorindexarticlessall_path %></h5>
+			<h3>Popular <%= @league%> Posts</h3>
+			<h5><%= link_to "Full Archive »", leaguearticleindex_path %></h5>
 		</div>
 
 		<div class="article-index-dashboard">
@@ -23,8 +23,8 @@
 		
 
 		<div class ="prediction-title-header">
-			<h3>Recent <%= params[:league]%> Picks</h3>
-			<h5><%# link_to "Full Archive »", predictorindexpredictionsall_path %></h5>
+			<h3>Recent <%= @league%> Picks</h3>
+			<h5><%= link_to "Full Archive »", leaguepredictionindex_path %></h5>
 
 			<%= render 'pages/league_home_predictions'%>
 		</div>

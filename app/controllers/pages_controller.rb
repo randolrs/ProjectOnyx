@@ -41,10 +41,33 @@ class PagesController < ApplicationController
 
   def leaguehome
     @league = params[:league]
-    @predictions = PredictionGame.all.where(:league=>params[:league]).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @predictions = PredictionGame.all.where(:league=>@league).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @articles = Article.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
-    @teams = Team.all.where(:league=>params[:league])
-    @games = Game.all.where(:league=>params[:league]).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
+    @teams = Team.all.where(:league=>@league)
+    @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
+
+  end
+
+  def leaguearticleindex
+    @league = params[:league]
+    @articles = Article.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @teams = Team.all.where(:league=>@league)
+    @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
+
+  end
+
+  def leaguepredictionindex
+    @league = params[:league]
+    @predictions = PredictionGame.all.where(:league=>@league).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @teams = Team.all.where(:league=>@league)
+    @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
+
+  end
+
+  def leaguegameindex
+    @league = params[:league]
+    @teams = Team.all.where(:league=>@league)
+    @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
 
   end
 

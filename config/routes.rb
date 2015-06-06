@@ -85,6 +85,12 @@ Rails.application.routes.draw do
 
   get '/:league/teams/:id/picks' => 'teams#predictionindex', as: 'teamindexpredictionsall'
 
+  get ':league/posts' => 'pages#leaguearticleindex', as: 'leaguearticleindex'
+
+  get ':league/picks' => 'pages#leaguepredictionindex', as: 'leaguepredictionindex'
+
+  get ':league/games' => 'pages#leaguegameindex', as: 'leaguegameindex'
+
   get 'sports/leagues/:league' => 'pages#leaguehome', as: 'leaguehome'
 
   get 'editor' => 'sports#new'

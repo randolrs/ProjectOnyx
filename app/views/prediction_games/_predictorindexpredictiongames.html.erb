@@ -16,7 +16,7 @@
 
           <% @predictions.each do |prediction| %>
 
-          <tr data-link="<%=predictiongamesshow_path(@predictor.username,prediction.id)%>", class="prediction-table-row">
+          <tr data-link="<%=predictiongamesshow_path(Predictor.find(prediction.predictor_id).username,prediction.id)%>", class="prediction-table-row">
             <td> <%= prediction.created_at.strftime("%D") %></td>
             <td> <%= prediction.teamh %> at <%= prediction.teama %></td>
             <td> <%= prediction.event_time.strftime("%D") %></td>

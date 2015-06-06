@@ -7,6 +7,8 @@ class PredictorsController < ApplicationController
 
   def predictionindex
 
+    @action = 'predictionindex'
+
     #params[:username] = params[:username].downcase
 
     #@predictor = Predictor.find(:first, :conditions => ["lower(username) = ?", params[:username].downcase]) 
@@ -63,12 +65,14 @@ class PredictorsController < ApplicationController
   end
 
   def articleindex
+    @action = 'articleindex'
     @predictor = Predictor.find_by_username(params[:username])
     @articles = @predictor.articles.all.order("created_at DESC")
 
   end
 
   def predictordashboard
+    @action = 'predictordashboard'
     @predictor = Predictor.find_by_username(params[:username])
     @predictions = @predictor.prediction_games.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @articles = @predictor.articles.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)

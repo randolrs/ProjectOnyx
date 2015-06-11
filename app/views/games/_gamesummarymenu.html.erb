@@ -1,8 +1,10 @@
 <ul class="subheader-menu-list">
 
+  <li><b>Upcoming Games:</b></li>
+
   <% @games.each do |game| %>
 
-      <li><%= link_to game.teama + " @ " + game.teamh + ", " + game.event_time.strftime("%D"), gameshow_path(params[:league],game.id)%></li>
+      <li><%= link_to game.teama + " @ " + game.teamh + ", " + game.event_time.strftime("%D"), gameshow_path(@league,game.id)%></li>
 
   <%end%>
 
@@ -10,7 +12,7 @@
 
 <li role="presentation" class="divider"></li>
 
-<li><%= link_to "More Games", home_path %></li>
+<li><%= link_to "More Games", leaguegameindex_path(@league) %></li>
 
 <!-- <table class ="game-show-table">
 

@@ -145,6 +145,10 @@ class PredictionGamesController < ApplicationController
     @user = current_user
     @game = Game.find(@prediction_game.game_id)
     @predictor = Predictor.find(@prediction_game.predictor_id)
+    @league = @prediction_game.league
+    @teams = Team.all.where(:league=>@league)
+    @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
+
   end
 
   def buy

@@ -14,14 +14,24 @@
 
       <tbody>
 
-          <% @predictions.each do |prediction| %>
+          <% if @predictions.count == 0 %>
 
-          <tr data-link="<%=predictiongamesshow_path(Predictor.find(prediction.predictor_id).username,prediction.id)%>", class="prediction-table-row">
-            <td> <%= prediction.created_at.strftime("%D") %></td>
-            <td> <%= prediction.teamh %> at <%= prediction.teama %></td>
-            <td> <%= prediction.event_time.strftime("%D") %></td>
-            <td> <%= prediction.event_time.strftime("%l:%M %p") %></td>
-          </tr>
+            <tr class="prediction-table-row">
+                <td colspan="3" class="no-active-games">No Predictions</td>
+              </tr>
+
+          <% else %>
+
+            <% @predictions.each do |prediction| %>
+
+              <tr data-link="<%=predictiongamesshow_path(Predictor.find(prediction.predictor_id).username,prediction.id)%>", class="prediction-table-row">
+                <td> <%= prediction.created_at.strftime("%D") %></td>
+                <td> <%= prediction.teamh %> at <%= prediction.teama %></td>
+                <td> <%= prediction.event_time.strftime("%D") %></td>
+                <td> <%= prediction.event_time.strftime("%l:%M %p") %></td>
+              </tr>
+
+            <%end%>
 
           <% end %>
 

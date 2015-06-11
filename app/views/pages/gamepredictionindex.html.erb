@@ -5,14 +5,14 @@
 	<div class="content-panel">
 
 		<div class ="article-title-header">
-			<h3>Picks for <%=@game.league + " Game: " + @game.teama + " @ " + @game.teamh + " on " + @game.event_time.strftime("%D")%></h3>
-			<h5><%= link_to "Game Details", gameshow_path %></h5>
+			<h3>Picks for <%=@game.league + " Game: " + @game.teama + " at " + @game.teamh + " on " + @game.event_time.strftime("%D")%></h3>
+			<h5><%= link_to "Game Details »", gameshow_path %></h5>
 		</div>
 
 		<div class="predictor-prediction-index-container">
 
 			<%# render 'prediction_games/predictiongameheadernav' %>
-			<%= render 'prediction_games/indexpredictiongames' %>
+			<%= render 'games/gamepredictionsummary'%>
 
 		</div>
 		

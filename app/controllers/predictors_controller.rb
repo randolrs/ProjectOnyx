@@ -67,7 +67,7 @@ class PredictorsController < ApplicationController
   def articleindex
     @action = 'articleindex'
     @predictor = Predictor.find_by_username(params[:username])
-    @articles = @predictor.articles.all.order("created_at DESC")
+    @articles = @predictor.articles.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
 
   end
 

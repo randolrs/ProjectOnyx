@@ -1,8 +1,13 @@
-<% @articles.each do |article| %>
-	<div class = "article-summary">
-		<h3><%= link_to article.title, predictorarticleshow_path(Predictor.find(article.predictor_id).username,article.id) %></h3>
-		<p>submitted <%= article.created_at.strftime("%D") %></p>
-		    <p><%= article.id %></p>
-		<p>/category</p>
-	</div>
-<% end %>
+<% if @articles.count == 0 %>
+
+	<h4>No Posts</h4>
+
+<%else%>
+	<% @articles.each do |article| %>
+		<div class = "article-summary">
+			<h3><%= link_to article.title, predictorarticleshow_path(Predictor.find(article.predictor_id).username,article.id) %></h3>
+			<p>submitted <%= article.created_at.strftime("%D") %></p>
+			<p>/category</p>
+		</div>
+	<% end %>
+<%end%>

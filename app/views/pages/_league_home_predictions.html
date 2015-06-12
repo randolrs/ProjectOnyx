@@ -13,7 +13,8 @@
   <tbody>
     <% @predictions.each do |prediction| %>
       <tr data-link="<%=predictiongamesshow_path(Predictor.find(prediction.predictor_id).username,prediction.id)%>", class="prediction-table-row">
-        <td><%= Predictor.find(prediction.predictor_id).name %></td>
+        <td><%= image_tag Predictor.find(prediction.predictor_id).image.url(:medium, :width => 50, :height => 50), class: "predictor-image-tiny"%>
+      <%= Predictor.find(prediction.predictor_id).name %></td>
         <td><%=prediction.teama %> @ <%=prediction.teamh %></td>
         <td><%= prediction.created_at.strftime("%D") %></td>
         <td>88</td>

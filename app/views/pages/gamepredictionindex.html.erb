@@ -2,19 +2,20 @@
 
 <div class = "content-container">
 
+	<%=render 'games/gameshowcover'%>
+
 	<div class="content-panel">
 
 		<div class ="article-title-header">
-			<h3>Picks for <%=@game.league + " Game: " + @game.teama + " at " + @game.teamh + " on " + @game.event_time.strftime("%D")%></h3>
-			<h5><%= link_to "Game Details »", gameshow_path %></h5>
+			<h3>All Posts</h3>
+			<h5><%= link_to "Game Home »", gameshow_path %></h5>
 		</div>
 
-		<div class="predictor-prediction-index-container">
+		<%= will_paginate @predictions %>
 
-			<%# render 'prediction_games/predictiongameheadernav' %>
-			<%= render 'games/gamepredictionsummary'%>
+		<%= render 'games/gamepredictionsummary'%>
 
-		</div>
+		<%= will_paginate @predictions %>
 		
 	</div>
 	

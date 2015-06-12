@@ -2,6 +2,8 @@
 
 <div class = "content-container">
 
+	<%=render 'games/gameshowcover'%>
+
   <div class="content-panel">
 
   	<div class ="article-title-header">
@@ -9,7 +11,6 @@
 		<h5><%= link_to @predictor.name + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
 	</div>
 
-    <h4><%=@game.teamh%> versus <%=@game.teama%> on <%=@game.event_time.strftime("%D")%></h4>
     <%= render 'predictiongameshowgamedetails' %>
 
   </div>

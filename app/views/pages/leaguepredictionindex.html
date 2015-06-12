@@ -9,12 +9,11 @@
 			<h5><%= link_to @league + " Home »", leaguehome_path(@league) %></h5>
 		</div>
 
-		<div class="predictor-prediction-index-container">
+		<%= will_paginate @predictions %>
+		
+		<%= render 'prediction_games/indexpredictiongames' %>
 
-			<%# render 'prediction_games/predictiongameheadernav' %>
-			<%= render 'prediction_games/indexpredictiongames' %>
-
-		</div>
+		<%= will_paginate @predictions %>
 		
 	</div>
 	

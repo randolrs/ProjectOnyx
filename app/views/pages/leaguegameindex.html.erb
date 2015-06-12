@@ -9,7 +9,11 @@
 			<h5><%= link_to @league + " Home »", leaguehome_path(@league), { :class=>"subheader" } %></h5>
 		</div>
 
-	<%= render 'games/indexgamesarchive' %>
+		<%= will_paginate @games %>
+
+		<%= render 'games/indexgamesarchive' %>
+
+		<%= will_paginate @games %>
 
 	</div>
 	

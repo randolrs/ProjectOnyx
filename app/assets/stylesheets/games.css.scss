@@ -156,4 +156,23 @@ td.no-active-games{
 	font-weight:bold;
 }
 
+.game-cover{
+	width:860px;
+	margin-left:AUTO;
+	margin-right:auto;
+	height:150px;
+	background-color: rgb(51, 51, 51);
+	color:white;
+	text-align:center;
+}
+
+.game-cover h3{
+	color:white;
+}
+
+.game-cover-container{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
   

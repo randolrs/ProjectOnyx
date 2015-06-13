@@ -2,11 +2,11 @@
     
     <div class="game-cover-container">
 
-      <b><%= @game.league + " Regular Season Game"%></b>
+      <b><%= link_to @game.league + " Regular Season Game", gameshow_path(@league,@game.id)%></b>
 
-      <h3><%= @game.teama%> <%= image_tag Team.find_by_name(@game.teama).image, class: "team-image-tiny"%> @ <%= image_tag Team.find_by_name(@game.teamh).image, class: "team-image-tiny"%> <%= @game.teamh %></h3>
+      <h3><%=link_to @game.teama, teamshow_path(@league,@teama.id) %> <%= image_tag @teama.image, class: "team-image-tiny"%> @ <%= image_tag @teamh.image, class: "team-image-tiny"%> <%= link_to @game.teamh , teamshow_path(@league,@teamh.id)%></h3>
 
-      <%= @game.event_time.strftime("%l:%M %p") + ", " + @game.event_time.strftime("%a %b %d, %Y ") %>
+      <h5><%= @game.event_time.strftime("%l:%M %p") + ", " + @game.event_time.strftime("%a %b %d, %Y ") %></h5>
 
     </div>
   </div>

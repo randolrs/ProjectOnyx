@@ -19,9 +19,11 @@
     <% end %>
 
     <% if @predictions.count == 0 %>  
-      <tr class= "game-index-table-row-no">              
-        <td colspan="3" class="no-active-games">No Active Predictions</td>
-      </tr>
+      <div class="prediction-index-header-text">
+        <tr class= "game-index-table-row-no">              
+          <td colspan="3" class="no-active-games">No Active Predictions</td>
+        </tr>
+      </div>
     <% end %>
 
   </tbody>

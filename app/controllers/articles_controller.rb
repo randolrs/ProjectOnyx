@@ -26,8 +26,9 @@ class ArticlesController < ApplicationController
     @league = @prediction_game.league
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
-     
     @game = Game.find(@article.event_id)
+    @teama = Team.find_by_name(@game.teama)
+    @teamh = Team.find_by_name(@game.teamh)
   end
 
   # GET /articles/new

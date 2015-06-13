@@ -22,17 +22,6 @@ class PredictionGamesController < ApplicationController
 
       else
 
-        # works
-
-        # if (params[:prediction_game][:league] && PredictionGame.all.collect(&:league).include?(params[:league]))
-          
-        #   #@prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
-
-        #   @prediction_games = @prediction_games.all.where(:league => params[:prediction_game][:league])
-
-
-        # end
-
          if (params[:prediction_game][:teama] && PredictionGame.all.collect(&:teama).include?(params[:teama]) )
           
           @prediction_games =  @prediction_games.where(:teama => params[:prediction_game][:teama])
@@ -45,93 +34,6 @@ class PredictionGamesController < ApplicationController
     end
 
   end
-
-  # def findnbapredictiongames
-
-  #   if params[:prediction_game]
-
-  #     if params[:prediction_game][:game_id]
-  #       @prediction_games = PredictionGame.all.where(:league => "NBA", :game_id => params[:prediction_game][:game_id])
-
-  #     else
-  #       @prediction_games = PredictionGame.all.where(:league => "NBA")
-        
-  #     end
-
-  #     if params[:prediction_game][:sort_param]
-
-  #       if params[:prediction_game][:sort_param] == "Date: Newest"
-
-  #         @prediction_games = @prediction_games.sort_by(&:created_at).reverse
-
-  #       elsif params[:prediction_game][:sort_param] == "Date: Oldest"
-
-  #         @prediction_games = @prediction_games.sort_by(&:created_at)
-
-  #       elsif params[:prediction_game][:sort_param] == "Rating (Predictor)"
-
-
-  #       elsif params[:prediction_game][:sort_param] == "Rating (Prediction)"
-
-
-  #       elsif params[:prediction_game][:sort_param] == "Price"
-
-          
-          
-  #       end
-
-  #     end
-
-  #   else
-
-  #     if params[:game_id]
-
-  #       @prediction_games = PredictionGame.all.where(:league => "NBA", :game_id => params[:game_id])
-
-  #     else
-  #       @prediction_games = PredictionGame.all.where(:league => "NBA")
-        
-  #     end
-
-  #   end
-
-  #   if predictor_signed_in?
-
-
-  #   elsif user_signed_in?
-
-  #     if params[:prediction_game].nil?
-
-
-  #     else
-
-  #       # works
-
-  #       # if (params[:prediction_game][:league] && PredictionGame.all.collect(&:league).include?(params[:league]))
-          
-  #       #   #@prediction_games = PredictionGame.all.where(:league => params[:prediction_game][:league])
-
-  #       #   @prediction_games = @prediction_games.all.where(:league => params[:prediction_game][:league])
-
-
-  #       # end
-
-  #       if (params[:prediction_game][:teama] && Team.all.collect(&:name).include?(params[:prediction_game][:teama]) )
-          
-  #         @prediction_games =  @prediction_games.where("teama = :teama or teamh = :teama", {teama: params[:prediction_game][:teama]})
-
-  #         #@prediction_games =  @prediction_games.where(:teama => params[:prediction_game][:teama])
-  #         #"teama = :teama or teamh = :teama", { teama: params[:prediction_game][:teama], teama: params[:prediction_game][:teama] }
-
-  #       end
-
-
-  #     end
-
-  #   end
-
-
-  # end
 
 
   def index_closed
@@ -148,7 +50,8 @@ class PredictionGamesController < ApplicationController
     @league = @prediction_game.league
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
-
+    @teama = Team.find_by_name(@game.teama)
+    @teamh = Team.find_by_name(@game.teamh)
   end
 
   def buy

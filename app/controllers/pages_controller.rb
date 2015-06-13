@@ -76,7 +76,8 @@ class PagesController < ApplicationController
     @predictions = PredictionGame.all.where(:game_id=>@game.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)    
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
-
+    @teama = Team.find_by_name(@game.teama)
+    @teamh = Team.find_by_name(@game.teamh)
   end
 
   def gamearticleindex
@@ -85,7 +86,8 @@ class PagesController < ApplicationController
     @articles = Article.all.where(:event_id=>@game.id).paginate(:page => params[:page], :per_page => 10)
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
-
+    @teama = Team.find_by_name(@game.teama)
+    @teamh = Team.find_by_name(@game.teamh)
   end
 
 end

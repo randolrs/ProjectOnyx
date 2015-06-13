@@ -53,9 +53,11 @@ Rails.application.routes.draw do
 
   get '/:league/games/:id/picks' => 'pages#gamepredictionindex', as: 'gamepredictionindex'
 
-   get '/:league/games/:id/posts' => 'pages#gamearticleindex', as: 'gamearticleindex'
+  get '/:league/games/:id/posts' => 'pages#gamearticleindex', as: 'gamearticleindex'
 
   get '/:league/teams/:id' => 'teams#show', as: 'teamshow'
+
+  get '/:league/teams/:id/games' => 'teams#teamgameindex', as: 'teamgameindex'
 
   get '/events/sports/:league/predictions/:game_id' => 'prediction_games#findpredictiongames', as: 'find_sports_predictions'
   
@@ -88,6 +90,8 @@ Rails.application.routes.draw do
   get '/:username/predictions/sports/:id' => 'prediction_games#show', as: 'predictiongamesshow'
 
   get '/:league/teams/:id/picks' => 'teams#predictionindex', as: 'teamindexpredictionsall'
+
+  get '/:league/teams/:id/posts' => 'teams#articleindex', as: 'teamindexarticlesall'
 
   get ':league/posts' => 'pages#leaguearticleindex', as: 'leaguearticleindex'
 

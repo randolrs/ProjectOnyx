@@ -2,7 +2,7 @@
 
   <tr class="game-show-table-subhead">
     <th class="table-clear"></th>
-    <th class="right-outline table-green" colspan="3"><%= @predictor.username + "'s Prediction" %></th>
+    <th class="right-outline table-green" colspan="3">Prediction</th>
     <th class="table-blue" colspan="3">Actual</th>
   </tr>
 
@@ -19,7 +19,7 @@
   <% if @game.status == "c" %>
 
     <tr class="game-show-table-row home">
-      <td class="game-row"><%=@game.teamh%></td>
+      <td class="game-row"><%=@game.teamh%><%= image_tag @teamh.image, class: "team-image-tiny"%></td>
       <td class="table-green-liter"><%=@prediction_game.teamh_score%></td>
       <td class="table-green-liter"><%if @prediction_game.game_winner == @game.teamh %>&#10004;<%end%></td>
       <td class="table-green-liter right-outline"><%if @prediction_game.game_winner == @game.teamh %><%=@prediction_game.spread%><%end%></td>
@@ -29,7 +29,7 @@
     </tr>
 
     <tr class="game-show-table-row away">
-      <td class="game-row"><%=@game.teama%></td>
+      <td class="game-row"><%=@game.teama%><%= image_tag @teama.image, class: "team-image-tiny"%></td>
       <td class="table-green-liter"><%=@prediction_game.teama_score%></td>
       <td class="table-green-liter"><%if @prediction_game.game_winner == @game.teama %>&#10004;<%end%></td>
       <td class="table-green-liter right-outline"><%if @prediction_game.game_winner == @game.teama %><%=@prediction_game.spread%><%end%></td>
@@ -41,7 +41,7 @@
   <% elsif @game.status == "o" %>  
  
     <tr class="game-show-table-row home">
-      <td class="game-row"><%=@game.teamh%></td>
+      <td class="game-row"><%=@game.teamh%><%= image_tag @teamh.image, class: "team-image-tiny"%></td>
       <td><%=@prediction_game.teamh_score%></td>
       <td><%if @prediction_game.game_winner == @game.teamh %>&#10004;<%end%></td>
       <td class="right-outline"><%if @prediction_game.game_winner == @game.teamh %><%=@prediction_game.spread%><%end%></td>
@@ -49,7 +49,7 @@
     </tr>
 
     <tr class="game-show-table-row away">
-      <td class="game-row"><%=@game.teama%></td>
+      <td class="game-row"><%=@game.teama%><%= image_tag @teama.image, class: "team-image-tiny"%></td>
       <td><%=@prediction_game.teama_score%></td>
       <td color=green><%if @prediction_game.game_winner == @game.teama %>&#10004;<%end%></td>
       <td class="right-outline"><%if @prediction_game.game_winner == @game.teama %><%=@prediction_game.spread%><%end%></td>

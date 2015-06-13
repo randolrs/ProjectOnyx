@@ -20,6 +20,28 @@ class TeamsController < ApplicationController
       @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
   end
 
+  def teamgameindex
+    @team = Team.find(params[:id])
+      @league = @team.league
+      @teams = Team.all.where(:league=>@league)
+      @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 10)
+      @articles = Article.all.where("teama = :team or teamh = :team", {team: @team.name})
+      @predictions = PredictionGame.all.where("teama = :team or teamh = :team", {team: @team.name})
+      @teamgames = Game.all.where(:league => @team.league)
+      @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
+  end
+
+  def articleindex
+      @team = Team.find(params[:id])
+      @league = @team.league
+      @teams = Team.all.where(:league=>@league)
+      @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 10)
+      @articles = Article.all.where("teama = :team or teamh = :team", {team: @team.name})
+      @predictions = PredictionGame.all.where("teama = :team or teamh = :team", {team: @team.name})
+      @teamgames = Game.all.where(:league => @team.league)
+      @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
+  end
+
   # GET /teams/new
   def new
     @team = Team.new

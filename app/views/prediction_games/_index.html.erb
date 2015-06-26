@@ -17,8 +17,12 @@
     <% if @predictions.count == 0 %>
 
       <tr class="prediction-table-row">
-          <td colspan="3" class="no-active-games">No Predictions</td>
-        </tr>
+        <% if @displaypredictor %>
+          <td colspan="5" class="no-active-games">No Predictions</td>
+        <%else%>
+          <td colspan="4" class="no-active-games">No Predictions</td>
+        <%end%>
+      </tr>
 
     <% else %>
 

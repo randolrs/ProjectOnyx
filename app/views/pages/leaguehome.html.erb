@@ -4,7 +4,7 @@
 
 	<div class="content-panel">
 
-		<div class ="article-title-header">
+		<div class ="content-title-header">
 			<h3>Hot <%= @league%> Games</h3>
 			<h5><%= link_to "Full Archive »", leaguegameindex_path %></h5>
 			<div class="article-index-dashboard">
@@ -12,7 +12,7 @@
 			</div>
 		</div>
 
-		<div class ="article-title-header">
+		<div class ="content-title-header">
 			<h3>Popular <%= @league%> Posts</h3>
 			<h5><%= link_to "Full Archive »", leaguearticleindex_path %></h5>
 		</div>
@@ -21,7 +21,7 @@
 			<%= render 'predictors/predictorarticlesummary'%>
 		</div>
 
-		<div class ="prediction-title-header">
+		<div class ="content-title-header">
 			<h3>Recent <%= @league%> Picks</h3>
 			<h5><%= link_to "Full Archive »", leaguepredictionindex_path %></h5>
 

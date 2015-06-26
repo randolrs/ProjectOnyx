@@ -90,24 +90,6 @@
   border:2px solid #4C4C4C;
 }
 
-.prediction-title-header{
-  border-top: 3px solid #E0E0E0;
-  margin-top:50px;
-  font-size:20px;
-  overflow: hidden;
-}
-
-.prediction-title-header h3{
-  font-size:20px;
-  float:left;
-  line-height: 20px;
-  margin-bottom: 30px;
-}
-
-.prediction-title-header h5{
-  float:right;
-}
-
 h2{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size:50px;

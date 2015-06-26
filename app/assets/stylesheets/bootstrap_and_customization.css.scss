@@ -51,17 +51,17 @@ a.dropdown-toggle.profile-header-toggle{
 }
 
 .navbar .nav > li > a{
-	color:#444;;
+	color:white;;
 	text-shadow:none;
 	font-weight:bold;
 }
 
 .navbar .nav > li > a:hover{
-	color:#5C005C;
+	color:#FF74EF;
 }
 
 .login-header-border{
-  border-left: 2px solid #dddddd;
+  border-left: 2px solid #fff;
   margin-left: 4px
 	
 }
@@ -97,11 +97,13 @@ a.dropdown-toggle.profile-header-toggle{
 
 .navbar .nav > li > a.subheader.active{
 	border-bottom: 3px solid #2F1170;
+	margin-bottom:-3px;
 }
 
 .navbar .nav > li > a.subheader:hover{
 	color:#555555;
 	border-bottom: 3px solid #2F1170;
+	margin-bottom: -3px;
 }
 
 .navbar .nav > li > a.subheader-league{
@@ -176,8 +178,7 @@ a.header-make-prediction:hover{
 
 .container-fluid{
 	border-bottom: 1px solid #e0e4e8;
-	background-color:#fff;
-	color:black;
+	background-color:black;
 }
 
 .container-fluid.sub-header{
@@ -188,7 +189,7 @@ a.header-make-prediction:hover{
 a.signup-header{
   padding: 10px 15px;
   border: 2px solid;
-  border-color:white;
+  border-color:#fff;
   border-radius:2.4px;
 }
 
@@ -291,7 +292,6 @@ a.game-detail-toggle:hover{
 }
 
 .dropdown .caret {
-  margin-top: 13px;
   margin-left: 3px;
 }
 

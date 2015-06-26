@@ -4,9 +4,9 @@
 
   <div class="content-panel">
 
-  <%= image_tag @team.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small" %>  <h3><%= @team.name %></h3>
+  <%= image_tag @team.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small" %>  <h3 class="team-show-header"><%= @team.name %></h3>
 
-  <div class ="article-title-header">
+  <div class ="content-title-header">
     <h3>Upcoming <%= @team.name %> Games</h3>
     <h5><%= link_to "All Games »", teamgameindex_path(@team.league,@team.id) %></h5>
     <div class="article-index-dashboard">
@@ -14,14 +14,14 @@
     </div>
   </div>
 
-  <div class="article-title-header">
+  <div class="content-title-header">
     <h3>Popular <%= @team.name %> Posts</h3>
     <h5><%= link_to "All Posts »", teamindexarticlesall_path(@team.league,@team.id) %></h5>  
     <%=render 'predictors/predictorarticlesummary'%>
   </div>
   
 
-  <div class ="article-title-header">
+  <div class ="content-title-header">
     <h3>Recent <%= @team.name %> Picks</h3>
     <h5><%= link_to "Full Archive »", teamindexpredictionsall_path(@team.league,@team.id) %></h5>
 

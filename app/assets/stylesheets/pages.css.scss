@@ -853,8 +853,9 @@ predictor-image-small-container{
 
 .prediction-index-header-text{
   text-align:center;
-  margin-top:50px;
-  margin-bottom:50px; 
+  margin-top:25px;
+  margin-bottom:25px; 
+  font-size:30px;
 }
 
 .footer-wrap{
@@ -998,4 +999,23 @@ ul#footer a:visited{
 a.header-category{
   font-size:16px;
   line-height:30px;
+}
+
+.content-title-header{
+  border-top: 3px solid #E0E0E0;
+  margin-top:25px;
+  font-size:20px;
+  overflow: hidden;
+}
+
+.content-title-header h3{
+  font-size:20px;
+  float:left;
+  line-height: 20px;
+  margin-bottom: 30px;
+}
+
+.content-title-header h5{
+  float:right;
+  font-size:18px;
 }

@@ -51,8 +51,39 @@ a.dropdown-toggle.profile-header-toggle{
 }
 
 .navbar .nav > li > a{
-	color:#F2F2F2;
+	color:#444;;
 	text-shadow:none;
+	font-weight:bold;
+}
+
+.navbar .nav > li > a:hover{
+	color:#5C005C;
+}
+
+.login-header-border{
+  border-left: 2px solid #dddddd;
+  margin-left: 4px
+	
+}
+
+.navbar .nav > li > a.signup-header-border{
+  padding: 5px 10px 5px 10px;
+  color:white;
+  line-height:20px;
+  text-decoration:none;
+  background-color:#13BD63;
+  border-radius:2.4px;
+  text-align:center;
+  position:relative;
+  border-right: 2px solid rgba(0,0,0,.2);
+  border-bottom: 2px solid rgba(0,0,0,.2);
+
+  margin:9px;
+
+}
+
+.navbar .nav > li > a.signup-header-border:hover{
+  background-color:#10A254;
 }
 
 .navbar .nav > li > a.subheader{
@@ -95,16 +126,14 @@ a.dropdown-toggle.profile-header-toggle{
 	padding-bottom:15px;
 }
 
-.navbar .nav > li > a:hover{
-	color:#EBEBEB;
-}
+
 
 .navbar .nav > li > a.header-make-prediction:hover, .navbar .nav > li > a.header-make-prediction:focus{
 	background-color:#dd3618;
 }
 
 .navbar .nav > li > a:focus{
-	color:white;
+	color:#5C005C;
 }
 
 .nav-tabs{
@@ -147,7 +176,8 @@ a.header-make-prediction:hover{
 
 .container-fluid{
 	border-bottom: 1px solid #e0e4e8;
-	background-color:#222;
+	background-color:#fff;
+	color:black;
 }
 
 .container-fluid.sub-header{

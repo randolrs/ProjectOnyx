@@ -10,12 +10,8 @@
 			<h5><%= link_to @predictor.name + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
 		</div>
 
-		<div class="predictor-prediction-index-container">
-
-			<%# render 'prediction_games/predictiongameheadernav' %>
-			<%= render 'prediction_games/indexpredictiongames' %>
-
-		</div>
+		<%# render 'prediction_games/predictiongameheadernav' %>
+		<%= render 'prediction_games/index' %>
 		
 	</div>
 	

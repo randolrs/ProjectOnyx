@@ -62,6 +62,8 @@ class PredictorsController < ApplicationController
 
        @predictions = @predictions.order("created_at DESC").paginate(:page =>params[:page], :per_page => 10)
 
+       @displaypredictor = false
+
   end
 
   def articleindex
@@ -76,6 +78,7 @@ class PredictorsController < ApplicationController
     @predictor = Predictor.find_by_username(params[:username])
     @predictions = @predictor.prediction_games.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @articles = @predictor.articles.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @displaypredictor = false
   end
 
 end

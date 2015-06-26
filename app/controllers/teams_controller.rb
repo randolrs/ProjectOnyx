@@ -18,6 +18,7 @@ class TeamsController < ApplicationController
       @predictions = PredictionGame.all.where("teama = :team or teamh = :team", {team: @team.name})
       @teamgames = Game.all.where(:league => @team.league)
       @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
+      @displaypredictor = true
   end
 
   def teamgameindex
@@ -53,6 +54,7 @@ class TeamsController < ApplicationController
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
     @predictions = PredictionGame.all.where("teama = :team or teamh = :team", {team: @team.name})
+    @displaypredictor = true
 
   end
 

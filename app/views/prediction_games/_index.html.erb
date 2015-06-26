@@ -1,0 +1,43 @@
+
+<table class ="prediction-index-fold">
+  <thead>
+    <tr>
+      <% if @displaypredictor %>
+        <th class="prediction-index-fold-th">Predictor</th>
+      <% end %>
+      <th class="prediction-index-fold-th">Prediction Date</th>
+      <th class="prediction-index-fold-th">Matchup</th>
+      <th class="prediction-index-fold-th">Game Date</th>
+      <th class="prediction-index-fold-th">Onyx Rating</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% if @predictions.count == 0 %>
+
+      <tr class="prediction-table-row">
+          <td colspan="3" class="no-active-games">No Predictions</td>
+        </tr>
+
+    <% else %>
+
+      <% @predictions.each do |prediction| %>
+
+        <tr data-link="<%=predictiongamesshow_path(Predictor.find(prediction.predictor_id).username,prediction.id)%>", class="prediction-table-row">
+          <% if @displaypredictor %>
+            <td> <%= image_tag Predictor.find(prediction.predictor_id).image.url(:medium, :width => 50, :height => 50), class: "predictor-image-tiny"%> <%= Predictor.find(prediction.predictor_id).name %></td>
+          <% end %>
+          <td><%= prediction.created_at.strftime("%D") %></td>
+          <td><%= prediction.teamh %> at <%= prediction.teama %></td>
+          <td><%= prediction.event_time.strftime("%D") %></td>
+          <td>88</td>
+        </tr>
+
+      <%end%>
+
+    <% end %>
+
+  </tbody>
+
+</table>

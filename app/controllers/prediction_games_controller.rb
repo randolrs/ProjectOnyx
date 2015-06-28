@@ -6,31 +6,12 @@ class PredictionGamesController < ApplicationController
   
   def index
 
-    @prediction_games = PredictionGame.all
-
     if predictor_signed_in?
 
     elsif user_signed_in?
 
-      if params[:league].nil?
-
-      else
-        @prediction_games = @prediction_games.where(:league => params[:league])
-      end
-
-      if params[:prediction_game].nil?
-
-      else
-
-         if (params[:prediction_game][:teama] && PredictionGame.all.collect(&:teama).include?(params[:teama]) )
-          
-          @prediction_games =  @prediction_games.where(:teama => params[:prediction_game][:teama])
-
-        end
-
-
-      end
-
+      @prediction_games = current_user.prediction_games
+      
     end
 
   end
@@ -52,16 +33,31 @@ class PredictionGamesController < ApplicationController
     @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
     @teama = Team.find_by_name(@game.teama)
     @teamh = Team.find_by_name(@game.teamh)
+    
+    if user_signed_in?
+      @usertype = "user"
+    elsif predictor_signed_in?
+      @usertype = "predictor"
+    elsif admin_signed_in?
+      @usertype = "admin"
+    else
+      @usertype = "none"
+    end
+      
+      
   end
 
   def buy
-    @prediction_game = PredictionGame.find(params[:id])
-    @user = current_user
 
-    @user.prediction_games << @prediction_game
+    if user_signed_in?
+      @prediction_game = PredictionGame.find(params[:id])
 
-    redirect_to home_path
+      @user = current_user
 
+      @user.prediction_games << @prediction_game
+
+      redirect_to predictiongamesshow_path(@prediction_game.username(@prediction_game.predictor_id),@prediction_game.id)
+    end
   end
 
   def findpredictiongames
@@ -190,6 +186,11 @@ class PredictionGamesController < ApplicationController
 
       @prediction_game.status = "o"
 
+      @league = @game.league
+
+      @teama = Team.find_by_name(@game.teama)
+      @teamh = Team.find_by_name(@game.teamh)
+
     else
 
         @prediction_games = PredictionGame.all
@@ -289,6 +290,6 @@ class PredictionGamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prediction_game_params
-      params.require(:prediction_game).permit(:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id)
+      params.require(:prediction_game).permit(:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id, :cost)
     end
 end

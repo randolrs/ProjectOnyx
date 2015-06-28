@@ -53,7 +53,8 @@
 
         <% if user_signed_in? %>
 
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "My Predictions", dashboard_path, class: "header-category login-header-border" %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "header-category login-header-border" %></li>
 
         <% elsif predictor_signed_in? %>
 

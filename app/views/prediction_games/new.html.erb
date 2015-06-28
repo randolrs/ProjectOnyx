@@ -1,24 +1,15 @@
+<div class = "content-container">
 
-<div class = "prediction-game-new">
+  <%=render 'games/gameshowcover'%>
 
-	<h1><%=@game.league%> Game Prediction</h1>
+  <div class="content-panel">
 
-    <ul>
-    <li role="presentation" class="game-detail dropdown">
-      <a href="#" class="dropdown-toggle game-detail-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Game Details</a>
-      <ul class="dropdown-menu" role="menu">
-        <li><a><b>Date:</b> <%= @game.event_time.strftime("%D") %></a></li>
-        <li><a><b>Time:</b> <%= @game.event_time.strftime("%l:%M %p") %></a></li>
-        <li><a><b>Home Team:</b> <%= @game.teamh%></a></li>
-        <li><a><b>Away Team:</b> <%= @game.teama%></a></li>
-        <li><a><b>Venue:</b> <%= @game.event_venue%></a></li>
-        <li><a><b>City:</b> <%= @game.event_city%></a></li>
-      </ul>
-    </li>
-  </ul>
+    <div class ="content-title-header">
+      <h3>Prediction</h3> <h5>dummy</h5>
+      
+      <%= render 'form' %>
+    </div>
 
-	<%#render'games/showgamesheader'%>
-
-	<%= render 'form' %>
-
+  </div>
+  
 </div>

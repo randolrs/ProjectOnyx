@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
   get 'sportdashboard' => 'sports#index'
 
+  get 'buy_prediction_game' => 'prediction_games#buy'
+
   get 'find_NBA_predictions' => 'prediction_games#findnbapredictiongames'
   get 'find_NFL_predictions' => 'prediction_games#findnflpredictiongames'
   get 'find_MLB_predictions' => 'prediction_games#findmlbpredictiongames'

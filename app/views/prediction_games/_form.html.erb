@@ -1,23 +1,26 @@
 
-<div class="new-prediction-game">
+<%= form_for(@prediction_game) do |f| %>
 
-  <div class="new-prediction-game-header">
-   Final Score Prediction
-  </div>
+  
+  <%= f.label "Price" %>
+  <%= f.number_field :cost %>
 
-  <%= form_for(@prediction_game) do |f| %>
-    
-    <% if @prediction_game.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@prediction_game.errors.count, "error") %> prohibited this prediction_game from being saved:</h2>
-
-        <ul>
+  <% if @prediction_game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prediction_game.errors.count, "error") %> prohibited this prediction_game from being saved:</h2>
+      <ul>
         <% @prediction_game.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
-        </ul>
-      </div>
-    <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="new-prediction-game">
+
+    <div class="new-prediction-game-header">
+     Final Score Prediction
+    </div>
 
     <div class="field">
       
@@ -41,7 +44,6 @@
         <td> <%= f.number_field :teama_score %> </td>
         <td> - </td>
         <td> <%= f.number_field :teamh_score %> </td>
-
       </tbody>
 
     </table>
@@ -49,6 +51,7 @@
     <div class="actions">
       <%= f.submit "Make Prediction", :class => 'submit-prediction-game'%>
     </div>
-  <% end %>
 
-</div>
+  </div>
+
+<% end %>

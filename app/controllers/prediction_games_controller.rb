@@ -11,7 +11,7 @@ class PredictionGamesController < ApplicationController
     elsif user_signed_in?
 
       @prediction_games = current_user.prediction_games
-      
+
     end
 
   end
@@ -36,8 +36,10 @@ class PredictionGamesController < ApplicationController
     
     if user_signed_in?
       @usertype = "user"
+      @access = current_user
     elsif predictor_signed_in?
       @usertype = "predictor"
+      @access = current_predictor
     elsif admin_signed_in?
       @usertype = "admin"
     else
@@ -50,13 +52,24 @@ class PredictionGamesController < ApplicationController
   def buy
 
     if user_signed_in?
+      @user = current_user
       @prediction_game = PredictionGame.find(params[:id])
 
-      @user = current_user
+      if @user.balance > @prediction_game.cost    
 
-      @user.prediction_games << @prediction_game
+        @new_balance = @user.balance - @prediction_game.cost
 
-      redirect_to predictiongamesshow_path(@prediction_game.username(@prediction_game.predictor_id),@prediction_game.id)
+        @user.update(balance: @new_balance) 
+
+        @user.prediction_games << @prediction_game
+
+        redirect_to predictiongamesshow_path(@prediction_game.username(@prediction_game.predictor_id),@prediction_game.id)
+      
+      else
+
+        redirect_to home_path
+      end
+
     end
   end
 
@@ -226,9 +239,9 @@ class PredictionGamesController < ApplicationController
 
     @prediction_game = PredictionGame.new(prediction_game_params)
 
-    game = Game.find(@prediction_game.game_id)
+    @game = Game.find(@prediction_game.game_id)
 
-    if @prediction_game.event_time > Time.now and game.status == "o" and not PredictionGame.where(:game_id => game.id, :predictor_id => current_predictor.id).present?
+    if @prediction_game.event_time > Time.now and @game.status == "o" and not PredictionGame.where(:game_id => @game.id, :predictor_id => current_predictor.id).present?
 
       if @prediction_game.teama_score > @prediction_game.teamh_score
         @prediction_game.game_winner = @prediction_game.teama
@@ -242,6 +255,10 @@ class PredictionGamesController < ApplicationController
       end
 
       @prediction_game.predictor_id = current_predictor.id
+
+      if @prediction_game.cost.nil?
+        @prediction_game.cost = 0
+      end
 
       respond_to do |format|
         if @prediction_game.save

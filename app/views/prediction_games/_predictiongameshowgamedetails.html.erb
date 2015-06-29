@@ -40,7 +40,7 @@
 
   <% elsif @game.status == "o" %>  
  
-    <%if @prediction_game.visible(@usertype, @prediction_game.cost>0) %>
+    <%if @prediction_game.visible(@usertype, @prediction_game.cost>0, @prediction_game.id, @access) %>
 
       <tr class="game-show-table-row home">
         <td class="game-row"><%=@game.teamh%><%= image_tag @teamh.image, class: "team-image-tiny"%></td>
@@ -65,7 +65,7 @@
         <% if @usertype == "user" or @usertype == "none" %>
           <td class="results-pending" colspan="3" rowspan="2"> <%= link_to "Buy It for " + number_to_currency(@prediction_game.cost).to_s, buy_prediction_game_path(:id=>@prediction_game.id), {:class=>"buy_prediction_cta" }%></td>
         <% else %>
-          <td class="results-pending" colspan="3" rowspan="2"> <a class="buy_prediction_cta">Buy It for <%=number_to_currency(@prediction_game.cost)%></a></td>
+          <td class="results-pending" colspan="3" rowspan="2">Closed</td>
         <%end%>
 
         <td class="results-pending" colspan="3" rowspan="2">Pending</td>

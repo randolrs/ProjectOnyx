@@ -59,6 +59,8 @@
             <ul class="dropdown-menu" role="menu">
                 <li><%= link_to "My Predictions", dashboard_path, class: "header-category" %><span class="badge"><%= current_user.prediction_games.count %></span></li>
                 <li><%= link_to "My Balance: " + number_to_currency(current_user.balance).to_s, home_path %></li>
+                <li><%= link_to "New Charge", new_charge_path %></li>
+
                 <li role="presentation" class="divider"></li>
                 <li><%= link_to "Account Settings", edit_user_registration_path %></li>
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
@@ -70,7 +72,7 @@
         <% elsif predictor_signed_in? %>
 
           <li class="dropdown">
-              <a href="#" class="dropdown-toggle profile-header-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= image_tag current_predictor.image.url(:thumb), class: "image-header"%><% if current_predictor.name %><%= current_predictor.name %><%else%>Guest<%end%></a>
+              <a href="#" class="dropdown-toggle profile-header-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><% if current_predictor.image %><%= image_tag current_predictor.image.url(:thumb), class: "image-header"%><%end%><% if current_predictor.name %><%= current_predictor.name %><%else%>Guest<%end%></a>
 
             <ul class="dropdown-menu" role="menu">
                 <li><a href= <%= predictordashboard_path(current_predictor.username) %>>Profile <span class="badge"><%= current_predictor.prediction_games.count %></span></a></li>

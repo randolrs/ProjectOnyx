@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  resources :charges
+
   resources :prediction_games
 
   resources :games

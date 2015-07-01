@@ -84,7 +84,7 @@ Rails.application.configure do
 #set paperclip to upload images to amazon S3
   config.paperclip_defaults = {
     :storage => :s3, 
-    :default_url => 'assets/images/missing_:style.png',
+    :default_url => 'images/missing_:style.png',
     :path => "users/avatar/:style.:extension",
     :bucket => "projectonyx",
 

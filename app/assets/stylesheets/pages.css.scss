@@ -388,6 +388,52 @@ h2{
   z-index:10;
 }
 
+.add-funds-container{
+  width: 400px;
+  text-align:center;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:100px;
+  border: 1px solid #F0F0F0;
+  border-radius: 1px;
+  box-shadow: 0px 0px 1px #040307;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #3e4552;
+  background-color:white;
+  }
+
+.add-funds-container h2{  
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 30px;
+  font-weight:normal;
+  color: #3e4552;
+
+}
+
+.add-funds-form{
+  padding: 18px;
+}
+
+.add-funds-extras{
+  position:relative;
+  width:400px;
+  padding-top:20px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #3e4552;
+  font-size: 14px;
+  z-index:10;
+}
+
+.add-funds-input{
+  width:50px;
+  text-align:center;
+  margin-top:10px;
+  margin-bottom:10px;
+}
 
 .signin-container{
   width: 400px;
@@ -820,6 +866,7 @@ th.prediction-summary-index{
   height:70px;
   border-radius:35px;
   float:left;
+  border: 2px solid white;
   
 }
 
@@ -860,26 +907,7 @@ predictor-image-small-container{
 .footer-wrap{
   
   height:250px;
-  background-color: #333333;
-  position:relative;
-  bottom:0px;
-  width:100%;
-  }
-
-  .footer-container{
-  width:1100px;
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center;
-  color:white;
-  height:80px;
-  }
-
-
-  .footer-wrap{
-  
-  height:250px;
-  background-color: #333333;
+  background-color: black;
   position:relative;
   bottom:0px;
   width:100%;

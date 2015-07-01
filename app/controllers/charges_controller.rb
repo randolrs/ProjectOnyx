@@ -2,7 +2,6 @@ class ChargesController < ApplicationController
 
 def new
 
-  @amount = 2000
 end
 
 def create
@@ -21,9 +20,13 @@ def create
     :currency    => 'usd'
   )
 
-rescue Stripe::CardError => e
-  flash[:error] = e.message
-  redirect_to charges_path
-end
+  @new_balance = current_user.balance + @amount/100
+  current_user.update(:balance => @new_balance)
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to charges_path
+  end
+
 
 end

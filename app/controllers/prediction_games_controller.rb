@@ -54,12 +54,19 @@ class PredictionGamesController < ApplicationController
     if user_signed_in?
       @user = current_user
       @prediction_game = PredictionGame.find(params[:id])
+      @predictor = Predictor.find(@prediction_game.predictor_id)
 
       if @user.balance > @prediction_game.cost    
 
-        @new_balance = @user.balance - @prediction_game.cost
+        @user_new_balance = @user.balance - @prediction_game.cost
 
-        @user.update(balance: @new_balance) 
+        @user.update(balance: @user_new_balance)
+
+        @fee_to_predictor = @prediction_game.cost * 0.8
+
+        @predictor_new_balance = @predictor.balance + @fee_to_predictor
+
+        @predictor.update(balance: @predictor_new_balance)
 
         @user.prediction_games << @prediction_game
 

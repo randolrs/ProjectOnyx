@@ -1,7 +1,5 @@
 <div class = "game-index-header">
 
-	<span class="glyphicon glyphicon-envelope"></span>
-
 	<ul class="nav nav-tabs league-header">
 		<li <% if params[:league] =="all" or params[:league].nil? %> class="active" <%end%>> <%= link_to "All", sportsgamesselect_path(current_predictor.username, "articles") %></li>
 

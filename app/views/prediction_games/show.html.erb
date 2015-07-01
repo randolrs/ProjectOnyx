@@ -8,7 +8,7 @@
 
   	<div class ="content-title-header">
 		<h3><%= @predictor.name %>'s Prediction</h3>
-		<h5><%= link_to @predictor.name + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
+		<h5><%= link_to @predictor.username + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
 	</div>
 
     <%= render 'predictiongameshowgamedetails' %>

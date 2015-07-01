@@ -178,6 +178,7 @@ select#team_filter_team{
 
 .predictor-cover{
   background-color: #333;
+  margin:-1px;
 }
 
 .predictor-cover-container{

@@ -12,9 +12,6 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :balance %><br />
-  <%= f.number_field :balance %></div>
-
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

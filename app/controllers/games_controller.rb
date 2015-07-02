@@ -19,6 +19,7 @@ class GamesController < ApplicationController
     @teamh = Team.find_by_name(@game.teamh)
     @displaypredictor = true
     @action = "game_show"
+    @matchup_hide = true
 
   end
 

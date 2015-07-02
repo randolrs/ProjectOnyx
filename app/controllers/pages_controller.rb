@@ -81,6 +81,7 @@ class PagesController < ApplicationController
     @teama = Team.find_by_name(@game.teama)
     @teamh = Team.find_by_name(@game.teamh)
     @displaypredictor = true
+    @matchup_hide = true
   end
 
   def gamearticleindex

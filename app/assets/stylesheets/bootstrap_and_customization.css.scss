@@ -74,7 +74,7 @@ input[type="text"]{
   position:relative;
   border-right: 2px solid rgba(0,0,0,.2);
   border-bottom: 2px solid rgba(0,0,0,.2);
-  margin: 15px;
+  margin: 14px;
 
 }
 
@@ -293,5 +293,16 @@ a.game-detail-toggle:hover{
 
 .dropdown .caret {
   margin-left: 3px;
+}
+
+.subheader-menu-list>li>a {
+  text-decoration: none;
+  color: #262626;
+}
+
+.subheader-menu-list>li>a:hover {
+  text-decoration: none;
+  color: #262626;
+  background-color: whitesmoke;
 }
 

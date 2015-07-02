@@ -18,6 +18,7 @@ class GamesController < ApplicationController
     @teama = Team.find_by_name(@game.teama)
     @teamh = Team.find_by_name(@game.teamh)
     @displaypredictor = true
+    @action = "game_show"
 
   end
 

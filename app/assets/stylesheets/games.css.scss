@@ -158,10 +158,10 @@ td.no-active-games{
 	width:860px;
 	margin-left:AUTO;
 	margin-right:auto;
-	height:150px;
 	background-color: #E3E3E3;
 	text-align:center;
 	border:2px solid #6C6C6C;
+	padding:20px;
 }
 
 .game-cover h3{
@@ -177,8 +177,6 @@ td.no-active-games{
 }
 
 .game-cover-container{
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
+	
 }
   

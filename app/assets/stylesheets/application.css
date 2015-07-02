@@ -290,6 +290,7 @@ select#team_filter_team{
 .subheader-menu-list{
   list-style-type:none;
   margin:0px;
+  padding:0px;
 }
 
 .submenu-drop{

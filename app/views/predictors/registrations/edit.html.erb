@@ -18,10 +18,15 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
 
-  <p> Profile Image </p>
+  <p>Profile Image</p>
   <%= image_tag current_predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%>
   <br>
   <%= f.file_field :image, class: "form-control" %>
+  
+  <br>
+
+  <p>Bio</p>
+  <%= f.text_area :bio, :cols => "60", :rows => "5" %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

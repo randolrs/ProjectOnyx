@@ -12,7 +12,7 @@
       <div class="predictor-cover-summary-bio">
         <%= link_to @predictor.name, predictordashboard_path(@predictor.username), class: "predictor-name"%>
         <br>
-        <a class="white-text">I am going to write here about my modeling and approach to making predictions. CMSMIEAMDFIMRIMRIGMRG</a>
+        <a class="white-text"><%=@predictor.bio%></a>
       </div>
 
     </div>

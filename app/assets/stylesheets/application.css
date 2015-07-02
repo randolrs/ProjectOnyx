@@ -296,3 +296,32 @@ select#team_filter_team{
 .submenu-drop{
   padding:10px;
 }
+
+.predictor-user-toggle-container{
+  overflow:hidden;
+}
+
+a.predictor-user-toggle{
+  float:left;
+  padding:20px;
+  width:160px;
+  text-align:center;
+  text-decoration:none;
+  color:white;
+  font-size:24px;
+}
+
+a.predictor-user-toggle.inactive{
+  background-color: #3e4552;
+}
+
+a.predictor-user-toggle.active{
+  background-color: white;
+  color: #3e4552;
+}
+
+
+
+a.predictor-user-toggle:hover{
+  cursor:pointer;
+}

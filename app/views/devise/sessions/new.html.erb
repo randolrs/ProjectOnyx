@@ -2,6 +2,13 @@
 
 	<div class = "signup-container">
 
+		<div class ="predictor-user-toggle-container">
+
+			<%= link_to "User", new_user_session_path, class: "predictor-user-toggle active" %>
+			<%= link_to "Predictor", new_predictor_session_path, class: "predictor-user-toggle inactive" %>
+
+		</div>
+
 		<div class = "signup-form">
 
 		<h2>Login</h2>

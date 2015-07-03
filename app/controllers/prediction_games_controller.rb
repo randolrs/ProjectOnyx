@@ -269,6 +269,19 @@ class PredictionGamesController < ApplicationController
 
       respond_to do |format|
         if @prediction_game.save
+
+          unless current_predictor.account
+
+            Stripe.api_key = Rails.configuration.stripe[:secret_key]
+            account = Stripe::Account.create(
+              {:country => "US", :managed => true}
+            )
+
+            current_predictor.update(:account => true)
+            current_predictor.update(:account_id => account.id)
+
+          end
+
           format.html { redirect_to @prediction_game, notice: 'Prediction game was successfully created.' }
           format.json { render :show, status: :created, location: @prediction_game }
         else

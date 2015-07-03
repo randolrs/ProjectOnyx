@@ -325,3 +325,10 @@ a.predictor-user-toggle.active{
 a.predictor-user-toggle:hover{
   cursor:pointer;
 }
+
+p.terms-of-service{
+  font-size: 11px;
+  color: #999;
+  margin-top:20px;
+  margin-bottom:0px;
+}

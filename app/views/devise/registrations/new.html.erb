@@ -21,10 +21,12 @@
 
 			    <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "signup-text" %></div>
 
-			  <div><%= f.label :password_confirmation %>
-			    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password", class: "signup-text" %></div>
+			  <!-- <div><%# f.label :password_confirmation %>
+			    	<%# f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password", class: "signup-text" %></div> -->
 
 			  <div><%= f.submit "CREATE ACCOUNT", class: "signup-submit" %></div>
+
+			  <p class="terms-of-service">By registering your account, you agree to our Terms of Service and the  <a href:'https://stripe.com/connect/account-terms'>Stripe Connected Account Agreement</a></p>
 			<% end %>
 
 			

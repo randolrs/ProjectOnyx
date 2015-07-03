@@ -15,6 +15,8 @@ class Predictor < ActiveRecord::Base
 
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  validates :username, uniqueness: {message: "Username is taken"}
+
 
 	def PredictionGame
 		@prediction_games = PredictionGame.find(:all, :conditions => ["predictor_id=?",current_predictor.id])

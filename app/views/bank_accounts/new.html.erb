@@ -1,0 +1,54 @@
+<%= render 'predictors/predictorcover' %>
+<%= render 'predictors/predictoreditnav' %>
+
+<div class = "content-container">
+
+  <div class="content-panel">
+
+  	<h2>Add Bank Account</h2>
+
+		<%= form_tag bank_accounts_path do %>   
+
+		    <div class="form-row">
+		      <label>
+		        <span>Bank Location</span>
+		            <select data-stripe="country">
+		                <option value="US">United States</option>
+		            </select>
+		      </label>
+		    </div>
+
+		    <div class="form-row">
+		      <label>
+		        <span>Name of Banking Institution</span>
+		            <input type="text" size="9" name="bankName"/>
+		      </label>
+		    </div>
+
+		    <div class="form-row">
+		      <label>
+		        <span>Routing Number</span>
+		            <input type="text" size="9" name="routingNumber"/>
+		      </label>
+		    </div>
+
+		    <div class="form-row">
+		      <label>
+		        <span>Account Number</span>
+		            <input type="text" size="17" name="accountNumber"/>
+		      </label>
+		    </div>
+
+		    <div class="form-row">
+		      <label>
+		        <span>Account Description</span>
+		            <input type="text" size="9" name="description"/>
+		      </label>
+		    </div>
+
+
+		    <button type="submit">Make Recipient!</button>
+		<%end%>
+
+	</div>
+</div>

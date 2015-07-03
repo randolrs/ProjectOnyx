@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :charges
 
+  resources :bank_accounts
+
   resources :prediction_games
 
   resources :games
@@ -80,6 +82,8 @@ Rails.application.routes.draw do
   get '/:username/predictions/:category' => 'predictors#predictionindex', as: 'predictorindexpredictionscategory'
 
   get '/:username/' => 'predictors#predictordashboard', as: 'predictordashboard'
+
+  get ':username/edit/payments' => 'predictors#predictorpaymentedit', as: 'predictorpaymentsedit'
 
   get '/:username/articles' => 'predictors#articleindex', as: 'predictorindexarticlessall'
 

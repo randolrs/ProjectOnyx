@@ -29,3 +29,16 @@
 //         window.document.location = $(this).data("href");
 //     });
 // });
+
+jQuery(function($) {
+    $('#inst-form').submit(function(event) {
+      // Get the form object.
+      var $form = $(this);
+      // Disable the submit button to prevent repeated clicks
+      $form.find('button').prop('disabled', true);
+      // Create a token with Stripe
+      Stripe.bankAccount.createToken($form, stripeResponseHandler);
+      // Prevent the form from submitting with the default action
+      return false;
+    });
+  });

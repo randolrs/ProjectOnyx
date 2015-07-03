@@ -246,6 +246,8 @@ class PredictionGamesController < ApplicationController
 
     @prediction_game = PredictionGame.new(prediction_game_params)
 
+    @predictor = current_predictor
+
     @game = Game.find(@prediction_game.game_id)
 
     if @prediction_game.event_time > Time.now and @game.status == "o" and not PredictionGame.where(:game_id => @game.id, :predictor_id => current_predictor.id).present?
@@ -274,11 +276,13 @@ class PredictionGamesController < ApplicationController
 
             Stripe.api_key = Rails.configuration.stripe[:secret_key]
             account = Stripe::Account.create(
-              {:country => "US", :managed => true}
+              {:country => "US", :managed => true, :email => @predictor.email}
             )
 
             current_predictor.update(:account => true)
             current_predictor.update(:account_id => account.id)
+            current_predictor.update(:account_token => account.keys.publishable)
+            current_predictor.update(:account_key_secret => account.keys.secret)
 
           end
 

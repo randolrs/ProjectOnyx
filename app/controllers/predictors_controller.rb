@@ -81,4 +81,10 @@ class PredictorsController < ApplicationController
     @displaypredictor = false
   end
 
+  def predictorpaymentedit
+    @action = "Payments"
+    @predictor = Predictor.find_by_username(params[:username])
+
+  end
+
 end

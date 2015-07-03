@@ -1,0 +1,29 @@
+<div class="content-header-container">
+  <div class="cover-sub-header">
+
+    <nav class="navbar navbar-default">
+
+      <ul class="nav navbar-nav">
+
+        <%if @action == "Payments"%>
+	    	<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader" } %></li>
+	        <li><%= link_to "Payments", predictorpaymentsedit_path(@predictor.username), { :class=>"subheader active" } %></li>
+	        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader" } %></li>
+
+	    <%elsif @action == "Add Bank Account"%>
+	    	<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader" } %></li>
+	        <li><%= link_to "Payments", predictorpaymentsedit_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader active" } %></li>
+
+	    <%else%>
+      		<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader active" } %></li>
+	        <li><%= link_to "Payments", predictorpaymentsedit_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader" } %></li>
+
+        <%end%>
+      </ul>
+
+  </nav>  
+
+  </div>
+</div>

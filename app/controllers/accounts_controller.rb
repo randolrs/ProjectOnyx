@@ -1,20 +1,22 @@
 class AccountsController < ApplicationController
 
-def new
+	def new
 
-    Stripe.api_key = Rails.configuration.stripe[:publishable_key]
-      Stripe::Account.create(
-        {
-          :country => "US",
-          :managed => true
-        }
-      )
+	    Stripe.api_key = Rails.configuration.stripe[:publishable_key]
+	      Stripe::Account.create(
+	        {
+	          :country => "US",
+	          :managed => true
+	        }
+	      )
 
-end
+	end
 
-def create
+	def create
 
-    
+	    
 
+
+	end
 
 end

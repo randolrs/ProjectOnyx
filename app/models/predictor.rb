@@ -22,12 +22,12 @@ class Predictor < ActiveRecord::Base
 		@prediction_games = PredictionGame.find(:all, :conditions => ["predictor_id=?",current_predictor.id])
 	end
 
-  def balance_stripe(account_token)
+  def balance_stripe(id)
 
-    Stripe.api_key = account_token
+    Stripe.api_key = Predictor.find(id).account_key_secret
     balance_object = Stripe::Balance.retrieve()
 
-    @balance = balance_object.available[0].amount
+    @balance = balance_object.available[0].amount + balance_object.pending[0].amount
     return @balance
 
 

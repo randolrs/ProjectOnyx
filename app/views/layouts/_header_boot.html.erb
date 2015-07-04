@@ -75,7 +75,7 @@
             <ul class="dropdown-menu" role="menu">
                 <!-- <li><a href= <%# predictordashboard_path(current_predictor.username) %>>Profile <span class="badge"><%# current_predictor.prediction_games.count %></span></a></li> -->
                 <li><%= link_to "My Predictions", predictordashboard_path(current_predictor.username) %></li>
-                <% if current_predictor.account_key_secret%><li><%= link_to "Current Balance: " + number_to_currency(current_predictor.balance_stripe(current_predictor.account_key_secret)).to_s, home_path %></li><%end%>
+                <% if current_predictor.account_key_secret%><li><%= link_to "Current Balance: " + number_to_currency(current_predictor.balance_stripe(current_predictor.id)).to_s, home_path %></li><%end%>
                 <li role="presentation" class="divider"></li>
                 <li><%= link_to "New Article", sportsgamesselect_path(current_predictor.username, "articles") %></li>
                 <li><%= link_to "New Prediction", sportsgamesselect_path(current_predictor.username, "predictions") %></li>

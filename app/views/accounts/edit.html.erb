@@ -9,36 +9,33 @@
 
 		<%= form_tag accounts_update_path do %>   
 
-		    <div class="form-row">
-		      <label>
-		        <span>Payee Type</span>
-		            <select name="payeeType">
+
+			<table>
+				<tr>
+					<td><span>Payee Type</span> </td>
+					<td><select name="payeeType">
 		                <option value="Ind">Individual</option>
 		                <option value="Bus">Business</option>
-		            </select>
-		      </label>
-		    </div>
-
-		    <div class="form-row">
-		      <label>
-		        <span>First Name</span>
-		            <input type="text" size="20" name="firstName" placeholder=<%=@firstname%>>
-		      </label>
-		    </div>
-
-		    <div class="form-row">
-		      <label>
-		        <span>Last Name</span>
-		            <input type="text" size="20" name="lastName" placeholder=<%=@lastname%>>
-		      </label>
-		    </div>
-
-		    <div class="form-row">
-		      <label>
-		        <span>DOB</span>
-		            <input type="date" name="dob" placeholder=<%=@dob%>>
-		      </label>
-		    </div>
+		            	</select>
+		        	</td>
+				</tr>
+				<tr>
+					<td><span>First Name</span></td>
+					<td><input type="text" size="20" name="firstName" placeholder=<%=@firstname%>></td>
+				</tr>
+				<tr>
+					<td><span>Last Name</span></td>
+					<td><input type="text" size="20" name="lastName" placeholder=<%=@lastname%>></td>
+				</tr>
+				<tr>
+					<td><span>DOB</span></td>
+					<td><input type="date" name="dob" placeholder=<%=@dob%>></td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td> </td>
+				</tr>
+			</table>
 
 		    <button type="submit">Update</button>
 		<%end%>

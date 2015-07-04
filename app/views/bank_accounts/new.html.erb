@@ -9,43 +9,30 @@
 
 		<%= form_tag bank_accounts_path do %>   
 
-		    <div class="form-row">
-		      <label>
-		        <span>Bank Location</span>
-		            <select name="country">
+			<table>
+				<tr>
+					<td><span>Bank Location</span></td>
+					<td><select name="country">
 		                <option value="US">United States</option>
-		            </select>
-		      </label>
-		    </div>
-
-		    <div class="form-row">
-		      <label>
-		        <span>Name of Banking Institution</span>
-		            <input type="text" size="9" name="bankName"/>
-		      </label>
-		    </div>
-
-		    <div class="form-row">
-		      <label>
-		        <span>Routing Number</span>
-		            <input type="text" size="9" name="routingNumber"/>
-		      </label>
-		    </div>
-
-		    <div class="form-row">
-		      <label>
-		        <span>Account Number</span>
-		            <input type="text" size="17" name="accountNumber"/>
-		      </label>
-		    </div>
-
-		    <div class="form-row">
-		      <label>
-		        <span>Account Description</span>
-		            <input type="text" size="9" name="description"/>
-		      </label>
-		    </div>
-
+		            </select></td>
+				</tr>
+				<tr>
+					<td><span>Name of Banking Institution</span></td>
+					<td><input type="text" size="9" name="bankName"/></td>
+				</tr>
+				<tr>
+					<td><span>Routing Number</span></td>
+					<td><input type="text" size="9" name="routingNumber"/></td>
+				</tr>
+				<tr>
+					<td><span>Account Number</span></td>
+					<td><input type="text" size="17" name="accountNumber"/></td>
+				</tr>
+				<tr>
+					<td><span>Description</span></td>
+					<td><input type="text" size="9" name="description"/></td>
+				</tr>
+			</table>
 
 		    <button type="submit">Add Bank Account</button>
 		<%end%>

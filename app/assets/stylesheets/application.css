@@ -21,7 +21,8 @@
     min-height: 500px;
     z-index:-11;
     padding:0px;
-    background-image: url("https://s3.amazonaws.com/projectonyx/blackorchid_%402X.jpg");
+    /*background-image: url("https://s3.amazonaws.com/projectonyx/blackorchid_%402X.jpg");*/
+    background-color:white;
  }
 
  .body{

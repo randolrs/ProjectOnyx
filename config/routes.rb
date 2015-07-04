@@ -83,7 +83,7 @@ Rails.application.routes.draw do
 
   get '/:username/' => 'predictors#predictordashboard', as: 'predictordashboard'
 
-  get ':username/edit/payments' => 'predictors#predictorpaymentedit', as: 'predictorpaymentsedit'
+  get ':username/edit/payee' => 'accounts#edit', as: 'predictorpayeeedit'
 
   get '/:username/articles' => 'predictors#articleindex', as: 'predictorindexarticlessall'
 
@@ -159,6 +159,8 @@ Rails.application.routes.draw do
   get 'prediction/sports/new/:id' => 'prediction_games#new', as: 'newpredictiongame'
 
   get '/buyprediction/sports/:id' => 'prediction_games#show', as: 'showpredictiongame'
+
+  post '/accounts/update' => 'accounts#update', as: 'accounts_update'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,47 @@
+<%= render 'predictors/predictorcover' %>
+<%= render 'predictors/predictoreditnav' %>
+
+<div class = "content-container">
+
+  <div class="content-panel">
+
+  	<h2>Payee Information</h2>
+
+		<%= form_tag accounts_update_path do %>   
+
+		    <div class="form-row">
+		      <label>
+		        <span>Payee Type</span>
+		            <select name="payeeType">
+		                <option value="Ind">Individual</option>
+		                <option value="Bus">Business</option>
+		            </select>
+		      </label>
+		    </div>
+
+		    <div class="form-row">
+		      <label>
+		        <span>First Name</span>
+		            <input type="text" size="20" name="firstName" placeholder=<%=@firstname%>>
+		      </label>
+		    </div>
+
+		    <div class="form-row">
+		      <label>
+		        <span>Last Name</span>
+		            <input type="text" size="20" name="lastName" placeholder=<%=@lastname%>>
+		      </label>
+		    </div>
+
+		    <div class="form-row">
+		      <label>
+		        <span>DOB</span>
+		            <input type="date" name="dob" placeholder=<%=@dob%>>
+		      </label>
+		    </div>
+
+		    <button type="submit">Update</button>
+		<%end%>
+
+	</div>
+</div>

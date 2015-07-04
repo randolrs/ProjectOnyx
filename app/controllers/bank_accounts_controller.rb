@@ -18,7 +18,7 @@ class BankAccountsController < ApplicationController
 
 		token = Stripe::Token.create(
     		:bank_account => {
-		    :country => "US",
+		    :country => params[:country],
 		    :display_name => params[:description],
 		    :bank_name => params[:bankName],
 		    :routing_number => params[:routingNumber],
@@ -31,7 +31,7 @@ class BankAccountsController < ApplicationController
 		account = Stripe::Account.retrieve(@account_id)
 		bank_account = account.external_accounts.create({:external_account => @token_id})
 		#bank_account = account.external_accounts.create({:external_account => Rails.configuration.stripe[:publishable_key]})
-
+		redirect_to edit_predictor_registration_path
 	end
 
 end

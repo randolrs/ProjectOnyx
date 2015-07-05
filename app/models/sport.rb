@@ -3,7 +3,8 @@ class Sport < ActiveRecord::Base
 	has_many :teams
 	has_many :games
 
-	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
+						:s3_protocol => :https
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 end

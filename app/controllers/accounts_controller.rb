@@ -6,7 +6,8 @@ class AccountsController < ApplicationController
 	      Stripe::Account.create(
 	        {
 	          :country => "US",
-	          :managed => true
+	          :managed => true,
+	          :transfer_schedule[1] => "manual"
 	        }
 	      )
 

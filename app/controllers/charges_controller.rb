@@ -5,7 +5,8 @@ def new
     unless current_user.account_id
       Stripe.api_key = Rails.configuration.stripe[:secret_key]
         account = Stripe::Account.create(
-              {:country => "US", :managed => true, :email => @current_user.email}
+              {:country => "US", :managed => true, :email => @current_user.email,
+               :transfer_schedule["interval"] => "manual"}
             )
 
             current_user.update(:account_id => account.id)
@@ -19,6 +20,8 @@ end
 def create
   # Amount in cents
   @amount = params[:amount].to_i * 100
+
+  Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
   if current_user.customer_id
 
@@ -34,14 +37,14 @@ def create
 
   end
 
+  #customer.sources.create({:source => params[:stripeToken]})
+
   charge = Stripe::Charge.create(
     :customer    => customer.id,
     :amount      => @amount,
     :description => 'Rails Stripe customer',
     :currency    => 'usd'
   )
-
-  customer.sources.create({:source => params[:stripeToken]})
 
   @new_balance = current_user.balance + @amount/100
   current_user.update(:balance => @new_balance)

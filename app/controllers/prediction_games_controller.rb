@@ -56,35 +56,61 @@ class PredictionGamesController < ApplicationController
       @prediction_game = PredictionGame.find(params[:id])
       @predictor = Predictor.find(@prediction_game.predictor_id)
 
+      # Stripe.api_key = Rails.configuration.stripe[:secret_key]
+      # platform_account = Stripe::Account.retrieve("acct_2M2Y49HfmqfUDqqWApna")
+    
+   
+      ###Invoice Approach
+
+#       Stripe::InvoiceItem.create(
+#         :customer => @user.customer_id,
+#         :amount => @prediction_game.cost.round*100,
+#         :currency => "usd",
+#         :description => "One-time setup fee"
+# )
+
+#       invoice = Stripe::Invoice.create(
+#         :customer => @user.customer_id,
+#       )
+
+#       Stripe.api_key = @user.account_key_s
+#       invoice.pay
+
+
+      #####End invoice approach
+
+
+
+    #####Transfer approach
       Stripe.api_key = @user.account_key_s
 
+      #Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
       Stripe::Transfer.create(
+        #:customer => @user.customer_id,
         :amount => @prediction_game.cost.round*100,
         :currency => "usd",
         :destination => @predictor.account_id,
+        :application_fee => @prediction_game.cost.round*20, 
         :description => "Payment for " + @prediction_game.league + " prediction: " + @prediction_game.teama + " @ " + @prediction_game.teamh
       )
 
-      # if @user.balance > @prediction_game.cost    
+    ######End transfer approach
 
-      #   @user_new_balance = @user.balance - @prediction_game.cost
+#####Charge approach
+        # Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-      #   @user.update(balance: @user_new_balance)
+        # customer = Stripe::Customer.retrieve(current_user.customer_id)
 
-      #   @fee_to_predictor = @prediction_game.cost * 0.8
+        # charge = Stripe::Charge.create(
+        #   :customer    => customer.id,
+        #   :amount      => @prediction_game.cost.round*100,
+        #   :description => 'Rails Stripe customer',
+        #   :currency    => 'usd',
+        #   :destination => @predictor.account_id
+        # )
 
-      #   @predictor_new_balance = @predictor.balance + @fee_to_predictor
-
-      #   @predictor.update(balance: @predictor_new_balance)
-
-      #   @user.prediction_games << @prediction_game
-
-      #   redirect_to predictiongamesshow_path(@prediction_game.username(@prediction_game.predictor_id),@prediction_game.id)
-      
-      # else
-
-      #   redirect_to home_path
-      # end
+  #######End Charge Approach
 
     end
   end
@@ -285,7 +311,7 @@ class PredictionGamesController < ApplicationController
 
             Stripe.api_key = Rails.configuration.stripe[:secret_key]
             account = Stripe::Account.create(
-              {:country => "US", :managed => true, :email => @predictor.email}
+              {:country => "US", :managed => true, :email => @predictor.email, :transfer_schedule["interval"] => "manual"}
             )
 
             current_predictor.update(:account => true)

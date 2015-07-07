@@ -66,7 +66,11 @@
 
 <% if user_signed_in? %>
 
-<div class="container-dash">
+<%= render 'predictors/editnavside' %>
+
+  <div class = "edit-container">
+
+    <div class="edit-panel">
 
       <h1>Find Sports Predictions</h1>
 
@@ -121,6 +125,7 @@
           <% end %>
 
               </table>
+        </div>
       </div>
 
 </div>

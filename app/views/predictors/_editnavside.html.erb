@@ -3,12 +3,35 @@
 
   	<ul class="edit-sidebar">
   		<li><a class="sidebar-header">My Profile</a></li>
-  		<li class="sidebar-listing"><%= link_to "Purchased Predictions", dashboard_path, class: "edit-listing" %></li>
-  		<li class="sidebar-listing"><%= link_to "Basic Information", edit_user_registration_path, class: "edit-listing"%></li>
-  		<li class="sidebar-listing"><%= link_to "Add Funds", new_charge_path, class: "edit-listing"%></li>
-  		<li class="sidebar-listing"><%= link_to "Payment Information", root_path, class: "edit-listing"%></li>
+
+  		<% if @action == "purchased" %>
+  			<li class="sidebar-listing active"><%= link_to "Purchased Predictions", dashboard_path, class: "edit-listing active" %></li>
+  		<%else%>
+  			<li class="sidebar-listing"><%= link_to "Purchased Predictions", dashboard_path, class: "edit-listing" %></li>
+  		<%end%>
+
+  		<% if @action == "basic" %>
+  			<li class="sidebar-listing active"><%= link_to "Basic Information", edit_user_registration_path, class: "edit-listing active"%></li>
+  		<%else%>
+  			<li class="sidebar-listing"><%= link_to "Basic Information", edit_user_registration_path, class: "edit-listing"%></li>
+  		<%end%>
+
+  		<% if @action == "funds" %>
+  			<li class="sidebar-listing active"><%= link_to "Add Funds", new_charge_path, class: "edit-listing active"%></li>
+  		<%else%>
+  			<li class="sidebar-listing"><%= link_to "Add Funds", new_charge_path, class: "edit-listing"%></li>
+  		<%end%>
+
+  		<% if @action == "payment" %>
+  			<li class="sidebar-listing active"><%= link_to "Payment Information", root_path, class: "edit-listing active"%></li>
+  		<%else%>
+  			<li class="sidebar-listing"><%= link_to "Payment Information", root_path, class: "edit-listing"%></li>
+  		<%end%>
+  		
   		<li><%=link_to "Cancel Account", root_path, class: "sidebar-header cancel-account"%></a></li>
   	</ul>
+
+
 
   </div>
 </div>

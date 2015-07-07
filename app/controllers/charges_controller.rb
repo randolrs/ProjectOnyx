@@ -2,6 +2,7 @@ class ChargesController < ApplicationController
 
 def new
 
+  @action = "funds"
     unless current_user.account_id
       Stripe.api_key = Rails.configuration.stripe[:secret_key]
         account = Stripe::Account.create(

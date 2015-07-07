@@ -126,11 +126,15 @@ a.request_button{
   border-radius:2.4px;
   text-align:center;
   position:relative;
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 
 }
 
 a.request_button:hover{
 	background-color:#00AB00;
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 
@@ -363,6 +367,8 @@ h2{
 
   .signup-submit:hover{
     background-color: #10A254;
+    webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
   }
 
 .signup-text{
@@ -476,6 +482,8 @@ h2{
 
   .signin-submit:hover{
     background-color: #10A254;
+    webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
   }
 
 .signin-text{

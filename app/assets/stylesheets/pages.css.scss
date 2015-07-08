@@ -252,6 +252,8 @@ a.hero_cta{
 
 a.hero_cta:hover{
   background-color:#10A254;
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 a.subscribe_cta{

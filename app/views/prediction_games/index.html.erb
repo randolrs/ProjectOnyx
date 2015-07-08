@@ -74,58 +74,12 @@
 
       <h1>Find Sports Predictions</h1>
 
-      <form class="filter_form">
-        <!-- select("prediction_game", "league", Sport.all.collect(&:subcat)) -->
-        <%= select("prediction_game", "teama", Team.all.collect(&:name)) %>
-        <input type="submit" value="Filter" />
-      </form>
+      <%= will_paginate @predictions %>
 
-      <div class="prediction-table-holder">
+      <%= render 'prediction_games/index'%>
 
-        <table class ="prediction-index-fold table table-hover">
-          <thead>
-          <tr>
+      <%= will_paginate @predictions %>
 
-            <th class="table-holder"></th>
-            
-            <th class="prediction-index-fold-th">League</th>
-            <th class="prediction-index-fold-th">Event Date</th>
-            <th class="prediction-index-fold-th">Home Team</th>
-            <th class="prediction-index-fold-th">Away Team</th>
-            <th class="prediction-index-fold-th">Prediction Date</th>
-            <th class="prediction-index-fold-th"></th>
-            
-          </tr>
-          </thead>
-
-
-          <% @prediction_games.each do |prediction_game| %>
-
-            <% if prediction_game.status == nil or prediction_game.status == "o" %>
-
-                  <tbody>
-                  
-                  <tr class="prediction-table-row" href="/">
-                      <td> <img src="https://s3.amazonaws.com/projectonyx/glyphicons-224-chevron-right.png" height="9" width="10">  </td>
-                      
-                      <td><%= prediction_game.league %></td>
-                      <td><%= prediction_game.event_time.strftime("%D") %></td>
-                      <td><%= prediction_game.teamh %></td>
-                      <td><%= prediction_game.teama %></td>
-                      <td> <%= prediction_game.created_at.strftime("%D") %></td>
-                      <td><%= link_to 'Show Details',  prediction_game %></td>
-                      
-                    </div>
-                  </tr>
-
-                  </tbody>
-
-              <% end %>
-
-          <% end %>
-
-              </table>
-        </div>
       </div>
 
 </div>

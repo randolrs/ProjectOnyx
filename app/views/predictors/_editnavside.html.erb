@@ -23,11 +23,11 @@
   		<%end%>
 
   		<% if @action == "payment" %>
-  			<li class="sidebar-listing active"><%= link_to "Payment Information", root_path, class: "edit-listing active"%></li>
+  			<li class="sidebar-listing active"><%= link_to "Payment Information", cardsindex_path(current_user.username), class: "edit-listing active"%></li>
   		<%else%>
-  			<li class="sidebar-listing"><%= link_to "Payment Information", root_path, class: "edit-listing"%></li>
+  			<li class="sidebar-listing"><%= link_to "Payment Information", cardsindex_path(current_user.username), class: "edit-listing"%></li>
   		<%end%>
-  		
+
   		<li><%=link_to "Cancel Account", root_path, class: "sidebar-header cancel-account"%></a></li>
   	</ul>
 

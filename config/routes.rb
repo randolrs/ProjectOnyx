@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  resources :cards
+
   resources :charges
 
   resources :bank_accounts
@@ -84,6 +86,8 @@ Rails.application.routes.draw do
   get '/:username/' => 'predictors#predictordashboard', as: 'predictordashboard'
 
   get ':username/edit/payee' => 'accounts#edit', as: 'predictorpayeeedit'
+
+  get ':username/edit/payments' => 'cards#index', as: 'cardsindex'
 
   get '/:username/articles' => 'predictors#articleindex', as: 'predictorindexarticlessall'
 

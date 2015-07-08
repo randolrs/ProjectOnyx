@@ -4,33 +4,26 @@
 
 	<div class="edit-panel">
 
-		<div class = "add-funds-container">
+		<h2>Add Funds</h2>
 
-			<div class = "add-funds-form">
+		<%= form_tag charges_path do %>
+		  <article>
+		    <label class="amount">
+		      <span>Amount</span>
+		      
+		      <input type="number" name="amount" class="add-funds-input">
+		    </label>
+		  </article>
 
-				<h2>Add Funds</h2>
+		  <script 	src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+		          	data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+		          	data-image="/img/documentation/checkout/marketplace.png"
+		    		data-name="Onyx Predictions"
+		          	data-description="Add Funds"
+		          	data-amount="">
+		    </script>
+		<% end %>
 
-					<%= form_tag charges_path do %>
-					  <article>
-					    <label class="amount">
-					      <span>Amount:</span>
-					      <br>
-					      <input type="number" name="amount" class="add-funds-input">
-					    </label>
-					  </article>
-
-					  <script 	src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-					          	data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-					          	data-image="/img/documentation/checkout/marketplace.png"
-					    		data-name="Onyx Predictions"
-					          	data-description="Add Funds"
-					          	data-amount="">
-					    </script>
-					<% end %>
-
-			</div>
-
-		</div>
 	</div>
 
 </div>

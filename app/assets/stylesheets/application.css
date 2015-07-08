@@ -391,7 +391,6 @@ p.terms-of-service{
 
 .edit-sidebar>li>a.edit-listing:hover{
   text-decoration: none;
-  color: black;
 }
 
 .sidebar-listing{
@@ -432,6 +431,13 @@ p.terms-of-service{
   width: 860px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.edit-panel h2{
+  font-size: 40px;
+  width:300px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid orange;
 }
 
 

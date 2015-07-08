@@ -10,6 +10,8 @@ class PredictionGamesController < ApplicationController
 
     elsif user_signed_in?
 
+      @action = "purchased"
+
       @prediction_games = current_user.prediction_games
 
     end

@@ -80,111 +80,111 @@ class GamesController < ApplicationController
 
     @game = Game.find(params[:id])
 
-    respond_to do |format|
+    # respond_to do |format|
 
-      if @game.update(game_params)
+    #   if @game.update(game_params)
 
-        if @game.status == "c"
+    #     if @game.status == "c"
 
-          if @game.teama_score > @game.teamh_score
+    #       if @game.teama_score > @game.teamh_score
 
-            @game.update(game_winner: @game.teama)
+    #         @game.update(game_winner: @game.teama)
 
-            @game.update(score_spread: @game.teama_score - @game.teamh_score)
+    #         @game.update(score_spread: @game.teama_score - @game.teamh_score)
 
-          elsif @game.teama_score < @game.teamh_score
+    #       elsif @game.teama_score < @game.teamh_score
 
-            @game.update(game_winner: @game.teamh)
+    #         @game.update(game_winner: @game.teamh)
 
-            @game.update(score_spread: @game.teamh_score - @game.teama_score)
+    #         @game.update(score_spread: @game.teamh_score - @game.teama_score)
 
-          end
+    #       end
 
-          @prediction_games = PredictionGame.where("game_id = :gameid", {gameid: @game.id})
+    #       @prediction_games = PredictionGame.where("game_id = :gameid", {gameid: @game.id})
 
-          @prediction_games.each do |prediction_game|
+    #       @prediction_games.each do |prediction_game|
 
-          prediction_game.update(status: "c")
-          prediction_game.update(teama_tscore: @game.teama_score)
-          prediction_game.update(teamh_tscore: @game.teamh_score)
-          prediction_game.update(game_winnert: @game.game_winner)
-          prediction_game.update(teama_diff: prediction_game.teama_score - @game.teama_score)
-          prediction_game.update(teamh_diff: prediction_game.teamh_score - @game.teamh_score)
+    #       prediction_game.update(status: "c")
+    #       prediction_game.update(teama_tscore: @game.teama_score)
+    #       prediction_game.update(teamh_tscore: @game.teamh_score)
+    #       prediction_game.update(game_winnert: @game.game_winner)
+    #       prediction_game.update(teama_diff: prediction_game.teama_score - @game.teama_score)
+    #       prediction_game.update(teamh_diff: prediction_game.teamh_score - @game.teamh_score)
 
-        #   @ou_diff = (prediction_game.teamh_score + prediction_game.teama_score -
-        #                                   @game.teamh_score + @game.teama_score).abs
+    #     #   @ou_diff = (prediction_game.teamh_score + prediction_game.teama_score -
+    #     #                                   @game.teamh_score + @game.teama_score).abs
 
-        #   prediction_game.update(ou_diff: @ou_diff)
+    #     #   prediction_game.update(ou_diff: @ou_diff)
 
-        #   if prediction_game.game_winner == prediction_game.teama
-        #     prediction_game.update(spreadt: @game.teama_score - @game.teamh_score)
-        #   elsif prediction_game.game_winner == prediction_game.teamh
-        #     prediction_game.update(spreadt: @game.teamh_score - @game.teama_score)
-        #   end
+    #     #   if prediction_game.game_winner == prediction_game.teama
+    #     #     prediction_game.update(spreadt: @game.teama_score - @game.teamh_score)
+    #     #   elsif prediction_game.game_winner == prediction_game.teamh
+    #     #     prediction_game.update(spreadt: @game.teamh_score - @game.teama_score)
+    #     #   end
 
-        #   if prediction_game.game_winner == @game.game_winner
-        #     prediction_game.update(game_winner_yesno: true)
-        #     @spread_diff = (prediction_game.spread - @game.score_spread).abs
-        #   else
-        #     prediction_game.update(game_winner_yesno: false)
-        #     @spread_diff = (prediction_game.spread + @game.score_spread).abs
-        #   end
+    #     #   if prediction_game.game_winner == @game.game_winner
+    #     #     prediction_game.update(game_winner_yesno: true)
+    #     #     @spread_diff = (prediction_game.spread - @game.score_spread).abs
+    #     #   else
+    #     #     prediction_game.update(game_winner_yesno: false)
+    #     #     @spread_diff = (prediction_game.spread + @game.score_spread).abs
+    #     #   end
 
-        #   prediction_game.update(spread_diff: @spread_diff)
+    #     #   prediction_game.update(spread_diff: @spread_diff)
 
-        #   #winner onyx points
+    #     #   #winner onyx points
 
-        #   if prediction_game.game_winner_yesno
+    #     #   if prediction_game.game_winner_yesno
 
-        #     prediction_game.update(onyx: 50)
-        #   else
+    #     #     prediction_game.update(onyx: 50)
+    #     #   else
 
-        #     prediction_game.update(onyx: 0)
+    #     #     prediction_game.update(onyx: 0)
 
-        #   end
+    #     #   end
 
-        # end
+    #     # end
 
-        # n = 0
-        # #spread points
-        #  @prediction_games_spread = @prediction_games.order("spread_diff DESC")
+    #     # n = 0
+    #     # #spread points
+    #     #  @prediction_games_spread = @prediction_games.order("spread_diff DESC")
 
-        #  @prediction_games_spread.each do |prediction_game|
+    #     #  @prediction_games_spread.each do |prediction_game|
 
-        #     n = n+1
+    #     #     n = n+1
 
-        #     @newrating = prediction_game.onyx + n*(40/@prediction_games.count)
+    #     #     @newrating = prediction_game.onyx + n*(40/@prediction_games.count)
 
-        #     prediction_game.update(onyx: @newrating)
+    #     #     prediction_game.update(onyx: @newrating)
 
-        #   end
+    #     #   end
 
-        #   n=0
+    #     #   n=0
 
-        # #over/under points
+    #     # #over/under points
         
-        #  @prediction_games_ou_diff = @prediction_games.order("ou_diff DESC")
+    #     #  @prediction_games_ou_diff = @prediction_games.order("ou_diff DESC")
 
-        #  @prediction_games_ou_diff.each do |prediction_game|
+    #     #  @prediction_games_ou_diff.each do |prediction_game|
 
-        #   n = n+1
+    #     #   n = n+1
 
-        #   @newrating = prediction_game.onyx + n*(10/@prediction_games.count)
+    #     #   @newrating = prediction_game.onyx + n*(10/@prediction_games.count)
 
-        #   prediction_game.update(onyx: @newrating)
+    #     #   prediction_game.update(onyx: @newrating)
 
-        # end
+    #     # end
 
-      end
+    #   end
 
-        format.html { redirect_to @game, notice: 'Game was successfully updated.' }
-        format.json { render :show, status: :ok, location: @game }
-      else
-        format.html { render :edit }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
-      end
+    #     format.html { redirect_to @game, notice: 'Game was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @game }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @game.errors, status: :unprocessable_entity }
+    #   end
       
-    end
+    # end
   end
 
   def index

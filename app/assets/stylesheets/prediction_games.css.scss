@@ -165,6 +165,7 @@ a.final_score_pending{
   background-color:white;
   border: 1px solid #BFBFBF;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  padding-bottom: 25px;
 }
 
 .new-prediction-game-header{
@@ -194,6 +195,13 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+input#prediction_game_cost{
+  width:100px;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
 .prediction-game-form{
   margin-left:auto;
   margin-right:auto;
@@ -202,11 +210,17 @@ input[type=number]::-webkit-outer-spin-button {
   text-align:center;
   
 }
+
 .prediction-game-form th{
   width:100px;
+  text-align:center;
 }
 
 .prediction-game-form td{
+  text-align:center;
+}
+
+new-prediction-game-price{
   text-align:center;
 }
 

@@ -99,7 +99,7 @@ Rails.application.routes.draw do
 
   get '/buyprediction/sports/:id' => 'prediction_games#buy', as: 'buypredictiongame'
 
-  get '/:username/:type/new/sports' => 'games#sportsgamesselect', as: 'sportsgamesselect'
+  get '/:username/:type/new/sports/' => 'games#sportsgamesselect', as: 'sportsgamesselect'
 
   get '/:username/predictions/sports/:id' => 'prediction_games#show', as: 'predictiongamesshow'
 

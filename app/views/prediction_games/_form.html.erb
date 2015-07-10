@@ -45,14 +45,17 @@
     </table>
 
     <div class="new-prediction-game-header">
-     Prediction Price
+     Selling Price
     </div>
 
-    <%= f.label "Price" %>
-    <%= f.number_field :cost %>
+    <div class="new-prediction-game-price"%>
+      <%= f.label "Price" %>
+      <%= f.number_field :cost %>
 
-    <div class="actions">
-      <%= f.submit "Make Prediction", :class => 'submit-prediction-game'%>
+      <div class="actions">
+        <%= f.submit "Make Prediction", :class => 'submit-prediction-game'%>
+      </div>
+
     </div>
 
   </div>

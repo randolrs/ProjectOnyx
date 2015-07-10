@@ -35,9 +35,26 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
     @predictor = Predictor.find_by_username(params[:username])
-    @prediction_game = @article.prediction_games.build 
-    
     @game = Game.find(params[:game])
+    @prediction_game = @article.prediction_games.build 
+
+      @prediction_game.game_id = @game.id
+
+      @prediction_game.teama = @game.teama
+
+      @prediction_game.teamh = @game.teamh
+
+      @prediction_game.league = @game.league
+
+      @prediction_game.event_time = @game.event_time
+
+      @prediction_game.status = "o"
+
+      @prediction_game.league = @game.league
+    
+    
+
+
     @article.event_id = @game.id
     @article.event_time = @game.event_time
     @article.teama = @game.teama

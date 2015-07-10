@@ -249,26 +249,32 @@ th.table-clear{
 
 th.table-green{
   background-color:#2ECF52;
+  text-align:center;
 }
 
 th.table-blue{
   background-color:#609BFF;
+  text-align:center;
 }
 
 th.table-green-lite{
   background-color:#58D173;
+  text-align:center;
 }
 
 td.table-green-liter{
   background-color:#9FD1A6;
+  text-align:center;
 }
 
 th.table-blue-lite{
   background-color:#A1C4FF;
+  text-align:center;
 }
 
 td.table-blue-liter{
   background-color:#C9DCFF;
+  text-align:center;
 }
 
 td.game-row{
@@ -277,18 +283,22 @@ td.game-row{
   font-weight: bold;
   text-align:right;
   background-color: white;
+  text-align:center;
 }
 
 th.left-outline{
   border-left: 1px solid #828282;
+  text-align:center;
 }
 
 th.right-outline{
   border-right: 2px solid white;
+  text-align:center;
 }
 
 td.right-outline{
   border-right: 2px solid white;
+  text-align:center;
 }
 
 td.results-pending{
@@ -299,6 +309,7 @@ td.results-pending{
 
 tr.game-show-table-subhead-detail{
   border-bottom: 2px solid white;
+  text-align:center;
 }
 
 tr.game-show-table-row.home{
@@ -310,6 +321,7 @@ tr.game-show-table-row.home{
   padding:10px;
   font-weight:bold;
   font-size:20px;
+  text-align:center;
 }
 
 tr.game-show-table-row.away{
@@ -320,6 +332,7 @@ tr.game-show-table-row.away{
   padding:10px;
   font-weight:bold;
   font-size:20px;
+  text-align:center;
 }
 
 .prediction-game-new{

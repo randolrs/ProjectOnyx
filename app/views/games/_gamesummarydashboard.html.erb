@@ -1,8 +1,16 @@
-<% @games.each do |game| %>
-	<div class = "article-summary">
-		<h3><%= link_to game.teama + " @ " + game.teamh, gameshow_path(game.league,game.id) %></h3>
-		<p>Game Date: <%= game.event_time.strftime("%D") %></p>
-		<p><%= game.event_time.strftime("%D") %></p>
+<% if @games.count == 0 %>
+	<div class="prediction-index-header-text">
+		No Games
 	</div>
 
-<% end %>
+<%else%>
+
+	<% @games.each do |game| %>
+		<div class = "article-summary">
+			<h3><%= link_to game.teama + " @ " + game.teamh, gameshow_path(game.league,game.id) %></h3>
+			<p>Game Date: <%= game.event_time.strftime("%D") %></p>
+		</div>
+
+	<% end %>
+
+<%end%>

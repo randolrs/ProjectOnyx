@@ -922,7 +922,7 @@ predictor-image-small-container{
 .footer-wrap{
   
   height:250px;
-  background-color: black;
+  background-color: #222;
   position:relative;
   bottom:0px;
   width:100%;
@@ -948,7 +948,9 @@ predictor-image-small-container{
   }
 
   .footer-container a:hover{
-    color:grey;
+    color:#FF74EF;
+    webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
     text-decoration:none;
   }
 

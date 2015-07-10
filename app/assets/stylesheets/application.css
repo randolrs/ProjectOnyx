@@ -336,7 +336,7 @@ p.terms-of-service{
 .edit-side-container{
   width:250px;
   left:0px;
-  background-color: black;
+  background-color: #222;
   float:left;
   position: relative;
   height:600px;
@@ -412,7 +412,7 @@ p.terms-of-service{
   cursor: pointer;
   color:black;
   text-decoration: none;
-  background-color: #999;
+  background-color: #666;
 }
 
 .subheader-listing>a:hover{

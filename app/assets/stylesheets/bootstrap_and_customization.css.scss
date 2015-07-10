@@ -60,6 +60,11 @@ input[type="text"]{
   	transition: all 0.2s ease;
 }
 
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle{
+	color: white;
+	background-color:#666;
+}
+
 .login-header-border{
   border-left: 2px solid #fff;
   margin-left: 4px
@@ -176,7 +181,7 @@ a.header-make-prediction:hover{
 }
 
 .container-fluid{
-	background-color:black;
+	background-color:#222;
 }
 
 .container-fluid.sub-header{

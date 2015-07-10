@@ -7,10 +7,12 @@
 		<div class ="content-title-header">
 			<h3>Upcoming <%= @league%> Games</h3>
 			<h5><%= link_to "Full Archive »", leaguegameindex_path %></h5>
-			<div class="article-index-dashboard">
-				<%= render 'games/gamesummarydashboard'%>
-			</div>
 		</div>
+		
+		<div class="article-index-dashboard">
+			<%= render 'games/gamesummarydashboard'%>
+		</div>
+
 
 		<div class ="content-title-header">
 			<h3>Popular <%= @league%> Posts</h3>
@@ -24,9 +26,9 @@
 		<div class ="content-title-header">
 			<h3>Recent <%= @league%> Picks</h3>
 			<h5><%= link_to "Full Archive »", leaguepredictionindex_path %></h5>
-
-			<%= render 'prediction_games/index'%>
 		</div>
+			<%= render 'prediction_games/index'%>
+		
 		
 	</div>
 	

@@ -1,7 +1,5 @@
 class GamesController < ApplicationController
 
-  require 'onyx'
-
   # GET /games/new
   def new
     @game = Game.new
@@ -162,7 +160,7 @@ class GamesController < ApplicationController
     #     #   n=0
 
     #     # #over/under points
-        
+
     #     #  @prediction_games_ou_diff = @prediction_games.order("ou_diff DESC")
 
     #     #  @prediction_games_ou_diff.each do |prediction_game|

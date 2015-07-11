@@ -300,6 +300,7 @@ select#team_filter_team{
   width: 100%;
   height: 100%;
   padding:3px 0px;
+  white-space: nowrap;
 }
 
 .subheader-menu-list>li:hover {

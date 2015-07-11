@@ -293,6 +293,22 @@ select#team_filter_team{
   padding:0px;
 }
 
+.subheader-menu-list>li>a {
+  text-decoration: none;
+  color: #262626;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding:3px 0px;
+}
+
+.subheader-menu-list>li:hover {
+  text-decoration: none;
+  color: #262626;
+  background-color: whitesmoke;
+  cursor:pointer;
+}
+
 .submenu-drop{
   padding:10px;
 }

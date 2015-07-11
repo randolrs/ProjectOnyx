@@ -1,5 +1,7 @@
 <ul class="subheader-menu-list">
 
+  <li><b><%=@league%> Teams:</b></li>
+
   <% @teams.each do |team| %>
 
       <li><%= link_to team.name, teamshow_path(@league,team.id)%></li>

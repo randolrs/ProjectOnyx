@@ -29,16 +29,29 @@ class ArticlesController < ApplicationController
     @game = Game.find(@article.event_id)
     @teama = Team.find_by_name(@game.teama)
     @teamh = Team.find_by_name(@game.teamh)
+
+    if user_signed_in?
+      @usertype = "user"
+      @access = current_user
+    elsif predictor_signed_in?
+      @usertype = "predictor"
+      @access = current_predictor
+    elsif admin_signed_in?
+      @usertype = "admin"
+    else
+      @usertype = "none"
+    end
   end
 
   # GET /articles/new
   def new
     @article = Article.new
-    @predictor = Predictor.find_by_username(params[:username])
+    @predictor = current_predictor
     @game = Game.find(params[:game])
     @prediction_game = @article.prediction_games.build 
 
       @prediction_game.game_id = @game.id
+      @prediction_game.predictor_id = @predictor.id
 
       @prediction_game.teama = @game.teama
 
@@ -149,6 +162,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body, :hits, :event_id, :event_type, :event_time, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :spread, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id])
+      params.require(:article).permit(:title, :body, :hits, :event_id, :event_type, :event_time, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :spread, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id, :cost])
     end
 end

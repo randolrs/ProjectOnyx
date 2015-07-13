@@ -1,6 +1,10 @@
+<% if admin_signed_in?%>
+
 <h1>Editing prediction_game</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @prediction_game %> |
 <%= link_to 'Back', prediction_games_path %>
+
+<%end%>

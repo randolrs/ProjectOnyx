@@ -6,8 +6,8 @@
 	<div class="content-panel">
 
 		<div class ="content-title-header">
-			<h3><%=@predictor.name%>'s Posts</h3>
-			<h5><%= link_to @predictor.username + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
+			<h3><%=@predictor.username.humanize%>'s Posts</h3>
+			<h5><%= link_to @predictor.username.humanize + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
 		</div>
 
 		<%= render 'articles/articlefullarchive' %>

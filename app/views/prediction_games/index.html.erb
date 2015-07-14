@@ -66,15 +66,11 @@
 
 <% if user_signed_in? %>
 
-<%= render 'predictors/editnavside' %>
+  <div class = "content-container">
 
-  <div class = "edit-container">
+    <div class="content-panel">
 
-    <div class="edit-panel">
-
-      <h2>Sports Predictions</h2>
-
-      <%= will_paginate @predictions %>
+      <h2>Purchased Predictions</h2>
 
       <%= render 'prediction_games/index'%>
 

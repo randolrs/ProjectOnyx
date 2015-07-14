@@ -69,7 +69,7 @@
                 <li><%= link_to "New Article", sportsgamesselect_path(current_predictor.username, "articles") %></li>
                 <li><%= link_to "New Prediction", sportsgamesselect_path(current_predictor.username, "predictions") %></li>
                 <li role="presentation" class="divider"></li>
-                <li><%= link_to "Account Settings", edit_predictor_registration_path %></li>
+                <li><%= link_to "Edit Profile", edit_predictor_registration_path %></li>
                 <li><%= link_to "Logout", destroy_predictor_session_path, method: :delete %></li>
             </ul>
           </li>

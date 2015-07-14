@@ -5,22 +5,44 @@
 
       <ul class="nav navbar-nav">
 
-        <%if @action == "Payments"%>
-	    	<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader" } %></li>
-	        <li><%= link_to "Payee Information", predictorpayeeedit_path(current_predictor.username), { :class=>"subheader active" } %></li>
-	        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader" } %></li>
+        <% if user_signed_in? %>
 
-	    <%elsif @action == "Add Bank Account"%>
-	    	<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader" } %></li>
-	        <li><%= link_to "Payee Information", predictorpayeeedit_path(current_predictor.username), { :class=>"subheader" } %></li>
-	        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader active" } %></li>
+	        <%if @action == "Payments"%>
+		    	<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader" } %></li>
+		        <li><%= link_to "Payee Information", predictorpayeeedit_path(current_predictor.username), { :class=>"subheader active" } %></li>
+		        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader" } %></li>
 
-	    <%else%>
-      		<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader active" } %></li>
-	        <li><%= link_to "Payee Information", predictorpayeeedit_path(current_predictor.username), { :class=>"subheader" } %></li>
-	        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader" } %></li>
+		    <%elsif @action == "Add Bank Account"%>
+		    	<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader" } %></li>
+		        <li><%= link_to "Payee Information", predictorpayeeedit_path(current_predictor.username), { :class=>"subheader" } %></li>
+		        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader active" } %></li>
 
-        <%end%>
+		    <%else%>
+	      		<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader active" } %></li>
+		        <li><%= link_to "Payee Information", predictorpayeeedit_path(current_predictor.username), { :class=>"subheader" } %></li>
+		        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader" } %></li>
+
+	        <%end%>
+	     <% elsif predictor_signed_in?%>
+
+     		<%if @action == "Payments"%>
+		    	<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader" } %></li>
+		        <li><%= link_to "Payee Information", predictorpayeeedit_path(current_predictor.username), { :class=>"subheader active" } %></li>
+		        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader" } %></li>
+
+	    	<%elsif @action == "Add Bank Account"%>
+		    	<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader" } %></li>
+		        <li><%= link_to "Payee Information", predictorpayeeedit_path(current_predictor.username), { :class=>"subheader" } %></li>
+		        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader active" } %></li>
+
+	    	<%else%>
+	      		<li><%= link_to "Profile", edit_predictor_registration_path, { :class=>"subheader active" } %></li>
+		        <li><%= link_to "Payee Information", predictorpayeeedit_path(current_predictor.username), { :class=>"subheader" } %></li>
+		        <li><%= link_to "Add Bank Account", new_bank_account_path, { :class=>"subheader" } %></li>
+
+	        <%end%>
+
+	     <%end%>
       </ul>
 
   </nav>  

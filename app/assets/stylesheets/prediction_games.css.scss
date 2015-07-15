@@ -278,7 +278,7 @@ td.table-blue-liter{
 }
 
 td.game-row{
-  color:#666666;
+  color:#333;
   font-size: 16px;
   font-weight: bold;
   text-align:right;
@@ -384,4 +384,13 @@ a.index-float{
   margin-right:5px;
   color:inherit;
   text-decoration:none;
+}
+
+.onyx-rating h3{
+  text-align:center;
+  border: 2px solid #333;
+  width:500px;
+  margin-left:auto;
+  margin-right:auto;
+  background-color:#FFFF40;
 }

@@ -38,6 +38,13 @@
       <td class="right-outline"><%if @game.game_winner == @game.teama %><%=@game.score_spread%><%end%></td>
     </tr>
 
+    <%if @prediction_game.onyx%>
+      <tr>
+        <td></td>
+        <td class="onyx-rating" colspan="6"><h3>Onyx Rating: <%=@prediction_game.onyx.to_i%>/100</h3></td>
+      </tr>
+    <%end%>
+
   <% elsif @game.status == "o" %>  
  
     <%if @prediction_game.visible(@usertype, @prediction_game.cost>0, @prediction_game.id, @access) %>
@@ -51,10 +58,10 @@
       </tr>
 
       <tr class="game-show-table-row away">
-      <td class="game-row"><%=@game.teama%><%= image_tag @teama.image, class: "team-image-tiny"%></td>
-      <td><%=@prediction_game.teama_score%></td>
-      <td color="green"><%if @prediction_game.game_winner == @game.teama %>&#10004;<%end%></td>
-      <td class="right-outline"><%if @prediction_game.game_winner == @game.teama %><%=@prediction_game.spread%><%end%></td>
+        <td class="game-row"><%=@game.teama%><%= image_tag @teama.image, class: "team-image-tiny"%></td>
+        <td><%=@prediction_game.teama_score%></td>
+        <td color="green"><%if @prediction_game.game_winner == @game.teama %>&#10004;<%end%></td>
+        <td class="right-outline"><%if @prediction_game.game_winner == @game.teama %><%=@prediction_game.spread%><%end%></td>
       </tr>
 
     <%else%>
@@ -81,3 +88,4 @@
   <% end %>
 
 </table>
+    

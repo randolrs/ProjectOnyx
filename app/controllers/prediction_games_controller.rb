@@ -53,9 +53,10 @@ class PredictionGamesController < ApplicationController
 
   def buy
 
+    @prediction_game = PredictionGame.find(params[:id])
+    
     if user_signed_in?
       @user = current_user
-      @prediction_game = PredictionGame.find(params[:id])
       @predictor = Predictor.find(@prediction_game.predictor_id)
 
       # Stripe.api_key = Rails.configuration.stripe[:secret_key]
@@ -113,6 +114,11 @@ class PredictionGamesController < ApplicationController
         # )
 
   #######End Charge Approach
+
+    else
+
+      redirect_to new_user_session_path, notice: 'Please login to purchase predictions.'
+      @prediction_game_id = @prediction_game.id
 
     end
   end

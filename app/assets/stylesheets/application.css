@@ -356,7 +356,7 @@ p.terms-of-service{
   background-color: #222;
   float:left;
   position: relative;
-  height:750px;
+  height:850px;
 }
 
 .edit-sidebar{
@@ -455,6 +455,7 @@ p.terms-of-service{
   width:500px;
   padding-bottom: 5px;
   border-bottom: 2px solid orange;
+  margin-bottom: 20px;
 }
 
 

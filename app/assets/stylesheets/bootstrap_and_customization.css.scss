@@ -60,6 +60,11 @@ input[type="text"]{
   	transition: all 0.2s ease;
 }
 
+.navbar .nav > li > a:focus{
+	color:white;
+}
+
+
 .navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle{
 	color: white;
 	background-color:#666;
@@ -138,9 +143,7 @@ input[type="text"]{
 	background-color:#dd3618;
 }
 
-.navbar .nav > li > a:focus{
-	
-}
+
 
 .nav-tabs{
 	border:none;

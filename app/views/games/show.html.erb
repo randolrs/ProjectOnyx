@@ -9,17 +9,14 @@
 		<div class ="content-title-header">
 			<h3>Popular Posts</h3>
 			<h5><%= link_to "Full Archive »", gamearticleindex_path(@game.league, @game.id) %></h5>
-			
+		</div>	
 			<%=render 'predictors/predictorarticlesummary'%>
-		</div>
-		
 
 		<div class ="content-title-header">
 			<h3>Recent Picks</h3>
 			<h5><%= link_to "Full Archive »", gamepredictionindex_path(@game.league, @game.id) %></h5>
-
+		</div>	
 			<%= render 'prediction_games/index'%>
-		</div>
 
 	</div>
 	

@@ -10,7 +10,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @predictions = PredictionGame.all.where(:game_id=>params[:id]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
-    @articles = Article.all.where(:event_id=>@game.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    @articles = Article.all.where(:event_id=>@game.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @teams = Team.all.where(:league=>params[:league])
     @games = Game.all.where(:league=>params[:league]).order("event_time DESC").paginate(:page => params[:page], :per_page => 5)
     @league = @game.league

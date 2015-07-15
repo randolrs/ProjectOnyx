@@ -12,7 +12,7 @@ class PredictionGamesController < ApplicationController
 
       @action = "purchased"
 
-      @predictions = current_user.prediction_games.order("event_time DESC").paginate(:page => params[:page], :per_page => 5)
+      @predictions = current_user.prediction_games.all.order("event_time DESC").paginate(:page => params[:page], :per_page => 5)
 
     end
 

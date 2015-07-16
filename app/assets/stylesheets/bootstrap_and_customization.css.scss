@@ -54,6 +54,16 @@ input[type="text"]{
 	line-height:30px;
 }
 
+
+.navbar .nav > li > a.predictions-header:hover{
+	color:white;
+	webkit-transition: all 0.2s ease;
+  	transition: all 0.2s ease;
+  	background-color:#10A254;
+  	margin-left:-2px;
+  	border-left:2px solid white;
+}
+
 .navbar .nav > li > a:hover{
 	color:#FF74EF;
 	webkit-transition: all 0.2s ease;

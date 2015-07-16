@@ -74,6 +74,10 @@
             </ul>
           </li>
 
+          <li>
+            <%= link_to "My Predictions", predictordashboard_path(current_predictor.username), class: " predictions-header" %>
+          </li>
+
         <% elsif admin_signed_in? %>
 
           <li><%= link_to "Dashboard", dashboard_path %></li>

@@ -54,13 +54,13 @@ class PredictionGamesController < ApplicationController
   def buy
 
     @prediction_game = PredictionGame.find(params[:id])
-    
+
     if user_signed_in?
       @user = current_user
       @predictor = Predictor.find(@prediction_game.predictor_id)
 
-      # Stripe.api_key = Rails.configuration.stripe[:secret_key]
-      # platform_account = Stripe::Account.retrieve("acct_2M2Y49HfmqfUDqqWApna")
+      Stripe.api_key = Rails.configuration.stripe[:secret_key]
+      #platform_account = Stripe::Account.retrieve("acct_2M2Y49HfmqfUDqqWApna")
     
    
       ###Invoice Approach
@@ -85,7 +85,7 @@ class PredictionGamesController < ApplicationController
 
 
     #####Transfer approach
-      Stripe.api_key = @user.account_key_s
+      #Stripe.api_key = @user.account_key_s
 
       #Stripe.api_key = Rails.configuration.stripe[:secret_key]
 

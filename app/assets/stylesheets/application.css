@@ -23,6 +23,7 @@
     padding:0px;
     /*background-image: url("https://s3.amazonaws.com/projectonyx/blackorchid_%402X.jpg");*/
     background-color:white;
+    padding-top:111px;
  }
 
  .body{
@@ -275,6 +276,16 @@ select#team_filter_team{
   margin-top: 1px;
 }
 
+.content-header-sub{
+
+  height:50px;
+  width:1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1px;
+
+}
+
 .cover-sub-header{
   height:50px;
   width:900px;
@@ -458,4 +469,9 @@ p.terms-of-service{
   margin-bottom: 20px;
 }
 
+.header-container-top{
+  position:fixed;
+  top:0px;
+  width:100%;
+}
 

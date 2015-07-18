@@ -43,7 +43,6 @@ input[type="text"]{
 
 .navbar-default.top{
 	height:59px;
-	border-bottom:2px solid white;
 	
 }
 
@@ -64,10 +63,29 @@ input[type="text"]{
   	border-left:2px solid white;
 }
 
+.navbar .nav > li > a.sub-header-category{
+	color:black;
+	text-shadow:none;
+	font-weight:normal;
+	line-height:30px;
+	padding: 10px 18px 10px;
+}
+
 .navbar .nav > li > a:hover{
 	color:#FF74EF;
 	webkit-transition: all 0.2s ease;
   	transition: all 0.2s ease;
+}
+
+.navbar .nav > li > a.sub-header-category:hover{
+	color:black;;
+	text-shadow:none;
+	font-weight:normal;
+	line-height:30px;
+}
+
+.navbar .nav > li > a.sub-header-category:focus{
+	color:black;
 }
 
 .navbar .nav > li > a:focus{

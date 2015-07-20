@@ -41,6 +41,7 @@ class PagesController < ApplicationController
 
   def leaguehome
     @league = params[:league]
+    @sport = Sport.find_by_subcat(@league)
     @predictions = PredictionGame.all.where(:league=>@league).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @articles = Article.all.order("created_at DESC").limit(4)
     @teams = Team.all.where(:league=>@league)

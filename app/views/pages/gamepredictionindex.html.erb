@@ -1,22 +1,18 @@
 <%= render 'league_home_header' %>
 
-<div class = "content-container">
+<div class="content-panel">
 
 	<%=render 'games/gameshowcover'%>
-
-	<div class="content-panel">
-
-		<div class ="content-title-header">
-			<h3>All Predictions</h3>
-			<h5><%= link_to "Game Home »", gameshow_path %></h5>
-		</div>
-
-		<%= will_paginate @predictions %>
-
-		<%= render 'prediction_games/index'%>
-
-		<%= will_paginate @predictions %>
-		
+	
+	<div class ="content-title-header">
+		<h3>All Predictions</h3>
+		<h5><%= link_to "Game Home »", gameshow_path %></h5>
 	</div>
+
+	<%= will_paginate @predictions %>
+
+	<%= render 'prediction_games/index'%>
+
+	<%= will_paginate @predictions %>
 	
 </div>

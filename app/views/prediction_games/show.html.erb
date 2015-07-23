@@ -1,18 +1,14 @@
 <%= render 'pages/league_home_header' %>
 
-<div class = "content-container">
+<div class="content-panel">
 
 	<%=render 'games/gameshowcover'%>
 
-  <div class="content-panel">
-
-  	<div class ="content-title-header">
-		<h3><%= @predictor.username.humanize %>'s Prediction</h3>
-		<h5><%= link_to @predictor.username.humanize + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
+	<div class ="content-title-header">
+	<h3><%= @predictor.username.humanize %>'s Prediction</h3>
+	<h5><%= link_to @predictor.username.humanize + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
 	</div>
 
-    <%= render 'predictiongameshowgamedetails' %>
+	<%= render 'predictiongameshowgamedetails' %>
 
-  </div>
-  
 </div>

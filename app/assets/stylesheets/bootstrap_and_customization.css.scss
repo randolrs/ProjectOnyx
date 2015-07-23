@@ -78,10 +78,11 @@ input[type="text"]{
 }
 
 .navbar .nav > li > a.sub-header-category:hover{
-	color:black;;
+	color:white;
 	text-shadow:none;
 	font-weight:normal;
 	line-height:30px;
+	background-color:#777;
 }
 
 .navbar .nav > li > a.sub-header-category:focus{
@@ -97,6 +98,7 @@ input[type="text"]{
 	color: white;
 	background-color:#666;
 }
+
 
 .login-header-border{
   border-left: 2px solid #fff;

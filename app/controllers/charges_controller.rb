@@ -24,31 +24,47 @@ def create
 
   Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-  if current_user.customer_id
+  #Stripe.api_key = current_user.account_key_s
 
-    customer = Stripe::Customer.retrieve(current_user.customer_id)
 
-  else
-    customer = Stripe::Customer.create(
-      :email => 'example@stripe.com',
-      :card  => params[:stripeToken]
-    )
+  # if current_user.customer_id
 
-    current_user.update(:customer_id => customer.id)
+  #   customer = Stripe::Customer.retrieve(current_user.customer_id)
 
-  end
+  # else
+  #   customer = Stripe::Customer.create(
+  #     :email => 'example@stripe.com',
+  #     :card  => params[:stripeToken]
+  #   )
 
-  #customer.sources.create({:source => params[:stripeToken]})
+  #   current_user.update(:customer_id => customer.id)
 
-  charge = Stripe::Charge.create(
-    :customer    => customer.id,
-    :amount      => @amount,
-    :description => 'Rails Stripe customer',
-    :currency    => 'usd'
+  # end
+
+    charge = Stripe::Charge.create(
+    :source       => params[:stripeToken],
+    :amount       => @amount,
+    :destination  => current_user.account_id,
+    :description  => 'Rails Stripe customer',
+    :currency     => 'usd'
   )
 
-  @new_balance = current_user.balance + @amount/100
-  current_user.update(:balance => @new_balance)
+  # charge = Stripe::Charge.create(
+  #   :customer    => customer.id,
+  #   :amount      => @amount,
+  #   :description => 'Rails Stripe customer',
+  #   :currency    => 'usd'
+  # )
+
+  # Stripe::Transfer.create(
+  #       #:customer => @user.customer_id,
+  #       :amount => @amount,
+  #       :currency => "usd",
+  #       :destination => current_user.account_id,
+  #       :source_transaction => charge.id, 
+  #       :description => "Transfer from credit card"
+  #     )
+
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

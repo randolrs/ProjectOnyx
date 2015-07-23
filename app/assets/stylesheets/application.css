@@ -22,7 +22,7 @@
     z-index:-11;
     padding:0px;
     /*background-image: url("https://s3.amazonaws.com/projectonyx/blackorchid_%402X.jpg");*/
-    background-color:white;
+    background-color:#F8F8F8;
     padding-top:111px;
  }
 
@@ -71,9 +71,10 @@
  }
 
  .content-panel{
-    width:860px;
+    width:1000px;
     margin-left: auto;
     margin-right: auto;
+    background-color: white;
 }
 
  .content-panel h2{
@@ -270,7 +271,7 @@ select#team_filter_team{
 
 .content-header{
   height:50px;
-  width:1070px;
+  width:1000px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1px;
@@ -451,7 +452,7 @@ p.terms-of-service{
 .edit-container{
   overflow: hidden;
   background-color: white;
-  width: 1000px;
+  width: 700px;
   padding:10px 30px;
 }
 

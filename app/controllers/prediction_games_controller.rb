@@ -60,60 +60,22 @@ class PredictionGamesController < ApplicationController
       @predictor = Predictor.find(@prediction_game.predictor_id)
 
       Stripe.api_key = Rails.configuration.stripe[:secret_key]
-      #platform_account = Stripe::Account.retrieve("acct_2M2Y49HfmqfUDqqWApna")
-    
-   
-      ###Invoice Approach
-
-#       Stripe::InvoiceItem.create(
-#         :customer => @user.customer_id,
-#         :amount => @prediction_game.cost.round*100,
-#         :currency => "usd",
-#         :description => "One-time setup fee"
-# )
-
-#       invoice = Stripe::Invoice.create(
-#         :customer => @user.customer_id,
-#       )
-
-#       Stripe.api_key = @user.account_key_s
-#       invoice.pay
-
-
-      #####End invoice approach
-
-
-
-    #####Transfer approach
-      #Stripe.api_key = @user.account_key_s
-
-      #Stripe.api_key = Rails.configuration.stripe[:secret_key]
+      #Stripe.api_key = current_user.account_key_s
 
       Stripe::Transfer.create(
-        #:customer => @user.customer_id,
         :amount => @prediction_game.cost.round*100,
         :currency => "usd",
         :destination => @predictor.account_id,
         :application_fee => @prediction_game.cost.round*20, 
         :description => "Payment for " + @prediction_game.league + " prediction: " + @prediction_game.teama + " @ " + @prediction_game.teamh
+        
       )
+
+      @user.prediction_games << @prediction_game
 
     ######End transfer approach
 
-#####Charge approach
-        # Stripe.api_key = Rails.configuration.stripe[:secret_key]
-
-        # customer = Stripe::Customer.retrieve(current_user.customer_id)
-
-        # charge = Stripe::Charge.create(
-        #   :customer    => customer.id,
-        #   :amount      => @prediction_game.cost.round*100,
-        #   :description => 'Rails Stripe customer',
-        #   :currency    => 'usd',
-        #   :destination => @predictor.account_id
-        # )
-
-  #######End Charge Approach
+      redirect_to predictiongamesshow_path(@predictor.username,@prediction_game.id)
 
     else
 

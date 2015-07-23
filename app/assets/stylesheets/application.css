@@ -72,9 +72,12 @@
 
  .content-panel{
     width:1000px;
+    padding:50px;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
+    border: 1px solid #e0e4e8;
+    margin-bottom: 50px;
 }
 
  .content-panel h2{
@@ -277,6 +280,23 @@ select#team_filter_team{
   margin-top: 1px;
 }
 
+.content-league-header-container{
+  width:100%;
+  margin-top:50px;
+}
+
+.content-league-header{
+  height:50px;
+  width:1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1px;
+  background-color: white;
+  border: 1px solid #e0e4e8;
+  border-bottom: 0px;
+}
+
+
 .content-header-sub{
 
   height:50px;
@@ -333,7 +353,7 @@ select#team_filter_team{
 a.predictor-user-toggle{
   float:left;
   padding:20px;
-  width:199px;
+  width:200px;
   text-align:center;
   text-decoration:none;
   color:white;

@@ -10,8 +10,8 @@
 
 
         <% if @action == 'predictions'%>
-
-          <li><a class="subheader-league" href="/"><%=@league%></a></li>
+        
+          <li><%= link_to @league, leaguehome_path(@league), { :class=>"subheader-league" } %></li>
           <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Predictions", leaguepredictionindex_path(@league), { :class=>"subheader active" } %></li>
           <li><%= link_to "Posts", leaguearticleindex_path(@league), { :class=>"subheader" } %></li>
@@ -30,7 +30,7 @@
 
         <% elsif @action == 'posts'%>
 
-          <li><a class="subheader-league" href="/"><%=@league%></a></li>
+          <li><%= link_to @league, leaguehome_path(@league), { :class=>"subheader-league" } %></li>
           <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Predictions", leaguepredictionindex_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Posts", leaguearticleindex_path(@league), { :class=>"subheader active" } %></li>
@@ -49,7 +49,7 @@
 
         <% elsif @action == 'games'%>
 
-          <li><a class="subheader-league" href="/"><%=@league%></a></li>
+          <li><%= link_to @league, leaguehome_path(@league), { :class=>"subheader-league" } %></li>
           <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Predictions", leaguepredictionindex_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Posts", leaguearticleindex_path(@league), { :class=>"subheader" } %></li>
@@ -68,7 +68,7 @@
 
         <% elsif @action == 'teams'%>
 
-          <li><a class="subheader-league" href="/"><%=@league%></a></li>
+          <li><%= link_to @league, leaguehome_path(@league), { :class=>"subheader-league" } %></li>
           <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Predictions", leaguepredictionindex_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Posts", leaguearticleindex_path(@league), { :class=>"subheader" } %></li>
@@ -85,9 +85,9 @@
             </ul>
           </li>
 
-          <% elsif @action == 'home'%>
+          <% elsif @action == 'league-home'%>
 
-            <li><a class="subheader-league" href="/"><%=@league%></a></li>
+            <li><%= link_to @league, leaguehome_path(@league), { :class=>"subheader-league" } %></li>
             <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader active" } %></li>
             <li><%= link_to "Predictions", leaguepredictionindex_path(@league), { :class=>"subheader" } %></li>
             <li><%= link_to "Posts", leaguearticleindex_path(@league), { :class=>"subheader" } %></li>
@@ -106,7 +106,7 @@
 
         <% else%>
 
-          <li><a class="subheader-league" href="/"><%=@league%></a></li>
+          <li><%= link_to @league, leaguehome_path(@league), { :class=>"subheader-league" } %></li>
           <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Predictions", leaguepredictionindex_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Posts", leaguearticleindex_path(@league), { :class=>"subheader" } %></li>

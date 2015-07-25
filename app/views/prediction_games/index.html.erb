@@ -66,19 +66,15 @@
 
 <% if user_signed_in? %>
 
-  <div class = "content-container">
+  <div class="content-panel">
 
-    <div class="content-panel">
+    <h2>Purchased Predictions</h2>
 
-      <h2>Purchased Predictions</h2>
+    <%= render 'prediction_games/index'%>
 
-      <%= render 'prediction_games/index'%>
+    <%= will_paginate @predictions %>
 
-      <%= will_paginate @predictions %>
-
-      </div>
-
-</div>
+  </div>
 
 <% end %>
 

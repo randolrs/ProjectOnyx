@@ -47,7 +47,7 @@ class PagesController < ApplicationController
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
     @displaypredictor = true
-    @action = "home"
+    @action = "league-home"
 
   end
 

@@ -33,9 +33,11 @@
 
       <% @predictions.each do |prediction| %>
 
-        <tr data-link="<%=predictiongamesshow_path(Predictor.find(prediction.predictor_id).username,prediction.id)%>", class="prediction-table-row">
+        <% @predictor = Predictor.find(prediction.predictor_id) %>
+
+        <tr data-link="<%=predictiongamesshow_path(@predictor.username,prediction.id)%>", class="prediction-table-row">
           <% if @displaypredictor %>
-            <td> <%= image_tag Predictor.find(prediction.predictor_id).image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><%= Predictor.find(prediction.predictor_id).username %></a></td>
+            <td> <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><%= @predictor.username %></a></td>
           <% end %>
           <td><%= prediction.created_at.strftime("%D") %></td>
 

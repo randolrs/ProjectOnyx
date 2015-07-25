@@ -1,4 +1,3 @@
-
 <%if @articles.count == 0 %>
 	<div class="prediction-index-header-text">
 		<h3>No Posts</h3>
@@ -6,15 +5,37 @@
 
 <%else%>
 
-	<% @articles.each do |article| %>
-	  <div class = "article-detail">
-	    <h3><%= link_to article.title, predictorarticleshow_path(Predictor.find(article.predictor_id).username,article.id) %></h3>
-	    <p><%= article.body %></p>
-	    <p>submitted <%= article.created_at.strftime("%D") %></p>
-	    <p>/category</p>
-	    <%= link_to "xxx comments", predictorarticleshow_path(Predictor.find(article.predictor_id).username,article.id) %>
-	  </div>
+	<table class ="prediction-index-fold">
 
-	<%end%>
+	  <tbody>
 
-<%end%>
+	      <% @articles.each do |article| %>
+
+	      	<% @predictor = Predictor.find(article.predictor_id) %>
+
+	      	<% @game = Game.find(article.event_id) %>
+
+	        <tr data-link="<%=predictorarticleshow_path(@predictor.username,article.id)%>", class="prediction-table-row">
+
+	            <td> <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= @predictor.username %></b></a></td>
+
+	            <td>
+	            	<%= article.title %>
+	            	<br>
+	            	<%=article.body %>
+	            </td>
+
+	            <td><%= article.created_at.strftime("%D") %></td>
+
+	          <% unless @matchup_hide %>
+	            <td class="index-matchup"><a class="index-float"><%= article.teama %></a><%= image_tag Team.find_by_name(@game.teama).image.url(:medium), class: "predictor-image-tiny"%> <b>@</b> <%= image_tag Team.find_by_name(@game.teamh).image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><%= article.teamh %></a></td>
+	          <% end %>
+	        </tr>
+
+	      <%end%>
+
+	  </tbody>
+
+	</table>
+
+<% end%>

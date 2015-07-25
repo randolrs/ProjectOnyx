@@ -8,7 +8,7 @@
 
       <h5><%= @game.event_time.strftime("%l:%M %p") + ", " + @game.event_time.strftime("%a %b %d, %Y ") %></h5>
 
-      <% if @action =="game_show" and predictor_signed_in? %>
+      <% if @action =="games" and predictor_signed_in? %>
       	<% unless current_predictor.prediction_games.where(:game_id => @game.id).present? %>
       		<div class="orange-cta-container"%>
       			<%= link_to "Make Prediction", newpredictiongame_path(@game.id), class: "orange-cta" %>

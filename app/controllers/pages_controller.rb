@@ -55,6 +55,7 @@ class PagesController < ApplicationController
     @articles = Article.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
+    @action = "posts"
 
   end
 
@@ -64,6 +65,7 @@ class PagesController < ApplicationController
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
     @displaypredictor = true
+    @action = "predictions"
 
   end
 

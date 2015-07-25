@@ -19,6 +19,7 @@ class TeamsController < ApplicationController
       @teamgames = Game.all.where(:league => @team.league)
       @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
       @displaypredictor = true
+      @action = "teams"
   end
 
   def teamgameindex

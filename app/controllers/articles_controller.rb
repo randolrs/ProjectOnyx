@@ -46,32 +46,38 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+
     @predictor = current_predictor
+
     @game = Game.find(params[:game])
+
+    @league = @game.league
+
+    @teama = Team.find_by_name(@game.teama)
+    @teamh = Team.find_by_name(@game.teamh)
+
     @prediction_game = @article.prediction_games.build 
 
-      @prediction_game.game_id = @game.id
-      @prediction_game.predictor_id = @predictor.id
+    @prediction_game.game_id = @game.id
 
-      @prediction_game.teama = @game.teama
+    @prediction_game.predictor_id = @predictor.id
 
-      @prediction_game.teamh = @game.teamh
+    @prediction_game.teama = @game.teama
 
-      @prediction_game.league = @game.league
+    @prediction_game.teamh = @game.teamh
 
-      @prediction_game.event_time = @game.event_time
+    @prediction_game.league = @game.league
 
-      @prediction_game.status = "o"
+    @prediction_game.event_time = @game.event_time
 
-      @prediction_game.league = @game.league
-    
-    
+    @prediction_game.status = "o"
 
+    @prediction_game.league = @game.league
 
     @article.event_id = @game.id
     @article.event_time = @game.event_time
-    @article.teama = @game.teama
-    @article.teamh = @game.teamh
+    @article.teama = @teama.name
+    @article.teamh = @teamh.name
 
     respond_to do |format|
     format.html # new.html.erb
@@ -162,6 +168,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body, :hits, :event_id, :event_type, :event_time, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :spread, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id, :cost])
+      params.require(:article).permit(:title, :body, :hits, :event_id, :event_type, :event_time, :teama, :teamh, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :spread, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id, :cost])
     end
 end

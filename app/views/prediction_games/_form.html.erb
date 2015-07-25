@@ -50,7 +50,7 @@
 
     <div class="new-prediction-game-price"%>
       <%= f.label "Price" %>
-      <%= f.number_field :cost %>
+      <%= f.number_field :cost, :placeholder => 0 %>
 
       <div class="actions">
         <%= f.submit "Make Prediction", :class => 'submit-prediction-game'%>

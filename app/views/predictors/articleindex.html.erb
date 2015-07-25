@@ -1,17 +1,13 @@
 <%= render 'predictors/predictorcover' %>
 <%= render 'predictors/predictorcovernav' %>
 
-<div class = "content-container">
+<div class="content-panel">
 
-	<div class="content-panel">
-
-		<div class ="content-title-header">
-			<h3><%=@predictor.username.humanize%>'s Posts</h3>
-			<h5><%= link_to @predictor.username.humanize + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
-		</div>
-
-		<%= render 'articles/articlefullarchive' %>
-		
+	<div class ="content-title-header">
+		<h3><%=@predictor.username.humanize%>'s Posts</h3>
+		<h5><%= link_to @predictor.username.humanize + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
 	</div>
+
+	<%= render 'articles/articlefullarchive' %>
 	
 </div>

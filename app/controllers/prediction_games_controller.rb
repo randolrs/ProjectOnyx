@@ -48,6 +48,7 @@ class PredictionGamesController < ApplicationController
       @usertype = "none"
     end
       
+      @action = "Predictions"
       
   end
 

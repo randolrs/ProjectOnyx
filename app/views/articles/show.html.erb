@@ -1,19 +1,15 @@
 <%= render 'pages/league_home_header' %>
 
-<div class = "content-container">
+<div class="content-panel">
 
 	<%=render 'games/gameshowcover'%>
 
-	<div class="content-panel">
-
-	  <div class="article-top">
-	    <%= render 'articles/articleshow' %>
-	  </div>
-
-	  <h3><u>Prediction</u></h3>
-
-	  <%= render 'prediction_games/predictiongameshowgamedetails'%>
-
+	<div class="article-top">
+		<%= render 'articles/articleshow' %>
 	</div>
-  
+
+	<h3><u>Prediction</u></h3>
+
+	<%= render 'prediction_games/predictiongameshowgamedetails'%>
+
 </div>

@@ -1,37 +1,29 @@
 <%= render 'predictors/predictorcover' %>
 <%= render 'predictors/predictorcovernav' %>
 
-<div class = "content-container">
+<div class="content-panel">
 
-	<div class="content-panel">
-
-		<div class ="content-title-header">
-			<h3>Recent Posts</h3>
-			<h5><%= link_to "Full Archive »", predictorindexarticlessall_path %></h5>
-		</div>
-
-		<div class="article-index-dashboard">
-			<%= render 'predictorarticlesummary'%>
-		</div>
-		
-
-		<div class ="content-title-header">
-			<h3>Recent Predictions</h3>
-			<h5><%= link_to "Full Archive »", predictorindexpredictionsall_path %></h5>
-
-			<%= render 'prediction_games/index'%>
-		</div>
-
-		<nav>
-			<div class="center">
-				<%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
-			</div>
-		</nav>
-		
+	<div class ="content-title-header">
+		<h3>Recent Posts</h3>
+		<h5><%= link_to "Full Archive »", predictorindexarticlessall_path %></h5>
 	</div>
 
-	<!-- <div class="predictor-panel">
-		<%# render 'predictors/predictorcard' %>
-	</div> -->
+	<div class="article-index-dashboard">
+		<%= render 'predictorarticlesummary'%>
+	</div>
+	
+
+	<div class ="content-title-header">
+		<h3>Recent Predictions</h3>
+		<h5><%= link_to "Full Archive »", predictorindexpredictionsall_path %></h5>
+
+		<%= render 'prediction_games/index'%>
+	</div>
+
+	<nav>
+		<div class="center">
+			<%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
+		</div>
+	</nav>
 	
 </div>

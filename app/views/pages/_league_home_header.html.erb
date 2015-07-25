@@ -85,10 +85,29 @@
             </ul>
           </li>
 
+          <% elsif @action == 'home'%>
+
+            <li><a class="subheader-league" href="/"><%=@league%></a></li>
+            <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader active" } %></li>
+            <li><%= link_to "Predictions", leaguepredictionindex_path(@league), { :class=>"subheader" } %></li>
+            <li><%= link_to "Posts", leaguearticleindex_path(@league), { :class=>"subheader" } %></li>
+            <li class="dropdown">
+              <a href="#" class="subheader" data-toggle="dropdown" role="button" aria-expanded="false">Games<span class="caret"></span></a>
+              <ul class="dropdown-menu submenu-drop" role="menu">
+                <%=render'games/gamesummarymenu'%>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="subheader" data-toggle="dropdown" role="button" aria-expanded="false">Teams<span class="caret"></span></a>
+              <ul class="dropdown-menu submenu-drop" role="menu">
+                <%=render'sports/leaguesummarymenu'%>
+              </ul>
+            </li>
+
         <% else%>
 
           <li><a class="subheader-league" href="/"><%=@league%></a></li>
-          <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader active" } %></li>
+          <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Predictions", leaguepredictionindex_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Posts", leaguearticleindex_path(@league), { :class=>"subheader" } %></li>
           <li class="dropdown">

@@ -88,7 +88,7 @@
         <% else%>
 
           <li><a class="subheader-league" href="/"><%=@league%></a></li>
-          <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader" } %></li>
+          <li><%= link_to "Home", leaguehome_path(@league), { :class=>"subheader active" } %></li>
           <li><%= link_to "Predictions", leaguepredictionindex_path(@league), { :class=>"subheader" } %></li>
           <li><%= link_to "Posts", leaguearticleindex_path(@league), { :class=>"subheader" } %></li>
           <li class="dropdown">

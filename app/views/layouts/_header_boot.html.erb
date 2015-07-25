@@ -5,7 +5,15 @@
 
 <%else%>
 
-  <div class ="header-container-top">
+  <% unless admin_signed_in? or predictor_signed_in? %>
+
+    <div class ="header-container-top">
+
+  <% else %>
+
+    <div class ="header-container-top">
+
+  <% end %>
 
     <nav class="navbar navbar-default top">
 

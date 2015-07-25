@@ -1,6 +1,6 @@
 <%if @articles.count == 0 %>
 	<div class="prediction-index-header-text">
-		<h3>No Posts</h3>
+		<p>No Posts</p>
 	</div>
 
 <%else%>
@@ -25,10 +25,12 @@
 	            	<%=article.body %>
 	            </td>
 
-	            <td><%= article.created_at.strftime("%D") %></td>
+	            <td>Posted on: <%= article.created_at.strftime("%D") %>
+	            	<br>
+	            	Game Date: <%= @game.event_time.strftime("%D") %></td>
 
 	          <% unless @matchup_hide %>
-	            <td class="index-matchup"><a class="index-float"><%= article.teama %></a><%= image_tag Team.find_by_name(@game.teama).image.url(:medium), class: "predictor-image-tiny"%> <b>@</b> <%= image_tag Team.find_by_name(@game.teamh).image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><%= article.teamh %></a></td>
+	            <td class="index-matchup"><a class="index-float"><%= @game.teama %></a><%= image_tag Team.find_by_name(@game.teama).image.url(:medium), class: "predictor-image-tiny"%> <b>@</b> <%= image_tag Team.find_by_name(@game.teamh).image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><%= @game.teamh%></a></td>
 	          <% end %>
 	        </tr>
 

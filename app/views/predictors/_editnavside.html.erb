@@ -4,7 +4,6 @@
   	<ul class="edit-sidebar">
   		<li><a class="sidebar-header">Edit Profile</a></li>
 
-  		
       <% if user_signed_in?%>
 
     		<% if @action == "basic" %>
@@ -14,9 +13,9 @@
     		<%end%>
 
     		<% if @action == "funds" %>
-    			<li class="sidebar-listing active"><%= link_to "Add Funds", new_charge_path, class: "edit-listing active"%></li>
+    			<li class="sidebar-listing active"><%= link_to "My Balance/Add Funds", new_charge_path, class: "edit-listing active"%></li>
     		<%else%>
-    			<li class="sidebar-listing"><%= link_to "Add Funds", new_charge_path, class: "edit-listing"%></li>
+    			<li class="sidebar-listing"><%= link_to "My Balance/Add Funds", new_charge_path, class: "edit-listing"%></li>
     		<%end%>
 
     		<% if @action == "payment" %>

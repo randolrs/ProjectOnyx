@@ -18,7 +18,12 @@
     </div>
 
     <div class="predictor-cover-details"> 
-      <a class="white-text"><%=@predictor.prediction_games.count%> PREDICTIONS / <%=@predictor.articles.count%> POSTS</a>
+      <a class="white-text"><%=@predictor.prediction_games.count%> PREDICTIONS / <%=@predictor.articles.count%> POSTS <!-- / <%#=@subscriber_count%> SUBSCRIBERS --> </a>
+      <br>
+
+      <% if user_signed_in? and not current_user.predictors.exists?(:id => @predictor.id)%>
+        <%= link_to "Subscribe for $5.00", subscribe_to_predictor_path(:username=>@predictor.username), {:class=>"buy_prediction_cta" }%>
+      <% end %>
     </div>
 
   </div>

@@ -79,12 +79,20 @@ class PredictorsController < ApplicationController
     @predictions = @predictor.prediction_games.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @articles = @predictor.articles.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @displaypredictor = false
+    #@subscriber_count = @predictor.users.count
   end
 
   def predictorpaymentedit
     @action = "Payments"
     @predictor = Predictor.find_by_username(params[:username])
 
+  end
+
+  def subscribe
+
+    @predictor = Predictor.find_by_username(params[:username])
+    current_user.predictors << @predictor
+    @predictor.users << current_user
   end
 
 end

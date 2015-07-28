@@ -49,6 +49,8 @@ Rails.application.routes.draw do
 
   get 'buy_prediction_game' => 'prediction_games#buy'
 
+  get 'subscribe_to_predictor' => 'predictors#subscribe'
+
   get 'find_NBA_predictions' => 'prediction_games#findnbapredictiongames'
   get 'find_NFL_predictions' => 'prediction_games#findnflpredictiongames'
   get 'find_MLB_predictions' => 'prediction_games#findmlbpredictiongames'

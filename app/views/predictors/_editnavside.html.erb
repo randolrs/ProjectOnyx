@@ -13,15 +13,11 @@
     		<%end%>
 
     		<% if @action == "funds" %>
-    			<li class="sidebar-listing active"><%= link_to "My Balance/Add Funds", new_charge_path, class: "edit-listing active"%></li>
-    		<%else%>
-    			<li class="sidebar-listing"><%= link_to "My Balance/Add Funds", new_charge_path, class: "edit-listing"%></li>
-    		<%end%>
+    			<li class="sidebar-listing active"><%= link_to "Payments", new_charge_path, class: "edit-listing active"%></li>
+          <li class="sidebar-listing active"><%= link_to "Payment Information", cardsindex_path(current_user.username), class: "edit-listing active"%></li>
 
-    		<% if @action == "payment" %>
-    			<li class="sidebar-listing active"><%= link_to "Payment Information", cardsindex_path(current_user.username), class: "edit-listing active"%></li>
     		<%else%>
-    			<li class="sidebar-listing"><%= link_to "Payment Information", cardsindex_path(current_user.username), class: "edit-listing"%></li>
+    			<li class="sidebar-listing"><%= link_to "Payments", new_charge_path, class: "edit-listing"%></li>
     		<%end%>
 
       <%elsif predictor_signed_in?%>

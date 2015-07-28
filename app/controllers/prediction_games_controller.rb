@@ -11,9 +11,10 @@ class PredictionGamesController < ApplicationController
     elsif user_signed_in?
 
       @action = "purchased"
-
+      
       @predictions = current_user.prediction_games.all.order("event_time DESC").paginate(:page => params[:page], :per_page => 5)
 
+      @predictors = current_user.predictors.all
     end
 
   end
@@ -60,8 +61,8 @@ class PredictionGamesController < ApplicationController
       @user = current_user
       @predictor = Predictor.find(@prediction_game.predictor_id)
 
-      Stripe.api_key = Rails.configuration.stripe[:secret_key]
-      #Stripe.api_key = current_user.account_key_s
+      #Stripe.api_key = Rails.configuration.stripe[:secret_key]
+      Stripe.api_key = current_user.account_key_s
 
       Stripe::Transfer.create(
         :amount => @prediction_game.cost.round*100,

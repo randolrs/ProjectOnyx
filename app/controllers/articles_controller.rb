@@ -126,8 +126,23 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
+
+        unless current_predictor.account
+
+            Stripe.api_key = Rails.configuration.stripe[:secret_key]
+            account = Stripe::Account.create(
+              {:country => "US", :managed => true, :email => @predictor.email, :transfer_schedule["interval"] => "manual"}
+            )
+
+            current_predictor.update(:account => true)
+            current_predictor.update(:account_id => account.id)
+            current_predictor.update(:account_token => account.keys.publishable)
+            current_predictor.update(:account_key_secret => account.keys.secret)
+
+          end
+
+          format.html { redirect_to @article, notice: 'Article was successfully created.' }
+          format.json { render :show, status: :created, location: @article }
 
       else
         format.html { render :new }

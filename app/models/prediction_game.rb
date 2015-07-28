@@ -10,10 +10,10 @@ class PredictionGame < ActiveRecord::Base
 		belongs_to :article
 
 		def username(predictor_id)
+			
 			Predictor.find(predictor_id).username
 
 		end
-
 
 		def visible(usertype, paid, id, access)
 

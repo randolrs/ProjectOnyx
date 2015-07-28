@@ -66,19 +66,36 @@
 
 <% if user_signed_in? %>
 
-  <div class="content-panel">
+  <!-- <div class="content-panel"> -->
 
-    <div class ="content-title-header">
+    <!-- <div class ="content-title-header">
 
       <h3>My Purchased Predictions</h3>
 
+    </div> -->
+    
+    <div class ="user-dashboard-container">
+
+      <div class ="user-dashboard-card">
+          514
+
+      </div>
+
+      <div class ="user-dashboard-predictions">
+
+        <%= render 'prediction_games/index'%>
+
+      </div>
+
+      <div class ="user-dashboard-promo">
+        314
+      </div>
+
     </div>
 
-    <%= render 'prediction_games/index'%>
+    <%# will_paginate @predictions %>
 
-    <%= will_paginate @predictions %>
-
-  </div>
+  <!-- </div> -->
 
 <% end %>
 

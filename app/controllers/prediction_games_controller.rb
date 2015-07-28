@@ -11,10 +11,30 @@ class PredictionGamesController < ApplicationController
     elsif user_signed_in?
 
       @action = "purchased"
-      
-      @predictions = current_user.prediction_games.all.order("event_time DESC").paginate(:page => params[:page], :per_page => 5)
 
-      @predictors = current_user.predictors.all
+      @displaypredictor = true
+
+      @predictors = current_user.predictors.collect
+
+      @predictions = Array.new 
+
+      if @predictors.count > 0
+
+        @predictors.each do |predictor|
+
+          predictor.prediction_games.each do |prediction_game|
+
+            @predictions << prediction_game
+
+          end
+
+        end
+
+      end
+
+      #@predictions.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+
+
     end
 
   end

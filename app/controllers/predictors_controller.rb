@@ -91,8 +91,39 @@ class PredictorsController < ApplicationController
   def subscribe
 
     @predictor = Predictor.find_by_username(params[:username])
-    current_user.predictors << @predictor
-    @predictor.users << current_user
+
+    unless current_user.predictors.exists?(:id => @predictor.id)
+
+      Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+      if current_user.customer_id.nil?
+
+        customer = Stripe::Customer.create(
+              :description => "Customer for Onyx",
+              :source => params[:stripeToken] # obtained with Stripe.js
+              )
+        
+        current_user.update(:customer_id => customer.id)
+
+      else
+
+        customer = Stripe::Customer.retrieve(current_user.customer_id)
+
+      end
+
+      customer.subscriptions.create(:plan => @predictor.subscription_id)
+
+      current_user.predictors << @predictor
+
+      @predictor.users << current_user
+
+    else
+
+      redirect_to dashboard_path
+    end
+
+
+
   end
 
 end

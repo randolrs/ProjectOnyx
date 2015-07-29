@@ -748,6 +748,7 @@ th.prediction-index-summary-th{
 .prediction-index-fold td{
   text-align:center;
   padding: 18px 10px;
+  white-space: nowrap;
 }
 
 td.index-matchup{
@@ -802,8 +803,7 @@ table.prediction-index-fold{
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin-left:auto;
   margin-right:auto;
-  width:860px;
-  margin-bottom:10px;
+  width:700px;
   margin-top:20px;
   margin-bottom:20px;
 }

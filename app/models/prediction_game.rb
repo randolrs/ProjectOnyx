@@ -15,13 +15,13 @@ class PredictionGame < ActiveRecord::Base
 
 		end
 
-		def visible(usertype, paid, id, access)
+		def visible(usertype, paid, predictor_id, access)
 
 			if paid
 
 				if usertype == "user"
 
-					if access.prediction_games.exists?(:id => id)
+					if access.predictors.exists?(:id => predictor_id)
 						true
 
 					else
@@ -38,7 +38,6 @@ class PredictionGame < ActiveRecord::Base
 					end
 
 				elsif usertype == "admin"
-
 					true
 
 				elsif usertype == "none"

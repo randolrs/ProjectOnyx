@@ -141,6 +141,22 @@ class ArticlesController < ApplicationController
 
           end
 
+          unless current_predictor.subscription_id
+
+            Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+            plan = Stripe::Plan.create(
+              :amount => 500,
+              :interval => 'month',
+              :name => "Subscription for " + current_predictor.username.humanize,
+              :currency => 'usd',
+              :id => current_predictor.username + "sub" + current_predictor.id.to_s,
+            )
+
+            current_predictor.update(:subscription_id => plan.id)
+
+          end
+
           format.html { redirect_to @article, notice: 'Article was successfully created.' }
           format.json { render :show, status: :created, location: @article }
 

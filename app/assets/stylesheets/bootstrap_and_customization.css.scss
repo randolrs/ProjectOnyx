@@ -4,7 +4,7 @@
   font-family: 'Glyphicons Halflings';
   src: url('../fonts/glyphicons-halflings-regular.eot');
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
+};
 
 .dropdown {
 	
@@ -65,7 +65,7 @@ input[type="text"]{
 	webkit-transition: all 0.2s ease;
   	transition: all 0.2s ease;
   	background-color:#10A254;
-  	margin-left:-2px;
+  	//margin-left:-2px;
   	//border-left:2px solid white;
 }
 
@@ -108,7 +108,7 @@ input[type="text"]{
 
 .login-header-border{
   border-left: 2px solid #fff;
-  margin-left: 4px
+  margin-left: 15px
 	
 }
 

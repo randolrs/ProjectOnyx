@@ -23,7 +23,7 @@
     padding:0px;
     /*background-image: url("https://s3.amazonaws.com/projectonyx/blackorchid_%402X.jpg");*/
     background-color:#F8F8F8;
-    margin-top: 111px;
+    margin-top: 59px;
  }
 
  .body{
@@ -71,7 +71,7 @@
  }
 
  .content-panel{
-    width:800px;
+    width:950px;
     padding:50px;
     margin-left: auto;
     margin-right: auto;
@@ -288,7 +288,7 @@ select#team_filter_team{
 
 .content-league-header{
   height:51px;
-  width:800px;
+  width:950px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1px;

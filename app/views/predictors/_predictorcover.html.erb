@@ -20,7 +20,7 @@
     </div>
 
     <div class="predictor-cover-details"> 
-      <a class="white-text"><%=@predictor.prediction_games.count%> PREDICTIONS / <%=@predictor.articles.count%> POSTS <!-- / <%#=@subscriber_count%> SUBSCRIBERS --> </a>
+      <a class="white-text"><%=@predictor.prediction_games.count%> PREDICTIONS / <%=@predictor.articles.count%> POSTS / <%=@predictor.users.count%> SUBSCRIBERS</a>
       <br>
 
       <% if user_signed_in? and not current_user.predictors.exists?(:id => @predictor.id)%>

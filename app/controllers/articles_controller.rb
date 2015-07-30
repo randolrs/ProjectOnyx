@@ -93,41 +93,44 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
-    @article.predictor_id = current_predictor.id
-    @article.hits = 0
 
-    @game = Game.find(@article.event_id)
+    if predictor_signed_in?
 
-    for prediction_game in @article.prediction_games
-      prediction_game.predictor_id = current_predictor.id
-      prediction_game.game_id = @article.event_id
-      prediction_game.event_time = @article.event_time
-      prediction_game.teama = @game.teama
-      prediction_game.teamh = @game.teamh
-      if Time.now > prediction_game.event_time
-        prediction_game.status = "o"
+      @article = Article.new(article_params)
+      @article.predictor_id = current_predictor.id
+      @article.hits = 0
+
+      @game = Game.find(@article.event_id)
+
+      for prediction_game in @article.prediction_games
+        prediction_game.predictor_id = current_predictor.id
+        prediction_game.game_id = @article.event_id
+        prediction_game.event_time = @article.event_time
+        prediction_game.teama = @game.teama
+        prediction_game.teamh = @game.teamh
+        if Time.now > prediction_game.event_time
+          prediction_game.status = "o"
+        end
+
+        prediction_game.league = @game.league
+
+        if prediction_game.teama_score > prediction_game.teamh_score
+          prediction_game.game_winner = prediction_game.teama
+          prediction_game.spread = prediction_game.teama_score - prediction_game.teamh_score
+        elsif prediction_game.teama_score < prediction_game.teamh_score
+          prediction_game.game_winner = prediction_game.teamh
+          prediction_game.spread = prediction_game.teamh_score - prediction_game.teama_score
+        elsif prediction_game.teama_score == prediction_game.teamh_score
+          prediction_game.game_winner = "N/A"
+          prediction_game.spread = 0
+        end
+
       end
 
-      prediction_game.league = @game.league
+      respond_to do |format|
+        if @article.save
 
-      if prediction_game.teama_score > prediction_game.teamh_score
-        prediction_game.game_winner = prediction_game.teama
-        prediction_game.spread = prediction_game.teama_score - prediction_game.teamh_score
-      elsif prediction_game.teama_score < prediction_game.teamh_score
-        prediction_game.game_winner = prediction_game.teamh
-        prediction_game.spread = prediction_game.teamh_score - prediction_game.teama_score
-      elsif prediction_game.teama_score == prediction_game.teamh_score
-        prediction_game.game_winner = "N/A"
-        prediction_game.spread = 0
-      end
-
-    end
-
-    respond_to do |format|
-      if @article.save
-
-        unless current_predictor.account
+          unless current_predictor.account
 
             Stripe.api_key = Rails.configuration.stripe[:secret_key]
             account = Stripe::Account.create(
@@ -144,6 +147,7 @@ class ArticlesController < ApplicationController
           unless current_predictor.subscription_id
 
             Stripe.api_key = Rails.configuration.stripe[:secret_key]
+            #Stripe.api_key = @predictor.account_key_secret
 
             plan = Stripe::Plan.create(
               :amount => 500,
@@ -160,9 +164,11 @@ class ArticlesController < ApplicationController
           format.html { redirect_to @article, notice: 'Article was successfully created.' }
           format.json { render :show, status: :created, location: @article }
 
-      else
-        format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        else
+
+          format.html { render :new }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

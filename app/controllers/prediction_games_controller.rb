@@ -271,77 +271,79 @@ class PredictionGamesController < ApplicationController
 
   def create
 
-    @prediction_game = PredictionGame.new(prediction_game_params)
+    if predictor_signed_in?
 
-    @predictor = current_predictor
+      @prediction_game = PredictionGame.new(prediction_game_params)
 
-    @game = Game.find(@prediction_game.game_id)
+      @predictor = current_predictor
 
-    if @prediction_game.event_time > Time.now and @game.status == "o" and not PredictionGame.where(:game_id => @game.id, :predictor_id => current_predictor.id).present?
+      @game = Game.find(@prediction_game.game_id)
 
-      if @prediction_game.teama_score > @prediction_game.teamh_score
-        @prediction_game.game_winner = @prediction_game.teama
-        @prediction_game.spread = @prediction_game.teama_score - @prediction_game.teamh_score
+      if @prediction_game.event_time > Time.now and @game.status == "o" and not PredictionGame.where(:game_id => @game.id, :predictor_id => current_predictor.id).present?
 
+        if @prediction_game.teama_score > @prediction_game.teamh_score
+          @prediction_game.game_winner = @prediction_game.teama
+          @prediction_game.spread = @prediction_game.teama_score - @prediction_game.teamh_score
 
-      elsif @prediction_game.teama_score < @prediction_game.teamh_score
-        @prediction_game.game_winner = @prediction_game.teamh
-        @prediction_game.spread = @prediction_game.teamh_score - @prediction_game.teama_score
+        elsif @prediction_game.teama_score < @prediction_game.teamh_score
+          @prediction_game.game_winner = @prediction_game.teamh
+          @prediction_game.spread = @prediction_game.teamh_score - @prediction_game.teama_score
 
-      end
-
-      @prediction_game.predictor_id = current_predictor.id
-
-      if @prediction_game.cost.nil?
-        @prediction_game.cost = 0
-      end
-
-      respond_to do |format|
-        if @prediction_game.save
-
-          unless current_predictor.account
-
-            Stripe.api_key = Rails.configuration.stripe[:secret_key]
-            account = Stripe::Account.create(
-              {:country => "US", :managed => true, :email => @predictor.email, :transfer_schedule["interval"] => "manual"}
-            )
-
-            current_predictor.update(:account => true)
-            current_predictor.update(:account_id => account.id)
-            current_predictor.update(:account_token => account.keys.publishable)
-            current_predictor.update(:account_key_secret => account.keys.secret)
-
-          end
-
-          unless current_predictor.subscription_id
-
-            Stripe.api_key = Rails.configuration.stripe[:secret_key]
-
-            plan = Stripe::Plan.create(
-              :amount => 500,
-              :interval => 'month',
-              :name => "Subscription for " + current_predictor.username.humanize,
-              :currency => 'usd',
-              :id => current_predictor.username + "sub" + current_predictor.id.to_s,
-            )
-
-            current_predictor.update(:subscription_id => plan.id)
-
-          end
-
-
-
-          format.html { redirect_to @prediction_game, notice: 'Prediction game was successfully created.' }
-          format.json { render :show, status: :created, location: @prediction_game }
-        else
-          format.html { render :new }
-          format.json { render json: @prediction_game.errors, status: :unprocessable_entity }
         end
-      end
-        else
-          format.html { render :new }
-          format.json { render json: @prediction_game.errors, status: :unprocessable_entity }
+
+        @prediction_game.predictor_id = @predictor.id
+
+        if @prediction_game.cost.nil?
+          @prediction_game.cost = 0
         end
+
+        respond_to do |format|
+          if @prediction_game.save
+
+            unless current_predictor.account
+
+              Stripe.api_key = Rails.configuration.stripe[:secret_key]
+              account = Stripe::Account.create(
+                {:country => "US", :managed => true, :email => @predictor.email, :transfer_schedule["interval"] => "manual"}
+              )
+
+              current_predictor.update(:account => true)
+              current_predictor.update(:account_id => account.id)
+              current_predictor.update(:account_token => account.keys.publishable)
+              current_predictor.update(:account_key_secret => account.keys.secret)
+
+            end
+
+            unless current_predictor.subscription_id
+
+              Stripe.api_key = Rails.configuration.stripe[:secret_key]
+              #Stripe.api_key = @predictor.account_key_secret
+
+              plan = Stripe::Plan.create(
+                :amount => 500,
+                :interval => 'month',
+                :name => "Subscription for " + current_predictor.username.humanize,
+                :currency => 'usd',
+                :id => current_predictor.username + "sub" + current_predictor.id.to_s,
+              )
+
+              current_predictor.update(:subscription_id => plan.id)
+
+            end
+
+            format.html { redirect_to @prediction_game, notice: 'Prediction game was successfully created.' }
+            format.json { render :show, status: :created, location: @prediction_game }
+          else
+            format.html { render :new }
+            format.json { render json: @prediction_game.errors, status: :unprocessable_entity }
+          end
+        end
+
+      else
+        format.html { render :new }
+        format.json { render json: @prediction_game.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /prediction_games/1

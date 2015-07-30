@@ -92,15 +92,17 @@ class PredictorsController < ApplicationController
 
     @predictor = Predictor.find_by_username(params[:username])
 
-    unless current_user.predictors.exists?(:id => @predictor.id)
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    
+    #Stripe.api_key = @predictor.account_key_secret
 
-      Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    unless current_user.predictors.exists?(:id => @predictor.id)
 
       if current_user.customer_id.nil?
 
         customer = Stripe::Customer.create(
               :description => "Customer for Onyx",
-              :source => params[:stripeToken] # obtained with Stripe.js
+              :source => params[:stripeToken], # obtained with Stripe.js
               )
         
         current_user.update(:customer_id => customer.id)
@@ -111,15 +113,22 @@ class PredictorsController < ApplicationController
 
       end
 
+      # customer = Stripe::Customer.create(
+      #         :description => "Customer for Onyx",
+      #         :source => params[:stripeToken] # obtained with Stripe.js
+      #         )
+
       customer.subscriptions.create(:plan => @predictor.subscription_id)
 
       current_user.predictors << @predictor
 
       @predictor.users << current_user
 
+      redirect_to dashboard_path
+
     else
 
-      redirect_to dashboard_path
+      redirect_to xdashboard_path
     end
 
 

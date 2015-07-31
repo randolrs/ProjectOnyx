@@ -71,7 +71,7 @@
  }
 
  .content-panel{
-    width:950px;
+    width:900px;
     padding:50px;
     margin-left: auto;
     margin-right: auto;
@@ -288,7 +288,7 @@ select#team_filter_team{
 
 .content-league-header{
   height:51px;
-  width:950px;
+  width:900px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1px;

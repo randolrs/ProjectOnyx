@@ -99,6 +99,8 @@
 
             <td class="results-pending" colspan="3" rowspan="2">
 
+              <%= form_tag subscribe_to_predictor_path do %>
+
               <script   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                         data-image="/img/documentation/checkout/marketplace.png"
@@ -106,6 +108,8 @@
                         data-description=<%="Buy It for" + number_to_currency(@prediction_game.cost).to_s%> 
                         data-amount="">
               </script>
+
+              <%end%>
 
             </td>
 

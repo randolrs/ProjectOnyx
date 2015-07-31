@@ -13,14 +13,16 @@
         <%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-name"%>
         <br>
         <a class="white-text"><%=@predictor.bio%></a>
-        <br>
-        <a class="white-text"><%=@predictor.subscription_id%></a>
       </div>
 
     </div>
 
     <div class="predictor-cover-details"> 
-      <a class="white-text"><%=@predictor.prediction_games.count%> PREDICTIONS / <%=@predictor.articles.count%> POSTS / <%=@predictor.users.count%> SUBSCRIBERS</a>
+      <a class="white-text"><%=@predictor.prediction_games.count%> PREDICTIONS / <%=@predictor.articles.count%> POSTS</a>
+      <br>
+
+       <a class="white-text"><%=@predictor.users.count%> SUBSCRIBERS</a>
+
       <br>
 
       <% if user_signed_in? and not current_user.predictors.exists?(:id => @predictor.id)%>

@@ -90,48 +90,44 @@ class PredictorsController < ApplicationController
 
   def subscribe
 
-    @predictor = Predictor.find_by_username(params[:username])
+    if user_signed_in?
 
-    Stripe.api_key = Rails.configuration.stripe[:secret_key]
-    
-    #Stripe.api_key = @predictor.account_key_secret
+      if current_user.customer_id
 
-    unless current_user.predictors.exists?(:id => @predictor.id)
+      @predictor = Predictor.find_by_username(params[:username])
 
-      if current_user.customer_id.nil?
+      Stripe.api_key = Rails.configuration.stripe[:secret_key]
+      
+      #Stripe.api_key = @predictor.account_key_secret
 
-        customer = Stripe::Customer.create(
-              :description => "Customer for Onyx",
-              :source => params[:stripeToken], # obtained with Stripe.js
-              )
-        
-        current_user.update(:customer_id => customer.id)
+        unless current_user.predictors.exists?(:id => @predictor.id)
+
+          customer = Stripe::Customer.retrieve(current_user.customer_id)
+
+          customer.subscriptions.create(:plan => @predictor.subscription_id)
+
+          current_user.predictors << @predictor
+
+          @predictor.users << current_user
+
+          redirect_to dashboard_path
+
+        else
+
+          redirect_to dashboard_path
+        end
 
       else
 
-        customer = Stripe::Customer.retrieve(current_user.customer_id)
-
+        #else logic for current_user.customer_id
       end
-
-      # customer = Stripe::Customer.create(
-      #         :description => "Customer for Onyx",
-      #         :source => params[:stripeToken] # obtained with Stripe.js
-      #         )
-
-      customer.subscriptions.create(:plan => @predictor.subscription_id)
-
-      current_user.predictors << @predictor
-
-      @predictor.users << current_user
-
-      redirect_to dashboard_path
-
-    else
-
-      redirect_to xdashboard_path
     end
+  end
 
-
+  def subscriberindex
+    @action = 'subscriberindex'
+    @predictor = Predictor.find_by_username(params[:username])
+    @subscribers = @predictor.users
 
   end
 

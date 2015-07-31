@@ -105,6 +105,8 @@ Rails.application.routes.draw do
 
   get '/:username/predictions/sports/:id' => 'prediction_games#show', as: 'predictiongamesshow'
 
+  get '/:username/subscribers' => 'predictors#subscriberindex', as: 'predictorsubscriberindex'
+
   get '/:league/teams/:id/picks' => 'teams#predictionindex', as: 'teamindexpredictionsall'
 
   get '/:league/teams/:id/posts' => 'teams#articleindex', as: 'teamindexarticlesall'

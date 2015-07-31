@@ -14,6 +14,7 @@ class GamesController < ApplicationController
     @teams = Team.all.where(:league=>params[:league])
     @games = Game.all.where(:league=>params[:league]).order("event_time DESC").paginate(:page => params[:page], :per_page => 5)
     @league = @game.league
+    @sport = Sport.find_by_subcat(@league)
     @teama = Team.find_by_name(@game.teama)
     @teamh = Team.find_by_name(@game.teamh)
     @displaypredictor = true

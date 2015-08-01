@@ -388,7 +388,9 @@ p.terms-of-service{
 .edit-side-container{
   width:250px;
   left:0px;
-  background-color: #222;
+  
+  background: #015e94;
+
   float:left;
   position: relative;
   height:600px;

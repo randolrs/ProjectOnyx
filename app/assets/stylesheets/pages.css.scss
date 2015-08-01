@@ -927,8 +927,14 @@ predictor-image-small-container{
 
 .footer-wrap{
   
-  height:250px;
-  background-color: #222;
+  background: linear-gradient(#333,#111);
+  background: #111;
+  background: -webkit-linear-gradient(#333,#111);
+  background: -moz-linear-gradient(#333,#111);
+  background: -ms-linear-gradient(#333,#111);
+  background: -o-linear-gradient(#333,#111);
+  background: linear-gradient(#333,#111);
+
   position:relative;
   bottom:0px;
   width:100%;
@@ -1052,7 +1058,7 @@ a.header-category{
 }
 
 a.predictions-header{
-  background-color:#13BD63;
+  background-color:#4F89E3;
   color:white;
   font-size: 16px;
   line-height:14px;

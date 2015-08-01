@@ -47,6 +47,8 @@ Rails.application.routes.draw do
 
   get 'sportdashboard' => 'sports#index'
 
+  get 'subscribe' => 'cards#create'
+
   get 'buy_prediction_game' => 'prediction_games#buy'
 
   get 'subscribe_to_predictor' => 'predictors#subscribe'

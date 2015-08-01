@@ -94,9 +94,9 @@ class PredictorsController < ApplicationController
 
       Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-      if current_user.customer_id
+      @predictor = Predictor.find_by_username(params[:username])
 
-        @predictor = Predictor.find_by_username(params[:username])
+      if current_user.customer_id
 
         customer = Stripe::Customer.retrieve(current_user.customer_id)
 
@@ -104,12 +104,10 @@ class PredictorsController < ApplicationController
 
         customer = Stripe::Customer.create(
                     :description => "Customer for Onyx",
-                    :source => params[:stripeToken] # obtained with Stripe.js
                     )
 
       end
 
-      #Stripe.api_key = @predictor.account_key_secret
 
       unless current_user.predictors.exists?(:id => @predictor.id)
 
@@ -117,13 +115,12 @@ class PredictorsController < ApplicationController
 
         current_user.predictors << @predictor
 
-        @predictor.users << current_user
-
         redirect_to dashboard_path
 
       else
 
         redirect_to dashboard_path
+
       end
 
     end

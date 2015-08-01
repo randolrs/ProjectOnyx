@@ -32,6 +32,19 @@ class ApplicationController < ActionController::Base
 
   		elsif user_signed_in?
 
+  			unless current_user.customer_id
+
+          Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+  				customer = Stripe::Customer.create(
+                    :description => "Customer for Onyx",
+                    #:source => params[:stripeToken] # obtained with Stripe.js
+                    )
+
+  				current_user.update(:customer_id => customer.id)
+
+  			end
+
   			dashboard_path
 
   		elsif admin_signed_in?

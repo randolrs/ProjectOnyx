@@ -48,7 +48,6 @@ class PredictionGamesController < ApplicationController
   # GET /prediction_games/1.json
   def show
     @prediction_game = PredictionGame.find(params[:id])
-    @user = current_user
     @game = Game.find(@prediction_game.game_id)
     @predictor = Predictor.find(@prediction_game.predictor_id)
     @league = @prediction_game.league
@@ -56,10 +55,25 @@ class PredictionGamesController < ApplicationController
     @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
     @teama = Team.find_by_name(@game.teama)
     @teamh = Team.find_by_name(@game.teamh)
-    
+
     if user_signed_in?
       @usertype = "user"
       @access = current_user
+
+      if @access.customer_id 
+
+        customer = Stripe::Customer.retrieve(current_user.customer_id)
+
+        if customer.default_source
+
+          @payment = true
+        else
+
+          @payment = false
+        end
+
+      end
+
     elsif predictor_signed_in?
       @usertype = "predictor"
       @access = current_predictor

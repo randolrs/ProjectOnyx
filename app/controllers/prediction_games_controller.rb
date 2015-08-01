@@ -5,14 +5,12 @@ class PredictionGamesController < ApplicationController
   # GET /prediction_games.json
   
   def index
-
-    @action = "Recent"
     
     if predictor_signed_in?
 
     elsif user_signed_in?
 
-      @action = "purchased"
+      @action = "recent"
 
       @displaypredictor = true
 

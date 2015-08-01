@@ -499,7 +499,7 @@ p.terms-of-service{
 }
 
 .user-dashboard-container{
-  width:1000px;
+  width:1040px;
   margin-top: 20px;
   overflow:hidden;
   margin-left: auto;
@@ -518,12 +518,13 @@ p.terms-of-service{
 
 .user-dashboard-card{
   float:left;
-  width:300px;
+  width:320px;
+  background-color: white;
 }
 
 .user-dashboard-predictions{
   float:left;
-  width:700px;
+  width:720px;
   padding:10px;
   background-color:white;
 }
@@ -536,7 +537,7 @@ p.terms-of-service{
 .user-subscription-nav-container{
   height:50px;
   background-color: #373737;
-  width:700px;
+  width:720px;
 }
 
 .user-subscription-nav-header{

@@ -62,8 +62,8 @@ input[type="text"]{
 .navbar .nav > li > a.header-left{
 	font-size:28px;
 	border-right: 2px solid white;
-	padding-top:10px;
-	padding-bottom:10px;
+	padding-top:15px;
+	padding-bottom:15px;
 	//margin-top:10px;
 	//margin-bottom:10px;
 }
@@ -150,14 +150,12 @@ input[type="text"]{
 }
 
 .navbar .nav > li > a.subheader.active{
-	border-bottom: 3px solid #2F1170;
-	margin-bottom:-3px;
+	border-bottom: 3px solid #FF5037;
 }
 
 .navbar .nav > li > a.subheader:hover{
 	color:#555555;
-	border-bottom: 3px solid #2F1170;
-	margin-bottom: -3px;
+	border-bottom: 3px solid #FF5037;
 }
 
 .navbar .nav > li > a.subheader-league{
@@ -355,5 +353,25 @@ a.game-detail-toggle:hover{
 
 span.glyphicon{
 	height:20px;
+}
+
+.navbar .nav li.dropdown > .dropdown-toggle .caret {
+  border-top-color: white;
+  border-bottom-color: white;
+}
+
+.navbar .nav li.dropdown > .dropdown-toggle .caret:hover {
+  border-top-color: white;
+  border-bottom-color: white;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle .caret, .navbar .nav li.dropdown.active > .dropdown-toggle .caret, .navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
+  border-top-color: white;
+  border-bottom-color: white;
+}
+
+.navbar .nav li.dropdown > a:hover .caret {
+  border-top-color: white;
+  border-bottom-color: white;
 }
 

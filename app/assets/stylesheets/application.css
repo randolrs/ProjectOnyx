@@ -78,6 +78,7 @@
     background-color: white;
     border: 1px solid #e0e4e8;
     margin-bottom: 100px;
+    overflow: hidden;
 }
 
  .content-panel h2{
@@ -292,10 +293,9 @@ select#team_filter_team{
   width:900px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1px;
+  margin-top: 5px;
   padding-left: 20px;
   padding-right: 20px;
-
 }
 
 .content-header-sub{
@@ -370,8 +370,6 @@ a.predictor-user-toggle.active{
   color: #3e4552;
 }
 
-
-
 a.predictor-user-toggle:hover{
   cursor:pointer;
 }
@@ -386,9 +384,7 @@ p.terms-of-service{
 .edit-side-container{
   width:250px;
   left:0px;
-  
-  background: #015e94;
-
+  background: #222;
   float:left;
   position: relative;
   height:600px;
@@ -508,6 +504,16 @@ p.terms-of-service{
   overflow:hidden;
   margin-left: auto;
   margin-right: auto;
+  //background-color:white;
+  padding:20px;
+}
+
+.user-dashboard-container h1{
+  color:white;
+}
+
+.user-dashboard-container h4{
+  color:white;
 }
 
 .user-dashboard-card{
@@ -518,6 +524,8 @@ p.terms-of-service{
 .user-dashboard-predictions{
   float:left;
   width:700px;
+  padding:10px;
+  background-color:white;
 }
 
 .user-dashboard-promo{
@@ -525,3 +533,17 @@ p.terms-of-service{
   width:100px;
 }
 
+.user-subscription-nav-container{
+  height:50px;
+  background-color: #373737;
+  width:700px;
+}
+
+.user-subscription-nav-header{
+  height:50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

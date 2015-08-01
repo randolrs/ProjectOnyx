@@ -175,12 +175,37 @@ input[type="text"]{
 	color:#555555;
 }
 
+.navbar .nav > li > a.user-subscription-nav{
+	color:white;
+
+}
+
+.navbar .nav > li > a.user-subscription-nav:hover{
+	color:white;
+	
+}
+
+.navbar .nav > li > a.user-subscription-nav.active{
+	color:#333;
+	background-color: white;
+
+}
+
+.navbar .nav > li > a.user-subscription-nav:hover{
+	
+	
+}
+
+.navbar .nav > li > a.user-subscription-nav.active:hover{
+	color:#333;
+	background-color: white;
+
+}
+
 .navbar .nav > li > a.top-header{
 	padding-top:15px;
 	padding-bottom:12px;
 }
-
-
 
 .navbar .nav > li > a.header-make-prediction:hover, .navbar .nav > li > a.header-make-prediction:focus{
 	background-color:#dd3618;

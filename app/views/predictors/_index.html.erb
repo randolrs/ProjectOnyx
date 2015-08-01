@@ -1,0 +1,24 @@
+<% if user_signed_in? %>
+
+  <table class ="prediction-index-fold table table-hover">
+    <thead>
+      <tr>
+        <th class="prediction-index-fold-th">Username</th>
+        <th class="prediction-index-fold-th">Join Date</th>
+      </tr>
+    </thead>
+
+
+    <% @predictors.each do |predictor| %>
+
+      <tbody>
+        <tr class="prediction-table-row" href="/">
+          <td><%= predictor.username %></td>
+          <td><%= predictor.created_at.strftime("%D at %l:%d%p") %></td>
+        </tr>
+      </tbody>
+    <% end %>
+
+</table>
+
+<% end %>

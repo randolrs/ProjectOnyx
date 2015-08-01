@@ -6,6 +6,8 @@ class PredictionGamesController < ApplicationController
   
   def index
 
+    @action = "Recent"
+    
     if predictor_signed_in?
 
     elsif user_signed_in?

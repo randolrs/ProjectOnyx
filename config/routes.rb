@@ -45,6 +45,8 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'prediction_games#index'
 
+  get '/dashboard/experts' => 'predictors#predictorindex', as: 'predictorindex'
+
   get 'sportdashboard' => 'sports#index'
 
   get 'subscribe' => 'cards#create'

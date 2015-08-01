@@ -1,0 +1,36 @@
+<% if user_signed_in?%>
+<div class="user-subscription-nav-container">
+  
+  <div class="user-subscription-nav">
+
+  	<nav class="navbar navbar-default">
+
+	  	<ul class="nav navbar-nav">
+
+        <%if @action == "recent"%>
+          <li><%= link_to "Recent Activity", dashboard_path, { :class=>"user-subscription-nav active" } %></li>
+          <li><%= link_to "Experts", predictorindex_path, { :class=>"user-subscription-nav" } %></li>
+
+        <%elsif @action == "experts"%>
+          <li><%= link_to "Recent Activity", dashboard_path, { :class=>"user-subscription-nav" } %></li>
+          <li><%= link_to "Experts", predictorindex_path, { :class=>"user-subscription-nav active" } %></li>
+
+        <%else%>
+          <li><%= link_to "Recent Activity", dashboard_path, { :class=>"user-subscription-nav" } %></li>
+          <li><%= link_to "Experts", predictorindex_path, { :class=>"user-subscription-nav" } %></li>
+
+        <%end%>
+
+	  		
+	    </ul>
+
+	</nav>	
+
+  </div>
+</div>
+
+<%end%>
+
+
+
+

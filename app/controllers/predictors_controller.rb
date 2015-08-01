@@ -133,4 +133,10 @@ class PredictorsController < ApplicationController
 
   end
 
+  def predictorindex
+    @action = "experts"
+    @predictors = current_user.predictors
+
+  end
+
 end

@@ -95,11 +95,11 @@ Rails.application.routes.draw do
 
   get ':username/edit/payments' => 'cards#index', as: 'cardsindex'
 
-  get '/:username/articles' => 'predictors#articleindex', as: 'predictorindexarticlessall'
+  get '/:username/posts' => 'predictors#articleindex', as: 'predictorindexarticlessall'
 
-  get '/:username/articles/new/sports/:game' => 'articles#new', as: 'predictorarticlenew'
+  get '/:username/posts/new/sports/:game' => 'articles#new', as: 'predictorarticlenew'
 
-  get '/:username/articles/:id' => 'articles#show', as: 'predictorarticleshow'
+  get '/:username/posts/:id' => 'articles#show', as: 'predictorarticleshow'
 
   get '/:username/:category/league/:league' => 'predictors#predictionindex', as: 'predictorindexpredictionsleague'
 
@@ -115,7 +115,7 @@ Rails.application.routes.draw do
 
   get '/:league/teams/:id/posts' => 'teams#articleindex', as: 'teamindexarticlesall'
 
-  get ':league/posts' => 'pages#leaguearticleindex', as: 'leaguearticleindex'
+  get ':league/posts/all/index' => 'pages#leaguearticleindex', as: 'leaguearticleindex'
 
   get ':league/picks' => 'pages#leaguepredictionindex', as: 'leaguepredictionindex'
 
@@ -125,7 +125,7 @@ Rails.application.routes.draw do
 
   get 'editor' => 'sports#new'
 
-  get '/articles/all/:type' => 'articles#index', as: 'articledashboard'
+  get '/posts/all/:type' => 'articles#index', as: 'articledashboard'
 
   get 'watchlist' =>'pages#mywatchlist'
 

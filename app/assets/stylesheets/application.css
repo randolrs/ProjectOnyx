@@ -310,7 +310,7 @@ select#team_filter_team{
 }
 
 .cover-sub-header{
-  height:53px;
+  height:52px;
   width:900px;
   margin-left: auto;
   margin-right: auto;
@@ -385,10 +385,9 @@ p.terms-of-service{
 .edit-side-container{
   width:250px;
   left:0px;
-  background: #222;
+  background: #373737;
   float:left;
   position: relative;
-  height:600px;
   padding: 10px 0px;
 }
 
@@ -474,7 +473,7 @@ p.terms-of-service{
   overflow: hidden;
   background-color: white;
   padding:10px 30px;
-  height:600px;
+  min-height:700px;
 }
 
 .edit-content{
@@ -534,7 +533,7 @@ p.terms-of-service{
   width:780px;
   padding:40px;
   background-color:white;
-    border-radius: 2px;
+  border-radius: 2px;
 }
 
 .user-dashboard-promo{

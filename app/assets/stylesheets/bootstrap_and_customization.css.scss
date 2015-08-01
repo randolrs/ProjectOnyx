@@ -56,10 +56,11 @@ input[type="text"]{
 }
 
 .navbar .nav > li > a{
-	color:white;;
+	color:white;
 	text-shadow:none;
 	font-weight:bold;
 	line-height:30px;
+	font-size: 20px;
 }
 
 .navbar .nav > li > a.header-left{
@@ -180,6 +181,7 @@ input[type="text"]{
 
 .navbar .nav > li > a.user-subscription-nav{
 	color:white;
+	background-color: #666;
 
 }
 

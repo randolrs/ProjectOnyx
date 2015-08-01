@@ -501,6 +501,7 @@ p.terms-of-service{
   top:0px;
   width:100%;
   z-index: 100;
+  border-bottom: 3px solid #FF5037;
 }
 
 .user-dashboard-container{

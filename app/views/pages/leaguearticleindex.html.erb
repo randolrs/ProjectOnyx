@@ -8,8 +8,6 @@
 		<h3>All <%=@league%> Posts</h3>
 		<h5><%= link_to @league + " Home »", leaguehome_path(@league) %></h5>
 	</div>
-
-	<%= will_paginate @articles %>
 	
 	<%= render 'articles/articlefullarchive' %>
 

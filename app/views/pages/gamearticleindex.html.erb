@@ -8,11 +8,9 @@
 		<h3>All Posts</h3>
 		<h5><%= link_to "Game Home »", gameshow_path %></h5>
 	</div>
-
-		<%= will_paginate @articles %>
 		
-		<%= render 'articles/articlefullarchive' %>
+	<%= render 'articles/articlefullarchive' %>
 
-		<%= will_paginate @articles %>
+	<%= will_paginate @articles %>
 	
 </div>

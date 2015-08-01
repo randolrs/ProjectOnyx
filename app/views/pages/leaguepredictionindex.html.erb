@@ -8,8 +8,6 @@
 		<h3>All <%=@league%> Picks</h3>
 		<h5><%= link_to @league + " Home »", leaguehome_path(@league) %></h5>
 	</div>
-
-	<%= will_paginate @predictions %>
 	
 	<%= render 'prediction_games/index' %>
 

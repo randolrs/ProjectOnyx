@@ -187,6 +187,7 @@ select#team_filter_team{
 .predictor-cover{
   background-color: #333;
   margin:-1px;
+  background-image: url("https://s3.amazonaws.com/projectonyx/classy_fabric.png");
 }
 
 .predictor-cover-container{
@@ -273,6 +274,7 @@ select#team_filter_team{
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin-top:1px;
+  border-bottom: 5px solid white;
 }
 
 .content-header{
@@ -287,6 +289,7 @@ select#team_filter_team{
   width:100%;
   height:53px;
   background-color: white;
+  border-bottom: 5px solid white;
 }
 
 .content-league-header{

@@ -77,6 +77,18 @@ input[type="text"]{
 	//margin-bottom:10px;
 }
 
+.navbar .nav > li > a.predictions-header{
+  padding-top:15px;
+  padding-bottom:15px;
+  font-size:20px;
+  background-color:#4F89E3;
+  color:white;
+  line-height:14px;
+  border-radius: 1px;
+  border: 1px solid #16b;
+  box-shadow: 0 0 0 rgba(000, 000, 000, 0), inset 0 0 2px rgba(149, 212, 255, 1);
+  text-shadow: 0 2px 0 #1954a7, 0 0 0 rgba(255, 255, 255, 0);
+}
 
 .navbar .nav > li > a.predictions-header:hover{
 	color:white;

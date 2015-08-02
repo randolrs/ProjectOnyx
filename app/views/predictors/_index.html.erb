@@ -3,26 +3,26 @@
   <table class ="prediction-index-fold table table-hover">
     <thead>
       <tr>
-        <th class="prediction-index-fold-th">Username</th>
+        <th class="prediction-index-fold-th">Expert</th>
         <th class="prediction-index-fold-th">Active Predictions</th>
         <th class="prediction-index-fold-th">Recent Posts</th>
         <th class="prediction-index-fold-th">Onyx Rating</th>
       </tr>
     </thead>
 
+    <tbody>
 
-    <% @predictors.each do |predictor| %>
+      <% @predictors.each do |predictor| %>
 
-      <tbody>
-        <tr data-link="<%=predictordashboard_path(predictor.username)%>", class="prediction-table-row" class="prediction-table-row">
-          <td> <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= predictor.username %></b></a></td>
-          <td><%= predictor.prediction_games.where(:status=>"o").all.count %></td>
-          <td><%= predictor.articles.count %></td>
-          <td><%= "88" %></td>
+          <tr data-link="<%=predictordashboard_path(predictor.username)%>", class="prediction-table-row" class="prediction-table-row">
+            <td> <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= predictor.username %></b></a></td>
+            <td><%= predictor.prediction_games.where(:status=>"o").all.count %></td>
+            <td><%= predictor.articles.count %></td>
+            <td><%= "88" %></td>
+          </tr>
+      <% end %>
 
-        </tr>
-      </tbody>
-    <% end %>
+    </tbody>
 
 </table>
 

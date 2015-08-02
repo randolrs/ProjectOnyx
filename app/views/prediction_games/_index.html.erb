@@ -37,7 +37,7 @@
 
         <tr data-link="<%=predictiongamesshow_path(@predictor.username,prediction.id)%>", class="prediction-table-row">
           <% if @displaypredictor %>
-            <td> <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= @predictor.username %></b></a></td>
+            <td class="prediction-index-predictor"> <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= @predictor.username %></b></a></td>
           <% end %>
           <td><%= prediction.created_at.strftime("%D") %></td>
 

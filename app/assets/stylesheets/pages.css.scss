@@ -726,7 +726,15 @@ th.prediction-index-fold-th{
   width:150px;
   font-size:14px;
   padding: 7px 10px;
-  background-color:#333333;
+  text-shadow: 0 1px 0 #333333, 0 0 0 #333333;
+  
+  background: #222;
+  background: -webkit-linear-gradient(#777,#222);
+  background: -moz-linear-gradient(#777,#222);
+  background: -ms-linear-gradient(#777,#222);
+  background: -o-linear-gradient(#777,#222);
+  background: linear-gradient(#777,#222);
+
   color:white;
   text-align: center;
 
@@ -751,6 +759,10 @@ td.index-matchup{
   white-space: nowrap;
   padding-left:25px;
   padding-right:25px;
+  text-align:left;
+}
+
+td.prediction-index-predictor{
   text-align:left;
 }
 

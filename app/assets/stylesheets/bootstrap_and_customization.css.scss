@@ -47,7 +47,7 @@ input[type="text"]{
 }
 
 .navbar-default.user-subscription{
-	background-color:#373737;
+	background-color:transparent;
 }
 
 .navbar-default.top{
@@ -64,7 +64,7 @@ input[type="text"]{
 }
 
 .navbar .nav > li > a.header-category{
-	text-shadow: 0 2px 0 #111, 0 0 0 rgba(255, 255, 255, 0);
+	text-shadow: 0 2px 0 #222;
 }
 
 .navbar .nav > li > a.header-left{
@@ -146,6 +146,7 @@ input[type="text"]{
   color:white;
   line-height:20px;
   text-decoration:none;
+  text-shadow: 0 1px 0 #333, 0 0 0 rgba(51, 51, 51, 0);
   background-color:#13BD63;
   border-radius:2.4px;
   text-align:center;
@@ -165,17 +166,27 @@ input[type="text"]{
 	text-shadow:none;
 	padding:10px;
 	line-height:30px;
-	margin-left:8px;
-	margin-right:8px;
+	padding:10px 15px;
 }
 
 .navbar .nav > li > a.subheader.active{
-	border-bottom: 3px solid #FF5037;
+	//border-bottom: 3px solid #FF5037;
+	color:white;
+	//background-color:#666;
+	background-image: url("https://s3.amazonaws.com/projectonyx/classy_fabric.png");
+}
+
+.navbar .nav > li > a.subheader.active:hover{
+	color:white;
+	//background-color:#666;
+	background-image: url("https://s3.amazonaws.com/projectonyx/classy_fabric.png");
+	border:none;
 }
 
 .navbar .nav > li > a.subheader:hover{
-	color:#555555;
-	border-bottom: 3px solid #FF5037;
+	color:white;
+	//border-bottom: 3px solid #FF5037;
+	background-color:#666;
 }
 
 .navbar .nav > li > a.subheader-league{
@@ -197,7 +208,7 @@ input[type="text"]{
 
 .navbar .nav > li > a.user-subscription-nav{
 	color:white;
-	background-color: #666;
+	background-color: #777;
 
 }
 
@@ -208,15 +219,17 @@ input[type="text"]{
 
 .navbar .nav > li > a.user-subscription-nav.active{
 	color:#333;
-	background-color: white;
+	text-shadow: 0 1px 0 #ddd, 0 0 0 #ddd;
+
+	background: #fff;
+	background: -webkit-linear-gradient(#fff,#eee);
+	background: -moz-linear-gradient(#fff,#eee);
+	background: -ms-linear-gradient(#fff,#eee);
+	background: -o-linear-gradient(#fff,#eee);
+	background: linear-gradient(#fff,#eee);
 
 }
 
-.navbar .nav > li > a.user-subscription-nav.active{
-	color:#333;
-	background-color: white;
-
-}
 
 .navbar .nav > li > a.user-subscription-nav.active:hover{
 	color:#333;
@@ -226,7 +239,10 @@ input[type="text"]{
 
 .navbar .nav > li > a.user-subscription-nav.inactive{
 	box-shadow: 0 0 0 rgba(000, 000, 000, 0), inset 0 0 10px #444;
-	text-shadow: 0 2px 0 #333, 0 0 0 rgba(51, 51, 51, 1);
+	text-shadow: 0 1px 0 #333, 0 0 0 rgba(51, 51, 51, 1);
+	background: linear-gradient(#777, #222222);
+	border-left : 2px solid #333;
+	border-right: 2px solid #333;
 	
 }
 
@@ -273,13 +289,13 @@ a.header-make-prediction:hover{
 }
 
 .container-fluid{
-	background: linear-gradient(#444,#222);
+	background: linear-gradient(#555,#222);
 	background: #222;
-	background: -webkit-linear-gradient(#444,#222);
-	background: -moz-linear-gradient(#444,#222);
-	background: -ms-linear-gradient(#444,#222);
-	background: -o-linear-gradient(#444,#222);
-	background: linear-gradient(#444,#222);
+	background: -webkit-linear-gradient(#555,#222);
+	background: -moz-linear-gradient(#555,#222);
+	background: -ms-linear-gradient(#555,#222);
+	background: -o-linear-gradient(#555,#222);
+	background: linear-gradient(#555,#222);
 
 	height:60px;
 	box-shadow: inset 0 -1px 0 rgba(0,0,0,0.05);

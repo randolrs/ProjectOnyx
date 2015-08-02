@@ -22,7 +22,7 @@
     z-index:-11;
     padding:0px;
     /*background-image: url("https://s3.amazonaws.com/projectonyx/blackorchid_%402X.jpg");*/
-    background-color:#373737;
+    //background-color:#373737;
     margin-top: 60px;
     background-image: url("https://s3.amazonaws.com/projectonyx/classy_fabric.png");
  }
@@ -515,7 +515,7 @@ p.terms-of-service{
 .user-dashboard-container h1{
   color:white;
   margin-bottom:30px;
-  text-shadow: 0 3px 0 #000, 0 0 0 rgba(255, 255, 255, 1);
+  text-shadow: 0 2px 0 #000, 0 0 0 rgba(255, 255, 255, 1);
 }
 
 .user-dashboard-container h4{

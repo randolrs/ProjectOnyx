@@ -369,12 +369,20 @@ a.predictor-user-toggle{
 }
 
 a.predictor-user-toggle.inactive{
-  background-color: #3e4552;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0), inset 0 0 10px #444444;
+    text-shadow: 0 1px 0 #333333, 0 0 0 #333333;
+    background: linear-gradient(#777777, #444444);
+}
+
+a.predictor-user-toggle.inactive:hover{
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0), inset 0 0 10px #444444;
+    text-shadow: 0 1px 0 #333333, 0 0 0 #333333;
+    background: linear-gradient(#666, #333);
 }
 
 a.predictor-user-toggle.active{
-  background-color: white;
-  color: #3e4552;
+  background: linear-gradient(#fff, #fcfcfc);
+  color:#333;
 }
 
 a.predictor-user-toggle:hover{
@@ -527,7 +535,7 @@ p.terms-of-service{
 .user-dashboard-card{
   float:left;
   width:305px;
-  background-color: white;
+  background-color: #fcfcfc;
   padding: 15px;
   border-radius: 2px;
   margin-left:15px;

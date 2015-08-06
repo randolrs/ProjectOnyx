@@ -22,9 +22,9 @@
     z-index:-11;
     padding:0px;
     /*background-image: url("https://s3.amazonaws.com/projectonyx/blackorchid_%402X.jpg");*/
-    //background-color:#373737;
+    background-color:#eee;
     margin-top: 60px;
-    background-image: url("https://s3.amazonaws.com/projectonyx/classy_fabric.png");
+    //background-image: url("https://s3.amazonaws.com/projectonyx/classy_fabric.png");
  }
 
  .body{
@@ -77,14 +77,14 @@
     margin-left: auto;
     margin-right: auto;
     background-color: white;
-    border: 1px solid rgba(0,0,0,0.15);
+    border: 1px solid #E5E5E5;
     margin-bottom: 100px;
     overflow: hidden;
     border-radius:2px;
     margin-top:50px;
-    -webkit-box-shadow: inset 0px 0px 5px 2px #ddd;
-    -moz-box-shadow: inset 0px 0px 5px 2px #ddd;
-    box-shadow: inset 0px 0px 5px 2px #ddd;
+    -webkit-box-shadow: inset 0px 0px 3px 1px #ddd;
+    -moz-box-shadow: inset 0px 0px 3px 1px #ddd;
+    box-shadow: inset 0px 0px 3px 1px #ddd;
 }
 
  .content-panel h2{
@@ -292,11 +292,11 @@ select#team_filter_team{
 .content-league-header-container{
   width:100%;
   background-color: white;
-  box-shadow: inset 0px -12px 5px -10px #ddd;
+  box-shadow: inset 0px -12px 2px -10px #ddd;
 }
 
 .content-league-header{
-  height:50px;
+  height:55px;
   width:900px;
   margin-left: auto;
   margin-right: auto;
@@ -523,9 +523,9 @@ p.terms-of-service{
 }
 
 .user-dashboard-container h1{
-  color:white;
+  color:rgb(62, 78, 201);
   margin-bottom:30px;
-  text-shadow: 0 2px 0 #222;
+  text-shadow: 0 1.5px 0 #ccc;
 }
 
 .user-dashboard-container h4{

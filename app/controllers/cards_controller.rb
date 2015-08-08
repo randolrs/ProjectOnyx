@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   def create
 
 	@predictor = Predictor.find(params[:predictor_id])
-	@payment = params[:payment]
+	#@payment = params[:payment]
 
   	Stripe.api_key = Rails.configuration.stripe[:secret_key]
 

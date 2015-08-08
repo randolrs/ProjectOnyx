@@ -473,11 +473,14 @@ p.terms-of-service{
   cursor: pointer;
   color:black;
   text-decoration: none;
-  background-color: #ddd;
   padding-left: 20px;
 }
 
-.subheader-listing>a:hover{
+.sidebar-listing:hover{
+  background-color: #ddd;
+}
+
+.subheader-listing:hover{
   color:black;
   text-decoration: none;
 }

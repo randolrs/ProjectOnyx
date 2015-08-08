@@ -1,14 +1,12 @@
-<%= render 'predictors/predictorcover' %>
-<%= render 'predictors/predictoreditnav' %>
+<%= render 'predictors/editnavside' %>
 
-<div class = "content-container">
+<div class = "edit-container">
 
-  <div class="content-panel">
+  <div class="edit-panel">
 
   	<h2>Payee Information</h2>
 
 		<%= form_tag accounts_update_path do %>   
-
 
 			<table>
 				<tr>
@@ -37,7 +35,7 @@
 				</tr>
 			</table>
 
-		    <button type="submit">Update</button>
+		    <button type="submit" class="signup-submit">Update</button>
 		<%end%>
 
 	</div>

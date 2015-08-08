@@ -57,6 +57,9 @@ Rails.application.routes.draw do
 
   get 'subscribe_to_predictor' => 'predictors#subscribe'
 
+  get 'predictorpayeeedit' => 'accounts#edit'
+  get 'bank_account_new' => 'bank_accounts#new'
+
   get 'find_NBA_predictions' => 'prediction_games#findnbapredictiongames'
   get 'find_NFL_predictions' => 'prediction_games#findnflpredictiongames'
   get 'find_MLB_predictions' => 'prediction_games#findmlbpredictiongames'
@@ -92,8 +95,6 @@ Rails.application.routes.draw do
   get '/:username/predictions/:category' => 'predictors#predictionindex', as: 'predictorindexpredictionscategory'
 
   get '/:username/' => 'predictors#predictordashboard', as: 'predictordashboard'
-
-  get ':username/edit/payee' => 'accounts#edit', as: 'predictorpayeeedit'
 
   get ':username/edit/payments' => 'cards#index', as: 'cardsindex'
 

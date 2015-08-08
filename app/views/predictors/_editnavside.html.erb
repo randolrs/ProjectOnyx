@@ -29,9 +29,15 @@
         <%end%>
 
         <% if @action == "payment" %>
-          <li class="sidebar-listing active"><%= link_to "Payee Information", home_path, class: "edit-listing active"%></li>
+          <li class="sidebar-listing active"><%= link_to "Payee Information", predictorpayeeedit_path, class: "edit-listing active"%></li>
         <%else%>
-          <li class="sidebar-listing"><%= link_to "Payee Information", home_path, class: "edit-listing"%></li>
+          <li class="sidebar-listing"><%= link_to "Payee Information", predictorpayeeedit_path, class: "edit-listing"%></li>
+        <%end%>
+
+        <% if @action == "bank" %>
+          <li class="sidebar-listing active"><%= link_to "Bank Account", bank_account_new_path, class: "edit-listing active"%></li>
+        <%else%>
+          <li class="sidebar-listing"><%= link_to "Bank Account", bank_account_new_path, class: "edit-listing"%></li>
         <%end%>
 
       <%end%>

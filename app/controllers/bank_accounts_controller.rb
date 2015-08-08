@@ -4,7 +4,7 @@ class BankAccountsController < ApplicationController
 
 		@predictor = current_predictor
 
-		@action = "Add Bank Account"
+		@action = "bank"
 		
 
 	end

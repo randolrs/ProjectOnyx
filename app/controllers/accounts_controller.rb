@@ -1,5 +1,7 @@
 class AccountsController < ApplicationController
 
+	#before_action :set_account, only: [:show, :edit, :update, :destroy]
+
 	def new
 
 	    Stripe.api_key = Rails.configuration.stripe[:publishable_key]
@@ -26,15 +28,21 @@ class AccountsController < ApplicationController
 		account = Stripe::Account.retrieve(@predictor.account_key_secret)
 
 		account.legal_entity.first_name = params[:firstName]
+		account.legal_entity.last_name = params[:lastName]
+		#account.legal_entity.dob = params[:dob]
+		#account.legal_entity.dob = params[:dob]
+		#account.legal_entity.dob = params[:dob]
 		account.save
 
 		predictorpayeeedit_path(current_predictor.username)
+
+		redirect_to predictorpayeeedit_path
 	end
 
 
 	def edit
 
-		@action = "Payments"
+		@action = "payment"
 
 		@predictor = current_predictor
 

@@ -38,7 +38,7 @@
 
 	    <%elsif @action == 'subscriberindex'%>
 
-	    	<li><%= link_to "Overview", predictordashboard_path(@predictor.username), { :class=>"subheader" } %></li>
+	    	<li><%= link_to "Recent", predictordashboard_path(@predictor.username), { :class=>"subheader" } %></li>
 	        <li><%= link_to "Posts", predictorindexarticlessall_path(@predictor.username), { :class=>"subheader" } %></li>
 	        <li><%= link_to "Predictions", predictorindexpredictionsall_path(@predictor.username), { :class=>"subheader" } %></li>
 	        <% if predictor_signed_in?%>

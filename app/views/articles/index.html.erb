@@ -1,29 +1,18 @@
-<h1>Listing articles</h1>
+<div class ="user-dashboard-container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Hits</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>My Subscriptions</h1>
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td><%= article.hits %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%=render 'devise/user_subscription_nav'%>
 
-<br>
+  <div class ="user-dashboard-predictions">
 
-<%= link_to 'New Article', new_article_path %>
+    <%= render 'articles/articlefullarchive' %>
+
+  </div>
+
+   <div class ="user-dashboard-card">
+      <%= render 'predictors/recommendations' %>
+
+  </div>
+
+</div>

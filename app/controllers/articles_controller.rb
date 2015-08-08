@@ -4,6 +4,40 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
+
+
+    if predictor_signed_in?
+
+    elsif user_signed_in?
+
+      @action = "posts"
+
+      @displaypredictor = true
+
+      @predictors = current_user.predictors.collect
+
+      @articles = Array.new 
+
+      if @predictors.count > 0
+
+        @predictors.each do |predictor|
+
+          if predictor.articles.count > 0
+            predictor.articles.each do |article|
+
+              @articles << article
+
+            end
+          end
+
+        end
+
+      end
+
+      #@predictions.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+
+
+    end
     @articles = Article.all
   end
 

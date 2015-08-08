@@ -19,8 +19,8 @@
 
 	            <td> <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= @predictor.username %></b></a></td>
 
-	            <td>
-	            	<%= article.title %>
+	            <td class="article-index-title">
+	            	<b><%= article.title %></b>
 	            	<br>
 	            	<%=article.body %>
 	            </td>

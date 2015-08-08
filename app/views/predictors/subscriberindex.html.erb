@@ -3,23 +3,22 @@
 
 <div class="content-panel">
 
-	<h1>Listing Subscribers</h1>
+	<h1>My Subscribers</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Username</th>
-      <th>Subscribed On</th>
+      <th>Total Subscribers</th>
+      <!-- <th>Subscribed On</th> -->
     </tr>
   </thead>
 
   <tbody>
-    <% @subscribers.each do |subscriber| %>
+    <%# @subscribers.each do |subscriber| %>
       <tr>
-        <td><%= subscriber.username %></td>
-        <td><%= subscriber.username %></td>
+        <td><%= @subscribers.count %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 	

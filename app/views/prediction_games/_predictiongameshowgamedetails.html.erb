@@ -117,7 +117,7 @@
 
         <% elsif  @usertype == "none"%>
 
-          <td class="results-pending" colspan="3" rowspan="2"> <%= link_to "Buy It for " + number_to_currency(@prediction_game.cost).to_s, buy_prediction_game_path(:id=>@prediction_game.id), {:class=>"buy_prediction_cta" }%></td>
+          <td class="results-pending" colspan="3" rowspan="2"> <%= link_to "Buy It for " + number_to_currency(@prediction_game.cost).to_s, buy_prediction_game_path(:id=>@prediction_game.id), {:class=>"buy_prediction_cta"}%></td>
 
         <% else %>
           

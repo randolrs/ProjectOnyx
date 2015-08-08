@@ -16,15 +16,15 @@
       <div><%= f.label :email %><br>
       <%= f.email_field :email, autofocus: true %></div><br/>
 
-      <p>Profile Image</p>
+      <div><%= f.label :image %><br>
       <%= image_tag current_predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%>
       <br>
       <%= f.file_field :image, class: "form-control" %>
       
-      <br><br>
+      <br>
       <br>
 
-      <p>Bio</p>
+      <div><%= f.label :bio %><br>
       <%= f.text_area :bio, :cols => "60", :rows => "5" %><br><br/>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

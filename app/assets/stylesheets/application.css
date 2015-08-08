@@ -278,7 +278,6 @@ select#team_filter_team{
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin-top:1px;
-  border-bottom: 5px solid white;
 }
 
 .content-header{
@@ -510,6 +509,13 @@ p.terms-of-service{
   width:100%;
   z-index: 100;
   border-bottom: 5px solid #FF5037;
+  background: linear-gradient(#3E4EC9,#283282);
+  background: #283282;
+  background: -webkit-linear-gradient(#3E4EC9,#283282);
+  background: -moz-linear-gradient(#3E4EC9,#283282);
+  background: -ms-linear-gradient(#3E4EC9,#283282);
+  background: -o-linear-gradient(#3E4EC9,#283282);
+  background: linear-gradient(#3E4EC9,#303C9C);
 }
 
 .user-dashboard-container{
@@ -525,7 +531,7 @@ p.terms-of-service{
 .user-dashboard-container h1{
   color:rgb(62, 78, 201);
   margin-bottom:30px;
-  text-shadow: 0 1.5px 0 #ccc;
+  text-shadow: 0 1.5px 0 #ddd;
 }
 
 .user-dashboard-container h4{
@@ -539,14 +545,16 @@ p.terms-of-service{
   padding: 15px;
   border-radius: 2px;
   margin-left:15px;
+  box-shadow: 0px 2px 0px 1px rgba(36,46,53,0.08);
+  border: 1px solid #fff;
 
 }
 
 .user-dashboard-predictions{
   float:left;
-  width:780px;
-  padding:40px;
-  background-color:#FCFCFC;
+  //width:780px;
+  //padding:40px;
+  //background-color:#FCFCFC;
   border-radius: 2px;
 }
 

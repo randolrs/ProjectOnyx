@@ -9,11 +9,13 @@ class CardsController < ApplicationController
 
   	customer = Stripe::Customer.retrieve(current_user.customer_id)
 
-  	if @payment == false
+  	if customer.default_source
 
-  	customer.source = params[:stripeToken]
+    else
 
-  	customer.save
+    	customer.source = params[:stripeToken]
+
+    	customer.save
 
   	end
 

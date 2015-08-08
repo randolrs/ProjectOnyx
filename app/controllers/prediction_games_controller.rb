@@ -62,6 +62,7 @@ class PredictionGamesController < ApplicationController
 
       if @access.customer_id 
 
+        Stripe.api_key = Rails.configuration.stripe[:secret_key]
         customer = Stripe::Customer.retrieve(current_user.customer_id)
 
         if customer.default_source

@@ -19,13 +19,13 @@
       <div><%= f.label :image %><br>
       <%= image_tag current_predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%>
       <br>
-      <%= f.file_field :image, class: "form-control" %>
+      <%= f.file_field :image, class: "form-control" %></div>
       
       <br>
       <br>
 
       <div><%= f.label :bio %><br>
-      <%= f.text_area :bio, :cols => "60", :rows => "5" %><br><br/>
+      <%= f.text_area :bio, :cols => "60", :rows => "5" %></div><br/>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

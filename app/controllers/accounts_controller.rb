@@ -27,9 +27,15 @@ class AccountsController < ApplicationController
 
 		account = Stripe::Account.retrieve(@predictor.account_key_secret)
 
+		unless params[:firstName] == ""
 		account.legal_entity.first_name = params[:firstName]
+		end
+
+		unless params[:lastName] == ""
 		account.legal_entity.last_name = params[:lastName]
-		#account.legal_entity.dob = params[:dob]
+		end
+
+		#account.legal_entity.dob[] = params[:dob]
 		#account.legal_entity.dob = params[:dob]
 		#account.legal_entity.dob = params[:dob]
 		account.save

@@ -65,3 +65,5 @@ gem 'will_paginate-bootstrap'
 
 gem 'stripe'
 
+gem 'activeadmin', github: 'gregbell/active_admin'
+

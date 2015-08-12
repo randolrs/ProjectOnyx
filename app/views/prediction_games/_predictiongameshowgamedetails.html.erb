@@ -93,23 +93,13 @@
 
           <% if @payment %>
             
-            <td class="results-pending" colspan="3" rowspan="2"> <%= link_to "Subscribe for $5.00", subscribe_path(:predictor_id=>@predictor.id, :payment=>@payment), {:class=>"buy_prediction_cta" }%></td>
+            <td class="results-pending" colspan="3" rowspan="2"> <%= render 'charges/new_charge_cta'%></td>
 
           <%else%>
 
             <td class="results-pending" colspan="3" rowspan="2">
 
-              <%= form_tag cards_path(:predictor_id=>@predictor.id, :payment=>@payment) do %>
-
-                <script   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                          data-image="/img/documentation/checkout/marketplace.png"
-                          data-name="Onyx Predictions"
-                          data-description=<%="Buy It for" + number_to_currency(@prediction_game.cost).to_s%> 
-                          data-amount="">
-                </script>
-
-              <%end%>
+              <%=render 'cards/new_card_form' %>
 
             </td>
 

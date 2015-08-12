@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
 
 
     end
-    @articles = Article.all
+    
   end
 
   def articleindex

@@ -932,13 +932,36 @@ predictor-image-small-container{
   font-size:30px;
 }
 
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+.container { min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.footer-wrap, .push {
+    height: 155px; /* .push must be the same height as .footer */
+    background: #222;
+    margin-top: 100px;
+}
+
+
+/*
 .footer-wrap{
   
   background: #222;
   position:relative;
   bottom:0px;
   width:100%;
+  margin:0px;
   }
+*/
 
   .footer-container{
   width:1100px;

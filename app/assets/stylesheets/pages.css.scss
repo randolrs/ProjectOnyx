@@ -939,9 +939,7 @@ html, body {
     height: 100%;
 }
 
-.container { min-height: 100%;
-    height: auto !important;
-    height: 100%;
+.container {
     margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
 }
 

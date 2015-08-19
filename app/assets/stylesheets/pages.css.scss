@@ -325,7 +325,6 @@ h2{
 
 .console-container{
 
-  background-color: #F8F8F8;
   padding-top:40px;
   padding-bottom:40px;
 }
@@ -1139,4 +1138,16 @@ a.orange-cta:hover{
   position:absolute;
   padding:20px;
   color:white;
+}
+
+input.card-cvc{
+  width:50px;
+}
+
+select.card-month{
+  width:80px;
+}
+
+select.card-year{
+  width:70px;
 }

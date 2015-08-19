@@ -6,20 +6,118 @@
 
 		<h2>Payment Information</h2>
 
-		<table>
+			<b>Current Payment Method:</b> <br>
+			<%=@displaycard.brand + " •••• •••• •••• " + @displaycard.last4 %> <br>
+			Expiration Date:<br>
+			<%= @displaycard.exp_month.to_s + "/" + @displaycard.exp_year.to_s %>
 
-			<tbody>
+			<br><br>
 
-				<tr>
-					<td><%#@list.data[0].brand + " •••• " + @list.data[0].last4 + ", expires " + @list.data[0].exp_month.to_s + "/" + @list.data[0].exp_year.to_s %></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
+			<%= link_to 'Add A New Credit Card', new_card_path %> <Br><BR>
 
-			</tbody>
 
-		</table>
+			<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+			  <script type="text/javascript">
+
+			   var stripeResponseHandler = function(status, response) {
+			     var $form = $('#payment-form');
+
+			     if (response.error) {
+			       // Show the errors on the form
+			       $form.find('.payment-errors').text(response.error.message);
+			       $form.find('button').prop('disabled', false);
+			     } else {
+			       // token contains id, last4, and card type
+			       var token = response.id;
+			       // Insert the token into the form so it gets submitted to the server
+			       $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+			       // and re-submit
+			       $form.get(0).submit();
+			     }
+			   };
+
+			   jQuery(function($) {
+			     $('#payment-form').submit(function(e) {
+			       var $form = $(this);
+
+			       // Disable the submit button to prevent repeated clicks
+			       $form.find('button').prop('disabled', true);
+
+			       Stripe.card.createToken($form, stripeResponseHandler);
+
+			       // Prevent the form from submitting with the default action
+			       return false;
+			     });
+			   });
+			 </script>
+
+			 <%= form_tag cards_path, id: 'payment-form' do %>
+			  <!-- <form action="" method="POST" id="payment-form"> -->
+      <!-- Add a section to display errors if you want -->
+			      <span class='payment-errors'></span>
+
+			      <table class="card-form">
+
+			      	<tr>
+			      		<td>
+			      			Credit Card Number
+			      		</td>
+			      		<td>
+			      			CVC
+			      		</td>
+			      	<tr>
+
+			      	<tr>
+			      		<td>
+			      			<input data-stripe="number" class="card-number"/>
+			      		</td>
+			      		<td>
+			      			<input data-stripe="cvc" class="card-cvc"/>
+			      		</td>
+			      	</tr>
+
+			      	<tr>
+			      		<td colspan="2">
+			      		Expiration
+			      		</td>
+			      	</tr>
+
+			      	<tr>
+			      		<td>
+					      	<select data-stripe="exp-month" class="card-month"/>
+					      		<option value selected="selected" disabled="disabled">month</option>
+					      		<option value="01">01</option>
+					      		<option value="02">02</option>
+					      		<option value="03">03</option>
+					      		<option value="04">04</option>
+					      		<option value="05">05</option>
+					      		<option value="06">06</option>
+					      		<option value="07">07</option>
+					      		<option value="08">08</option>
+					      		<option value="09">09</option>
+					      		<option value="10">10</option>
+					      		<option value="11">11</option>
+					      		<option value="12">12</option>
+							</select>
+						
+					      	<select data-stripe="exp-year" class="card-year"/>
+					      	<option value selected="selected" disabled="disabled">Year</option>
+					      		<option value="15">2015</option>
+					      		<option value="16">2016</option>
+					      		<option value="17">2017</option>
+					      		<option value="18">2018</option>
+					      		<option value="19">2019</option>
+					      		<option value="20">2020</option>
+					      		<option value="21">2021</option>
+					      		<option value="22">2022</option>
+					  		</select>
+					  	</td>
+					 </tr>
+				</table>
+			      <button type="submit" class= "signup-submit">Save</button>
+  			<!-- </form> -->
+  		<%end%>
 
 	</div>
 </div>

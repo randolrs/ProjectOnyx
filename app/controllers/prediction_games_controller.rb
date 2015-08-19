@@ -110,8 +110,6 @@ class PredictionGamesController < ApplicationController
 
       @user.prediction_games << @prediction_game
 
-    ######End transfer approach
-
       redirect_to predictiongamesshow_path(@predictor.username,@prediction_game.id)
 
     else

@@ -455,6 +455,7 @@ p.terms-of-service{
 
 .edit-sidebar>li>a.edit-listing.active {
   color:black;
+  box-shadow: 3px 0px 5px #aaa inset;
 }
 
 .edit-sidebar>li>a.edit-listing:hover{

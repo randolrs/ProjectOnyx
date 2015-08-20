@@ -2,43 +2,77 @@ class CardsController < ApplicationController
 
   def new
 
-    redirect_to root_path
-  end
+    unless params[:predictor_id].nil?
+      @predictor = Predictor.find(params[:predictor_id])
+    end
 
-  def create
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-	unless params[:predictor_id].nil?
-    @predictor = Predictor.find(params[:predictor_id])
-  end
-	#@payment = params[:payment]
+    stint
 
-  	Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    token = Stripe::Token.create(
+    :card => {
+    :number => params[:number],
+    :exp_month => params[:exp-month],
+    :exp_year => params[:exp-year],
+    :cvc => params[:cvc]
+              },
+                )
 
-  	customer = Stripe::Customer.retrieve(current_user.customer_id)
+    customer = Stripe::Customer.retrieve(current_user.customer_id)
 
-  	if customer.default_source
+    customer.source = token
 
-    else
+    customer.save
 
-    	customer.source = params[:stripeToken]
-
-    	customer.save
-
-  	end
-
-	# rescue Stripe::CardError => e
-	# 	flash[:error] = e.message
-	# 	redirect_to charges_path
-	# end
+  # rescue Stripe::CardError => e
+  #   flash[:error] = e.message
+  #   redirect_to charges_path
+  # end
 
     if @predictor
-     	customer.subscriptions.create(:plan => @predictor.subscription_id)
+      customer.subscriptions.create(:plan => @predictor.subscription_id)
 
       current_user.predictors << @predictor
 
     end
 
-    #@predictor.users << current_user
+  end
+
+  def create
+
+    unless params[:predictor_id].nil?
+      @predictor = Predictor.find(params[:predictor_id])
+    end
+
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+    token = Stripe::Token.create(
+    :card => {
+    :number => params[:number],
+    :exp_month => params[:expmonth],
+    :exp_year => params[:expyear],
+    :cvc => params[:cvc]
+              },
+                )
+
+    customer = Stripe::Customer.retrieve(current_user.customer_id)
+
+    customer.sources.create(:source => token.id)
+
+    customer.save
+
+  # rescue Stripe::CardError => e
+  #   flash[:error] = e.message
+  #   redirect_to charges_path
+  # end
+
+    if @predictor
+      customer.subscriptions.create(:plan => @predictor.subscription_id)
+
+      current_user.predictors << @predictor
+
+    end
 
     redirect_to dashboard_path
 

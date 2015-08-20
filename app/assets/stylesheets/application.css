@@ -506,7 +506,7 @@ p.terms-of-service{
   font-size: 40px;
   width:500px;
   padding-bottom: 5px;
-  border-bottom: 2px solid orange;
+  border-bottom: 2px solid #3e4ec9;
   margin-bottom: 20px;
 }
 
@@ -531,6 +531,7 @@ p.terms-of-service{
   overflow:hidden;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 100px;
   //background-color:white;
   padding:20px;
 }
@@ -538,7 +539,7 @@ p.terms-of-service{
 .user-dashboard-container h1{
   color:#333;
   margin-bottom:30px;
-  text-shadow: 0 1.5px 0 #ddd;
+  text-shadow: 0 1px 0 #dedede;
   font-weight: bold;
 }
 
@@ -549,11 +550,11 @@ p.terms-of-service{
 .user-dashboard-card{
   float:left;
   width:305px;
-  background-color: #fcfcfc;
+  background-color: #ffffff;
   padding: 15px;
   border-radius: 2px;
   margin-left:15px;
-  box-shadow: 0px 2px 0px 1px rgba(36,46,53,0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border: 1px solid #fff;
 
 }

@@ -52,7 +52,7 @@
 			   });
 			 </script>
 
-			 <%= form_tag cards_path, id: 'payment-form' do %>
+			<%= form_tag cards_path, id: 'payment-form' do %>
 			  <!-- <form action="" method="POST" id="payment-form"> -->
       <!-- Add a section to display errors if you want -->
 			      <span class='payment-errors'></span>
@@ -70,10 +70,10 @@
 
 			      	<tr>
 			      		<td>
-			      			<input data-stripe="number" class="card-number"/>
+			      			<input name="number" class="card-number"/>
 			      		</td>
 			      		<td>
-			      			<input data-stripe="cvc" class="card-cvc"/>
+			      			<input name="cvc" class="card-cvc"/>
 			      		</td>
 			      	</tr>
 
@@ -85,7 +85,7 @@
 
 			      	<tr>
 			      		<td>
-					      	<select data-stripe="exp-month" class="card-month"/>
+					      	<select name="expmonth" class="card-month"/>
 					      		<option value selected="selected" disabled="disabled">month</option>
 					      		<option value="01">01</option>
 					      		<option value="02">02</option>
@@ -101,16 +101,16 @@
 					      		<option value="12">12</option>
 							</select>
 						
-					      	<select data-stripe="exp-year" class="card-year"/>
+					      	<select name="expyear" class="card-year"/>
 					      	<option value selected="selected" disabled="disabled">Year</option>
-					      		<option value="15">2015</option>
-					      		<option value="16">2016</option>
-					      		<option value="17">2017</option>
-					      		<option value="18">2018</option>
-					      		<option value="19">2019</option>
-					      		<option value="20">2020</option>
-					      		<option value="21">2021</option>
-					      		<option value="22">2022</option>
+					      		<option value="2015">2015</option>
+					      		<option value="2016">2016</option>
+					      		<option value="2017">2017</option>
+					      		<option value="2018">2018</option>
+					      		<option value="2019">2019</option>
+					      		<option value="2020">2020</option>
+					      		<option value="2021">2021</option>
+					      		<option value="2022">2022</option>
 					  		</select>
 					  	</td>
 					 </tr>

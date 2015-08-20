@@ -42,3 +42,8 @@ jQuery(function($) {
       return false;
     });
   });
+
+function toggleTable() {
+    var lTable = document.getElementById("addCardTable");
+    lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
+}

@@ -587,3 +587,7 @@ p.terms-of-service{
   padding-left: 20px;
   padding-right: 20px;
 }
+
+a#addCardLink:hover{
+  cursor:pointer;
+}

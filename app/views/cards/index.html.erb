@@ -13,111 +13,94 @@
 
 			<br><br>
 
-			<%= link_to 'Add A New Credit Card', new_card_path %> <Br><BR>
+			<a id="addCardLink" onclick="toggleTable();">Add a New Credit Card</a>
 
+			<Br><BR>
 
-			<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-
-			  <script type="text/javascript">
-
-			   var stripeResponseHandler = function(status, response) {
-			     var $form = $('#payment-form');
-
-			     if (response.error) {
-			       // Show the errors on the form
-			       $form.find('.payment-errors').text(response.error.message);
-			       $form.find('button').prop('disabled', false);
-			     } else {
-			       // token contains id, last4, and card type
-			       var token = response.id;
-			       // Insert the token into the form so it gets submitted to the server
-			       $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-			       // and re-submit
-			       $form.get(0).submit();
-			     }
-			   };
-
-			   jQuery(function($) {
-			     $('#payment-form').submit(function(e) {
-			       var $form = $(this);
-
-			       // Disable the submit button to prevent repeated clicks
-			       $form.find('button').prop('disabled', true);
-
-			       Stripe.card.createToken($form, stripeResponseHandler);
-
-			       // Prevent the form from submitting with the default action
-			       return false;
-			     });
-			   });
-			 </script>
-
-			<%= form_tag cards_path, id: 'payment-form' do %>
+			
 			  <!-- <form action="" method="POST" id="payment-form"> -->
       <!-- Add a section to display errors if you want -->
-			      <span class='payment-errors'></span>
+			      
 
-			      <table class="card-form">
+	      <table class="card-form" id="addCardTable" style="display:none">
 
-			      	<tr>
-			      		<td>
-			      			Credit Card Number
-			      		</td>
-			      		<td>
-			      			CVC
-			      		</td>
-			      	<tr>
+	      	<%= form_tag cards_path, id: 'payment-form' do %>
 
-			      	<tr>
-			      		<td>
-			      			<input name="number" class="card-number"/>
-			      		</td>
-			      		<td>
-			      			<input name="cvc" class="card-cvc"/>
-			      		</td>
-			      	</tr>
+	      	<span class='payment-errors'></span>
+	      	<tr>
+	      		<td>
+	      			Credit Card Number
+	      		</td>
+	      		<td>
+	      			CVC
+	      		</td>
+	      	<tr>
 
-			      	<tr>
-			      		<td colspan="2">
-			      		Expiration
-			      		</td>
-			      	</tr>
+	      	<tr>
+	      		<td>
+	      			<input name="number" class="card-number"/>
+	      		</td>
+	      		<td>
+	      			<input name="cvc" class="card-cvc"/>
+	      		</td>
+	      	</tr>
 
-			      	<tr>
-			      		<td>
-					      	<select name="expmonth" class="card-month"/>
-					      		<option value selected="selected" disabled="disabled">month</option>
-					      		<option value="01">01</option>
-					      		<option value="02">02</option>
-					      		<option value="03">03</option>
-					      		<option value="04">04</option>
-					      		<option value="05">05</option>
-					      		<option value="06">06</option>
-					      		<option value="07">07</option>
-					      		<option value="08">08</option>
-					      		<option value="09">09</option>
-					      		<option value="10">10</option>
-					      		<option value="11">11</option>
-					      		<option value="12">12</option>
-							</select>
-						
-					      	<select name="expyear" class="card-year"/>
-					      	<option value selected="selected" disabled="disabled">Year</option>
-					      		<option value="2015">2015</option>
-					      		<option value="2016">2016</option>
-					      		<option value="2017">2017</option>
-					      		<option value="2018">2018</option>
-					      		<option value="2019">2019</option>
-					      		<option value="2020">2020</option>
-					      		<option value="2021">2021</option>
-					      		<option value="2022">2022</option>
-					  		</select>
-					  	</td>
-					 </tr>
-				</table>
-			      <button type="submit" class= "signup-submit">Save</button>
+	      	<tr>
+	      		<td colspan="2">
+	      		Expiration
+	      		</td>
+	      	</tr>
+
+	      	<tr>
+	      		<td>
+			      	<select name="expmonth" class="card-month"/>
+			      		<option value selected="selected" disabled="disabled">month</option>
+			      		<option value="01">01</option>
+			      		<option value="02">02</option>
+			      		<option value="03">03</option>
+			      		<option value="04">04</option>
+			      		<option value="05">05</option>
+			      		<option value="06">06</option>
+			      		<option value="07">07</option>
+			      		<option value="08">08</option>
+			      		<option value="09">09</option>
+			      		<option value="10">10</option>
+			      		<option value="11">11</option>
+			      		<option value="12">12</option>
+					</select>
+				
+			      	<select name="expyear" class="card-year"/>
+			      	<option value selected="selected" disabled="disabled">Year</option>
+			      		<option value="2015">2015</option>
+			      		<option value="2016">2016</option>
+			      		<option value="2017">2017</option>
+			      		<option value="2018">2018</option>
+			      		<option value="2019">2019</option>
+			      		<option value="2020">2020</option>
+			      		<option value="2021">2021</option>
+			      		<option value="2022">2022</option>
+			  		</select>
+			  	</td>
+			 </tr>
+
+			 <tr>
+	      		<td colspan="2">
+	      		<input type="checkbox" name="defaultcard" value=true> I have a bike<br>
+	      		</td>
+	      	</tr>
+
+			 <tr>
+	      		<td colspan="2">
+	      		<button type="submit" class= "signup-submit">Save</button>
+	      		</td>
+	      	</tr>
+		</table>
+
+			<%end%>
+
+			    
   			<!-- </form> -->
-  		<%end%>
+  		
 
 	</div>
 </div>

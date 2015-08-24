@@ -455,7 +455,8 @@ p.terms-of-service{
 
 .edit-sidebar>li>a.edit-listing.active {
   color:black;
-  box-shadow: 2px 0px 2px #aaa inset;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   padding-left: 20px;
 }
 
@@ -466,6 +467,7 @@ p.terms-of-service{
 .sidebar-listing.active{
   background-color: white;
   color:black;
+  padding: 0px;
 }
 
 .sidebar-listing.active:hover{

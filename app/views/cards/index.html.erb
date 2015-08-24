@@ -21,86 +21,81 @@
 			  <!-- <form action="" method="POST" id="payment-form"> -->
       <!-- Add a section to display errors if you want -->
 			      
+      	<%= form_tag cards_path, id: 'payment-form' do %>
 
-	      <table class="card-form" id="addCardTable" style="display:none">
+      		<table class="card-form" id="addCardTable" style="display:none">
 
-	      	<%= form_tag cards_path, id: 'payment-form' do %>
+		      	<span class='payment-errors'></span>
+		      	<tr>
+		      		<td>
+		      			Credit Card Number
+		      		</td>
+		      		<td>
+		      			CVC
+		      		</td>
+		      	<tr>
 
-	      	<span class='payment-errors'></span>
-	      	<tr>
-	      		<td>
-	      			Credit Card Number
-	      		</td>
-	      		<td>
-	      			CVC
-	      		</td>
-	      	<tr>
+		      	<tr>
+		      		<td>
+		      			<input name="number" class="card-number"/>
+		      		</td>
+		      		<td>
+		      			<input name="cvc" class="card-cvc"/>
+		      		</td>
+		      	</tr>
 
-	      	<tr>
-	      		<td>
-	      			<input name="number" class="card-number"/>
-	      		</td>
-	      		<td>
-	      			<input name="cvc" class="card-cvc"/>
-	      		</td>
-	      	</tr>
+		      	<tr>
+		      		<td colspan="2">
+		      		Expiration
+		      		</td>
+		      	</tr>
 
-	      	<tr>
-	      		<td colspan="2">
-	      		Expiration
-	      		</td>
-	      	</tr>
+		      	<tr>
+		      		<td>
+				      	<select name="expmonth" class="card-month"/>
+				      		<option value selected="selected" disabled="disabled">month</option>
+				      		<option value="01">01</option>
+				      		<option value="02">02</option>
+				      		<option value="03">03</option>
+				      		<option value="04">04</option>
+				      		<option value="05">05</option>
+				      		<option value="06">06</option>
+				      		<option value="07">07</option>
+				      		<option value="08">08</option>
+				      		<option value="09">09</option>
+				      		<option value="10">10</option>
+				      		<option value="11">11</option>
+				      		<option value="12">12</option>
+						</select>
+					
+				      	<select name="expyear" class="card-year"/>
+				      	<option value selected="selected" disabled="disabled">Year</option>
+				      		<option value="2015">2015</option>
+				      		<option value="2016">2016</option>
+				      		<option value="2017">2017</option>
+				      		<option value="2018">2018</option>
+				      		<option value="2019">2019</option>
+				      		<option value="2020">2020</option>
+				      		<option value="2021">2021</option>
+				      		<option value="2022">2022</option>
+				  		</select>
+				  	</td>
+				 </tr>
 
-	      	<tr>
-	      		<td>
-			      	<select name="expmonth" class="card-month"/>
-			      		<option value selected="selected" disabled="disabled">month</option>
-			      		<option value="01">01</option>
-			      		<option value="02">02</option>
-			      		<option value="03">03</option>
-			      		<option value="04">04</option>
-			      		<option value="05">05</option>
-			      		<option value="06">06</option>
-			      		<option value="07">07</option>
-			      		<option value="08">08</option>
-			      		<option value="09">09</option>
-			      		<option value="10">10</option>
-			      		<option value="11">11</option>
-			      		<option value="12">12</option>
-					</select>
-				
-			      	<select name="expyear" class="card-year"/>
-			      	<option value selected="selected" disabled="disabled">Year</option>
-			      		<option value="2015">2015</option>
-			      		<option value="2016">2016</option>
-			      		<option value="2017">2017</option>
-			      		<option value="2018">2018</option>
-			      		<option value="2019">2019</option>
-			      		<option value="2020">2020</option>
-			      		<option value="2021">2021</option>
-			      		<option value="2022">2022</option>
-			  		</select>
-			  	</td>
-			 </tr>
+				 <tr>
+		      		<td colspan="2">
+		      		<input type="checkbox" name="defaultcard" value=true> I have a bike<br>
+		      		</td>
+		      	</tr>
 
-			 <tr>
-	      		<td colspan="2">
-	      		<input type="checkbox" name="defaultcard" value=true> I have a bike<br>
-	      		</td>
-	      	</tr>
+				 <tr>
+		      		<td colspan="2">
+		      		<button type="submit" class= "signup-submit">Save</button>
+		      		</td>
+		      	</tr>
+			</table>
 
-			 <tr>
-	      		<td colspan="2">
-	      		<button type="submit" class= "signup-submit">Save</button>
-	      		</td>
-	      	</tr>
-		</table>
-
-			<%end%>
-
-			    
-  			<!-- </form> -->
-  		
+		<%end%>
 
 	</div>
 </div>

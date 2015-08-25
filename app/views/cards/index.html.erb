@@ -4,15 +4,34 @@
 
 	<div class="edit-panel">
 
-		<%=@cards[0].brand%>
-		<%=@cards[1].last4%>
-
 		<h2>Payment Information</h2>
 
 			<b>Current Payment Method:</b> <br>
 			<%=@displaycard.brand + " •••• •••• •••• " + @displaycard.last4 %> <br>
 			Expiration Date:<br>
 			<%= @displaycard.exp_month.to_s + "/" + @displaycard.exp_year.to_s %>
+
+			<br><br>
+
+			<%= form_tag cards_default_path do %>
+
+				<select name="newdefault"/>
+		      		<option value selected="selected" disabled="disabled">credit card</option>
+		      		
+		      		<% @cards.each do |card| %>
+
+						<option value=<%=card.id%>><%=card.brand + " •••• •••• •••• " + card.last4 %>
+
+					<%end%>
+
+					
+				</select>
+
+				<br><br>
+
+				<button type="submit" class= "signup-submit">Update</button>
+
+			<%end%>
 
 			<br><br>
 
@@ -87,13 +106,13 @@
 
 				 <tr>
 		      		<td colspan="2">
-		      		<input type="checkbox" name="defaultcard" value=true> I have a bike<br>
+		      		<input type="checkbox" name="defaultcard" value=true>Make Default Payment Source<br>
 		      		</td>
 		      	</tr>
 
 				 <tr>
 		      		<td colspan="2">
-		      		<button type="submit" class= "signup-submit">Save</button>
+		      		<button type="submit" class= "signup-submit">Add Card</button>
 		      		</td>
 		      	</tr>
 			</table>

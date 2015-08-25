@@ -53,6 +53,8 @@ Rails.application.routes.draw do
 
   get 'subscribe' => 'cards#create'
 
+  post 'cards_default' => 'cards#make_default'
+
   get 'buy_prediction_game' => 'prediction_games#buy'
 
   get 'subscribe_to_predictor' => 'predictors#subscribe'

@@ -8,8 +8,6 @@ class CardsController < ApplicationController
 
     Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-    stint
-
     token = Stripe::Token.create(
     :card => {
     :number => params[:number],
@@ -90,9 +88,24 @@ class CardsController < ApplicationController
 
       @displaycard = @customer.sources.retrieve(@defaultcard)
 
-      @list = Stripe::Customer.retrieve(current_user.customer_id).sources.all(:limit => 3, :object => "card")
+      @list = Stripe::Customer.retrieve(current_user.customer_id).sources.all(:limit => 5, :object => "card")
 
       @cards = @list.data
+
+  end
+
+  def make_default
+
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+    customer = Stripe::Customer.retrieve(current_user.customer_id)
+
+    customer.default_source = params[:newdefault]
+
+    customer.save
+
+    redirect_to dashboard_path
+    
   end
 
 

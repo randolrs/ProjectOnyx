@@ -187,11 +187,12 @@ a.request_button:hover{
 
 .home-wrap{
 	width:100%;
+  min-width:800px;
 }
 
 .home-wrap p{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  width:800px;
+  width:500px;
   margin-left:auto;
   margin-right:auto;
   font-size:18px;
@@ -199,7 +200,7 @@ a.request_button:hover{
 }
 
 .home-content{
-	width:1000px;
+	width:100%;
 	position:relative;
 	margin-left:auto;
     margin-right:auto;
@@ -961,7 +962,6 @@ html, body {
 */
 
   .footer-container{
-  width:1100px;
   margin-left:auto;
   margin-right:auto;
   text-align:center;

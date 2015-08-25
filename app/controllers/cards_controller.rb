@@ -104,10 +104,8 @@ class CardsController < ApplicationController
 
     customer.save
 
-    redirect_to dashboard_path
+    redirect_to cardsindex_path(current_user.username)
     
   end
-
-
 
 end

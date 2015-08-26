@@ -72,7 +72,7 @@ class CardsController < ApplicationController
 
     end
 
-    redirect_to dashboard_path
+    redirect_to cardsindex_path(current_user.username)
 
   end
 

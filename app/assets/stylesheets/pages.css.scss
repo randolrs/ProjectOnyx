@@ -376,6 +376,45 @@ h2{
     transition: all 0.2s ease;
   }
 
+    .add-card-submit{
+    background-color: #4F89E3;;
+    width:190px;
+    height:36px;
+    color:white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    border: none;
+    border-shadow: 10px 10px 5px #888888;
+  }
+
+  .add-card-submit:hover{
+    background-color: #4170BA;
+    webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+
+  td.add-card-action{
+    padding-top:15px;
+  }
+
+a.cancel-card-submit{
+    background-color: #E38993;
+    padding: 10px 20px;
+    height:36px;
+    color:white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    border: none;
+    border-shadow: 10px 10px 5px #888888;
+    margin-top:15px;
+  }
+
+  .cancel-card-submit:hover{
+    background-color: #FF9AA5;
+    webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    text-decoration:none;
+  }
+  
+
 .signup-text{
   width:350px;
   height:26px;

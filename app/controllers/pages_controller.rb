@@ -1,7 +1,31 @@
 class PagesController < ApplicationController
   def home
   		@action = 'home'
-  end
+
+      if user_signed_in?
+
+        @action = "recent"
+
+        @displaypredictor = true
+
+        @predictors = current_user.predictors.collect
+
+        @predictions = Array.new 
+
+        if @predictors.count > 0
+
+          @predictors.each do |predictor|
+
+            predictor.prediction_games.each do |prediction_game|
+
+              @predictions << prediction_game
+
+            end
+          end
+        end
+      end
+
+    end
 
   def about
   end

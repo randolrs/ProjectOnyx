@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 
   get 'posts' => 'articles#index'
 
-  get '/dashboard/experts' => 'predictors#predictorindex', as: 'predictorindex'
+  get 'experts' => 'predictors#predictorindex', as: 'predictorindex'
 
   get 'sportdashboard' => 'sports#index'
 

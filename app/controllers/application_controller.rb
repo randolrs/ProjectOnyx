@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
 
   			end
 
-  			dashboard_path
+  			root_path
 
   		elsif admin_signed_in?
 

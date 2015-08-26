@@ -360,7 +360,7 @@ h2{
   }
 
   .signup-submit{
-    background-color: #13BD63;
+    background: linear-gradient(#13BD63, #11A657);
     width:350px;
     height:36px;
     color:white;
@@ -368,10 +368,12 @@ h2{
     border: none;
     border-shadow: 10px 10px 5px #888888;
     margin-top:15px;
+    border-radius:1px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   }
 
   .signup-submit:hover{
-    background-color: #10A254;
+    background-color: #17E578;
     webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }

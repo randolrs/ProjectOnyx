@@ -16,7 +16,7 @@
 			<%= form_tag cards_default_path do %>
 
 				<select name="newdefault"/>
-		      		<option value selected="selected" disabled="disabled">credit card</option>
+		      		<option value selected="selected" disabled="disabled">update credit card</option>
 		      		
 		      		<% @cards.each do |card| %>
 
@@ -69,7 +69,7 @@
 
 				      	<tr>
 				      		<td>
-				      			<input name="number" class="card-number"/>
+				      			<input name="number" class="card-number" pattern="[0-9]{13,16}"/>
 				      		</td>
 				      		<td>
 				      			<input name="cvc" class="card-cvc"/>

@@ -3,18 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .header-container{
-	top:-5px;
-  padding-top:32px;
-	height:90px;
-  color:white;
-}
-
-.header-container2{
+  padding-top:10px;
+  padding-bottom:10px;
+	height:40px;
+  color: #444;
+  background-color:white;
+  position:fixed;
   top:0px;
-  padding-top:32px;
-  height:55px;
-  color:white;
-  background-color: #0D0005;
+  width:100%;
 }
 
 .header-inside{
@@ -23,11 +19,13 @@
 	margin-left:auto;
     margin-right:auto;
     height:40px;
+    line-height: 40px;
 
 }
 
 .header-inside a{
 	text-decoration:none;
+  line-height: 40px;
 }
 
 .header-inside-left{
@@ -36,17 +34,19 @@
 	height:20px;
 	left: 0px;
 	display:table;
+  line-height: 40px;
 
 	}
 
   .header-inside-left a{
-    line-height:20px;
+    line-height: 40px;
     margin:0px;
-    font-size:30px
+    font-size:30px;
+    color:#444;
   }
 
   .header-inside-left a:visited{
-    color:white;
+    color:#444;
     text-decoration:none;
   }
 
@@ -58,17 +58,19 @@
 	display:table;
   text-align:right;
   vertical-align:middle;
+  line-height: 40px;
 }
 
 .header-inside-right a{
 	padding: 8px 10px;
 	font-size: 16px;
-	color:white;
+	color:#444;
 	text-align:center;
 	position:relative;
 	text-decoration:none;
 	font-weight: bold;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height: 40px;
 
 	/* background-color:#00C100;
   margin-left:15px; */
@@ -101,6 +103,10 @@
   border-radius:2.4px;
   
 }
+
+  .header-right{
+    list-style: none;
+  }
 
 
   .header-sub-right{
@@ -988,6 +994,8 @@ html, body {
     height: 155px; /* .push must be the same height as .footer */
     background: #222;
     margin-top: 100px;
+    min-width: 1120px;
+    width: 100%;
 }
 
 

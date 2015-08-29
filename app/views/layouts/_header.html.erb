@@ -11,6 +11,10 @@
 
   </div>
     
+  <div class="header-inside-middle">
+    XX
+  </div>
+
   <div class="header-inside-right">
 
     <% if user_signed_in? %>
@@ -45,9 +49,6 @@
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
-
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-
 
     <% elsif predictor_signed_in? %>
 

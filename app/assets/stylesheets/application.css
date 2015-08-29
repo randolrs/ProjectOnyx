@@ -534,7 +534,7 @@ p.terms-of-service{
 }
 
 .user-dashboard-container{
-  min-width:1080px;
+  width: 1080px;
   margin-top: 20px;
   overflow:hidden;
   margin-left: auto;

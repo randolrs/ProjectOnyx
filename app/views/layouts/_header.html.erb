@@ -17,9 +17,9 @@
 
   <div class="header-inside-right">
 
-    <% if user_signed_in? %>
+    <ul class = "header-right">
 
-      <ul class = "header-right">
+    <% if user_signed_in? %>
 
         <li class="header-li"><%= link_to "Find Experts", findexperts_path %></li>
 
@@ -42,9 +42,28 @@
 
     <% elsif predictor_signed_in? %>
 
-      <%= link_to "My Predictions", dashboard_path %>
+      <li class="header-li"><%= link_to "My Predictions", predictordashboard_path(current_predictor.username), class: " predictions-header" %></li>
 
-      <%= link_to "Logout", destroy_predictor_session_path, method: :delete %>
+      <li class="dropdown header-li">
+        <a href="#" class="dropdown-toggle header-category" data-toggle="dropdown" role="button" aria-expanded="false"><% if current_predictor.image %><%= image_tag current_predictor.image.url(:thumb), class: "image-header"%><%end%><% if current_predictor.username %><%= current_predictor.username %><%else%>Guest<%end%></a>
+
+      <ul class="dropdown-menu" role="menu">
+          <!-- <li><a href= <%# predictordashboard_path(current_predictor.username) %>>Profile <span class="badge"><%# current_predictor.prediction_games.count %></span></a></li> -->
+          <!-- <li><%# link_to "My Predictions", predictordashboard_path(current_predictor.username) %></li> -->
+          <% if current_predictor.account_key_secret%>
+            <li><%= link_to "My Balance: " + number_to_currency(current_predictor.balance_stripe(current_predictor.id)).to_s, home_path %></li>
+            <li role="presentation" class="divider"></li>
+          <%end%>
+          
+          <li><%= link_to "New Prediction", sportsgamesselect_path(current_predictor.username, "predictions") %></li>
+
+          <li><%= link_to "New Post", sportsgamesselect_path(current_predictor.username, "articles") %></li>
+          
+          <li role="presentation" class="divider"></li>
+          <li><%= link_to "Account Settings", edit_predictor_registration_path %></li>
+          <li><%= link_to "Logout", destroy_predictor_session_path, method: :delete %></li>
+      </ul>
+    </li>
 
 
     <% elsif admin_signed_in? %>
@@ -71,6 +90,8 @@
       <%= link_to "Signup", new_user_registration_path, class: "signup-header" %>
 
     <% end %>
+
+    </ul>
 
 </div>
 

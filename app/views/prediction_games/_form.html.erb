@@ -45,12 +45,12 @@
     </table>
 
     <div class="new-prediction-game-header">
-     Selling Price
+     Premium
     </div>
 
     <div class="new-prediction-game-price"%>
-      <%= f.label "Price" %>
-      <%= f.number_field :cost, :placeholder => 0 %>
+      <%= f.label "Premium" %>
+      <%= f.check_box :paid %>
 
       <div class="actions">
         <%= f.submit "Make Prediction", :class => 'submit-prediction-game'%>

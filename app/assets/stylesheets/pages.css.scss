@@ -1218,7 +1218,7 @@ select.card-year{
 
 .find-experts-header{
   width:100%;
-  height:300px;
+  height:200px;
   background-color:#303c9c;
   color:white;
 }
@@ -1226,8 +1226,41 @@ select.card-year{
 .find-experts-header h1{
   margin:0px;
   text-align:center;
-  top: 50%;
+  top: 40%;
   margin-top:-25px;
   position: relative;
   line-height:50px;
+}
+
+.find-experts-footer{
+  position:relative;
+  width:100%;
+  background-color:#303c9c;
+  text-align:center;
+}
+
+.find-experts-footer ul{
+  margin:0px;
+}
+
+.find-experts-li {
+  color:white;
+  display:inline-block;
+  padding:10px;
+}
+
+.find-experts-li a {
+  color:white;
+  font-weight:bold;
+  padding:10px;
+}
+
+.find-experts-li a:hover {
+  text-decoration:none;
+  background-color:yellow;
+  
+}
+
+ul.dropdown-menu li {
+  text-align:left;
 }

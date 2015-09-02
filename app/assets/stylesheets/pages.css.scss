@@ -1235,8 +1235,13 @@ select.card-year{
 .find-experts-footer{
   position:relative;
   width:100%;
-  background-color:#303c9c;
-  text-align:center;
+  background-color:#3B7BE5;
+}
+
+.find-experts-footer-container{
+  width:1120px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .find-experts-footer ul{
@@ -1247,8 +1252,19 @@ select.card-year{
 .find-experts-li {
   color:white;
   display:inline-block;
-  padding:10px;
+  padding:0px;
+  line-height:40px;
 }
+
+.find-experts-li:hover {
+  background-color:#F8F8F8;
+}
+
+.find-experts-li:focus {
+  background-color:#F8F8F8;
+  color:#4A5569;
+}
+
 
 .find-experts-li a {
   color:white;
@@ -1258,8 +1274,13 @@ select.card-year{
 
 .find-experts-li a:hover {
   text-decoration:none;
-  background-color:yellow;
-  
+  color: #4A5569;
+}
+
+.find-experts-li a:focus {
+  text-decoration:none;
+  color: #4A5569;
+  background-color:#F8F8F8;
 }
 
 ul.dropdown-menu li {

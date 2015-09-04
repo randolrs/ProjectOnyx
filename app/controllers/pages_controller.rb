@@ -127,4 +127,11 @@ class PagesController < ApplicationController
     @teamh = Team.find_by_name(@game.teamh)
   end
 
+  def findexperts
+    @expert_type = params[:expert_type]
+
+    @predictors = Predictor.all
+
+  end
+
 end

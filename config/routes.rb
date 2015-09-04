@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
   get 'experts' => 'predictors#predictorindex', as: 'predictorindex'
 
-  get 'find-experts' => 'pages#findexperts', as: 'findexperts'
+  get '/find-experts/:expert_type' => 'pages#findexperts', as: 'findexperts'
 
   get 'sportdashboard' => 'sports#index'
 

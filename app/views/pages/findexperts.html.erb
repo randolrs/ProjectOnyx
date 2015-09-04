@@ -12,10 +12,10 @@
 	        <li class=" find-experts-li dropdown">
 	        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sports</a>
 				<ul class="dropdown-menu" role="menu">
-					<li><%= link_to "NBA", leaguehome_path("NBA") %></li>
-					<li><%= link_to "NFL", leaguehome_path("NFL") %></li>
-					<li><%= link_to "NHL", leaguehome_path("NHL") %></li>
-					<li><%= link_to "MLB", leaguehome_path("MLB") %></li>
+					<li><%= link_to "NBA", findexperts_path("NBA") %></li>
+					<li><%= link_to "NFL", findexperts_path("NFL") %></li>
+					<li><%= link_to "NHL", findexperts_path("MLB") %></li>
+					<li><%= link_to "MLB", findexperts_path("MLB") %></li>
 					<li role="presentation" class="divider"></li>
 					<li><%= link_to "More Leagues", home_path %></li>
 				</ul>
@@ -33,14 +33,4 @@
 	</div>
 </div>
 
-<div class ="user-dashboard-container">
-
-  <h1>Top Predictors</h1>
-
-  <div class ="user-dashboard-predictions">
-
-
-  </div>
-
-
-</div>
+<%= render 'pages/findpredictorindex'%>

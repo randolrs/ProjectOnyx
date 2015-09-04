@@ -96,16 +96,20 @@ class CardsController < ApplicationController
 
   def make_default
 
-    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    if params[:newdefault]
 
-    customer = Stripe::Customer.retrieve(current_user.customer_id)
+      Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-    customer.default_source = params[:newdefault]
+      customer = Stripe::Customer.retrieve(current_user.customer_id)
 
-    customer.save
+      customer.default_source = params[:newdefault]
 
-    redirect_to cardsindex_path(current_user.username)
-    
+      customer.save
+
+    end
+
+      redirect_to cardsindex_path(current_user.username)
+
   end
 
 end

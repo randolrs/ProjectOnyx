@@ -2,8 +2,6 @@
 
 <% if user_signed_in? %>
 
-<div class="container-dash">
-
   <form class="filter_form">
 
       <%= select("predictor", "sort_param", ["Rating (League)", "Rating (Overall)", "# of Predictions","Date Joined", "Subscription Price"], :prompt => "Sort By") %>
@@ -11,48 +9,46 @@
     <input type="submit" value="Sort" />
   </form>
 
-      <div class="prediction-table-holder">
+  <div class="prediction-table-holder">
 
-        <table class ="prediction-index-fold table table-hover">
-          <thead>
-          <tr>
-            <th class="prediction-index-fold-th">Name</th>
-            <th class="prediction-index-fold-th">Predictor Rating</th>
-            <th class="prediction-index-fold-th"># of Predictions (league param)</th>
-            <th class="prediction-index-fold-th">Last Prediction</th>
+    <table class ="prediction-index-fold table table-hover">
+      <thead>
+      <tr>
+        <th class="prediction-index-fold-th">Name</th>
+        <th class="prediction-index-fold-th">Predictor Rating</th>
+        <th class="prediction-index-fold-th"># of Predictions (league param)</th>
+        <th class="prediction-index-fold-th">Last Prediction</th>
+        
+      </tr>
+      </thead>
+
+
+      <% @predictors.each do |predictor| %>
+
+        <tbody>
+
+          <%# if predictor.prediction_games.where(:league =>params[:league]).count > 0 %>
             
-          </tr>
-          </thead>
+            <%if predictor.username == "" or predictor.username.nil? %>
+                <tr class="prediction-table-row" href="/">
+            <%else%>
+                <tr data-link="<%=predictorindexpredictionsall_path(predictor.username)%>", class="prediction-table-row">
+            <% end%>
 
+              <td><%= predictor.id %></td>
+              <td><%= "rating placeholder" %></td>
+              <td><%= predictor.prediction_games.count %></td>
+              <td><%= "Sort and add link to most recent" %></td>
+              
+            </tr>
 
-          <% @predictors.each do |predictor| %>
+          <%# end %>
 
-            <tbody>
+        </tbody>
 
-              <%# if predictor.prediction_games.where(:league =>params[:league]).count > 0 %>
-                
-                <%if predictor.username == "" or predictor.username.nil? %>
-                    <tr class="prediction-table-row" href="/">
-                <%else%>
-                    <tr data-link="<%=predictorindexpredictionsall_path(predictor.username)%>", class="prediction-table-row">
-                <% end%>
+      <% end %>
 
-                  <td><%= predictor.id %></td>
-                  <td><%= "rating placeholder" %></td>
-                  <td><%= predictor.prediction_games.count %></td>
-                  <td><%= "Sort and add link to most recent" %></td>
-                  
-                </tr>
-
-              <%# end %>
-
-            </tbody>
-
-          <% end %>
-
-      </table>
-
-      </div>
+  </table>
 
   </div>
 

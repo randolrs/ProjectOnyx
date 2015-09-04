@@ -186,11 +186,14 @@ a.request_button:hover{
 }
 
 .header-inside-right a:hover{
-    color: #1fbad6;;
+    color: #56D793;
+
+    webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .header-inside-right2 a:hover{
-    color: #1fbad6;;
+    color: #1fbad6;
 }
 
 .badge{
@@ -1037,7 +1040,7 @@ html, body {
   }
 
   .footer-container a:hover{
-    color:#FF74EF;
+    color:#56D793;
     webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
     text-decoration:none;

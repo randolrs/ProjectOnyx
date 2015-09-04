@@ -141,7 +141,7 @@ Rails.application.routes.draw do
   get 'politics-watchlist' => 'pages#politicswatchlist'
   get 'misc-watchlist' => 'pages#miscwatchlist'
 
-  get 'find_predictions' => 'pages#findpredictions'
+  get '/find-predictions/:prediction_type' => 'pages#findpredictions', as: 'findpredictions'
 
   get 'findsportspredictions' => 'prediction_games#findpredictiongames'
 

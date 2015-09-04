@@ -1,12 +1,12 @@
 
-	<div class="content-panel">
+<div class="content-panel">
 
-		<div class ="content-title-header">
-			<h3>Top Experts (<%= @expert_type %>)</h3>
-			<h5><%= link_to "Top Predictions »", root_path %></h5>
-		</div>
-
-		<%= render 'predictors/indexpredictors' %>
-		
-		
+	<div class ="content-title-header">
+		<h3>Top Experts (<%= @expert_type %>)</h3>
+		<h5><%= link_to "Top Predictions »", findpredictions_path(@expert_type) %></h5>
 	</div>
+
+	<%= render 'predictors/indexpredictors' %>
+	
+	
+</div>

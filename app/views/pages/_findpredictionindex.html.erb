@@ -1,0 +1,11 @@
+
+<div class="content-panel">
+
+	<div class ="content-title-header">
+		<h3>Top Predictions (<%= @expert_type %>)</h3>
+		<h5><%= link_to "Find Experts »", findexperts_path(@prediction_type) %></h5>
+	</div>
+
+	<%= render 'prediction_games/index'%>
+	
+</div>

@@ -134,4 +134,10 @@ class PagesController < ApplicationController
 
   end
 
+  def findpredictions
+    @prediction_type = params[:prediction_type]
+
+    @predictions = PredictionGame.all.order("created_at DESC").limit(10)
+  end
+
 end

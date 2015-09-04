@@ -17,11 +17,9 @@
           <thead>
           <tr>
             <th class="prediction-index-fold-th">Name</th>
-            <th class="prediction-index-fold-th">Predictor Rating (League param)</th>
-            <th class="prediction-index-fold-th">Predictor Rating (Overall)</th>
-            <th class="prediction-index-fold-th">Join Date</th>
+            <th class="prediction-index-fold-th">Predictor Rating</th>
             <th class="prediction-index-fold-th"># of Predictions (league param)</th>
-            <th class="prediction-index-fold-th"></th>
+            <th class="prediction-index-fold-th">Last Prediction</th>
             
           </tr>
           </thead>
@@ -32,14 +30,18 @@
             <tbody>
 
               <%# if predictor.prediction_games.where(:league =>params[:league]).count > 0 %>
-            
-                <tr class="prediction-table-row" href="/">  
+                
+                <%if predictor.username == "" or predictor.username.nil? %>
+                    <tr class="prediction-table-row" href="/">
+                <%else%>
+                    <tr data-link="<%=predictorindexpredictionsall_path(predictor.username)%>", class="prediction-table-row">
+                <% end%>
+
                   <td><%= predictor.id %></td>
                   <td><%= "rating placeholder" %></td>
-                  <td><%= "89" %></td>
-                  <td><%= predictor.created_at.strftime("%D at %l:%d%p") %></td>
                   <td><%= predictor.prediction_games.count %></td>
-                  <td>See All Predictions</td>
+                  <td><%= "Sort and add link to most recent" %></td>
+                  
                 </tr>
 
               <%# end %>

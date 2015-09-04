@@ -130,7 +130,7 @@ class PagesController < ApplicationController
   def findexperts
     @expert_type = params[:expert_type]
 
-    @predictors = Predictor.all
+    @predictors = Predictor.all.order("created_at DESC").limit(10)
 
   end
 

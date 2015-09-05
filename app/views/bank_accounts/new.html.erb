@@ -6,35 +6,9 @@
 
   	<h2>Add Bank Account</h2>
 
-		<%= form_tag bank_accounts_path do %>   
+		
 
-			<table>
-				<tr>
-					<td><span>Bank Location</span></td>
-					<td><select name="country">
-		                <option value="US">United States</option>
-		            </select></td>
-				</tr>
-				<tr>
-					<td><span>Name of Banking Institution</span></td>
-					<td><input type="text" size="9" name="bankName"/></td>
-				</tr>
-				<tr>
-					<td><span>Routing Number</span></td>
-					<td><input type="text" size="9" name="routingNumber" autocomplete="off"></td>
-				</tr>
-				<tr>
-					<td><span>Account Number</span></td>
-					<td><input type="text" size="17" name="accountNumber" autocomplete="off"></td>
-				</tr>
-				<tr>
-					<td><span>Description</span></td>
-					<td><input type="text" size="9" name="description"/></td>
-				</tr>
-			</table>
-
-		    <button type="submit" class="signup-submit">Add Bank Account</button>
-		<%end%>
+		<%=render'bank_accounts/addbankaccountform'%>
 
 	</div>
 </div>

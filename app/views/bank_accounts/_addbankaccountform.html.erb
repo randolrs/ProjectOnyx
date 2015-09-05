@@ -1,0 +1,56 @@
+<a id="addCardLink" onclick="toggleModal();">Add a Bank Account</a>
+
+<div class="modal-container" id="divModal" style="display:none">
+
+	<div class = "modal-form">
+
+  	<%= form_tag bank_accounts_path, id: 'payment-form' do %>
+
+  		<table class="card-form">
+
+	      	<span class='payment-errors'></span>
+
+	      	<tr class="add-card-form-header">
+	      		<td class="add-card-header" colspan="2">
+	      			<b>Add a Bank Account</b>
+	      		</td>
+	      	</tr>
+	      	<tr>
+					<td><span>Bank Location</span></td>
+					<td><select name="country">
+		                <option value="US">United States</option>
+		                <option value="CAN">Canada</option>
+		            </select></td>
+				</tr>
+				<tr>
+					<td><span>Name of Banking Institution</span></td>
+					<td><input type="text" size="9" name="bankName"/></td>
+				</tr>
+				<tr>
+					<td><span>Routing Number</span></td>
+					<td><input type="text" size="9" name="routingNumber" autocomplete="off"></td>
+				</tr>
+				<tr>
+					<td><span>Account Number</span></td>
+					<td><input type="text" size="17" name="accountNumber" autocomplete="off"></td>
+				</tr>
+				<tr>
+					<td><span>Description</span></td>
+					<td><input type="text" size="9" name="description"/></td>
+				</tr>
+
+			 <tr>
+	      		<td class="add-card-action">
+	      			<button type="submit" class= "add-card-submit">Add Bank Account</button>
+
+	      		</td>
+
+	      		<td class="add-card-action">
+	      			<a id="addCardLink" class="cancel-card-submit" onclick="toggleModal();">cancel</a>
+	      		</td>
+	      	</tr>
+		</table>
+
+	<%end%>
+</div>
+</div>

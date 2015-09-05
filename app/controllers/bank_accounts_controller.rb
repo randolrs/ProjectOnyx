@@ -5,17 +5,24 @@ class BankAccountsController < ApplicationController
 		@predictor = current_predictor
 
 		@action = "bank"
-		
+
+     	Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+      	@account = Stripe::Account.retrieve(@predictor.account_id)
+
+      	#@defaultaccount = @account.external_accounts.all(:object => "bank_account", :def_currency => true)
+
+      	@bankaccountlist = @account.external_accounts.all(:object => "bank_account", :limit => 5)
+
+      	@accounts = @bankaccountlist.data
 
 	end
 
 	def create
 		@account_id = current_predictor.account_id
-
 		
 		#bank_account = account.external_accounts.create({:external_account => "S2XuxGsEJ33CDIaqHV8Mzu9e"})
 		
-
 		token = Stripe::Token.create(
     		:bank_account => {
 		    :country => params[:country],

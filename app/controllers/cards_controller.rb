@@ -88,7 +88,7 @@ class CardsController < ApplicationController
 
       @displaycard = @customer.sources.retrieve(@defaultcard)
 
-      @list = Stripe::Customer.retrieve(current_user.customer_id).sources.all(:limit => 5, :object => "card")
+      @list = @customer.sources.all(:limit => 5, :object => "card")
 
       @cards = @list.data
 

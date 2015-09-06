@@ -500,6 +500,7 @@ p.terms-of-service{
   overflow: hidden;
   background-color: white;
   padding:10px 30px;
+  padding-bottom: 100px;
   min-height:700px;
   box-shadow: 1px 2px 3px #444;
 }

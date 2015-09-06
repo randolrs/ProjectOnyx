@@ -6,17 +6,29 @@
 
   	<h2>Add Bank Account</h2>
 
+  	<b>Current Bank Account:</b> <br>
+	<%=@defaultaccount.bank_name + " •••• •••• •••• " + @defaultaccount.last4 %> <br>
+	<br><br>
+
+	<%= form_tag bank_account_default_path do %>
+
 		<select name="newdefault"/>
 		     
 		    <option value selected="selected" disabled="disabled">update bank account</option>
 		      		
 		    <% @accounts.each do |account| %>
 
-				<option value=<%=account.id%>><%=account.bank_name %>
+				<option value=<%=account.id%>><%=account.bank_name%> <%=account.last4 %> <%=account.default_for_currency %>
 
 			<%end%>
 
 		</select>
+
+		<br><br>
+
+		<button type="submit" class= "signup-submit">Update</button>
+
+		<%end%>
 
 		<br>
 

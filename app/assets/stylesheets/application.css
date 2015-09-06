@@ -612,7 +612,7 @@ a#addCardLink:hover{
 
 .modal-form{
   top:0px;
-  width:350px;
+  width:450px;
   background-color: white;
   margin-left: auto;
   margin-right: auto;
@@ -625,6 +625,13 @@ a#addCardLink:hover{
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
+
+.close{
+  float:right;
+  color:black;
+
+}
+
 
 table.card-form{
   width:350px;

@@ -6,7 +6,19 @@
 
   	<h2>Add Bank Account</h2>
 
-		
+		<select name="newdefault"/>
+		     
+		    <option value selected="selected" disabled="disabled">update bank account</option>
+		      		
+		    <% @accounts.each do |account| %>
+
+				<option value=<%=account.id%>><%=account.bank_name %>
+
+			<%end%>
+
+		</select>
+
+		<br>
 
 		<%=render'bank_accounts/addbankaccountform'%>
 

@@ -317,7 +317,8 @@ class PredictionGamesController < ApplicationController
 
               Stripe.api_key = Rails.configuration.stripe[:secret_key]
               account = Stripe::Account.create(
-                {:country => "US", :managed => true, :email => @predictor.email, :transfer_schedule["interval"] => "manual"}
+                {:country => "US", :managed => true, :email => @predictor.email, :transfer_schedule["interval"] => "manual",
+                 :tos_acceptance["ip"] => current_predictor.last_sign_in_ip, :tos_acceptance["date"] => current_predictor.created_at }
               )
 
               current_predictor.update(:account => true)

@@ -2,8 +2,6 @@ class PredictorController < ApplicationController
 
 	def registration
   		new_registration_path(@predictor)
-
-      
   		
   	end
 

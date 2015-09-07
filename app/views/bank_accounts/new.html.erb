@@ -7,7 +7,18 @@
   	<h2>Add Bank Account</h2>
 
   	<b>Current Bank Account:</b> <br>
-	<%=@defaultaccount.bank_name + " •••• •••• •••• " + @defaultaccount.last4 %> <br>
+
+  	<% if @defaultaccount %>
+  	
+		<%=@defaultaccount.bank_name + " •••• •••• •••• " + @defaultaccount.last4 %>
+		
+	<%else%>
+
+		None
+
+	<%end%>
+
+	 <br>
 	<br><br>
 
 	<%= form_tag bank_account_default_path do %>

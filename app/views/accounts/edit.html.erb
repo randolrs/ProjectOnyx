@@ -12,8 +12,15 @@
 				<tr>
 					<td><span>Payee Type</span> </td>
 					<td><select name="payeeType">
-		                <option value="Ind">Individual</option>
-		                <option value="Bus">Business</option>
+						
+						<%if @accountType == "company"%>
+							<option value="company">Company</option>
+		                	<option value="individual">Individual</option>
+		                <% else %>
+			                <option value="individual">Individual</option>
+			                <option value="company">Company</option>
+		                <% end %>
+		                
 		            	</select>
 		        	</td>
 				</tr>
@@ -27,11 +34,11 @@
 				</tr>
 				<tr>
 					<td><span>DOB</span></td>
-					<td><input type="date" max ="1998-01-01" min ="1905-01-01" name="dobDate" value="<%= @dob_object["year"]%>-<%= @dob_object["month"]%>-<%= @dob_object["day"]%>"></td>
+					<td><input type="date" max ="1998-01-01" min ="1905-01-01" name="dobDate" value="<%= @dob_year%>-<%= @dob_month%>-<%= @dob_day%>"></td>
 				</tr>
 				<tr>
-					<td> </td>
-					<td> </td>
+					<td></td>
+					<td></td>
 				</tr>
 			</table>
 

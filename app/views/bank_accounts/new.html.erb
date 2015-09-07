@@ -18,7 +18,7 @@
 		      		
 		    <% @accounts.each do |account| %>
 
-				<option value=<%=account.id%>><%=account.bank_name%> <%=account.last4 %> <%=account.default_for_currency %>
+				<option value=<%=account.id%>><%=account.bank_name%> <%=account.last4 %> <% if account.default_for_currency %> (default)<%end%>
 
 			<%end%>
 

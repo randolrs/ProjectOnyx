@@ -27,18 +27,29 @@ class AccountsController < ApplicationController
 
 		account = Stripe::Account.retrieve(@predictor.account_key_secret)
 
+		account_object = account.legal_entity
+
 		unless params[:firstName] == ""
-		account.legal_entity.first_name = params[:firstName]
+		account_object.first_name = params[:firstName]
 		end
 
 		unless params[:lastName] == ""
-		account.legal_entity.last_name = params[:lastName]
+		account_object.last_name = params[:lastName]
 		end
 
-		#account.legal_entity.dob[] = params[:dob]
-		#account.legal_entity.dob = params[:dob]
-		#account.legal_entity.dob = params[:dob]
+		@dob = params[:dobDate]
+
+		@dobYear = @dob[0..3]
+		@dobMonth = @dob[5..6]
+		@dobDay = @dob[8..10]
+
+		account_object["dob"]["year"] = @dobYear
+		account_object["dob"]["month"] = @dobMonth
+		account_object["dob"]["day"] = @dobDay
+
 		account.save
+
+		@dob_object = account_object.dob
 
 		predictorpayeeedit_path(current_predictor.username)
 
@@ -58,7 +69,7 @@ class AccountsController < ApplicationController
 
 		@firstname = @account_object.first_name
 		@lastname = @account_object.last_name
-		@dob = @account_object.dob
+		@dob_object = @account_object.dob
 
 	end
 

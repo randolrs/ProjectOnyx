@@ -1,0 +1,29 @@
+<%= render 'predictors/predictorcover' %>
+<%= render 'predictors/predictorcovernav' %>
+
+<div class="content-panel">
+
+	<div class ="content-title-header">
+		<h3>Recent Posts</h3>
+		<h5><%= link_to "Full Archive »", predictorindexarticlessall_path(@username) %></h5>
+	</div>
+
+	<div class="article-index-dashboard">
+		<%= render 'predictors/predictorarticlesummary'%>
+	</div>
+	
+
+	<div class ="content-title-header">
+		<h3>Recent Predictions</h3>
+		<h5><%= link_to "Full Archive »", predictorindexpredictionsall_path(@username) %></h5>
+	</div>
+		<%= render 'prediction_games/index'%>
+	
+
+	<nav>
+		<div class="center">
+			<%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
+		</div>
+	</nav>
+	
+</div>

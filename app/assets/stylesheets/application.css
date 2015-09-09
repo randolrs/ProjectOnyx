@@ -302,8 +302,8 @@ select#team_filter_team{
 
 .content-league-header-container{
   width:100%;
-  background-color: white;
   box-shadow: inset 0px -12px 2px -10px #ddd;
+  background: linear-gradient(#fff, #efefef);
 }
 
 .content-league-header{

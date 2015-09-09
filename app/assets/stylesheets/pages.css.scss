@@ -83,7 +83,7 @@
 	color:white;
 	position:relative;
 	text-decoration:none;
-	font-weight: bold;
+	
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   line-height: 40px;
 
@@ -360,7 +360,12 @@ h2{
 	margin-left:auto;
   margin-right:auto;
 	border-radius: 1px;
-	box-shadow: 0px 0px 1px #040307;
+
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 
   color:#333;
@@ -390,7 +395,6 @@ h2{
     color:white;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     border: none;
-    border-shadow: 10px 10px 5px #888888;
     margin-top:15px;
     border-radius:1px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
@@ -400,8 +404,26 @@ h2{
     background-color: #17E578;
     webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
+  
+}
+
+  input.cta-submit{
+    background: linear-gradient(#FA9E30, #FFA131);
+    width:250px;
+    height:36px;
+    color:white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    border: none;
+    margin-top:15px;
+    border-radius:1px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   }
 
+  input.cta-submit:hover{
+    background: #FA9E30;
+    border:0px;
+    
+  }
     .add-card-submit{
     background-color: #4F89E3;;
     width:190px;
@@ -1287,4 +1309,8 @@ select.card-year{
 
 ul.dropdown-menu li {
   text-align:left;
+}
+
+.actions{
+  text-align:center;
 }

@@ -163,17 +163,20 @@ a.final_score_pending{
   margin-left:auto;
   margin-right:auto;
   background-color:white;
-  border: 1px solid #BFBFBF;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   padding-bottom: 25px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  border-radius: 2px;
 }
 
 .new-prediction-game-header{
-  background:#BFBFBF;
-  border-bottom: 1px solid #F0F0F0;
   text-align:center;
   font-size:24px;
   padding:10px;
+  background: linear-gradient(#eee, #ddd);
+  text-shadow: 0 1px 0 #aaa, 0 0 0 #aaa;
 
 }
 
@@ -200,6 +203,12 @@ input#prediction_game_cost{
   text-align:center;
   margin-left:auto;
   margin-right:auto;
+}
+
+.prediction-game-form-container{
+
+  margin-top:50px;
+  
 }
 
 .prediction-game-form{
@@ -391,4 +400,8 @@ a.index-float{
   margin-left:auto;
   margin-right:auto;
   background-color:#FFFF40;
+}
+
+.new-prediction-game-premium{
+  text-align:center;
 }

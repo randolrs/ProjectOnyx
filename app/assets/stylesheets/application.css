@@ -289,7 +289,7 @@ select#team_filter_team{
   border-bottom: 1px solid #e0e4e8;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin-top:1px;
-  background: linear-gradient(#fff, #efefef);
+  background: linear-gradient(#fff, #f8f8f8);
 }
 
 .content-header{

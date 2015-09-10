@@ -802,8 +802,9 @@ a.prediction-detail:hover{
 }
 
 tr.prediction-table-row:hover{
-  background-color: #E5EFF1;
+  background-color: #fafafa;
   cursor:pointer;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);
 }
 
 th.prediction-index-fold-th{
@@ -1030,7 +1031,7 @@ html, body {
     height: 155px; /* .push must be the same height as .footer */
     background: #222;
     margin-top: 100px;
-    min-width: 1120px;
+    min-width: 900px;
     width: 100%;
 }
 

@@ -646,3 +646,17 @@ td.add-card-header{
 .form-control{
   width: inherit;
 }
+
+.btn-success{
+  background: linear-gradient(#FA9E30, #FFA131);
+    width:250px;
+    height:36px;
+    color:white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    border: none;
+    margin-top:15px;
+    border-radius:1px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    margin-left: auto;
+    margin-right: auto;
+}

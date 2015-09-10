@@ -288,7 +288,7 @@ select#team_filter_team{
   width:100%;
   margin-top:1px;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
-  background: linear-gradient(#fff, #efefef);
+  background: linear-gradient(#fff, #f8f8f8);
 }
 
 .content-header{
@@ -302,7 +302,7 @@ select#team_filter_team{
 .content-league-header-container{
   width:100%;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
-  background: linear-gradient(#fff, #efefef);
+  background: linear-gradient(#fff, #f8f8f8);
 }
 
 .content-league-header{

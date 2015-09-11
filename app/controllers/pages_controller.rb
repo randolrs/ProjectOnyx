@@ -4,25 +4,45 @@ class PagesController < ApplicationController
 
       if user_signed_in?
 
-        @action = "recent"
+       @action = "recent"
 
-        @displaypredictor = true
+      @displaypredictor = true
 
-        @predictors = current_user.predictors.collect
+      #need to add logic for sorted array that includes both premium and non premium predictions
 
-        @predictions = Array.new 
 
-        if @predictors.count > 0
+      @myPurchases = Purchase.all.where(:user_id => current_user.id)
 
-          @predictors.each do |predictor|
+      @predictions = Array.new 
 
-            predictor.prediction_games.each do |prediction_game|
+      unless @myPurchases.count == 0
+
+        @myPurchases.each do |myPurchase|
+
+          @predictor = Predictor.find(myPurchase.predictor_id)
+
+          if myPurchase.premium == true
+
+            @predictor.prediction_games.each do |prediction_game|
 
               @predictions << prediction_game
 
             end
+
+          else
+
+            @predictor.prediction_games.each do |prediction_game|
+
+              unless prediction_game.paid
+                @predictions << prediction_game
+              end
+
+            end
+
           end
         end
+
+      end
       end
 
       if predictor_signed_in?

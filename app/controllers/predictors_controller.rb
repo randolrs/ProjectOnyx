@@ -80,6 +80,8 @@ class PredictorsController < ApplicationController
     @articles = @predictor.articles.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @displaypredictor = false
     #@subscriber_count = @predictor.users.count
+
+
   end
 
   def predictorpaymentedit
@@ -110,7 +112,7 @@ class PredictorsController < ApplicationController
       end
 
       #the logic in the next section is incomplete
-      
+
       if Purchase.exists?(:user_id=> @user.id,:predictor_id=>@predictor.id)
 
 
@@ -136,7 +138,23 @@ class PredictorsController < ApplicationController
 
   def predictorindex
     @action = "experts"
-    @predictors = current_user.predictors
+    #@predictors = current_user.predictors
+
+      @myPurchases = Purchase.all.where(:user_id => current_user.id)
+
+      @predictors = Array.new 
+
+      unless @myPurchases.count == 0
+
+        @myPurchases.each do |myPurchase|
+
+          @predictor = Predictor.find(myPurchase.predictor_id)
+
+              @predictors << @predictor
+
+        end
+
+      end
 
   end
 
@@ -160,11 +178,11 @@ class PredictorsController < ApplicationController
 
         #current_user.predictors << @predictor
 
-        redirect_to dashboard_path
+        redirect_to root_path
 
       else
 
-        redirect_to dashboard_path
+        redirect_to root_path
 
       end
 

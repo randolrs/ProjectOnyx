@@ -34,6 +34,7 @@
         <% end %>
 
         <%unless Purchase.exists?(:user_id=> current_user.id,:predictor_id=>@predictor.id, :premium=>true) %>
+        <br>
           <%= link_to "Subscribe for $5.00", subscribe_to_predictor_path(:username=>@predictor.username), {:class=>"submit_cta" }%>
         <%end%>
       <%end%>

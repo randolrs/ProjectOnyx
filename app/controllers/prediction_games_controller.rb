@@ -16,20 +16,36 @@ class PredictionGamesController < ApplicationController
 
       #need to add logic for sorted array that includes both premium and non premium predictions
 
-      @predictors = current_user.predictors.collect
+
+      @myPurchases = Purchase.all.where(:user_id => current_user.id)
 
       @predictions = Array.new 
 
-      if @predictors.count > 0
+      unless @myPurchases.count == 0
 
-        @predictors.each do |predictor|
+        @myPurchases.each do |myPurchase|
 
-          predictor.prediction_games.each do |prediction_game|
+          @predictor = Predictor.find(myPurchase.predictor_id)
 
-            @predictions << prediction_game
+          if myPurchase.premium == true
+
+            predictor.prediction_games.each do |prediction_game|
+
+              @predictions << prediction_game
+
+            end
+
+          else
+
+            predictor.prediction_games.each do |prediction_game|
+
+              unless prediction_game.premium
+                @predictions << prediction_game
+              end
+
+            end
 
           end
-
         end
 
       end

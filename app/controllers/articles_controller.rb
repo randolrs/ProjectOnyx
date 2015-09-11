@@ -5,7 +5,6 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
 
-
     if predictor_signed_in?
 
     elsif user_signed_in?

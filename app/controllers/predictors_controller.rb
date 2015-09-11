@@ -90,11 +90,13 @@ class PredictorsController < ApplicationController
 
   def subscribe
 
+    @predictor = Predictor.find_by_username(params[:username])
+    @user = current_user
+
+
     if user_signed_in?
 
       Stripe.api_key = Rails.configuration.stripe[:secret_key]
-
-      @predictor = Predictor.find_by_username(params[:username])
 
       if current_user.customer_id
 
@@ -105,23 +107,22 @@ class PredictorsController < ApplicationController
         customer = Stripe::Customer.create(
                     :description => "Customer for Onyx",
                     )
-
       end
 
+      #the logic in the next section is incomplete
+      
+      if Purchase.exists?(:user_id=> @user.id,:predictor_id=>@predictor.id)
 
-      unless current_user.predictors.exists?(:id => @predictor.id)
+
+      else
 
         customer.subscriptions.create(:plan => @predictor.subscription_id)
 
         current_user.predictors << @predictor
 
-        redirect_to dashboard_path
-
-      else
-
-        redirect_to dashboard_path
-
       end
+
+      redirect_to dashboard_path
 
     end
   end
@@ -136,6 +137,38 @@ class PredictorsController < ApplicationController
   def predictorindex
     @action = "experts"
     @predictors = current_user.predictors
+
+  end
+
+  def follow
+
+    if user_signed_in?
+
+      @predictor = Predictor.find_by_username(params[:username])
+
+      unless current_user.predictors.exists?(:id => @predictor.id)
+
+        @purchase = Purchase.new
+
+        @purchase.user_id = current_user.id
+
+        @purchase.predictor_id = @predictor.id
+
+        @purchase.premium = false
+
+        @purchase.save
+
+        #current_user.predictors << @predictor
+
+        redirect_to dashboard_path
+
+      else
+
+        redirect_to dashboard_path
+
+      end
+
+    end
 
   end
 

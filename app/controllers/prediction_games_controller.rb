@@ -14,6 +14,8 @@ class PredictionGamesController < ApplicationController
 
       @displaypredictor = true
 
+      #need to add logic for sorted array that includes both premium and non premium predictions
+
       @predictors = current_user.predictors.collect
 
       @predictions = Array.new 
@@ -33,7 +35,6 @@ class PredictionGamesController < ApplicationController
       end
 
       #@predictions.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
-
 
     end
 

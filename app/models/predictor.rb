@@ -6,7 +6,10 @@ class Predictor < ActiveRecord::Base
 
   has_many :prediction_games
   has_many :articles
-  has_and_belongs_to_many :users
+  
+  has_many :users, :through => :purchases
+
+  has_many :purchases
 
   has_attached_file :image, 
     :styles => { :medium => "194x194#", :small => "70x70#", :thumb => "30x30#"}, 

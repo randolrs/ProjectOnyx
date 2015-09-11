@@ -63,6 +63,8 @@ Rails.application.routes.draw do
 
   get 'subscribe_to_predictor' => 'predictors#subscribe'
 
+  get 'follow_predictor' => 'predictors#follow'
+
   get 'predictorpayeeedit' => 'accounts#edit'
   get 'bank_account_new' => 'bank_accounts#new'
 

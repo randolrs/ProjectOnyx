@@ -78,23 +78,23 @@ class CardsController < ApplicationController
 
   def index
 
-      @action = "payment"
+    @action = "payment"
 
-      Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-      @customer = Stripe::Customer.retrieve(current_user.customer_id)
+    @customer = Stripe::Customer.retrieve(current_user.customer_id)
 
-      if @customer.default_source
+    if @customer.default_source
 
-        @defaultcard = @customer.default_source
+      @defaultcard = @customer.default_source
 
-        @displaycard = @customer.sources.retrieve(@defaultcard)
+      @displaycard = @customer.sources.retrieve(@defaultcard)
 
-        @list = @customer.sources.all(:limit => 5, :object => "card")
+      @list = @customer.sources.all(:limit => 5, :object => "card")
 
-        @cards = @list.data
+      @cards = @list.data
 
-      end
+    end
 
   end
 

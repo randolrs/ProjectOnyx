@@ -7,9 +7,14 @@ class User < ActiveRecord::Base
          validates :username, uniqueness: {message: "Username is taken"}
          validates :email, uniqueness: {message: "Email is taken"}
 
-         has_many :prediction_games, through: :predictors 
-         has_and_belongs_to_many :predictors
-         has_and_belongs_to_many :prediction_games
+  has_many :prediction_games, through: :predictors 
+  #has_and_belongs_to_many :predictors
+  has_and_belongs_to_many :prediction_games
+
+  has_many :predictors, :through => :purchases
+
+  has_many :purchases
+
     
     def balance_stripe(id)
 

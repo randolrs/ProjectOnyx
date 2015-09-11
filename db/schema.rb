@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812222847) do
+ActiveRecord::Schema.define(version: 20150911030210) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(version: 20150812222847) do
   create_table "predictors_users", id: false, force: true do |t|
     t.integer "predictor_id"
     t.integer "user_id"
+    t.boolean "premium"
   end
 
   create_table "predictors_users_join", id: false, force: true do |t|
@@ -212,6 +213,7 @@ ActiveRecord::Schema.define(version: 20150812222847) do
     t.string   "currency"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "premium"
   end
 
   create_table "sports", force: true do |t|

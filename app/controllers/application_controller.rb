@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
 	    elsif params[:action] == 'create'
 	      devise_parameter_sanitizer.for(:sign_up) { 
 	        |u| u.permit(registration_params) 
+
 	      }
 
 	    end
@@ -32,7 +33,7 @@ class ApplicationController < ActionController::Base
 
   		elsif user_signed_in?
 
-  			unless current_user.customer_id
+        unless current_user.customer_id
 
           Stripe.api_key = Rails.configuration.stripe[:secret_key]
 

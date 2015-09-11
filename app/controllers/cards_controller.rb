@@ -84,13 +84,17 @@ class CardsController < ApplicationController
 
       @customer = Stripe::Customer.retrieve(current_user.customer_id)
 
-      @defaultcard = @customer.default_source
+      if @customer.default_source
 
-      @displaycard = @customer.sources.retrieve(@defaultcard)
+        @defaultcard = @customer.default_source
 
-      @list = @customer.sources.all(:limit => 5, :object => "card")
+        @displaycard = @customer.sources.retrieve(@defaultcard)
 
-      @cards = @list.data
+        @list = @customer.sources.all(:limit => 5, :object => "card")
+
+        @cards = @list.data
+
+      end
 
   end
 

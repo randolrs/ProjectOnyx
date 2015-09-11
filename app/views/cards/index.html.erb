@@ -6,34 +6,41 @@
 
 		<h2>Payment Information</h2>
 
-			<b>Current Payment Method:</b> <br>
-			<%=@displaycard.brand + " •••• •••• •••• " + @displaycard.last4 %> <br>
-			Expiration Date:<br>
-			<%= @displaycard.exp_month.to_s + "/" + @displaycard.exp_year.to_s %>
+
+			<% if @displaycard %>
+				<b>Current Payment Method:</b> <br>
+				<%=@displaycard.brand + " •••• •••• •••• " + @displaycard.last4 %> <br>
+				Expiration Date:<br>
+				<%= @displaycard.exp_month.to_s + "/" + @displaycard.exp_year.to_s %>
+
+			<% end %>
 
 			<br><br>
-
-			<%= form_tag cards_default_path do %>
-
-				<select name="newdefault"/>
-		      		<option value selected="selected" disabled="disabled">update credit card</option>
 		      		
-		      		<% @cards.each do |card| %>
+			<%if @cards %>
 
-						<option value=<%=card.id%>><%=card.brand + " •••• •••• •••• " + card.last4 %>
+				<%= form_tag cards_default_path do %>
 
-					<%end%>
+					<select name="newdefault"/>
+			      		<option value selected="selected" disabled="disabled">update credit card</option>
 
-					
-				</select>
+				      	<% @cards.each do |card| %>
 
-				<br><br>
+							<option value=<%=card.id%>><%=card.brand + " •••• •••• •••• " + card.last4 %>
 
-				<button type="submit" class= "signup-submit">Update</button>
+						<%end%>
 
-			<%end%>
+					</select>
+
+					<br><br>
+
+					<button type="submit" class= "signup-submit">Update</button>
+
+				<%end%>
 
 			<br><br>
+
+			<% end %>
 
 			<a id="addCardLink" onclick="toggleModal();">Add a Credit Card</a>
 

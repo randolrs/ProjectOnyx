@@ -663,10 +663,12 @@ td.add-card-header{
     .user-dashboard-card{
         display:none;
     }
+}
 
 @media only screen and (max-device-width: 1065px)  {
 .user-dashboard-card{
     display:none;
   }
+{}
 
 

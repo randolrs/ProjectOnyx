@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+body{
+  background-color:#FaFaFa;
+}
 
 html, body, div, span{
   margin:0px;
@@ -27,14 +30,14 @@ html, body {
 
  .container {
  	  width:100%;
-    min-width: 900px;
+    
+    /*min-width: 900px;*/
  	  margin-left:auto;
     margin-right:auto;
     min-height: 100%;
     z-index:-11;
     padding:0px;
     /*background-image: url("https://s3.amazonaws.com/projectonyx/blackorchid_%402X.jpg");*/
-    background-color:#FaFaFa;
     margin-top: 60px;
     //background-image: url("https://s3.amazonaws.com/projectonyx/classy_fabric.png");
     margin-left:0px;
@@ -538,7 +541,7 @@ p.terms-of-service{
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 100px;
-  //background-color:white;
+  width:100%;
   padding:50px;
 }
 
@@ -558,7 +561,7 @@ p.terms-of-service{
   width:305px;
   background-color: #ffffff;
   padding: 15px;
-  border-radius: 2px;
+  border-radius: 1px;
   margin-left:15px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border: 1px solid #fff;
@@ -659,13 +662,13 @@ td.add-card-header{
     margin-right: auto;
 }
 
-@media only screen and (max-width: 1065px) {
+@media only screen and (max-width: 1080px) {
     .user-dashboard-card{
         display:none;
     }
 }
 
-@media only screen and (max-device-width: 1065px)  {
+@media only screen and (max-device-width: 1080px)  {
 .user-dashboard-card{
     display:none;
   }

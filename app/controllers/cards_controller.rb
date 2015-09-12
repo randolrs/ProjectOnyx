@@ -39,6 +39,8 @@ class CardsController < ApplicationController
 
   def create
 
+    @user = current_user
+
     unless params[:predictor_id].nil?
       @predictor = Predictor.find(params[:predictor_id])
     end
@@ -66,13 +68,38 @@ class CardsController < ApplicationController
   # end
 
     if @predictor
-      customer.subscriptions.create(:plan => @predictor.subscription_id)
+        
+        if Purchase.exists?(:user_id=> @user.id,:predictor_id=>@predictor.id)
 
-      current_user.predictors << @predictor
+          @purchase = Purchase.where(:user_id=> @user.id,:predictor_id=>@predictor.id)
+
+          @purchase.each do |purchase|
+            purchase.update(:premium => true)
+          end
+
+        else
+
+          @purchase = Purchase.new
+
+          @purchase.user_id = @user.id
+
+          @purchase.predictor_id = @predictor.id
+
+          @purchase.premium = true
+
+          customer.subscriptions.create(:plan => @predictor.subscription_id)
+
+          @purchase.save        
+
+        end
+
+      redirect_to root_path
+
+    else
+
+      redirect_to cardsindex_path(current_user.username)
 
     end
-
-    redirect_to cardsindex_path(current_user.username)
 
   end
 

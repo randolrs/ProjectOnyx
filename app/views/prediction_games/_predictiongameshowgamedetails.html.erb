@@ -47,7 +47,7 @@
 
   <% elsif @game.status == "o" %>  
  
-    <%if @prediction_game.visible(@usertype, @prediction_game.cost>0, @predictor.id, @access) %>
+    <%if @prediction_game.visible(@usertype, @prediction_game.paid, @predictor.id, @access) %>
 
       <tr class="game-show-table-row home">
         <td class="game-row"><%=@game.teamh%><%= image_tag @teamh.image, class: "team-image-tiny"%></td>
@@ -92,15 +92,17 @@
           <%#end%> -->
 
           <% if @payment %>
-            
-            <td class="results-pending" colspan="3" rowspan="2"> <%= render 'charges/new_charge_cta'%></td>
+
+            <td class="results-pending" colspan="3" rowspan="2">
+              <%= render 'predictors/predictor_subscribe_cta' %>
+            </td>
 
           <%else%>
 
             <td class="results-pending" colspan="3" rowspan="2">
-
               <%=render 'cards/new_card_form' %>
-
+              <a id="addCardLink" onclick="toggleModal();" class="subscribe_cta">Subscribe</a>
+              <!-- id="addCardLink" onclick="toggleModal();" -->
             </td>
 
           <%end%>
@@ -129,5 +131,4 @@
 
 </table>
 
-<%= @prediction_game.paid %>
-    
+<%=render 'cards/addcardform_subscribe' %>

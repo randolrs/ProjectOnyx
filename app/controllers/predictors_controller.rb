@@ -95,12 +95,11 @@ class PredictorsController < ApplicationController
     @predictor = Predictor.find_by_username(params[:username])
     @user = current_user
 
-
     if user_signed_in?
 
       Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-      if current_user.customer_id
+      if @user.customer_id
 
         customer = Stripe::Customer.retrieve(current_user.customer_id)
 
@@ -115,12 +114,25 @@ class PredictorsController < ApplicationController
 
       if Purchase.exists?(:user_id=> @user.id,:predictor_id=>@predictor.id)
 
+        @purchase = Purchase.where(:user_id=> @user.id,:predictor_id=>@predictor.id)
+
+        @purchase.each do |purchase|
+          purchase.update(:premium => true)
+        end
 
       else
 
+        @purchase = Purchase.new
+
+        @purchase.user_id = @user.id
+
+        @purchase.predictor_id = @predictor.id
+
+        @purchase.premium = true
+
         customer.subscriptions.create(:plan => @predictor.subscription_id)
 
-        current_user.predictors << @predictor
+        @purchase.save        
 
       end
 

@@ -21,11 +21,12 @@ class PredictionGame < ActiveRecord::Base
 
 				if usertype == "user"
 
-					if access.predictors.exists?(:id => predictor_id)
-						true
+					if Purchase.exists?(:user_id => access.id, :predictor_id => predictor_id, :premium => true)
 
+						true
 					else
-				 		false
+
+						false
 					end
 
 				elsif usertype == "predictor"

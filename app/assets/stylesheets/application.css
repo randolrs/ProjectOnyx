@@ -240,7 +240,7 @@ select#team_filter_team{
 .predictor-cover-details{
   float:left;
   width:300px;
-  padding:50px;
+  padding:25px 50px;
   text-align: center;
 }
 

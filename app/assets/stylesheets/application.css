@@ -15,6 +15,7 @@
  */
 body{
   background-color:#FaFaFa;
+
 }
 
 html, body, div, span{
@@ -30,16 +31,11 @@ html, body {
 
  .container {
  	  width:100%;
-    
     /*min-width: 900px;*/
- 	  margin-left:auto;
-    margin-right:auto;
     min-height: 100%;
     z-index:-11;
-    padding:0px;
     /*background-image: url("https://s3.amazonaws.com/projectonyx/blackorchid_%402X.jpg");*/
     margin-top: 60px;
-    //background-image: url("https://s3.amazonaws.com/projectonyx/classy_fabric.png");
     margin-left:0px;
     margin-right: 0px;
  }
@@ -537,12 +533,12 @@ p.terms-of-service{
 }
 
 .user-dashboard-container{
-  overflow:hidden;
+  
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 100px;
   width:100%;
-  padding:50px;
+  padding: 50px;
 }
 
 .user-dashboard-container h1{
@@ -662,13 +658,13 @@ td.add-card-header{
     margin-right: auto;
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1120px) {
     .user-dashboard-card{
         display:none;
     }
 }
 
-@media only screen and (max-device-width: 1080px)  {
+@media only screen and (max-device-width: 1120px)  {
 .user-dashboard-card{
     display:none;
   }

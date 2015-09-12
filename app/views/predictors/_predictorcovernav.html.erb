@@ -1,0 +1,56 @@
+<div class="content-header-container">
+  <div class="cover-sub-header">
+
+    <nav class="navbar navbar-default">
+
+      <ul class="nav navbar-nav">
+
+      	<% if @action == 'predictordashboard'%>
+	        <li><%= link_to "Recent", predictordashboard_path(@predictor.username), { :class=>"subheader active" } %></li>
+	        <li><%= link_to "Posts", predictorindexarticlessall_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Predictions", predictorindexpredictionsall_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <% if predictor_signed_in?%>
+	        	<% if current_predictor.username == params[:username]%>
+	        		<li><%= link_to "Subscribers", predictorsubscriberindex_path(@predictor.username), { :class=>"subheader" } %></li>
+	        	<%end%>
+	        <%end%>
+	    <%elsif @action == 'articleindex'%>
+
+	    	<li><%= link_to "Recent", predictordashboard_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Posts", predictorindexarticlessall_path(@predictor.username), { :class=>"subheader active" } %></li>
+	        <li><%= link_to "Predictions", predictorindexpredictionsall_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <% if predictor_signed_in?%>
+	        	<% if current_predictor.username == params[:username]%>
+	        		<li><%= link_to "Subscribers", predictorsubscriberindex_path(@predictor.username), { :class=>"subheader" } %></li>
+	        	<%end%>
+	        <%end%>
+
+	    <%elsif @action == 'predictionindex'%>
+
+	    	<li><%= link_to "Recent", predictordashboard_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Posts", predictorindexarticlessall_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Predictions", predictorindexpredictionsall_path(@predictor.username), { :class=>"subheader active" } %></li>
+	        <% if predictor_signed_in?%>
+	        	<% if current_predictor.username == params[:username]%>
+	        		<li><%= link_to "Subscribers", predictorsubscriberindex_path(@predictor.username), { :class=>"subheader" } %></li>
+	        	<%end%>
+	        <%end%>
+
+	    <%elsif @action == 'subscriberindex'%>
+
+	    	<li><%= link_to "Recent", predictordashboard_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Posts", predictorindexarticlessall_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <li><%= link_to "Predictions", predictorindexpredictionsall_path(@predictor.username), { :class=>"subheader" } %></li>
+	        <% if predictor_signed_in?%>
+	        	<% if current_predictor.username == params[:username]%>
+	        		<li><%= link_to "Subscribers", predictorsubscriberindex_path(@predictor.username), { :class=>"subheader active" } %></li>
+	        	<%end%>
+	        <%end%>
+	    <% end %>
+	    	
+      </ul>
+
+  </nav>  
+
+  </div>
+</div>

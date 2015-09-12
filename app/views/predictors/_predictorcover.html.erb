@@ -27,17 +27,11 @@
 
       <%end%>
 
-      
-      <% if user_signed_in?%>
-        <%unless Purchase.exists?(:user_id=> current_user.id,:predictor_id=>@predictor.id) %>
-          <%= link_to "Follow for Free", follow_predictor_path(:username=>@predictor.username), {:class=>"submit_cta" }%>
-        <% end %>
+      <br>
+      <%=render 'predictors/predictor_subscribe_cta'%>
 
-        <%unless Purchase.exists?(:user_id=> current_user.id,:predictor_id=>@predictor.id, :premium=>true) %>
-        <br>
-          <%= link_to "Subscribe for $5.00", subscribe_to_predictor_path(:username=>@predictor.username), {:class=>"submit_cta" }%>
-        <%end%>
-      <%end%>
+      <br>
+      <%=render 'predictors/predictor_follow_cta'%>
 
     </div>
 

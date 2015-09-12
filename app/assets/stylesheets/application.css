@@ -534,7 +534,6 @@ p.terms-of-service{
 }
 
 .user-dashboard-container{
-  margin-top: 20px;
   overflow:hidden;
   margin-left: auto;
   margin-right: auto;
@@ -665,6 +664,9 @@ td.add-card-header{
         display:none;
     }
 
-make padding on user-card paddin:20px;
+@media only screen and (max-device-width: 1065px)  {
+.user-dashboard-card{
+    display:none;
+  }
 
 

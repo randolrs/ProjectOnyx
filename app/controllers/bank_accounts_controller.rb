@@ -42,7 +42,7 @@ class BankAccountsController < ApplicationController
 
 		bank_account.save
 				  
-		redirect_to edit_predictor_registration_path
+		redirect_to new_bank_account_path
 	end
 
 	def make_default

@@ -33,5 +33,24 @@ class User < ActiveRecord::Base
 
       return @balance
 
-  end
+    end
+
+    def paymentsource(id)
+
+      @user = User.find(id)
+      
+      if Stripe.api_key = Rails.configuration.stripe[:secret_key]
+        
+        customer = Stripe::Customer.retrieve(@user.customer_id)
+
+        if customer.default_source
+
+          true
+        else
+
+          false
+        end
+      end
+
+    end
 end

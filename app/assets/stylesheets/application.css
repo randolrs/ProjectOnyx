@@ -39,6 +39,7 @@ html, body {
     margin-left:0px;
     margin-right: 0px;
     padding: 0px;
+    margin-bottom: 50px;
  }
 
 
@@ -88,8 +89,6 @@ html, body {
     margin-left: auto;
     margin-right: auto;
     background-color: white;
-    
-    margin-bottom: 100px;
     overflow: hidden;
     border-radius:2px;
     margin-top:50px;

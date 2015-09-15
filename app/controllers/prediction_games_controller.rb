@@ -412,6 +412,6 @@ class PredictionGamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prediction_game_params
-      params.require(:prediction_game).permit(:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id, :cost, :paid)
+      params.require(:prediction_game).permit(:game_winner, :teama_score, :teamh_score, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id, :cost, :paid, :title, :body)
     end
 end

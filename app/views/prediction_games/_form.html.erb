@@ -45,6 +45,11 @@
 
       </table>
 
+      <div class="new-prediction-game-reason">
+        <p><b>Reason for Prediction:</b></p>
+        <%= f.text_area :body, :rows => "5", class: "prediction-game-reason-text" %>
+      </div>
+
       <div class="new-prediction-game-premium"%>
         <%= f.label "Premium" %> <%= f.check_box :paid %>
 
@@ -53,8 +58,6 @@
         <div class="actions">
           <%= f.submit "Make Prediction", :class => 'cta-submit'%>
         </div>
-
-      
 
     </div>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911030210) do
+ActiveRecord::Schema.define(version: 20150914231106) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -117,6 +117,8 @@ ActiveRecord::Schema.define(version: 20150911030210) do
     t.decimal  "cost",              precision: 8, scale: 2
     t.float    "onyx"
     t.float    "ou_diff"
+    t.string   "title",                                     default: ""
+    t.text     "body",                                      default: ""
   end
 
   add_index "prediction_games", ["game_id"], name: "index_prediction_games_on_game_id"

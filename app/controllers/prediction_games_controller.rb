@@ -45,6 +45,7 @@ class PredictionGamesController < ApplicationController
             end
             
           end
+          
         end
 
       end

@@ -10,22 +10,19 @@
 
         <%if @action == "recent"%>
           <li><%= link_to "Recent Predictions", root_path, { :class=>"user-subscription-nav active" } %></li>
-          <li><%= link_to "Recent Posts", posts_path, { :class=>"user-subscription-nav inactive" } %></li>
+          <!-- <li><%# link_to "Recent Posts", posts_path, { :class=>"user-subscription-nav inactive" } %></li> -->
           <li><%= link_to "Experts", predictorindex_path, { :class=>"user-subscription-nav inactive" } %></li>
 
         <%elsif @action == "posts"%>
           <li><%= link_to "Recent Predictions", root_path, { :class=>"user-subscription-nav inactive" } %></li>
-          <li><%= link_to "Recent Posts", posts_path, { :class=>"user-subscription-nav active" } %></li>
           <li><%= link_to "Experts", predictorindex_path, { :class=>"user-subscription-nav inactive" } %></li>
 
         <%elsif @action == "experts"%>
           <li><%= link_to "Recent Predictions", root_path, { :class=>"user-subscription-nav inactive" } %></li>
-          <li><%= link_to "Recent Posts", posts_path, { :class=>"user-subscription-nav inactive" } %></li>
           <li><%= link_to "Experts", predictorindex_path, { :class=>"user-subscription-nav active" } %></li>
 
         <%else%>
           <li><%= link_to "Recent Activity", root_path, { :class=>"user-subscription-nav" } %></li>
-          <li><%= link_to "Recent Posts", posts_path, { :class=>"user-subscription-nav" } %></li>
           <li><%= link_to "Experts", predictorindex_path, { :class=>"user-subscription-nav" } %></li>
 
         <%end%>

@@ -150,23 +150,51 @@ class PredictorsController < ApplicationController
 
   def predictorindex
     @action = "experts"
-    #@predictors = current_user.predictors
 
-      @myPurchases = Purchase.all.where(:user_id => current_user.id)
+    @myPurchases = Purchase.all.where(:user_id => current_user.id)
 
-      @predictors = Array.new 
+    @predictors = Array.new 
 
-      unless @myPurchases.count == 0
+    unless @myPurchases.count == 0
 
-        @myPurchases.each do |myPurchase|
+      @myPurchases.each do |myPurchase|
 
-          @predictor = Predictor.find(myPurchase.predictor_id)
+        @predictor = Predictor.find(myPurchase.predictor_id)
 
-              @predictors << @predictor
+        #Need to add hash logic for premium verus non-premium
+
+        if myPurchase.premium == true
+
+            @predictors << @predictor
+
+        else
+
+            @predictors << @predictor
 
         end
 
+          
       end
+        
+    end
+
+    #@predictors = current_user.predictors
+
+      # @myPurchases = Purchase.all.where(:user_id => current_user.id)
+
+      # @predictors = Array.new 
+
+      # unless @myPurchases.count == 0
+
+      #   @myPurchases.each do |myPurchase|
+
+      #     @predictor = Predictor.find(myPurchase.predictor_id)
+
+      #         @predictors << @predictor
+
+      #   end
+
+      # end
 
   end
 

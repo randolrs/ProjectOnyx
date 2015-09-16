@@ -163,17 +163,19 @@ class PredictorsController < ApplicationController
 
         #Need to add hash logic for premium verus non-premium
 
-        if myPurchase.premium == true
+        hash = {:username=>@predictor.username, :image => @predictor.image, :prediction_count => @predictor.prediction_games.where(:status=>"o").all.count, :premium => myPurchase.premium}
 
-            @predictors << @predictor
+        # if myPurchase.premium == true
 
-        else
+        #     @predictors << @predictor
 
-            @predictors << @predictor
+        # else
 
-        end
+        #     @predictors << @predictor
 
-          
+        # end
+
+        @predictors << hash          
       end
         
     end

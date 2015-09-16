@@ -21,24 +21,34 @@
 
       <% else %>
 
-        <% @predictors.each do |predictor| %>
+
+        <% c = 0 %>
+
+        <% until @predictors.empty? %>
+          <%= @predictors[c].username %>
+
+          <% c = c+1 %>
+        <%end%>
+
+
+        <%# @predictors.each do |predictor| %>
 
       <%# if predictor.prediction_games.where(:league =>params[:league]).count > 0 %>
         
-      <%if predictor.username == "" or predictor.username.nil? %>
-          <tr class="prediction-table-row" href="/">
-      <%else%>
+      <%#if predictor.username == "" or predictor.username.nil? %>
+<!--           <tr class="prediction-table-row" href="/">
+      <%#else%>
           <tr data-link="<%=predictorindexpredictionsall_path(predictor.username)%>", class="prediction-table-row">
-      <% end%>
+      <%# end%>
 
             <td><%= predictor.id %></td>
             <td><%= "rating placeholder" %></td>
             <td><%= predictor.prediction_games.count %></td>
             <td><%= "Sort and add link to most recent" %></td>
           
-          </tr>
+          </tr> -->
 
-      <% end %>
+      <%# end %>
 
     </tbody>
 

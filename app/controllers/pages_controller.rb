@@ -161,7 +161,29 @@ class PagesController < ApplicationController
   def findexperts
     @expert_type = params[:expert_type]
 
-    @predictors = Predictor.all.order("created_at DESC").limit(10)
+    @predictorsAll = Predictor.all.order("created_at DESC").limit(10)
+
+    @predictors = Array.new 
+
+      @predictorsAll.each do |predictor|
+
+        #Need to add hash logic for premium verus non-premium
+
+        hash = {:username=>predictor.username, :image => predictor.image, :prediction_count => predictor.prediction_games.where(:status=>"o").all.count}
+
+        # if myPurchase.premium == true
+
+        #     @predictors << @predictor
+
+        # else
+
+        #     @predictors << @predictor
+
+        # end
+
+        @predictors << hash  
+
+      end        
 
   end
 

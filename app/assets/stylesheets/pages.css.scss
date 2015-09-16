@@ -990,6 +990,19 @@ th.prediction-summary-index{
   
 }
 
+.predictor-image-card{
+  margin-left:auto;
+  margin-right:auto;
+  width:70px;
+  height:70px;
+  border-radius:35px;
+  float:left;
+  border: 2px solid white;
+  margin-top:-40px;
+  z-index:100;
+  
+}
+
 .predictor-image-small{
   margin-left:auto;
   margin-right:auto;

@@ -31,6 +31,26 @@
             <td><%= "88" %></td>
           </tr>
 
+
+          <div class ="predictor-card">
+            <div class="predictor-card-header">
+
+
+            </div>
+
+            <div class="predictor-card-body">
+              
+                <%= image_tag predictor[:image].url(:medium), class: "predictor-image-card"%>
+                <br>
+                <br>
+                <a class="index-float"><b><%= predictor[:username] %></b></a>
+                <br>
+                <a class="index-float"><b><%= predictor[:bio] %></b></a>
+
+              
+            </div>
+
+          </div>
         <% c = c+1 %>
       <% end %>
 

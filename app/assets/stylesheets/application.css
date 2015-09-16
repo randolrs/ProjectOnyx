@@ -656,6 +656,29 @@ td.add-card-header{
     margin-right: auto;
 }
 
+
+.predictor-card{
+  height:300px;
+  width:300px;
+  float:left;
+  border-radius:3px;
+  border:1px solid #ccc;
+  background-color: white;
+  margin:3px;
+}
+
+.predictor-card-header{
+  position: relative;
+  width:100%;
+  height:100px;
+  background-color: #333
+
+}
+
+.predictor-card-body {
+  padding:5px;
+}
+
 @media only screen and (max-width: 1120px) {
     .user-dashboard-card{
         display:none;

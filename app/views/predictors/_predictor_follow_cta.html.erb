@@ -1,4 +1,3 @@
-
 <% if user_signed_in?%>
 	<%unless Purchase.exists?(:user_id=> current_user.id,:predictor_id=>@predictor.id) %>
 

@@ -9,7 +9,7 @@
       </div>
 
       <div class="predictor-cover-summary-bio">
-        <%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-name"%> <%=render 'predictors/predictor_follow_cta'%>
+        <%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-name"%>
         <br>
         <a class="white-text"><%=@predictor.bio%></a>
       </div>
@@ -27,6 +27,7 @@
 
       <%end%>
 
+      <%=render 'predictors/predictor_follow_cta'%>
       <br>
       <%=render 'predictors/predictor_subscribe_cta'%>
 

@@ -16,9 +16,18 @@
             <div class="predictor-card-body">
               
                 <%= image_tag predictor[:image].url(:medium), class: "predictor-image-card"%>
+
+                <%unless predictor[:premium] %>
+
+                <%= link_to "Subscribe", subscribe_to_predictor_path(:username=>predictor[:username]), {:class=>"subscribe_cta subscribe_cta_float_right" }%>
+
+                <% end %>
+
                 <br>
+
                 <br>
-                <h3><%= predictor[:username] %></h3>
+                <h3><%= predictor[:username] %></h3> 
+
                 <br>
                 <a class="index-float"><%= predictor[:bio] %></a>
 

@@ -1,7 +1,11 @@
 <% if user_signed_in?%>
-	<%unless Purchase.exists?(:user_id=> current_user.id,:predictor_id=>@predictor.id) %>
+
+	<% unless current_user.follow(@predictor.id) %>
 
   		<%= link_to "+ Follow", follow_predictor_path(:username=>@predictor.username), {:class=>"follow_cta" }%>
+
+  	<% else %>
+
 
 	<% end %>
 <%end%>

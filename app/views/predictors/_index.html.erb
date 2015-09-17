@@ -26,7 +26,8 @@
                 <br>
 
                 <br>
-                <h3><%= predictor[:username] %></h3> 
+
+                <h3><%= link_to predictor[:username], predictordashboard_path(predictor[:username]), class: "predictor-card-name"%> </h3>
 
                 <br>
                 <a class="index-float"><%= predictor[:bio] %></a>

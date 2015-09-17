@@ -15,7 +15,36 @@ class User < ActiveRecord::Base
 
   has_many :purchases
 
+  def subscribed(predictor_id)
+
+    if Purchase.exists?(:user_id=> self.id,:predictor_id=>predictor_id, :premium=>true)
+
+      true
+
+    else
+
+      false
+
+    end
+
+  end
+
+  def follow(predictor_id)
+
+  if Purchase.exists?(:user_id=> self.id,:predictor_id=>predictor_id)
+
+    true
+
+  else
+
+    false
+
+  end
+
+end
     
+
+
     def balance_stripe(id)
 
       if User.find(id).account_key_s
@@ -35,13 +64,11 @@ class User < ActiveRecord::Base
 
     end
 
-    def paymentsource(id)
-
-      @user = User.find(id)
+    def paymentsource
       
       if Stripe.api_key = Rails.configuration.stripe[:secret_key]
         
-        customer = Stripe::Customer.retrieve(@user.customer_id)
+        customer = Stripe::Customer.retrieve(self.customer_id)
 
         if customer.default_source
 

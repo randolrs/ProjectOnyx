@@ -1,24 +1,22 @@
 <% if user_signed_in?%>
 
-	<% @user = current_user %>
+  	<% unless current_user.subscribed(@predictor.id) %>
 
-  	<%unless Purchase.exists?(:user_id=> @user.id,:predictor_id=>@predictor.id, :premium=>true) %>
+		<% if current_user.paymentsource %>
 
-		  <% if @user.paymentsource(@user.id) %>
-		    <%= link_to "Subscribe for $5.00", subscribe_to_predictor_path(:username=>@predictor.username), {:class=>"subscribe_cta" }%>
-		  <% else %>
+			<%= link_to "Subscribe for $5.00", subscribe_to_predictor_path(:username=>@predictor.username), {:class=>"subscribe_cta" }%>
 
-		  	<a id="addCardLink" onclick="toggleModal();" class="subscribe_cta">Subscribe</a>
-		  	<%=render 'cards/addcardform_subscribe' %>
-		  <% end %>
+		<% else %>
+
+			<a id="addCardLink" onclick="toggleModal();" class="subscribe_cta">Subscribe</a>
+			<%=render 'cards/addcardform_subscribe' %>
+		<% end %>
 
 	<%else%>
 
 		<a class="subscribe_cta">&#10004; Subscribed</a>
 
-
   	<%end%>
-
 
 <%end%>
 

@@ -19,25 +19,19 @@ class PagesController < ApplicationController
 
         @myPurchases.each do |myPurchase|
 
-          @predictor = Predictor.find(myPurchase.predictor_id)
+        @predictor = Predictor.find(myPurchase.predictor_id)
 
-          if myPurchase.premium == true
+        @predictor.prediction_games.each do |prediction_game|
 
-            @predictor.prediction_games.each do |prediction_game|
+        @predictions << prediction_game
 
-              @predictions << prediction_game
+        @predictor.prediction_games.each do |prediction_game|
 
-            end
+          unless prediction_game.paid
+            @predictions << prediction_game
+          end
 
-          else
-
-            @predictor.prediction_games.each do |prediction_game|
-
-              unless prediction_game.paid
-                @predictions << prediction_game
-              end
-
-            end
+        end
             
           end
         end

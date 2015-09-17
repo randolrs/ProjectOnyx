@@ -1,40 +1,15 @@
 <% if user_signed_in? %>
 
-  <table class ="prediction-index-fold table">
-    <thead>
-      <tr>
-        <th class="prediction-index-fold-th">Expert</th>
-        <th class="prediction-index-fold-th">Active Predictions</th>
-        <th class="prediction-index-fold-th">Recent Posts</th>
-        <th class="prediction-index-fold-th">Onyx Rating</th>
-      </tr>
-    </thead>
-
-    <tbody>
-
       <% if @predictors.count == 0 %>
-
-        <tr class="prediction-table-row">
-            <td colspan="4" class="no-active-games">No Experts</td>
-        </tr>
+          
+        <a class="no-active-games">No Experts</a>
 
       <% else %>
-
-      <% c = 0 %>
       
-      <% @predictors.each do |predictor| %>
+        <% @predictors.each do |predictor| %>
     
-          <tr data-link="<%=predictordashboard_path(predictor[:username])%>", class="prediction-table-row" class="prediction-table-row">
-            <td class="prediction-index-predictor"> <%= image_tag predictor[:image].url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= predictor[:username] %></b></a></td>
-            <td><%= predictor[:prediction_count] %></td>
-            <td><%= predictor[:prediction_count] %></td>
-            <td><%= "88" %></td>
-          </tr>
-
-
           <div class ="predictor-card">
             <div class="predictor-card-header">
-
 
             </div>
 
@@ -43,21 +18,16 @@
                 <%= image_tag predictor[:image].url(:medium), class: "predictor-image-card"%>
                 <br>
                 <br>
-                <a class="index-float"><b><%= predictor[:username] %></b></a>
+                <h3><%= predictor[:username] %></h3>
                 <br>
                 <a class="index-float"><%= predictor[:bio] %></a>
 
-              
             </div>
 
           </div>
-  
-      <% end %>
+    
+        <% end %>
 
       <%end%>
-
-    </tbody>
-
-</table>
 
 <% end %>

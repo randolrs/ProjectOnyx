@@ -1,52 +1,74 @@
-<div class ="prediction-game-index-show">
+<% @predictions.each do |prediction| %>
 
-  <table class ="prediction-game-index-show-table">
-    <tr>
-      <th class="prediction-game-index-show-table-date" colspan="6">
-        Sunday
-      </th>
-    </tr>
+<% @predictor = Predictor.find(prediction.predictor_id) %>
+  
+  <div class ="prediction-game-index-show">
 
-    <tr>
-      <td class="prediction-game-index-show-table-teams" colspan="3">
-        Broncos
-      </td>
-      <td class="prediction-game-index-show-table-teams" colspan="3">
-        Chiefs
-      </td>
-    </tr>
+    <table class ="prediction-game-index-show-table">
 
-    <tr>
-      <td colspan="2">
-        16
-      </td>
-      <td colspan="2">
-        Final Score
-      </td>
-      <td colspan="2">
-        18
-      </td>
-    </tr>
+      <tr>
+        <th>
+          <a> <%= Predictor.find(prediction.predictor_id).username %></a>
+        </th>
+        <th class="prediction-game-index-show-table-date" colspan="6">
+          Sunday
+        </th>
+      </tr>
 
-    <tr>
-      <td colspan="2">
-        -2.0
-      </td>
-      <td colspan="2">
-        Spread
-      </td>
-      <td colspan="2">
-        +2.0
-      </td>
-    </tr>
+      <tr>
+        <td class="prediction-game-index-show-table-teams" colspan="3">
+          <%= image_tag Team.find_by_name(prediction.teama).image.url(:medium), class: "predictor-image-tiny"%> Broncos
+        </td>
+        <td class="prediction-game-index-show-table-teams last-child" colspan="3">
+          Chiefs <%= image_tag Team.find_by_name(prediction.teamh).image.url(:medium), class: "predictor-image-tiny"%>
+        </td>
+      </tr>
+      
+      <% if prediction.visible("user", current_user) %>
 
-    <tr>
-      <td colspan="6">
-        Over/Under <br>
-        34
-      </td>
-    </tr>
+        <tr class="pg-table-bottom">
+          <td class="pg-important-data" colspan="2">
+            16
+          </td>
+          <td colspan="2">
+            Final Score
+          </td>
+          <td class="pg-important-data" colspan="2">
+            18
+          </td>
+        </tr>
 
-  </table>
+        <tr class="pg-table-bottom">
+          <td class="pg-important-data" colspan="2">
+            -2.0
+          </td>
+          <td colspan="2">
+            Spread
+          </td>
+          <td class="pg-important-data" colspan="2">
+            +2.0
+          </td>
+        </tr>
 
-</div>
+        <tr>
+          <td colspan="6">
+            Over/Under <br>
+            <a class="pg-important-data"> 34 </a>
+          </td>
+        </tr>
+
+      <%else%>
+
+        <tr>
+          <td rowspan="3" colspan="6">
+            <%= render 'predictors/predictor_subscribe_cta'%>
+          </td>
+        </tr>
+
+      <%end%>
+
+    </table>
+
+  </div>
+
+<%end%>

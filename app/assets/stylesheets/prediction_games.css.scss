@@ -431,9 +431,35 @@ a.index-float{
   padding:5px;
   background-color: #fff;
   border: 1px #ddd solid;
+  text-align:center;
+  width:300px;
 }
 
-.prediction-game-index-show-table{
+table.predicton-game-index-show-table{
+  width:300px;
+
+}
+
+.prediction-game-index-show-table-date{
   width:200px;
-  
+  background: linear-gradient(#eee, #ddd);
+  text-shadow: 0 1px 0 #aaa, 0 0 0 #aaa;
+
+}
+
+.prediction-game-index-show-table-teams{
+  border-bottom: 1px solid #ddd;
+  padding:0px 5px;
+}
+
+.last-child{
+  border-left: 1px solid #ddd;
+}
+
+.pg-table-bottom{
+  border-bottom: 1px solid #ddd;
+}
+
+.pg-important-data{
+  font-size:20px;
 }

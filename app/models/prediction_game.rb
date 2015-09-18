@@ -15,7 +15,9 @@ class PredictionGame < ActiveRecord::Base
 
 		end
 
-		def visible(usertype, paid, predictor_id, access)
+		def visible(usertype, access)
+
+			predictor_id = self.predictor_id
 
 			if paid
 

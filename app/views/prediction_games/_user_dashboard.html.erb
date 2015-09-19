@@ -1,10 +1,21 @@
 <div class ="user-dashboard-container">
 
-	<%= render 'devise/user_subscription_nav'%>
+	<%# render 'devise/user_subscription_nav'%>
+
+	<div class="user-dashboard-left">
+
+		<%= render 'devise/user_dashboard_header'%>
+
+		<%= render 'games/user_dashboard_games'%>
+
+
+	</div>
 
 	<div class ="user-dashboard-predictions">
+		
+		<%= render 'prediction_games/indexshow' %>
 
-		<%= render 'prediction_games/index'%>
+		<%# render 'prediction_games/index'%>
 
 	</div>
 

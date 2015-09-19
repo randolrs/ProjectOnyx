@@ -1,0 +1,28 @@
+<div class="user-dashboard-header"%>
+
+  <% if user_signed_in?%>
+
+  <h3><%= current_user.username %></h3>
+
+  <table>
+    <tr>
+      <td>Following</td>
+      <td>Subscriptions</td>
+      <td>Active Predictions</td>
+    </tr>
+
+    <tr>
+      <td>12</td>
+      <td>1</td>
+      <td>19</td>
+    </tr>
+
+    </table>
+
+  <%end%>
+
+</div>
+
+
+
+

@@ -539,6 +539,7 @@ p.terms-of-service{
   padding: 50px 30px;
   float:left;
   display:block;
+  min-width: 900px;
 }
 
 .user-dashboard-container h1{

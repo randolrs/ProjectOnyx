@@ -6,12 +6,29 @@
     
     <div class ="prediction-game-index-show">
 
+      <% if @displaypredictor %>
+        <table>
+            <tr>
+              <td> 
+                <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= @predictor.username %></b> &#183; <%= prediction.created_at.strftime("%b %e") %></a>
+              </td>
+            </tr>
+        </table>
+
+      <% end %>
+
       <table class ="prediction-game-index-show-table">
 
         <tr>
           <th class="prediction-game-index-show-table-date" colspan="6">
-            <%= prediction.event_time.strftime("%D") %>
+            <%= prediction.league %> Prediction
           </th>
+        </tr>
+
+        <tr class="pg-table-bottom">
+          <td colspan="6">
+            <%= prediction.event_time.strftime("%a, %b %d, %Y ") %>
+          </td>
         </tr>
 
         <tr>
@@ -39,20 +56,20 @@
 
           <tr class="pg-table-bottom">
             <td class="pg-important-data" colspan="2">
-              <%if prediction.game_winner == prediction.teama %><%=prediction.spread%><%end%>
+              <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%=prediction.spread%>
             </td>
             <td colspan="2">
               Spread
             </td>
             <td class="pg-important-data" colspan="2">
-              <%if prediction.game_winner == prediction.teamh %><%=prediction.spread%><%end%>
+              <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%=prediction.spread%>
             </td>
           </tr>
 
           <tr>
             <td colspan="6">
               Over/Under <br>
-              <a class="pg-important-data"> 34 </a>
+              <a class="pg-important-data"><%=prediction.overunder%></a>
             </td>
           </tr>
 

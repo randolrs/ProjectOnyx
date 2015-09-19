@@ -559,14 +559,14 @@ p.terms-of-service{
   padding:10px;
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .user-dashboard-recommendations{
   padding:10px;
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 
@@ -579,7 +579,7 @@ td.ud-margin{
 }
 
 .user-dashboard-games{
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   padding:10px;
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);

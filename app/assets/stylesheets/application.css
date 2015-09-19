@@ -560,6 +560,15 @@ p.terms-of-service{
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+
+.user-dashboard-summary{
+  text-align: center;
+}
+
+td.ud-margin{
+  padding:0px 5px;
+}
+
 .user-dashboard-games{
   margin-top: 10px;
   padding:10px;

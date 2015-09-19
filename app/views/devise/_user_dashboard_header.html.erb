@@ -12,9 +12,9 @@
     </tr>
 
     <tr>
-      <td class="ud-margin">12</td>
-      <td class="ud-margin">1</td>
-      <td class="ud-margin">19</td>
+      <td class="ud-margin"><%=@myPurchases.count%></td>
+      <td class="ud-margin"><%=@myPurchases.where(:premium=>true).count%></td>
+      <td class="ud-margin"><%=@predictions.count%></td>
     </tr>
 
     </table>

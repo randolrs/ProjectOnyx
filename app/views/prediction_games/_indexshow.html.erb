@@ -10,7 +10,7 @@
         <table>
             <tr>
               <td> 
-                <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= @predictor.username %></b> &#183; <%= prediction.created_at.strftime("%b %e") %></a>
+                <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= @predictor.username %></b> &#183; <%= prediction.created_at.strftime("%b %e") %> <%if prediction.paid %>&#183; Premium<%end%></a>
               </td>
             </tr>
         </table>

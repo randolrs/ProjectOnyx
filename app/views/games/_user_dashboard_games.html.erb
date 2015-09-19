@@ -2,8 +2,27 @@
 
   <% if user_signed_in?%>
 
+  <% @games = Game.all.order("created_at DESC").limit(3) %>
+
   <h4>Top Games</h4>
 
+  <table class="user-dashboard-table">
+
+  <% @games.each do |game|%>
+  	<tr data-link="<%=gameshow_path(game.league, game.id)%>", class="table-cta-hover">
+  		<td>
+  			<%= image_tag Team.find_by_name(game.teama).image.url(:medium), class: "predictor-image-tiny"%><a class="index-float"><%= game.teama %></a>
+  		</td>
+
+  		<td>
+  			<%= image_tag Team.find_by_name(game.teamh).image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><%= game.teamh %></a>
+  		</td>
+
+  	</tr>
+
+  <%end%>
+
+	</table>
   
 
   <%end%>

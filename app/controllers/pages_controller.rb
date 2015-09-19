@@ -4,9 +4,9 @@ class PagesController < ApplicationController
 
       if user_signed_in?
 
-       @action = "recent"
+        @action = "recent"
 
-      @displaypredictor = true
+        @displaypredictor = true
 
       #need to add logic for sorted array that includes both premium and non premium predictions
 

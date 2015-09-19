@@ -718,6 +718,15 @@ td.add-card-header{
   position:relative;
 }
 
+.user-dashboard-table{
+  width:100%;
+}
+
+.table-cta-hover:hover{
+  cursor:pointer;
+  background-color: #eee;
+}
+
 @media only screen and (max-width: 1120px) {
     .user-dashboard-card{
         display:none;

@@ -47,7 +47,7 @@
 
   <% elsif @game.status == "o" %>  
  
-    <%if @prediction_game.visible(@usertype, @prediction_game.paid, @predictor.id, @access) %>
+    <%if @prediction_game.visible(@usertype, @access) %>
 
       <tr class="game-show-table-row home">
         <td class="game-row"><%=@game.teamh%><%= image_tag @teamh.image, class: "team-image-tiny"%></td>

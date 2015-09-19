@@ -5,18 +5,15 @@
   <% @predictor = Predictor.find(prediction.predictor_id) %>
     
     <div class ="prediction-game-index-show">
+      
+      <table>
+          <tr>
+            <td> 
+              <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= link_to @predictor.username, predictordashboard_path(@predictor.username) %></b> &#183; <%= prediction.created_at.strftime("%b %e") %> <%if prediction.paid %>&#183; <img src="https://s3.amazonaws.com/projectonyx/Premium-Star.png" height="16" width="16"></img> Premium<%end%></a>
 
-      <% if @displaypredictor %>
-        <table>
-            <tr>
-              <td> 
-                <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= @predictor.username %></b> &#183; <%= prediction.created_at.strftime("%b %e") %> <%if prediction.paid %>&#183; <img src="https://s3.amazonaws.com/projectonyx/Premium-Star.png" height="16" width="16"></img> Premium<%end%></a>
-
-              </td>
-            </tr>
-        </table>
-
-      <% end %>
+            </td>
+          </tr>
+      </table>
 
       <table class ="prediction-game-index-show-table">
 

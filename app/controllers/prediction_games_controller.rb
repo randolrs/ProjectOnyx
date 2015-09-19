@@ -311,6 +311,8 @@ class PredictionGamesController < ApplicationController
 
       if @prediction_game.event_time > Time.now and @game.status == "o" and not PredictionGame.where(:game_id => @game.id, :predictor_id => current_predictor.id).present?
 
+          @prediction_game.overunder = @prediction_game.teama_score + @prediction_game.teamh_score
+          
         if @prediction_game.teama_score > @prediction_game.teamh_score
           @prediction_game.game_winner = @prediction_game.teama
           @prediction_game.spread = @prediction_game.teama_score - @prediction_game.teamh_score

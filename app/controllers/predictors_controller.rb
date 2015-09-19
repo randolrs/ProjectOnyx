@@ -76,11 +76,19 @@ class PredictorsController < ApplicationController
   def predictordashboard
     @action = 'predictordashboard'
     @predictor = Predictor.find_by_username(params[:username])
-    @predictions = @predictor.prediction_games.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
-    @articles = @predictor.articles.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @displaypredictor = false
-    #@subscriber_count = @predictor.users.count
 
+      #need to add logic for sorted array that includes both premium and non premium predictions
+
+    @predictions = Array.new 
+
+    @predictor.prediction_games.each do |prediction_game|
+
+      hash = {:prediction=>prediction_game, :premium_access=> false}
+
+      @predictions << hash
+      
+    end
 
   end
 

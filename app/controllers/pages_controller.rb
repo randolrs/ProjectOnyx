@@ -25,22 +25,12 @@ class PagesController < ApplicationController
         hash = {:prediction=>prediction_game, :premium_access=> myPurchase.premium}
 
         @predictions << hash
-
-        #@predictions << prediction_game
-
-        #@predictor.prediction_games.each do |prediction_game|
-
-          #unless prediction_game.paid
-            #@predictions << prediction_game
-          #end
-
-        #end
             
-          end
         end
+      end
 
-      end
-      end
+    end
+  end
 
       if predictor_signed_in?
 

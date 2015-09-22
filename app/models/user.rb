@@ -34,13 +34,10 @@ class User < ActiveRecord::Base
 
                 predictions << hash
 
+              end
             end
           end
-
-          return predictions
-
-        else
-      end
+      return predictions
   end
 
   def my_purchases

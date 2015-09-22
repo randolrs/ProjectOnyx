@@ -1,41 +1,25 @@
 <%= render 'predictors/predictorcover' %>
-<%# render 'predictors/predictorcovernav' %>
 
-<!-- <div class="content-panel"> -->
+<div class ="user-dashboard-wrap">
+	<div class ="user-dashboard-container">
 
-<!-- 	<div class ="content-title-header">
-		<h3>Recent Posts</h3>
-		<h5><%# link_to "Full Archive »", predictorindexarticlessall_path %></h5>
-	</div>
+		<div class ="user-dashboard-predictions">
 
-	<div class="article-index-dashboard">
-		<%# render 'predictorarticlesummary'%>
+	    	<%= render 'prediction_games/indexshow'%>
+
+	    	<nav>
+				<div class="center">
+					<%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
+				</div>
+			</nav>
+
+		</div>
+
+	   <div class ="user-dashboard-card">
+	      <%= render 'predictors/recommendations' %>
+
+	  </div>
+
 	</div>
 	
-
-	<div class ="content-title-header">
-		<h3>Recent Predictions</h3>
-		<h5><%# link_to "Full Archive »", predictorindexpredictionsall_path %></h5>
-	</div> -->
-<div class ="user-dashboard-container">
-
-	<div class ="user-dashboard-predictions">
-
-    	<%= render 'prediction_games/indexshow'%>
-
-    	<nav>
-			<div class="center">
-				<%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
-			</div>
-		</nav>
-
-	</div>
-
-   <div class ="user-dashboard-card">
-      <%= render 'predictors/recommendations' %>
-
-  </div>
-
 </div>
-	
-<!-- </div> -->

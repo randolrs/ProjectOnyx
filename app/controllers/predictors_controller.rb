@@ -84,7 +84,7 @@ class PredictorsController < ApplicationController
 
     @predictor.prediction_games.each do |prediction_game|
 
-      hash = {:prediction=>prediction_game, :premium_access=> false}
+      hash = {:prediction=>prediction_game, :predictor=>@predictor, :premium_access=> false}
 
       @predictions << hash
       

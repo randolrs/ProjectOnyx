@@ -1,29 +1,32 @@
-<div class ="user-dashboard-container">
+<div class ="user-dashboard-wrap">
 
-	<%# render 'devise/user_subscription_nav'%>
+	<div class ="user-dashboard-container">
 
-	<div class="user-dashboard-left">
+		<%# render 'devise/user_subscription_nav'%>
 
-		<%= render 'devise/user_dashboard_header'%>
+		<div class="user-dashboard-left">
 
-		<%= render 'games/user_dashboard_games'%>
+			<%= render 'devise/user_dashboard_header'%>
+
+			<%= render 'games/user_dashboard_games'%>
+
+		</div>
+
+		<div class ="user-dashboard-predictions">
+			
+			<%= render 'pages/user_dashboard_prediction_nav' %>
+
+			<%= render 'prediction_games/indexshow' %>
+
+			<%# render 'prediction_games/index'%>
+
+		</div>
+
+		<div class ="user-dashboard-card">
+
+			<%= render 'predictors/recommendations' %>
+
+		</div>
 
 	</div>
-
-	<div class ="user-dashboard-predictions">
-		
-		<%= render 'pages/user_dashboard_prediction_nav' %>
-
-		<%= render 'prediction_games/indexshow' %>
-
-		<%# render 'prediction_games/index'%>
-
-	</div>
-
-	<div class ="user-dashboard-card">
-
-		<%= render 'predictors/recommendations' %>
-
-	</div>
-
 </div>

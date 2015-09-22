@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
               predictor.prediction_games.each do |prediction_game|
 
-                hash = {:prediction=>prediction_game, :premium_access=> myPurchase.premium}
+                hash = {:prediction=>prediction_game, :predictor=> predictor, :premium_access=> myPurchase.premium}
 
                 predictions << hash
 

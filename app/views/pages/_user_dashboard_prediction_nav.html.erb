@@ -1,10 +1,30 @@
 <div class = "user-dashboard-prediction-nav">
 
 	<ul class="dashboard-prediction-nav">
-		<li>Recent</li>
-		<li>Active</li>
-		<li>Closed</li>
-		<li>Top</li>
+		<%if @action == "recent"%>
+			<li class="active">Recent</li>
+		<%else%>
+			<li>Recent</li>
+		<%end%>
+
+		<%if @action == "upcoming"%>
+			<li class="active">Upcoming</li>
+		<%else%>
+			<li>Upcoming</li>
+		<%end%>
+
+		<%if @action == "closed"%>
+			<li class="active">Closed</li>
+		<%else%>
+			<li>Closed</li>
+		<%end%>
+
+		<%if @action == "top"%>
+			<li class="active">Top</li>
+		<%else%>
+			<li>Top</li>
+		<%end%>
+
 	</ul>
 
 

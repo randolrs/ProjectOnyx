@@ -579,14 +579,18 @@ p.terms-of-service{
   display: inline;
   padding:10px;
   border-bottom: 2px solid transparent;
+  font-weight: bold;
+  color:#333;
+}
+
+.dashboard-prediction-nav li.active{
+  border-bottom: 2px solid orange;
 }
 
 .dashboard-prediction-nav li:hover{
-  border-bottom:2px solid #333;
+  border-bottom:2px solid orange;
   cursor:pointer;
-
 }
-
 
 .user-dashboard-recommendations{
   padding:10px;

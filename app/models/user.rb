@@ -18,26 +18,27 @@ class User < ActiveRecord::Base
 
   def my_prediction_games 
 
-      myPurchases = Purchase.all.where(:user_id => self.id)
+    myPurchases = Purchase.all.where(:user_id => self.id)
 
-          predictions = Array.new 
+    predictions = Array.new 
 
-          unless myPurchases.count == 0
+    unless myPurchases.count == 0
 
-            myPurchases.each do |myPurchase|
+      myPurchases.each do |myPurchase|
 
-              predictor = Predictor.find(myPurchase.predictor_id)
+        predictor = Predictor.find(myPurchase.predictor_id)
 
-              predictor.prediction_games.each do |prediction_game|
+        predictor.prediction_games.each do |prediction_game|
 
-                hash = {:prediction=>prediction_game, :predictor=> predictor, :premium_access=> myPurchase.premium}
+          hash = {:prediction=>prediction_game, :predictor=> predictor, :premium_access=> myPurchase.premium}
 
-                predictions << hash
+          predictions << hash
 
-              end
-            end
-          end
-      return predictions
+        end
+      end
+    end
+    
+    return predictions.sort_by {|k| k[:prediction].created_at}.reverse
   end
 
   def my_purchases

@@ -1,17 +1,35 @@
 class PagesController < ApplicationController
+  
   def home
-  		@action = 'home'
+  		
+      @action = 'home'
 
       if user_signed_in?
 
-        @action = "recent"
-
         @displaypredictor = true
 
-      #need to add logic for sorted array that includes both premium and non premium predictions
         @myPurchases = current_user.my_purchases
 
         @predictions = current_user.my_prediction_games
+
+        if params[:sort_by]
+
+          if params[:sort_by] == "upcoming"
+
+            @predictions = @predictions.sort_by {|k| k[:prediction].event_time}
+
+            @action = "upcoming"
+
+          elsif params[:sort_by] == "top"
+
+
+          end
+
+        else
+
+          @action = "recent"
+
+        end
 
       elsif predictor_signed_in?
 

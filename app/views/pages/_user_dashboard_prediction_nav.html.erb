@@ -2,15 +2,15 @@
 
 	<ul class="dashboard-prediction-nav">
 		<%if @action == "recent"%>
-			<li class="active">Recent</li>
+			<li class="active"><%= link_to "Recent", root_path %></li>
 		<%else%>
-			<li>Recent</li>
+			<li><%= link_to "Recent", root_path %></li>
 		<%end%>
 
 		<%if @action == "upcoming"%>
-			<li class="active">Upcoming</li>
+			<li class="active"><%= link_to "Upcoming", root_path(:sort_by=>"upcoming") %></li>
 		<%else%>
-			<li>Upcoming</li>
+			<li><%= link_to "Upcoming", root_path(:sort_by=>"upcoming") %></li>
 		<%end%>
 
 		<%if @action == "closed"%>
@@ -26,6 +26,5 @@
 		<%end%>
 
 	</ul>
-
 
 </div>

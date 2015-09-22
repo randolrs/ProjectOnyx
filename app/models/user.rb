@@ -15,6 +15,46 @@ class User < ActiveRecord::Base
 
   has_many :purchases
 
+
+  def my_prediction_games 
+
+      myPurchases = Purchase.all.where(:user_id => self.id)
+
+          predictions = Array.new 
+
+          unless myPurchases.count == 0
+
+            myPurchases.each do |myPurchase|
+
+              predictor = Predictor.find(myPurchase.predictor_id)
+
+              predictor.prediction_games.each do |prediction_game|
+
+                hash = {:prediction=>prediction_game, :premium_access=> myPurchase.premium}
+
+                predictions << hash
+
+            end
+          end
+
+          return predictions
+
+        else
+      end
+  end
+
+  def my_purchases
+
+    Purchase.all.where(:user_id => self.id)
+
+  end 
+
+  def my_sidebar_games 
+    
+    Game.all.where("event_time > :today", {today: Time.now}).order("created_at DESC").limit(3)
+          
+  end
+
   def subscribed(predictor_id)
 
     if Purchase.exists?(:user_id=> self.id,:predictor_id=>predictor_id, :premium=>true)

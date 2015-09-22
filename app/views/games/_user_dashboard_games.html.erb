@@ -2,7 +2,7 @@
 
   <% if user_signed_in?%>
 
-  <% @games = Game.all.order("created_at DESC").limit(3) %>
+  <% @games = current_user.my_sidebar_games %>
 
   <h4>Top Games</h4>
 

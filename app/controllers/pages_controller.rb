@@ -9,30 +9,11 @@ class PagesController < ApplicationController
         @displaypredictor = true
 
       #need to add logic for sorted array that includes both premium and non premium predictions
+        @myPurchases = current_user.my_purchases
 
-      @myPurchases = Purchase.all.where(:user_id => current_user.id)
+        @predictions = current_user.my_prediction_games
 
-      @predictions = Array.new 
-
-      unless @myPurchases.count == 0
-
-        @myPurchases.each do |myPurchase|
-
-        @predictor = Predictor.find(myPurchase.predictor_id)
-
-        @predictor.prediction_games.each do |prediction_game|
-
-        hash = {:prediction=>prediction_game, :premium_access=> myPurchase.premium}
-
-        @predictions << hash
-            
-        end
-      end
-
-    end
-  end
-
-      if predictor_signed_in?
+      elsif predictor_signed_in?
 
         @action = 'predictordashboard'
         @predictor = current_predictor
@@ -43,7 +24,7 @@ class PagesController < ApplicationController
 
       end
 
-    end
+  end
 
   def about
   end

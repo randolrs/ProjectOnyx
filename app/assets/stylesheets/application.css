@@ -561,6 +561,32 @@ p.terms-of-service{
   margin-bottom: 15px;
 }
 
+
+.user-dashboard-prediction-nav{
+    padding: 10px;
+    background-color: #fff;
+    width: 530px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-prediction-nav{
+  margin:0px;
+}
+
+.dashboard-prediction-nav li{
+  display: inline;
+  padding:10px;
+  border-bottom: 2px solid transparent;
+}
+
+.dashboard-prediction-nav li:hover{
+  border-bottom:2px solid #333;
+  cursor:pointer;
+
+}
+
+
 .user-dashboard-recommendations{
   padding:10px;
   background-color: white;

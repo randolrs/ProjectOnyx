@@ -577,7 +577,7 @@ p.terms-of-service{
 
 .dashboard-prediction-nav li{
   display: inline;
-  padding:10px;
+  padding:10px 0px;
   border-bottom: 2px solid transparent;
   font-weight: bold;
   color:#333;
@@ -765,6 +765,18 @@ td.add-card-header{
 .table-cta-hover:hover{
   cursor:pointer;
   background-color: #eee;
+}
+
+.footer-float{
+  margin-bottom: 15px;
+  padding:10px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  color:#999;
+}
+
+.footer-float a{
+  color:#999;
 }
 
 @media only screen and (max-width: 1120px) {

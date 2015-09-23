@@ -13,16 +13,10 @@
 			<li><%= link_to "Upcoming", root_path(:sort_by=>"upcoming") %></li>
 		<%end%>
 
-		<%if @action == "closed"%>
-			<li class="active">Closed</li>
-		<%else%>
-			<li>Closed</li>
-		<%end%>
-
 		<%if @action == "top"%>
-			<li class="active">Top</li>
+			<li class="active"><%= link_to "Top", root_path(:sort_by=>"top") %></li>
 		<%else%>
-			<li>Top</li>
+			<li><%= link_to "Top", root_path(:sort_by=>"top") %></li>
 		<%end%>
 
 	</ul>

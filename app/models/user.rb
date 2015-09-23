@@ -41,6 +41,74 @@ class User < ActiveRecord::Base
     return predictions.sort_by {|k| k[:prediction].created_at}.reverse
   end
 
+  def my_prediction_games_recent
+
+  end
+
+  def my_prediction_games_upcoming
+
+    myPurchases = Purchase.all.where(:user_id => self.id)
+
+    predictions = Array.new 
+
+    unless myPurchases.count == 0
+
+      myPurchases.each do |myPurchase|
+
+        predictor = Predictor.find(myPurchase.predictor_id)
+
+        predictor.prediction_games.each do |prediction_game|
+
+          if prediction_game.event_time > Time.now
+
+          hash = {:prediction=>prediction_game, :predictor=> predictor, :premium_access=> myPurchase.premium}
+
+          predictions << hash
+
+          end
+
+        end
+      end
+    end
+    
+    return predictions.sort_by {|k| k[:prediction].event_time}
+
+  end
+
+  def my_prediction_games_closed
+
+    myPurchases = Purchase.all.where(:user_id => self.id)
+
+    predictions = Array.new 
+
+    unless myPurchases.count == 0
+
+      myPurchases.each do |myPurchase|
+
+        predictor = Predictor.find(myPurchase.predictor_id)
+
+        predictor.prediction_games.each do |prediction_game|
+
+          if prediction_game.status == "c"
+
+          hash = {:prediction=>prediction_game, :predictor=> predictor, :premium_access=> myPurchase.premium}
+
+          predictions << hash
+
+          end
+
+        end
+      end
+    end
+    
+    return predictions.sort_by {|k| k[:prediction].event_time}
+
+  end
+
+  def my_prediction_games_top
+
+  end
+
   def my_purchases
 
     Purchase.all.where(:user_id => self.id)

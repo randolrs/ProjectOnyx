@@ -16,13 +16,18 @@ class PagesController < ApplicationController
 
           if params[:sort_by] == "upcoming"
 
-            @predictions = @predictions.sort_by {|k| k[:prediction].event_time}
-
             @action = "upcoming"
+            @predictions = current_user.my_prediction_games_upcoming
 
           elsif params[:sort_by] == "top"
 
+            @action = "top"
+            @predictions = current_user.my_prediction_games_closed.sort_by {|k| k[:prediction].onyx}
 
+          elsif params[:sort_by] == "closed"
+
+            @action = "closed"
+            @predictions = current_user.my_prediction_games_closed
           end
 
         else

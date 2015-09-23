@@ -592,6 +592,16 @@ p.terms-of-service{
   cursor:pointer;
 }
 
+.dashboard-prediction-nav a{
+  padding:10px;
+}
+
+.dashboard-prediction-nav a:hover{
+  border-bottom:2px solid orange;
+  cursor:pointer;
+  text-decoration: none;
+}
+
 .user-dashboard-recommendations{
   padding:10px;
   background-color: white;

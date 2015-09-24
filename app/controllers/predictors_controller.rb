@@ -132,6 +132,18 @@ class PredictorsController < ApplicationController
         @action = "closed"
         @predictions = @predictor.my_prediction_games_closed(@premium_access)
 
+      else
+
+        @action = "recent"
+
+        @predictor.prediction_games.each do |prediction_game|
+
+          hash = {:prediction=>prediction_game, :predictor=>@predictor, :premium_access=> @premium_access}
+
+          @predictions << hash
+
+        end
+
       end
 
     else

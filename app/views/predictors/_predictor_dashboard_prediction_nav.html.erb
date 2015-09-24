@@ -1,0 +1,25 @@
+<div class = "user-dashboard-prediction-nav">
+
+	<ul class="dashboard-prediction-nav">
+		
+		<%unless @action == "upcoming" or @action=="top" %>
+			<li class="active"><%= link_to "Recent", predictordashboard_path(@predictor.username) %></li>
+		<%else%>
+			<li><%= link_to "Recent", predictordashboard_path(@predictor.username) %></li>
+		<%end%>
+
+		<%if @action == "upcoming"%>
+			<li class="active"><%= link_to "Upcoming", predictordashboard_path(@predictor.username, :sort_by=>"upcoming") %></li>
+		<%else%>
+			<li><%= link_to "Upcoming", predictordashboard_path(@predictor.username, :sort_by=>"upcoming") %></li>
+		<%end%>
+
+		<%if @action == "top"%>
+			<li class="active"><%= link_to "Top", predictordashboard_path(@predictor.username, :sort_by=>"top") %></li>
+		<%else%>
+			<li><%= link_to "Top", predictordashboard_path(@predictor.username, :sort_by=>"top") %></li>
+		<%end%>
+
+	</ul>
+
+</div>

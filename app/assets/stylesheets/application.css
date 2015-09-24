@@ -771,8 +771,8 @@ td.add-card-header{
   margin-bottom: 15px;
   padding:10px;
   background-color: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   color:#999;
+  font-size: 12px;
 }
 
 .footer-float a{

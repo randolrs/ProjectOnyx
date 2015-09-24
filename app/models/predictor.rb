@@ -34,7 +34,54 @@ class Predictor < ActiveRecord::Base
 
     @balance = (balance_object.available[0].amount + balance_object.pending[0].amount)/100
     return @balance
+  end
 
+
+  
+
+  def my_prediction_games_upcoming(premium_access)
+
+    predictor = self
+
+    predictions = Array.new 
+
+    predictor = self
+
+    predictor.prediction_games.each do |prediction_game|
+
+      if prediction_game.event_time > Time.now
+
+        hash = {:prediction=>prediction_game, :predictor=> predictor, :premium_access=> premium_access}
+
+        predictions << hash
+
+      end
+
+    end
+    
+    return predictions.sort_by {|k| k[:prediction].event_time}
+
+  end
+
+  def my_prediction_games_closed(premium_access)
+
+    predictor = self
+
+    predictions = Array.new 
+
+    predictor.prediction_games.each do |prediction_game|
+
+      if prediction_game.status == "c"
+
+        hash = {:prediction=>prediction_game, :predictor=> predictor, :premium_access=> premium_access}
+
+        predictions << hash
+
+      end
+
+    end
+    
+    return predictions.sort_by {|k| k[:prediction].event_time}
 
   end
 

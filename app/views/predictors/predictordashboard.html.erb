@@ -3,7 +3,17 @@
 <div class ="user-dashboard-wrap">
 	<div class ="user-dashboard-container">
 
+		<div class="user-dashboard-left">
+
+			<%= render 'prediction_games/predictor_top_prediction_games'%>
+
+			<%= render 'layouts/footer_float'%>
+
+		</div>
+
 		<div class ="user-dashboard-predictions">
+
+			<%= render 'predictors/predictor_dashboard_prediction_nav' %>
 
 	    	<%= render 'prediction_games/indexshow'%>
 

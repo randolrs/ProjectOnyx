@@ -1,0 +1,32 @@
+<div class="predictor-top-prediction-games">
+
+  <% if user_signed_in?%>
+
+    <h4>Top Predictions</h4>
+
+    <table class="user-dashboard-table">
+
+      <% @top_predictions.each do |top_prediction|%>
+      	
+        <tr data-link="<%=predictiongamesshow_path(@predictor.username, top_prediction.id)%>", class="table-cta-hover">
+          <td>
+            <%= image_tag Team.find_by_name(top_prediction.teama).image.url(:medium), class: "predictor-image-tiny"%><a class="index-float"><%= top_prediction.teama %></a>
+          </td>
+
+          <td>
+            <%= image_tag Team.find_by_name(top_prediction.teamh).image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><%= top_prediction.teamh %></a>
+          </td>
+
+          <td>
+            <%= top_prediction.onyx %>
+          </td>
+
+        </tr>
+
+      <%end%>
+
+  	</table>
+  
+  <%end%>
+
+</div>

@@ -1,7 +1,8 @@
 <div class = "user-dashboard-prediction-nav">
 
 	<ul class="dashboard-prediction-nav">
-		<%if @action == "recent"%>
+		
+		<%unless @action == "upcoming" or @action=="top" %>
 			<li class="active"><%= link_to "Recent", root_path %></li>
 		<%else%>
 			<li><%= link_to "Recent", root_path %></li>

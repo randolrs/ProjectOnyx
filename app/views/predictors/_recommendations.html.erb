@@ -1,6 +1,6 @@
 <%if user_signed_in? %>
 
-	<% @predictors = Predictor.all.order("created_at DESC").limit(3) %>
+	<% @predictors_recommend = Predictor.all.order("created_at DESC").limit(3) %>
 
 	<div class="user-dashboard-recommendations">
 
@@ -8,7 +8,7 @@
 
 		 <table class="user-dashboard-table">
 
-		  <% @predictors.each do |predictor|%>
+		  <% @predictors_recommend.each do |predictor|%>
 		  	<tr data-link="<%=predictordashboard_path(predictor.username)%>", class="table-cta-hover">
 		  		<td>
 		  			<%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><b><%= predictor.username %></b></a>

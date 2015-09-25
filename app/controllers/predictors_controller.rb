@@ -245,38 +245,11 @@ class PredictorsController < ApplicationController
 
         hash = {:username=>@predictor.username, :image => @predictor.image, :bio => @predictor.bio, :prediction_count => @predictor.prediction_games.where(:status=>"o").all.count, :premium => myPurchase.premium}
 
-        # if myPurchase.premium == true
-
-        #     @predictors << @predictor
-
-        # else
-
-        #     @predictors << @predictor
-
-        # end
-
-        @predictors << hash          
+        @predictors << hash  
+                
       end
         
     end
-
-    #@predictors = current_user.predictors
-
-      # @myPurchases = Purchase.all.where(:user_id => current_user.id)
-
-      # @predictors = Array.new 
-
-      # unless @myPurchases.count == 0
-
-      #   @myPurchases.each do |myPurchase|
-
-      #     @predictor = Predictor.find(myPurchase.predictor_id)
-
-      #         @predictors << @predictor
-
-      #   end
-
-      # end
 
   end
 

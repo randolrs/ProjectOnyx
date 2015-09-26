@@ -17,7 +17,7 @@
     </div>
 
     <div class="predictor-cover-details"> 
-      <a class="white-text"><%=@predictor.prediction_games.count%> PREDICTIONS / <%=@predictor.articles.count%> POSTS</a>
+      <a class="white-text"><%=@predictor.prediction_games.count%> PREDICTIONS</a>
       <br>
 
       <%if predictor_signed_in? and current_predictor.id == :id%>

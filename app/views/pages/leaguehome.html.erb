@@ -1,58 +1,52 @@
-<%# render 'pages/league_home_header' %>
+<div class ="find-experts-header">
 
-<%#render 'sports/header_banner_image' %>
-
-<!-- <div class = "content-container"> -->
-
-<!-- 	<div class="content-panel">
-
-		<div class ="content-title-header">
-			<h3>Upcoming <%= @league%> Games</h3>
-			<h5><%# link_to "Full Archive »", leaguegameindex_path %></h5>
-		</div>
-		
-		<div class="article-index-dashboard">
-			<%# render 'games/gamesummarydashboard'%>
-		</div>
-
-
-		<div class ="content-title-header">
-			<h3>Recent <%= @league%> Predictions</h3>
-			<h5><%# link_to "Full Archive »", leaguepredictionindex_path %></h5>
-		</div>
-			<%# render 'prediction_games/index'%>
-		
-		
-	</div> -->
-	
-<!-- </div> -->
-
-<div class ="user-dashboard-container">
-
-	<%# render 'devise/user_subscription_nav'%>
-
-	<div class="user-dashboard-left">
-
-		<%= render 'pages/league_float_header'%>
-
-		<%= render 'games/user_dashboard_games'%>
-
-		<%= render 'layouts/footer_float'%>
-
-	</div>
-
-	<div class ="user-dashboard-predictions">
-
-		<%= render 'pages/user_dashboard_prediction_nav' %>
-
-		<%# render 'prediction_games/indexshow' %>
-
-	</div>
-
-	<div class ="user-dashboard-card">
-
-		<%= render 'predictors/top_predictors' %>
-
-	</div>
+	<h1>Find Experts</h1>
 
 </div>
+
+<div class="find-experts-footer">
+
+	<div class="find-experts-footer-container">
+
+		<ul>
+
+			<li class=" find-experts-li">
+				<%= link_to "NBA", leaguehome_path("NBA") %>
+			</li>
+
+			<li class=" find-experts-li">
+				<%= link_to "NFL", leaguehome_path("NFL") %>
+			</li>
+
+			<li class=" find-experts-li">
+				<%= link_to "MLB", leaguehome_path("MLB") %>
+			</li>
+
+			<li class=" find-experts-li">
+				<%= link_to "NHL", leaguehome_path("NHL") %>
+			</li>
+	        <!-- <li class=" find-experts-li dropdown">
+	        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sports<span class="caret white-caret" color="white"></span></a>
+				<ul class="dropdown-menu" role="menu">
+					<li><%# link_to "NBA", findexperts_path("NBA") %></li>
+					<li><%# link_to "NFL", findexperts_path("NFL") %></li>
+					<li><%# link_to "NHL", findexperts_path("MLB") %></li>
+					<li><%# link_to "MLB", findexperts_path("MLB") %></li>
+					<li role="presentation" class="divider"></li>
+					<li><%# link_to "More Leagues", home_path %></li>
+				</ul>
+			</li>
+
+	        <li class=" find-experts-li dropdown">
+	        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Finance<span class="caret white-caret" color="white"></span></a>
+				<ul class="dropdown-menu" role="menu">
+					<li><%# link_to "Stock Markets", root_path %></li>
+					<li><%# link_to "Commodities", root_path %></li>
+					<li><%# link_to "Currencies", root_path %></li>
+				</ul>
+			</li> -->
+	    </ul>
+	</div>
+</div>
+
+<%= render 'pages/league_home'%>

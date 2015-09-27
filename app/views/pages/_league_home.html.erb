@@ -1,0 +1,61 @@
+<%# render 'pages/league_home_header' %>
+
+<%#render 'sports/header_banner_image' %>
+
+<!-- <div class = "content-container"> -->
+
+<!-- 	<div class="content-panel">
+
+		<div class ="content-title-header">
+			<h3>Upcoming <%= @league%> Games</h3>
+			<h5><%# link_to "Full Archive »", leaguegameindex_path %></h5>
+		</div>
+		
+		<div class="article-index-dashboard">
+			<%# render 'games/gamesummarydashboard'%>
+		</div>
+
+
+		<div class ="content-title-header">
+			<h3>Recent <%= @league%> Predictions</h3>
+			<h5><%# link_to "Full Archive »", leaguepredictionindex_path %></h5>
+		</div>
+			<%# render 'prediction_games/index'%>
+		
+		
+	</div> -->
+	
+<!-- </div> -->
+
+<div class="user-dashboard-wrap">
+
+	<div class ="user-dashboard-container">
+
+		<%# render 'devise/user_subscription_nav'%>
+
+		<div class="user-dashboard-left">
+
+			<%= render 'pages/league_float_header'%>
+
+			<%= render 'games/user_dashboard_games'%>
+
+			<%= render 'layouts/footer_float'%>
+
+		</div>
+
+		<div class ="user-dashboard-predictions">
+
+			<%= render 'pages/user_dashboard_prediction_nav' %>
+
+			<%# render 'prediction_games/indexshow' %>
+
+		</div>
+
+		<div class ="user-dashboard-card">
+
+			<%= render 'predictors/top_predictors' %>
+
+		</div>
+
+	</div>
+</div>

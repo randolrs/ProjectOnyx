@@ -154,27 +154,16 @@ class PagesController < ApplicationController
 
     @predictorsAll = Predictor.all.order("created_at DESC").limit(10)
 
-    @predictors = Array.new 
+    @predictors = Array.new  
 
-      @predictorsAll.each do |predictor|
-
-        #Need to add hash logic for premium verus non-premium
-
-        hash = {:username=>predictor.username, :image => predictor.image, :prediction_count => predictor.prediction_games.where(:status=>"o").all.count}
-
-        # if myPurchase.premium == true
-
-        #     @predictors << @predictor
-
-        # else
-
-        #     @predictors << @predictor
-
-        # end
-
-        @predictors << hash  
-
-      end        
+    @league = params[:league]
+    @sport = Sport.find_by_subcat(@league)
+    @predictions = PredictionGame.all.where(:league=>@league).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @articles = Article.all.order("created_at DESC").limit(4)
+    @teams = Team.all.where(:league=>@league)
+    @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
+    @displaypredictor = true
+    @action = "league-home"    
 
   end
 

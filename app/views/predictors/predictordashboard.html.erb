@@ -1,32 +1,36 @@
 <%= render 'predictors/predictorcover' %>
 
-<div class ="user-dashboard-container">
+<div class="user-dashboard-wrap">
 
-	<div class="user-dashboard-left">
+	<div class ="user-dashboard-container">
 
-		<%= render 'prediction_games/predictor_top_prediction_games'%>
+		<div class="user-dashboard-left">
 
-		<%= render 'layouts/footer_float'%>
+			<%= render 'prediction_games/predictor_top_prediction_games'%>
 
-	</div>
+			<%= render 'layouts/footer_float'%>
 
-	<div class ="user-dashboard-predictions">
+		</div>
 
-		<%= render 'predictors/predictor_dashboard_prediction_nav' %>
+		<div class ="user-dashboard-predictions">
 
-    	<%= render 'prediction_games/indexshow'%>
+			<%= render 'predictors/predictor_dashboard_prediction_nav' %>
 
-    	<nav>
-			<div class="center">
-				<%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
-			</div>
-		</nav>
+	    	<%= render 'prediction_games/indexshow'%>
 
-	</div>
+	    	<nav>
+				<div class="center">
+					<%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
+				</div>
+			</nav>
 
-   <div class ="user-dashboard-card">
-      <%= render 'prediction_games/predictor_rating_distribution' %>
+		</div>
 
-  </div>
+	   	<div class ="user-dashboard-card">
+	      <%= render 'prediction_games/predictor_rating_distribution' %>
+
+	  	</div>
+
+	  </div>
 
 </div>

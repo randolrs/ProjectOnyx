@@ -533,6 +533,15 @@ p.terms-of-service{
   background: linear-gradient(#3E4EC9,#303C9C);
 }
 
+.user-dashboard-wrap{
+  
+  float: right;
+
+  position: relative;
+  left: -50%; /* or right 50% */
+  text-align: left;
+}
+
 .user-dashboard-container{
   
   //max-width:1300px;
@@ -540,6 +549,9 @@ p.terms-of-service{
   float:left;
   display:block;
   min-width: 955px;
+
+  position: relative;
+  left: 50%;
 }
 
 .user-dashboard-container h1{

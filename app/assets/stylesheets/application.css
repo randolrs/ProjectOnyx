@@ -39,7 +39,9 @@ html, body {
     margin-left:0px;
     margin-right: 0px;
     padding: 0px;
-    margin-bottom: 50px;
+    
+    min-width: 970px;
+
  }
 
 
@@ -209,7 +211,7 @@ select#team_filter_team{
 .predictor-cover-container{
   margin-left: auto;
   margin-right: auto;
-  width:900px;
+  width:970px;
   overflow: hidden;
 }
 

@@ -10,7 +10,7 @@
   top:0px;
   width:100%;
   z-index:9000;
-  background: white;
+  background: #333;
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
     -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
     box-shadow: 0 1px 1px rgba(0,0,0,0.2);
@@ -50,7 +50,7 @@
   }
 
   .header-inside-left a:visited{
-    color:#666;
+    color:#eee;
     text-decoration:none;
   }
 
@@ -60,7 +60,7 @@
   left: 50%;
   display:table;
   line-height: 40px;
-  color:#666;
+  color:#eee;
 
   }
 
@@ -76,7 +76,7 @@
 .header-inside-right a{
 	padding: 8px 10px;
 	font-size: 16px;
-	color:#666;
+	color:#eee;
 	position:relative;
 	text-decoration:none;
 	

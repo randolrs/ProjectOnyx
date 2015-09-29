@@ -806,23 +806,10 @@ td.add-card-header{
 
 }
 
-@media only screen and (max-device-width: 1280px)  {
-  .user-dashboard-card{
-      display:none;
-    }
-
-}
 
 @media only screen and (max-width: 1230px) {
 
     .user-dashboard-predictors{
-        max-width:550px;
-    }
-}
-
-@media only screen and (max-device-width: 1230px)  {
-
-  .user-dashboard-predictors{
         max-width:550px;
     }
 }

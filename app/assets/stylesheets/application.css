@@ -308,11 +308,10 @@ select#team_filter_team{
 }
 
 .content-league-header{
-  width:900px;
+  width:90%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  
 }
 
 .content-header-sub{

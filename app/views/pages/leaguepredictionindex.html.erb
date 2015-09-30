@@ -1,16 +1,32 @@
-<%#render 'sports/header_banner_image' %>
-
 <%= render 'pages/league_home_header' %>
 
-<div class="content-panel">
+<div class="user-dashboard-wrap">
 
-	<div class ="content-title-header">
-		<h3>All <%=@league%> Picks</h3>
-		<h5><%= link_to @league + " Home »", leaguehome_path(@league) %></h5>
+	<div class ="user-dashboard-container">
+
+		<%# render 'devise/user_subscription_nav'%>
+
+		<div class="user-dashboard-left">
+
+			<%= render 'games/user_dashboard_games'%>
+
+			<%= render 'layouts/footer_float'%>
+
+		</div>
+
+		<div class ="user-dashboard-predictions">
+
+			<%= render 'prediction_games/find_experts_nav' %>
+
+			<%= render 'prediction_games/indexshow' %>
+
+		</div>
+
+		<div class ="user-dashboard-card">
+
+			<%= render 'predictors/top_predictors' %>
+
+		</div>
+
 	</div>
-	
-	<%= render 'prediction_games/index' %>
-
-	<%= will_paginate @predictions %>
-	
 </div>

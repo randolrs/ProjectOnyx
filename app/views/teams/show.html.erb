@@ -1,27 +1,32 @@
 <%= render 'pages/league_home_header' %>
 
-<div class="content-panel">
+<div class="user-dashboard-wrap">
 
-  <%= image_tag @team.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small" %>  <h3 class="team-show-header"><%= @team.name %></h3>
+  <div class ="user-dashboard-container">
 
-  <div class ="content-title-header">
-    <h3>Upcoming <%= @team.name %> Games</h3>
-    <h5><%= link_to "All Games »", teamgameindex_path(@team.league,@team.id) %></h5>
+    <%# render 'devise/user_subscription_nav'%>
+
+    <div class="user-dashboard-left">
+
+      <%= render 'games/user_dashboard_games'%>
+
+      <%= render 'layouts/footer_float'%>
+
+    </div>
+
+    <div class ="user-dashboard-predictions">
+
+      <%= render 'prediction_games/find_experts_nav' %>
+
+      <%# render 'prediction_games/indexshow' %>
+
+    </div>
+
+    <div class ="user-dashboard-card">
+
+      <%= render 'predictors/top_predictors' %>
+
+    </div>
+
   </div>
-  <div class="article-index-dashboard">
-    <%= render 'teams/gamesummarydashboard'%>
-  </div>
-
-  <div class="content-title-header">
-    <h3>Popular <%= @team.name %> Posts</h3>
-    <h5><%= link_to "All Posts »", teamindexarticlesall_path(@team.league,@team.id) %></h5>  
-  </div>
-    <%=render 'predictors/predictorarticlesummary'%>
-
-  <div class ="content-title-header">
-    <h3>Recent <%= @team.name %> Picks</h3>
-    <h5><%= link_to "Full Archive »", teamindexpredictionsall_path(@team.league,@team.id) %></h5>
-  </div>
-    <%= render 'prediction_games/index'%>
-
 </div>

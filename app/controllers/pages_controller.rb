@@ -110,11 +110,17 @@ class PagesController < ApplicationController
   def leaguepredictionindex
     @league = params[:league]
     @sport = Sport.find_by_subcat(@league)
-    @predictions = PredictionGame.all.where(:league=>@league).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+    
+    if user_signed_in?
+      @predictions = current_user.my_prediction_games
+    end
+
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
     @displaypredictor = true
     @action = "predictions"
+
+
 
   end
 

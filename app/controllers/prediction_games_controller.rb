@@ -50,7 +50,8 @@ class PredictionGamesController < ApplicationController
 
       end
 
-      #@predictions.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+      elsif admin_signed_in?
+        @prediction_games = PredictionGame.all
 
     end
 

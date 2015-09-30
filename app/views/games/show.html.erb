@@ -8,6 +8,8 @@
 
 		<div class="user-dashboard-left">
 
+			<%= render 'games/game_float_header'%>
+
 			<%= render 'games/user_dashboard_games'%>
 
 			<%= render 'layouts/footer_float'%>
@@ -16,7 +18,9 @@
 
 		<div class ="user-dashboard-predictions">
 
-			<%= render 'prediction_games/find_experts_nav' %>
+			<%= render 'games/game_show_center_nav' %>
+
+			<%= render 'prediction_games/indexshow' %>
 
 			<%# render 'prediction_games/indexshow' %>
 

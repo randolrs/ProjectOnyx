@@ -1,0 +1,20 @@
+<div class = "user-dashboard-prediction-nav">
+
+	<ul class="dashboard-prediction-nav">
+		
+		<%unless @action == "upcoming" or @action=="top" %>
+			<li class="active"><%= link_to "Recent", leaguehome_path(@league) %></li>
+		<%else%>
+			<li><%= link_to "Recent", root_path %></li>
+		<%end%>
+
+
+		<%if @action == "top"%>
+			<li class="active"><%= link_to "Top", root_path(:sort_by=>"top") %></li>
+		<%else%>
+			<li><%= link_to "Top", leaguehome_path(@league, :sort_by=>"top") %></li>
+		<%end%>
+
+	</ul>
+
+</div>

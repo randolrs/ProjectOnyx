@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
       @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
       @displaypredictor = true
       @action = "teams"
-      @predictions = @team.my_prediction_games
+      @predictions = @team.recent_prediction_games
   end
 
   def teamgameindex

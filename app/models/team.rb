@@ -9,7 +9,7 @@ class Team < ActiveRecord::Base
 	validates :league, presence: true
 	validates :image, presence: true
 
-	def my_prediction_games 
+	def recent_prediction_games 
 
     predictions = Array.new 
 

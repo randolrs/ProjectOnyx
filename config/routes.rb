@@ -78,13 +78,13 @@ Rails.application.routes.draw do
   
   get '/events/sports/:league' => 'games#findgames', as: 'find_prediction_games'
 
-  get '/:league/games/:id' => 'games#show', as: 'gameshow'
+  get 'sports/leagues/:league/games/:id' => 'games#show', as: 'gameshow'
 
-  get '/:league/games/:id/picks' => 'pages#gamepredictionindex', as: 'gamepredictionindex'
+  get 'sports/leagues/:league/games/:id/predictions' => 'pages#gamepredictionindex', as: 'gamepredictionindex'
 
   get '/:league/games/:id/posts' => 'pages#gamearticleindex', as: 'gamearticleindex'
 
-  get '/:league/teams/:id' => 'teams#show', as: 'teamshow'
+  get 'sports/leagues/:league/teams/:id' => 'teams#show', as: 'teamshow'
 
   get '/:league/teams/:id/games' => 'teams#teamgameindex', as: 'teamgameindex'
 
@@ -122,13 +122,13 @@ Rails.application.routes.draw do
 
   get '/:username/subscribers' => 'predictors#subscriberindex', as: 'predictorsubscriberindex'
 
-  get '/:league/teams/:id/picks' => 'teams#predictionindex', as: 'teamindexpredictionsall'
+  get '/:league/teams/:id/predictions' => 'teams#predictionindex', as: 'teamindexpredictionsall'
 
   get '/:league/teams/:id/posts' => 'teams#articleindex', as: 'teamindexarticlesall'
 
   get ':league/posts/all/index' => 'pages#leaguearticleindex', as: 'leaguearticleindex'
 
-  get ':league/picks' => 'pages#leaguepredictionindex', as: 'leaguepredictionindex'
+  get 'sports/leagues/:league/predictions' => 'pages#leaguepredictionindex', as: 'leaguepredictionindex'
 
   get ':league/games' => 'pages#leaguegameindex', as: 'leaguegameindex'
 

@@ -20,6 +20,7 @@ class GamesController < ApplicationController
     @displaypredictor = true
     @action = "games"
     @matchup_hide = true
+    @predictions = @game.recent_prediction_games
 
   end
 

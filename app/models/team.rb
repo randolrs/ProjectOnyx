@@ -9,4 +9,25 @@ class Team < ActiveRecord::Base
 	validates :league, presence: true
 	validates :image, presence: true
 
+	def my_prediction_games 
+
+    predictions = Array.new 
+
+    team = Team.find(self.id)
+
+    prediction_games = PredictionGame.all.where("teama = :team or teamh = :team", {team: team.name})
+
+    prediction_games.each do |prediction|
+
+    	predictor = Predictor.find(prediction.predictor_id)
+
+        hash = {:prediction=>prediction, :predictor=> predictor, :premium_access=> false}
+
+        predictions << hash
+      
+    end
+    
+    return predictions.sort_by {|k| k[:prediction].created_at}.reverse
+  end
+
 end

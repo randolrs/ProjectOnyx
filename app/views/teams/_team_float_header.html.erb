@@ -1,0 +1,22 @@
+<div class="user-dashboard-header"%>
+
+  <h3><%= image_tag Team.find_by_name(@team.name).image.url(:medium, :width => 30, :height => 30), class: "sport-image-small"%><%=@team.name%></h3>
+
+  <table class="user-dashboard-summary">
+    <tr>
+      <td class="ud-margin"><%= link_to "Experts", predictorindex_path%></td>
+      <td class="ud-margin">Active Predictions</td>
+    </tr>
+
+    <tr>
+      <td class="ud-margin"><%#@myPurchases.count%>12</td>
+      <td class="ud-margin"><%#@myPurchases.where(:premium=>true).count%>100</td>
+    </tr>
+
+  </table>
+
+</div>
+
+
+
+

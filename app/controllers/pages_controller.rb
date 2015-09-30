@@ -95,6 +95,8 @@ class PagesController < ApplicationController
     @displaypredictor = true
     @action = "league-home"
 
+    @predictions = @sport.recent_prediction_games
+
   end
 
   def leaguearticleindex

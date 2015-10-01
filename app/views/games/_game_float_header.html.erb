@@ -1,6 +1,6 @@
 <div class="user-dashboard-header"%>
 
-  <b><%= @game.league + " Regular Season Game"%></b>
+  <h4><%= @game.league + " Regular Season Game"%></h4>
 
   <h3><%= image_tag @teama.image, class: "team-image-tiny"%> <%=link_to @game.teama, teamshow_path(@league,@teama.id) %></h3>
   <h3> <%= image_tag @teamh.image, class: "team-image-tiny"%> <%= link_to @game.teamh , teamshow_path(@league,@teamh.id)%> </h3>

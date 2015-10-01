@@ -3,21 +3,21 @@
 	<ul class="dashboard-prediction-nav">
 		
 		<%unless @action == "upcoming" or @action=="top" %>
-			<li class="active"><%= link_to "Recent", leaguehome_path(@league) %></li>
+			<li class="active"><%= link_to "Recent", leaguepredictionindex_path(@league) %></li>
 		<%else%>
-			<li><%= link_to "Recent", root_path %></li>
+			<li><%= link_to "Recent", leaguepredictionindex_path(@league) %></li>
 		<%end%>
 
 		<%if @action == "upcoming"%>
-			<li class="active"><%= link_to "Upcoming", leaguehome_path(@league, :sort_by=>"upcoming") %></li>
+			<li class="active"><%= link_to "Upcoming", leaguepredictionindex_path(@league, :sort_by=>"upcoming") %></li>
 		<%else%>
-			<li><%= link_to "Upcoming", leaguehome_path(@league, :sort_by=>"upcoming") %></li>
+			<li><%= link_to "Upcoming", leaguepredictionindex_path(@league, :sort_by=>"upcoming") %></li>
 		<%end%>
 
 		<%if @action == "top"%>
-			<li class="active"><%= link_to "Top", root_path(:sort_by=>"top") %></li>
+			<li class="active"><%= link_to "Top", leaguepredictionindex_path(@league, :sort_by=>"top") %></li>
 		<%else%>
-			<li><%= link_to "Top", leaguehome_path(@league, :sort_by=>"top") %></li>
+			<li><%= link_to "Top", leaguepredictionindex_path(@league, :sort_by=>"top") %></li>
 		<%end%>
 
 	</ul>

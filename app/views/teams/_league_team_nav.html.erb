@@ -1,0 +1,25 @@
+<div class = "user-dashboard-prediction-nav">
+
+	<ul class="dashboard-prediction-nav">
+		
+		<%unless @action == "upcoming" or @action=="top" %>
+			<li class="active"><%= link_to "Recent Predictions", teamshow_path(@league,@team.id) %></li>
+		<%else%>
+			<li><%= link_to "Recent Predictions", teamshow_path(@league,@team.id) %></li>
+		<%end%>
+
+		<%if @action == "upcoming"%>
+			<li class="active"><%= link_to "Upcoming Games", teamshow_path(@league, @team.id, :sort_by=>"upcoming") %></li>
+		<%else%>
+			<li><%= link_to "Upcoming Games", teamshow_path(@league, @team.id, :sort_by=>"upcoming") %></li>
+		<%end%>
+
+		<%if @action == "top"%>
+			<li class="active"><%= link_to "Top Experts", teamshow_path(@league, @team.id, :sort_by=>"top") %></li> 
+		<%else%>
+			<li><%= link_to "Top Experts", teamshow_path(@league, @team.id, :sort_by=>"top") %></li>
+		<%end%>
+
+	</ul>
+
+</div>

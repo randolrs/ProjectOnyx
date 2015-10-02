@@ -575,6 +575,23 @@ p.terms-of-service{
   margin-bottom: 15px;
 }
 
+.game-team-name{
+  color:#333;
+}
+
+.game-team-name:hover{
+  color: #56D793;
+  text-decoration: none;
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  
+}
+
+
+.user-dashboard-header h5{
+  text-align:center;
+}
+
 
 .user-dashboard-prediction-nav{
     padding: 10px;

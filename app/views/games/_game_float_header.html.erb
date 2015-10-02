@@ -2,21 +2,10 @@
 
   <h4><%= @game.league + " Regular Season Game"%></h4>
 
-  <h3><%= image_tag @teama.image, class: "team-image-tiny"%> <%=link_to @game.teama, teamshow_path(@league,@teama.id) %></h3>
-  <h3> <%= image_tag @teamh.image, class: "team-image-tiny"%> <%= link_to @game.teamh , teamshow_path(@league,@teamh.id)%> </h3>
+  <h3><%= image_tag @teama.image, class: "team-image-tiny"%> <%=link_to @game.teama, teamshow_path(@league,@teama.id), class: "game-team-name" %></h3>
+  <h3> <%= image_tag @teamh.image, class: "team-image-tiny"%> <%= link_to @game.teamh , teamshow_path(@league,@teamh.id), class: "game-team-name"%> </h3>
 
-  <h5><%= @game.event_time.strftime("%l:%M %p") + ", " + @game.event_time.strftime("%a %b %d, %Y ") %></h5>
-
-  <table class="user-dashboard-summary">
-    <tr>
-      <td class="ud-margin">Predictions</td>
-    </tr>
-
-    <tr>
-      <td class="ud-margin"><%=@predictions.count%></td>
-    </tr>
-
-  </table>
+<h5><%= @game.event_time.strftime("%l:%M %p") + ", " + @game.event_time.strftime("%a %b %d, %Y ") %></h5>
 
 </div>
 

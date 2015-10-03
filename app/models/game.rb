@@ -26,6 +26,22 @@ class Game < ActiveRecord::Base
 
 	end
 
+	def other_games
+
+		team_games = Game.all.where("event_time > :time_now and (teama = :teama or teamh = :teama or teama = :teamh or teamh = :teamh)", {teama: self.teama, teamh: self.teamh, time_now: Time.now})
+		
+    	games = Array.new 
+
+    	team_games.each do |game|
+
+          	games << game
+
+        end
+    
+    	return games.sort_by {|k| k.event_time}
+
+	end
+
 	
 	#validates :teama_score, :numericality => { :only_integer => true }
 	#validates :teamh_score, :numericality => { :only_integer => true }

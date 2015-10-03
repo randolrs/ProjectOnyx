@@ -3,9 +3,9 @@
   <div class="game-show-cover-container">
 
     <table class="game-show-cover">
-      <td class="table-float-right"><%= image_tag @teama.image, class: "team-image-tiny"%> <%=link_to @game.teama, teamshow_path(@league,@teama.id), class: "game-team-name" %></td>
-      <td> <%= @game.event_time.strftime("%-m/%-d")%> <br> <%= @game.event_time.strftime("%l:%M %p") %></td>
-      <td><td class="table-float-left"><%= link_to @game.teamh , teamshow_path(@league,@teamh.id), class: "game-team-name"%><%= image_tag @teamh.image, class: "team-image-tiny"%> </td></td>
+      <td class="table-float-left"><%=link_to @game.teama, teamshow_path(@league,@teama.id), class: "game-team-name" %><%= image_tag @teama.image, class: "team-image-tiny"%></td>
+      <td class="table-center"> <%= @game.event_time.strftime("%-m/%-d")%> <br> <%= @game.event_time.strftime("%l:%M %p") %></td>
+      <td class="table-float-right"><%= image_tag @teamh.image, class: "team-image-tiny"%><%= link_to @game.teamh , teamshow_path(@league,@teamh.id), class: "game-team-name"%> </td>
 
     </table>
 

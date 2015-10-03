@@ -21,6 +21,8 @@ class TeamsController < ApplicationController
       @displaypredictor = true
       @action = "teams"
       @predictions = @team.recent_prediction_games
+
+      @upcominggames = @team.upcoming_games
   end
 
   def teamgameindex

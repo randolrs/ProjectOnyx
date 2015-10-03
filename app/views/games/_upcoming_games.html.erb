@@ -1,0 +1,36 @@
+<div class="user-dashboard-games">
+
+  <% if user_signed_in?%>
+
+    <h4>Upcoming Games</h4>
+
+    <table class="user-dashboard-table">
+
+      <% @upcominggames.each do |game|%>
+      	<tr data-link="<%=gameshow_path(game.league, game.id)%>", class="table-cta-hover">
+      		<td>
+      			<%= image_tag Team.find_by_name(game.teama).image.url(:medium), class: "predictor-image-tiny"%><a class="index-float"><%= game.teama %></a>
+      		</td>
+
+      		<td>
+      			<%= image_tag Team.find_by_name(game.teamh).image.url(:medium), class: "predictor-image-tiny"%> <a class="index-float"><%= game.teamh %></a>
+      		</td>
+
+          <td class="game-time">
+            <p><%= game.event_time.strftime("%-m/%-d") %></p>
+            <p><%= game.event_time.strftime("%l:%M %p") %></p>
+          </td>
+
+      	</tr>
+
+      <%end%>
+
+  	</table>
+  
+  <%end%>
+
+</div>
+
+
+
+

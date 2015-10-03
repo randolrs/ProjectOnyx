@@ -11,23 +11,41 @@ class Team < ActiveRecord::Base
 
 	def recent_prediction_games 
 
-    predictions = Array.new 
+        predictions = Array.new 
 
-    team = Team.find(self.id)
+        team = Team.find(self.id)
 
-    prediction_games = PredictionGame.all.where("teama = :team or teamh = :team", {team: team.name})
+        prediction_games = PredictionGame.all.where("teama = :team or teamh = :team", {team: team.name})
 
-    prediction_games.each do |prediction|
+        prediction_games.each do |prediction|
 
-    	predictor = Predictor.find(prediction.predictor_id)
+        	predictor = Predictor.find(prediction.predictor_id)
 
-        hash = {:prediction=>prediction, :predictor=> predictor, :premium_access=> false}
+            hash = {:prediction=>prediction, :predictor=> predictor, :premium_access=> false}
 
-        predictions << hash
-      
+            predictions << hash
+          
+        end
+        
+        return predictions.sort_by {|k| k[:prediction].created_at}.reverse
+      end
+
+    def upcoming_games
+
+        games = Array.new 
+
+        team = Team.find(self.id)
+
+        team_games = Game.all.where(" event_time > :time_now and (teama = :team or teamh = :team)", {team: team.name, time_now: Time.now})
+
+        team_games.each do |team_game|
+
+            games << team_game
+          
+        end
+        
+        return games.sort_by {|k| k.event_time}.reverse        
+
     end
-    
-    return predictions.sort_by {|k| k[:prediction].created_at}.reverse
-  end
 
 end

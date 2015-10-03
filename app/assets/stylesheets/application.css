@@ -575,8 +575,16 @@ p.terms-of-service{
   margin-bottom: 15px;
 }
 
+.game-float-header-container{
+  padding:10px 0px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
 .game-team-name{
   color:#333;
+  font-size: 20px;
 }
 
 .game-team-name:hover{
@@ -584,11 +592,11 @@ p.terms-of-service{
   text-decoration: none;
   webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  
+
 }
 
 
-.user-dashboard-header h5{
+.game-float-header-container h5{
   text-align:center;
 }
 
@@ -737,6 +745,7 @@ a#addCardLink:hover{
 
 table.card-form{
   width:350px;
+  text-align:left;
 }
 
 td.add-card-header{
@@ -801,6 +810,21 @@ td.add-card-header{
 .no-top-predictions{
   color:#777;
   font-size: 12px;
+}
+
+td.table-float-left{
+  text-align: left;
+  width:155px;
+}
+
+.table-center{
+  text-align: center;
+  padding: 0px 10px;
+}
+
+td.table-float-right{
+  text-align: right;
+  width:155px;
 }
 
 .footer-float{

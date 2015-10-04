@@ -12,6 +12,8 @@ class PagesController < ApplicationController
 
         @predictions = current_user.my_prediction_games
 
+        @upcominggames = Game.all.where("event_time > :time_now", {time_now: Time.now}).order("event_time ASC").limit(5)
+
         if params[:sort_by]
 
           if params[:sort_by] == "upcoming"
@@ -94,11 +96,11 @@ class PagesController < ApplicationController
     @displaypredictor = true
     @action = "league-home"
 
-    @upcominggames = @sport.upcoming_games
+    @upcominggames = @sport.upcoming_games.take(5) 
 
     @predictions = @sport.recent_prediction_games
 
-    @top_predictors = @sport.all_predictors.sort_by {|k| k.rating} 
+    @top_predictors = @sport.all_predictors.sort_by {|k| k.rating}.take(5) 
 
   end
 
@@ -112,11 +114,13 @@ class PagesController < ApplicationController
     @displaypredictor = true
     @action = "league-home"
 
-    @upcominggames = @sport.upcoming_games
+    @upcominggames = @sport.upcoming_games.take(5) 
 
     @subaction = "top"
 
-    @predictors = @sport.all_predictors
+    @top_predictors = @sport.all_predictors.sort_by {|k| k.rating}.take(5)
+
+    @predictors = @sport.all_predictors.sort_by {|k| k.rating}
 
   end
 
@@ -129,9 +133,11 @@ class PagesController < ApplicationController
     @displaypredictor = true
     @action = "league-home"
 
-    @upcominggames = @sport.upcoming_games
+    @upcominggames = @sport.upcoming_games.take(5) 
 
     @subaction = "upcoming"
+
+    @top_predictors = @sport.all_predictors.sort_by {|k| k.rating}.take(5)
 
     @games = @sport.all_games
 

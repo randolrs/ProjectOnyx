@@ -22,6 +22,8 @@ class GamesController < ApplicationController
     @matchup_hide = true
     @predictions = @game.recent_prediction_games
 
+    @top_predictors = @game.all_predictors.sort_by {|k| k.rating}.take(5)
+
     @othergames = @game.other_games.take(3)
 
   end
@@ -40,6 +42,8 @@ class GamesController < ApplicationController
     @action = "games"
     @matchup_hide = true
     @predictions = @game.recent_prediction_games
+
+    @top_predictors = @game.all_predictors
 
     @othergames = @game.other_games.take(3)
 

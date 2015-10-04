@@ -10,7 +10,6 @@
   	  		
   	  		<li><%= image_tag Sport.find_by_subcat(@league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-small"%></li>
 
-
           <% if @action == 'predictions'%>
           
             <li><%= link_to @league, leaguehome_path(@league), { :class=>"subheader-league" } %></li>

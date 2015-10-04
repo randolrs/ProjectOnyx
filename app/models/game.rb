@@ -42,6 +42,28 @@ class Game < ActiveRecord::Base
 
 	end
 
+	def all_predictors
+
+		predictors = Array.new
+
+        game = self
+
+        game_predictors = Predictor.all
+
+        game_predictors.each do |game_predictor|
+
+            if game_predictor.prediction_games.all.where("game_id = :game_id", {game_id: game.id}).count > 0
+
+                predictors << game_predictor
+
+            end
+          
+        end
+
+        return predictors
+
+	end
+
 	
 	#validates :teama_score, :numericality => { :only_integer => true }
 	#validates :teamh_score, :numericality => { :only_integer => true }

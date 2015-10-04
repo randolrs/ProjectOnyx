@@ -125,7 +125,7 @@ class PredictorsController < ApplicationController
       elsif params[:sort_by] == "top"
 
         @action = "top"
-        @predictions = @predictor.my_prediction_games_closed(@premium_access).sort_by {|k| k[:prediction].onyx}
+        @predictions = @predictor.my_prediction_games_closed(@premium_access)
 
       elsif params[:sort_by] == "closed"
 
@@ -150,13 +150,7 @@ class PredictorsController < ApplicationController
 
       @action = "recent"
 
-      @predictor.prediction_games.each do |prediction_game|
-
-        hash = {:prediction=>prediction_game, :predictor=>@predictor, :premium_access=> @premium_access}
-
-        @predictions << hash
-      
-      end
+      @predictions = @predictor.recent_prediction_games(@premium_access)
 
     end
 

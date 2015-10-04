@@ -81,7 +81,23 @@ class Predictor < ActiveRecord::Base
 
     end
     
-    return predictions.sort_by {|k| k[:prediction].event_time}
+    return predictions.sort_by {|k| k[:prediction].onyx}
+
+  end
+
+  def recent_prediction_games(premium_access)
+
+    predictions = Array.new 
+    
+    self.prediction_games.each do |prediction_game|
+
+      hash = {:prediction=>prediction_game, :predictor=>self, :premium_access=> premium_access}
+
+      predictions << hash
+
+    end  
+    
+    return predictions.sort_by {|k| k[:prediction].created_at}.reverse
 
   end
 

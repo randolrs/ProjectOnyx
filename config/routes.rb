@@ -140,6 +140,10 @@ Rails.application.routes.draw do
 
   get 'sports/leagues/:league' => 'pages#leaguehome', as: 'leaguehome'
 
+  get 'sports/leagues/:league/experts' => 'pages#league_predictors', as: 'leaguepredictors'
+
+  get 'sports/leagues/:league/games' => 'pages#league_games', as: 'leaguegames'
+
   get 'editor' => 'sports#new'
 
   get '/posts/all/:type' => 'articles#index', as: 'articledashboard'

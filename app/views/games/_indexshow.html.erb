@@ -1,38 +1,62 @@
-<% if @team_games.empty? %>
+<% if @teamshow %>
 
-  <div class ="prediction-game-index-show empty">
+	<% if @team_games.empty? %>
 
-    Your dashboard is currently empty.  Follow or subscribe to experts you find interesting to see their predictions in your dashboard.      
+		<div class ="prediction-game-index-show empty">
 
-  </div>
+			Your dashboard is currently empty.  Follow or subscribe to experts you find interesting to see their predictions in your dashboard.      
 
-<% else %>
+		</div>
 
-  <% @team_games.each do |hash| %>
-      
-      <% game = hash[:game] %>
+	<% else %>
 
-      <a href = "<%= gameshow_path(game.league, game.id)%>", class ="game-show-link" >
+		<% @team_games.each do |team_game| %>
+	      
+	      <% game = team_game[:game] %>
 
-	      <div class ="prediction-game-index-show">
+	      <a href = "<%= gameshow_path(game.league, game.id)%>", class ="game-show-link" >
 
-	      	<% if hash[:home] %>
-	        
-	        	VS <%= image_tag Team.find_by_name(game.teama).image, class: "team-image-tiny"%> <%=game.teama %>
+		      <div class ="prediction-game-index-show">
 
-	        <%else%>
+		      	<% if team_game[:home] %>
+		        
+		        	VS <%= image_tag Team.find_by_name(game.teama).image, class: "team-image-tiny"%> <%=game.teama %>
 
-	        	@ <%= image_tag Team.find_by_name(game.teamh).image, class: "team-image-tiny"%> <%=game.teamh %>
+		        <%else%>
 
-	        <%end%>
+		        	@ <%= image_tag Team.find_by_name(game.teamh).image, class: "team-image-tiny"%> <%=game.teamh %>
 
-	        <br>
-	        <%= game.event_time.strftime("%-m/%-d/%y") + ", " + game.event_time.strftime("%l:%M %p") %>
+		        <%end%>
 
-	      </div>
+		        <br>
+		        <%= game.event_time.strftime("%-m/%-d/%y") + ", " + game.event_time.strftime("%l:%M %p") %>
 
-  		</a>
+		      </div>
 
-  <%end%>
+	  		</a>
+
+	  	<%end%>
+
+	<%end%>
+
+<%else%>
+
+	<% @games.each do |game| %>
+
+		<a href = "<%= gameshow_path(game.league, game.id)%>", class ="game-show-link" >
+
+	      	<div class ="prediction-game-index-show">
+
+	        	<%= image_tag Team.find_by_name(game.teama).image, class: "team-image-tiny"%> <%=game.teama %> @ <%= image_tag Team.find_by_name(game.teamh).image, class: "team-image-tiny"%> <%=game.teamh %>
+
+	        	<br>
+
+	        	<%= game.event_time.strftime("%-m/%-d/%y") + ", " + game.event_time.strftime("%l:%M %p") %>
+
+	      	</div>
+
+		</a>
+
+  	<%end%>
 
 <%end%>

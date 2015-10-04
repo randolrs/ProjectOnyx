@@ -99,6 +99,38 @@ class PagesController < ApplicationController
 
   end
 
+  def league_predictors
+    @league = params[:league]
+    @sport = Sport.find_by_subcat(@league)
+    @predictions = PredictionGame.all.where(:league=>@league).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @articles = Article.all.order("created_at DESC").limit(4)
+    @teams = Team.all.where(:league=>@league)
+    @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
+    @displaypredictor = true
+    @action = "league-home"
+
+    @subaction = "top"
+
+    @predictors = @sport.all_predictors
+
+  end
+
+  def league_games
+    @league = params[:league]
+    @sport = Sport.find_by_subcat(@league)
+    @predictions = PredictionGame.all.where(:league=>@league).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @teams = Team.all.where(:league=>@league)
+    @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
+    @displaypredictor = true
+    @action = "league-home"
+
+    @subaction = "upcoming"
+
+    @games = @sport.all_games
+
+  end
+
+
   def leaguearticleindex
     @league = params[:league]
     @sport = Sport.find_by_subcat(@league)

@@ -35,6 +35,8 @@ class TeamsController < ApplicationController
 
     @team_games = @team.all_games
 
+    @teamshow = true
+
 end
 
 def show_predictors

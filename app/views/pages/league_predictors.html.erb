@@ -1,0 +1,38 @@
+<%= render 'pages/league_home_header' %>
+
+<%#render 'sports/header_banner_image' %>
+
+<div class="user-dashboard-wrap">
+
+	<div class ="user-dashboard-container">
+
+		<%# render 'devise/user_subscription_nav'%>
+
+		<div class="user-dashboard-left">
+
+			<%# render 'pages/league_float_header' %>
+
+			<%= render 'games/user_dashboard_games'%>
+
+			<%= render 'layouts/footer_float'%>
+
+		</div>
+
+		<div class ="user-dashboard-predictions">
+
+			<%= render 'pages/league_home_nav' %>
+
+			<%= render 'predictors/indexshow' %>
+
+			<%# render 'prediction_games/indexshow' %>
+
+		</div>
+
+		<div class ="user-dashboard-card">
+
+			<%= render 'predictors/top_predictors' %>
+
+		</div>
+
+	</div>
+</div>

@@ -33,4 +33,44 @@ class Sport < ActiveRecord::Base
 
 	end
 
+	def all_predictors
+
+        predictors = Array.new
+
+        league = self
+
+        league_predictors = Predictor.all
+
+        league_predictors.each do |league_predictor|
+
+            if league_predictor.prediction_games.all.where("league = :league", {league: league.subcat}).count > 0
+
+                predictors << league_predictor
+
+            end
+          
+        end
+
+        return predictors
+
+    end
+
+	def all_games
+
+        games = Array.new
+
+        league = self
+
+        team_games = Game.all.where("(teama = :team or teamh = :team)", {team: league.subcat})
+
+        team_games.each do |team_game|
+
+            games << team_game
+          
+        end
+
+        return games.sort_by {|k| k.event_time} 
+
+    end
+
 end

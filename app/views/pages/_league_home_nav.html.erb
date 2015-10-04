@@ -2,22 +2,22 @@
 
 	<ul class="dashboard-prediction-nav">
 		
-		<%unless @action == "upcoming" or @action=="top" %>
+		<%unless @subaction == "upcoming" or @subaction=="top" %>
 			<li class="active"><%= link_to "Recent Predictions", leaguehome_path(@league) %></li>
 		<%else%>
-			<li><%= link_to "Recent Predictions", root_path %></li>
+			<li><%= link_to "Recent Predictions", leaguehome_path(@league) %></li>
 		<%end%>
 
-		<%if @action == "upcoming"%>
-			<li class="active"><%= link_to "Upcoming Games", leaguehome_path(@league, :sort_by=>"upcoming") %></li>
+		<%if @subaction == "upcoming"%>
+			<li class="active"><%= link_to "Upcoming Games", leaguegames_path(@league) %></li>
 		<%else%>
-			<li><%= link_to "Upcoming Games", leaguehome_path(@league, :sort_by=>"upcoming") %></li>
+			<li><%= link_to "Upcoming Games", leaguegames_path(@league) %></li>
 		<%end%>
 
-		<%if @action == "top"%>
-			<li class="active"><%= link_to "Top Experts", root_path(:sort_by=>"top") %></li>
+		<%if @subaction == "top"%>
+			<li class="active"><%= link_to "Top Experts", leaguepredictors_path(@league) %></li>
 		<%else%>
-			<li><%= link_to "Top Experts", leaguehome_path(@league, :sort_by=>"top") %></li>
+			<li><%= link_to "Top Experts", leaguepredictors_path(@league) %></li>
 		<%end%>
 
 	</ul>

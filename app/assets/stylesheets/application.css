@@ -836,6 +836,11 @@ td.table-float-left{
     margin-right:auto;
   }
 
+  .cover-container h3{
+    text-align: center;
+    top:50%;
+  }
+
 
 td.table-float-right{
   text-align: right;

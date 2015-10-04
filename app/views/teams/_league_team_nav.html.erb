@@ -9,9 +9,9 @@
 		<%end%>
 
 		<%if @action == "upcoming"%>
-			<li class="active"><%= link_to "Upcoming Games", teamshow_path(@league, @team.id, :sort_by=>"upcoming") %></li>
+			<li class="active"><%= link_to "Games", teamshow_path(@league, @team.id, :sort_by=>"upcoming") %></li>
 		<%else%>
-			<li><%= link_to "Upcoming Games", teamshow_path(@league, @team.id, :sort_by=>"upcoming") %></li>
+			<li><%= link_to "Games", teamshow_path(@league, @team.id, :sort_by=>"upcoming") %></li>
 		<%end%>
 
 		<%if @action == "top"%>

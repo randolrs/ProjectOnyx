@@ -1,6 +1,4 @@
-<%if user_signed_in? %>
-
-	<% @predictors_recommend = Predictor.all.order("created_at DESC").limit(3) %>
+<% @predictors_recommend = Predictor.all.order("created_at DESC").limit(3) %>
 
 	<div class="user-dashboard-recommendations">
 
@@ -21,5 +19,3 @@
 		</table>
 
 	</div>
-
-<%end%>

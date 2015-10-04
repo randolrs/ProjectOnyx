@@ -54,7 +54,7 @@
 
       <li class="header-li"><%= link_to "My Predictions", predictordashboard_path(current_predictor.username), class: " predictions-header" %></li>
 
-      <li class="header-li"><%= link_to "[pred img]", predictordashboard_path(current_predictor.username), class: " predictions-header" %></li>
+      <li class="header-li"><%= link_to "New Prediction", sportsgamesselect_path(current_predictor.username, "predictions") %></li>
 
       <li class="dropdown header-li">
         <a href="#" class="dropdown-toggle header-category" data-toggle="dropdown" role="button" aria-expanded="false"><% if current_predictor.image %><%= image_tag current_predictor.image.url(:thumb), class: "image-header"%><%end%><% if current_predictor.username %><%= current_predictor.username %><%else%>Guest<%end%></a>
@@ -66,12 +66,7 @@
             <li><%= link_to "My Balance: " + number_to_currency(current_predictor.balance_stripe(current_predictor.id)).to_s, home_path %></li>
             <li role="presentation" class="divider"></li>
           <%end%>
-          
-          <li><%= link_to "New Prediction", sportsgamesselect_path(current_predictor.username, "predictions") %></li>
 
-          <li><%= link_to "New Post", sportsgamesselect_path(current_predictor.username, "articles") %></li>
-          
-          <li role="presentation" class="divider"></li>
           <li><%= link_to "Account Settings", edit_predictor_registration_path %></li>
           <li><%= link_to "Logout", destroy_predictor_session_path, method: :delete %></li>
       </ul>

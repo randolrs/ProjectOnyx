@@ -14,6 +14,9 @@
 
     <% @predictor = hash[:predictor] %>
       
+      
+      <a href = "<%= predictiongamesshow_path(@predictor.username, prediction.id)%>", class ="game-show-link" >
+
       <div class ="prediction-game-index-show">
         
         <table>
@@ -53,52 +56,95 @@
             </td>
           </tr>
           
-          <% if prediction.visible("user", current_user) %>
+          <%if user_signed_in? %>
+            <% if prediction.visible("user", current_user) %>
 
-            <tr class="pg-table-bottom">
-              <td class="pg-important-data" colspan="2">
-                <%= prediction.teama_score%>
-              </td>
-              <td colspan="2">
-                Final Score
-              </td>
-              <td class="pg-important-data" colspan="2">
-                <%= prediction.teamh_score%>
-              </td>
-            </tr>
+              <tr class="pg-table-bottom">
+                <td class="pg-important-data" colspan="2">
+                  <%= prediction.teama_score%>
+                </td>
+                <td colspan="2">
+                  Final Score
+                </td>
+                <td class="pg-important-data" colspan="2">
+                  <%= prediction.teamh_score%>
+                </td>
+              </tr>
 
-            <tr class="pg-table-bottom">
-              <td class="pg-important-data" colspan="2">
-                <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%=prediction.spread%>
-              </td>
-              <td colspan="2">
-                Spread
-              </td>
-              <td class="pg-important-data" colspan="2">
-                <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%=prediction.spread%>
-              </td>
-            </tr>
+              <tr class="pg-table-bottom">
+                <td class="pg-important-data" colspan="2">
+                  <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%=prediction.spread%>
+                </td>
+                <td colspan="2">
+                  Spread
+                </td>
+                <td class="pg-important-data" colspan="2">
+                  <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%=prediction.spread%>
+                </td>
+              </tr>
 
-            <tr>
-              <td colspan="6">
-                Over/Under <br>
-                <a class="pg-important-data"><%=prediction.overunder%></a>
-              </td>
-            </tr>
+              <tr>
+                <td colspan="6">
+                  Over/Under <br>
+                  <a class="pg-important-data"><%=prediction.overunder%></a>
+                </td>
+              </tr>
 
-          <%else%>
+            <%else%>
 
-            <tr>
-              <td rowspan="3" colspan="6">
-                <%= render 'predictors/predictor_subscribe_cta'%>
-              </td>
-            </tr>
+              <tr>
+                <td rowspan="3" colspan="6">
+                  <%= render 'predictors/predictor_subscribe_cta'%>
+                </td>
+              </tr>
 
-          <%end%>
+            <%end%>
+
+          <%elsif predictor_signed_in?%>
+
+            <%if current_predictor.id = @predictor.id %>
+
+              <tr class="pg-table-bottom">
+                <td class="pg-important-data" colspan="2">
+                  <%= prediction.teama_score%>
+                </td>
+                <td colspan="2">
+                  Final Score
+                </td>
+                <td class="pg-important-data" colspan="2">
+                  <%= prediction.teamh_score%>
+                </td>
+              </tr>
+
+              <tr class="pg-table-bottom">
+                <td class="pg-important-data" colspan="2">
+                  <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%=prediction.spread%>
+                </td>
+                <td colspan="2">
+                  Spread
+                </td>
+                <td class="pg-important-data" colspan="2">
+                  <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%=prediction.spread%>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="6">
+                  Over/Under <br>
+                  <a class="pg-important-data"><%=prediction.overunder%></a>
+                </td>
+              </tr>
+
+            <%end%>
+
+
+          <% end %>
 
         </table>
 
       </div>
+
+    </a>
 
   <%end%>
 

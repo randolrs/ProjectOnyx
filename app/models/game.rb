@@ -28,7 +28,7 @@ class Game < ActiveRecord::Base
 
 	def other_games
 
-		team_games = Game.all.where("event_time > :time_now and (teama = :teama or teamh = :teama or teama = :teamh or teamh = :teamh)", {teama: self.teama, teamh: self.teamh, time_now: Time.now})
+		team_games = Game.all.where("(event_time > :time_now) and (teama = :teama or teamh = :teama or teama = :teamh or teamh = :teamh) and not (id = :game_id)", {teama: self.teama, teamh: self.teamh, time_now: Time.now, game_id: self.id})
 		
     	games = Array.new 
 

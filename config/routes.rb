@@ -80,11 +80,17 @@ Rails.application.routes.draw do
 
   get 'sports/leagues/:league/games/:id' => 'games#show', as: 'gameshow'
 
+
+
   get 'sports/leagues/:league/games/:id/predictions' => 'pages#gamepredictionindex', as: 'gamepredictionindex'
 
   get '/:league/games/:id/posts' => 'pages#gamearticleindex', as: 'gamearticleindex'
 
   get 'sports/leagues/:league/teams/:id' => 'teams#show', as: 'teamshow'
+
+  get 'sports/leagues/:league/teams/:id/games' => 'teams#show_games', as: 'teamshowgames'
+
+  get 'sports/leagues/:league/teams/:id/experts' => 'teams#show_predictors', as: 'teamshowpredictors'
 
   get '/:league/teams/:id/games' => 'teams#teamgameindex', as: 'teamgameindex'
 

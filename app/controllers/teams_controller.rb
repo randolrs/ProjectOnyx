@@ -15,15 +15,47 @@ class TeamsController < ApplicationController
       @teams = Team.all.where(:league=>@league)
       @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
       @articles = Article.all.where("teama = :team or teamh = :team", {team: @team.name})
-      @predictions = PredictionGame.all.where("teama = :team or teamh = :team", {team: @team.name})
       @teamgames = Game.all.where(:league => @team.league)
       @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
       @displaypredictor = true
-      @action = "teams"
+      @action = "upcoming"
       @predictions = @team.recent_prediction_games
 
-      @upcominggames = @team.upcoming_games
+      @upcominggames = @team.upcoming_games.take(3)
   end
+
+  def show_games
+    @team = Team.find(params[:id])
+    @league = @team.league
+    @teams = Team.all.where(:league=>@league)
+    @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
+    @articles = Article.all.where("teama = :team or teamh = :team", {team: @team.name})
+    @teamgames = Game.all.where(:league => @team.league)
+    @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
+    @displaypredictor = true
+    @action = "games"
+    @predictions = @team.recent_prediction_games
+
+    @upcominggames = @team.upcoming_games.take(3)
+end
+
+def show_predictors
+    @team = Team.find(params[:id])
+    @league = @team.league
+    @teams = Team.all.where(:league=>@league)
+    @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
+    @teamgames = Game.all.where(:league => @team.league)
+    @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
+    @displaypredictor = true
+
+    @predictions = @team.recent_prediction_games
+
+    @predictors = Predictor.all
+
+    @action = "top"
+
+    @upcominggames = @team.upcoming_games.take(3)
+end
 
   def teamgameindex
     @team = Team.find(params[:id])

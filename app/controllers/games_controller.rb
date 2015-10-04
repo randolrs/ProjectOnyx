@@ -26,6 +26,25 @@ class GamesController < ApplicationController
 
   end
 
+    def show_games
+    @game = Game.find(params[:id])
+    #@predictions = PredictionGame.all.where(:game_id=>params[:id]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    @articles = Article.all.where(:event_id=>@game.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+    @teams = Team.all.where(:league=>params[:league])
+    @games = Game.all.where(:league=>params[:league]).order("event_time DESC").paginate(:page => params[:page], :per_page => 5)
+    @league = @game.league
+    @sport = Sport.find_by_subcat(@league)
+    @teama = Team.find_by_name(@game.teama)
+    @teamh = Team.find_by_name(@game.teamh)
+    @displaypredictor = true
+    @action = "games"
+    @matchup_hide = true
+    @predictions = @game.recent_prediction_games
+
+    @othergames = @game.other_games.take(3)
+
+  end
+
   def gameselect
     @games = Game.all
   end

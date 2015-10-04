@@ -1,0 +1,21 @@
+<% if @games.empty? %>
+
+  <div class ="prediction-game-index-show empty">
+
+    Your dashboard is currently empty.  Follow or subscribe to experts you find interesting to see their predictions in your dashboard.      
+
+  </div>
+
+<% else %>
+
+  <% @games.each do |game| %>
+      
+      <div class ="prediction-game-index-show">
+        
+        <%= game.teama + " at " + game.teamh %>
+
+      </div>
+
+  <%end%>
+
+<%end%>

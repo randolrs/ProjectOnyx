@@ -1,8 +1,8 @@
 <%= render 'pages/league_home_header' %>
 
-<div class="content-panel">
+<%= render 'games/gameshowcover'%>
 
-	<%=render 'games/gameshowcover'%>
+<div class="content-panel">
 
 	<div class ="content-title-header">
 	<h3><%= @predictor.username.humanize %>'s Prediction</h3>

@@ -9,12 +9,16 @@
 <% else %>
 
   <% @predictors.each do |predictor| %>
-      
-      <div class ="prediction-game-index-show">
-        
-        <%= predictor.id %>
 
-      </div>
+  	<a href = "<%= predictordashboard_path(predictor.username)%>", class ="game-show-link" >
+
+		<div class ="prediction-game-index-show">
+
+			<%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%> <%= predictor.username %>
+
+		</div>
+
+	</a>
 
   <%end%>
 

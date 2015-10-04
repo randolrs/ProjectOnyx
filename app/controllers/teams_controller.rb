@@ -14,9 +14,6 @@ class TeamsController < ApplicationController
       @league = @team.league
       @teams = Team.all.where(:league=>@league)
       @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
-      @articles = Article.all.where("teama = :team or teamh = :team", {team: @team.name})
-      @teamgames = Game.all.where(:league => @team.league)
-      @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
       @displaypredictor = true
       @action = "upcoming"
       @predictions = @team.recent_prediction_games
@@ -29,14 +26,15 @@ class TeamsController < ApplicationController
     @league = @team.league
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
-    @articles = Article.all.where("teama = :team or teamh = :team", {team: @team.name})
-    @teamgames = Game.all.where(:league => @team.league)
-    @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
+    
     @displaypredictor = true
     @action = "games"
     @predictions = @team.recent_prediction_games
 
     @upcominggames = @team.upcoming_games.take(3)
+
+    @team_games = @team.all_games
+
 end
 
 def show_predictors
@@ -44,17 +42,17 @@ def show_predictors
     @league = @team.league
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
-    @teamgames = Game.all.where(:league => @team.league)
-    @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
+
     @displaypredictor = true
 
     @predictions = @team.recent_prediction_games
 
-    @predictors = Predictor.all
+    @predictors = @team.all_predictors
 
     @action = "top"
 
     @upcominggames = @team.upcoming_games.take(3)
+
 end
 
   def teamgameindex

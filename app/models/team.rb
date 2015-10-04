@@ -48,4 +48,57 @@ class Team < ActiveRecord::Base
 
     end
 
+    def all_games
+
+        games = Array.new
+
+        team = self
+
+        team_games = Game.all.where("teama = :team or teamh = :team", {team: team.name})
+
+        team_games.each do |team_game|
+
+            if team_game.teamh == team.name
+
+                home = true
+
+            else
+
+                home = false
+
+            end
+                    
+
+            hash = {:game=>team_game, :home=> home}
+
+            games << hash
+          
+        end
+
+        return games.sort_by {|k| k[:game].created_at}.reverse 
+
+    end
+
+    def all_predictors
+
+        predictors = Array.new
+
+        team = self
+
+        team_predictors = Predictor.all
+
+        team_predictors.each do |team_predictor|
+
+            if team_predictor.prediction_games.all.where("teama = :team or teamh = :team", {team: team.name}).count > 0
+
+                predictors << team_predictor
+
+            end
+          
+        end
+
+        return predictors
+
+    end
+
 end

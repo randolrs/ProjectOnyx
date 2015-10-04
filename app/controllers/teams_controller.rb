@@ -15,7 +15,8 @@ class TeamsController < ApplicationController
       @teams = Team.all.where(:league=>@league)
       @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
       @displaypredictor = true
-      @action = "upcoming"
+      @action = "teams"
+      @subaction = "recent"
       @predictions = @team.recent_prediction_games
 
       @upcominggames = @team.upcoming_games.take(3)
@@ -28,7 +29,10 @@ class TeamsController < ApplicationController
     @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
     
     @displaypredictor = true
-    @action = "games"
+
+    @action = "teams"
+    @subaction = "games"
+    
     @predictions = @team.recent_prediction_games
 
     @upcominggames = @team.upcoming_games.take(3)
@@ -51,7 +55,8 @@ def show_predictors
 
     @predictors = @team.all_predictors
 
-    @action = "top"
+    @action = "teams"
+    @subaction = "top"
 
     @upcominggames = @team.upcoming_games.take(3)
 

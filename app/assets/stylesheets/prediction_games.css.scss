@@ -437,6 +437,11 @@ a.index-float{
 
 }
 
+.prediction-game-index-show:hover{
+  background-color: #fdfdfd;
+  cursor:pointer;
+}
+
 .prediction-game-index-show.empty{
   padding:10px;
   font-size:12px;

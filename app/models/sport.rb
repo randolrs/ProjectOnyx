@@ -61,7 +61,25 @@ class Sport < ActiveRecord::Base
 
         league = self
 
-        team_games = Game.all.where("(teama = :team or teamh = :team)", {team: league.subcat})
+        team_games = Game.all.where("(league = :league)", {league: league.subcat})
+
+        team_games.each do |team_game|
+
+            games << team_game
+          
+        end
+
+        return games.sort_by {|k| k.event_time} 
+
+    end
+
+    def upcoming_games
+
+        games = Array.new
+
+        league = self
+
+        team_games = Game.all.where("event_time > :time_now and (league = :league)", {league: league.subcat, time_now: Time.now})
 
         team_games.each do |team_game|
 

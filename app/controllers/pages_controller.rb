@@ -95,6 +95,8 @@ class PagesController < ApplicationController
     @displaypredictor = true
     @action = "league-home"
 
+    @upcominggames = @sport.upcoming_games
+
     @predictions = @sport.recent_prediction_games
 
   end
@@ -108,6 +110,8 @@ class PagesController < ApplicationController
     @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
     @displaypredictor = true
     @action = "league-home"
+
+    @upcominggames = @sport.upcoming_games
 
     @subaction = "top"
 
@@ -123,6 +127,8 @@ class PagesController < ApplicationController
     @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
     @displaypredictor = true
     @action = "league-home"
+
+    @upcominggames = @sport.upcoming_games
 
     @subaction = "upcoming"
 

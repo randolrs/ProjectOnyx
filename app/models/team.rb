@@ -44,7 +44,7 @@ class Team < ActiveRecord::Base
           
         end
         
-        return games.sort_by {|k| k.event_time}.reverse        
+        return games.sort_by {|k| k.event_time}        
 
     end
 
@@ -54,7 +54,7 @@ class Team < ActiveRecord::Base
 
         team = self
 
-        team_games = Game.all.where("teama = :team or teamh = :team", {team: team.name})
+        team_games = Game.all.where("(teama = :team or teamh = :team)", {team: team.name})
 
         team_games.each do |team_game|
 
@@ -75,7 +75,7 @@ class Team < ActiveRecord::Base
           
         end
 
-        return games.sort_by {|k| k[:game].created_at}.reverse 
+        return games.sort_by {|k| k[:game].event_time} 
 
     end
 

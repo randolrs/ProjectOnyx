@@ -8,6 +8,8 @@
       
         <% @predictors.each do |predictor| %>
     
+          <% @predictor = predictor[:predictor] %>
+
           <div class ="predictor-card">
             <div class="predictor-card-header">
 
@@ -15,26 +17,18 @@
 
             <div class="predictor-card-body">
               
-                <%= image_tag predictor[:image].url(:medium), class: "predictor-image-card"%>
+                <%= image_tag @predictor.image.url(:medium), class: "predictor-image-card"%>
 
-                <%unless predictor[:premium] %>
-
-                  <%= link_to "Subscribe", subscribe_to_predictor_path(:username=>predictor[:username]), {:class=>"subscribe_cta subscribe_cta_float_right" }%>
-
-                <%else%>
-
-                  <a class="subscribe_cta subscribe_cta_float_right">&#10004; Subscribed</a>
-
-                <% end %>
+                <%= render 'predictor_subscribe_cta' %>
 
                 <br>
 
                 <br>
 
-                <h3><%= link_to predictor[:username], predictordashboard_path(predictor[:username]), class: "predictor-card-name"%> </h3>
+                <h3><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-card-name"%> </h3>
 
                 <br>
-                <a class="index-float"><%= predictor[:bio] %></a>
+                <a class="index-float"><%= @predictor.bio %></a>
 
             </div>
 

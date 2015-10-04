@@ -136,12 +136,15 @@ a.final_score_pending{
   font-size:20px;
   text-decoration:none;
   color:#333;
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  
 }
 
 .predictor-card-name:hover{
   font-size:20px;
   text-decoration:none;
-  color:red;
+  color: #56D793;;
 }
 
 .prediction-game-show-container{

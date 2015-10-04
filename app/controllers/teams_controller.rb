@@ -19,9 +19,9 @@ class TeamsController < ApplicationController
       @subaction = "recent"
       @predictions = @team.recent_prediction_games
 
-      @top_predictors = @team.all_predictors.sort_by {|k| k.rating}.take(5)
+      @top_predictors = @team.all_predictors.sort_by {|k| k.rating}.take(3)
 
-      @upcominggames = @team.upcoming_games.take(5)
+      @upcominggames = @team.upcoming_games.take(3)
   end
 
   def show_games
@@ -37,9 +37,9 @@ class TeamsController < ApplicationController
     
     @predictions = @team.recent_prediction_games
 
-    @upcominggames = @team.upcoming_games.take(5)
+    @upcominggames = @team.upcoming_games.take(3)
 
-    @top_predictors = @team.all_predictors.sort_by {|k| k.rating}.take(5)
+    @top_predictors = @team.all_predictors.sort_by {|k| k.rating}.take(3)
 
     @team_games = @team.all_games
 
@@ -62,9 +62,9 @@ def show_predictors
     @action = "teams"
     @subaction = "top"
 
-    @upcominggames = @team.upcoming_games.take(5)
+    @upcominggames = @team.upcoming_games.take(3)
 
-    @top_predictors = @team.all_predictors.sort_by {|k| k.rating}.take(5)
+    @top_predictors = @team.all_predictors.sort_by {|k| k.rating}.take(3)
 
 end
 

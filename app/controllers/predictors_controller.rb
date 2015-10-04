@@ -225,24 +225,14 @@ class PredictorsController < ApplicationController
   def predictorindex
     @action = "experts"
 
-    @myPurchases = Purchase.all.where(:user_id => current_user.id)
+    if user_signed_in?
+      
+      @myPurchases = Purchase.all.where(:user_id => current_user.id)
 
-    @predictors = Array.new 
+      @predictors = current_user.my_predictors
 
-    unless @myPurchases.count == 0
-
-      @myPurchases.each do |myPurchase|
-
-        @predictor = Predictor.find(myPurchase.predictor_id)
-
-        #Need to add hash logic for premium verus non-premium
-
-        hash = {:username=>@predictor.username, :image => @predictor.image, :bio => @predictor.bio, :prediction_count => @predictor.prediction_games.where(:status=>"o").all.count, :premium => myPurchase.premium}
-
-        @predictors << hash  
-                
-      end
-        
+      
+      
     end
 
   end

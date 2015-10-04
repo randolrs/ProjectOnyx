@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004202928) do
+ActiveRecord::Schema.define(version: 20151004235003) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -149,12 +149,12 @@ ActiveRecord::Schema.define(version: 20151004202928) do
   add_index "predictions", ["game_id"], name: "index_predictions_on_game_id"
 
   create_table "predictors", force: true do |t|
-    t.string   "email",                              default: "",    null: false
-    t.string   "encrypted_password",                 default: "",    null: false
+    t.string   "email",                                                      default: "",    null: false
+    t.string   "encrypted_password",                                         default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,     null: false
+    t.integer  "sign_in_count",                                              default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -163,19 +163,20 @@ ActiveRecord::Schema.define(version: 20151004202928) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "username"
-    t.decimal  "balance",                            default: 0.0
+    t.decimal  "balance",                                                    default: 0.0
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.text     "bio",                    limit: 250
-    t.boolean  "account",                            default: false
+    t.boolean  "account",                                                    default: false
     t.string   "account_id"
     t.string   "stripe_account_id"
     t.string   "account_token"
     t.string   "account_key_secret"
     t.string   "subscription_id"
-    t.float    "rating",                             default: 0.0
+    t.float    "rating",                                                     default: 0.0
+    t.decimal  "subscription_price",                 precision: 8, scale: 0, default: 0
   end
 
   add_index "predictors", ["email"], name: "index_predictors_on_email", unique: true
@@ -218,6 +219,7 @@ ActiveRecord::Schema.define(version: 20151004202928) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "premium"
+    t.decimal  "price",        precision: 8, scale: 0, default: 0
   end
 
   create_table "sports", force: true do |t|

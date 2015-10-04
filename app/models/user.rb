@@ -16,6 +16,28 @@ class User < ActiveRecord::Base
   has_many :purchases
 
 
+  def my_predictors
+
+    myPurchases = Purchase.all.where(:user_id => self.id)
+
+    predictors = Array.new 
+
+    myPurchases.each do |myPurchase|
+
+      predictor = Predictor.find(myPurchase.predictor_id)
+
+      #Need to add hash logic for premium verus non-premium
+
+      hash = {:predictor=>predictor, :premium => myPurchase.premium}
+
+      predictors << hash  
+              
+    end
+
+    return predictors
+
+  end
+
   def my_prediction_games 
 
     myPurchases = Purchase.all.where(:user_id => self.id)

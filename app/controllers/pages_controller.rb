@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
         @predictions = current_user.my_prediction_games
 
-        @upcominggames = Game.all.where("event_time > :time_now", {time_now: Time.now}).order("event_time ASC").limit(5)
+        @upcominggames = Game.all.where("event_time > :time_now", {time_now: Time.now}).order("event_time ASC").limit(3)
 
         if params[:sort_by]
 
@@ -89,36 +89,32 @@ class PagesController < ApplicationController
   def leaguehome
     @league = params[:league]
     @sport = Sport.find_by_subcat(@league)
-    @predictions = PredictionGame.all.where(:league=>@league).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
-    @articles = Article.all.order("created_at DESC").limit(4)
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
     @displaypredictor = true
     @action = "league-home"
 
-    @upcominggames = @sport.upcoming_games.take(5) 
+    @upcominggames = @sport.upcoming_games.take(3) 
 
     @predictions = @sport.recent_prediction_games
 
-    @top_predictors = @sport.all_predictors.sort_by {|k| k.rating}.take(5) 
+    @top_predictors = @sport.all_predictors.sort_by {|k| k.rating}.take(3) 
 
   end
 
   def league_predictors
     @league = params[:league]
     @sport = Sport.find_by_subcat(@league)
-    @predictions = PredictionGame.all.where(:league=>@league).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
-    @articles = Article.all.order("created_at DESC").limit(4)
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
     @displaypredictor = true
     @action = "league-home"
 
-    @upcominggames = @sport.upcoming_games.take(5) 
+    @upcominggames = @sport.upcoming_games.take(3) 
 
     @subaction = "top"
 
-    @top_predictors = @sport.all_predictors.sort_by {|k| k.rating}.take(5)
+    @top_predictors = @sport.all_predictors.sort_by {|k| k.rating}.take(3)
 
     @predictors = @sport.all_predictors.sort_by {|k| k.rating}
 
@@ -133,11 +129,11 @@ class PagesController < ApplicationController
     @displaypredictor = true
     @action = "league-home"
 
-    @upcominggames = @sport.upcoming_games.take(5) 
+    @upcominggames = @sport.upcoming_games.take(3) 
 
     @subaction = "upcoming"
 
-    @top_predictors = @sport.all_predictors.sort_by {|k| k.rating}.take(5)
+    @top_predictors = @sport.all_predictors.sort_by {|k| k.rating}.take(3)
 
     @games = @sport.all_games
 

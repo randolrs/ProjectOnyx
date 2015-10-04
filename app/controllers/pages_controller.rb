@@ -98,6 +98,8 @@ class PagesController < ApplicationController
 
     @predictions = @sport.recent_prediction_games
 
+    @top_predictors = @sport.all_predictors.sort_by {|k| k.onyx} 
+
   end
 
   def league_predictors

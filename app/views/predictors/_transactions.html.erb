@@ -2,19 +2,12 @@
 
   <% if predictor_signed_in?%>
 
-    <h3><%# current_user.username %>Subscribers</h3>
+    <h3>Transaction Summary</h3>
 
     <table class="user-dashboard-summary">
       <tr>
-        <td class="ud-margin"><%= link_to "Following", predictorindex_path%></td>
-        <td class="ud-margin">Subscriptions</td>
-        <td class="ud-margin">Active Predictions</td>
-      </tr>
-
-      <tr>
-        <td class="ud-margin"><%= %></td>
-        <td class="ud-margin"><%= %></td>
-        <td class="ud-margin"><%#@predictions.count%></td>
+        <td class="ud-margin">Transactions in the house</td>
+        
       </tr>
 
       </table>

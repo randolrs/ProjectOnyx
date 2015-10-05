@@ -231,9 +231,13 @@ class PredictorsController < ApplicationController
 
       @predictors = current_user.my_predictors
 
-      
-      
     end
+
+  end
+
+  def predictorbalance
+
+    @predictor = Predictor.find_by_username(params[:username])
 
   end
 

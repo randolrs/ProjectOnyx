@@ -110,6 +110,8 @@ Rails.application.routes.draw do
 
   get '/:username/' => 'predictors#predictordashboard', as: 'predictordashboard'
 
+  get '/:username/balance' => 'predictors#predictorbalance', as: 'predictorbalance'
+
   get ':username/edit/payments' => 'cards#index', as: 'cardsindex'
 
   get '/:username/posts' => 'predictors#articleindex', as: 'predictorindexarticlessall'

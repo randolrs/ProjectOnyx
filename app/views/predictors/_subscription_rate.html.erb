@@ -1,0 +1,28 @@
+<div class="user-dashboard-header"%>
+
+  <% if predictor_signed_in?%>
+
+    <h3>Change Subscription Price</h3>
+
+    <%# form_for(@predictor) do |f| %>
+      <table class="user-dashboard-summary">
+        <tr>
+          <td class="ud-margin">Current Price</td>
+          <td class="ud-margin">New Price</td>
+        </tr>
+
+        <tr>
+          <td class="ud-margin"><%= @predictor.subscription_price %></td>
+          <td class="ud-margin"><%= %></td>
+        </tr>
+
+        </table>
+      <%#end%>
+
+  <%end%>
+
+</div>
+
+
+
+

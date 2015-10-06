@@ -204,6 +204,8 @@ class PredictorsController < ApplicationController
 
         @purchase.price = @predictor.subscription_price
 
+        @purchase.next_payment = Time.now + 31.days
+
         @purchase.premium = true
 
         customer.subscriptions.create(:plan => @predictor.subscription_id)

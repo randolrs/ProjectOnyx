@@ -27,7 +27,12 @@
 
                 <h3><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-card-name"%> </h3>
 
-                <br>
+                <% @purchases = Purchase.all.where(:user_id=> current_user.id, :predictor_id => @predictor.id) %>
+
+                <% @purchases.each do |purchase| %>
+                  <%= purchase.next_payment   %>
+                <%end%>
+
                 <a class="index-float"><%= @predictor.bio %></a>
 
             </div>

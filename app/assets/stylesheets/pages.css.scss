@@ -413,9 +413,21 @@ h2{
 
   }
 
-  .signup-submit{
+  input.signup-submit{
     background: linear-gradient(#13BD63, #11A657);
     width:350px;
+    height:36px;
+    color:white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    border: none;
+    margin-top:15px;
+    border-radius:1px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  }
+
+  input.subscription-price-submit{
+    background: linear-gradient(#13BD63, #11A657);
+    width:200px;
     height:36px;
     color:white;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;

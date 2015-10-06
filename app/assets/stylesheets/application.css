@@ -156,6 +156,12 @@ h4{
   	
 }
 
+input.new-subscription-rate{
+  width:60px;
+  text-align: center;
+  margin:0px;
+}
+
 input.predictor-edit-submit{
    	background-color: #13BD63;
     width:404px;
@@ -651,6 +657,17 @@ p.terms-of-service{
 
 
 .user-dashboard-summary{
+  text-align: center;
+}
+
+.predictor-price-form{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width:200px;
+}
+
+h3.subscription-price-header{
   text-align: center;
 }
 

@@ -33,6 +33,7 @@ class Predictor < ActiveRecord::Base
     balance_object = Stripe::Balance.retrieve()
 
     @balance = (balance_object.available[0].amount + balance_object.pending[0].amount)/100
+    
     return @balance
   end
 

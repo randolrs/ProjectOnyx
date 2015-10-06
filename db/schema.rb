@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004235003) do
+ActiveRecord::Schema.define(version: 20151006010832) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -220,6 +220,7 @@ ActiveRecord::Schema.define(version: 20151004235003) do
     t.datetime "updated_at"
     t.boolean  "premium"
     t.decimal  "price",        precision: 8, scale: 0, default: 0
+    t.datetime "next_payment"
   end
 
   create_table "sports", force: true do |t|

@@ -22,6 +22,7 @@ class TeamsController < ApplicationController
       @top_predictors = @team.all_predictors.sort_by {|k| k.rating}.take(3)
 
       @upcominggames = @team.upcoming_games.take(3)
+
   end
 
   def show_games

@@ -202,6 +202,8 @@ class PredictorsController < ApplicationController
 
         @purchase.predictor_id = @predictor.id
 
+        @purchase.price = @predictor.subscription_price
+
         @purchase.premium = true
 
         customer.subscriptions.create(:plan => @predictor.subscription_id)
@@ -210,7 +212,7 @@ class PredictorsController < ApplicationController
 
       end
 
-      redirect_to dashboard_path
+      redirect_to root_path
 
     end
   end
@@ -237,7 +239,19 @@ class PredictorsController < ApplicationController
 
   def predictorbalance
 
-    @predictor = Predictor.find_by_username(params[:username])
+    if predictor_signed_in?
+
+      @predictor = current_predictor
+
+      @followers_count = @predictor.purchases.count
+      @subscriptions_count = @predictor.purchases.all.where(:premium => true).count
+      @current_balance = 0
+
+    else
+
+      redirect_to root_path
+
+    end
 
   end
 
@@ -270,6 +284,26 @@ class PredictorsController < ApplicationController
       end
 
     end
+
+  end
+
+  def update_predictor_price
+
+    if predictor_signed_in?
+
+      if params[:newsubscriptionprice]
+
+        current_predictor.update(:subscription_price => params[:newsubscriptionprice])
+
+      end
+
+      redirect_to predictorbalance_path(current_predictor.username)
+
+    else
+
+      redirect_to root_path
+    end
+
 
   end
 

@@ -27,8 +27,11 @@
 
                 <h3><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-card-name"%> </h3>
 
-                <paper-button raised>Raised button</paper-button>
-                
+                <link rel="import" href="bower_components/paper-button/paper-button.html">
+
+                <paper-button raised>Raised button
+                </paper-button>
+
                 <!-- need to implement action that initiates payment on each purchase due, maybe -->
 
                 <% @purchases = Purchase.all.where(:user_id=> current_user.id, :predictor_id => @predictor.id) %>

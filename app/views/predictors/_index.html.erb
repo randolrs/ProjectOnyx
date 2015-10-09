@@ -32,12 +32,6 @@
                 <paper-button raised>Raised button
                 </paper-button>
 
-
-                <div style="display:inline-block">
-                  <span>Inbox</span>
-                  <paper-badge label="3"></paper-badge>
-                </div>
-
                 <!-- need to implement action that initiates payment on each purchase due, maybe -->
 
                 <% @purchases = Purchase.all.where(:user_id=> current_user.id, :predictor_id => @predictor.id) %>

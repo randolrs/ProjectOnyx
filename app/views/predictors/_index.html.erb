@@ -27,10 +27,12 @@
 
                 <h3><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-card-name"%> </h3>
 
-                <link rel="import" href="bower_components/paper-button/paper-button.html">
-
                 <paper-button raised>Raised button
                 </paper-button>
+
+                <div style="position:relative">
+                  <paper-ripple>Hello</paper-ripple>
+                </div>
 
                 <!-- need to implement action that initiates payment on each purchase due, maybe -->
 

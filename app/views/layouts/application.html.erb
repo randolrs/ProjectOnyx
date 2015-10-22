@@ -4,6 +4,8 @@
   <title>Onyx Predictions</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= html_import_tag "application", "data-turbolinks-track" => true %>
+  
   <%= csrf_meta_tags %>
 
   <script>
@@ -17,19 +19,19 @@
 
   </script>
 
-  <script type="text/javascript" src="/bower_components/platform/platform.js"></script>
+
+  <!-- <script data-turbolinks-track="true" type="text/javascript" src="vendor/assets/bower_components/platform/platform.js"/>
   <script type="text/javascript" src="/bower_components/webcomponentsjs/webcomponents.min.js"></script>
   <script type="text/javascript" src="/bower_components/webcomponentsjs/webcomponents.js"></script>
   <script type="text/javascript" src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
-  <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html"> -->
 
 </head>
 
 <body>
   <%= render 'layouts/header' %>
   <%# render 'layouts/header_boot' %>
-
   <div class="container">
   	<%= yield %>
     

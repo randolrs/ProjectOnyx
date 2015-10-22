@@ -18,8 +18,11 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~1.1.5",
-    "platform": "Polymer/platform#~0.4.2",
-    "paper-button": "PolymerElements/paper-button#~1.0.8"
+    "polymer": "Polymer/polymer",
+    "platform": "Polymer/platform",
+    "google-web-components": "GoogleWebComponents/google-web-components",
+    "iron-elements": "PolymerElements/iron-elements",
+    "paper-elements": "PolymerElements/paper-elements",
+    "gold-elements": "PolymerElements/gold-elements"
   }
 }

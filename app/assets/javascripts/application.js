@@ -11,37 +11,18 @@
 // about supported directives.
 //
 
-//= require webcomponentsjs/webcomponents
-//= require webcomponentsjs/webcomponents-lite
-//= require webcomponentsjs/webcomponents-lite.min.js
-// require platform/platform
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
-
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree
+//= require_tree .
+
+// require webcomponentsjs/webcomponents
+// require webcomponentsjs/webcomponents-lite
+//= require webcomponentsjs/webcomponents-lite.min.js
+// require platform/platform
 
 //Bower packages
-
-
-//=previous
-// jQuery(function($) {
-// $("tr[data-link]").click(function() {
-// window.location = this.dataset.link
-// });
-// })
-
-//=previous, previous
-// jQuery(document).ready(function($) {
-//     $(".clickable-row").click(function() {
-//         window.document.location = $(this).data("href");
-//     });
-// });
 
 jQuery(function($) {
     $('#inst-form').submit(function(event) {

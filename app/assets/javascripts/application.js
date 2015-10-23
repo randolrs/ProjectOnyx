@@ -17,9 +17,9 @@
 //= require turbolinks
 //= require_tree .
 
-// require webcomponentsjs/webcomponents
+//= require webcomponentsjs/webcomponents
 // require webcomponentsjs/webcomponents-lite
-//= require webcomponentsjs/webcomponents-lite.min.js
+// require webcomponentsjs/webcomponents-lite.min.js
 // require platform/platform
 
 //Bower packages
@@ -37,12 +37,12 @@ jQuery(function($) {
     });
   });
 
-function toggleModal() {
-    var divModal = document.getElementById("divModal");
-    divModal.style.display = (divModal.style.display == "table") ? "none" : "table";
-}
+// function toggleModal() {
+//     var divModal = document.getElementById("divModal");
+//     divModal.style.display = (divModal.style.display == "table") ? "none" : "table";
+// }
 
-function toggleTable() {
-    var lTable = document.getElementById("addCardTable");
-    lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
-}
+// function toggleTable() {
+//     var lTable = document.getElementById("addCardTable");
+//     lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
+// }

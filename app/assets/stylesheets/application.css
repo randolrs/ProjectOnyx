@@ -895,7 +895,7 @@ td.table-float-right{
 }
 
 
-paper-button {
+    paper-button {
       background: green;
       color: yellow;
       padding:5px;

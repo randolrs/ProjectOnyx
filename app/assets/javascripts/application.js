@@ -17,9 +17,9 @@
 //= require turbolinks
 //= require_tree .
 
-// require webcomponentsjs/webcomponents
+//= require webcomponentsjs/webcomponents
 //= require webcomponentsjs/webcomponents-lite
-// require webcomponentsjs/webcomponents-lite.min.js
+//= require webcomponentsjs/webcomponents-lite.min.js
 // require platform/platform
 
 //Bower packages

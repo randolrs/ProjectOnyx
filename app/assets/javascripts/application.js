@@ -17,25 +17,25 @@
 //= require turbolinks
 //= require_tree .
 
-//= require webcomponentsjs/webcomponents
-// require webcomponentsjs/webcomponents-lite
+// require webcomponentsjs/webcomponents
+//= require webcomponentsjs/webcomponents-lite
 // require webcomponentsjs/webcomponents-lite.min.js
 // require platform/platform
 
 //Bower packages
 
-jQuery(function($) {
-    $('#inst-form').submit(function(event) {
-      // Get the form object.
-      var $form = $(this);
-      // Disable the submit button to prevent repeated clicks
-      $form.find('button').prop('disabled', true);
-      // Create a token with Stripe
-      Stripe.bankAccount.createToken($form, stripeResponseHandler);
-      // Prevent the form from submitting with the default action
-      return false;
-    });
-  });
+// jQuery(function($) {
+//     $('#inst-form').submit(function(event) {
+//       // Get the form object.
+//       var $form = $(this);
+//       // Disable the submit button to prevent repeated clicks
+//       $form.find('button').prop('disabled', true);
+//       // Create a token with Stripe
+//       Stripe.bankAccount.createToken($form, stripeResponseHandler);
+//       // Prevent the form from submitting with the default action
+//       return false;
+//     });
+//   });
 
 // function toggleModal() {
 //     var divModal = document.getElementById("divModal");

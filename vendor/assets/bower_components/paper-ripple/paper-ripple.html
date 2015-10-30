@@ -674,15 +674,15 @@ Apply `circle` class to make the rippling effect within a circle.
 
       onAnimationComplete: function() {
         this._animating = false;
-        this.$.background.style.backgroundColor = null;
+        //this.$.background.style.backgroundColor = null;
         this.fire('transitionend');
       },
 
       addRipple: function() {
         var ripple = new Ripple(this);
 
-        Polymer.dom(this.$.waves).appendChild(ripple.waveContainer);
-        this.$.background.style.backgroundColor = ripple.color;
+        //Polymer.dom(this.$.waves).appendChild(ripple.waveContainer);
+        //this.$.background.style.backgroundColor = ripple.color;
         this.ripples.push(ripple);
 
         this._setAnimating(true);
@@ -717,7 +717,7 @@ Apply `circle` class to make the rippling effect within a circle.
 
           ripple.draw();
 
-          this.$.background.style.opacity = ripple.outerOpacity;
+          //this.$.background.style.opacity = ripple.outerOpacity;
 
           if (ripple.isOpacityFullyDecayed && !ripple.isRestingAtMaxRadius) {
             this.removeRipple(ripple);

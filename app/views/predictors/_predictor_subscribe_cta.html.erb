@@ -4,7 +4,10 @@
 
 		<% if current_user.paymentsource %>
 
-			<%= link_to "Subscribe for " + number_to_currency(@predictor.subscription_price).to_s, subscribe_to_predictor_path(:username=>@predictor.username), {:class=>"subscribe_cta" }%>
+			<div>
+				<%= link_to "Subscribe for " + number_to_currency(@predictor.subscription_price).to_s, subscribe_to_predictor_path(:username=>@predictor.username), {:class=>"subscribe_cta" }%>
+
+			</div>
 
 		<% else %>
 

@@ -13,12 +13,13 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require jquery-ui
+// require bootstrap
 //= require turbolinks
 //= require_tree .
 
-//= require webcomponentsjs/webcomponents
-//= require webcomponentsjs/webcomponents-lite
+// require webcomponentsjs/webcomponents
+// require webcomponentsjs/webcomponents-lite
 //= require webcomponentsjs/webcomponents-lite.min.js
 // require platform/platform
 

@@ -27,8 +27,21 @@
 
                 <h3><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-card-name"%> </h3>
 
+
+
+
+                <script>
+                  $(document).ready(function(){
+                      $('[data-toggle="popover"]').popover(); 
+                  });
+                  </script>
+
+                  <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">Toggle popover</a>
+
+                <a>
                 <paper-button raised toggles>Raised button
                 </paper-button>
+                </a>
 
                 <div style="position:relative">
                   <paper-ripple>Hello</paper-ripple>

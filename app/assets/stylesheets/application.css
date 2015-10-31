@@ -895,18 +895,5 @@ td.table-float-right{
 }
 
 
-    paper-button {
-      background: green;
-      color: yellow;
-      padding:5px;
-    }
-
-    paper-button:hover {
-      background: lime;
-    }
-
-    paper-button[disabled],
-    paper-button[toggles][active] {
-      background: red;
-    }
+  
 

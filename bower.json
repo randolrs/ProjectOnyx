@@ -18,7 +18,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer",
+    "polymer": "Polymer/polymer#^1.2.0",
     "platform": "Polymer/platform",
     "google-web-components": "GoogleWebComponents/google-web-components",
     "iron-elements": "PolymerElements/iron-elements",

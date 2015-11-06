@@ -35,6 +35,21 @@
 	display: inline-block;
 }
 
+.header-li.medium{
+	padding:0px;
+	font-size:20px;
+}
+
+.header-li.medium:hover{
+	background-color:#fafafa;
+	font-size:20px;
+}
+
+.header-li.medium a{
+	color:#444;
+	padding:10px 15px;
+}
+
 input[type="submit"]{
 	width:364px;
 }
@@ -466,6 +481,10 @@ span.glyphicon{
 
 label{
 	display:inline;
+}
+
+a{
+	color:#8E28C8;
 }
 
 

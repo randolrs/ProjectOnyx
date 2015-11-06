@@ -4,8 +4,32 @@
 
 		<div class ="predictor-user-toggle-container">
 
-			<%= link_to "User", new_user_session_path, class: "predictor-user-toggle active" %>
-			<%= link_to "Expert", new_predictor_session_path, class: "predictor-user-toggle inactive" %>
+			<script>
+				$(document).ready(function(){
+				    $(".user-login-cta").click(function(){
+
+				    	$('user-login-cta').toggle(function () {
+    						$("user-login-cta").addClass("active");
+							}, function () {
+    						$("user-login-cta").removeClass("active");
+						});
+
+				        
+				        $(".predictor-login-cta").hide();
+				    });
+				    $(".predictor-login-cta").click(function(){
+				        $(".user-login-cta").hide();
+				        $(".predictor-login-cta").hide();
+				    });
+				});
+			</script>
+
+			<div class ="user-login-cta">
+				stuff here
+				</div>
+
+			<%= link_to "User", new_user_session_path, class: "predictor-user-toggle active user-login-cta" %>
+			<%= link_to "Expert", new_predictor_session_path, class: "predictor-user-toggle inactive predictor-login-cta" %>
 
 		</div>
 

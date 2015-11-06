@@ -1,10 +1,8 @@
-<%= render 'layouts/header_sub' %>
+<div class = "user-dashboard-prediction-nav">
 
-<div class="user-dashboard-header">
+	<h3>Summary</h3>
 
-  <% if user_signed_in?%>
-
-  <h3><%# current_user.username %>Dashboard</h3>
+	<% if user_signed_in?%>
 
   <table class="user-dashboard-summary">
     <tr>
@@ -24,7 +22,3 @@
   <%end%>
 
 </div>
-
-
-
-

@@ -1,20 +1,26 @@
+<%= render 'layouts/header_sub' %>
+
 <div class="user-dashboard-wrap">
 
 	<div class ="user-dashboard-container">
 
+		<h2>Dashboard</h2>
+
 		<%# render 'devise/user_subscription_nav'%>
 
-		<div class="user-dashboard-left">
+<!-- 		<div class="user-dashboard-left">
 
-			<%= render 'devise/user_dashboard_header'%>
+			<%# render 'devise/user_dashboard_header'%>
 
-			<%= render 'games/upcoming_games'%>
+			<%# render 'games/upcoming_games'%>
 
-		</div>
+		</div> -->
 
 		<div class ="user-dashboard-predictions">
 
-			<%= render 'pages/user_dashboard_prediction_nav' %>
+			<%# render 'pages/user_dashboard_summary' %>
+
+			<%# render 'pages/user_dashboard_prediction_nav' %>
 
 			<%= render 'prediction_games/indexshow' %>
 
@@ -24,7 +30,11 @@
 
 		<div class ="user-dashboard-card">
 
+			<%= render 'pages/user_dashboard_summary' %>
+
 			<%= render 'predictors/recommendations' %>
+
+			<%= render 'games/upcoming_games'%>
 
 			<%= render 'layouts/footer_float'%>
 

@@ -1,3 +1,11 @@
+<script>
+$(document).ready(function(){
+    $("#addCardLink").click(function(){
+        $(".add-card-container").toggle();
+    });
+});
+</script>
+
 <%= render 'predictors/editnavside' %>
 
 <div class = "edit-container">
@@ -37,19 +45,22 @@
 
 				<%end%>
 
-			<br><br>
+			<br>
 
 			<% end %>
 
-			<a id="addCardLink" onclick="toggleModal();">Add a Credit Card</a>
+			<a id="addCardLink">Add a Credit Card</a>
 
 			<Br><BR>
 
+				<div class="add-card-container" style="display:none">
+					<%=render 'cards/addcardform' %>
+				</div>
 			
 			  <!-- <form action="" method="POST" id="payment-form"> -->
       <!-- Add a section to display errors if you want -->
 
-		<%=render 'cards/addcardform' %>
+		
 
 	</div>
 </div>

@@ -38,12 +38,20 @@
 //     });
 //   });
 
-// function toggleModal() {
-//     var divModal = document.getElementById("divModal");
-//     divModal.style.display = (divModal.style.display == "table") ? "none" : "table";
-// }
+function toggleModal() {
+    var divModal = document.getElementById("divModal");
+    divModal.style.display = (divModal.style.display == "table") ? "none" : "table";
+}
 
-// function toggleTable() {
-//     var lTable = document.getElementById("addCardTable");
-//     lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
-// }
+function toggleTable() {
+    var lTable = document.getElementById("addCardTable");
+    lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
+}
+
+<script>
+$(document).ready(function(){
+    $("#addCardButton").click(function(){
+        $("p").toggle();
+    });
+});
+</script>

@@ -53,13 +53,15 @@ Rails.application.routes.draw do
 
   get 'sportdashboard' => 'sports#index'
 
-  get 'subscribe' => 'cards#create'
+  # get 'subscribe' => 'cards#create'
 
   post 'cards_default' => 'cards#make_default'
 
   post 'update_predictor_price' => 'predictors#update_predictor_price'
 
   post 'bank_account_default' => 'bank_accounts#make_default'
+
+  get 'subscribe' => 'subscriptions#create'
 
   get 'buy_prediction_game' => 'prediction_games#buy'
 

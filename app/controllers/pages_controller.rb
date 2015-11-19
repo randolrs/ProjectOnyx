@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   
   def home
   		
-      @action = 'home'
+      @page = "home"
 
       if user_signed_in?
 
@@ -37,6 +37,32 @@ class PagesController < ApplicationController
           @action = "recent"
 
         end
+
+      elsif predictor_signed_in?
+
+        @action = 'predictordashboard'
+        @predictor = current_predictor
+        @username = @predictor.username
+        @predictions = @predictor.prediction_games.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+        @displaypredictor = false
+
+      end
+
+  end
+
+  def dashboard
+      
+      @page = "dashboard"
+
+      if user_signed_in?
+
+        @displaypredictor = true
+
+        @myPurchases = current_user.my_purchases
+
+        @predictions = current_user.my_prediction_games
+
+        @upcominggames = Game.all.where("event_time > :time_now", {time_now: Time.now}).order("event_time ASC").limit(3)
 
       elsif predictor_signed_in?
 

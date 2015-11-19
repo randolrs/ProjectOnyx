@@ -35,19 +35,36 @@
 	display: inline-block;
 }
 
-.header-li.medium{
-	padding:0px;
-	font-size:20px;
+a.header-sub-Noble{
+		
 }
 
-.header-li.medium:hover{
-	background-color:#fafafa;
-	font-size:20px;
+.header-li.medium{
+	font-size:18px;
 }
+
+.header-li.medium.active{
+	border-bottom: 3px #56D793 solid;
+
+}
+
 
 .header-li.medium a{
-	color:#444;
-	padding:10px 15px;
+	color: #555459;
+	padding:10px;
+	line-height: 40px;
+}
+
+.header-li.medium a.active{
+	
+
+}
+
+.header-li.medium a:hover{
+	text-decoration:none;
+	border-bottom: 3px #56D793 solid;
+	transition: all .15s ease-in-out;
+	
 }
 
 input[type="submit"]{

@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
   get "login" => "devise/sessions#new"
 
-  get 'dashboard' => 'prediction_games#index'
+  get 'dashboard' => 'pages#dashboard'
 
   get 'posts' => 'articles#index'
 

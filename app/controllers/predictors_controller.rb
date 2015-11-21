@@ -295,7 +295,21 @@ class PredictorsController < ApplicationController
 
       if params[:newsubscriptionprice]
 
-        current_predictor.update(:subscription_price => params[:newsubscriptionprice])
+        Stripe.api_key = current_predictor.account_key_secret
+
+        @stripe_price = params[:newsubscriptionprice].to_i * 100
+
+        current_predictor.update(:subscription_count => current_predictor.subscription_count + 1)
+
+        plan = Stripe::Plan.create(
+          :amount => @stripe_price,
+          :interval => 'month',
+          :name => "Subscription for " + current_predictor.username.humanize,
+          :currency => 'usd',
+          :id => current_predictor.username + "sub" + current_predictor.id.to_s + "#" + current_predictor.subscription_count.to_s,
+        )
+
+        current_predictor.update(:subscription_id => plan.id)
 
       end
 
@@ -304,6 +318,7 @@ class PredictorsController < ApplicationController
     else
 
       redirect_to root_path
+
     end
 
 

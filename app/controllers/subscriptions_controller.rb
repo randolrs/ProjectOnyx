@@ -31,7 +31,13 @@ class SubscriptionsController < ApplicationController
 	        customer = Stripe::Customer.create(
 	                    :description => @user.id,
 	                    )
+
       	end
+
+      	#retrieve and set default source
+
+		customer.default_source = current_user.default_source
+		customer.save
 
       	@predictor_plans = Stripe::Plan.all.data
 
@@ -71,7 +77,7 @@ class SubscriptionsController < ApplicationController
 
 		@purchase.premium = true
 
-		customer.subscriptions.create(:plan => @predictor_plan_active.id)
+		customer.subscriptions.create(:plan => @predictor.subscription_id)
 
 		@purchase.save        
 

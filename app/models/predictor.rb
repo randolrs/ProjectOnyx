@@ -102,4 +102,21 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def sub_price
+
+    if self.subscription_id
+
+      Stripe.api_key = self.account_key_secret
+
+      current_plan = Stripe::Plan.retrieve(self.subscription_id)
+
+      return current_plan.amount / 100
+
+    else
+
+      return "N/A"
+    end
+
+  end
+
 end

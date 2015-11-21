@@ -354,8 +354,8 @@ class PredictionGamesController < ApplicationController
 
             unless current_predictor.subscription_id
 
-              Stripe.api_key = Rails.configuration.stripe[:secret_key]
-              #Stripe.api_key = @predictor.account_key_secret
+              #Stripe.api_key = Rails.configuration.stripe[:secret_key]
+              Stripe.api_key = @predictor.account_key_secret
 
               plan = Stripe::Plan.create(
                 :amount => 500,
@@ -366,6 +366,8 @@ class PredictionGamesController < ApplicationController
               )
 
               current_predictor.update(:subscription_id => plan.id)
+
+              current_predictor.update(:subscription_count => 1)
 
             end
 

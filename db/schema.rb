@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031233931) do
+ActiveRecord::Schema.define(version: 20151121175449) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 20151031233931) do
     t.string   "subscription_id"
     t.float    "rating",                                                     default: 0.0
     t.decimal  "subscription_price",                 precision: 8, scale: 0, default: 0
+    t.integer  "subscription_count"
   end
 
   add_index "predictors", ["email"], name: "index_predictors_on_email", unique: true
@@ -293,6 +294,7 @@ ActiveRecord::Schema.define(version: 20151031233931) do
     t.string   "account_key_p"
     t.string   "account_key_s"
     t.string   "customer_id"
+    t.string   "default_source"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

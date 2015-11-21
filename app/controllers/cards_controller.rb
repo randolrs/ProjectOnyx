@@ -137,6 +137,11 @@ class CardsController < ApplicationController
 
       customer.save
 
+      if user_signed_in?
+
+        current_user.update(:default_source => customer.default_source)
+      end
+
     end
 
       redirect_to cardsindex_path(current_user.username)

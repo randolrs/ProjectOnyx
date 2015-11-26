@@ -8,50 +8,28 @@ class SubscriptionsController < ApplicationController
 
     	@user = current_user
 
-		Stripe.api_key = @predictor.account_key_secret
+		Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-		###probably should add user_id identifier to customer
-
-		@predictor_customers = Stripe::Customer.all.data
-
-		@predictor_customers.each do |customer|
-
-			if customer.description == @user.id.to_s
-				@existing_customer = customer
-			end
-
-		end
-
-		if @existing_customer
-
-			customer = Stripe::Customer.retrieve(@existing_customer.id)
-
-		else
-
-	        customer = Stripe::Customer.create(
-	                    :description => @user.id,
-	                    )
-
-      	end
 
       	#retrieve and set default source
 
-		customer.default_source = current_user.default_source
-		customer.save
+      	customer_token = Stripe::Token.create(
+					  			{:customer => @user.customer_id},
+					  			{:stripe_account => @predictor.account_id}
+							)
 
-      	@predictor_plans = Stripe::Plan.all.data
+      	Stripe.api_key = @predictor.account_key_secret
 
-      	@predictor_plans.each do |plan|
+      	customer = Stripe::Customer.create(
+	                    :description => @user.id,
+	                    :source => customer_token.id
+	                    )
 
-			if plan.livemode == true
-				@predictor_plan_active = plan
-			end
+      	customer.subscriptions.create(:plan => @predictor.subscription_id,
+      								  :application_fee_percent => 20)
 
-			#need to add way to add active to subscription creation
+      	#application_fee_percent should become dynsamic later
 
-		end
-
-		####add exception for no active plan
 
 	#purchase model entry addition
 
@@ -77,13 +55,9 @@ class SubscriptionsController < ApplicationController
 
 		@purchase.premium = true
 
-		customer.subscriptions.create(:plan => @predictor.subscription_id)
-
 		@purchase.save        
 
 	end
-
-	#end
 
       redirect_to root_path
 

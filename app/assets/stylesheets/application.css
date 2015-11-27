@@ -705,8 +705,7 @@ td.ud-margin{
 
 .user-dashboard-predictions{
   float:left;
-  max-width: 830px;
-  min-width: 530px;
+  width: 550px;
   //padding:40px;
   //background-color:#FCFCFC;
   margin: 0px 15px;

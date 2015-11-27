@@ -2,7 +2,11 @@
 
       <% if @predictors.count == 0 %>
           
-        <a class="no-active-games">No Experts</a>
+        <div class ="prediction-game-index-show empty">
+
+        Follow or subscribe to experts you find interesting to see their predictions in your dashboard.      
+
+        </div>
 
       <% else %>
       
@@ -19,7 +23,7 @@
               
                 <%= image_tag @predictor.image.url(:medium), class: "predictor-image-card"%>
 
-                <%= render 'predictor_subscribe_cta' %>
+                <%= render 'predictors/predictor_subscribe_cta' %>
 
                 <br>
 

@@ -4,8 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         validates :username, uniqueness: {message: "Username is taken"}
-         validates :email, uniqueness: {message: "Email is taken"}
+  validates :email, uniqueness: {message: "Email is taken"}
 
   has_many :prediction_games, through: :predictors 
   #has_and_belongs_to_many :predictors

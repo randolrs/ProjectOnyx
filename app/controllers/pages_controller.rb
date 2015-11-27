@@ -10,6 +10,8 @@ class PagesController < ApplicationController
 
         @myPurchases = current_user.my_purchases
 
+        @predictors = current_user.my_predictors
+
         @predictions = current_user.my_prediction_games
 
         @upcominggames = Game.all.where("event_time > :time_now", {time_now: Time.now}).order("event_time ASC").limit(3)

@@ -79,6 +79,8 @@ Rails.application.routes.draw do
   get 'find_MLB_predictions' => 'prediction_games#findmlbpredictiongames'
   get 'find_NHL_predictions' => 'prediction_games#findnhlpredictiongames'
 
+  get '/users/edit/payments' => 'cards#index', as: 'payments'
+
 
   get '/predictors/:predictor_id/sports/:league/:id' => 'prediction_games#show', as: 'show_prediction_games'
   
@@ -117,8 +119,6 @@ Rails.application.routes.draw do
   get '/:username/' => 'predictors#predictordashboard', as: 'predictordashboard'
 
   get '/:username/balance' => 'predictors#predictorbalance', as: 'predictorbalance'
-
-  get ':username/edit/payments' => 'cards#index', as: 'cardsindex'
 
   get '/:username/posts' => 'predictors#articleindex', as: 'predictorindexarticlessall'
 

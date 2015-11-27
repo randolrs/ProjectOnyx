@@ -21,6 +21,7 @@ class Predictor < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   validates :username, uniqueness: {message: " is taken"}
+  validates :email, uniqueness: {message: " is taken"}
 
 
 	def PredictionGame

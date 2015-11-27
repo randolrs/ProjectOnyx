@@ -13,8 +13,8 @@
 
       <tr>
         <td class="ud-margin"><%= @followers_count %></td>
-        <td class="ud-margin"><%= @subscriptions_count %></td>
-        <td class="ud-margin"><%= @current_balance %></td>
+        <td class="ud-margin"><%= current_predictor.subscribers_stripe %></td>
+        <td class="ud-margin"><%= number_to_currency(current_predictor.balance_stripe).to_s %></td>
       </tr>
 
       </table>

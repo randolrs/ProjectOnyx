@@ -3,20 +3,11 @@
   <div class="header-inside-sub">
 
       <% if user_signed_in? %>
-       
-       <% if @page == "home" %>
-          <ul class="header-right">
-            <li class= "header-li medium active"><%= link_to "Home", root_path, class: "header-sub-Noble active" %></li>
-            <li class= "header-li medium"><%= link_to "Dashboard", dashboard_path, class: "header-sub-Noble" %></li>
-            <li class= "header-li medium"><%= link_to "Find Experts", home_path, class: "header-sub-Noble" %></li>
-          </ul>
 
-        <% elsif @page =="dashboard"%>
+        <% if @page =="dashboard"%>
           <ul class="header-right">
             
-            <li class= "header-li medium"><%= link_to "Home", root_path, class: "header-sub-Noble" %></li>
-            
-            <li class= "header-li medium active"><%= link_to "Dashboard", dashboard_path, class: "header-sub-Noble active" %></li>
+            <li class= "header-li medium"><%= link_to "Home", root_path, class: "header-sub-Noble active" %></li>
 
             <li class="dropdown header-li medium">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Find Experts<span class="caret white-caret"></span></a>
@@ -33,14 +24,12 @@
         <% elsif @page =="find"%>
           <ul class="header-right">
             <li class= "header-li medium"><%= link_to "Home", root_path, class: "header-sub-Noble" %></li>
-            <li class= "header-li medium"><%= link_to "Dashboard", dashboard_path, class: "header-sub-Noble" %></li>
             <li class= "header-li medium active"><%= link_to "Find Experts", home_path, class: "header-sub-Noble active" %></li>
           </ul>
 
           <% else %>
             <ul class="header-right">
               <li class= "header-li medium"><%= link_to "Home", root_path, class: "header-sub-Noble" %></li>
-              <li class= "header-li medium"><%= link_to "Dashboard", home_path, class: "header-sub-Noble" %></li>
               <li class= "header-li medium"><%= link_to "Find Experts", home_path, class: "header-sub-Noble" %></li>
             </ul>
         <%end%>

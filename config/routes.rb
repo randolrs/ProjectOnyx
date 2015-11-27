@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :predictions
 
-  resources :predictors
+#  resources :predictors
 
  #get ':prediction_game(/:league(/:team))' => "prediction_games#findpredictiongames"
 

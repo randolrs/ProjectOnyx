@@ -51,8 +51,7 @@ a.header-sub-Noble{
 
 .header-li.medium a{
 	color: #555459;
-	padding:10px;
-	line-height: 40px;
+	padding:9px;
 }
 
 .header-li.medium a.active{
@@ -62,9 +61,13 @@ a.header-sub-Noble{
 
 .header-li.medium a:hover{
 	text-decoration:none;
-	border-bottom: 3px #56D793 solid;
+	border-bottom: 2px #56D793 solid;
 	transition: all .15s ease-in-out;
 	
+}
+
+a.header-sub-Noble.active {
+	border-bottom: 2px #56D793 solid;
 }
 
 input[type="submit"]{

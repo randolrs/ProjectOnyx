@@ -5,10 +5,23 @@
     <h3>Transaction Summary</h3>
 
     <table class="user-dashboard-summary">
-      <tr>
-        <td class="ud-margin">Transactions in the house</td>
-        
-      </tr>
+
+    	<thead>
+    		<tr>
+    			<td>Date</td>
+    			<td>Amount</td>
+    			<td>Service Fee</td>
+    		</tr>
+
+    	<thead>
+    	<% current_predictor.charges_stripe.each do |charges| %>
+	      <tr>
+	        <td class="ud-margin"><%= charges.created %></td>
+	        <td class="ud-margin"><%= number_to_currency(charges.amount.to_i * 0.01).to_s %></td>
+	        <td class="ud-margin"><%= charges.application_fee %></td>
+	        
+	      </tr>
+      	<%end%>
 
       </table>
 

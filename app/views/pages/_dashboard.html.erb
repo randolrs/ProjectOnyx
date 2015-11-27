@@ -1,0 +1,31 @@
+<% if user_signed_in? %>
+
+  <%= render 'layouts/header_sub' %>
+
+  <div class="user-dashboard-wrap">
+
+    <div class ="user-dashboard-container">
+
+      <div class ="user-dashboard-card">
+
+        <%= render 'pages/user_dashboard_summary' %>
+
+        <%= render 'predictors/recommendations' %>
+
+        <%= render 'games/upcoming_games'%>
+
+        <%= render 'layouts/footer_float'%>
+
+      </div>
+
+      <div class ="user-dashboard-predictions">
+
+        <%= render 'prediction_games/indexshow' %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<%end%>

@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
   
   def home
-  		
-      @page = "home"
+
+      @page = "dashboard"
 
       if user_signed_in?
 
@@ -14,30 +14,6 @@ class PagesController < ApplicationController
 
         @upcominggames = Game.all.where("event_time > :time_now", {time_now: Time.now}).order("event_time ASC").limit(3)
 
-        if params[:sort_by]
-
-          if params[:sort_by] == "upcoming"
-
-            @action = "upcoming"
-            @predictions = current_user.my_prediction_games_upcoming
-
-          elsif params[:sort_by] == "top"
-
-            @action = "top"
-            @predictions = current_user.my_prediction_games_closed.sort_by {|k| k[:prediction].onyx}
-
-          elsif params[:sort_by] == "closed"
-
-            @action = "closed"
-            @predictions = current_user.my_prediction_games_closed
-          end
-
-        else
-
-          @action = "recent"
-
-        end
-
       elsif predictor_signed_in?
 
         @action = 'predictordashboard'
@@ -47,6 +23,50 @@ class PagesController < ApplicationController
         @displaypredictor = false
 
       end
+
+      # if user_signed_in?
+
+      #   @displaypredictor = true
+
+      #   @myPurchases = current_user.my_purchases
+
+      #   @predictions = current_user.my_prediction_games
+
+      #   @upcominggames = Game.all.where("event_time > :time_now", {time_now: Time.now}).order("event_time ASC").limit(3)
+
+      #   if params[:sort_by]
+
+      #     if params[:sort_by] == "upcoming"
+
+      #       @action = "upcoming"
+      #       @predictions = current_user.my_prediction_games_upcoming
+
+      #     elsif params[:sort_by] == "top"
+
+      #       @action = "top"
+      #       @predictions = current_user.my_prediction_games_closed.sort_by {|k| k[:prediction].onyx}
+
+      #     elsif params[:sort_by] == "closed"
+
+      #       @action = "closed"
+      #       @predictions = current_user.my_prediction_games_closed
+      #     end
+
+      #   else
+
+      #     @action = "recent"
+
+      #   end
+
+      # elsif predictor_signed_in?
+
+      #   @action = 'predictordashboard'
+      #   @predictor = current_predictor
+      #   @username = @predictor.username
+      #   @predictions = @predictor.prediction_games.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
+      #   @displaypredictor = false
+
+      # end
 
   end
 

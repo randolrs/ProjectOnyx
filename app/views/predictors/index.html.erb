@@ -1,0 +1,21 @@
+<% Predictor.all.each do |predictor| %>
+
+<table>
+
+	<tbody>
+	      
+	  <tr class="prediction-table-row" href="/">
+	          
+	      <td><%= predictor.id %></td>
+	      <td><%= predictor.username %></td>
+	      <td><%= predictor.prediction_games.count %></td>
+	      <td><%= link_to 'Destroy', predictor, method: :delete %></td>
+	          
+	    </div>
+	  </tr>
+
+	</tbody>
+
+</table>
+
+<% end %>

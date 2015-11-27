@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :predictions
 
-  #resources :predictors
+  resources :predictors
 
  #get ':prediction_game(/:league(/:team))' => "prediction_games#findpredictiongames"
 
@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   get "login" => "devise/sessions#new"
 
   get 'dashboard' => 'pages#dashboard'
+
+  get 'predictoradminindex' => 'predictors#index'
 
   get 'posts' => 'articles#index'
 

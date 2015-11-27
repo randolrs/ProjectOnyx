@@ -108,9 +108,28 @@ class Predictor < ActiveRecord::Base
 
       Stripe.api_key = self.account_key_secret
 
-      current_plan = Stripe::Plan.retrieve(self.subscription_id)
+      predictor_plans = Stripe::Plan.all
 
-      return current_plan.amount / 100
+      active = false
+
+      predictor_plans.each do |plan|
+
+        if plan.id == self.subscription_id
+          active = true
+        end
+
+      end
+
+      if active
+
+        current_plan = Stripe::Plan.retrieve(self.subscription_id)
+
+        return current_plan.amount / 100
+
+      else
+
+        return "Error"
+      end
 
     else
 

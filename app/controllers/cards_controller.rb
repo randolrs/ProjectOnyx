@@ -17,6 +17,17 @@ class CardsController < ApplicationController
               },
                 )
 
+    unless current_user.customer_id
+
+      customer = Stripe::Customer.create(
+                :description => "Customer for Onyx",
+                #:source => params[:stripeToken] # obtained with Stripe.js
+                )
+
+      current_user.update(:customer_id => customer.id)
+
+    end
+
     customer = Stripe::Customer.retrieve(current_user.customer_id)
 
     customer.source = token
@@ -55,6 +66,17 @@ class CardsController < ApplicationController
     :cvc => params[:cvc]
               },
                 )
+
+    unless current_user.customer_id
+
+      customer = Stripe::Customer.create(
+                :description => "Customer for Onyx",
+                #:source => params[:stripeToken] # obtained with Stripe.js
+                )
+
+      current_user.update(:customer_id => customer.id)
+
+    end
 
     customer = Stripe::Customer.retrieve(current_user.customer_id)
 

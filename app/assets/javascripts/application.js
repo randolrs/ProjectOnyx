@@ -48,11 +48,3 @@ function toggleTable() {
     lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
 }
 
-<script>
-$(document).ready(function(){
-    $("#addCardButton").click(function(){
-        $("p").toggle();
-    });
-});
-</script>
-

@@ -69,7 +69,7 @@ class SportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sport_params
-      params.require(:sport).permit(:subcat, :image, :banner_image, :image_file_name, :image_content_type, :image_file_size, :image_updated_at)
+      params.require(:sport).permit(:subcat, :image, :banner_image, image: [:image_file_name, :image_content_type, :image_file_size, :image_updated_at])
 
       
     end

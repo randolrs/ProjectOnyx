@@ -158,42 +158,44 @@ class User < ActiveRecord::Base
 
   def follow(predictor_id)
 
-  if Purchase.exists?(:user_id=> self.id,:predictor_id=>predictor_id)
+    if Purchase.exists?(:user_id=> self.id,:predictor_id=>predictor_id)
 
-    true
+      true
 
-  else
+    else
 
-    false
-
-  end
-
-end
-
-
-    def balance_stripe(id)
-
-      if User.find(id).account_key_s
-
-        Stripe.api_key = User.find(id).account_key_s
-        balance_object = Stripe::Balance.retrieve()
-
-        @balance = (balance_object.available[0].amount + balance_object.pending[0].amount)/100
-        
-      else
-
-        @balance = 0
-        
-      end
-
-      return @balance
+      false
 
     end
 
-    def paymentsource
+  end
+
+
+  def balance_stripe(id)
+
+    if User.find(id).account_key_s
+
+      Stripe.api_key = User.find(id).account_key_s
+      balance_object = Stripe::Balance.retrieve()
+
+      @balance = (balance_object.available[0].amount + balance_object.pending[0].amount)/100
       
-      if Stripe.api_key = Rails.configuration.stripe[:secret_key]
-        
+    else
+
+      @balance = 0
+      
+    end
+
+    return @balance
+
+  end
+
+  def paymentsource
+    
+    if Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+      if self.customer_id
+      
         customer = Stripe::Customer.retrieve(self.customer_id)
 
         if customer.default_source
@@ -203,7 +205,15 @@ end
 
           false
         end
-      end
 
+      else
+
+        false
+      end
+      
     end
+
+  end
+
+
 end

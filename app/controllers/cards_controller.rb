@@ -119,7 +119,7 @@ class CardsController < ApplicationController
 
     else
 
-      redirect_to cardsindex_path(current_user.username)
+      redirect_to payments_path
 
     end
 

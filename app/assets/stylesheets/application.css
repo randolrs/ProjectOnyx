@@ -896,6 +896,7 @@ td.table-float-right{
 
 .link-jquery:hover{
   cursor: pointer;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 1295px) {

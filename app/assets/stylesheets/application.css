@@ -894,6 +894,10 @@ td.table-float-right{
   color:#999;
 }
 
+.link-jquery:hover{
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 1295px) {
     .user-dashboard-card{
         display:none;

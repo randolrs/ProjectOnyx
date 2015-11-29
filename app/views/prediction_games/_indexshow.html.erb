@@ -13,9 +13,6 @@
     <% prediction = hash[:prediction] %>
 
     <% @predictor = hash[:predictor] %>
-      
-      
-      <a href = "<%= predictiongamesshow_path(@predictor.username, prediction.id)%>", class ="game-show-link" >
 
       <div class ="prediction-game-index-show">
         
@@ -137,14 +134,11 @@
 
             <%end%>
 
-
           <% end %>
 
         </table>
 
       </div>
-
-    </a>
 
   <%end%>
 

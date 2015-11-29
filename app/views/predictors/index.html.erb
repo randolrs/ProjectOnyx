@@ -1,21 +1,30 @@
-<% Predictor.all.each do |predictor| %>
-
 <table>
+	<thead>
+		<tr>     
+		      <th>ID</th>
+		      <th>Username</th>
+		      <th>Prediction Count</th>
+		      <th>Balance</th>
+		          
+		</tr>
+	</thead>
 
-	<tbody>
-	      
-	  <tr class="prediction-table-row" href="/">
-	          
-	      <td><%= predictor.id %></td>
-	      <td><%= predictor.username %></td>
-	      <td><%= predictor.prediction_games.count %></td>
-	      <td><%= link_to 'Destroy', predictor, method: :delete %></td>
-	          
-	    </div>
-	  </tr>
+	<% Predictor.all.each do |predictor| %>
 
-	</tbody>
+		<tbody>
+		      
+		  <tr class="prediction-table-row" href="/">
+		          
+		      <td><%= predictor.id %></td>
+		      <td><%= predictor.username %></td>
+		      <td><%= predictor.prediction_games.count %></td>
+		      <td><%= predictor.balance_stripe %></td>
+		          
+		    </div>
+		  </tr>
+
+		</tbody>
+
+	<% end %>
 
 </table>
-
-<% end %>

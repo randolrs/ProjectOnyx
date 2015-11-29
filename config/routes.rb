@@ -65,6 +65,8 @@ Rails.application.routes.draw do
 
   get 'subscribe' => 'subscriptions#create'
 
+  get 'balance' => 'predictors#predictorbalance'
+
   get 'buy_prediction_game' => 'prediction_games#buy'
 
   get 'subscribe_to_predictor' => 'predictors#subscribe'
@@ -117,8 +119,6 @@ Rails.application.routes.draw do
   get '/:username/predictions/:category' => 'predictors#predictionindex', as: 'predictorindexpredictionscategory'
 
   get '/:username/' => 'predictors#predictordashboard', as: 'predictordashboard'
-
-  get '/:username/balance' => 'predictors#predictorbalance', as: 'predictorbalance'
 
   get '/:username/posts' => 'predictors#articleindex', as: 'predictorindexarticlessall'
 

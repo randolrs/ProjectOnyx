@@ -50,7 +50,7 @@
 
     <% elsif predictor_signed_in? %>
 
-      <li class="header-li"><%= link_to "My Predictions", predictordashboard_path(current_predictor.username), class: " predictions-header" %></li>
+      <li class="header-li"><%= link_to "My Profile", predictordashboard_path(current_predictor.username), class: " predictions-header" %></li>
 
       <li class="header-li"><%= link_to "New Prediction", sportsgamesselect_path(current_predictor.username, "predictions") %></li>
 
@@ -62,7 +62,7 @@
           <!-- <li><%# link_to "My Predictions", predictordashboard_path(current_predictor.username) %></li> -->
           <% if current_predictor.account_key_secret%>
 
-            <li><%= link_to "My Balance: " + number_to_currency(current_predictor.balance_stripe).to_s, predictorbalance_path(current_predictor.username) %></li>
+            <li><%= link_to "My Balance: " + number_to_currency(current_predictor.balance_stripe).to_s, balance_path %></li>
             <li role="presentation" class="divider"></li>
           <%end%>
 

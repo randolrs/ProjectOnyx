@@ -12,19 +12,20 @@
   <% end %>
 
   <div class="field">
+    
     <%= f.label :name %><br>
     <%= f.text_field :name %><br>
 
     <%= f.label :league %><br>
-
-        <%= collection_select(:team, :league, Sport.all, :subcat, :subcat) %>
+    <%= collection_select(:team, :league, Sport.all, :subcat, :subcat) %>
 
     <%= f.label :image %>
     <%= f.file_field :image, class: "form-control" %>
 
-
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>

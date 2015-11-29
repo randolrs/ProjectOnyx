@@ -1,0 +1,17 @@
+<div class="user-dashboard-header"%>
+
+  <% if predictor_signed_in?%>
+
+    <h3 class="subscription-price-header">Next Payment Date</h3>
+
+    <center><h5><%= Time.now.beginning_of_month.next_month.strftime("%A, %b %d, %Y") %></h5></center>
+
+    <br>  
+
+  <%end%>
+
+</div>
+
+
+
+

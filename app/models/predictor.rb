@@ -30,10 +30,18 @@ class Predictor < ActiveRecord::Base
 
   def balance_stripe
 
-    Stripe.api_key = self.account_key_secret
-    balance_object = Stripe::Balance.retrieve()
+    if self.account_key_secret
 
-    balance = (balance_object.available[0].amount + balance_object.pending[0].amount)/100
+      Stripe.api_key = self.account_key_secret
+      balance_object = Stripe::Balance.retrieve()
+
+      balance = (balance_object.available[0].amount)/100
+
+    else
+
+      balance = "N/A"
+
+    end
     
     return balance
   end

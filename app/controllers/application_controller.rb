@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 	  	
 	  	if predictor_signed_in?
 
-  			predictordashboard_path(current_predictor.username)
+  			root_path
 
   		elsif user_signed_in?
 

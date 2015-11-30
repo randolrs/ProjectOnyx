@@ -1,10 +1,10 @@
 <% if user_signed_in? %>
 
-	<%=render 'pages/dashboard'%>
+	<%= render 'pages/dashboard'%>
 
 <%elsif predictor_signed_in?%>
 
-	<%#render 'predictors/predictordashboard'%>
+	<%= render 'predictors/dashboard'%>
 
 <%else%>
 

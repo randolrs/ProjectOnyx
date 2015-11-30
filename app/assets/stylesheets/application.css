@@ -899,6 +899,23 @@ td.table-float-right{
   text-decoration: none;
 }
 
+a.need-information-cta{
+  background: linear-gradient(#E52421, #C81F1D);
+  padding:10px 20px;
+  text-align:center;
+  color:white;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border: none;
+  margin:90px 0px;
+  border-radius:1px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+a.need-information-cta:hover{
+  cursor: pointer;
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 1295px) {
     .user-dashboard-card{
         display:none;

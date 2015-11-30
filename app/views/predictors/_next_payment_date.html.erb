@@ -4,7 +4,15 @@
 
     <h3 class="subscription-price-header">Next Payment Date</h3>
 
+    <%if current_predictor.verified %>
+
     <center><h5><%= Time.now.beginning_of_month.next_month.strftime("%A, %b %d, %Y") %></h5></center>
+
+    <%else%>
+
+      <center><%= link_to "Verify Your Account", edit_predictor_registration_path, {:class=>"need-information-cta" } %></center>
+
+    <%end%>
 
     <br>  
 

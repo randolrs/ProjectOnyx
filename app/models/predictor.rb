@@ -161,4 +161,30 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def verified
+
+    if self.account_id
+
+      Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+      account = Stripe::Account.retrieve(self.account_id)
+
+      if account.verification["status"] == "verified" && account.external_accounts.total_count > 0
+
+        return true
+
+      else
+
+        return false
+
+      end
+
+    else
+
+      return false
+
+    end
+
+  end
+
 end

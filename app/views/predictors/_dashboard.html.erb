@@ -1,0 +1,27 @@
+<%= render 'predictors/predictorcover' %>
+
+<%= render 'layouts/header_sub' %>
+
+<div class="user-dashboard-wrap">
+
+	<div class ="user-dashboard-container">
+
+		<div class="user-dashboard-left">
+
+			<%= render 'predictors/subscriber_summary' %>
+
+			<%= render 'predictors/subscription_rate' %>
+
+			<%= render 'predictors/next_payment_date' %>
+			
+		</div>
+
+		<div class ="user-dashboard-predictions">
+
+			<%= render 'predictors/transactions' %>
+
+		</div>
+
+	  </div>
+
+</div>

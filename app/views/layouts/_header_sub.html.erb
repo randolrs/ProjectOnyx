@@ -9,16 +9,6 @@
             
             <li class= "header-li medium"><%= link_to "Home", root_path, class: "header-sub-Noble active" %></li>
 
-<!--             <li class="dropdown header-li medium">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Find Experts<span class="caret white-caret"></span></a>
-
-            <ul class="dropdown-menu" role="menu">      
-              <li><%# link_to "NBA", leaguehome_path("NBA"), class: "header-category" %></li>
-              <li><%# link_to "NFL", leaguehome_path("NFL"), class: "header-category" %></li>
-              <li><%# link_to "NHL", leaguehome_path("NHL"), class: "header-category" %></li>
-              <li><%# link_to "MLB", leaguehome_path("MLB"), class: "header-category" %></li>
-            </ul>
-          </li> -->
           </ul>
 
         <% elsif @page =="find"%>
@@ -33,6 +23,17 @@
               <li class= "header-li medium"><%= link_to "Find Experts", home_path, class: "header-sub-Noble" %></li>
             </ul>
         <%end%>
+
+      <% elsif predictor_signed_in? %>
+
+        <%# if @page =="dashboard"%>
+          <ul class="header-right">
+            
+            <li class= "header-li medium"><%= link_to "Home", root_path, class: "header-sub-Noble active" %></li>
+
+          </ul>
+
+        <%#end%>
 
       <% end %> 
 

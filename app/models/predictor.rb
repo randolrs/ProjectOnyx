@@ -48,17 +48,27 @@ class Predictor < ActiveRecord::Base
 
   def subscribers_stripe
 
-    Stripe.api_key = self.account_key_secret
+    if self.account_key_secret
+    
+      Stripe.api_key = self.account_key_secret
 
-    return Stripe::Customer.all.count
+      return Stripe::Customer.all.count
+    else
+
+      return 0
+    end
 
   end
 
   def charges_stripe
 
-    Stripe.api_key = self.account_key_secret
+    if self.account_key_secret
 
-    return Stripe::Charge.all
+      Stripe.api_key = self.account_key_secret
+
+      return Stripe::Charge.all
+
+    end
 
   end
 

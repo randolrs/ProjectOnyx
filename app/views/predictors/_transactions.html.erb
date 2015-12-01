@@ -14,16 +14,27 @@
     		</tr>
 
     	<thead>
-    	<% current_predictor.charges_stripe.each do |charges| %>
-	      <tr>
-	        <td class="ud-margin"><%= charges.created %></td>
-	        <td class="ud-margin"><%= number_to_currency(charges.amount.to_i * 0.01).to_s %></td>
-	        <td class="ud-margin"><%= charges.application_fee %></td>
-	        
-	      </tr>
-      	<%end%>
 
-      </table>
+      <% if current_predictor.charges_stripe %>
+      	<% current_predictor.charges_stripe.each do |charges| %>
+  	      <tr>
+  	        <td class="ud-margin"><%= charges.created %></td>
+  	        <td class="ud-margin"><%= number_to_currency(charges.amount.to_i * 0.01).to_s %></td>
+  	        <td class="ud-margin"><%= charges.application_fee %></td>
+  	        
+  	      </tr>
+        <%end%>
+
+      <%else%>
+
+        <tr>
+
+          <td class="ud-margin" colspan="3">No Transactions Yet</td>
+
+        </tr>
+      <%end%>
+
+    </table>
 
   <%end%>
 

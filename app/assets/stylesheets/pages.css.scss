@@ -3,17 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .header-container{
-  padding-top:15px;
-  padding-bottom:15px;
-  color: #ccc;
-  /*position:fixed; turned off 11.5.2015*/
+  padding: 10px;
   top:0px;
   width:100%;
   z-index:9000;
-  background: #333;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
-    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  background: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
 
 }
 
@@ -54,12 +51,7 @@
     line-height: 40px;
     margin:0px;
     font-size:30px;
-    color:white;
-  }
-
-  .header-inside-left a:visited{
-    color:#eee;
-    text-decoration:none;
+    color:#9800F0;
   }
 
   .header-inside-middle{
@@ -84,15 +76,10 @@
 .header-inside-right a{
 	padding: 8px 10px;
 	font-size: 16px;
-	color:#eee;
+	color:#9800F0;
 	position:relative;
 	text-decoration:none;
-	
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   line-height: 40px;
-
-	/* background-color:#00C100;
-  margin-left:15px; */
 	border-radius:2.4px;
 }
 

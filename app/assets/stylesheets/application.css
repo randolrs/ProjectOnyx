@@ -923,7 +923,7 @@ a.need-information-cta:hover{
 
 @media only screen and (max-width: 1295px) {
     .user-dashboard-card{
-        display:none;
+        /*display:none;*/
     }
 
 }
@@ -932,7 +932,7 @@ a.need-information-cta:hover{
 @media only screen and (max-width: 1230px) {
 
     .user-dashboard-predictors{
-        max-width:550px;
+        /*max-width:550px;*/
     }
 }
 

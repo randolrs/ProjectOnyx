@@ -5,12 +5,10 @@
 .header-container{
   padding: 5px;
   top:0px;
-  width:100%;
+  width:auto;
   z-index:9000;
   background: #333;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3);
-    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  min-width:960px;
 
 }
 

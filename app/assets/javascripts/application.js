@@ -121,7 +121,7 @@ $(document).ready(function() {
     format: "multitoggle"
   });
 
-  $("#cssmenu").prepend("<div id='menu-line'></div>");
+  $("#cssmenu").prepend("<div id='menu-line-wrapper'><div id='menu-line-container'><div id='menu-line'></div></div></div>");
 
 var foundActive = false, activeElement, linePosition = 0, menuLine = $("#cssmenu #menu-line"), lineWidth, defaultPosition, defaultWidth;
 

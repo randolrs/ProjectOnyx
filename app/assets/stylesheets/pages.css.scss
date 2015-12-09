@@ -8,7 +8,6 @@
   width:100%;
   z-index:9000;
   background: #333;
-  min-width:960px;
   background: linear-gradient(#333, #111);
   position:fixed;
 
@@ -48,17 +47,24 @@
 	left: 0px;
 	display:table;
   line-height: 40px;
-
 	}
 
-  .header-inside-left a{
-    line-height: 40px;
-    margin:0px;
-    font-size:30px;
-    color:#fff;;
-  }
+a.logo-text{
+  line-height: 40px;
+  margin:0px;
+  font-size:30px;
+  color:#eee;
+  text-shadow: 0 -2px rgba(0,0,0,.8);
+  font-weight: 300;
+}
 
-  .header-inside-middle{
+a.logo-text:hover{
+  color:#fff;
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.header-inside-middle{
   position:absolute;
   height:20px;
   left: 50%;
@@ -80,11 +86,28 @@
 .header-inside-right a{
 	padding: 8px 10px;
 	font-size: 16px;
-	color:#fff;;
+	color:#eee;
 	position:relative;
 	text-decoration:none;
   line-height: 40px;
 	border-radius:2.4px;
+  text-shadow: 0 -2px rgba(0,0,0,.8);
+}
+
+.header-inside-right a:hover{
+  color:#fff;
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+a.header-small{
+  padding: 8px 10px;
+  font-size: 16px;
+  color:#fff;;
+  position:relative;
+  text-decoration:none;
+  line-height: 40px;
+  border-radius:2.4px;
 }
 
 .header-inside-right2{
@@ -114,10 +137,10 @@
   
 }
 
-  .header-right{
+  .header-ul{
     list-style: none;
     margin:0px;
-    line-height: 40px;
+    line-height: 30px;
   }
 
 .header-inside-sub{
@@ -187,13 +210,6 @@ a.request_button:hover{
 .header-below a:hover{
   background-color:#13BD64;
 	
-}
-
-.header-inside-right a:hover{
-    color: #56D793;
-
-    webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
 }
 
 .header-inside-right2 a:hover{

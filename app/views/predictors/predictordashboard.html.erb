@@ -6,9 +6,13 @@
 
 	<div class ="user-dashboard-container">
 
-		<div class="user-dashboard-left">
+		<div class ="user-dashboard-card">
 
 			<%= render 'prediction_games/predictor_top_prediction_games'%>
+
+			<%= render 'prediction_games/predictor_rating_distribution' %>
+
+			<%= render 'layouts/footer_float'%>
 
 		</div>
 
@@ -18,20 +22,7 @@
 
 	    	<%= render 'prediction_games/indexshow'%>
 
-	    	<nav>
-				<div class="center">
-					<%# will_paginate @predictions, renderer: BootstrapPagination::Rails %>
-				</div>
-			</nav>
-
 		</div>
-
-	   	<div class ="user-dashboard-card">
-	      <%= render 'prediction_games/predictor_rating_distribution' %>
-
-	      <%= render 'layouts/footer_float'%>
-
-	  	</div>
 
 	  </div>
 

@@ -6,13 +6,13 @@
 
 	<div class ="user-dashboard-container">
 
-		<%# render 'devise/user_subscription_nav'%>
-
-		<div class="user-dashboard-left">
-
-			<%# render 'pages/league_float_header' %>
+		<div class="user-dashboard-card">
 
 			<%= render 'predictors/top_predictors' %>
+
+			<%= render 'games/upcoming_games'%>
+
+			<%= render 'layouts/footer_float'%>
 
 		</div>
 
@@ -21,16 +21,6 @@
 			<%= render 'pages/league_home_nav' %>
 
 			<%= render 'predictors/indexshow' %>
-
-			<%# render 'prediction_games/indexshow' %>
-
-		</div>
-
-		<div class ="user-dashboard-card">
-
-			<%= render 'games/upcoming_games'%>
-
-			<%= render 'layouts/footer_float'%>
 
 		</div>
 

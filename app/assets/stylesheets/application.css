@@ -31,14 +31,13 @@ html, body {
 
  .container {
  	  width:100%;
-    /*min-width: 900px;*/
     min-height: 100%;
     z-index:-11;
     background-image: url("https://s3.amazonaws.com/futable/backgrounds/handmadepaper.png");
     margin-left:0px;
     margin-right: 0px;
     padding: 0px;
-    min-width: 970px;
+    min-width: 960px;
 
  }
 
@@ -207,16 +206,15 @@ select#team_filter_team{
 }
 
 .predictor-cover{
-  background-color: #333;
+  background-color: #9800F0;
   margin:-1px;
-  background-image: url("https://s3.amazonaws.com/projectonyx/classy_fabric.png");
   min-width: 1000px;
 }
 
 .predictor-cover-container{
   margin-left: auto;
   margin-right: auto;
-  width:970px;
+  width:900px;
   overflow: hidden;
 }
 

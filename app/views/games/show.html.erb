@@ -6,25 +6,19 @@
 
 	<div class ="user-dashboard-container">
 
-		<div class="user-dashboard-left">
+		<div class="user-dashboard-card">
 
 			<%= render 'predictors/top_predictors_game' %>
+
+			<%= render 'games/other_games_sidebar' %>
+
+			<%= render 'layouts/footer_float'%>
 
 		</div>
 
 		<div class ="user-dashboard-predictions">
 
-			<%# render 'games/game_show_center_nav' %>
-
 			<%= render 'prediction_games/indexshow' %>
-
-		</div>
-
-		<div class="user-dashboard-card">
-
-			<%= render 'games/other_games_sidebar' %>
-
-			<%= render 'layouts/footer_float'%>
 
 		</div>
 

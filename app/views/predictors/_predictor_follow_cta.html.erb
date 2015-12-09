@@ -2,7 +2,7 @@
 
 	<% unless current_user.follow(@predictor.id) %>
 
-  		<%= link_to "+ Follow", follow_predictor_path(:username=>@predictor.username), {:class=>"follow_cta" }%>
+  		<%= link_to "+ Watch", follow_predictor_path(:username=>@predictor.username), {:class=>"follow_cta" }%>
 
   	<% else %>
 

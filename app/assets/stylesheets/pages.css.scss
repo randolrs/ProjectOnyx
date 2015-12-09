@@ -5,11 +5,12 @@
 .header-container{
   padding: 5px;
   top:0px;
-  width:auto;
+  width:100%;
   z-index:9000;
   background: #333;
   min-width:960px;
   background: linear-gradient(#333, #111);
+  position:fixed;
 
 }
 

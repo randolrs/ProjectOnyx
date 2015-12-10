@@ -4,7 +4,7 @@
 
     <h3 class="subscription-price-header">Next Payment Date</h3>
 
-    <%if current_predictor.verified %>
+    <%if current_predictor.transfers_enabled %>
 
     <center><h5><%= Time.now.beginning_of_month.next_month.strftime("%A, %b %d, %Y") %></h5></center>
 

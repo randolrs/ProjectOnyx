@@ -313,7 +313,7 @@ class PredictorsController < ApplicationController
 
       end
 
-      redirect_to predictorbalance_path(current_predictor.username)
+      redirect_to root_path
 
     else
 

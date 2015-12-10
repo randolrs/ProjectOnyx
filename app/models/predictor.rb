@@ -171,7 +171,7 @@ class Predictor < ActiveRecord::Base
 
   end
 
-  def verified
+  def transfers_enabled
 
     if self.account_id
 
@@ -179,7 +179,7 @@ class Predictor < ActiveRecord::Base
 
       account = Stripe::Account.retrieve(self.account_id)
 
-      if account.verification["status"] == "verified" && account.external_accounts.total_count > 0
+      if account.transfers_enabled == true && account.external_accounts.total_count > 0
 
         return true
 

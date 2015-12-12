@@ -4,6 +4,9 @@
               $('#divGameIndex').hide(750)
               $('#divPredictorIndex').hide(750)
               $('#divPredictionIndex').show(750)
+              $("a.prediction-nav").addClass("active-nav");
+              $("a.games-nav").removeClass("active-nav");
+              $("a.predictor-nav").removeClass("active-nav");
             });
         });
   </script>
@@ -14,6 +17,9 @@
               $('#divPredictionIndex').hide(750)
               $('#divPredictorIndex').hide(750)
               $('#divGameIndex').show(750)
+              $("a.game-nav").addClass("active-nav");
+              $("a.predictor-nav").removeClass("active-nav");
+              $("a.prediction-nav").removeClass("active-nav");
             });
         });
   </script>
@@ -24,6 +30,9 @@
               $('#divPredictionIndex').hide(750)
               $('#divGameIndex').hide(750)
               $('#divPredictorIndex').show(750)
+              $("a.predictor-nav").addClass("active-nav");
+              $("a.game-nav").removeClass("active-nav");
+              $("a.prediction-nav").removeClass("active-nav");
             });
         });
   </script>
@@ -32,23 +41,11 @@
 
 	<ul class="dashboard-prediction-nav">
 		
-		<%unless @subaction == "games" or @subaction == "top" %>
-			<li class="active"><a id= "predictionIndexToggle">Recent Predictions</a></li>
-		<%else%>
-			<li><a id= "predictionIndexToggle">Recent Predictions</a></li>
-		<%end%>
+		<li><a class="prediction-nav active-nav" id= "predictionIndexToggle">Recent Predictions</a></li>
 
-		<%if @subaction == "games"%>
-			<li class="active"><a id= "gameIndexToggle">All Games</a></li>
-		<%else%>
-			<li><a id= "gameIndexToggle">All Games</a></li>
-		<%end%>
+		<li><a  class="game-nav" id= "gameIndexToggle">Games</a></li>
 
-		<%if @subaction == "top"%>
-			<li class="active"><a id= "predictorIndexToggle">All Experts</a></li> 
-		<%else%>
-			<li><a id= "predictorIndexToggle">All Experts</a></li>
-		<%end%>
+		<li><a class="predictor-nav" id= "predictorIndexToggle">Top Experts</a></li> 
 
 	</ul>
 

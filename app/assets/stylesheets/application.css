@@ -929,6 +929,9 @@ td.table-float-left{
     line-height: 80px;
   }
 
+.active-nav {
+  border-bottom: 2px solid orange;
+}
 
 td.table-float-right{
   text-align: left;

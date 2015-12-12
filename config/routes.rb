@@ -90,8 +90,6 @@ Rails.application.routes.draw do
 
   get 'sports/leagues/:league/games/:id' => 'games#show', as: 'gameshow'
 
-
-
   get 'sports/leagues/:league/games/:id/predictions' => 'pages#gamepredictionindex', as: 'gamepredictionindex'
 
   get '/:league/games/:id/posts' => 'pages#gamearticleindex', as: 'gamearticleindex'

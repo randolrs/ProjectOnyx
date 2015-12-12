@@ -4,13 +4,13 @@
 
 	<div class="outline-shadow">
 
-		<h3>Who to Follow</h3>
+		<h3>Experts to Watch</h3>
 
 		 <table class="user-dashboard-table">
 
 		  <% @predictors_recommend.each do |predictor|%>
 		  	<tr data-link="<%=predictordashboard_path(predictor.username)%>", class="table-cta-hover">
-		  		<td>
+		  		<td class="sidebar-entry">
 		  			<%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%><%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
 		  		</td>
 

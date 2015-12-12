@@ -461,10 +461,11 @@ a.team-name{
 
 
 table.prediction-game-index-show-table{
-  width:300px;
+  width:100%;
   margin-left:auto;
   margin-right:auto;
   min-height: 200px;
+  padding:20px;
 }
 
 .prediction-game-index-show-table-date{
@@ -479,7 +480,6 @@ table.prediction-game-index-show-table{
   border-bottom: 1px solid #ddd;
   padding:0px 5px;
   width:120px;
-  text-align:left;
 }
 
 .last-child{
@@ -502,4 +502,8 @@ table.prediction-game-index-show-table{
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   margin-bottom: 15px;
+}
+
+.prediction-game-index-show-header{
+  padding-bottom:20px;
 }

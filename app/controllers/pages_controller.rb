@@ -102,6 +102,8 @@ class PagesController < ApplicationController
 
     @predictions = @sport.recent_prediction_games
 
+    @predictors = @sport.all_predictors.sort_by {|k| k.rating}
+
     @top_predictors = @sport.all_predictors.sort_by {|k| k.rating}.take(3) 
 
   end

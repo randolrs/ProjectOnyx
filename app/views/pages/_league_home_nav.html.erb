@@ -1,24 +1,52 @@
-<div class = "outline-shadow">
+
+  <script>
+        $(document).ready(function(){
+            $("#predictionIndexToggle").click(function(){
+              $('#divGameIndex').hide(750)
+              $('#divPredictorIndex').hide(750)
+              $('#divPredictionIndex').show(750)
+              $("a.prediction-nav").addClass("active-nav");
+              $("a.game-nav").removeClass("active-nav");
+              $("a.predictor-nav").removeClass("active-nav");
+            });
+        });
+  </script>
+
+  <script>
+        $(document).ready(function(){
+            $("#gameIndexToggle").click(function(){
+              $('#divPredictionIndex').hide(750)
+              $('#divPredictorIndex').hide(750)
+              $('#divGameIndex').show(750)
+              $("a.game-nav").addClass("active-nav");
+              $("a.predictor-nav").removeClass("active-nav");
+              $("a.prediction-nav").removeClass("active-nav");
+            });
+        });
+  </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#predictorIndexToggle").click(function(){
+              $('#divPredictionIndex').hide(750)
+              $('#divGameIndex').hide(750)
+              $('#divPredictorIndex').show(750)
+              $("a.predictor-nav").addClass("active-nav");
+              $("a.game-nav").removeClass("active-nav");
+              $("a.prediction-nav").removeClass("active-nav");
+            });
+        });
+  </script>
+
+<div class = "user-dashboard-prediction-nav">
 
 	<ul class="dashboard-prediction-nav">
 		
-		<%unless @subaction == "upcoming" or @subaction=="top" %>
-			<li class="active"><%= link_to "Recent Predictions", leaguehome_path(@league) %></li>
-		<%else%>
-			<li><%= link_to "Recent Predictions", leaguehome_path(@league) %></li>
-		<%end%>
+		<li><a class="prediction-nav active-nav" id= "predictionIndexToggle">Recent Predictions</a></li>
 
-		<%if @subaction == "upcoming"%>
-			<li class="active"><%= link_to "All Games", leaguegames_path(@league) %></li>
-		<%else%>
-			<li><%= link_to "All Games", leaguegames_path(@league) %></li>
-		<%end%>
+		<li><a  class="game-nav" id= "gameIndexToggle">Games</a></li>
 
-		<%if @subaction == "top"%>
-			<li class="active"><%= link_to "Top Experts", leaguepredictors_path(@league) %></li>
-		<%else%>
-			<li><%= link_to "Top Experts", leaguepredictors_path(@league) %></li>
-		<%end%>
+		<li><a class="predictor-nav" id= "predictorIndexToggle">Top Experts</a></li> 
 
 	</ul>
 

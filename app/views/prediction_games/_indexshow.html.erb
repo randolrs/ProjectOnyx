@@ -16,39 +16,50 @@
 
       <div class ="prediction-game-index-show">
         
-        <table>
-            <tr>
-              <td> 
-                <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%><b><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "full-name" %></b> &#183; <%= prediction.created_at.strftime("%b %e") %> <%if prediction.paid %>&#183; <img src="https://s3.amazonaws.com/projectonyx/Premium-Star.png" height="16" width="16"></img> Premium<%end%>
+        <div class="prediction-game-index-show-header">
+          <table>
+              <tr>
+                <td> 
+                  <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%>
+                  <b><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "full-name" %></b> 
 
-              </td>
-            </tr>
-        </table>
+                  &#183; <%= prediction.created_at.strftime("%b %e") %> 
+
+                  &#183; <%= image_tag Sport.find_by_subcat(prediction.league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-tiny"%><%= prediction.league %> Prediction
+
+                  <%if prediction.paid %>
+                    &#183; <img src="https://s3.amazonaws.com/projectonyx/Premium-Star.png" height="16" width="16"></img> Premium
+                  <%end%>
+
+                </td>
+              </tr>
+          </table>
+
+        </div>
 
         <table class ="prediction-game-index-show-table">
 
-          <tr>
-            <th class="prediction-game-index-show-table-date" colspan="6">
-              <%= prediction.league %> Prediction
-            </th>
-          </tr>
-
           <tr class="pg-table-bottom">
             <td colspan="6">
-              <%= prediction.event_time.strftime("%a, %b %d, %Y ") %>
+              <b>Game Date: </b><%= prediction.event_time.strftime("%a, %b %d, %Y ") %>
             </td>
           </tr>
 
           <tr>
-            <td class="prediction-game-index-show-table-teams" colspan="3">
+            <td class="prediction-game-index-show-table-teams" colspan="2">
               
               
-              <%= image_tag Team.find_by_name(prediction.teama).image.url(:medium), class: "predictor-image-tiny"%> <%= prediction.teama%>
+              <%= image_tag Team.find_by_name(prediction.teama).image.url(:medium), class: "team-image-small"%> <%= prediction.teama%>
               
             </td>
-            <td class="prediction-game-index-show-table-teams last-child" colspan="3">
+
+            <td colspan="2">
+
+            </td>
+
+            <td class="prediction-game-index-show-table-teams" colspan="2">
              
-                <%= prediction.teamh%> <%= image_tag Team.find_by_name(prediction.teamh).image.url(:medium), class: "predictor-image-tiny"%>
+                <%= prediction.teamh%> <%= image_tag Team.find_by_name(prediction.teamh).image.url(:medium), class: "team-image-small"%>
 
             </td>
           </tr>
@@ -81,10 +92,12 @@
               </tr>
 
               <tr>
+                
                 <td colspan="6">
                   Over/Under <br>
                   <a class="pg-important-data"><%=prediction.overunder%></a>
                 </td>
+
               </tr>
 
             <%else%>

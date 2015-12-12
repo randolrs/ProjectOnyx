@@ -899,11 +899,13 @@ td.add-card-header{
 
 td.table-float-left{
   text-align: right;
+  width:500px;
 }
 
 .table-center{
   text-align: center;
   padding: 0px 10px;
+  width:150px;
 }
 
 .table-center p{
@@ -911,6 +913,12 @@ td.table-float-left{
   font-size: 12px;
   margin:0px;
 
+}
+
+td.table-float-right{
+  text-align: left;
+  width:500px;
+  
 }
 
  .cover-wrap{
@@ -940,10 +948,6 @@ td.table-float-left{
   border-bottom: 2px solid orange;
 }
 
-td.table-float-right{
-  text-align: left;
-  
-}
 
 .footer-float{
   margin-bottom: 15px;

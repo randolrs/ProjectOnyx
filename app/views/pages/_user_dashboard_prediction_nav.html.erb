@@ -1,24 +1,51 @@
+  <script>
+        $(document).ready(function(){
+            $("#predictionIndexToggle").click(function(){
+              $('#divWatchingIndex').hide(750)
+              $('#divSubscriptionIndex').hide(750)
+              $('#divPredictionIndex').show(750)
+              $("a.prediction-nav").addClass("active-nav");
+              $("a.watching-nav").removeClass("active-nav");
+              $("a.subscription-nav").removeClass("active-nav");
+            });
+        });
+  </script>
+
+  <script>
+        $(document).ready(function(){
+            $("#watchingIndexToggle").click(function(){
+              $('#divPredictionIndex').hide(750)
+              $('#divSubscriptionIndex').hide(750)
+              $('#divWatchingIndex').show(750)
+              $("a.watching-nav").addClass("active-nav");
+              $("a.subscription-nav").removeClass("active-nav");
+              $("a.prediction-nav").removeClass("active-nav");
+            });
+        });
+  </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#subscriptionIndexToggle").click(function(){
+              $('#divPredictionIndex').hide(750)
+              $('#divWatchingIndex').hide(750)
+              $('#divSubscriptionIndex').show(750)
+              $("a.subscription-nav").addClass("active-nav");
+              $("a.watching-nav").removeClass("active-nav");
+              $("a.prediction-nav").removeClass("active-nav");
+            });
+        });
+  </script>
+
 <div class = "user-dashboard-prediction-nav">
 
 	<ul class="dashboard-prediction-nav">
 		
-		<%unless @action == "upcoming" or @action=="top" %>
-			<li class="active"><%= link_to "Recent", root_path %></li>
-		<%else%>
-			<li><%= link_to "Recent", root_path %></li>
-		<%end%>
+		<li><a class="prediction-nav active-nav" id='predictionIndexToggle'>Recent Predictions</a></li>
 
-		<%if @action == "upcoming"%>
-			<li class="active"><%= link_to "Upcoming", root_path(:sort_by=>"upcoming") %></li>
-		<%else%>
-			<li><%= link_to "Upcoming", root_path(:sort_by=>"upcoming") %></li>
-		<%end%>
+		<li><a class="watching-nav" id= "watchingIndexToggle">Watching</a></li>
 
-		<%if @action == "top"%>
-			<li class="active"><%= link_to "Top", root_path(:sort_by=>"top") %></li>
-		<%else%>
-			<li><%= link_to "Top", root_path(:sort_by=>"top") %></li>
-		<%end%>
+		<li><a class="subscription-nav" id= "subscriptionIndexToggle">Subscriptions</a></li> 
 
 	</ul>
 

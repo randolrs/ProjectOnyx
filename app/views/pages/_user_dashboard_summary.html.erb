@@ -26,13 +26,13 @@
 
     <table class="user-dashboard-summary">
       <tr>
-        <td class="ud-margin"><a id="predictionIndexToggle" class="link-jquery">Predictions</a></td>
-        <td class="ud-margin"><a id="predictorIndexToggle" class="link-jquery">Following</a></td>
+        <!-- <td class="ud-margin"><a class="link-jquery">Predictions</a></td> -->
+        <td class="ud-margin"><a class="link-jquery">Watching</a></td>
         <td class="ud-margin">Subscriptions</td>
       </tr>
 
       <tr>
-        <td class="ud-margin"><%=@predictions.count%></td>
+        <!-- <td class="ud-margin"><%#@predictions.count%></td> -->
         <td class="ud-margin"><%=@myPurchases.count%></td>
         <td class="ud-margin"><%=@myPurchases.where(:premium=>true).count%></td>
       </tr>

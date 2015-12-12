@@ -1,0 +1,9 @@
+<div class = "cover-wrap">
+
+  <div class="cover-container">
+
+    <h3><%= image_tag Sport.find_by_subcat(@league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-small"%><%= link_to @league, leaguehome_path(@league), class: "game-team-name"  %></h3> 
+
+  </div>
+
+</div>

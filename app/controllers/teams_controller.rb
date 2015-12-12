@@ -19,6 +19,8 @@ class TeamsController < ApplicationController
       @subaction = "recent"
       @predictions = @team.recent_prediction_games
 
+      @predictors = @team.all_predictors.sort_by {|k| k.rating}
+
       @top_predictors = @team.all_predictors.sort_by {|k| k.rating}.take(3)
 
       @upcominggames = @team.upcoming_games.take(3)

@@ -20,7 +20,18 @@
 
       <%= render 'teams/league_team_nav' %>
 
-      <%= render 'prediction_games/indexshow' %>
+      <div id="divPredictionIndex">
+        <%= render 'prediction_games/indexshow' %>
+      </div>
+
+      <div id="divGameIndex" style="display: none;">
+        <%= render 'games/indexshow' %>
+      </div>
+
+      <div id="divPredictorIndex" style="display: none;">
+        <%= render 'predictors/indexshow' %>
+      </div>
+      
 
       <%# render 'prediction_games/indexshow' %>
 

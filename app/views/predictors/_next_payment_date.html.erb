@@ -6,7 +6,7 @@
 
     <%if current_predictor.transfers_enabled %>
 
-    <center><h5><%= Time.now.beginning_of_month.next_month.strftime("%A, %b %d, %Y") %></h5></center>
+    <center><h5 class="next-payment-date"><%= Time.now.beginning_of_month.next_month.strftime("%A, %b %d, %Y") %></h5></center>
 
     <%else%>
 

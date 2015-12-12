@@ -1,40 +1,44 @@
-<div class="user-dashboard-header"%>
+<div class="inset-shadow"%>
 
   <% if predictor_signed_in?%>
 
-    <h3>Transaction Summary</h3>
+    <h3>Subscription Payments</h3>
 
-    <table class="user-dashboard-summary">
+    <div class="summary-table-container">
 
-    	<thead>
-    		<tr>
-    			<td>Date</td>
-    			<td>Amount</td>
-    			<td>Service Fee</td>
-    		</tr>
+      <table class="user-dashboard-summary">
 
-    	<thead>
+      	<thead>
+      		<tr>
+      			<td>Date</td>
+      			<td>Amount</td>
+      			<td>Service Fee</td>
+      		</tr>
 
-      <% if current_predictor.charges_stripe %>
-      	<% current_predictor.charges_stripe.each do |charges| %>
-  	      <tr>
-  	        <td class="ud-margin"><%= charges.created %></td>
-  	        <td class="ud-margin"><%= number_to_currency(charges.amount.to_i * 0.01).to_s %></td>
-  	        <td class="ud-margin"><%= charges.application_fee %></td>
-  	        
-  	      </tr>
+      	<thead>
+
+        <% if current_predictor.charges_stripe %>
+        	<% current_predictor.charges_stripe.each do |charges| %>
+    	      <tr>
+    	        <td class="ud-margin"><%= charges.created %></td>
+    	        <td class="ud-margin"><%= number_to_currency(charges.amount.to_i * 0.01).to_s %></td>
+    	        <td class="ud-margin"><%= charges.application_fee %></td>
+    	        
+    	      </tr>
+          <%end%>
+
+        <%else%>
+
+          <tr>
+
+            <td class="ud-margin" colspan="3">No Transactions Yet</td>
+
+          </tr>
         <%end%>
 
-      <%else%>
+      </table>
 
-        <tr>
-
-          <td class="ud-margin" colspan="3">No Transactions Yet</td>
-
-        </tr>
-      <%end%>
-
-    </table>
+    </div>
 
   <%end%>
 

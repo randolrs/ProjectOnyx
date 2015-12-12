@@ -576,12 +576,37 @@ p.terms-of-service{
 }
 
 .outline-shadow{
-  padding:10px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+  border-radius: 1px;
+}
+
+.outline-shadow h3{
+
+  padding:20px 0px 0px 10px;
+  margin:0px;
+  
+}
+
+.inset-shadow{
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   margin-bottom: 15px;
   border-radius: 2px;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.07),0 0px 0 #fff;
+
+  border: 1px solid #dadada;
+  border-top: 1px solid #bbb;
 }
+
+.inset-shadow h3{
+
+  padding:20px 0px 0px 10px;
+  margin:0px;
+  
+}
+
 
 .user-dashboard-header{
   padding:10px;
@@ -608,12 +633,13 @@ p.terms-of-service{
 }
 
 .game-team-name{
-  color:#333;
-  font-size: 20px;
+  color:#444;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .game-team-name:hover{
-  color: #56D793;
+  color: #36c;
   text-decoration: none;
   webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -676,6 +702,11 @@ p.terms-of-service{
 
 .user-dashboard-summary{
   text-align: center;
+  width: 100%;
+}
+
+.summary-table-container{
+  padding:10px;
 }
 
 .predictor-price-form{
@@ -687,6 +718,16 @@ p.terms-of-service{
 
 h3.subscription-price-header{
   text-align: center;
+  padding: 20px;
+  margin: 0px;
+}
+
+h5.next-payment-date{
+  text-align: center;
+  padding: 10px;
+  margin: 0px;
+  color:#077E82;
+  font-size:20px;
 }
 
 td.ud-margin{
@@ -845,10 +886,12 @@ td.add-card-header{
 .no-top-predictions{
   color:#777;
   font-size: 12px;
+  text-align: center;
+  padding: 20px;
 }
 
 td.table-float-left{
-  text-align: left;
+  text-align: right;
   width:155px;
 }
 
@@ -857,12 +900,21 @@ td.table-float-left{
   padding: 0px 10px;
 }
 
+.table-center p{
+  color:#333;
+  font-size: 12px;
+  margin:0px;
+
+}
+
  .cover-wrap{
     background-color:white;
     width:100%;
     height:80px;
-    border-bottom: 1px solid #dcdcdc;
     margin-top: 2px;
+    -webkit-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
   }
 
   .cover-container{
@@ -880,8 +932,8 @@ td.table-float-left{
 
 
 td.table-float-right{
-  text-align: right;
-  width:155px;
+  text-align: left;
+  
 }
 
 .footer-float{

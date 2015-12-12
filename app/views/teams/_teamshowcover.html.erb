@@ -2,7 +2,7 @@
 
   <div class="cover-container">
 
-    <h3><%= image_tag @team.image.url(:medium, :width => 30, :height => 30), class: "sport-image-small"%><%=@team.name%></h3> 
+    <h3><%= image_tag @team.image, class: "team-image-tiny"%><%=link_to @team.name, teamshow_path(@league,@team.id), class: "game-team-name" %></h3> 
 
   </div>
 

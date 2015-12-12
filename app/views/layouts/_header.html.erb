@@ -48,12 +48,12 @@
 
     <% elsif predictor_signed_in? %>
 
-      <li class="header-li"><%= link_to "My Profile", predictordashboard_path(current_predictor.username) %></li>
+      <li class="header-li"><%= link_to "My Profile", predictordashboard_path(current_predictor.username), class: "header-right-list" %></li>
 
-      <li class="header-li"><%= link_to "Make a Prediction", sportsgamesselect_path(current_predictor.username, "predictions") %></li>
+      <li class="header-li"><%= link_to "Make a Prediction", sportsgamesselect_path(current_predictor.username, "predictions"), class: "header-right-list" %></li>
 
       <li class="dropdown header-li">
-        <a href="#" class="dropdown-toggle header-category" data-toggle="dropdown" role="button" aria-expanded="false"><% if current_predictor.image %><%= image_tag current_predictor.image.url(:thumb), class: "image-header"%><%end%><% if current_predictor.username %><%= current_predictor.username %><%else%>Guest<%end%></a>
+        <a href="#" class="dropdown-toggle header-right-list" data-toggle="dropdown" role="button" aria-expanded="false"><% if current_predictor.image %><%= image_tag current_predictor.image.url(:thumb), class: "image-header"%><%end%><% if current_predictor.username %><%= current_predictor.username %><%else%>Guest<%end%></a>
 
       <ul class="dropdown-menu" role="menu">
           <!-- <li><a href= <%# predictordashboard_path(current_predictor.username) %>>Profile <span class="badge"><%# current_predictor.prediction_games.count %></span></a></li> -->

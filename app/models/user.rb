@@ -37,6 +37,44 @@ class User < ActiveRecord::Base
 
   end
 
+  def my_subscriptions
+
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+    myPurchases = Purchase.all.where(:user_id => self.id)
+
+    predictors = Array.new 
+
+    myPurchases.each do |myPurchase|
+
+      predictor = Predictor.find(myPurchase.predictor_id)
+
+      if predictor.account_key_secret
+
+        Stripe.api_key = predictor.account_key_secret
+
+        stripe_predictor = Stripe::Account.retrieve(predictor.account_id)
+
+        stripe_customers = Stripe::Customer.all
+
+        stripe_customers.each do |stripe_customer|
+
+          if stripe_customer.description.to_s == self.id.to_s
+
+            predictors << predictor
+
+          end
+
+        end
+
+      end
+
+    end
+
+    return predictors
+
+  end
+
   def my_prediction_games 
 
     myPurchases = Purchase.all.where(:user_id => self.id)

@@ -14,6 +14,8 @@ class PagesController < ApplicationController
 
       @predictions = current_user.my_prediction_games
 
+      @predictor_subscriptions = current_user.my_subscriptions
+
       @upcominggames = Game.all.where("event_time > :time_now", {time_now: Time.now}).order("event_time ASC").limit(3)
 
     elsif predictor_signed_in?

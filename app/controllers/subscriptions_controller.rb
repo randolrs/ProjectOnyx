@@ -10,7 +10,6 @@ class SubscriptionsController < ApplicationController
 
 		Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-
       	#retrieve and set default source
 
       	customer_token = Stripe::Token.create(

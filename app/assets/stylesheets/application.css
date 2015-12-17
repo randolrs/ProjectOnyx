@@ -584,7 +584,7 @@ p.terms-of-service{
 
 .outline-shadow h3{
 
-  padding:10px;
+  padding:15px;
   margin:0px;
   
 }
@@ -653,7 +653,6 @@ p.terms-of-service{
 .user-dashboard-prediction-nav{
     padding: 10px;
     background-color: #fff;
-    /*width: 530px;*/
     margin-bottom: 15px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -886,14 +885,14 @@ td.add-card-header{
 }
 
 .sidebar-entry{
-  padding:0px 10px;
+  padding:10px;
 }
 
 .no-top-predictions{
   color:#777;
   font-size: 12px;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 td.table-float-left{

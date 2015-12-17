@@ -23,6 +23,8 @@ class PredictionGame < ActiveRecord::Base
 
 				if usertype == "user"
 
+					###add stripe authentication, or base on method of
+
 					if Purchase.exists?(:user_id => access.id, :predictor_id => predictor_id, :premium => true)
 
 						true

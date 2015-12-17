@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
 
     Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-    myPurchases = Purchase.all.where(:user_id => self.id)
+    myPurchases = Purchase.all.where(:user_id => self.id, :premium => true)
 
     predictors = Array.new 
 
@@ -76,6 +76,8 @@ class User < ActiveRecord::Base
   end
 
   def my_prediction_games 
+
+    ###need to use stripe authentication for premium, using two other methods
 
     myPurchases = Purchase.all.where(:user_id => self.id)
 

@@ -47,31 +47,73 @@
               </td>
             </tr>
 
-            <tr class="pg-table-bottom">
-              <td class="prediction-game-index-show-table-teams" colspan="2">
+            <tr>
+              <td class="prediction-game-index-show-table-teams" rowspan="3">
                 
-                
-                <%= image_tag Team.find_by_name(prediction.teama).image.url(:medium), class: "team-image-tiny"%> <%= prediction.teama%>
+                <%= image_tag Team.find_by_name(prediction.teama).image.url(:medium), class: "team-image-tiny"%>
                 
               </td>
 
               <td colspan="2">
-                @
+                <%= Team.find_by_name(prediction.teama).sub_name%>
               </td>
 
-              <td class="prediction-game-index-show-table-teams" colspan="2">
-               
-                  <%= prediction.teamh%> <%= image_tag Team.find_by_name(prediction.teamh).image.url(:medium), class: "team-image-tiny"%>
+              <td colspan="3">
+                
+              </td>
 
+              <td colspan="2">
+                <%= Team.find_by_name(prediction.teamh).sub_name%>
+              </td>
+
+              <td class="prediction-game-index-show-table-teams" rowspan="3">
+                
+                <%= image_tag Team.find_by_name(prediction.teamh).image.url(:medium), class: "team-image-tiny"%>
+                
+              </td>
+
+            </tr>
+
+            <tr>
+              
+              <td colspan="2">
+                <%= Team.find_by_name(prediction.teama).name%>
+              </td>
+
+              <td colspan="3">
+
+                  <%= prediction.teama_score%> - <%= prediction.teamh_score%>
+                
+              </td>
+
+              <td colspan="2">
+                <%= Team.find_by_name(prediction.teamh).name%>
+              </td>
+            </tr>
+
+            <tr>
+              
+              <td colspan="2">
+                (Away)
+              </td>
+
+              <td colspan="3">
+
+                  Final Score (Predicted)
+                
+              </td>
+
+              <td colspan="2">
+                (Home)
               </td>
             </tr>
             
             <%if user_signed_in? %>
               <% if prediction.visible("user", current_user) %>
 
-                <tr class="pg-table-bottom">
+                <!-- <tr class="pg-table-bottom">
                   <td class="pg-important-data" colspan="2">
-                    <%= prediction.teama_score%>
+                    <%# prediction.teama_score%>
                   </td>
                   <td colspan="2">
                     Final Score
@@ -83,13 +125,13 @@
 
                 <tr class="pg-table-bottom">
                   <td class="pg-important-data" colspan="2">
-                    <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%=prediction.spread%>
+                    <%#if prediction.game_winner == prediction.teama %>+<%#else%>-<%#end%><%=prediction.spread%>
                   </td>
                   <td colspan="2">
                     Spread
                   </td>
                   <td class="pg-important-data" colspan="2">
-                    <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%=prediction.spread%>
+                    <%#if prediction.game_winner == prediction.teamh %>+<%#else%>-<%#end%><%=prediction.spread%>
                   </td>
                 </tr>
 
@@ -100,15 +142,48 @@
                     <a class="pg-important-data"><%=prediction.overunder%></a>
                   </td>
 
+                </tr> -->
+
+<!--                 <tr class="pg-table-bottom">
+                  <td class="pg-important-data" rowspan="2" colspan="2">
+                    <%# prediction.teama_score%>
+                  </td>
+                  <td colspan="2">
+                    Final Score
+                  </td>
+                  <td class="pg-important-data" colspan="2">
+                    <%# prediction.teamh_score%>
+                  </td>
                 </tr>
 
-              <%else%>
+                <tr class="pg-table-bottom">
+                  <td class="pg-important-data" colspan="2">
+                    <%#if prediction.game_winner == prediction.teama %>+<%#else%>-<%#end%><%=prediction.spread%>
+                  </td>
+                  <td colspan="2">
+                    Spread
+                  </td>
+                  <td class="pg-important-data" colspan="2">
+                    <%#if prediction.game_winner == prediction.teamh %>+<%#else%>-<%#end%><%=prediction.spread%>
+                  </td>
+                </tr>
+
+                <tr>
+                  
+                  <td colspan="6">
+                    Over/Under <br>
+                    <a class="pg-important-data"><%#prediction.overunder%></a>
+                  </td>
+
+                </tr>
+
+              <%#else%>
 
                 <tr>
                   <td rowspan="3" colspan="6">
-                    <%= render 'predictors/predictor_subscribe_cta'%>
+                    <%# render 'predictors/predictor_subscribe_cta'%>
                   </td>
-                </tr>
+                </tr> -->
 
               <%end%>
 

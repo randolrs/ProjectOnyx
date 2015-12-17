@@ -168,6 +168,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name, :league, :sport_id, :image)
+      params.require(:team).permit(:name, :sub_name, :league, :sport_id, :image)
     end
 end

@@ -192,6 +192,8 @@ class PredictorsController < ApplicationController
 
         @purchase.each do |purchase|
           purchase.update(:premium => true)
+          purchase.update(:active => true)
+
         end
 
       else
@@ -207,6 +209,8 @@ class PredictorsController < ApplicationController
         @purchase.next_payment = Time.now + 31.days
 
         @purchase.premium = true
+
+        @purchase.active = true
 
         customer.subscriptions.create(:plan => @predictor.subscription_id)
 
@@ -272,6 +276,8 @@ class PredictorsController < ApplicationController
         @purchase.predictor_id = @predictor.id
 
         @purchase.premium = false
+
+        @purchase.active = true
 
         @purchase.save
 

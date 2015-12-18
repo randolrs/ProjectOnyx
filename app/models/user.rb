@@ -17,19 +17,19 @@ class User < ActiveRecord::Base
 
   def my_predictors
 
-    myPurchases = Purchase.all.where(:user_id => self.id)
+    myPurchases = Purchase.all.where(:user_id => self.id, :active=> true)
 
     predictors = Array.new 
 
     myPurchases.each do |myPurchase|
 
-      predictor = Predictor.find(myPurchase.predictor_id)
+      if myPurchase.predictor_id
+        
+        predictor = Predictor.find(myPurchase.predictor_id)
 
-      #Need to add hash logic for premium verus non-premium
+        predictors << predictor
 
-      hash = {:predictor=>predictor, :premium => myPurchase.premium}
-
-      predictors << hash  
+      end  
               
     end
 
@@ -41,27 +41,31 @@ class User < ActiveRecord::Base
 
     Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-    myPurchases = Purchase.all.where(:user_id => self.id, :premium => true)
+    myPurchases = Purchase.all.where(:user_id => self.id, :premium => true, :active=> true)
 
     predictors = Array.new 
 
     myPurchases.each do |myPurchase|
 
+      if myPurchase.predictor_id
+
       predictor = Predictor.find(myPurchase.predictor_id)
 
-      if predictor.account_key_secret
+        if predictor.account_key_secret
 
-        Stripe.api_key = predictor.account_key_secret
+          Stripe.api_key = predictor.account_key_secret
 
-        stripe_predictor = Stripe::Account.retrieve(predictor.account_id)
+          stripe_predictor = Stripe::Account.retrieve(predictor.account_id)
 
-        stripe_customers = Stripe::Customer.all
+          stripe_customers = Stripe::Customer.all
 
-        stripe_customers.each do |stripe_customer|
+          stripe_customers.each do |stripe_customer|
 
-          if stripe_customer.description.to_s == self.id.to_s
+            if stripe_customer.description.to_s == self.id.to_s
 
-            predictors << predictor
+              predictors << predictor
+
+            end
 
           end
 
@@ -79,27 +83,52 @@ class User < ActiveRecord::Base
 
     ###need to use stripe authentication for premium, using two other methods
 
-    myPurchases = Purchase.all.where(:user_id => self.id)
+    #create predictors array
+
+    predictors = Array.new
+
+    self.my_subscriptions.each do |predictor_subscription|
+
+      hash = {:predictor=> predictor_subscription, :premium=>true}
+
+      predictors << hash
+
+    end
+
+    self.my_predictors.each do |predictor_follow|
+
+      hash = {:predictor=> predictor_follow, :premium=>false}
+
+      predictors << hash
+
+    end
+
+    predictors = predictors.uniq { |s| s.first }
 
     predictions = Array.new 
 
-    unless myPurchases.count == 0
+    unless predictors.count == 0
 
-      myPurchases.each do |myPurchase|
+      predictors.each do |predictor|
 
-        predictor = Predictor.find(myPurchase.predictor_id)
+        predictor_object = predictor[:predictor]
 
-        predictor.prediction_games.each do |prediction_game|
+        predictor_object.prediction_games.each do |prediction_game|
 
-          hash = {:prediction=>prediction_game, :predictor=> predictor, :premium_access=> myPurchase.premium}
+          hash = {:prediction=>prediction_game, :predictor=> predictor[:predictor], :premium_access=> predictor[:premium]}
 
           predictions << hash
 
         end
+
       end
+
     end
+
+    predictions = predictions.uniq 
     
     return predictions.sort_by {|k| k[:prediction].created_at}.reverse
+
   end
 
   def my_prediction_games_recent

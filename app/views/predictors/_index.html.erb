@@ -11,25 +11,25 @@
       <% else %>
       
         <% @predictors.each do |predictor| %>
-    
-          <% @predictor = predictor[:predictor] %>
 
           <div class ="predictor-card">
+
             <div class="predictor-card-header">
 
             </div>
 
             <div class="predictor-card-body">
               
-                <%= image_tag @predictor.image.url(:medium), class: "predictor-image-card"%>
+                <%= image_tag predictor.image.url(:medium), class: "predictor-image-card"%>
 
+                <%= @predictor = predictor %>
                 <%= render 'predictors/predictor_subscribe_cta' %>
 
                 <br>
 
                 <br>
 
-                <h3><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-card-name"%> </h3>
+                <h3><%= link_to predictor.username, predictordashboard_path(predictor.username), class: "predictor-card-name"%> </h3>
 
 
 
@@ -53,13 +53,13 @@
 
                 <!-- need to implement action that initiates payment on each purchase due, maybe -->
 
-                <% @purchases = Purchase.all.where(:user_id=> current_user.id, :predictor_id => @predictor.id) %>
+                <% @purchases = Purchase.all.where(:user_id=> current_user.id, :predictor_id => predictor.id) %>
 
                 <% @purchases.each do |purchase| %>
                   <%= purchase.next_payment   %>
                 <%end%>
 
-                <a class="index-float"><%= @predictor.bio %></a>
+                <a class="index-float"><%= predictor.bio %></a>
 
             </div>
 

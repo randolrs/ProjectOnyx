@@ -1,0 +1,121 @@
+      <a href = "<%= show_prediction_games_path(@predictor.id, @prediction_game.league, @prediction_game.id)%>", class ="game-show-link" >
+
+      <div class ="prediction-game-index-show">
+        
+        <div class="prediction-game-index-show-header">
+          <table>
+              <tr>
+                <td> 
+                  <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%>
+                  <b><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "full-name" %></b> 
+
+                  &#183; <%= @prediction_game.created_at.strftime("%b %e") %> 
+
+                  &#183; <%= image_tag Sport.find_by_subcat(@prediction_game.league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-tiny"%><%= @prediction_game.league %> Prediction
+
+                  <%if @prediction_game.paid %>
+                    &#183; <img src="https://s3.amazonaws.com/projectonyx/Premium-Star.png" height="16" width="16"></img> Premium
+                  <%end%>
+
+                </td>
+              </tr>
+          </table>
+
+        </div>
+
+        <div>
+
+          <table class ="prediction-game-index-show-table">
+
+            <tr>
+              <td colspan="2" class="prediction-game-team-header">
+                
+              </td>
+
+              <td colspan="1" class="prediction-game-date">
+                <b>Game Date: </b><%= @prediction_game.event_time.strftime("%a, %b %d, %Y ") %>
+              </td>
+
+              <td colspan="2" class="prediction-game-team-header">
+                
+              </td>
+            </tr>
+
+            <tr>
+              <td rowspan="3" class="prediction-game-team-image">
+                
+                <%= image_tag Team.find_by_name(@prediction_game.teama).image.url(:medium), class: "team-image-tiny"%>
+                
+              </td>
+
+              <td class="prediction-game-minor">
+                <%= Team.find_by_name(@prediction_game.teama).sub_name%>
+              </td>
+
+              <td width="250px">
+                
+              </td>
+
+              <td class="prediction-game-minor">
+                <%= Team.find_by_name(@prediction_game.teamh).sub_name%>
+              </td>
+
+              <td rowspan="3" class="prediction-game-team-image">
+                
+                <%= image_tag Team.find_by_name(@prediction_game.teamh).image.url(:medium), class: "team-image-tiny"%>
+                
+              </td>
+
+            </tr>
+
+            <tr>
+              
+              <td class="prediction-game-show-center">
+                <%= Team.find_by_name(@prediction_game.teama).name%>
+              </td>
+
+              <td class="prediction-game-show-center">
+                
+                <% if @prediction_game.visible("user", current_user) %>
+
+                  <%= @prediction_game.teama_score%> - <%= @prediction_game.teamh_score%>
+
+                <%else%>
+
+                  nope
+
+                <%end%>
+                
+              </td>
+
+              <td class="prediction-game-show-center">
+                <%= Team.find_by_name(@prediction_game.teamh).name%>
+              </td>
+            </tr>
+
+            <tr>
+              
+              <td class="prediction-game-minor">
+                (Away)
+              </td>
+
+              <td class="prediction-game-minor">
+
+                  Final Score (Predicted)
+                
+              </td>
+
+              <td class="prediction-game-minor">
+                (Home)
+              </td>
+            </tr>
+            
+            <%if user_signed_in? %>
+              <% if @prediction_game.visible("user", current_user) %>
+
+
+              <% end %>
+            <% end %>
+                <!-- <tr class="pg-table-bottom">
+                  
+                </tr> -->

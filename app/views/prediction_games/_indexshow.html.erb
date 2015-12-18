@@ -92,7 +92,15 @@
 
               <td class="prediction-game-show-center">
 
+                <% if prediction.visible("user", current_user) %>
+
                   <%= prediction.teama_score%> - <%= prediction.teamh_score%>
+                
+                <%else%>
+
+                  nope
+
+                <%end%>
                 
               </td>
 

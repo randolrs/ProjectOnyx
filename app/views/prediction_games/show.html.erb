@@ -1,12 +1,3 @@
-<%= render 'games/gameshowcover'%>
+<%= render 'predictors/predictorcover' %>
 
-<div class="content-panel">
-
-	<div class ="content-title-header">
-	<h3><%= @predictor.username.humanize %>'s Prediction</h3>
-	<h5><%= link_to @predictor.username.humanize + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
-	</div>
-
-	<%= render 'predictiongameshowgamedetails' %>
-
-</div>
+<%= render 'prediction_games/fullshow' %>

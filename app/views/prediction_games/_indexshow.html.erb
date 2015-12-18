@@ -42,7 +42,7 @@
           <table class ="prediction-game-index-show-table">
 
             <tr>
-              <td colspan="6">
+              <td colspan="5" class="prediction-game-date">
                 <b>Game Date: </b><%= prediction.event_time.strftime("%a, %b %d, %Y ") %>
               </td>
             </tr>
@@ -54,15 +54,15 @@
                 
               </td>
 
-              <td colspan="2">
+              <td class="prediction-game-name">
                 <%= Team.find_by_name(prediction.teama).sub_name%>
               </td>
 
-              <td colspan="3">
+              <td width="300px">
                 
               </td>
 
-              <td colspan="2">
+              <td class="prediction-game-name">
                 <%= Team.find_by_name(prediction.teamh).sub_name%>
               </td>
 
@@ -76,34 +76,34 @@
 
             <tr>
               
-              <td colspan="2">
+              <td class="prediction-game-name">
                 <%= Team.find_by_name(prediction.teama).name%>
               </td>
 
-              <td colspan="3">
+              <td class="prediction-game-score">
 
                   <%= prediction.teama_score%> - <%= prediction.teamh_score%>
                 
               </td>
 
-              <td colspan="2">
+              <td class="prediction-game-name">
                 <%= Team.find_by_name(prediction.teamh).name%>
               </td>
             </tr>
 
             <tr>
               
-              <td colspan="2">
+              <td class="prediction-game-name">
                 (Away)
               </td>
 
-              <td colspan="3">
+              <td>
 
                   Final Score (Predicted)
                 
               </td>
 
-              <td colspan="2">
+              <td class="prediction-game-name">
                 (Home)
               </td>
             </tr>

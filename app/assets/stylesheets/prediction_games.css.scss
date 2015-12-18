@@ -461,10 +461,33 @@ a.team-name{
 
 
 table.prediction-game-index-show-table{
-  width:400px;
+  
   margin-left:auto;
   margin-right:auto;
-  min-height: 200px;
+
+}
+
+table.prediction-game-index-show-table tr{
+  
+  height:10px;
+}
+
+table.prediction-game-index-show-table td{
+  
+  padding:0px;
+}
+
+td.prediction-game-date{
+  padding:0px;
+}
+
+.prediction-game-score{
+  font-size:20px;
+}
+
+td.prediction-game-name{
+  padding:0px;
+  
 }
 
 .prediction-game-index-show-table-date{

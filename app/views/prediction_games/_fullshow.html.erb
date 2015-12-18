@@ -1,3 +1,5 @@
+<div class ="prediction-game-show-container">
+
       <a href = "<%= show_prediction_games_path(@predictor.id, @prediction_game.league, @prediction_game.id)%>", class ="game-show-link" >
 
       <div class ="prediction-game-index-show">
@@ -109,13 +111,62 @@
                 (Home)
               </td>
             </tr>
+
+            <tr class="table-row-border-top">
+              
+              <td>
+                
+              </td>
+
+              <td class="prediction-game-show-center">
+                <%if @prediction_game.game_winner == @prediction_game.teama %>+<%else%>-<%end%><%=@prediction_game.spread%>
+              </td>
+
+              <td class="prediction-game-minor">
+
+                  Spread
+                
+              </td>
+
+              <td class="prediction-game-show-center">
+                <%if @prediction_game.game_winner == @prediction_game.teamh %>+<%else%>-<%end%><%=@prediction_game.spread%>
+              </td>
+
+              <td>
+                
+              </td>
+            </tr>
+
+            <tr class="table-row-border-top">
+              
+              <td class="prediction-game-minor" colspan="5">
+
+                  Over/Under
+                
+              </td>
+
+            </tr>
+
+            <tr>
+              
+              <td class="prediction-game-show-center" colspan="5">
+
+                  <%= @prediction_game.overunder%>
+                
+              </td>
+
+            </tr>
+
             
             <%if user_signed_in? %>
+
               <% if @prediction_game.visible("user", current_user) %>
 
-
               <% end %>
+
             <% end %>
                 <!-- <tr class="pg-table-bottom">
                   
                 </tr> -->
+
+</div>

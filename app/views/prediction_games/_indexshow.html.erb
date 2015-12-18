@@ -14,6 +14,8 @@
 
     <% @predictor = hash[:predictor] %>
 
+      <a href = "<%= show_prediction_games_path(@predictor.id, prediction.league, prediction.id)%>", class ="game-show-link" >
+
       <div class ="prediction-game-index-show">
         
         <div class="prediction-game-index-show-header">
@@ -42,31 +44,39 @@
           <table class ="prediction-game-index-show-table">
 
             <tr>
-              <td colspan="5" class="prediction-game-date">
+              <td colspan="2" class="prediction-game-team-header">
+                
+              </td>
+
+              <td colspan="1" class="prediction-game-date">
                 <b>Game Date: </b><%= prediction.event_time.strftime("%a, %b %d, %Y ") %>
+              </td>
+
+              <td colspan="2" class="prediction-game-team-header">
+                
               </td>
             </tr>
 
             <tr>
-              <td class="prediction-game-index-show-table-teams" rowspan="3">
+              <td rowspan="3" class="prediction-game-team-image">
                 
                 <%= image_tag Team.find_by_name(prediction.teama).image.url(:medium), class: "team-image-tiny"%>
                 
               </td>
 
-              <td class="prediction-game-name">
+              <td class="prediction-game-minor">
                 <%= Team.find_by_name(prediction.teama).sub_name%>
               </td>
 
-              <td width="300px">
+              <td width="250px">
                 
               </td>
 
-              <td class="prediction-game-name">
+              <td class="prediction-game-minor">
                 <%= Team.find_by_name(prediction.teamh).sub_name%>
               </td>
 
-              <td class="prediction-game-index-show-table-teams" rowspan="3">
+              <td rowspan="3" class="prediction-game-team-image">
                 
                 <%= image_tag Team.find_by_name(prediction.teamh).image.url(:medium), class: "team-image-tiny"%>
                 
@@ -76,34 +86,34 @@
 
             <tr>
               
-              <td class="prediction-game-name">
+              <td class="prediction-game-show-center">
                 <%= Team.find_by_name(prediction.teama).name%>
               </td>
 
-              <td class="prediction-game-score">
+              <td class="prediction-game-show-center">
 
                   <%= prediction.teama_score%> - <%= prediction.teamh_score%>
                 
               </td>
 
-              <td class="prediction-game-name">
+              <td class="prediction-game-show-center">
                 <%= Team.find_by_name(prediction.teamh).name%>
               </td>
             </tr>
 
             <tr>
               
-              <td class="prediction-game-name">
+              <td class="prediction-game-minor">
                 (Away)
               </td>
 
-              <td>
+              <td class="prediction-game-minor">
 
                   Final Score (Predicted)
                 
               </td>
 
-              <td class="prediction-game-name">
+              <td class="prediction-game-minor">
                 (Home)
               </td>
             </tr>
@@ -230,7 +240,9 @@
 
       </div>
 
-      </div>
+    </div>
+
+    </a>
 
   <%end%>
 

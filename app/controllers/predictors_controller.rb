@@ -78,83 +78,17 @@ class PredictorsController < ApplicationController
     @predictor = Predictor.find_by_username(params[:username])
     @displaypredictor = false
 
-    if user_signed_in?
-      
-      @userPredictorPurchase = Purchase.where(:user_id=>current_user.id, :predictor_id => @predictor.id)
-
-      unless @userPredictorPurchase.empty?
-
-        @premium_access = @userPredictorPurchase.first.premium
-        
-      else
-
-        @premium_access = false
-
-      end
-
-    elsif predictor_signed_in?
-      
-      if current_predictor.id == @predictor.id
-        @premium_access = true
-      else
-        @premium_access = false
-      end
-
-    elsif admin_signed_in?
-
-      @premium_access = true
-    
-    else
-
-      @premium_access = false
-
-    end
-      
-
-      #need to add logic for sorted array that includes both premium and non premium predictions
-
     @predictions = Array.new 
 
-    if params[:sort_by]
+    ####need to correct method not to require @premium_access param
 
-      if params[:sort_by] == "upcoming"
+    @predictions_upcoming = @predictor.my_prediction_games_upcoming(@premium_access)
 
-        @action = "upcoming"
-        @predictions = @predictor.my_prediction_games_upcoming(@premium_access)
+    @predictions_closed = @predictor.my_prediction_games_closed(@premium_access)  
 
-      elsif params[:sort_by] == "top"
+    @predictions_recent = @predictor.recent_prediction_games(@premium_access)
 
-        @action = "top"
-        @predictions = @predictor.my_prediction_games_closed(@premium_access)
-
-      elsif params[:sort_by] == "closed"
-
-        @action = "closed"
-        @predictions = @predictor.my_prediction_games_closed(@premium_access)
-
-      else
-
-        @action = "recent"
-
-        @predictor.prediction_games.each do |prediction_game|
-
-          hash = {:prediction=>prediction_game, :predictor=>@predictor, :premium_access=> @premium_access}
-
-          @predictions << hash
-
-        end
-
-      end
-
-    else
-
-      @action = "recent"
-
-      @predictions = @predictor.recent_prediction_games(@premium_access)
-
-    end
-
-    @top_predictions = @predictor.prediction_games.where("onyx > :zero", {zero: 0}).limit(3)
+    @predictions_top = @predictor.prediction_games.where("onyx > :zero", {zero: 0}).limit(5)
 
   end
 

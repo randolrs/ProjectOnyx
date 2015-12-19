@@ -1,24 +1,54 @@
-<div class = "outline-shadow">
+<header>
+  <script>
+        $(document).ready(function(){
+            $("#recentIndexToggle").click(function(){
+              $('#divUpcomingIndex').hide(750)
+              $('#divTopIndex').hide(750)
+              $('#divRecentIndex').show(750)
+              $("a.recent-nav").addClass("active-nav");
+              $("a.top-nav").removeClass("active-nav");
+              $("a.upcoming-nav").removeClass("active-nav");
+            });
+        });
+  </script>
+
+  <script>
+        $(document).ready(function(){
+            $("#upcomingIndexToggle").click(function(){
+              $('#divRecentIndex').hide(750)
+              $('#divTopIndex').hide(750)
+              $('#divUpcomingIndex').show(750)
+              $("a.top-nav").addClass("active-nav");
+              $("a.upcoming-nav").removeClass("active-nav");
+              $("a.recent-nav").removeClass("active-nav");
+            });
+        });
+  </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#topIndexToggle").click(function(){
+              $('#divRecentIndex').hide(750)
+              $('#divUpcomingIndex').hide(750)
+              $('#divTopIndex').show(750)
+              $("a.upcoming-nav").addClass("active-nav");
+              $("a.top-nav").removeClass("active-nav");
+              $("a.recent-nav").removeClass("active-nav");
+            });
+        });
+  </script>
+
+</header>
+
+<div class = "user-dashboard-prediction-nav">
 
 	<ul class="dashboard-prediction-nav">
 		
-		<%unless @action == "upcoming" or @action=="top" %>
-			<li class="active"><%= link_to "Recent", predictordashboard_path(@predictor.username) %></li>
-		<%else%>
-			<li><%= link_to "Recent", predictordashboard_path(@predictor.username) %></li>
-		<%end%>
+		<li><a class="recent-nav active-nav" id= "recentIndexToggle">Recent</a></li>
 
-		<%if @action == "upcoming"%>
-			<li class="active"><%= link_to "Upcoming", predictordashboard_path(@predictor.username, :sort_by=>"upcoming") %></li>
-		<%else%>
-			<li><%= link_to "Upcoming", predictordashboard_path(@predictor.username, :sort_by=>"upcoming") %></li>
-		<%end%>
+		<li><a  class="upcoming-nav" id= "upcomingIndexToggle">Upcoming</a></li>
 
-		<%if @action == "top"%>
-			<li class="active"><%= link_to "Top", predictordashboard_path(@predictor.username, :sort_by=>"top") %></li>
-		<%else%>
-			<li><%= link_to "Top", predictordashboard_path(@predictor.username, :sort_by=>"top") %></li>
-		<%end%>
+		<li><a class="top-nav" id= "topIndexToggle">Top</a></li> 
 
 	</ul>
 

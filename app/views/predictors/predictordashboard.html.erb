@@ -20,7 +20,20 @@
 
 			<%= render 'predictors/predictor_dashboard_prediction_nav' %>
 
-	    	<%= render 'prediction_games/indexshow'%>
+
+			<div id="divrecentIndex">
+        		<%= render 'prediction_games/indexshow' %>
+			</div>
+
+			<div id="divUpcomingIndex" style="display: none;">
+				<%# render 'games/indexshow' %>
+			</div>
+
+			<div id="divTopIndex" style="display: none;">
+				<%# render 'predictors/indexshow' %>
+			</div>
+
+	    	<%# render 'prediction_games/indexshow'%>
 
 		</div>
 

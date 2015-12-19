@@ -19,7 +19,7 @@
     <% @games.each do |game| %>
       <tr>
         <td><%= game.league %></td>
-        <td><%= game.teamh %><%= Team.find_by_name(game.teamh).nil? %></td>
+        <td><%= game.teamh + (game.teamh_id.to_s) %><%= Team.find_by_name(game.teamh).nil? %></td>
         <td><%= game.teama %><%= Team.find_by_name(game.teama).nil? %></td>
         <td><%= game.event_time %></td>
         <td><%= game.status %></td>

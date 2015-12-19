@@ -14,8 +14,6 @@
 
     <% @predictor = hash[:predictor] %>
 
-      <!-- <a href = "<%= show_prediction_games_path(@predictor.id, prediction.league, prediction.id)%>", class ="game-show-link" > -->
-
       <div class ="prediction-game-index-show">
         
         <div class="prediction-game-index-show-header">
@@ -143,6 +141,7 @@
             </tr>
             
             <%if user_signed_in? %>
+            
               <% if prediction.visible("user", current_user) %>
 
                 <!-- <tr class="pg-table-bottom">

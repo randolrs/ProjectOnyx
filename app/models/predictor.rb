@@ -85,7 +85,7 @@ class Predictor < ActiveRecord::Base
 
       if prediction_game.event_time > Time.now
 
-        hash = {:prediction=>prediction_game, :predictor=> predictor, :premium_access=> premium_access}
+        hash = {:prediction=>prediction_game, :predictor=> predictor}
 
         predictions << hash
 
@@ -93,7 +93,7 @@ class Predictor < ActiveRecord::Base
 
     end
     
-    return predictions.sort_by {|k| k[:prediction].event_time}
+    return predictions.sort_by {|k| k[:prediction].event_time}.reverse
 
   end
 

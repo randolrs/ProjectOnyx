@@ -674,11 +674,6 @@ p.terms-of-service{
   border-bottom: 2px solid orange;
 }
 
-.dashboard-prediction-nav li:hover{
-  border-bottom:2px solid orange;
-  cursor:pointer;
-}
-
 .dashboard-prediction-nav a{
   padding:10px;
 }
@@ -980,16 +975,6 @@ a.need-information-cta:hover{
   text-decoration: none;
 }
 
-@media only screen and (max-width: 960px) {
-    .user-dashboard-card{
-        display:none;
-    }
-
-    .container{
-        min-width:0px;
-    }
-
-}
 
 @media only screen and (max-device-width: 960px) {
     .user-dashboard-card{
@@ -1001,17 +986,60 @@ a.need-information-cta:hover{
     }
 
     .prediction-nav{
-      font-size: 24px;
+      font-size: 20px;
     }
+
+    .game-nav{
+      font-size: 20px;
+    }
+
+    .predictor-nav{
+      font-size: 20px;
+    }
+
+    .watching-nav{
+      font-size: 20px;
+    }
+
+    .subscription-nav{
+      font-size: 20px;
+    }
+
+
 
 }
 
 
-@media only screen and (max-width: 1230px) {
+@media only screen and (max-width: 960px) {
 
-    .user-dashboard-predictors{
-        /*max-width:550px;*/
+    .user-dashboard-card{
+      display:none;
     }
+
+    .container{
+      min-width:0px;
+    }
+
+    .prediction-nav{
+      font-size: 20px;
+    }
+
+    .game-nav{
+      font-size: 20px;
+    }
+
+    .predictor-nav{
+      font-size: 20px;
+    }
+
+    .watching-nav{
+      font-size: 20px;
+    }
+
+    .subscription-nav{
+      font-size: 20px;
+    }
+
 }
 
 

@@ -21,16 +21,19 @@
 			<%= render 'predictors/predictor_dashboard_prediction_nav' %>
 
 
-			<div id="divrecentIndex">
+			<div id="divRecentIndex">
+				<% @predictions = @predictions_recent %>
         		<%= render 'prediction_games/indexshow' %>
 			</div>
 
-			<div id="divUpcomingIndex" style="display: none;">
-				<%# render 'games/indexshow' %>
+			<div id="divUpcomingIndex">
+				<% @predictions = @predictions_upcoming %>
+				<%= render 'prediction_games/indexshow' %>
 			</div>
 
 			<div id="divTopIndex" style="display: none;">
-				<%# render 'predictors/indexshow' %>
+				<% @predictions = @predictions_top %>
+				<%= render 'prediction_games/indexshow' %>
 			</div>
 
 	    	<%# render 'prediction_games/indexshow'%>

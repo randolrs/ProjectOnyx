@@ -4,34 +4,38 @@
 
     <table class="user-dashboard-table">
 
-      <% @upcominggames.each do |game|%>
-      	<tr data-link="<%=gameshow_path(game.league, game.id)%>", class="table-cta-hover">
-      		
-          <td class="sidebar-entry" style="text-align:center;">
-      			<%= image_tag Team.find_by_name(game.teama).image.url(:medium), class: "predictor-image-tiny"%>
-          </td>
+      <% unless @upcominggames.empty?%>
 
-          <td style="text-align:center;">
-            <a class="team-name"><%= game.teama %></a>
-          </td>
+        <% @upcominggames.each do |game|%>
+        	<tr data-link="<%=gameshow_path(game.league, game.id)%>", class="table-cta-hover">
+        		
+            <td class="sidebar-entry" style="text-align:center;">
+        			<%= image_tag Team.find_by_name(game.teama).image.url(:medium), class: "predictor-image-tiny"%>
+            </td>
 
-          <td style="text-align:center;">
-            @
-          </td>
-      			
-          <td style="text-align:center;">
-            <a class="team-name"><%= game.teamh %></a>
-          </td>
+            <td style="text-align:center;">
+              <a class="team-name"><%= game.teama %></a>
+            </td>
 
-          <td style="text-align:center;">
-            <%= image_tag Team.find_by_name(game.teamh).image.url(:medium), class: "predictor-image-tiny"%> 
-          </td>
+            <td style="text-align:center;">
+              @
+            </td>
+        			
+            <td style="text-align:center;">
+              <a class="team-name"><%= game.teamh %></a>
+            </td>
 
-          <td class="sidebar-entry" style="text-align:center;">
-            <%= game.event_time.strftime("%-m/%-d") %>
-          </td>
+            <td style="text-align:center;">
+              <%= image_tag Team.find_by_name(game.teamh).image.url(:medium), class: "predictor-image-tiny"%> 
+            </td>
 
-      	</tr>
+            <td class="sidebar-entry" style="text-align:center;">
+              <%= game.event_time.strftime("%-m/%-d") %>
+            </td>
+
+        	</tr>
+
+        <%end%>
 
       <%end%>
 

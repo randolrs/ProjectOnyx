@@ -993,11 +993,15 @@ a.need-information-cta:hover{
 
 @media only screen and (max-device-width: 960px) {
     .user-dashboard-card{
-        display:none;
+      display:none;
     }
 
     .container{
-        min-width:0px;
+      min-width:0px;
+    }
+
+    .prediction-nav{
+      font-size: 24px;
     }
 
 }

@@ -930,7 +930,6 @@ td.table-float-right{
   }
 
   .cover-container{
-    width:900px;
     height:100%;
     margin-left:auto;
     margin-right:auto;
@@ -981,9 +980,13 @@ a.need-information-cta:hover{
   text-decoration: none;
 }
 
-@media only screen and (max-width: 1295px) {
+@media only screen and (max-width: 960px) {
     .user-dashboard-card{
-        /*display:none;*/
+        display:none;
+    }
+
+    .container{
+        min-width:0px;
     }
 
 }

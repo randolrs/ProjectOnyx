@@ -16,7 +16,6 @@
 //= require jquery-ui
 //= require bootstrap
 //= require turbolinks
-//= require jquery.turbolinks
 //= require_tree .
 
 // require webcomponentsjs/webcomponents
@@ -26,18 +25,6 @@
 
 //Bower packages
 
-// jQuery(function($) {
-//     $('#inst-form').submit(function(event) {
-//       // Get the form object.
-//       var $form = $(this);
-//       // Disable the submit button to prevent repeated clicks
-//       $form.find('button').prop('disabled', true);
-//       // Create a token with Stripe
-//       Stripe.bankAccount.createToken($form, stripeResponseHandler);
-//       // Prevent the form from submitting with the default action
-//       return false;
-//     });
-//   });
 
 function toggleModal() {
     var divModal = document.getElementById("divModal");
@@ -112,6 +99,59 @@ function toggleTable() {
       });
   };
 })(jQuery);
+
+(function($){
+$(document).ready(function(){
+
+$(document).ready(function() {
+  $("#cssmenu").menumaker({
+    title: "Menu",
+    format: "multitoggle"
+  });
+
+  $("#cssmenu").prepend("<div id='menu-line-wrapper'><div id='menu-line-container'><div id='menu-line'></div></div></div>");
+
+var foundActive = false, activeElement, linePosition = 0, menuLine = $("#cssmenu #menu-line"), lineWidth, defaultPosition, defaultWidth;
+
+$("#cssmenu > ul > li").each(function() {
+  if ($(this).hasClass('active')) {
+    activeElement = $(this);
+    foundActive = true;
+  }
+});
+
+if (foundActive === false) {
+  activeElement = $("#cssmenu > ul > li").first();
+}
+
+defaultWidth = lineWidth = activeElement.width();
+
+defaultPosition = linePosition = activeElement.position().left;
+
+menuLine.css("width", lineWidth);
+menuLine.css("left", linePosition);
+
+$("#cssmenu > ul > li").hover(function() {
+  activeElement = $(this);
+  lineWidth = activeElement.width();
+  linePosition = activeElement.position().left;
+  menuLine.css("width", lineWidth);
+  menuLine.css("left", linePosition);
+}, 
+function() {
+  menuLine.css("left", defaultPosition);
+  menuLine.css("width", defaultWidth);
+});
+
+});
+
+
+});
+})(jQuery);
+
+
+
+////xxx
 
 (function($){
 $(document).ready(function(){

@@ -991,6 +991,17 @@ a.need-information-cta:hover{
 
 }
 
+@media only screen and (max-device-width: 960px) {
+    .user-dashboard-card{
+        display:none;
+    }
+
+    .container{
+        min-width:0px;
+    }
+
+}
+
 
 @media only screen and (max-width: 1230px) {
 

@@ -39,6 +39,8 @@
 
         <div>
 
+          <a href = "<%= show_prediction_games_path(@predictor.id, prediction.league, prediction.id)%>", class ="game-show-link" >
+
           <table class ="prediction-game-index-show-table">
 
             <tr>
@@ -261,11 +263,13 @@
 
           </table>
 
+          </a>
+
       </div>
 
     </div>
 
-    <!-- </a> -->
+    
 
   <%end%>
 

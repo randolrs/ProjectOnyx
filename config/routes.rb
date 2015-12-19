@@ -84,7 +84,7 @@ Rails.application.routes.draw do
   get '/users/edit/payments' => 'cards#index', as: 'payments'
 
 
-  get '/predictors/:predictor_id/sports/:league/:id' => 'prediction_games#show', as: 'show_prediction_games'
+  get '/:predictor_id/sports/:league/:id' => 'prediction_games#show', as: 'show_prediction_games'
   
   get '/events/sports/:league' => 'games#findgames', as: 'find_prediction_games'
 

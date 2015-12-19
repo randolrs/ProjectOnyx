@@ -16,6 +16,7 @@
 //= require jquery-ui
 //= require bootstrap
 //= require turbolinks
+//= require jquery.turbolinks
 //= require_tree .
 
 // require webcomponentsjs/webcomponents

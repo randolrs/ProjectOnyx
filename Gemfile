@@ -80,3 +80,5 @@ gem 'sprockets', '2.11.0'
 
 gem 'emcee'
 
+gem 'jquery-turbolinks'
+

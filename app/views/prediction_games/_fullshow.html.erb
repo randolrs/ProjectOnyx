@@ -1,3 +1,5 @@
+<% game = Game.find(prediction.game_id) %>
+
 <div class ="prediction-game-show-container">
 
       <a href = "<%= show_prediction_games_path(@predictor.id, @prediction_game.league, @prediction_game.id)%>", class ="game-show-link" >

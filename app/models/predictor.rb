@@ -99,7 +99,7 @@ class Predictor < ActiveRecord::Base
 
     end
     
-    return predictions.sort_by {|k| k[:prediction].event_time}.reverse
+    return predictions.sort_by {|k| k[:prediction].event_time}
 
   end
 

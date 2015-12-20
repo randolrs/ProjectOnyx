@@ -51,11 +51,11 @@
 
 	        	<br>
 
-	        	<%= game.event_time.strftime("%-m/%-d/%y") + ", " + game.event_time.strftime("%l:%M %p") %>
+	        	<b>Game Date: </b><%= game.event_time.strftime("%-m/%-d/%y") + ", " + game.event_time.strftime("%l:%M %p") %>
 
 	        	<br>
 
-	        	Final Score Predictions: 
+	        	Final Score Predictions: <%= game.prediction_games.count%>
 
 	      	</div>
 

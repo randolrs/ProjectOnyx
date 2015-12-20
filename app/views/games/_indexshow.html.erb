@@ -20,11 +20,11 @@
 
 		      	<% if team_game[:home] %>
 		        
-		        	VS <%= image_tag Team.find_by_name(game.teama).image, class: "team-image-tiny"%> <%=game.teama %>
+		        	VS <%= image_tag Team.find(game.teama_id).image, class: "team-image-tiny"%> <%=game.teama %>
 
 		        <%else%>
 
-		        	@ <%= image_tag Team.find_by_name(game.teamh).image, class: "team-image-tiny"%> <%=game.teamh %>
+		        	@ <%= image_tag Team.find(game.teamh_id).image, class: "team-image-tiny"%> <%=game.teamh %>
 
 		        <%end%>
 
@@ -47,7 +47,7 @@
 
 	      	<div class ="prediction-game-index-show">
 
-	        	<%= image_tag Team.find_by_name(game.teama).image, class: "team-image-tiny"%> <%=game.teama %> @ <%=game.teamh %> <%= image_tag Team.find_by_name(game.teamh).image, class: "team-image-tiny"%>
+	        	<%= image_tag Team.find(game.teama_id).image, class: "team-image-tiny"%> <%=game.teama %> @ <%=game.teamh %> <%= image_tag Team.find(game.teamh_id).image, class: "team-image-tiny"%>
 
 	        	<br>
 

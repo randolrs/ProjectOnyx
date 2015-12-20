@@ -1,5 +1,3 @@
-<% game = Game.find(prediction.game_id) %>
-
 <div class ="prediction-game-show-container">
 
       <a href = "<%= show_prediction_games_path(@predictor.id, @prediction_game.league, @prediction_game.id)%>", class ="game-show-link" >
@@ -48,12 +46,12 @@
             <tr>
               <td rowspan="3" class="prediction-game-team-image">
                 
-                <%= image_tag Team.find_by_name(@prediction_game.teama).image.url(:medium), class: "team-image-tiny"%>
+                <%= image_tag @teama.image.url(:medium), class: "team-image-tiny"%>
                 
               </td>
 
               <td class="prediction-game-minor">
-                <%= Team.find_by_name(@prediction_game.teama).sub_name%>
+                <%= @teama.sub_name%>
               </td>
 
               <td width="250px">
@@ -61,12 +59,12 @@
               </td>
 
               <td class="prediction-game-minor">
-                <%= Team.find_by_name(@prediction_game.teamh).sub_name%>
+                <%= @teamh.sub_name%>
               </td>
 
               <td rowspan="3" class="prediction-game-team-image">
                 
-                <%= image_tag Team.find_by_name(@prediction_game.teamh).image.url(:medium), class: "team-image-tiny"%>
+                <%= image_tag @teamh.image.url(:medium), class: "team-image-tiny"%>
                 
               </td>
 
@@ -75,7 +73,7 @@
             <tr>
               
               <td class="prediction-game-show-center">
-                <%= Team.find_by_name(@prediction_game.teama).name%>
+                <%= @teama.name%>
               </td>
 
               <td class="prediction-game-show-center" height="50">
@@ -109,7 +107,7 @@
               </td>
 
               <td class="prediction-game-show-center">
-                <%= Team.find_by_name(@prediction_game.teamh).name%>
+                <%= @teamh.name%>
               </td>
             </tr>
 

@@ -277,7 +277,7 @@ a.request_button:hover{
 
 .hero-wrap{
 	text-align:center;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 a.hero_cta{
@@ -285,6 +285,7 @@ a.hero_cta{
   line-height:20px;
   text-decoration:none;
   background-color:#13BD63;
+  background: linear-gradient(#13BD63, #11A657);
   font-size: 36px;
   color:white;
   border-radius:2.4px;
@@ -292,6 +293,7 @@ a.hero_cta{
   position:relative;
   border: 2px solid rgba(0,0,0,.2);
   box-shadow: 0px 3px 5px rgba(0,0,0,.1);
+  text-shadow: 0px 0px 2px #555;
 }
 
 a.hero_cta:hover{
@@ -1422,19 +1424,19 @@ ul.dropdown-menu li {
 }
 
 .intro-section{
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    background-size: cover;
+    
     background-color: #fefefe;
     position:relative;
+    min-height: 650px;
 }
 
 .intro-container{
-  padding:200px 0px;
+  
   min-width: 100%;
   min-height: 100%;
+  right: 0;
+  bottom: 0;
+  padding: 100px 0px 50px 0px;
 }
 
 .intro-container h1{
@@ -1450,22 +1452,32 @@ ul.dropdown-menu li {
   text-align:center;
   color:#555;
   line-height: 40px;
-  margin-top:50px;
+  margin:50px 0px;
 }
 
 .expert-types{
-    position:absolute;
+    position:relative;
     max-width: 900px;
     margin:0 auto;
     min-height: 200px;
     width: auto;
     height: auto;
     position:relative;
-    padding-top:50px;
+    padding:50px 0px;
   
 }
 
 .expert-types h1{
     text-align:center;
   
+}
+
+.expert-types-float{
+  float:left;
+  padding:10px;
+  width:250px;
+  height:150px;
+  border:1px solid #aaa;
+  margin:-1px 0px 0px -1px;
+  background-color:white;
 }

@@ -10,6 +10,7 @@
   background: #111;
   background: linear-gradient(#222, #111);
   position:fixed;
+  box-shadow: 0 2px 4px rgba(30,30,30,0.5);
 
 }
 
@@ -276,6 +277,7 @@ a.request_button:hover{
 
 .hero-wrap{
 	text-align:center;
+  margin-top: 50px;
 }
 
 a.hero_cta{
@@ -283,14 +285,13 @@ a.hero_cta{
   line-height:20px;
   text-decoration:none;
   background-color:#13BD63;
-  font-size: 18px;
+  font-size: 36px;
   color:white;
   border-radius:2.4px;
   text-align:center;
   position:relative;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  border-right: 2px solid rgba(0,0,0,.2);
-  border-bottom: 2px solid rgba(0,0,0,.2);
+  border: 2px solid rgba(0,0,0,.2);
+  box-shadow: 0px 3px 5px rgba(0,0,0,.1);
 }
 
 a.hero_cta:hover{
@@ -313,7 +314,7 @@ a.subscribe_cta{
   margin-right:auto;
   border-bottom: 2px solid rgba(0,0,0,.2);
   text-shadow: 0px 0px 1px #555;
-  border: 1px solid #109950;
+  border: 2px solid rgba(0,0,0,.2);
   -webkit-box-shadow: 0px 3px 5px rgba(0,0,0,.1);
   -moz-box-shadow: 0px 3px 5px rgba(0,0,0,.1);
   box-shadow: 0px 3px 5px rgba(0,0,0,.1);
@@ -1418,4 +1419,53 @@ ul.dropdown-menu li {
 
 .actions{
   text-align:center;
+}
+
+.intro-section{
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    background-size: cover;
+    background-color: #fefefe;
+    position:relative;
+}
+
+.intro-container{
+  padding:200px 0px;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.intro-container h1{
+  font-size:80px;
+  text-align:center;
+  color:red;
+  line-height: 80px;
+  padding:0px 10px;
+}
+
+.intro-container h2{
+  font-size:40px;
+  text-align:center;
+  color:#555;
+  line-height: 40px;
+  margin-top:50px;
+}
+
+.expert-types{
+    position:absolute;
+    max-width: 900px;
+    margin:0 auto;
+    min-height: 200px;
+    width: auto;
+    height: auto;
+    position:relative;
+    padding-top:50px;
+  
+}
+
+.expert-types h1{
+    text-align:center;
+  
 }

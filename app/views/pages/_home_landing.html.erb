@@ -1,3 +1,40 @@
+<header>
+
+	<script>
+		$( "li" ).hover(
+		  function() {
+		    $( this ).append( $( "<span> ***</span>" ) );
+		  }, function() {
+		    $( this ).find( "span:last" ).remove();
+		  }
+		);
+ 
+			$( "li.fade" ).hover(function() {
+			  $( this ).fadeOut( 100 );
+			  $( this ).fadeIn( 500 );
+			});
+</script>
+
+
+<script>
+    $(document).ready(function(){
+        $("#expert-types-sports").mouseenter(function(){
+          $('#front').hide(750)
+          $('#back').show(750)
+      
+        });
+
+        $("#expert-types-sports").mouseout(function(){
+          $('#front').show(750)
+          $('#back').hide(750)
+      
+        });
+    });
+  </script>
+
+</header>
+
+
 <section class="intro-section">
 
 	<div class="intro-container">
@@ -20,32 +57,75 @@
 
 	<h1>Discover the world's best </h1>
 
-	<div class="expert-types-container">
+	<div class="expert-types-wrap">
 
-		
-		<div class="expert-types-float">
-		
-			hello
+		<div class="expert-types-container">
+			
+			<div class="expert-types-float" id="expert-types-sports">
+				
+				<span id="front">
+
+					<h3 class="expert-types-header">SPORTS</h3>
+
+				</span>
+
+				<span id="back" style="display: none;">
+
+					somestuff here
+
+				</span>
+				
+			</div>
+
+			<div class="expert-types-float" id="expert-types-fantasy-sports">
+			
+				<h3 class="expert-types-header">FANTASY SPORTS</h3>
+
+			</div>
+
+			<div class="expert-types-float" id="expert-types-finance">
+			
+				<h3 class="expert-types-header">FINANCE</h3>
+
+			</div>
+
+		</div>
+	
+	</div>
+
+	<div class="hero-wrap">
+		<%= link_to "See All Categories", new_user_registration_path, class: "category_cta" %>
+	</div>
+
+</section>
+
+<section class="explainer-section">
+
+	<div class="explainer-section-container">
+
+		<div class="explainer-section-float">
+
+			<h3>Past Predictive Accuracy is the Greatest Indication of Future Accuracy</h3>
+
 		</div>
 
-		<div class="expert-types-float">
-		
-			hello
-		</div>
-
-		<div class="expert-types-float">
-		
-			hello
-		</div>
-
-		<div class="expert-types-float">
-		
-			hello
+		<div class="explainer-section-float">
+			Seems gay
 		</div>
 
 	</div>
 
+</section>
 
+<section class="become-expert-section">
+
+	<div class="become-expert-section-container">
+
+		<h3>Become a Futable Expert</h3>
+
+		<%= link_to "See All Categories", new_user_registration_path, class: "category_cta" %>
+
+	</div>
 
 </section>
 

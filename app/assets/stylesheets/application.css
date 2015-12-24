@@ -15,7 +15,9 @@
  */
 body{
   background-color:#fafafa;
+  
   background-image: url("https://s3.amazonaws.com/futable/backgrounds/handmadepaper.png");
+  background-image: url("/assets/handmadepaper.png");
 
 }
 
@@ -1004,7 +1006,9 @@ a.need-information-cta:hover{
       font-size: 20px;
     }
 
-
+    .expert-types-wrap{
+      width:250px;
+    }
 
 }
 
@@ -1037,6 +1041,10 @@ a.need-information-cta:hover{
 
     .subscription-nav{
       font-size: 20px;
+    }
+
+    .expert-types-wrap{
+      width:250px;
     }
 
 }

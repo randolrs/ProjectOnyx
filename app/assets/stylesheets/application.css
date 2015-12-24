@@ -1006,8 +1006,13 @@ a.need-information-cta:hover{
       font-size: 20px;
     }
 
+    .expert-types {
+      height:800px;
+    }
+
     .expert-types-wrap{
       width:250px;
+      height:800px;
     }
 
 }
@@ -1043,8 +1048,13 @@ a.need-information-cta:hover{
       font-size: 20px;
     }
 
+    .expert-types {
+      height:800px;
+    }
+
     .expert-types-wrap{
       width:250px;
+      height:800px;
     }
 
 }

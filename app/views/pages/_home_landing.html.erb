@@ -19,14 +19,14 @@
 <script>
     $(document).ready(function(){
         $("#expert-types-sports").mouseenter(function(){
-          $('#front').hide(750)
-          $('#back').show(750)
+          $('#front').hide(200)
+          $('#back').show(200)
       
         });
 
         $("#expert-types-sports").mouseout(function(){
-          $('#front').show(750)
-          $('#back').hide(750)
+          $('#front').show(100)
+          $('#back').hide(100)
       
         });
     });
@@ -123,7 +123,11 @@
 
 		<h3>Become a Futable Expert</h3>
 
-		<%= link_to "See All Categories", new_user_registration_path, class: "category_cta" %>
+		<div class="hero-wrap">
+
+			<%= link_to "Get Started", new_user_registration_path, class: "become_expert_cta" %>
+
+		</div>
 
 	</div>
 

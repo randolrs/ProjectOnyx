@@ -92,12 +92,7 @@ a.logo-text:hover{
 	text-decoration:none;
   line-height: 40px;
 	border-radius:2.4px;
-}
-
-.header-inside-right a:hover{
-  color:#fff;
-  webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  font-weight:bold;
 }
 
 a.header-small{
@@ -335,7 +330,7 @@ a.become_expert_cta{
   text-align:center;
   position:relative;
   border: 2px solid #fff;
-  text-shadow: 0px 0px 5px #888;
+  text-shadow: 0px 0px 1px #ccc;
 }
 
 a.become_expert_cta:hover{

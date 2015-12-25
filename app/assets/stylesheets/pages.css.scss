@@ -1469,7 +1469,6 @@ ul.dropdown-menu li {
 }
 
 .intro-section{
-    
     background-color: #fefefe;
     position:relative;
     min-height: 650px;
@@ -1514,8 +1513,7 @@ ul.dropdown-menu li {
 }
 
 .expert-types h1{
-    text-align:center;
-  
+    text-align:center; 
 }
 
 
@@ -1547,7 +1545,6 @@ ul.dropdown-menu li {
 .expert-types-float:hover{
   cursor:pointer;
   border:2px solid #7400FF;
-
 }
 
 .expert-types-header{
@@ -1631,3 +1628,55 @@ ul.dropdown-menu li {
   margin-left:auto;
   margin-right:auto;
 }
+
+.dual-signup-section{
+  width:auto;
+  margin-left:auto;
+  margin-right:auto;
+  max-width:1000px;
+  padding:50px;
+}
+
+.dual-signup-section h1{
+  text-align:center;
+  font-size:40px;
+  font-weight: 100;
+  color: #494949
+
+}
+
+.dual-signup-section h2{
+  text-align:center;
+  font-size:32px;
+  font-weight: 100;
+  color: #494949
+}
+
+.dual-signup-section h3{
+  text-align:center;
+  font-size:20px;
+  font-weight: 100;
+  color: #494949
+}
+
+.dual-signup-panel-float{
+  float:left;
+  width:400px;
+  padding: 49px;
+  text-align:center;
+  height:300px;
+}
+
+.dual-signup-panel-float-divider{
+  float:left;
+  height:200px;
+  border-left: 1px solid #7d7d7d;
+  border-right: 1px solid #e0e0e0;
+}
+
+.bottom_cta{
+  position:relative;
+  bottom:0px;
+}
+
+  

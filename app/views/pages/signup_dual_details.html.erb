@@ -1,140 +1,35 @@
-<header>
+<section class="dual-signup-section">
 
-<script>
-    $(document).ready(function(){
-        $("#expert-types-sports").mouseenter(function(){
-          $('#front').hide(50)
-          $('#back').show(50)
-      
-        });
+	<h1>Let's Get Started!</h1>
 
-        $("#expert-types-sports").mouseout(function(){
-          $('#front').show(50)
-          $('#back').hide(50)
-      
-        });
-    });
-  </script>
+	<h2>First Tell Us About Yourself:</h2>
 
-</header>
+	<div class="dual-signup-panel-container">
 
+		<div class="dual-signup-panel-float">
 
-<section class="intro-section">
+			<h3>I want the most accurate predictions from top experts.</h3>
 
-	<div class="intro-container">
+			<div class="bottom_cta">
+				<%= link_to "Signup", get_started_path, class: "hero_cta bottom_cta" %>
+			</div>
 
-		<h1>The Most Accurate Predictions.</h1>
-		<h1>Proven.</h1>
+		</div>
 
-		<h2>Find the best expert predictions about anything</h2>
+		<div class="dual-signup-panel-float-divider">
 
-		<div class="hero-wrap">
-			<%= link_to "Get Started", new_user_registration_path, class: "hero_cta" %>
+		</div>
+
+		<div class="dual-signup-panel-float">
+
+			<h3>I am an expert; I want to make predictions.</h3>
+
+			<div class="bottom_cta">
+				<%= link_to "Predict", get_started_path, class: "hero_cta bottom_cta" %>
+			</div>
+			
 		</div>
 					
-	</div>
-
-</section>
-
-
-<section class ="expert-types">
-
-	<h1>Discover the world's best </h1>
-
-	<div class="expert-types-wrap">
-
-		<div class="expert-types-container">
-			
-			<div class="expert-types-float" id="expert-types-sports">
-				
-				<span id="front">
-
-					<h3 class="expert-types-header">SPORTS</h3>
-
-				</span>
-
-				<span id="back" style="display: none;">
-
-					somestuff here
-
-				</span>
-				
-			</div>
-
-			<div class="expert-types-float" id="expert-types-fantasy-sports">
-			
-				<h3 class="expert-types-header">FANTASY SPORTS</h3>
-
-			</div>
-
-			<div class="expert-types-float" id="expert-types-finance">
-			
-				<h3 class="expert-types-header">FINANCE</h3>
-
-			</div>
-
-		</div>
-	
-	</div>
-
-	<div class="hero-wrap">
-		<%= link_to "See All Categories", new_user_registration_path, class: "category_cta" %>
-	</div>
-
-</section>
-
-<section class="explainer-section">
-
-	<div class="explainer-section-container">
-
-		<div class="explainer-section-float">
-
-			<h3>Past Predictive Accuracy is the Greatest Indication of Future Accuracy</h3>
-
-		</div>
-
-		<div class="explainer-section-float">
-			Seems gay
-		</div>
-
-	</div>
-
-</section>
-
-<section class="become-expert-section">
-
-	<div class="become-expert-section-container">
-
-		<h3>Become a Futable Expert</h3>
-
-		<div class="hero-wrap">
-
-			<%= link_to "Get Started", new_user_registration_path, class: "become_expert_cta" %>
-
-		</div>
-
-	</div>
-
-</section>
-
-
-<section class="press-section">
-
-	<div class="press-section-container">
-
-		<h3>Become a Futable Expert</h3>
-
-	</div>
-
-</section>
-
-
-<section class="footer-section">
-
-	<div class="footer-section-container">
-
-		<h3>Become a Futable Expert</h3>
-
 	</div>
 
 </section>

@@ -439,7 +439,7 @@ a.team-name{
   text-align:center;
   width:550px;
   border:1px #ddd solid;
-  margin-bottom:-1px;
+  margin-bottom:10px;
   margin-left: auto;
   margin-right: auto
 
@@ -447,7 +447,8 @@ a.team-name{
 
 .prediction-game-index-show:hover{
   background-color: #fdfdfd;
-  cursor:pointer;
+  border: 1px solid #7400FF;
+ 
 }
 
 .prediction-game-index-show.empty{

@@ -39,11 +39,11 @@ Rails.application.routes.draw do
 
   get "about" => "pages#about"
 
-  get "signup" => "pages#selectsignup"
-
   get "login" => "devise/sessions#new"
 
   get 'dashboard' => 'pages#dashboard'
+
+  get 'get_started' => 'pages#signup_dual_details'
 
   get 'predictoradminindex' => 'predictors#index'
 

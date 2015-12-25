@@ -95,6 +95,12 @@ a.logo-text:hover{
   font-weight:bold;
 }
 
+.header-inside-right a:hover{
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  color:#00D43C;
+}
+
 a.header-small{
   padding: 8px 10px;
   font-size: 16px;
@@ -1540,7 +1546,7 @@ ul.dropdown-menu li {
 
 .expert-types-float:hover{
   cursor:pointer;
-  border:2px solid #9800F0;
+  border:2px solid #7400FF;
 
 }
 

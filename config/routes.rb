@@ -45,6 +45,8 @@ Rails.application.routes.draw do
 
   get 'get_started' => 'pages#signup_dual_details'
 
+  get 'all_categories' => 'pages#prediction_type_full_index'
+
   get 'predictoradminindex' => 'predictors#index'
 
   get 'posts' => 'articles#index'

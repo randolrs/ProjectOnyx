@@ -302,6 +302,11 @@ a.hero_cta:hover{
   background: #00D43C;
 }
 
+.cta-wrap{
+  text-align:center;
+  margin: 50px 0px;
+}
+
 a.category_cta{
   padding: 10px;
   line-height:20px;
@@ -1659,6 +1664,10 @@ ul.dropdown-menu li {
   color: #494949
 }
 
+.dual-signup-panel-container{
+  margin-top:50px;
+}
+
 .dual-signup-panel-float{
   float:left;
   width:400px;
@@ -1672,6 +1681,10 @@ ul.dropdown-menu li {
   height:200px;
   border-left: 1px solid #7d7d7d;
   border-right: 1px solid #e0e0e0;
+}
+
+.dual-signup-panel-intro{
+  height:150px;
 }
 
 .bottom_cta{

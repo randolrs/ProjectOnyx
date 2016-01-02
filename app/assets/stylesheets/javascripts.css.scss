@@ -54,6 +54,11 @@
   float: left;
   display: inline-block;
 }
+
+#cssmenu > ul > li.right{
+  float:right;
+}
+
 #cssmenu.align-center > ul {
   float: none;
   text-align: center;
@@ -311,8 +316,8 @@
     top: 18px;
   }
 
-  #cssmenu > ul > li.last{
-  float:right;
+  #cssmenu > ul > li.right{
+  float:none;
   }
 
   #cssmenu #menu-button::before {

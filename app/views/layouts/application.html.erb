@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Futable</title>
+  <title>Futable | The World's Most Accurate Predictions. Proven.</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= html_import_tag "application", "data-turbolinks-track" => true %>
@@ -30,7 +30,8 @@
 </head>
 
 <body>
-  <%= render 'layouts/header' %>
+  <%# render 'layouts/header' %>
+  <%= render 'layouts/header_responsive' %>
   <%# render 'layouts/header_sub' %>
   <div class="container">
   	<%= yield %>

@@ -78,6 +78,12 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def rated_prediction_count
+
+    return self.prediction_games.where(:status => "c").count
+
+  end
+
   
   def my_prediction_games_upcoming(premium_access)
 

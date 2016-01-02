@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang=''>
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="styles.css">
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="script.js"></script>
+   <title>CSS MenuMaker</title>
+</head>
+
+<header>
+   <script>
+      $( document ).ready(function() {
+      $('#cssmenu').prepend('<div id="menu-button">Menu</div>');
+         $('#cssmenu #menu-button').on('click', function(){
+            var menu = $(this).next('ul');
+            if (menu.hasClass('open')) {
+               menu.removeClass('open');
+            }
+            else {
+               menu.addClass('open');
+            }
+         });
+      });
+   </script>
+</header>
+
+<body>
+
+<div id='cssmenu'>
+<ul>
+   <li><a href='<%=root_path%>'><span>Futable</span></a></li>
+   <li class='active has-sub'><a href='#'><span>Find Experts</span></a>
+      <ul>
+         <li class='has-sub'><a href='#'><span>Sports</span></a>
+            <ul>
+               <li><a href='<%=leaguehome_path("NBA")%>'><span>NBA</span></a></li>
+               <li><a href='<%=leaguehome_path("NFL")%>'><span>NFL</span></a></li>
+               <li><a href='<%=leaguehome_path("MLB")%>'><span>MLB</span></a></li>
+               <li><a href='<%=leaguehome_path("NHL")%>'><span>NHL</span></a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'><span>Finance</span></a>
+            <ul>
+               <li><a href='<%=leaguehome_path("NBA")%>'><span>Stocks</span></a></li>
+               <li><a href='<%=leaguehome_path("NFL")%>'><span>Currencies</span></a></li>
+            </ul>
+         </li>
+      </ul>
+   </li>
+   <li><a href='<%=new_user_session_path%>'><span>Login</span></a></li>
+   <li><a href='<%=new_user_registration_path%>'><span>Signup</span></a></li>
+   <li><a href='<%=new_predictor_registration_path%>'><span>Become an Expert</span></a></li>
+</ul>
+</div>
+
+</body>
+<html>

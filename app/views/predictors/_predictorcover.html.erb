@@ -11,19 +11,19 @@
       <div class="predictor-cover-summary-bio">
         <%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-name"%>
         <br>
-        <a class="white-text"><%=@predictor.bio%></a>
+        <a><%=@predictor.bio%></a>
       </div>
 
     </div>
 
     <div class="predictor-cover-details"> 
-      <a class="white-text"><%=@predictor.prediction_games.count%> PREDICTIONS (<%=@predictor.active_prediction_count%> ACTIVE)</a>
+      <a><%=@predictor.prediction_games.count%> PREDICTIONS (<%=@predictor.active_prediction_count%> ACTIVE, <%=@predictor.rated_prediction_count%> RATED)</a>
       <br>
 
 
 
       <%if predictor_signed_in? and current_predictor.id == :id%>
-      <a class="white-text"><%=@predictor.users.count%> SUBSCRIBERS</a>
+      <a><%=@predictor.users.count%> SUBSCRIBERS</a>
       
       <br>
 

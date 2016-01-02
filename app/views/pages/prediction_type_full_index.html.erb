@@ -2,48 +2,48 @@
 
 	<h1>Browse Experts by Category</h1>
 
-	<% unless user_signed_in? or predictor_signed_in?%>
+<!-- 	<%# unless user_signed_in? or predictor_signed_in?%>
 		<div class="cta-wrap">
-			<%= link_to "Make Predictions", new_predictor_registration_path, class: "hero_cta bottom_cta" %>
+			<%# link_to "Make Predictions", new_predictor_registration_path, class: "hero_cta bottom_cta" %>
 		</div>
-	<%end%>
+	<%#end%> -->
 
-	<h2>First Tell Us About Yourself:</h2>
+	<div class="experts-categories-container">
 
-	<div class="dual-signup-panel-container">
+		<span class="experts-categories">
+			<h2>Sports</h2>
+				<ul class="categories-list">
+					<li>
+						<%= link_to "NBA", leaguehome_path("NBA")%>
+					</li> 
+					<li>
+						<%= link_to "NFL", leaguehome_path("NFL")%> 
+					</li> 
+					<li>
+						<%= link_to "MLB", leaguehome_path("MLB")%> 
+					</li> 
+					<li>
+						<%= link_to "NHL", leaguehome_path("NHL")%> 
+					</li> 
+				</ul>
+		</span>
 
-		<div class="dual-signup-panel-float">
+		<span class="experts-categories">
+			<h2>Finance (Coming Soon)</h2>
+				<ul class="categories-list">
+					<li>
+						<a>Stocks</a>
+					</li> 
+					<li>
+						<a>Currencies</a> 
+					</li> 
+				</ul>
+		</span>
 
-			<div class="dual-signup-panel-intro">
+		<span class="experts-categories">
+			<h2>Fantasy Sports (Coming Soon)</h2>
+		</span>
 
-				<h3>I want the most accurate predictions from top experts.</h3>
-
-			</div>
-
-			<div class="bottom_cta">
-				<%= link_to "Signup", get_started_path, class: "hero_cta bottom_cta" %>
-			</div>
-
-		</div>
-
-		<div class="dual-signup-panel-float-divider">
-
-		</div>
-
-		<div class="dual-signup-panel-float">
-
-			<div class="dual-signup-panel-intro">
-
-				<h3>I am an expert; I want to make predictions.</h3>
-
-			</div>
-
-			<div class="bottom_cta">
-				<%= link_to "Predict", get_started_path, class: "hero_cta bottom_cta" %>
-			</div>
-
-		</div>
-					
 	</div>
 
 </section>

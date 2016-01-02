@@ -379,6 +379,58 @@ a.subscribe_cta:hover{
 
 }
 
+.experts-categories-container{
+  margin-top:40px;  
+}
+
+span.experts-categories{
+  width:33%;
+  float:left;
+  
+}
+
+span.experts-categories h2{
+  text-align:left;
+  font-family: "Gotham Medium",sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 150%;
+    margin-top: 0;
+    margin-bottom: 10px;
+  
+}
+
+.span-wide-20{
+  float:left;
+  width:20%;
+}
+
+.span-wide-80{
+  float:left;
+  width:80%;
+}
+
+.categories-list{
+  list-style: none;
+}
+
+.categories-list a{
+  font-size:20px;
+  color:#00D43C;
+}
+
+.categories-list a:hover{
+  cursor:pointer;
+}
+
+.categories-list li{
+  text-decoration:none;
+  font-size:20px;
+  color:green;
+  margin-bottom:10px;
+}
+
 a.subscribe_cta_float_right{
   float:right;
   margin: 3px 3px 0px 0px;

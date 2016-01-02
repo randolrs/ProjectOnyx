@@ -59,7 +59,7 @@
             <li><a href='<%=edit_user_registration_path%>'><span>Account Information</span></a>
                <li><a href='<%=payments_path%>'><span>Payment Information</span></a>
             <li><a href='<%=root_path%>'><span>Feedback/Support</span></a>
-            <li><a href='<%=destroy_user_session_path%>'><span>Logout</span></a>
+            <li><a data-method="delete" href='<%=destroy_user_session_path%>'><span>Logout</span></a>
          </ul>
       </li>
 
@@ -72,7 +72,7 @@
          <ul>
             <li><a href='<%=edit_predictor_registration_path%>'><span>Account Settings</span></a>
             <li><a href='<%=root_path%>'><span>Feedback/Support</span></a>
-            <li><a href='<%=destroy_predictor_session_path%>'><span>Logout</span></a>
+            <li><a data-method="delete" href='<%=destroy_predictor_session_path%>'><span>Logout</span></a>
          </ul>
       </li>    
 
@@ -82,9 +82,9 @@
 
    <%else%>
 
-      <li><a href='<%=new_user_session_path%>'><span>Login</span></a></li>
-      <li><a href='<%=new_user_registration_path%>'><span>Signup</span></a></li>
-      <li><a href='<%=new_predictor_registration_path%>'><span>Become an Expert</span></a></li>
+      <li class="right"><a class="signup-header" href='<%=new_predictor_registration_path%>'><span>Become an Expert</span></a></li>
+      <li class="right"><a href='<%=new_user_session_path%>'><span>Login</span></a></li>
+      <li class="right"><a href='<%=new_user_registration_path%>'><span>Sign up</span></a></li>
 
    <%end%>
 

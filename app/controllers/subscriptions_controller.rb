@@ -37,7 +37,7 @@ class SubscriptionsController < ApplicationController
 		@purchase = Purchase.where(:user_id=> @user.id,:predictor_id=>@predictor.id)
 
 		@purchase.each do |purchase|
-			purchase.update(:premium => true)
+			purchase.update(:premium => true, :active=> true)
 		end
 
 	else
@@ -49,6 +49,8 @@ class SubscriptionsController < ApplicationController
 		@purchase.predictor_id = @predictor.id
 
 		@purchase.price = @predictor.subscription_price
+
+		@purchase.active = true
 
 		@purchase.next_payment = Time.now + 31.days
 

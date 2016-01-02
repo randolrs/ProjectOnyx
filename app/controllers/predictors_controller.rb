@@ -215,15 +215,17 @@ class PredictorsController < ApplicationController
 
         @purchase.save
 
-        #current_user.predictors << @predictor
-
-        redirect_to root_path
-
       else
 
-        redirect_to root_path
+        @purchase = Purchase.where(:user_id=> current_user.id,:predictor_id=>@predictor.id)
+
+        @purchase.each do |purchase|
+          purchase.update(:active=> true)
+        end
 
       end
+
+      redirect_to root_path
 
     end
 

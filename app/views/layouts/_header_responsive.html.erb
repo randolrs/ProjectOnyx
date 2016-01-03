@@ -13,7 +13,7 @@
 <header>
    <script>
       $( document ).ready(function() {
-      $('#cssmenu').prepend('<div id="menu-button">Menu</div>');
+      $('#cssmenu').prepend('<div id="menu-button">Futable</div>');
          $('#cssmenu #menu-button').on('click', function(){
             var menu = $(this).next('ul');
             if (menu.hasClass('open')) {
@@ -33,7 +33,7 @@
 <ul>
    <li><a href='<%=root_path%>'><span>Futable</span></a></li>
    <% unless predictor_signed_in? %>
-      <li class='has-sub'><a href='#'><span>Find Experts</span></a>
+      <li class='has-sub'><a href='#'><span>Browse</span></a>
          <ul>
             <li class='has-sub'><a href='#'><span>Sports</span></a>
                <ul>

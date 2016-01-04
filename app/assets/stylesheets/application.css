@@ -208,7 +208,7 @@ select#team_filter_team{
 .predictor-cover{
   background-color: #fff;
   margin:-1px;
-  min-width: 960px;
+  width:100%;
   -webkit-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
@@ -222,22 +222,21 @@ select#team_filter_team{
 .predictor-cover-container{
   margin-left: auto;
   margin-right: auto;
-  width:900px;
+  max-width: 900px;
+  padding:0px 50px;
   overflow: hidden;
 }
 
 .predictor-cover-summary{
   float:left;
-  width:450px;
+  width:40%;
   padding:25px;
-  border-color:white;
 }
 
 .predictor-cover-summary-bio{
   float:left;
   margin-left:10px;
   word-wrap:break-word;
-  width:300px;
   color:white;
 }
 
@@ -252,8 +251,8 @@ select#team_filter_team{
 
 .predictor-cover-details{
   float:left;
-  width:300px;
-  padding:25px 50px;
+  width:40%;
+  padding:25px;
   text-align: center;
 }
 

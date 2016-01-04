@@ -229,7 +229,7 @@ select#team_filter_team{
 
 .predictor-cover-summary{
   float:left;
-  width:40%;
+  width:50%;
   padding:25px;
 }
 
@@ -251,7 +251,7 @@ select#team_filter_team{
 
 .predictor-cover-details{
   float:left;
-  width:40%;
+  width:50%;
   padding:25px;
   text-align: center;
 }

@@ -748,10 +748,9 @@ td.ud-margin{
 
 .user-dashboard-predictions{
   float:left;
-  width: 550px;
   //padding:40px;
   //background-color:#FCFCFC;
-  margin: 0px 15px;
+  padding: 0px 15px;
 }
 
 
@@ -1021,6 +1020,18 @@ a.need-information-cta:hover{
       height:570px;
     }
 
+    .user-dashboard-predictions{
+      width: 100%;
+    }
+
+    .user-dashboard-prediction-nav{
+      width:100%;
+    }
+
+    .prediction-game-index-show{
+      width:100%;
+    }
+
 }
 
 
@@ -1061,6 +1072,18 @@ a.need-information-cta:hover{
     .expert-types-container{
       width:290px;
       height:570px;
+    }
+
+    .user-dashboard-predictions{
+      width: 100%;
+    }
+
+    .user-dashboard-prediction-nav{
+      width:100%;
+    }
+
+    .prediction-game-index-show{
+      width:100%;
     }
 
 }

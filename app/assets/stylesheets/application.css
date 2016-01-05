@@ -411,8 +411,10 @@ a.predictor-user-toggle:hover{
 p.terms-of-service{
   font-size: 11px;
   color: #999;
-  margin-top:20px;
-  margin-bottom:0px;
+  margin:20px auto;
+  max-width:350px;
+  width:100%;
+  text-align:center;
 }
 
 .edit-side-container{

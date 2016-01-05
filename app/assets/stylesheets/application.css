@@ -1032,6 +1032,11 @@ a.need-information-cta:hover{
       width:100%;
     }
 
+    .dual-signup-panel-float{
+      float:none;
+      margin: 0 auto;
+    }
+
 }
 
 
@@ -1084,6 +1089,11 @@ a.need-information-cta:hover{
 
     .prediction-game-index-show{
       width:100%;
+    }
+
+    .dual-signup-panel-float{
+      float:none;
+      margin: 0 auto;
     }
 
 }

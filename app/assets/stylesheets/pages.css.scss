@@ -319,6 +319,7 @@ a.category_cta{
   position:relative;
   border: 2px solid #aaa;
   text-shadow: 0px 0px 1px #ccc;
+  white-space:nowrap;
  
 }
 
@@ -342,6 +343,7 @@ a.become_expert_cta{
   position:relative;
   border: 2px solid #fff;
   text-shadow: 0px 0px 1px #ccc;
+  white-space:nowrap;
 }
 
 a.become_expert_cta:hover{
@@ -364,9 +366,8 @@ a.subscribe_cta{
   position:relative;
   margin-left:auto;
   margin-right:auto;
-  border-bottom: 2px solid rgba(0,0,0,.2);
   text-shadow: 0px 0px 1px #555;
-  border: 2px solid rgba(0,0,0,.2);
+  border: 1px solid rgba(0,0,0,.2);
   -webkit-box-shadow: 0px 3px 5px rgba(0,0,0,.1);
   -moz-box-shadow: 0px 3px 5px rgba(0,0,0,.1);
   box-shadow: 0px 3px 5px rgba(0,0,0,.1);
@@ -1588,6 +1589,7 @@ ul.dropdown-menu li {
     position: relative;
     height:200px;
     margin:0 auto;
+    
 }
 
 .category-cta-wrap{
@@ -1604,6 +1606,8 @@ ul.dropdown-menu li {
   margin:7px;
   background-color:white;
   text-align:center;
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .expert-types-float:hover{
@@ -1726,22 +1730,17 @@ ul.dropdown-menu li {
 
 .dual-signup-panel-container{
   margin-top:50px;
+  overflow: hidden;
 }
 
 .dual-signup-panel-float{
   float:left;
-  width:400px;
+  width:50%;
   padding: 49px;
   text-align:center;
   height:300px;
 }
 
-.dual-signup-panel-float-divider{
-  float:left;
-  height:200px;
-  border-left: 1px solid #7d7d7d;
-  border-right: 1px solid #e0e0e0;
-}
 
 .dual-signup-panel-intro{
   height:150px;

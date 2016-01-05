@@ -116,6 +116,23 @@
 
                   <%end%>
 
+                <% elsif admin_signed_in? %>
+
+                  <%= prediction.teama_score%> - <%= prediction.teamh_score%>
+
+
+                <% else %>
+
+                  <% if prediction.paid %>
+
+                    <%= render 'predictors/predictor_login_cta'%>
+
+                  <% else %>
+
+                    <%= prediction.teama_score%> - <%= prediction.teamh_score%>
+
+                  <% end %>
+
                 <%end%>
                 
               </td>

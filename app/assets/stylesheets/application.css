@@ -974,6 +974,7 @@ a.need-information-cta{
   margin:90px 0px;
   border-radius:1px;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  white-space:nowrap;
 }
 
 a.need-information-cta:hover{

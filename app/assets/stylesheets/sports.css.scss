@@ -5,8 +5,6 @@
 .sport-image-small{
 	width:40px;
 	height:40px;
-	margin-top:5px;
-	margin-bottom:5px;
 }
 
 .header-img{
@@ -25,8 +23,19 @@ img.sport-image-tiny{
 
 .horizontal-cover li{
 	display:inline;
-	line-height:50px;
-	font-size: 20px;
+	font-size: 14px;
+	padding:17px 0px;
+	border-bottom: 3px solid transparent;
+}
+
+.horizontal-cover li.active{
+	border-bottom: 3px solid #00D43C;
+	color:#333;
+}
+
+.horizontal-cover li:hover{
+	cursor:pointer;
+	border-bottom: 3px solid #00D43C;
 }
 
 .horizontal-cover li.subheader-league{
@@ -43,13 +52,12 @@ li.horizontal-cover a{
 .horizontal-cover{
 	max-width: 900px;
     margin: 0 auto;
-    height:50px;
+    line-height: 4;
 }
 
 a.subheader{
 	color:#555;
 	text-shadow:none;
-	padding:12px 10px;
 	margin-left:5px;
 	margin-right:5px;
 	border-bottom: 3px solid transparent;
@@ -59,13 +67,12 @@ a.subheader{
 
 a.subheader:hover{
 	text-decoration:none;
-	cursor:pointer;
-	border-bottom: 3px solid #00D43C;
+	
 }
 
 a.subheader-league{
 	color:#333;
-	padding:12px 5px 12px 5px;
+	
 }
 
 a.subheader-league:hover{

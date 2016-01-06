@@ -1,8 +1,23 @@
 <div class = "cover-wrap">
 
-  <div class="cover-container">
+	<div class="cover-container">
 
-    <h3><%= image_tag Sport.find_by_subcat(@league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-small"%><%= link_to @league, leaguehome_path(@league), class: "game-team-name"  %></h3> 
+		<ul class="horizontal-cover">
+
+			<li class="subheader-league">
+				<%= image_tag Sport.find_by_subcat(@league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-small"%><%= link_to @league, leaguehome_path(@league), class: "subheader-league"  %>
+			</li>
+
+			<li><%= link_to "Home", leaguehome_path(@league), {:class=>"subheader"} %></li>
+
+			<li><%= link_to "Games", leaguegames_path(@league), {:class=>"subheader"} %></li>
+
+			<li><a class="subheader">Teams</a></li>
+
+			<li><a class="subheader">Experts</a></li>
+
+		</ul>
+    
 
   </div>
 

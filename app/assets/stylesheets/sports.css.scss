@@ -22,3 +22,54 @@ img.sport-image-tiny{
 	margin-bottom:5px;
 	
 }
+
+.horizontal-cover li{
+	display:inline;
+	line-height:50px;
+	font-size: 20px;
+}
+
+.horizontal-cover li.subheader-league{
+	color: #444;
+    font-weight: bold;
+    border-right: 2px solid #bbb;
+}
+
+
+li.horizontal-cover a{
+	line-height:50px;
+}
+
+.horizontal-cover{
+	max-width: 900px;
+    margin: 0 auto;
+    height:50px;
+}
+
+a.subheader{
+	color:#555;
+	text-shadow:none;
+	padding:12px 10px;
+	margin-left:5px;
+	margin-right:5px;
+	border-bottom: 3px solid transparent;
+	webkit-transition: all 0.5s ease;
+  	transition: all 0.5s ease;
+}
+
+a.subheader:hover{
+	text-decoration:none;
+	cursor:pointer;
+	border-bottom: 3px solid #00D43C;
+}
+
+a.subheader-league{
+	color:#333;
+	padding:12px 5px 12px 5px;
+}
+
+a.subheader-league:hover{
+	text-decoration:none;
+	cursor:pointer;
+}
+

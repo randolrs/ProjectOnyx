@@ -1,4 +1,10 @@
-<%= render 'pages/league_home_header' %>
+<script>
+    $(document).ready(function(){
+      $("#predictions").addClass("active");
+    });
+</script>
+
+<%= render 'teams/teamshowcover'%>
 
 <div class = "content-container">
 
@@ -10,6 +16,8 @@
 		</div>
 
 		<%= render 'prediction_games/index' %>
+
+		<%# render 'prediction_games/indexshow' %>
 		
 	</div>
 	

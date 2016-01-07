@@ -1,9 +1,21 @@
 <div class = "cover-wrap">
 
-  <div class="cover-container">
+	<div class="cover-container">
 
-    <h3><%= image_tag @team.image, class: "team-image-tiny"%><%=link_to @team.sub_name + @team.name, teamshow_path(@league,@team.id), class: "game-team-name" %></h3> 
+		<ul class="horizontal-cover">
 
+			<li class="subheader-league">
+				<%= image_tag @team.image.url(:medium, :width => 30, :height => 30), class: "team-image-tiny"%><%= link_to @team.name, teamshow_path(@league, @team.id), class: "subheader-league"  %>
+			</li>
+
+			<li id="home"><%= link_to "Home", teamshow_path(@league, @team.id), {:class=>"subheader"} %></li>
+
+			<li id="schedule"><%= link_to "Schedule", teamgameindex_path(@league, @team.id), {:class=>"subheader"} %></li>
+
+			<li id="predictions"><%= link_to "Predictions", teamindexpredictionsall_path(@league, @team.id), {:class=>"subheader"} %></li>
+
+		</ul>
+    
   </div>
 
 </div>

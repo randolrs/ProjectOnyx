@@ -1,15 +1,15 @@
 <script>
     $(document).ready(function(){
-      $("#teams").addClass("active");
+      $("#schedule").addClass("active");
     });
 </script>
 
-<%= render 'sports/sportshowcover' %>
+<%= render 'teams/teamshowcover' %>
 
 <div class="content-panel">
 
   <div class="content-panel-container">
-    <h1><%= image_tag @team.image, class: "team-image-tiny"%><%=@team.name%> Schedule</h1>
+    <h1><%=@team.name%> Schedule</h1>
 
   </div>
 

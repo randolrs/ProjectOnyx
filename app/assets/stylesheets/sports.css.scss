@@ -28,10 +28,6 @@ img.sport-image-tiny{
 	border-bottom: 3px solid transparent;
 }
 
-.horizontal-cover li.active{
-	border-bottom: 3px solid #00D43C;
-	color:#333;
-}
 
 .horizontal-cover li:hover{
 	cursor:pointer;
@@ -41,7 +37,7 @@ img.sport-image-tiny{
 .horizontal-cover li.subheader-league{
 	color: #444;
     font-weight: bold;
-    border-right: 2px solid #bbb;
+    border-bottom:none;
 }
 
 
@@ -56,27 +52,40 @@ li.horizontal-cover a{
 }
 
 a.subheader{
-	color:#555;
+	color:#333;
 	text-shadow:none;
 	margin-left:5px;
 	margin-right:5px;
 	border-bottom: 3px solid transparent;
 	webkit-transition: all 0.5s ease;
   	transition: all 0.5s ease;
+  	padding: 20px 10px;
 }
 
 a.subheader:hover{
 	text-decoration:none;
+	color:#333;
 	
 }
 
 a.subheader-league{
 	color:#333;
+	padding: 10px 10px 10px 0px;
+	border-right: 2px solid #bbb;
 	
 }
 
 a.subheader-league:hover{
 	text-decoration:none;
 	cursor:pointer;
+}
+
+.horizontal-cover li.active{
+	border-bottom: 3px solid #00D43C;
+	color:#333;
+}
+
+.horizontal-cover li.active a.subsheader{
+	color:#333;
 }
 

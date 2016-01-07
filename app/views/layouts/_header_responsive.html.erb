@@ -78,6 +78,15 @@
 
    <%elsif admin_signed_in?%>  
 
+      <li class="right"><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
+
+      <li class="right"><%= link_to "Editor", editor_path %></li>
+
+      <li class="right"><%= link_to "SportsDash", sportdashboard_path %></li>
+
+      <li class="right"><%= link_to "Predictors", predictoradminindex_path %></li>
+
+      <li class="right"><%= link_to "Dashboard", dashboard_path %></li>
 
 
    <%else%>

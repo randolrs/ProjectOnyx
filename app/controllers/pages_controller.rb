@@ -133,7 +133,7 @@ class PagesController < ApplicationController
     @sport = Sport.find_by_subcat(@league)
     @predictions = PredictionGame.all.where(:league=>@league).order("created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @teams = Team.all.where(:league=>@league)
-    @games = Game.all.where(:league=>@league).order("event_time DESC").limit(4)
+    @games = Game.all.where(:league=>@league).order("event_time DESC")
     @displaypredictor = true
     @action = "league-home"
 
@@ -144,6 +144,14 @@ class PagesController < ApplicationController
     @top_predictors = @sport.all_predictors.sort_by {|k| k.rating}.take(3)
 
     @games = @sport.all_games
+
+    @today = Time.now.beginning_of_day
+    @tomorrow = Time.now.tomorrow.beginning_of_day
+    @tomorrowsq = @tomorrow.tomorrow.beginning_of_day
+
+    @games_today = Game.where(event_time: @today..@today.end_of_day, league: @league)
+    @games_tomorrow = Game.where(event_time: @tomorrow..@tomorrow.end_of_day, league: @league)
+    @games_tomorrowsq = Game.where(event_time: @tomorrowsq.beginning_of_day..@tomorrowsq.end_of_day, league: @league)
 
   end
 

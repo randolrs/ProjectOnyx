@@ -1,28 +1,177 @@
+<script>
+    $(document).ready(function(){
+    	$("#games").addClass("active");
+    });
+</script>
+
+<head>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+</head>
+
 <%= render 'sports/sportshowcover' %>
 
 <%#render 'sports/header_banner_image' %>
 
-<div class="user-dashboard-wrap">
+<!-- <div class="user-dashboard-wrap">
 
 	<div class ="user-dashboard-container">
 
 		<div class="user-dashboard-card">
 
-			<%= render 'predictors/top_predictors' %>
+			<%# render 'predictors/top_predictors' %>
 
-			<%= render 'games/upcoming_games'%>
+			<%# render 'games/upcoming_games'%>
 
-			<%= render 'layouts/footer_float'%>
+			<%# render 'layouts/footer_float'%>
 
 		</div>
 
 		<div class ="user-dashboard-predictions">
 
-			<%= render 'pages/league_home_nav' %>
+			<%# render 'pages/league_home_nav' %>
 
-			<%= render 'games/indexshow' %>
+			<%# render 'games/indexshow' %>
 
 		</div>
 
 	</div>
+</div> -->
+
+<div class="content-panel">
+
+	<div class="content-panel-container">
+		<h1><%=@league%> Schedule</h1>
+
+		<div style="float:right; display: inline-block;
+	    position: relative">
+			
+			<select name="teamschedules"/>
+	      		
+	      		<option value selected="selected" disabled="disabled">Team Schedules</option>
+
+		      	<% @teams.each do |team| %>
+
+					<option value=<%=team.id%>><%=team.name%>
+
+				<%end%>
+
+			</select>
+
+		</div>
+
+		<h5><%= @today.strftime("%b %e") %> - <%= @tomorrowsq.strftime("%b %e") %></h5>
+
+		<p>Date: <input type="text" id="datepicker"></p>
+
+		<div class="large-table-container">
+
+			<table class="game-schedule-table">
+				<h3><%=@today.strftime("%A, %b %e")%></h3>
+
+				<thead>
+					<tr class="game-table-header">
+						<th style="width: 150px;">MATCHUP</th>
+						<th style="width: 200px;"></th>
+						<th style="width: 100px; text-align:center;">TIME</th>
+						<th style="width: 100px; text-align:center;">PREDICTIONS</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					
+					<% @games_today.each do |game| %>
+						
+						<tr data-link="<%=gameshow_path(game.league, game.id)%>" class="game-table-row">
+							<td><%= image_tag Team.find(game.teamh_id).image, class: "team-image-tiny"%> <%=game.teamh %></td>
+							<td>at <%= image_tag Team.find(game.teama_id).image, class: "team-image-tiny"%> <%=game.teama %></td>
+							<td style="text-align:center;"><%=game.event_time.strftime("%l:%M %p")%></td>
+							<td style="text-align:center;"><%= game.prediction_games.count%></td>
+						</tr>
+
+					<%end%>
+
+				</tbody>
+
+			</table>
+
+		</div>
+
+		<div class="large-table-container">
+
+			<table class="game-schedule-table">
+				
+				<h3><%=@tomorrow.strftime("%A, %b %e")%></h3>
+
+				<thead>
+					<tr class="game-table-header">
+						<th style="width: 150px;">MATCHUP</th>
+						<th style="width: 200px;"></th>
+						<th style="width: 100px; text-align:center;">TIME</th>
+						<th style="width: 100px; text-align:center;">PREDICTIONS</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					
+					<% @games_tomorrow.each do |game| %>
+						
+						<tr class="game-table-row">
+							<td><%= image_tag Team.find(game.teamh_id).image, class: "team-image-tiny"%> <%=game.teamh %></td>
+							<td>at <%= image_tag Team.find(game.teama_id).image, class: "team-image-tiny"%> <%=game.teama %></td>
+							<td style="text-align:center;"><%=game.event_time.strftime("%l:%M %p")%></td>
+							<td style="text-align:center;"><%= game.prediction_games.count%></td>
+						</tr>
+
+					<%end%>
+
+				</tbody>
+
+			</table>
+
+		</div>
+
+		<div class="large-table-container">
+
+			<table class="game-schedule-table">
+				
+				<h3><%=@tomorrowsq.strftime("%A, %b %e")%></h3>
+
+				<thead>
+					<tr class="game-table-header">
+						<th style="width: 150px;">MATCHUP</th>
+						<th style="width: 200px;"></th>
+						<th style="width: 100px; text-align:center;">TIME</th>
+						<th style="width: 100px; text-align:center;">PREDICTIONS</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					
+					<% @games_tomorrowsq.each do |game| %>
+						
+						<tr class="game-table-row">
+							<td><%= image_tag Team.find(game.teamh_id).image, class: "team-image-tiny"%> <%=game.teamh %></td>
+							<td>at <%= image_tag Team.find(game.teama_id).image, class: "team-image-tiny"%> <%=game.teama %></td>
+							<td style="text-align:center;"><%=game.event_time.strftime("%l:%M %p")%></td>
+							<td style="text-align:center;"><%= game.prediction_games.count%></td>
+						</tr>
+
+					<%end%>
+
+				</tbody>
+
+			</table>
+
+		</div>
+
+	</div>
+
 </div>

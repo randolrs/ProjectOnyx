@@ -83,24 +83,54 @@ html, body {
  }
 
  .content-panel{
-    width:900px;
-    padding:50px;
+    width:100%;
+    padding:50px 0px;
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
-    overflow: hidden;
-    border-radius:2px;
+    background-color: #fff;
     margin-top:50px;
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    border: 1px solid #E5E5E5;
+}
+
+.content-panel:after{
+  clear: both;
+  display: table;
+  content: "";
+}
+
+.content-panel h1{
+    display: inline;
+
 }
 
  .content-panel h2{
     margin-bottom:30px;
     font-weight:bold;
 }
+
+ .content-panel h5{
+    color:#999;
+}
+
+.content-panel-container{
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.large-table-container{
+  margin-top:30px;
+}
+
+.large-table-container h3{
+    font-size:16px;
+    color:#333;
+    display:inline;
+}
+
+
+
+
+
 
 .header-list li{
   display: inline;

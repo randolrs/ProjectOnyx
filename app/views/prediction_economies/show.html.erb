@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @prediction_economy.type %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @prediction_economy.type_id %>
+</p>
+
+<p>
+  <strong>Strike date:</strong>
+  <%= @prediction_economy.strike_date %>
+</p>
+
+<p>
+  <strong>Strike description:</strong>
+  <%= @prediction_economy.strike_description %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @prediction_economy.country %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @prediction_economy.value %>
+</p>
+
+<%= link_to 'Edit', edit_prediction_economy_path(@prediction_economy) %> |
+<%= link_to 'Back', prediction_economies_path %>

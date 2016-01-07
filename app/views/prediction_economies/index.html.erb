@@ -1,0 +1,35 @@
+<h1>Listing prediction_economies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Type</th>
+      <th>Strike date</th>
+      <th>Strike description</th>
+      <th>Country</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prediction_economies.each do |prediction_economy| %>
+      <tr>
+        <td><%= prediction_economy.type %></td>
+        <td><%= prediction_economy.type_id %></td>
+        <td><%= prediction_economy.strike_date %></td>
+        <td><%= prediction_economy.strike_description %></td>
+        <td><%= prediction_economy.country %></td>
+        <td><%= prediction_economy.value %></td>
+        <td><%= link_to 'Show', prediction_economy %></td>
+        <td><%= link_to 'Edit', edit_prediction_economy_path(prediction_economy) %></td>
+        <td><%= link_to 'Destroy', prediction_economy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prediction economy', new_prediction_economy_path %>

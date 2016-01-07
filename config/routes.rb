@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :prediction_economies
+
   resources :accounts
 
   resources :articles

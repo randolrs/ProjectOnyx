@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
       @team = Team.find(params[:id])
       @league = @team.league
       @teams = Team.all.where(:league=>@league)
-      @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
+      @games = @team.upcoming_games
       @displaypredictor = true
       @action = "teams"
       @subaction = "recent"

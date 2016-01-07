@@ -1,20 +1,16 @@
-<%= render 'pages/league_home_header' %>
+<script>
+    $(document).ready(function(){
+      $("#teams").addClass("active");
+    });
+</script>
 
-<div class = "content-container">
+<%= render 'sports/sportshowcover' %>
 
-  <div class="content-panel">
+<div class="content-panel">
 
-    <div class ="article-title-header">
-      <h3>All <%=@team.name%> Games</h3>
-      <h5><%= link_to @team.name + " Home »", teamshow_path(@league,@team.id), { :class=>"subheader" } %></h5>
-    </div>
-
-    <%= will_paginate @games %>
-
-    <%= render 'games/indexgamesarchive' %>
-
-    <%= will_paginate @games %>
+  <div class="content-panel-container">
+    <h1><%=@league%> Teams</h1>
 
   </div>
-  
+
 </div>

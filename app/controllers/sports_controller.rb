@@ -21,6 +21,11 @@ class SportsController < ApplicationController
   def edit
   end
 
+  def sportteamindex
+      @league = params[:league]
+
+  end
+
   # POST /sports
   # POST /sports.json
   def create

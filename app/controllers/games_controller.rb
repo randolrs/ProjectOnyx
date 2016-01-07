@@ -73,6 +73,12 @@ class GamesController < ApplicationController
     
   end
 
+  def teamgameindex
+
+    @league = params[:league]
+
+  end
+
 
   # GET /games/1/edit
   def edit

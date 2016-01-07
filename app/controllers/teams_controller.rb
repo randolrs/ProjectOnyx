@@ -72,7 +72,7 @@ def show_predictors
 end
 
   def teamgameindex
-    @team = Team.find(params[:id])
+      @team = Team.find(params[:id])
       @league = @team.league
       @teams = Team.all.where(:league=>@league)
       @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 10)

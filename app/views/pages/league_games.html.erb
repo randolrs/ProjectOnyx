@@ -20,7 +20,7 @@
 
 		      	<% @teams.each do |team| %>
 
-					<option value=<%=sportteamindex_path(team.league)%>><%=team.name%>
+					<option value=<%=teamgameindex_path(team.league, team.id)%>><%=team.name%>
 
 				<%end%>
 

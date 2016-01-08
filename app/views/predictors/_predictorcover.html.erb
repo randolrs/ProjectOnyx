@@ -1,22 +1,48 @@
 <div class="predictor-cover">
   
   <div class="predictor-cover-container"> 
-    
-    <div class="predictor-cover-summary"> 
 
-      <div class="predictor-image-small-container">
-      <%= image_tag @predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%>
-      </div>
+    <h1><%= image_tag @predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-name"%></h1>
 
-      <div class="predictor-cover-summary-bio">
-        <%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-name"%>
-        <br>
-        <a><%=@predictor.bio%></a>
-      </div>
-
+     <div style="float:right; display: inline-block; position: relative">
+      <%=render 'predictors/predictor_follow_cta'%>
     </div>
 
-    <div class="predictor-cover-details"> 
+    <br>
+    
+    <a><%=@predictor.bio%></a>
+
+    <div style="float:right; display: inline-block; position: relative">
+      <%=render 'predictors/predictor_follow_cta'%>
+    </div>
+
+  </div>
+
+</div>
+
+<div class = "cover-wrap">
+
+  <div class="cover-container">
+
+    <ul class="horizontal-cover">
+
+<!--       <li class="subheader-league">
+        <%# image_tag Sport.find_by_subcat(@league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-small"%><%# link_to @league, leaguehome_path(@league), class: "subheader-league"  %>
+      </li>
+
+      <li id="home"><%# link_to "Home", leaguehome_path(@league), {:class=>"subheader"} %></li> -->
+
+      <li id="teams"><a class="subheader">Teams</a></li>
+
+      <li><a class="subheader">Experts</a></li>
+
+    </ul>
+    
+
+  </div>
+
+</div>
+
       <a><%=@predictor.prediction_games.count%> PREDICTIONS (<%=@predictor.active_prediction_count%> ACTIVE, <%=@predictor.rated_prediction_count%> RATED)</a>
       <br>
 
@@ -28,14 +54,3 @@
       <br>
 
       <%end%>
-
-      <br>
-      <%=render 'predictors/predictor_follow_cta'%>
-      <!-- <br> -->
-      <%#render 'predictors/predictor_subscribe_cta'%>
-
-    </div>
-
-  </div>
-
-</div>

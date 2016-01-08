@@ -258,6 +258,10 @@ select#team_filter_team{
   overflow: hidden;
 }
 
+.predictor-cover-container h1{
+  display:inline;
+}
+
 .predictor-cover-summary{
   float:left;
   width:50%;
@@ -622,6 +626,7 @@ p.terms-of-service{
 
 .outline-shadow h3{
 
+  color:#333;
   padding:15px;
   margin:0px;
   

@@ -19,6 +19,9 @@
     <%= f.label :sub_name %><br>
     <%= f.text_field :sub_name %><br>
 
+    <%= f.label :sub_category %><br>
+    <%= f.text_field :sub_category %><br>
+
     <%= f.label :league %><br>
     <%= collection_select(:team, :league, Sport.all, :subcat, :subcat) %>
 

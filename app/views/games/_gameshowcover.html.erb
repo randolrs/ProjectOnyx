@@ -1,10 +1,10 @@
 <div class = "cover-wrap">
 
-  <div class="cover-container">
+  <div class="cover-container" style="padding: 5px;">
 
     <table class="game-show-cover">
       
-      <td class="table-float-left"><%= image_tag @teama.image, class: "team-image-tiny"%><%=link_to @teama.sub_name, teamshow_path(@league,@teama.id), class: "game-team-name" %></td>
+      <td class="table-float-left"><%= image_tag @teama.image, class: "team-image-tiny"%><%=link_to @teama.full_name, teamshow_path(@league,@teama.id), class: "game-team-name" %></td>
       
       <td class="table-center"> 
         <p><%= link_to @league, leaguehome_path(@league) %></p>
@@ -12,7 +12,7 @@
         <p><b><%= @game.event_time.strftime("%l:%M %p") %></b><p>
       </td>
       
-      <td class="table-float-right"><%= link_to @teamh.sub_name, teamshow_path(@league,@teamh.id), class: "game-team-name"%><%= image_tag @teamh.image, class: "team-image-tiny"%> </td>
+      <td class="table-float-right"><%= link_to @teamh.full_name, teamshow_path(@league,@teamh.id), class: "game-team-name"%><%= image_tag @teamh.image, class: "team-image-tiny"%> </td>
 
     </table>
 

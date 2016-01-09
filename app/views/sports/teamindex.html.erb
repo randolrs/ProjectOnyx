@@ -21,7 +21,7 @@
 					<% @teams.each do |team| %>
 						
 						<tr data-link="<%=teamshow_path(team.league, team.id)%>" class="game-table-row">
-							<td><%= image_tag team.image, class: "team-image-tiny"%> <%=team.sub_name %></td>
+							<td><%= image_tag team.image, class: "team-image-tiny"%> <%=team.full_name %></td>
 						</tr>
 
 					<%end%>

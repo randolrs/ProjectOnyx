@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108044656) do
+ActiveRecord::Schema.define(version: 20160109050932) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -287,6 +287,7 @@ ActiveRecord::Schema.define(version: 20160108044656) do
     t.datetime "image_updated_at"
     t.string   "sub_name"
     t.string   "sub_category",       default: ""
+    t.string   "full_name",          default: ""
   end
 
   add_index "teams", ["sport_id"], name: "index_teams_on_sport_id"

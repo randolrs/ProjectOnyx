@@ -6,19 +6,36 @@
 
 <%= render 'sports/sportshowcover' %>
 
-<div class="content-panel">
+<div class="content-panel-wrap">
 
-  <div class="content-panel-container">
-    <h1><%=@league%> Teams</h1>
+	<div class="content-panel">
 
-    <div class="large-table-container">
+	  <div class="content-panel-container">
+	    <h1><%=@league%> Teams</h1>
 
-     
+	    <div class="large-table-container">
+
+	    	<table>
+				<tbody>
+					
+					<% @teams.each do |team| %>
+						
+						<tr data-link="<%=teamshow_path(team.league, team.id)%>" class="game-table-row">
+							<td><%= image_tag team.image, class: "team-image-tiny"%> <%=team.name %></td>
+						</tr>
+
+					<%end%>
+
+				</tbody>
+
+			</table>
 
 
-     
-    </div>
+	     
+	    </div>
 
-  </div>
+	  </div>
+
+	</div>
 
 </div>

@@ -21,8 +21,11 @@ class SportsController < ApplicationController
   def edit
   end
 
-  def sportteamindex
+  def teamindex
+      
       @league = params[:league]
+
+      @teams = Team.all.where(:league => @league).sort_by {|k| k.name} 
 
   end
 

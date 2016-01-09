@@ -1,0 +1,50 @@
+<script>
+    $(document).ready(function(){
+      $("#experts").addClass("active");
+    });
+</script>
+
+<%= render 'sports/sportshowcover' %>
+
+<div class="content-panel-wrap">
+
+	<div class="content-panel">
+
+	  <div class="content-panel-container">
+	    <h1><%=@league%> Experts</h1>
+
+	    <div class="large-table-container">
+
+	    	<table class="game-schedule-table">
+
+				<thead>
+					<tr class="game-table-header">
+						<th>EXPERT</th>
+						<th><%=@league%> PREDICTIONS</th>
+						<th><%=@league%> RATING</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					
+					<%# @games_today.each do |game| %>
+						
+						<tr data-link="<%#gameshow_path(game.league, game.id)%>" class="game-table-row">
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+					<%#end%>
+
+				</tbody>
+
+			</table>
+
+	    </div>
+
+	  </div>
+
+	</div>
+
+</div>

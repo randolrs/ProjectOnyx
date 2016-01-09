@@ -14,277 +14,281 @@
 
     <% @predictor = hash[:predictor] %>
 
-    <% game = Game.find(prediction.game_id) %>
+    <% unless prediction.nil? or @predictor.nil?%>
 
-      <div class ="prediction-game-index-show">
-        
-        <div class="prediction-game-index-show-header">
-          <table>
+      <% game = Game.find(prediction.game_id) %>
+
+        <div class ="prediction-game-index-show">
+          
+          <div class="prediction-game-index-show-header">
+            <table>
+                <tr>
+                  <td> 
+                    <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%>
+                    <b><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "full-name" %></b> 
+
+                    &#183; <%= prediction.created_at.strftime("%b %e") %> 
+
+                    &#183; <%= image_tag Sport.find_by_subcat(prediction.league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-tiny"%><%= prediction.league %> Prediction
+
+                    <%if prediction.paid %>
+                      &#183; <img src="https://s3.amazonaws.com/projectonyx/Premium-Star.png" height="16" width="16"></img> Premium
+                    <%end%>
+
+                  </td>
+                </tr>
+            </table>
+
+          </div>
+
+          <div>
+
+            <table class ="prediction-game-index-show-table">
+
               <tr>
-                <td> 
-                  <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%>
-                  <b><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "full-name" %></b> 
+                <td colspan="2" class="prediction-game-team-header">
+                  
+                </td>
 
-                  &#183; <%= prediction.created_at.strftime("%b %e") %> 
+                <td colspan="1" class="prediction-game-date">
+                  <b>Game Date: </b><%= prediction.event_time.strftime("%a, %b %e, %Y ") %>
+                </td>
 
-                  &#183; <%= image_tag Sport.find_by_subcat(prediction.league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-tiny"%><%= prediction.league %> Prediction
-
-                  <%if prediction.paid %>
-                    &#183; <img src="https://s3.amazonaws.com/projectonyx/Premium-Star.png" height="16" width="16"></img> Premium
-                  <%end%>
-
+                <td colspan="2" class="prediction-game-team-header">
+                  
                 </td>
               </tr>
-          </table>
 
-        </div>
+              <tr>
+                <td rowspan="3" class="prediction-game-team-image">
+                  
+                  <%= image_tag Team.find(game.teama_id).image.url(:medium), class: "team-image-tiny"%>
+                  
+                </td>
 
-        <div>
+                <td class="prediction-game-minor">
+                  <%= Team.find(game.teama_id).sub_name%>
+                </td>
 
-          <table class ="prediction-game-index-show-table">
+                <td width="250px">
+                  
+                </td>
 
-            <tr>
-              <td colspan="2" class="prediction-game-team-header">
+                <td class="prediction-game-minor">
+                  <%= Team.find(game.teamh_id).sub_name%>
+                </td>
+
+                <td rowspan="3" class="prediction-game-team-image">
+                  
+                  <%= image_tag Team.find(game.teamh_id).image.url(:medium), class: "team-image-tiny"%>
+                  
+                </td>
+
+              </tr>
+
+              <tr>
                 
-              </td>
+                <td class="prediction-game-show-center">
+                  <%= Team.find(game.teama_id).name%>
+                </td>
 
-              <td colspan="1" class="prediction-game-date">
-                <b>Game Date: </b><%= prediction.event_time.strftime("%a, %b %e, %Y ") %>
-              </td>
+                <td class="prediction-game-show-center" height="50">
 
-              <td colspan="2" class="prediction-game-team-header">
-                
-              </td>
-            </tr>
+                  <% if user_signed_in? %>
+                  
+                    <% if prediction.visible("user", current_user) %>
 
-            <tr>
-              <td rowspan="3" class="prediction-game-team-image">
-                
-                <%= image_tag Team.find(game.teama_id).image.url(:medium), class: "team-image-tiny"%>
-                
-              </td>
+                      <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
-              <td class="prediction-game-minor">
-                <%= Team.find(game.teama_id).sub_name%>
-              </td>
+                    <%else%>
 
-              <td width="250px">
-                
-              </td>
+                      <%= render 'predictors/predictor_subscribe_cta'%>
 
-              <td class="prediction-game-minor">
-                <%= Team.find(game.teamh_id).sub_name%>
-              </td>
+                    <%end%>
+                  
+                  <%elsif predictor_signed_in?%>
 
-              <td rowspan="3" class="prediction-game-team-image">
-                
-                <%= image_tag Team.find(game.teamh_id).image.url(:medium), class: "team-image-tiny"%>
-                
-              </td>
+                    <%if current_predictor.id == @predictor.id %>
 
-            </tr>
+                      <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
-            <tr>
-              
-              <td class="prediction-game-show-center">
-                <%= Team.find(game.teama_id).name%>
-              </td>
+                    <%else%>
 
-              <td class="prediction-game-show-center" height="50">
+                      nope
 
-                <% if user_signed_in? %>
-                
-                  <% if prediction.visible("user", current_user) %>
+                    <%end%>
+
+                  <% elsif admin_signed_in? %>
 
                     <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
-                  <%else%>
-
-                    <%= render 'predictors/predictor_subscribe_cta'%>
-
-                  <%end%>
-                
-                <%elsif predictor_signed_in?%>
-
-                  <%if current_predictor.id == @predictor.id %>
-
-                    <%= prediction.teama_score%> - <%= prediction.teamh_score%>
-
-                  <%else%>
-
-                    nope
-
-                  <%end%>
-
-                <% elsif admin_signed_in? %>
-
-                  <%= prediction.teama_score%> - <%= prediction.teamh_score%>
-
-
-                <% else %>
-
-                  <% if prediction.paid %>
-
-                    <%= render 'predictors/predictor_login_cta'%>
 
                   <% else %>
 
-                    <%= prediction.teama_score%> - <%= prediction.teamh_score%>
+                    <% if prediction.paid %>
 
-                  <% end %>
+                      <%= render 'predictors/predictor_login_cta'%>
+
+                    <% else %>
+
+                      <%= prediction.teama_score%> - <%= prediction.teamh_score%>
+
+                    <% end %>
+
+                  <%end%>
+                  
+                </td>
+
+                <td class="prediction-game-show-center">
+                  <%= Team.find(game.teamh_id).name%>
+                </td>
+              </tr>
+
+              <tr>
+                
+                <td class="prediction-game-minor">
+                  (Away)
+                </td>
+
+                <td class="prediction-game-minor">
+
+                    Final Score (Predicted)
+                  
+                </td>
+
+                <td class="prediction-game-minor">
+                  (Home)
+                </td>
+              </tr>
+              
+              <%if user_signed_in? %>
+              
+                <% if prediction.visible("user", current_user) %>
+
+                  <!-- <tr class="pg-table-bottom">
+                    <td class="pg-important-data" colspan="2">
+                      <%# prediction.teama_score%>
+                    </td>
+                    <td colspan="2">
+                      Final Score
+                    </td>
+                    <td class="pg-important-data" colspan="2">
+                      <%= prediction.teamh_score%>
+                    </td>
+                  </tr>
+
+                  <tr class="pg-table-bottom">
+                    <td class="pg-important-data" colspan="2">
+                      <%#if prediction.game_winner == prediction.teama %>+<%#else%>-<%#end%><%=prediction.spread%>
+                    </td>
+                    <td colspan="2">
+                      Spread
+                    </td>
+                    <td class="pg-important-data" colspan="2">
+                      <%#if prediction.game_winner == prediction.teamh %>+<%#else%>-<%#end%><%=prediction.spread%>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    
+                    <td colspan="6">
+                      Over/Under <br>
+                      <a class="pg-important-data"><%=prediction.overunder%></a>
+                    </td>
+
+                  </tr> -->
+
+  <!--                 <tr class="pg-table-bottom">
+                    <td class="pg-important-data" rowspan="2" colspan="2">
+                      <%# prediction.teama_score%>
+                    </td>
+                    <td colspan="2">
+                      Final Score
+                    </td>
+                    <td class="pg-important-data" colspan="2">
+                      <%# prediction.teamh_score%>
+                    </td>
+                  </tr>
+
+                  <tr class="pg-table-bottom">
+                    <td class="pg-important-data" colspan="2">
+                      <%#if prediction.game_winner == prediction.teama %>+<%#else%>-<%#end%><%=prediction.spread%>
+                    </td>
+                    <td colspan="2">
+                      Spread
+                    </td>
+                    <td class="pg-important-data" colspan="2">
+                      <%#if prediction.game_winner == prediction.teamh %>+<%#else%>-<%#end%><%=prediction.spread%>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    
+                    <td colspan="6">
+                      Over/Under <br>
+                      <a class="pg-important-data"><%#prediction.overunder%></a>
+                    </td>
+
+                  </tr>
+
+                <%#else%>
+
+                  <tr>
+                    <td rowspan="3" colspan="6">
+                      <%# render 'predictors/predictor_subscribe_cta'%>
+                    </td>
+                  </tr> -->
 
                 <%end%>
-                
-              </td>
 
-              <td class="prediction-game-show-center">
-                <%= Team.find(game.teamh_id).name%>
-              </td>
-            </tr>
+              <%elsif predictor_signed_in?%>
 
-            <tr>
-              
-              <td class="prediction-game-minor">
-                (Away)
-              </td>
+                <%if current_predictor.id = @predictor.id %>
 
-              <td class="prediction-game-minor">
+                  <tr class="pg-table-bottom">
+                    <td class="pg-important-data" colspan="2">
+                      <%= prediction.teama_score%>
+                    </td>
+                    <td colspan="2">
+                      Final Score
+                    </td>
+                    <td class="pg-important-data" colspan="2">
+                      <%= prediction.teamh_score%>
+                    </td>
+                  </tr>
 
-                  Final Score (Predicted)
-                
-              </td>
+                  <tr class="pg-table-bottom">
+                    <td class="pg-important-data" colspan="2">
+                      <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%=prediction.spread%>
+                    </td>
+                    <td colspan="2">
+                      Spread
+                    </td>
+                    <td class="pg-important-data" colspan="2">
+                      <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%=prediction.spread%>
+                    </td>
+                  </tr>
 
-              <td class="prediction-game-minor">
-                (Home)
-              </td>
-            </tr>
-            
-            <%if user_signed_in? %>
-            
-              <% if prediction.visible("user", current_user) %>
+                  <tr>
+                    <td colspan="6">
+                      Over/Under <br>
+                      <a class="pg-important-data"><%=prediction.overunder%></a>
+                    </td>
+                  </tr>
 
-                <!-- <tr class="pg-table-bottom">
-                  <td class="pg-important-data" colspan="2">
-                    <%# prediction.teama_score%>
-                  </td>
-                  <td colspan="2">
-                    Final Score
-                  </td>
-                  <td class="pg-important-data" colspan="2">
-                    <%= prediction.teamh_score%>
-                  </td>
-                </tr>
+                <%end%>
 
-                <tr class="pg-table-bottom">
-                  <td class="pg-important-data" colspan="2">
-                    <%#if prediction.game_winner == prediction.teama %>+<%#else%>-<%#end%><%=prediction.spread%>
-                  </td>
-                  <td colspan="2">
-                    Spread
-                  </td>
-                  <td class="pg-important-data" colspan="2">
-                    <%#if prediction.game_winner == prediction.teamh %>+<%#else%>-<%#end%><%=prediction.spread%>
-                  </td>
-                </tr>
+              <% end %>
 
-                <tr>
-                  
-                  <td colspan="6">
-                    Over/Under <br>
-                    <a class="pg-important-data"><%=prediction.overunder%></a>
-                  </td>
+            </table>
 
-                </tr> -->
+            <a href = "<%= show_prediction_games_path(@predictor.id, prediction.league, prediction.id)%>", class ="game-show-link"> Full Details </a>
 
-<!--                 <tr class="pg-table-bottom">
-                  <td class="pg-important-data" rowspan="2" colspan="2">
-                    <%# prediction.teama_score%>
-                  </td>
-                  <td colspan="2">
-                    Final Score
-                  </td>
-                  <td class="pg-important-data" colspan="2">
-                    <%# prediction.teamh_score%>
-                  </td>
-                </tr>
-
-                <tr class="pg-table-bottom">
-                  <td class="pg-important-data" colspan="2">
-                    <%#if prediction.game_winner == prediction.teama %>+<%#else%>-<%#end%><%=prediction.spread%>
-                  </td>
-                  <td colspan="2">
-                    Spread
-                  </td>
-                  <td class="pg-important-data" colspan="2">
-                    <%#if prediction.game_winner == prediction.teamh %>+<%#else%>-<%#end%><%=prediction.spread%>
-                  </td>
-                </tr>
-
-                <tr>
-                  
-                  <td colspan="6">
-                    Over/Under <br>
-                    <a class="pg-important-data"><%#prediction.overunder%></a>
-                  </td>
-
-                </tr>
-
-              <%#else%>
-
-                <tr>
-                  <td rowspan="3" colspan="6">
-                    <%# render 'predictors/predictor_subscribe_cta'%>
-                  </td>
-                </tr> -->
-
-              <%end%>
-
-            <%elsif predictor_signed_in?%>
-
-              <%if current_predictor.id = @predictor.id %>
-
-                <tr class="pg-table-bottom">
-                  <td class="pg-important-data" colspan="2">
-                    <%= prediction.teama_score%>
-                  </td>
-                  <td colspan="2">
-                    Final Score
-                  </td>
-                  <td class="pg-important-data" colspan="2">
-                    <%= prediction.teamh_score%>
-                  </td>
-                </tr>
-
-                <tr class="pg-table-bottom">
-                  <td class="pg-important-data" colspan="2">
-                    <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%=prediction.spread%>
-                  </td>
-                  <td colspan="2">
-                    Spread
-                  </td>
-                  <td class="pg-important-data" colspan="2">
-                    <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%=prediction.spread%>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td colspan="6">
-                    Over/Under <br>
-                    <a class="pg-important-data"><%=prediction.overunder%></a>
-                  </td>
-                </tr>
-
-              <%end%>
-
-            <% end %>
-
-          </table>
-
-          <a href = "<%= show_prediction_games_path(@predictor.id, prediction.league, prediction.id)%>", class ="game-show-link"> Full Details </a>
+        </div>
 
       </div>
 
-    </div>
+    <%end%>
 
   <%end%>
 

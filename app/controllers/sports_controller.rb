@@ -29,6 +29,15 @@ class SportsController < ApplicationController
 
   end
 
+  def expertindex
+      
+      @league = params[:league]
+
+      #@experts = Predictor.all.where(:league => @league).sort_by {|k| k.name} 
+      #probably need a custom model
+
+  end
+
   # POST /sports
   # POST /sports.json
   def create

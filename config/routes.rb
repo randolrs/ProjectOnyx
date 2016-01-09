@@ -110,6 +110,8 @@ Rails.application.routes.draw do
 
   get 'sports/league/:league/teams' => 'sports#teamindex', as: 'sportsteamindex'
 
+  get 'sports/league/:league/experts' => 'sports#expertindex', as: 'sportsexpertindex'
+
   get '/events/sports/:league/predictions/:game_id' => 'prediction_games#findpredictiongames', as: 'find_sports_predictions'
   
   get '/predictors/sports/:league' => 'predictors#findsportspredictors', as: 'find_sports_predictors'

@@ -217,8 +217,14 @@ a.request_button:hover{
     color: #1fbad6;
 }
 
-.badge{
-  background-color:#45AD02;
+a.badge{
+  background-color:#00D43C;
+  color:white;
+      padding-left: 6px;
+    padding-right: 6px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 8px;
 }
 
 .intro{

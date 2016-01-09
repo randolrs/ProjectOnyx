@@ -52,11 +52,13 @@ li.horizontal-cover a{
     padding: 0 50px;
 }
 
+ul.horizontal-cover.center{
+	text-align:center;
+}
+
 a.subheader{
 	color:#333;
 	text-shadow:none;
-	margin-left:5px;
-	margin-right:5px;
 	border-bottom: 3px solid transparent;
 	webkit-transition: all 0.5s ease;
   	transition: all 0.5s ease;

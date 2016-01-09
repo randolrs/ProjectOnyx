@@ -24,17 +24,16 @@
 
   <div class="cover-container">
 
-    <ul class="horizontal-cover">
+    <ul class="horizontal-cover center">
 
 <!--       <li class="subheader-league">
         <%# image_tag Sport.find_by_subcat(@league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-small"%><%# link_to @league, leaguehome_path(@league), class: "subheader-league"  %>
       </li>
 
       <li id="home"><%# link_to "Home", leaguehome_path(@league), {:class=>"subheader"} %></li> -->
-      <li id="teams"><a class="subheader">Recent Predictions</a></li>
-      <li id="teams"><a class="subheader">Active Predictions</a></li>
-
-      <li><a class="subheader">Rated Predictions</a></li>
+      <li id="recent"><a class="subheader">Recent</a></li>
+      <li id="active"><a class="subheader">Active</a><a class="badge"><%=@predictor.active_prediction_count%></a></li>
+      <li id="rated"><a class="subheader">Rated</a></li>
 
     </ul>
     

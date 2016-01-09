@@ -72,6 +72,13 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def recent_prediction_count
+
+    return self.prediction_games.where(["created_at < ?", 3.days.ago]).count
+
+  end
+
+
   def active_prediction_count
 
     return self.prediction_games.where(:status => "o").count

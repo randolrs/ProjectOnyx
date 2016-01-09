@@ -1,3 +1,49 @@
+<header>
+  <script>
+        $(document).ready(function(){
+            $("#recent").click(function(){
+              $('#divUpcomingIndex').hide(750)
+              $('#divTopIndex').hide(750)
+              $('#divRecentIndex').show(750)
+              $("#recent").addClass("active");
+              $("#active").removeClass("active");
+              $("#rated").removeClass("active");
+            });
+        });
+  </script>
+
+  <script>
+        $(document).ready(function(){
+            $("#active").click(function(){
+              $('#divRecentIndex').hide(750)
+              $('#divTopIndex').hide(750)
+              $('#divUpcomingIndex').show(750)
+              $("#active").addClass("active");
+              $("#recent").removeClass("active");
+              $("#rated").removeClass("active");
+            });
+        });
+  </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#rated").click(function(){
+              $('#divRecentIndex').hide(750)
+              $('#divUpcomingIndex').hide(750)
+              $('#divTopIndex').show(750)
+              $("#rated").addClass("active");
+              $("#active").removeClass("active");
+              $("#recent").removeClass("active");
+            });
+        });
+  </script>
+
+</header>
+
+
+
+
+
 <div class="predictor-cover">
   
   <div class="predictor-cover-container"> 
@@ -31,9 +77,9 @@
       </li>
 
       <li id="home"><%# link_to "Home", leaguehome_path(@league), {:class=>"subheader"} %></li> -->
-      <li id="recent"><a class="subheader">Recent</a></li>
+      <li id="recent"><a class="subheader">Recent</a><a class="badge"><%=@predictor.rated_prediction_count%></a></li>
       <li id="active"><a class="subheader">Active</a><a class="badge"><%=@predictor.active_prediction_count%></a></li>
-      <li id="rated"><a class="subheader">Rated</a></li>
+      <li id="rated"><a class="subheader">Rated</a><a class="badge"><%=@predictor.rated_prediction_count%></a></li>
 
     </ul>
     
@@ -41,15 +87,3 @@
   </div>
 
 </div>
-
-      <a><%=@predictor.prediction_games.count%> PREDICTIONS (<%=@predictor.active_prediction_count%> ACTIVE, <%=@predictor.rated_prediction_count%> RATED)</a>
-      <br>
-
-
-
-      <%if predictor_signed_in? and current_predictor.id == :id%>
-      <a><%=@predictor.users.count%> SUBSCRIBERS</a>
-      
-      <br>
-
-      <%end%>

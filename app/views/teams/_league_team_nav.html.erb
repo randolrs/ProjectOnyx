@@ -1,3 +1,5 @@
+<header>
+
   <script>
         $(document).ready(function(){
             $("#predictionIndexToggle").click(function(){
@@ -24,18 +26,7 @@
         });
   </script>
 
-    <script>
-        $(document).ready(function(){
-            $("#predictorIndexToggle").click(function(){
-              $('#divPredictionIndex').hide(750)
-              $('#divGameIndex').hide(750)
-              $('#divPredictorIndex').show(750)
-              $("a.predictor-nav").addClass("active-nav");
-              $("a.game-nav").removeClass("active-nav");
-              $("a.prediction-nav").removeClass("active-nav");
-            });
-        });
-  </script>
+</header>
 
 <div class = "user-dashboard-prediction-nav">
 
@@ -44,8 +35,6 @@
 		<li><a class="prediction-nav active-nav" id= "predictionIndexToggle">Recent Predictions</a></li>
 
 		<li><a  class="game-nav" id= "gameIndexToggle">Upcoming Games</a></li>
-
-		<li><a class="predictor-nav" id= "predictorIndexToggle">Top Experts</a></li> 
 
 	</ul>
 

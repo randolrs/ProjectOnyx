@@ -50,6 +50,14 @@ class TeamsController < ApplicationController
 
 end
 
+def expertindex
+
+  @team = Team.find(params[:id])
+  @league = @team.league
+
+
+end
+
 def show_predictors
     @team = Team.find(params[:id])
     @league = @team.league

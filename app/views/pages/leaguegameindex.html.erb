@@ -1,14 +1,18 @@
 <%= render 'sports/sportshowcover' %>
 
-<div class="content-panel">
+<div class="content-panel-wrap">
 
-	<div class ="content-title-header">
-		<h3>All <%=@league%> Games</h3>
-		<h5><%= link_to @league + " Home »", leaguehome_path(@league), { :class=>"subheader" } %></h5>
+	<div class="content-panel">
+
+		<div class ="content-title-header">
+			<h3>All <%=@league%> Games</h3>
+			<h5><%= link_to @league + " Home »", leaguehome_path(@league), { :class=>"subheader" } %></h5>
+		</div>
+
+		<%= render 'games/indexgamesarchive' %>
+
+		<%= will_paginate @games %>
+
 	</div>
-
-	<%= render 'games/indexgamesarchive' %>
-
-	<%= will_paginate @games %>
 
 </div>

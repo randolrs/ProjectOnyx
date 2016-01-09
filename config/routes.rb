@@ -102,6 +102,8 @@ Rails.application.routes.draw do
 
   get 'sports/leagues/:league/teams/:id/games' => 'teams#show_games', as: 'teamshowgames'
 
+  get 'sports/leagues/:league/teams/:id/experts' => 'teams#expertindex', as: 'teamindexexperts'
+
   get 'sports/leagues/:league/teams/:id/experts' => 'teams#show_predictors', as: 'teamshowpredictors'
 
   get '/:league/teams/:id/games' => 'teams#teamgameindex', as: 'teamgameindex'

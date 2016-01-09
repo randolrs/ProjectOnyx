@@ -82,6 +82,11 @@ html, body {
     border-right: 1px solid #E3E3E3;
  }
 
+.content-panel-wrap{
+  width:100%;
+  padding:50px;
+}
+
  .content-panel{
     width:100%;
     padding:50px 0px;
@@ -726,7 +731,6 @@ p.terms-of-service{
 .dashboard-prediction-nav a:hover{
   color:#333;
   cursor:pointer;
-  text-decoration: none;
 }
 
 .user-dashboard-recommendations{
@@ -738,6 +742,10 @@ p.terms-of-service{
 
 .dashboard-prediction-nav a.active-nav{
   color:#333;
+}
+
+.dashboard-prediction-nav a.active-nav:hover{
+  text-decoration: none;
 }
 
 

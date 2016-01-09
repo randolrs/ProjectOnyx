@@ -1,0 +1,68 @@
+<header>
+  <script>
+        $(document).ready(function(){
+            $("#recent").click(function(){
+              $('#divUpcomingIndex').hide(750)
+              $('#divTopIndex').hide(750)
+              $('#divRecentIndex').show(750)
+              $("#recent").addClass("active");
+              $("#upcoming").removeClass("active");
+              $("#rated").removeClass("active");
+            });
+        });
+  </script>
+
+  <script>
+        $(document).ready(function(){
+            $("#upcoming").click(function(){
+              $('#divRecentIndex').hide(750)
+              $('#divTopIndex').hide(750)
+              $('#divUpcomingIndex').show(750)
+              $("#upcoming").addClass("active");
+              $("#recent").removeClass("active");
+              $("#rated").removeClass("active");
+            });
+        });
+  </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#rated").click(function(){
+              $('#divRecentIndex').hide(750)
+              $('#divUpcomingIndex').hide(750)
+              $('#divTopIndex').show(750)
+              $("#rated").addClass("active");
+              $("#upcoming").removeClass("active");
+              $("#recent").removeClass("active");
+            });
+        });
+  </script>
+
+</header>
+
+
+<!-- put this in its own partial -->
+
+<div class = "cover-wrap">
+
+  <div class="cover-container">
+
+    <ul class="horizontal-cover center">
+
+<!--       <li class="subheader-league">
+        <%# image_tag Sport.find_by_subcat(@league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-small"%><%# link_to @league, leaguehome_path(@league), class: "subheader-league"  %>
+      </li>
+
+      <li id="home"><%# link_to "Home", leaguehome_path(@league), {:class=>"subheader"} %></li> -->
+      <li id="recent"><a class="subheader">Recent</a><a class="badge"><%=@predictor.rated_prediction_count%></a></li>
+      <li id="upcoming"><a class="subheader">Upcoming</a><a class="badge"><%=@predictor.active_prediction_count%></a></li>
+      <li id="rated"><a class="subheader">Rated</a><a class="badge"><%=@predictor.rated_prediction_count%></a></li>
+
+    </ul>
+    
+
+  </div>
+
+</div>
+
+<!-- put this in its own partial -->

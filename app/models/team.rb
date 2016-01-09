@@ -79,6 +79,7 @@ class Team < ActiveRecord::Base
 
     end
 
+
     def all_predictors
 
         predictors = Array.new

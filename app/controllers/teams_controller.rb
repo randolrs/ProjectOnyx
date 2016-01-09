@@ -55,6 +55,8 @@ def expertindex
   @team = Team.find(params[:id])
   @league = @team.league
 
+  @experts = @team.all_predictors
+
 
 end
 

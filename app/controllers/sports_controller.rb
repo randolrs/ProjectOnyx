@@ -33,6 +33,8 @@ class SportsController < ApplicationController
       
       @league = params[:league]
 
+      @experts = Sport.find_by_subcat(@league).all_predictors
+
       #@experts = Predictor.all.where(:league => @league).sort_by {|k| k.name} 
       #probably need a custom model
 

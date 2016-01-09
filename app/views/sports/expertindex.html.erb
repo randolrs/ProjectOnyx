@@ -27,15 +27,15 @@
 
 				<tbody>
 					
-					<%# @games_today.each do |game| %>
+					<% @experts.each do |expert| %>
 						
 						<tr data-link="<%#gameshow_path(game.league, game.id)%>" class="game-table-row">
-							<td></td>
+							<td><%=expert.name%></td>
 							<td></td>
 							<td></td>
 						</tr>
 
-					<%#end%>
+					<%end%>
 
 				</tbody>
 

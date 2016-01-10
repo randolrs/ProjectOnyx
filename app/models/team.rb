@@ -105,7 +105,7 @@ class Team < ActiveRecord::Base
     def schedule_games(season)
 
 
-        return Game.where("league = :league and (teama = :team or teamh = :team) and season = :season", {league: self.league, team: self.name, season: season})
+        return Game.where("league = :league and (teama = :team or teamh = :team) and season = :season", {league: self.league, team: self.name, season: season}).sort_by {|k| k.event_time}
 
 
     end

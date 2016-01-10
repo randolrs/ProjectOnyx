@@ -45,7 +45,7 @@ class Sport < ActiveRecord::Base
 
         league_predictors.each do |league_predictor|
 
-            if league_predictor.prediction_games.all.where("league == :league", {league: league.subcat}).count > 0
+            if league_predictor.prediction_games.all.where("league = :league", {league: league.subcat}).count > 0
 
                 predictors << league_predictor
 

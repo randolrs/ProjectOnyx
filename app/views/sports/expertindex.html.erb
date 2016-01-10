@@ -21,7 +21,7 @@
 				<thead>
 					<tr class="game-table-header">
 						<th>EXPERT</th>
-						<th><%=@league%> PREDICTIONS</th>
+						<th style="text-align:center;"><%=@league%> PREDICTIONS</th>
 						<th><%=@league%> RATING</th>
 					</tr>
 				</thead>
@@ -32,7 +32,7 @@
 						
 						<tr data-link="<%= predictordashboard_path(expert.username)%>" class="game-table-row">
 							<td><%= image_tag expert.image.url(:medium), class: "predictor-image-tiny"%><%= expert.username %></td>
-							<td></td>
+							<td style="text-align:center;"><%= expert.league_predictions(@league).count %></td>
 							<td></td>
 						</tr>
 

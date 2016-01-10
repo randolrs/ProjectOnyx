@@ -91,6 +91,12 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def league_predictions(league)
+
+    return self.prediction_games.where(:league => league)
+
+  end
+
   
   def my_prediction_games_upcoming(premium_access)
 

@@ -89,6 +89,7 @@ html, body {
 
  .content-panel{
     width:100%;
+    max-width: 960px;
     padding:20px 0px;
     margin-left: auto;
     margin-right: auto;

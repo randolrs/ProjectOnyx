@@ -102,11 +102,10 @@ class Team < ActiveRecord::Base
 
     end
 
-    def schedule_games
+    def schedule_games(season)
 
-        sport = Sport.find_by_subcat(self.league)
 
-        return Game.where("league = :league and (teama = :team or teamh = :team) and season = :current_season", {league: self.league, team: self.name, current_season: sport.current_season})
+        return Game.where("league = :league and (teama = :team or teamh = :team) and season = :season", {league: self.league, team: self.name, season: season})
 
 
     end

@@ -30,16 +30,17 @@
 
 			</div>
 
+			<h5><%= @season + " Season" %></h5>
+
 			<div class="large-table-container">
 
 				<table class="game-schedule-table">
 
 					<thead>
 						<tr class="game-table-header">
-							<th style="width: 150px;">MATCHUP</th>
-							<th style="width: 200px;"></th>
 							<th style="width: 100px; text-align:center;">DATE</th>
-							<th style="width: 100px; text-align:center;">TIME</th>
+							<th style="width: 150px;">OPPONENT</th>
+							<th style="width: 100px; text-align:center;">RESULT</th>
 							<th style="width: 100px; text-align:center;">PREDICTIONS</th>
 						</tr>
 					</thead>
@@ -49,10 +50,39 @@
 						<% @games_schedule.each do |game| %>
 							
 							<tr data-link="<%=gameshow_path(game.league, game.id)%>" class="game-table-row">
-								<td><%= image_tag Team.find(game.teamh_id).image, class: "team-image-tiny"%> <%=game.teamh %></td>
-								<td>at <%= image_tag Team.find(game.teama_id).image, class: "team-image-tiny"%> <%=game.teama %></td>
-								<td style="text-align:center;"><%=game.event_time.strftime("%b %e")%></td>
-								<td style="text-align:center;"><%=game.event_time.strftime("%l:%M %p")%></td>
+								
+								<td style="text-align:center;"><%=game.event_time.strftime("%b %e, %Y")%></td>
+								<td>
+									<%if Team.find(game.teama_id).name == @team %>
+										@ <%= image_tag Team.find(game.teamh_id).image, class: "team-image-tiny"%> <%=game.teamh %>
+									<%else%>
+										VS <%= image_tag Team.find(game.teama_id).image, class: "team-image-tiny"%> <%=game.teama %>
+
+									<%end%>
+								</td>
+
+								<td style="text-align:center; font-weight:bold;">
+
+									<% if game.status == "o" %>
+
+
+
+									<% else %>
+
+										<% if game.game_winner == @team %>
+
+											<a style="color:green; margin-right:5px;">W</a><%= game.winning_score.to_s + "-" + game.losing_score.to_s %>
+
+										<% else %>
+
+											<a style="color:red; margin-right:5px;">L</a><%= game.losing_score.to_s + "-" + game.winning_score.to_s %>
+
+										<% end %>
+
+									<% end %>
+
+								</td>
+
 								<td style="text-align:center;"><%= game.prediction_games.count%></td>
 							</tr>
 

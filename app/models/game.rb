@@ -64,6 +64,36 @@ class Game < ActiveRecord::Base
 
 	end
 
+    def winning_score
+
+        if self.teama_score > self.teamh_score
+
+            return teama_score
+
+        else
+
+            return teamh_score
+
+        end
+
+
+    end
+
+
+    def losing_score
+
+        if self.teama_score > self.teamh_score
+
+            return teamh_score
+
+        else
+
+            return teama_score
+
+        end
+
+    end
+
 	
 	#validates :teama_score, :numericality => { :only_integer => true }
 	#validates :teamh_score, :numericality => { :only_integer => true }

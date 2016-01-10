@@ -19,6 +19,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :season %><br>
+    <%= f.text_field :season %>
+  </div>
+
+  <div class="field">
     <%= f.label :teamh %><br>
     <%= collection_select(:game, :teamh, Team.all, :name, :name) %>
   </div>

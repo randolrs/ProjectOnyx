@@ -84,12 +84,24 @@ end
   def teamgameindex
       @team = Team.find(params[:id])
       @league = @team.league
+      @sport = Sport.find_by_subcat(@league)
       @teams = Team.all.where(:league=>@league)
       @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 10)
       @articles = Article.all.where("teama = :team or teamh = :team", {team: @team.name})
       @predictions = PredictionGame.all.where("teama = :team or teamh = :team", {team: @team.name})
       @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
-      @games_schedule = @team.schedule_games
+
+      if params[:season]
+
+        @season = params[:season]
+
+      else
+
+        @season = @sport.current_season
+
+      end
+
+      @games_schedule = @team.schedule_games(@season)
   end
 
   def articleindex

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109050932) do
+ActiveRecord::Schema.define(version: 20160110161030) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160109050932) do
     t.integer  "teamh_id"
     t.string   "event_city"
     t.string   "event_venue"
+    t.string   "season",       default: ""
   end
 
   create_table "pred2s", force: true do |t|
@@ -271,6 +272,7 @@ ActiveRecord::Schema.define(version: 20160109050932) do
     t.string   "banner_image_content_type"
     t.integer  "banner_image_file_size"
     t.datetime "banner_image_updated_at"
+    t.string   "current_season",            default: ""
   end
 
   add_index "sports", ["sport_id"], name: "index_sports_on_sport_id"

@@ -20,9 +20,9 @@
 		      		
 		      		<option value selected="selected" disabled="disabled">Season</option>
 
-			      	<% @games.uniq.pluck(:season).each do |season| %>
+			      	<% @games.pluck(:season).uniq.each do |season| %>
 
-						<!-- <option value=<%#teamgameindex_path(@team.league, @team.id, :season=>season)%>><%#season%> -->
+						<option value=<%=teamgameindex_path(@team.league, @team.id, :season=>season)%>><%=season%>
 
 					<%end%>
 

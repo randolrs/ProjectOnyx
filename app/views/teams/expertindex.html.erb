@@ -11,7 +11,38 @@
 	<div class="content-panel">
 
 	  <div class="content-panel-container">
+	    
 	    <h1><%=@team.name%> Experts</h1>
+
+		<div class="large-table-container">
+
+	    	<table class="game-schedule-table">
+
+				<thead>
+					<tr class="game-table-header">
+						<th>EXPERT</th>
+						<th style="text-align:center;"><%=@team.name.upcase%> PREDICTIONS</th>
+						<th><%=@team.name.upcase%> RATING</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					
+					<% @experts.each do |expert| %>
+						
+						<tr data-link="<%= predictordashboard_path(expert.username)%>" class="game-table-row">
+							<td><%= image_tag expert.image.url(:medium), class: "predictor-image-tiny"%><%= expert.username %></td>
+							<td style="text-align:center;"><%= expert.team_predictions(@team).count %></td>
+							<td></td>
+						</tr>
+
+					<%end%>
+
+				</tbody>
+
+			</table>
+
+	    </div>
 
 
 	  </div>

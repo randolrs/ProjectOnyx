@@ -97,6 +97,12 @@ class Predictor < ActiveRecord::Base
 
   end
 
+    def team_predictions(team)
+
+    return self.prediction_games.where("teama = :team or teamh = :team", {team: team.name})
+
+  end
+
   
   def my_prediction_games_upcoming(premium_access)
 

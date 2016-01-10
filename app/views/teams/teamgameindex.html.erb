@@ -53,7 +53,7 @@
 								
 								<td style="text-align:center;"><%=game.event_time.strftime("%b %e, %Y")%></td>
 								<td>
-									<%if Team.find(game.teama_id).name == @team %>
+									<%if Team.find(game.teama_id).name == @team.name %>
 										@ <%= image_tag Team.find(game.teamh_id).image, class: "team-image-tiny"%> <%=game.teamh %>
 									<%else%>
 										VS <%= image_tag Team.find(game.teama_id).image, class: "team-image-tiny"%> <%=game.teama %>

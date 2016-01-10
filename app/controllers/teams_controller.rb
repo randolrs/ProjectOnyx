@@ -88,8 +88,8 @@ end
       @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 10)
       @articles = Article.all.where("teama = :team or teamh = :team", {team: @team.name})
       @predictions = PredictionGame.all.where("teama = :team or teamh = :team", {team: @team.name})
-      @teamgames = Game.all.where(:league => @team.league)
       @teamgames = @games.where("teama = :team or teamh = :team", {team: @team.name})
+      @games_schedule = @team.schedule_games
   end
 
   def articleindex

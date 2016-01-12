@@ -73,7 +73,7 @@ Rails.application.routes.draw do
 
   get 'subscribe' => 'subscriptions#create'
 
-  get 'create_plan' => 'subscriptions#create_plan'
+  get 'new_plans' => 'plans#new'
 
   get 'balance' => 'predictors#predictorbalance'
 

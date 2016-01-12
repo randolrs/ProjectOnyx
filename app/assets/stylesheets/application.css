@@ -1100,6 +1100,10 @@ a.need-information-cta:hover{
       padding:20px;
     }
 
+    .content-panel h1{
+      font-size: 24px;
+    }
+
 }
 
 @media only screen and (max-width: 960px) {
@@ -1155,6 +1159,10 @@ a.need-information-cta:hover{
     .dual-signup-panel-float{
       float:none;
       margin: 0 auto;
+    }
+
+    .content-panel h1{
+      font-size: 24px;
     }
 
 }

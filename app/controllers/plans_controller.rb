@@ -26,6 +26,16 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
 
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+    plan = Stripe::Plan.create(
+          :amount => (@plan.cost * 100).to_i,
+          :interval => 'month',
+          :name => @plan.description,
+          :currency => 'usd',
+          :id => @plan.stripe_id
+          )
+
     respond_to do |format|
       if @plan.save
         format.html { redirect_to @plan, notice: 'Plan was successfully created.' }

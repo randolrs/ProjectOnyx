@@ -941,6 +941,14 @@ td.add-card-header{
   padding:10px;
 }
 
+.sidebar-entry.left{
+  padding:10px 0px 10px 10px;
+}
+
+.sidebar-entry.right{
+  padding:10px 10px 10px 0px;
+}
+
 .no-top-predictions{
   color:#777;
   font-size: 12px;

@@ -9,7 +9,7 @@
         <% @upcominggames.each do |game|%>
         	<tr data-link="<%=gameshow_path(game.league, game.id)%>", class="table-cta-hover">
         		
-            <td class="sidebar-entry" style="text-align:center;">
+            <td class="sidebar-entry left" style="padding: 10px 0px 10px 10px; text-align:center;">
         			<%= image_tag Team.find(game.teama_id).image.url(:medium), class: "predictor-image-tiny"%>
             </td>
 
@@ -29,7 +29,7 @@
               <%= image_tag Team.find(game.teamh_id).image.url(:medium), class: "predictor-image-tiny"%> 
             </td>
 
-            <td class="sidebar-entry" style="text-align:center;">
+            <td class="sidebar-entry right" style="text-align:center;">
               <%= game.event_time.strftime("%-m/%-d") %>
             </td>
 

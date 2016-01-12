@@ -67,6 +67,8 @@ Rails.application.routes.draw do
 
   post 'bank_account_default' => 'bank_accounts#make_default'
 
+  get '/:predictor/premium/confirm' => 'predictors#subscribe_confirm', as: 'subscribe_confirm'
+
   get 'subscribe' => 'subscriptions#create'
 
   get 'balance' => 'predictors#predictorbalance'
@@ -74,6 +76,7 @@ Rails.application.routes.draw do
   get 'buy_prediction_game' => 'prediction_games#buy'
 
   get 'subscribe_to_predictor' => 'predictors#subscribe'
+
 
   get 'follow_predictor' => 'predictors#follow'
 

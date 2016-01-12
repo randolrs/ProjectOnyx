@@ -195,6 +195,12 @@ class PredictorsController < ApplicationController
 
   end
 
+  def subscribe_confirm
+
+     @predictor = Predictor.find_by_username(params[:predictor])
+
+  end
+
   def follow
 
     if user_signed_in?

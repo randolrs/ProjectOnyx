@@ -4,11 +4,14 @@
 
 		<% if current_user.paymentsource %>
 
-			<%= link_to "Go Premium", subscribe_path(:username=>@predictor.username), {:class=>"subscribe_cta" }%>
+			<%# link_to "Go Premium", subscribe_path(:username=>@predictor.username), {:class=>"subscribe_cta" }%>
+
+			<%= link_to "Go Premium", subscribe_confirm_path(@predictor.username), {:class=>"subscribe_cta" }%>
 
 		<% else %>
 
-			<a id="addCardLink" onclick="toggleModal();" class="subscribe_cta">Go Premium <%=number_to_currency(@predictor.sub_price).to_s%>/month</a>
+			<%= link_to "Go Premium", subscribe_confirm_path(@predictor.username), {:class=>"subscribe_cta" }%>
+			<!-- <a id="addCardLink" onclick="toggleModal();" class="subscribe_cta">Go Premium</a> -->
 			<%=render 'cards/addcardform_subscribe' %>
 			
 		<% end %>

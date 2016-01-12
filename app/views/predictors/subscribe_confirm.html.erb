@@ -1,0 +1,36 @@
+<%= render 'predictors/predictorcover' %>
+
+<div class="content-panel-wrap">
+
+	<div class="content-panel">
+
+	  <div class="content-panel-container">
+	    
+	    <h1>Confirm Premium Subscription</h1>
+
+	    <h3 style="color:green;"><%=number_to_currency(@predictor.sub_price).to_s + "/month"%></h3>
+
+	    <div class="large-table-container">
+
+	    	<table class="game-schedule-table">
+				
+				<tbody>
+					
+
+
+				</tbody>
+
+			</table>
+
+	    </div>
+
+	    <div style="text-align:center;">
+
+	    	<%= link_to "Confirm", subscribe_path(:username=>@predictor.username), {:class=>"subscribe_cta" }%>
+	     </div>
+
+	  </div>
+
+	</div>
+
+</div>

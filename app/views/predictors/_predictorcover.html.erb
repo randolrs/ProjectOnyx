@@ -2,19 +2,11 @@
   
   <div class="predictor-cover-container"> 
 
-    <h1><%= image_tag @predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-name"%></h1>
-
-     <div style="float:right; display: inline-block; position: relative">
-      <%=render 'predictors/predictor_follow_cta'%>
-    </div>
+    <h1><%= image_tag @predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-name"%></h1><%=render 'predictors/predictor_follow_cta'%>
 
     <br>
     
     <a><%=@predictor.bio%></a>
-
-    <div style="float:right; display: inline-block; position: relative">
-      <%=render 'predictors/predictor_follow_cta'%>
-    </div>
 
   </div>
 

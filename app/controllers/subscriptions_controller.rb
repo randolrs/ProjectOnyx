@@ -65,4 +65,9 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+	
+	def create_plan
+    	@subscription = Subscription.new
+  	end
+
 end

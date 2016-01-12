@@ -66,6 +66,8 @@
 
     <% elsif admin_signed_in? %>
 
+      <%= link_to "Plans", create_plan_path %>
+      
       <%= link_to "Dashboard", dashboard_path %>
 
       <%= link_to "Predictors", predictoradminindex_path %>

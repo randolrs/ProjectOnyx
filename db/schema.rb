@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112031510) do
+ActiveRecord::Schema.define(version: 20160112033823) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -77,6 +77,14 @@ ActiveRecord::Schema.define(version: 20160112031510) do
     t.string   "event_city"
     t.string   "event_venue"
     t.string   "season",       default: ""
+  end
+
+  create_table "plans", force: true do |t|
+    t.string   "stripe_id",                           default: ""
+    t.string   "description",                         default: ""
+    t.decimal  "cost",        precision: 8, scale: 2, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pred2s", force: true do |t|

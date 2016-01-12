@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :plans
+
   resources :prediction_economies
 
   resources :accounts
@@ -70,6 +72,8 @@ Rails.application.routes.draw do
   get '/:predictor/premium/confirm' => 'predictors#subscribe_confirm', as: 'subscribe_confirm'
 
   get 'subscribe' => 'subscriptions#create'
+
+  get 'create_plan' => 'subscriptions#create_plan'
 
   get 'balance' => 'predictors#predictorbalance'
 

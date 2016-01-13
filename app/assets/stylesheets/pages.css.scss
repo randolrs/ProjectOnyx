@@ -1604,10 +1604,11 @@ ul.dropdown-menu li {
 
 
 .expert-types-container{
-    display: block;
     position: relative;
-    height:200px;
     margin:0 auto;
+    clear: both;
+    display: inline-block;
+    width:100%;
     
 }
 
@@ -1774,7 +1775,7 @@ ul.dropdown-menu li {
 .premium-wrap{
   width:100%;
   max-width:900px;
-  padding: 100px 50px;
+  padding: 50px;
   margin:0 auto;
   
   h1 {
@@ -1785,7 +1786,6 @@ ul.dropdown-menu li {
   }
 
 }
-
 
 .premium-container{
   width:100%;

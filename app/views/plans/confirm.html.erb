@@ -1,7 +1,7 @@
 <script>
 $(document).ready(function(){
     $("#addCardLink").click(function(){
-        $(".add-card-container").toggle();
+    	$(".add-card-container").toggle();
     });
 
     $("#currentPaymentLink").click(function(){
@@ -26,18 +26,12 @@ $(document).ready(function(){
 
 	    	<% if @displaycard %>
 
-	    		<input type="radio" name="payment_type" value="current"  id="currentPaymentLink"  checked="checked">Current Payment Method
-				
-				<br><br>
-
-				<b>Current Payment Method:</b> <br>
-				<%=@displaycard.brand + " •••• •••• •••• " + @displaycard.last4 %> <br>
-				Expiration Date:<br>
-				<%= @displaycard.exp_month.to_s + "/" + @displaycard.exp_year.to_s %>
+	    		<input type="radio" name="payment_type" value="current"  id="currentPaymentLink"  checked="checked"><b>Current Payment Method</b> (<%=@displaycard.brand + " ending in " + @displaycard.last4 %>)
 
 				<br><br>
 
-				<input type="radio" name="payment_type" value="add" id="addCardLink">Add a Credit Card<br><br>
+				<input type="radio" name="payment_type" value="add" id="addCardLink"><b>Add a Credit Card</b
+				><br><br>
 
 				<div class="add-card-container" style="display:none">
 					<%=render 'cards/newcardform' %>
@@ -45,7 +39,7 @@ $(document).ready(function(){
 
 			<% else %>
 		      		
-				<input type="radio" name="payment_type" value="add" id="addCardLink" checked="checked">Add a Credit Card<br><br>
+				<input type="radio" name="payment_type" value="add" id="addCardLink" checked="checked"><b>Add a Credit Card</b><br>
 
 				<%=render 'cards/newcardform' %>
 

@@ -1,3 +1,17 @@
+<script>
+$(document).ready(function(){
+    $("#addCardLink").click(function(){
+        $(".add-card-container").toggle();
+    });
+
+    $("#currentPaymentLink").click(function(){
+        $(".add-card-container").toggle();
+    });
+
+});
+</script>
+
+
 <div class="content-panel-wrap">
 
 	<div class="content-panel">
@@ -6,19 +20,36 @@
 	    
 	    <h1>Confirm Premium Upgrade</h1>
 
-	    <h3 style="color:green;"><%=number_to_currency(@plan.cost).to_s + "/month"%></h3>
+	    <h3 style="color:#11a657;"><%=number_to_currency(@plan.cost).to_s + "/month"%></h3>
 
 	    <div class="large-table-container">
 
-	    	<table class="game-schedule-table">
+	    	<% if @displaycard %>
+
+	    		<input type="radio" name="payment_type" value="current"  id="currentPaymentLink"  checked="checked">Current Payment Method
 				
-				<tbody>
-					
+				<br><br>
 
+				<b>Current Payment Method:</b> <br>
+				<%=@displaycard.brand + " •••• •••• •••• " + @displaycard.last4 %> <br>
+				Expiration Date:<br>
+				<%= @displaycard.exp_month.to_s + "/" + @displaycard.exp_year.to_s %>
 
-				</tbody>
+				<br><br>
 
-			</table>
+				<input type="radio" name="payment_type" value="add" id="addCardLink">Add a Credit Card<br><br>
+
+				<div class="add-card-container" style="display:none">
+					<%=render 'cards/newcardform' %>
+				</div>
+
+			<% else %>
+		      		
+				<input type="radio" name="payment_type" value="add" id="addCardLink" checked="checked">Add a Credit Card<br><br>
+
+				<%=render 'cards/newcardform' %>
+
+			<% end %>
 
 	    </div>
 

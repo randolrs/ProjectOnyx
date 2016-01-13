@@ -13,6 +13,26 @@ class PlansController < ApplicationController
 
       @plan = Plan.find(params[:plan])
 
+      Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+      if current_user.customer_id
+
+        @customer = Stripe::Customer.retrieve(current_user.customer_id)
+
+        if @customer.default_source
+
+          @defaultcard = @customer.default_source
+
+          @displaycard = @customer.sources.retrieve(@defaultcard)
+
+          @list = @customer.sources.all(:limit => 5, :object => "card")
+
+          @cards = @list.data
+
+        end
+
+      end
+
     elsif admin_signed_in? or predictor_signed_in?
 
         redirect_to root_path

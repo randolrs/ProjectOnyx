@@ -384,6 +384,8 @@ a.subscribe_cta{
 a.subscribe_cta:hover{
   cursor:pointer;
   background: linear-gradient(#11A657, #109C52);
+  webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 
 }
 
@@ -581,6 +583,13 @@ h2{
     -webkit-box-shadow: 0px 3px 5px rgba(0,0,0,.1);
     -moz-box-shadow: 0px 3px 5px rgba(0,0,0,.1);
     box-shadow: 0px 3px 5px rgba(0,0,0,.1);
+  }
+
+
+ button.signup-submit:hover{
+      background: linear-gradient(#11A657, #109C52);
+      webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease;
   }
 
   input.subscription-price-submit{
@@ -1878,4 +1887,11 @@ ul.dropdown-menu li {
       background-color: #0EB266;
       webkit-transition: all 0.3s ease;
       transition: all 0.3s ease;
+  }
+
+  .add-card-container{
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding:10px;
   }

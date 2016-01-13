@@ -77,7 +77,7 @@ Rails.application.routes.draw do
 
   get '/plan/:plan/confirm' => 'plans#confirm', as: 'plan_confirm'
 
-  get '/:plan/purchase' => 'plans#purchase', as: 'plan_purchase'
+  get 'plan/:plan/purchase' => 'plans#purchase', as: 'plan_purchase'
 
   get 'plans' => 'plans#index'
 

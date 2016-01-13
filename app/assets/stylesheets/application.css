@@ -1185,6 +1185,22 @@ a.need-information-cta:hover{
 
 }
 
+@media only screen and (max-device-width: 600px) {
 
+    .premium-content-float{
+      width: 100%;
+   
+    }
+
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .premium-content-float{
+      width: 100%;
+   
+    }
+  }
   
 

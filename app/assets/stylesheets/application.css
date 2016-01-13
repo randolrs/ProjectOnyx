@@ -1104,6 +1104,11 @@ a.need-information-cta:hover{
       font-size: 24px;
     }
 
+    .premium-content-float{
+      width: 49.6%;
+   
+    }
+
 }
 
 @media only screen and (max-width: 960px) {
@@ -1163,6 +1168,11 @@ a.need-information-cta:hover{
 
     .content-panel h1{
       font-size: 24px;
+    }
+
+    .premium-content-float{
+      width: 49.6%;
+   
     }
 
 }

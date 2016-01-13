@@ -539,7 +539,7 @@ h2{
   .signup-container h1{  
     font-size: 40px;
     font-weight: 100;
-    color: #494949;
+    color: #11a657;
 
   }
 
@@ -1760,6 +1760,28 @@ ul.dropdown-menu li {
 .bottom_cta{
   position:relative;
   bottom:0px;
+}
+
+.premium-wrap{
+  width:100%;
+  max-width:900px;
+  padding:100px;
+  margin:0 auto;
+}
+
+.premium-container{
+  width:100%;
+  clear: both;
+  display: inline-block;
+  
+}
+
+.premium-content-float{
+    float: left;
+    width: 24.8%;
+    display: inline-block;
+    border: 1px solid #fff;
+    background-color:blue;
 }
 
   

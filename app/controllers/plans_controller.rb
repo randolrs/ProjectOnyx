@@ -7,6 +7,24 @@ class PlansController < ApplicationController
     @plans = Plan.all
   end
 
+  def purchase
+
+    if user_signed_in?
+
+        Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+        customer = Stripe::Customer.retrieve(@user.customer_id)
+
+        @plan = Plan.find_by_description(params[:description])
+
+        customer.subscriptions.create(:plan => @plan.stripe_id)
+
+    end
+
+    redirect_to root_path
+
+  end
+
   # GET /plans/1
   # GET /plans/1.json
   def show
@@ -14,7 +32,9 @@ class PlansController < ApplicationController
 
   # GET /plans/new
   def new
-    @plan = Plan.new
+    if admin_signed_in?
+      @plan = Plan.new
+    end
   end
 
   # GET /plans/1/edit
@@ -24,25 +44,28 @@ class PlansController < ApplicationController
   # POST /plans
   # POST /plans.json
   def create
-    @plan = Plan.new(plan_params)
 
-    Stripe.api_key = Rails.configuration.stripe[:secret_key]
+    if admin_signed_in?
+      @plan = Plan.new(plan_params)
 
-    plan = Stripe::Plan.create(
-          :amount => (@plan.cost * 100).to_i,
-          :interval => 'month',
-          :name => @plan.description,
-          :currency => 'usd',
-          :id => @plan.stripe_id
-          )
+      Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-    respond_to do |format|
-      if @plan.save
-        format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
-        format.json { render :show, status: :created, location: @plan }
-      else
-        format.html { render :new }
-        format.json { render json: @plan.errors, status: :unprocessable_entity }
+      plan = Stripe::Plan.create(
+            :amount => (@plan.cost * 100).to_i,
+            :interval => 'month',
+            :name => @plan.description,
+            :currency => 'usd',
+            :id => @plan.stripe_id
+            )
+
+      respond_to do |format|
+        if @plan.save
+          format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
+          format.json { render :show, status: :created, location: @plan }
+        else
+          format.html { render :new }
+          format.json { render json: @plan.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -79,6 +102,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:stripe_id, :description, :cost)
+      params.require(:plan).permit(:stripe_id, :description, :cost, :credit_per_month)
     end
 end

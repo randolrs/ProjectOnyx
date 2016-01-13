@@ -73,7 +73,11 @@ Rails.application.routes.draw do
 
   get 'subscribe' => 'subscriptions#create'
 
-  get 'new_plans' => 'plans#new'
+  get 'go_premium' => 'pages#premium_landing'
+
+  get '/:plan/description/purchase' => 'plan#purchase', as: 'plan_purchase'
+
+  get 'plans' => 'plans#index'
 
   get 'balance' => 'predictors#predictorbalance'
 

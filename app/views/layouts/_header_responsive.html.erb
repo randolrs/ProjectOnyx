@@ -54,6 +54,7 @@
    <%end%>
 
    <%if user_signed_in?%>
+      
       <li class='has-sub right'><a href='#'><span><%= current_user.email %></span></a>
          <ul>
             <li><a href='<%=edit_user_registration_path%>'><span>Account Information</span></a>
@@ -62,6 +63,8 @@
             <li><a data-method="delete" href='<%=destroy_user_session_path%>'><span>Logout</span></a>
          </ul>
       </li>
+
+       <li class="right"><%= link_to "Go Premium", go_premium_path %></li>
 
    <%elsif predictor_signed_in?%>
 
@@ -88,7 +91,7 @@
 
       <li class="right"><%= link_to "Dashboard", dashboard_path %></li>
 
-      <li class="right"><%= link_to "Plans", new_plans_path %></li>
+      <li class="right"><%= link_to "Plans", plans_path %></li>
 
 
    <%else%>

@@ -1,49 +1,49 @@
 class SubscriptionsController < ApplicationController
 
   def create
-    
-    #@predictor = Predictor.find_by_username(params[:username])
 
     if user_signed_in?
 
+    	@predictor = Predictor.find_by_username(params[:username])
+
     	@user = current_user
 
-		Stripe.api_key = Rails.configuration.stripe[:secret_key]
+		#Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-      	customer = Stripe::Customer.retrieve(@user.customer_id)
+      	#customer = Stripe::Customer.retrieve(@user.customer_id)
 
-      	@plan = Plan.find_by_description(params[:description])
+      	#@plan = Plan.find_by_description(params[:description])
 
-      	customer.subscriptions.create(:plan => @plan.stripe_id)
+      	#customer.subscriptions.create(:plan => @plan.stripe_id)
 
 
-		# if Purchase.exists?(:user_id=> @user.id,:predictor_id=>@predictor.id)
+		if Purchase.exists?(:user_id=> @user.id,:predictor_id=>@predictor.id)
 
-		# 	@purchase = Purchase.where(:user_id=> @user.id,:predictor_id=>@predictor.id)
+			@purchase = Purchase.where(:user_id=> @user.id,:predictor_id=>@predictor.id)
 
-		# 	@purchase.each do |purchase|
-		# 		purchase.update(:premium => true, :active=> true)
-		# 	end
+			@purchase.each do |purchase|
+				purchase.update(:premium => true, :active=> true, :price=>@predictor.subscription_price)
+			end
 
-		# else
+		else
 
-		# 	@purchase = Purchase.new
+			@purchase = Purchase.new
 
-		# 	@purchase.user_id = @user.id
+			@purchase.user_id = @user.id
 
-		# 	@purchase.predictor_id = @predictor.id
+			@purchase.predictor_id = @predictor.id
 
-		# 	@purchase.price = @predictor.subscription_price
+			@purchase.price = @predictor.subscription_price
 
-		# 	@purchase.active = true
+			@purchase.active = true
 
 		# 	@purchase.next_payment = Time.now + 31.days
 
-		# 	@purchase.premium = true
+			@purchase.premium = true
 
-		# 	@purchase.save        
+			@purchase.save        
 
-		# end
+		end
 
       redirect_to root_path
 

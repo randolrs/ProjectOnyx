@@ -1,0 +1,34 @@
+<div class="content-panel-wrap">
+
+	<div class="content-panel">
+
+	  <div class="content-panel-container">
+	    
+	    <h1>Confirm Premium Upgrade</h1>
+
+	    <h3 style="color:green;"><%=number_to_currency(@plan.cost).to_s + "/month"%></h3>
+
+	    <div class="large-table-container">
+
+	    	<table class="game-schedule-table">
+				
+				<tbody>
+					
+
+
+				</tbody>
+
+			</table>
+
+	    </div>
+
+	    <div style="text-align:center;">
+
+	    	<%= link_to "Confirm", plan_purchase_path(@plan.id), {:class=>"subscribe_cta" }%>
+	     </div>
+
+	  </div>
+
+	</div>
+
+</div>

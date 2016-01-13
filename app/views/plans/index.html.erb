@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Stripe</th>
       <th>Description</th>
       <th>Cost</th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @plans.each do |plan| %>
       <tr>
+        <td><%= plan.id %></td>
         <td><%= plan.stripe_id %></td>
         <td><%= plan.description %></td>
         <td><%= plan.cost %></td>

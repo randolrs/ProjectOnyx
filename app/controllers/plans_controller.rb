@@ -7,15 +7,35 @@ class PlansController < ApplicationController
     @plans = Plan.all
   end
 
+  def confirm
+
+    if user_signed_in?
+
+      @plan = Plan.find(params[:plan])
+
+    elsif admin_signed_in? or predictor_signed_in?
+
+        redirect_to root_path
+
+    else
+
+      redirect_to new_user_session_path
+      
+    end
+
+  end
+
   def purchase
 
     if user_signed_in?
+
+      @user = current_user
 
         Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
         customer = Stripe::Customer.retrieve(@user.customer_id)
 
-        @plan = Plan.find_by_description(params[:description])
+        @plan = Plan.find(params[:plan])
 
         customer.subscriptions.create(:plan => @plan.stripe_id)
 

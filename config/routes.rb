@@ -75,7 +75,9 @@ Rails.application.routes.draw do
 
   get 'go_premium' => 'pages#premium_landing'
 
-  get '/:plan/description/purchase' => 'plan#purchase', as: 'plan_purchase'
+  get '/plan/:plan/confirm' => 'plans#confirm', as: 'plan_confirm'
+
+  get '/:plan/purchase' => 'plans#purchase', as: 'plan_purchase'
 
   get 'plans' => 'plans#index'
 

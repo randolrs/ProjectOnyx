@@ -1105,8 +1105,12 @@ a.need-information-cta:hover{
     }
 
     .premium-content-float{
-      width: 49.6%;
+      width: 47%;
    
+    }
+
+    .intro-container h1{
+      font-size:50px;
     }
 
 }
@@ -1171,8 +1175,12 @@ a.need-information-cta:hover{
     }
 
     .premium-content-float{
-      width: 49.6%;
+      width: 47%;
    
+    }
+
+    .intro-container h1{
+      font-size:50px;
     }
 
 }

@@ -1561,7 +1561,7 @@ ul.dropdown-menu li {
 }
 
 .intro-container h1{
-  font-size:60px;
+  font-size:80px;
   text-align:center;
   color:white;
   line-height: 80px;
@@ -1770,8 +1770,9 @@ ul.dropdown-menu li {
   
   h1 {
     text-align: center;
-    font-size:45px;
     margin-bottom:10px;
+    font-size: 50px;
+    font-weight: 100;
   }
 
 }
@@ -1787,7 +1788,7 @@ ul.dropdown-menu li {
 
 .premium-content-float{
     float: left;
-    width: 24%;
+    width: 23%;
     display: inline-block;
     background-color:#9C5DE8;
     padding:5px;
@@ -1873,6 +1874,8 @@ ul.dropdown-menu li {
     a.go-premium-cta:hover{
       text-decoration:none;
       cursor:pointer;
-      color:#444;
-      background-color:#FFCE68;
+      color: white;
+      background-color: #0EB266;
+      webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease;
   }

@@ -1,14 +1,21 @@
 <script>
-$(document).ready(function(){
-    $("#addCardLink").click(function(){
-    	$(".add-card-container").toggle();
-    });
+	$(document).ready(function(){
 
-    $("#currentPaymentLink").click(function(){
-        $(".add-card-container").toggle();
-    });
+	    $("#currentPaymentLink").click(function(){
 
-});
+	    	$(".add-card-container").hide()
+
+	    });
+
+	    $("#addCardLink").click(function(){
+	    	
+	    	$(".add-card-container").show()
+	    		
+
+	    });
+
+	});
+
 </script>
 
 

@@ -8,7 +8,7 @@
 			  <%= devise_error_messages! %>
 
 				<div>
-					<%= f.text_field :username, placeholder: "Username", class: "signup-text"  %>
+					<%= f.text_field :username, placeholder: "Username", pattern: /\A[a-zA-Z0-9 ]*\z/, class: "signup-text"  %>
 				</div>
 
 				<div>

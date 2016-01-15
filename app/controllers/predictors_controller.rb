@@ -86,7 +86,8 @@ class PredictorsController < ApplicationController
 
     @predictions_closed = @predictor.my_prediction_games_closed(@premium_access)  
 
-    @predictions_recent = @predictor.recent_prediction_games(@premium_access)
+    @predictions_recent = Array.new
+    @predictions_recent = @predictor.recent_prediction_games
 
     @predictions_top = @predictor.prediction_games.where("onyx > :zero", {zero: 0}).limit(5)
 

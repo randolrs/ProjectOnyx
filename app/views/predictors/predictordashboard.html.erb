@@ -30,14 +30,39 @@
 
 
 			<div id="divRecentIndex">
-				<% @predictions = @predictions_recent %>
-        		<%= render 'prediction_games/indexshow' %>
+				<%# @predictions_recent %>
+        		<%# render 'prediction_games/indexshow' %>
+
+				<% if @predictions_recent.empty? %>
+
+					<div class ="prediction-game-index-show empty">
+
+							Your dashboard is currently empty.  Follow or subscribe to experts you find interesting to see their predictions in your dashboard.      
+
+	  				</div>
+
+				<%else%>
+
+					<% @predictions_recent.each do |hash| %>
+
+						<% @prediction = hash[:prediction] %>
+
+						<% @predictor = hash[:predictor] %>
+
+						<% @game = hash[:game] %>
+
+        				<%= render 'prediction_games/list_show' %>
+
+        			<%end%>
+
+        		<%end%>
+
 			</div>
 
-			<div id="divUpcomingIndex" style="display: none;">
-				<% @predictions = @predictions_upcoming %>
-				<%= render 'prediction_games/indexshow' %>
-			</div>
+<!-- 			<div id="divUpcomingIndex" style="display: none;">
+				<%# @predictions = @predictions_upcoming %>
+				<%# render 'prediction_games/indexshow' %>
+			</div> -->
 
 			<div id="divTopIndex" style="display: none;">
 				<% @predictions = @predictions_top %>

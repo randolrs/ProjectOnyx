@@ -54,8 +54,8 @@
       </li>
 
       <li id="home"><%# link_to "Home", leaguehome_path(@league), {:class=>"subheader"} %></li> -->
-      <li id="recent"><a class="subheader">Recent</a><a class="badge"><%=@predictor.rated_prediction_count%></a></li>
-      <li id="upcoming"><a class="subheader">Upcoming</a><a class="badge"><%=@predictor.active_prediction_count%></a></li>
+      <li id="recent"><a class="subheader">Recent</a><a class="badge"><%=@predictor.recent_prediction_games.count%></a></li>
+      <!-- <li id="upcoming"><a class="subheader">Upcoming</a><a class="badge"><%#@predictor.active_prediction_count%></a></li> -->
       <li id="rated"><a class="subheader">Rated</a><a class="badge"><%=@predictor.rated_prediction_count%></a></li>
 
     </ul>

@@ -150,13 +150,13 @@ class Predictor < ActiveRecord::Base
 
   end
 
-  def recent_prediction_games(premium_access)
+  def recent_prediction_games
 
     predictions = Array.new 
     
     self.prediction_games.each do |prediction_game|
 
-      hash = {:prediction=>prediction_game, :predictor=>self, :premium_access=> premium_access}
+      hash = {:prediction=>prediction_game, :predictor=>self, :game=> Game.find(prediction_game.game_id)}
 
       predictions << hash
 

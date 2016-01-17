@@ -85,9 +85,9 @@ class Predictor < ActiveRecord::Base
 
   end
 
-  def rated_prediction_count
+  def rated_predictions
 
-    return self.prediction_games.where(:status => "c").count
+    return self.prediction_games.where(:status => "c")
 
   end
 

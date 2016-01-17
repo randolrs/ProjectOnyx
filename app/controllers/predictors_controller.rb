@@ -82,9 +82,10 @@ class PredictorsController < ApplicationController
 
     ####need to correct method not to require @premium_access param
 
-    @predictions_upcoming = @predictor.my_prediction_games_upcoming(@premium_access)
+    #@predictions_upcoming = @predictor.my_prediction_games_upcoming(@premium_access)
 
-    @predictions_closed = @predictor.my_prediction_games_closed(@premium_access)  
+    
+    @predictions_rated = @predictor.rated_predictions 
 
     @predictions_recent = Array.new
     @predictions_recent = @predictor.recent_prediction_games

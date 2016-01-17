@@ -37,7 +37,7 @@
 
 					<div class ="prediction-game-index-show empty">
 
-							Your dashboard is currently empty.  Follow or subscribe to experts you find interesting to see their predictions in your dashboard.      
+							<%= @predictor.username %> has not yet made any predictions      
 
 	  				</div>
 
@@ -65,8 +65,31 @@
 			</div> -->
 
 			<div id="divTopIndex" style="display: none;">
-				<% @predictions = @predictions_top %>
-				<%= render 'prediction_games/indexshow' %>
+				
+				<% if @predictions_rated.empty? %>
+
+					<div class ="prediction-game-index-show empty">
+
+							<%= @predictor.username %> does not yet have any rated predictions.      
+
+	  				</div>
+
+				<%else%>
+
+					<% @predictions_rated.each do |hash| %>
+
+						<% @prediction = hash[:prediction] %>
+
+						<% @predictor = hash[:predictor] %>
+
+						<% @game = hash[:game] %>
+
+        				<%= render 'prediction_games/list_show' %>
+
+        			<%end%>
+
+        		<%end%>
+
 			</div>
 
 	    	<%# render 'prediction_games/indexshow'%>

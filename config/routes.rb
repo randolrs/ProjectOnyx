@@ -93,11 +93,6 @@ Rails.application.routes.draw do
   get 'predictorpayeeedit' => 'accounts#edit'
   get 'bank_account_new' => 'bank_accounts#new'
 
-  get 'find_NBA_predictions' => 'prediction_games#findnbapredictiongames'
-  get 'find_NFL_predictions' => 'prediction_games#findnflpredictiongames'
-  get 'find_MLB_predictions' => 'prediction_games#findmlbpredictiongames'
-  get 'find_NHL_predictions' => 'prediction_games#findnhlpredictiongames'
-
   get '/users/edit/payments' => 'cards#index', as: 'payments'
 
 
@@ -121,19 +116,13 @@ Rails.application.routes.draw do
 
   get '/:league/teams/:id/games' => 'teams#teamgameindex', as: 'teamgameindex'
 
-  get 'sports/league/:league/teams' => 'sports#teamindex', as: 'sportsteamindex'
+  get 'sports/leagues/:league/teams' => 'sports#teamindex', as: 'sportsteamindex'
 
-  get 'sports/league/:league/experts' => 'sports#expertindex', as: 'sportsexpertindex'
+  get 'sports/leagues/:league/experts' => 'sports#expertindex', as: 'sportsexpertindex'
 
   get '/events/sports/:league/predictions/:game_id' => 'prediction_games#findpredictiongames', as: 'find_sports_predictions'
   
   get '/predictors/sports/:league' => 'predictors#findsportspredictors', as: 'find_sports_predictors'
-
-  #get '/:username' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionsall'
-
-  #get '/:username/:category' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionscategory'
-
-  #get '/:username/:category/league/:league' => 'prediction_games#nbapredictorindexpredictiongame', as: 'predictorindexpredictionsleague'
 
   get '/:username/predictions' => 'predictors#predictionindex', as: 'predictorindexpredictionsall'
 
@@ -147,7 +136,7 @@ Rails.application.routes.draw do
 
   get '/:username/posts/:id' => 'articles#show', as: 'predictorarticleshow'
 
-  get '/:username/:category/league/:league' => 'predictors#predictionindex', as: 'predictorindexpredictionsleague'
+  get '/:username/:category/leagues/:league' => 'predictors#predictionindex', as: 'predictorindexpredictionsleague'
 
   get '/buyprediction/sports/:id' => 'prediction_games#buy', as: 'buypredictiongame'
 
@@ -176,6 +165,8 @@ Rails.application.routes.draw do
   get 'editor' => 'sports#new'
 
   get '/posts/all/:type' => 'articles#index', as: 'articledashboard'
+
+  get 'economics/:category' => 'prediction_economies#index', as: 'prediction_economies_index'
 
   get 'watchlist' =>'pages#mywatchlist'
 

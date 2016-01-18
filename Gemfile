@@ -82,3 +82,5 @@ gem 'emcee'
 
 gem 'jquery-turbolinks'
 
+gem "chartkick"
+

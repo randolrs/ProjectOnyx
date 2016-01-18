@@ -37,6 +37,7 @@ GEM
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.2.2)
+    chartkick (1.4.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -192,6 +193,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (< 2.0)
   bootstrap-sass
+  chartkick
   coffee-rails (~> 4.0.0)
   devise (~> 3.3.0)
   emcee

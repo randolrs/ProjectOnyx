@@ -6,14 +6,14 @@
     <table>
         <tr>
           <td> 
-            <%# image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%>
-            <b><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "full-name" %></b> 
+            <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
+            <b><%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %></b> 
 
-            &#183; <%= @prediction.created_at.strftime("%b %e") %> 
+            &#183; <%= prediction.created_at.strftime("%b %e") %> 
 
-            &#183; <%= image_tag Sport.find_by_subcat(@prediction.league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-tiny"%><%= @prediction.league %> Prediction
+            &#183; <%= image_tag Sport.find_by_subcat(prediction.league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-tiny"%><%= prediction.league %> Prediction
 
-            <%if @prediction.paid %>
+            <%if prediction.paid %>
               &#183; <img src="https://s3.amazonaws.com/projectonyx/Premium-Star.png" height="16" width="16"></img> Premium
             <%end%>
 
@@ -25,7 +25,7 @@
 
   <div>
 
-    <a class="no-style" href = "<%= show_prediction_games_path(@predictor.id, @prediction.league, @prediction.id)%>">
+    <a class="no-style" href = "<%= show_prediction_games_path(predictor.id, prediction.league, prediction.id)%>">
 
       <table class ="prediction-game-index-show-table">
 
@@ -35,7 +35,7 @@
           </td>
 
           <td colspan="1" class="prediction-game-date">
-            <b>Game Date: </b><%= @prediction.event_time.strftime("%b %e, %Y ") %>
+            <b>Game Date: </b><%= prediction.event_time.strftime("%b %e, %Y ") %>
           </td>
 
           <td colspan="2" class="prediction-game-team-header">
@@ -46,12 +46,12 @@
         <tr>
           <td rowspan="3" class="prediction-game-team-image">
             
-            <%= image_tag Team.find(@game.teama_id).image.url(:medium), class: "team-image-tiny"%>
+            <%= image_tag Team.find(game.teama_id).image.url(:medium), class: "team-image-tiny"%>
             
           </td>
 
           <td class="prediction-game-minor">
-            <%= Team.find(@game.teama_id).sub_name%>
+            <%= Team.find(game.teama_id).sub_name%>
           </td>
 
           <td width="250px">
@@ -59,12 +59,12 @@
           </td>
 
           <td class="prediction-game-minor">
-            <%= Team.find(@game.teamh_id).sub_name%>
+            <%= Team.find(game.teamh_id).sub_name%>
           </td>
 
           <td rowspan="3" class="prediction-game-team-image">
             
-            <%= image_tag Team.find(@game.teamh_id).image.url(:medium), class: "team-image-tiny"%>
+            <%= image_tag Team.find(game.teamh_id).image.url(:medium), class: "team-image-tiny"%>
             
           </td>
 
@@ -73,16 +73,16 @@
         <tr>
           
           <td class="prediction-game-show-center">
-            <%= Team.find(@game.teama_id).name%>
+            <%= Team.find(game.teama_id).name%>
           </td>
 
           <td class="prediction-game-show-center" height="50">
 
             <% if user_signed_in? %>
             
-              <% if @prediction.visible("user", current_user) %>
+              <% if prediction.visible("user", current_user) %>
 
-                <%= @prediction.teama_score%> - <%= @prediction.teamh_score%>
+                <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
               <%else%>
 
@@ -92,9 +92,9 @@
             
             <%elsif predictor_signed_in?%>
 
-              <%if current_predictor.id == @predictor.id %>
+              <%if current_predictor.id == predictor.id %>
 
-                <%= @prediction.teama_score%> - <%= @prediction.teamh_score%>
+                <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
               <%else%>
 
@@ -104,18 +104,18 @@
 
             <% elsif admin_signed_in? %>
 
-              <%= @prediction.teama_score%> - <%= @prediction.teamh_score%>
+              <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
 
             <% else %>
 
-              <% if @prediction.paid %>
+              <% if prediction.paid %>
 
                 <%= render 'predictors/predictor_login_cta'%>
 
               <% else %>
 
-                <%= @prediction.teama_score%> - <%= @prediction.teamh_score%>
+                <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
               <% end %>
 
@@ -124,7 +124,7 @@
           </td>
 
           <td class="prediction-game-show-center">
-            <%= Team.find(@game.teamh_id).name%>
+            <%= Team.find(game.teamh_id).name%>
           </td>
         </tr>
 
@@ -140,7 +140,7 @@
 
               <br>
 
-              <a href = "<%= show_prediction_games_path(@predictor.id, @prediction.league, @prediction.id)%>", class ="game-show-link"> Full Details </a>
+              <a href = "<%= show_prediction_games_path(predictor.id, prediction.league, prediction.id)%>", class ="game-show-link"> Full Details </a>
             
           </td>
 

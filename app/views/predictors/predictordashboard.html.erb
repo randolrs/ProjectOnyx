@@ -37,7 +37,7 @@
 
 					<div class ="prediction-game-index-show empty">
 
-							<%= @predictor.username %> has not yet made any predictions      
+						<%= @predictor.username %> has not yet made any predictions      
 
 	  				</div>
 
@@ -49,7 +49,7 @@
 
 						<% @game = hash[:game] %>
 
-        				<%= render 'prediction_games/list_show' %>
+        				<%= render partial: 'prediction_games/list_show', locals: {prediction: hash[:prediction], game: hash[:game], predictor: @predictor} %>
 
         			<%end%>
 
@@ -57,18 +57,13 @@
 
 			</div>
 
-<!-- 			<div id="divUpcomingIndex" style="display: none;">
-				<%# @predictions = @predictions_upcoming %>
-				<%# render 'prediction_games/indexshow' %>
-			</div> -->
-
 			<div id="divTopIndex" style="display: none;">
 				
 				<% if @predictions_rated.empty? %>
 
 					<div class ="prediction-game-index-show empty">
 
-							<%= @predictor.username %> does not yet have any rated predictions.      
+						<%= @predictor.username %> does not yet have any rated predictions.      
 
 	  				</div>
 
@@ -80,7 +75,7 @@
 
 						<% @game = hash[:game] %>
 
-        				<%= render 'prediction_games/list_show' %>
+        				<%= render partial: 'prediction_games/list_show', locals: {prediction: hash[:prediction], game: hash[:game], predictor: @predictor} %>
 
         			<%end%>
 
@@ -88,10 +83,8 @@
 
 			</div>
 
-	    	<%# render 'prediction_games/indexshow'%>
-
 		</div>
 
-	  </div>
+	</div>
 
 </div>

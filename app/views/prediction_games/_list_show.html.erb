@@ -141,9 +141,13 @@
 
               Final Score (Predicted)
 
+            <%if prediction.onyx %>
+              
               <br>
 
-              <a href = "<%= show_prediction_games_path(predictor.id, prediction.league, prediction.id)%>", class ="game-show-link"> Full Details </a>
+              <a class="no-style" style="background-color:#00D43C; color:white; padding: 5px;">Futable Rating: <%=prediction.onyx%></a>
+
+            <%end%>
             
           </td>
 

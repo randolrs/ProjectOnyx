@@ -233,34 +233,36 @@
               <td colspan="2">
               </td>
 
-            </tr>
+            </tr>     
 
-            
-              <% if user_signed_in? %>
-                
-                  <% if @prediction_game.visible("user", current_user) %>
+            <% if @prediction_game.onyx %>
 
+              <tr>
+              
+                <td colspan="2">
+                  
+                </td>
+
+                <td class="prediction-game-minor" style="border:1px solid #ccc; padding:5px;">
+                    <%=@prediction_game.teama_score%> - <%=@prediction_game.teamh_score%>
                     
+                    <br>
 
-                  <%else%>
+                    Final Score (Actual)
 
-                    
+                    <br>
 
-                  <%end%>
-                
-              <%elsif predictor_signed_in?%>
+                    <a class="no-style" style="background-color:#00D43C; color:white; padding: 5px;">Futable Rating: <%=@prediction_game.onyx%></a>
+                  
+                </td>
 
-                  <%if current_predictor.id == @predictor.id %>
+                <td colspan="2">
+                  
+                </td>
 
-                    
+              </tr>
 
-                  <%else%>
 
-                    
-
-                  <%end%>
-
-              <%end%>
-        
+            <% end %>   
 
 </div>

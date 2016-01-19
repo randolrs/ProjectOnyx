@@ -22,7 +22,9 @@ class Team < ActiveRecord::Base
 
         	predictor = Predictor.find(prediction.predictor_id)
 
-            hash = {:prediction=>prediction, :predictor=> predictor, :premium_access=> false}
+            game = Game.find(prediction.game_id)
+
+            hash = {:prediction=>prediction, :predictor=> predictor, :game => game}
 
             predictions << hash
           

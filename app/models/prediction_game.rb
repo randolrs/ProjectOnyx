@@ -19,47 +19,44 @@ class PredictionGame < ActiveRecord::Base
 
 			predictor_id = self.predictor_id
 
-			if paid
+			if self.paid
 
-				if usertype == "user"
+				unless self.onyx
 
-					###add stripe authentication, or base on method of
+					if usertype == "user"
 
-					if Purchase.exists?(:user_id => access.id, :predictor_id => predictor_id, :premium => true)
+						###add stripe authentication, or base on method of
 
+						if Purchase.exists?(:user_id => access.id, :predictor_id => predictor_id, :premium => true)
+
+							true
+						else
+
+							false
+						end
+
+					elsif usertype == "predictor"
+
+						if access.prediction_games.exists?(:id => id)
+							true
+
+						else
+					 		false
+						end
+
+					elsif usertype == "admin"
 						true
-					else
 
+					elsif usertype == "none"
+						false
+
+					else
 						false
 					end
-
-				elsif usertype == "predictor"
-
-					if access.prediction_games.exists?(:id => id)
-						true
-
-					else
-				 		false
-					end
-
-				elsif usertype == "admin"
-					true
-
-				elsif usertype == "none"
-					false
-
 				else
-
-				# 	if prediction_game in current_predictor.prediction_games
-				# 		true
-
-				# 	else
-				 		#false
-				# 	end
-
-				#else
-					false
+					true
 				end
+
 			else
 				true
 

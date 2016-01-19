@@ -25,7 +25,9 @@ class Sport < ActiveRecord::Base
 
     		predictor = Predictor.find(sport_prediction_game.predictor_id)
 
-          	hash = {:prediction=>sport_prediction_game, :predictor=> predictor, :premium_access=> false}
+            game = Game.find(sport_prediction_game.game_id)
+
+          	hash = {:prediction=>sport_prediction_game, :predictor=> predictor, :game => game}
 
           	predictions << hash
 

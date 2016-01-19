@@ -94,8 +94,7 @@ html, body {
     margin-left: auto;
     margin-right: auto;
     background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    border: 1px #ddd solid;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .content-panel:after{

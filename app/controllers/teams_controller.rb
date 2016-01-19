@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-      @team = Team.find(params[:id])
+      @team = Team.find_by_name(params[:team])
       @league = @team.league
       @teams = Team.all.where(:league=>@league)
       @games = @team.upcoming_games
@@ -28,7 +28,7 @@ class TeamsController < ApplicationController
   end
 
   def show_games
-    @team = Team.find(params[:id])
+    @team = Team.find_by_name(params[:team])
     @league = @team.league
     @teams = Team.all.where(:league=>@league)
     @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
@@ -52,7 +52,7 @@ end
 
 def expertindex
 
-  @team = Team.find(params[:id])
+  @team = Team.find_by_name(params[:team])
   @league = @team.league
 
   @experts = @team.all_predictors
@@ -82,7 +82,7 @@ def show_predictors
 end
 
   def teamgameindex
-      @team = Team.find(params[:id])
+      @team = Team.find_by_name(params[:team])
       @league = @team.league
       @sport = Sport.find_by_subcat(@league)
       @teams = Team.all.where(:league=>@league)
@@ -185,7 +185,7 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
-      @team = Team.find(params[:id])
+      @team = Team.find_by_name(params[:team])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -95,8 +95,6 @@ Rails.application.routes.draw do
 
   get '/users/edit/payments' => 'cards#index', as: 'payments'
 
-
-  get '/:predictor_id/sports/:league/:id' => 'prediction_games#show', as: 'show_prediction_games'
   
   get '/events/sports/:league' => 'games#findgames', as: 'find_prediction_games'
 
@@ -106,15 +104,13 @@ Rails.application.routes.draw do
 
   get '/:league/games/:id/posts' => 'pages#gamearticleindex', as: 'gamearticleindex'
 
-  get 'sports/leagues/:league/teams/:id' => 'teams#show', as: 'teamshow'
+  get 'sports/leagues/:league/teams/:team' => 'teams#show', as: 'teamshow'
 
-  get 'sports/leagues/:league/teams/:id/games' => 'teams#show_games', as: 'teamshowgames'
+  get 'sports/leagues/:league/teams/:team/games' => 'teams#show_games', as: 'teamshowgames'
 
-  get 'sports/leagues/:league/teams/:id/experts' => 'teams#expertindex', as: 'teamindexexperts'
+  get 'sports/leagues/:league/teams/:team/experts' => 'teams#expertindex', as: 'teamindexexperts'
 
-  get 'sports/leagues/:league/teams/:id/experts' => 'teams#show_predictors', as: 'teamshowpredictors'
-
-  get '/:league/teams/:id/games' => 'teams#teamgameindex', as: 'teamgameindex'
+  get '/:league/teams/:team/games' => 'teams#teamgameindex', as: 'teamgameindex'
 
   get 'sports/leagues/:league/teams' => 'sports#teamindex', as: 'sportsteamindex'
 
@@ -142,13 +138,11 @@ Rails.application.routes.draw do
 
   get '/:username/:type/new/sports/' => 'games#sportsgamesselect', as: 'sportsgamesselect'
 
+  get '/:predictor_id/sports/:league/:id' => 'prediction_games#show', as: 'show_prediction_games'
+
   get '/:username/predictions/sports/:id' => 'prediction_games#show', as: 'predictiongamesshow'
 
   get '/:username/subscribers' => 'predictors#subscriberindex', as: 'predictorsubscriberindex'
-
-  get '/:league/teams/:id/predictions' => 'teams#predictionindex', as: 'teamindexpredictionsall'
-
-  get '/:league/teams/:id/posts' => 'teams#articleindex', as: 'teamindexarticlesall'
 
   get ':league/posts/all/index' => 'pages#leaguearticleindex', as: 'leaguearticleindex'
 

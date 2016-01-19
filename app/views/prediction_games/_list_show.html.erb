@@ -6,7 +6,7 @@
     <table>
         <tr>
           <td> 
-            <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%>
+            <%# image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%>
             <b><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "full-name" %></b> 
 
             &#183; <%= @prediction.created_at.strftime("%b %e") %> 

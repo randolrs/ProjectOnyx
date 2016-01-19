@@ -45,13 +45,16 @@
 
 					<% @predictions_recent.each do |hash| %>
 
+						<% unless hash[:prediction].nil?%>
 						<%# @prediction = hash[:prediction] %>
 
 						<%# @game = hash[:game] %>
 
         				<%# render partial: 'prediction_games/list_show', locals: {prediction: hash[:prediction], game: hash[:game], predictor: @predictor} %>
 
-        				<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, hash: hash} %>
+        					<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
+
+        				<%end%>
 
         			<%end%>
 
@@ -73,9 +76,11 @@
 
 					<% @predictions_rated.each do |hash| %>
 
-						<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, hash: hash} %>
+						<% unless hash[:prediction].nil?%>
 
-        				<%# render partial: 'prediction_games/list_show', locals: {prediction: hash[:prediction], game: hash[:game], predictor: @predictor} %>
+							<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
+
+        				<%end%>
 
         			<%end%>
 

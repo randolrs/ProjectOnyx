@@ -72,22 +72,23 @@ class Predictor < ActiveRecord::Base
 
   end
 
-  def recent_prediction_count
-
-    return self.prediction_games.where(["created_at < ?", 3.days.ago]).count
-
-  end
-
-
-  def active_prediction_count
-
-    return self.prediction_games.where(:status => "o").count
-
-  end
-
   def rated_predictions
 
-    return self.prediction_games.where(:status => "c")
+    predictions = Array.new 
+    
+    self.prediction_games.each do |prediction_game|
+
+      if prediction_game.status = "c"
+
+        hash = {:prediction=>prediction_game, :predictor=>self, :game=> Game.find(prediction_game.game_id)}
+
+        predictions << hash
+
+      end
+
+    end
+
+    return predictions.sort_by {|k| k[:prediction].created_at}.reverse
 
   end
 
@@ -97,7 +98,7 @@ class Predictor < ActiveRecord::Base
 
   end
 
-    def team_predictions(team)
+  def team_predictions(team)
 
     return self.prediction_games.where("teama = :team or teamh = :team", {team: team.name})
 

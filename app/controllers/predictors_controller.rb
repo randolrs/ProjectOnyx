@@ -80,6 +80,7 @@ class PredictorsController < ApplicationController
 
     @predictions = Array.new 
 
+    @predictions_rated = Array.new
     @predictions_rated = @predictor.rated_predictions 
 
     @predictions_recent = Array.new

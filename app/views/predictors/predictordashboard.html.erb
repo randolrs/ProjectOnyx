@@ -49,7 +49,7 @@
 
 						<% @game = hash[:game] %>
 
-        				<%= render partial: 'prediction_games/list_show', locals: {prediction: hash[:prediction], game: hash[:game], predictor: @predictor} %>
+        				<%= render partial: 'prediction_games/list_show', locals: {prediction: @prediction, game: @game, predictor: @predictor} %>
 
         			<%end%>
 
@@ -71,11 +71,11 @@
 
 					<% @predictions_rated.each do |hash| %>
 
-						<% @prediction = hash[:prediction] %>
+        				<% @prediction = hash[:prediction] %>
 
 						<% @game = hash[:game] %>
 
-        				<%= render partial: 'prediction_games/list_show', locals: {prediction: hash[:prediction], game: hash[:game], predictor: @predictor} %>
+        				<%= render partial: 'prediction_games/list_show', locals: {prediction: @prediction, game: @game, predictor: @predictor} %>
 
         			<%end%>
 

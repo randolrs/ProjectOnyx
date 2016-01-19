@@ -109,16 +109,15 @@
 
               <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
-
             <% else %>
 
-              <% if prediction.paid %>
+              <% if prediction.visible("none", false) %>
 
-                <%= render 'predictors/predictor_login_cta'%>
+                <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
               <% else %>
 
-                <%= prediction.teama_score%> - <%= prediction.teamh_score%>
+                <%= render 'predictors/predictor_login_cta'%>
 
               <% end %>
 

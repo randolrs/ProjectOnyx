@@ -115,7 +115,9 @@ class User < ActiveRecord::Base
 
         predictor_object.prediction_games.each do |prediction_game|
 
-          hash = {:prediction=>prediction_game, :predictor=> predictor[:predictor], :premium_access=> predictor[:premium]}
+          game = Game.find(prediction_game.game_id)
+
+          hash = {:prediction=>prediction_game, :predictor=> predictor_object, :game => game}
 
           predictions << hash
 
@@ -281,6 +283,12 @@ class User < ActiveRecord::Base
       end
       
     end
+
+  end
+
+  def has_universal_subscription
+
+
 
   end
 

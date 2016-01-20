@@ -89,7 +89,7 @@
 
               <%else%>
 
-                <%= render 'predictors/predictor_subscribe_cta'%>
+                <%= render partial: 'predictors/predictor_subscribe_cta', locals: {predictor: predictor} %>
 
               <%end%>
             

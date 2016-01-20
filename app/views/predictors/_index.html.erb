@@ -21,9 +21,8 @@
             <div class="predictor-card-body">
               
                 <%= image_tag predictor.image.url(:medium), class: "predictor-image-card"%>
-
-                <% @predictor = predictor %>
-                <%= render 'predictors/predictor_subscribe_cta' %>
+                
+                <%= render partial: 'predictors/predictor_subscribe_cta', locals: {predictor: predictor} %>
 
                 <br>
 

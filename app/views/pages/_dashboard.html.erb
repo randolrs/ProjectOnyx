@@ -23,7 +23,13 @@
         <%= render 'pages/user_dashboard_prediction_nav'%>
 
         <div id="divPredictionIndex">
-          <%= render 'prediction_games/indexshow' %>
+            
+            <% @predictions.each do |hash| %>
+              
+              <%= render partial: 'prediction_games/list_show', locals: {predictor: hash[:predictor], prediction: hash[:prediction], game: hash[:game]} %>
+
+            <%end%>
+
         </div>
 
         <div id="divWatchingIndex" style="display: none;">

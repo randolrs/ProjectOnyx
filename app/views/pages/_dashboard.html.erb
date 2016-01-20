@@ -24,13 +24,13 @@
 
         <div id="divPredictionIndex">
             
-            <% if @predictions.empty? %>
+          <% if @predictions.empty? %>
 
-              <div class ="prediction-game-index-show empty">
+            <div class ="prediction-game-index-show empty">
 
-                Follow experts to view predictions in your dashboard.      
+              Follow experts to view predictions in your dashboard.      
 
-              </div>
+            </div>
 
           <%else%>
 
@@ -39,6 +39,8 @@
               <%= render partial: 'prediction_games/list_show', locals: {predictor: hash[:predictor], prediction: hash[:prediction], game: hash[:game]} %>
 
             <%end%>
+
+          <%end%>
 
         </div>
 

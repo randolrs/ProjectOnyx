@@ -1087,6 +1087,16 @@ a.no-style:hover{
       
     }
 
+    .user-dashboard-wrap{
+      width: 100%;
+      max-width:500px;
+    }
+
+    .user-dashboard-container{
+      width: 100%;
+      max-width:500px;
+    }
+
     .user-dashboard-predictions{
       width: 100%;
     }
@@ -1159,6 +1169,16 @@ a.no-style:hover{
 
     .expert-types-container{
       
+    }
+
+    .user-dashboard-wrap{
+      width: 100%;
+      max-width:500px;
+    }
+
+    .user-dashboard-container{
+      width: 100%;
+      max-width:500px;
     }
 
     .user-dashboard-predictions{

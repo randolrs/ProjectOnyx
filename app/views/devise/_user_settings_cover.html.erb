@@ -1,0 +1,58 @@
+<header>
+  <script>
+        $(document).ready(function(){
+            $("#profile").click(function(){
+              $('#divUpcomingIndex').hide(750)
+              $('#divTopIndex').hide(750)
+              $('#divRecentIndex').show(750)
+              $("#profile").addClass("active");
+              $("#payment").removeClass("active");
+              $("#rated").removeClass("active");
+            });
+        });
+  </script>
+
+  <script>
+        $(document).ready(function(){
+            $("#payment").click(function(){
+              $('#divRecentIndex').hide(750)
+              $('#divTopIndex').hide(750)
+              $('#divUpcomingIndex').show(750)
+              $("#payment").addClass("active");
+              $("#profile").removeClass("active");
+              $("#rated").removeClass("active");
+            });
+        });
+  </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#rated").click(function(){
+              $('#divRecentIndex').hide(750)
+              $('#divUpcomingIndex').hide(750)
+              $('#divTopIndex').show(750)
+              $("#rated").addClass("active");
+              $("#upcoming").removeClass("active");
+              $("#recent").removeClass("active");
+            });
+        });
+  </script>
+
+</header>
+
+<div class = "cover-wrap">
+
+  <div class="cover-container">
+
+    <ul class="horizontal-cover center">
+
+      <li id="profile"><a class="subheader">Profile</a></li>
+
+      <li id="payment"><a class="subheader">Payment Information</a></li>
+
+    </ul>
+    
+
+  </div>
+
+</div>

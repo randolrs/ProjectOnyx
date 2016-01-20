@@ -193,7 +193,7 @@ class Predictor < ActiveRecord::Base
 
       else
 
-        return "Error"
+        return 5
       end
 
     else

@@ -83,13 +83,13 @@
 
             <% if user_signed_in? %>
             
-              <% if prediction.visible("user", current_user) %>
+              <% if prediction.paid and not current_user.subscribed(predictor.id)%>
 
-                <%= prediction.teama_score%> - <%= prediction.teamh_score%>
+                <%= render partial: 'predictors/predictor_subscribe_cta', locals: {predictor: predictor} %>
 
               <%else%>
 
-                <%= render partial: 'predictors/predictor_subscribe_cta', locals: {predictor: predictor} %>
+                <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
               <%end%>
             
@@ -111,7 +111,7 @@
 
             <% else %>
 
-              <% if prediction.visible("none", false) %>
+              <% unless prediction.paid %>
 
                 <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 

@@ -2,19 +2,7 @@
 
   	<% unless current_user.subscribed(predictor.id) %>
 
-		<% if current_user.paymentsource %>
-
-			<%# link_to "Go Premium", subscribe_path(:username=>@predictor.username), {:class=>"subscribe_cta" }%>
-
-			<%= link_to "Go Premium", subscribe_confirm_path(predictor.username), {:class=>"subscribe_cta" }%>
-
-		<% else %>
-
-			<%= link_to "Go Premium", subscribe_confirm_path(predictor.username), {:class=>"subscribe_cta" }%>
-			<!-- <a id="addCardLink" onclick="toggleModal();" class="subscribe_cta">Go Premium</a> -->
-			<%=render 'cards/addcardform_subscribe' %>
-			
-		<% end %>
+		<%= link_to "Go Premium", subscribe_confirm_path(predictor.username), {:class=>"subscribe_cta" }%>
 
 	<%else%>
 

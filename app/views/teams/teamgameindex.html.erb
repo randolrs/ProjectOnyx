@@ -22,7 +22,7 @@
 
 			      	<% @games.pluck(:season).uniq.each do |season| %>
 
-						<option value=<%=teamgameindex_path(@team.league, @team.id, :season=>season)%>><%=season%>
+						<option value=<%=teamgameindex_path(@team.league, @team.name, :season=>season)%>><%=season%>
 
 					<%end%>
 

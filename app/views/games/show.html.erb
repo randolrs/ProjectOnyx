@@ -16,9 +16,21 @@
 
 		<div class ="user-dashboard-predictions">
 
-			<% @predictions.each do |hash| %>
-        
-          		<%= render partial: 'prediction_games/list_show', locals: {predictor: hash[:predictor], prediction: hash[:prediction], game: hash[:game]} %>
+			<% if @predictions.empty? %>
+
+				<div class ="prediction-game-index-show empty">
+
+					No predictions yet.     
+
+  				</div>
+
+			<%else%>
+
+				<% @predictions.each do |hash| %>
+	        
+	          		<%= render partial: 'prediction_games/list_show', locals: {predictor: hash[:predictor], prediction: hash[:prediction], game: hash[:game]} %>
+
+	        	<%end%>
 
         	<%end%>
 

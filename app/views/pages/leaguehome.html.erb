@@ -28,11 +28,24 @@
 
 			<div id="divPredictionIndex">
 
-				<% @predictions.each do |hash| %>
+				
+				<% if @predictions.empty? %>
 
-        			<%= render partial: 'prediction_games/list_show', locals: {predictor: hash[:predictor], prediction: hash[:prediction], game: hash[:game]} %>
+					<div class ="prediction-game-index-show empty">
 
-        			<%end%>
+						No predictions yet.     
+
+	  				</div>
+
+				<%else%>
+
+					<% @predictions.each do |hash| %>
+
+	        			<%= render partial: 'prediction_games/list_show', locals: {predictor: hash[:predictor], prediction: hash[:prediction], game: hash[:game]} %>
+
+	        		<%end%>
+
+	        	<%end%>
 
 			</div>
 

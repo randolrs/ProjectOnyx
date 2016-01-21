@@ -1100,7 +1100,7 @@ a.no-style:hover{
     .user-dashboard-predictions{
       width: 100%;
       max-width:530px;
-      min-width: :0px;
+      min-width: 0px;
     }
 
     .user-dashboard-prediction-nav{

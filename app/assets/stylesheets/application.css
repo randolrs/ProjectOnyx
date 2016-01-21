@@ -799,8 +799,7 @@ td.ud-margin{
 
 .user-dashboard-predictions{
   float:left;
-  //padding:40px;
-  //background-color:#FCFCFC;
+  min-width: 500px;
   padding: 0px 15px;
 }
 
@@ -904,7 +903,7 @@ td.add-card-header{
   float:left;
   border-radius:2px;
   background-color: white;
-  margin: 12px 6px;
+  margin: 0px 6px 12px 0px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -1099,6 +1098,7 @@ a.no-style:hover{
 
     .user-dashboard-predictions{
       width: 100%;
+      max-width:500px;
     }
 
     .user-dashboard-prediction-nav{
@@ -1183,6 +1183,7 @@ a.no-style:hover{
 
     .user-dashboard-predictions{
       width: 100%;
+      max-width:500px;
     }
 
     .user-dashboard-prediction-nav{

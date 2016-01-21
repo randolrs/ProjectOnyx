@@ -702,8 +702,8 @@ p.terms-of-service{
 .user-dashboard-prediction-nav{
     padding: 10px;
     background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    border: 1px #ddd solid;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .dashboard-prediction-nav{
@@ -799,7 +799,7 @@ td.ud-margin{
 
 .user-dashboard-predictions{
   float:left;
-  min-width: 500px;
+  min-width: 530px;
   padding: 0px 15px;
 }
 
@@ -899,7 +899,7 @@ td.add-card-header{
 
 .predictor-card{
   height:300px;
-  width: 254px;
+  width: 250px;
   float:left;
   border-radius:2px;
   background-color: white;
@@ -1098,7 +1098,7 @@ a.no-style:hover{
 
     .user-dashboard-predictions{
       width: 100%;
-      max-width:500px;
+      max-width:530px;
     }
 
     .user-dashboard-prediction-nav{
@@ -1107,7 +1107,6 @@ a.no-style:hover{
 
     .prediction-game-index-show{
       width:100%;
-      max-width:500px;
     }
 
     .dual-signup-panel-float{
@@ -1183,7 +1182,7 @@ a.no-style:hover{
 
     .user-dashboard-predictions{
       width: 100%;
-      max-width:500px;
+      max-width:530px;
     }
 
     .user-dashboard-prediction-nav{
@@ -1192,7 +1191,6 @@ a.no-style:hover{
 
     .prediction-game-index-show{
       width:100%;
-      max-width:500px;
     }
 
     .dual-signup-panel-float{

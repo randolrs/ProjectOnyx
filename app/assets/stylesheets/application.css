@@ -799,8 +799,7 @@ td.ud-margin{
 
 .user-dashboard-predictions{
   float:left;
-  max-width:530px;
-  min-width:0px;
+  width:530px;
   padding: 0px 15px;
 }
 
@@ -900,7 +899,7 @@ td.add-card-header{
 
 .predictor-card{
   height:300px;
-  width: 250px;
+  width: 244px;
   float:left;
   border-radius:2px;
   background-color: white;

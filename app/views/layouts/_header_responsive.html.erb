@@ -75,16 +75,17 @@
 
    <%elsif predictor_signed_in?%>
 
-      <li class="right"><a href='<%=predictordashboard_path(current_predictor.username)%>'><span>My Profile</span></a></li>
-      <li class="right"><a href='<%=sportsgamesselect_path(current_predictor.username, "predictions")%>'><span>Make a Prediction</span></a></li>
-
       <li class="right" class='active has-sub'><a href='#'><span><%= current_predictor.username %></span></a>
          <ul>
             <li><a href='<%=edit_predictor_registration_path%>'><span>Account Settings</span></a>
             <li><a href='<%=root_path%>'><span>Feedback/Support</span></a>
             <li><a data-method="delete" href='<%=destroy_predictor_session_path%>'><span>Logout</span></a>
          </ul>
-      </li>    
+      </li>  
+
+      <li class="right"><a href='<%=sportsgamesselect_path(current_predictor.username, "predictions")%>'><span>Make a Prediction</span></a></li>
+
+      <li class="right"><a href='<%=predictordashboard_path(current_predictor.username)%>'><span>My Profile</span></a></li>  
 
    <%elsif admin_signed_in?%>  
 

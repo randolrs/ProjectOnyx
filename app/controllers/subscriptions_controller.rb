@@ -14,9 +14,7 @@ class SubscriptionsController < ApplicationController
 
 	      	customer = Stripe::Customer.retrieve(@user.customer_id)
 
-	      	@price = (@predictor.sub_price.to_i * 100)
-
-	      	
+	      	price = (@price * 100).to_i
 
 	      	customer_subscriptions = customer.subscriptions.all
 
@@ -36,12 +34,12 @@ class SubscriptionsController < ApplicationController
 	  	if has_universal_subscription
 
 	  		subscription = customer.subscriptions.retrieve(@user.subscription_id)
-			subscription.quantity = subscription.quantity + @price
+			subscription.quantity = subscription.quantity + price
 			subscription.save
 
 	  	else
 
-	  		subscription = customer.subscriptions.create(:plan => "futaversal", :quantity => @price)
+	  		subscription = customer.subscriptions.create(:plan => "futaversal", :quantity => price)
 
 	  		@user.subscription_id = subscription.id
 

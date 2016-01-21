@@ -799,7 +799,8 @@ td.ud-margin{
 
 .user-dashboard-predictions{
   float:left;
-  min-width: 530px;
+  max-width:530px;
+  min-width:0px;
   padding: 0px 15px;
 }
 
@@ -1099,6 +1100,7 @@ a.no-style:hover{
     .user-dashboard-predictions{
       width: 100%;
       max-width:530px;
+      min-width: :0px;
     }
 
     .user-dashboard-prediction-nav{
@@ -1183,6 +1185,8 @@ a.no-style:hover{
     .user-dashboard-predictions{
       width: 100%;
       max-width:530px;
+      min-width:0px;
+      padding: 0px 15px;
     }
 
     .user-dashboard-prediction-nav{

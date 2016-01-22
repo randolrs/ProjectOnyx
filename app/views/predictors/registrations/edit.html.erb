@@ -1,9 +1,10 @@
-<% @action = "basic"%>
-<%= render 'predictors/editnavside' %>
+<%= render 'predictors/predictor_edit_cover' %>
 
-<div class = "edit-container">
+<div class="content-panel-wrap">
 
-  <div class="edit-panel">
+  <div class="content-panel">
+
+    <div class="content-panel-container">
 
     <h2>Basic Information</h2>
 
@@ -38,8 +39,11 @@
         <%= f.password_field :current_password, autocomplete: "off" %></div><br/>
 
       <div><%= f.submit "Update", class: "signup-submit" %></div>
+
     <% end %>
-    
+
+    </div>  
+
   </div>
   
 </div>

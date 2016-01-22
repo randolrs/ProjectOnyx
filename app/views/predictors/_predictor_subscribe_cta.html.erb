@@ -1,12 +1,8 @@
 <% if user_signed_in?%>
 
   	<% unless current_user.subscribed(predictor.id) %>
-
-  		<% if predictor.subscription_price > 0 %>
 		
 			<%= link_to "Go Premium", subscribe_confirm_path(predictor.username), {:class=>"subscribe_cta" }%>
-
-		<%end%>
 
 	<%else%>
 

@@ -8,73 +8,75 @@ class SubscriptionsController < ApplicationController
 
 	    	@user = current_user
 
-			Stripe.api_key = Rails.configuration.stripe[:secret_key]
+	    	if @predictor.subscription_price > 0
 
-	      	#retrieve and set default source
+				Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-	      	customer = Stripe::Customer.retrieve(@user.customer_id)
+		      	customer = Stripe::Customer.retrieve(@user.customer_id)
 
-	      	price = (@price * 100).to_i
+		      	price = (@price * 100).to_i
 
-	      	customer_subscriptions = customer.subscriptions.all
+		      	customer_subscriptions = customer.subscriptions.all
 
-	    	has_universal_subscription = false
+		    	has_universal_subscription = false
 
-	      	customer_subscriptions.each do |subscriptions|
+		      	customer_subscriptions.each do |subscriptions|
 
-	      		if subscriptions.id == "futaversal"
+		      		if subscriptions.id == "futaversal"
 
-	      			has_universal_subscription = true
+		      			has_universal_subscription = true
 
-	      		end
+		      		end
 
-	      	end
+		      	end
 
 
-	  	if has_universal_subscription
+			  	if has_universal_subscription
 
-	  		subscription = customer.subscriptions.retrieve(@user.subscription_id)
-			subscription.quantity = subscription.quantity + price
-			subscription.save
+			  		subscription = customer.subscriptions.retrieve(@user.subscription_id)
+					subscription.quantity = subscription.quantity + price
+					subscription.save
 
-	  	else
+			  	else
 
-	  		subscription = customer.subscriptions.create(:plan => "futaversal", :quantity => price)
+			  		subscription = customer.subscriptions.create(:plan => "futaversal", :quantity => price)
 
-	  		@user.subscription_id = subscription.id
+			  		@user.subscription_id = subscription.id
 
-	  	end
+			  	end
+
+			end
 	      								 
 		#purchase model entry addition
 
-		if Purchase.exists?(:user_id=> @user.id,:predictor_id=>@predictor.id)
+			if Purchase.exists?(:user_id=> @user.id,:predictor_id=>@predictor.id)
 
-			@purchase = Purchase.where(:user_id=> @user.id,:predictor_id=>@predictor.id)
+				@purchase = Purchase.where(:user_id=> @user.id,:predictor_id=>@predictor.id)
 
-			@purchase.each do |purchase|
-				purchase.update(:premium => true, :active=> true)
+				@purchase.each do |purchase|
+					purchase.update(:premium => true, :active=> true)
+				end
+
+			else
+
+				@purchase = Purchase.new
+
+				@purchase.user_id = @user.id
+
+				@purchase.predictor_id = @predictor.id
+
+				@purchase.active = true
+
+				@purchase.premium = true
+
+				@purchase.save        
+
 			end
-
-		else
-
-			@purchase = Purchase.new
-
-			@purchase.user_id = @user.id
-
-			@purchase.predictor_id = @predictor.id
-
-			@purchase.active = true
-
-			@purchase.premium = true
-
-			@purchase.save        
-
-		end
-
-	      redirect_to root_path
 
 	    end
 
-	 end
+	    redirect_to root_path
+
+	end
 
 end

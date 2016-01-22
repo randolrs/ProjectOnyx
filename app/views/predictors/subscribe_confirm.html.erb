@@ -1,4 +1,26 @@
+<script>
+	$(document).ready(function(){
+
+	    $("#currentPaymentLink").click(function(){
+
+	    	$(".add-card-container").hide()
+
+	    });
+
+	    $("#addCardLink").click(function(){
+	    	
+	    	$(".add-card-container").show()
+	    		
+
+	    });
+
+	});
+
+</script>
+
+
 <%= render 'predictors/predictorcover' %>
+
 
 <div class="content-panel-wrap">
 
@@ -6,28 +28,40 @@
 
 	  <div class="content-panel-container">
 	    
-	    <h1>Confirm Premium Subscription</h1>
+	    <h1>Confirm Premium Upgrade</h1>
 
-	    <h3 style="color:green;"><%=number_to_currency(@price).to_s + "/month"%></h3>
+	    <h3 style="color:#11a657;"><%=number_to_currency(@price).to_s + "/month"%></h3>
 
 	    <div class="large-table-container">
 
-	    	<table class="game-schedule-table">
-				
-				<tbody>
-					
+	    	<% if @displaycard %>
 
+	    		<input type="radio" name="payment_type" value="current"  id="currentPaymentLink"  checked="checked"><b>Current Payment Method</b> (<%=@displaycard.brand + " ending in " + @displaycard.last4 %>)
 
-				</tbody>
+				<br><br>
 
-			</table>
+				<input type="radio" name="payment_type" value="add" id="addCardLink"><b>Add a Credit Card</b
+				><br><br>
+
+				<div class="add-card-container" style="display:none">
+					<%=render 'cards/newcardform' %>
+				</div>
+
+			<% else %>
+		      		
+				<input type="radio" name="payment_type" value="add" id="addCardLink" checked="checked"><b>Add a Credit Card</b><br>
+
+				<%=render 'cards/newcardform' %>
+
+			<% end %>
 
 	    </div>
 
 	    <div style="text-align:center;">
 
 	    	<%= link_to "Confirm", subscribe_path(:username=>@predictor.username), {:class=>"subscribe_cta" }%>
-	     </div>
+
+		</div>
 
 	  </div>
 

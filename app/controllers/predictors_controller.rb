@@ -199,6 +199,38 @@ class PredictorsController < ApplicationController
 
      @price = @predictor.subscription_price
 
+     if user_signed_in?
+
+        unless current_user.customer_id
+
+          Stripe.api_key = Rails.configuration.stripe[:secret_key]
+
+          customer = Stripe::Customer.create(
+                    :description => "Customer for Futable"
+                    )
+
+          current_user.update(:customer_id => customer.id)
+
+        else
+
+          customer = Stripe::Customer.retrieve(current_user.customer_id)
+
+          if customer.default_source
+
+            @defaultcard = customer.default_source
+
+            @displaycard = customer.sources.retrieve(@defaultcard)
+
+            @list = customer.sources.all(:limit => 5, :object => "card")
+
+            @cards = @list.data
+
+          end
+
+        end
+
+     end
+
   end
 
   def follow

@@ -83,7 +83,7 @@
 
             <% if user_signed_in? %>
             
-              <% if prediction.paid and not current_user.subscribed(predictor.id) and predictor.subscription_id > 0 %>
+              <% if prediction.paid and not current_user.subscribed(predictor.id) and predictor.subscription_price > 0 %>
 
                 <%= render partial: 'predictors/predictor_subscribe_cta', locals: {predictor: predictor} %>
 

@@ -1,26 +1,6 @@
-<script>
-	$(document).ready(function(){
-
-	    $("#currentPaymentLink").click(function(){
-
-	    	$(".add-card-container").hide()
-
-	    });
-
-	    $("#addCardLink").click(function(){
-	    	
-	    	$(".add-card-container").show()
-	    		
-
-	    });
-
-	});
-
-</script>
 
 
 <%= render 'predictors/predictorcover' %>
-
 
 <div class="content-panel-wrap">
 
@@ -32,11 +12,11 @@
 
 	    <h3 style="color:#11a657;"><%=number_to_currency(@price).to_s + "/month"%></h3>
 
-	    <div class="large-table-container">
+<!-- 	    <div class="large-table-container"> -->
 
-	    	<% if @displaycard %>
+<!-- 	    	<%# if @displaycard %>
 
-	    		<input type="radio" name="payment_type" value="current"  id="currentPaymentLink"  checked="checked"><b>Current Payment Method</b> (<%=@displaycard.brand + " ending in " + @displaycard.last4 %>)
+	    		<input type="radio" name="payment_type" value="current"  id="currentPaymentLink"  checked="checked"><b>Current Payment Method</b> (<%#@displaycard.brand + " ending in " + @displaycard.last4 %>)
 
 				<br><br>
 
@@ -44,22 +24,24 @@
 				><br><br>
 
 				<div class="add-card-container" style="display:none">
-					<%=render 'cards/newcardform' %>
+					<%#render 'cards/newcardform' %>
 				</div>
 
-			<% else %>
+			<%# else %>
 		      		
 				<input type="radio" name="payment_type" value="add" id="addCardLink" checked="checked"><b>Add a Credit Card</b><br>
 
-				<%=render 'cards/newcardform' %>
+				<%#render 'cards/newcardform' %>
 
-			<% end %>
+			<%# end %>
 
-	    </div>
+	    </div> -->
 
 	    <div style="text-align:center;">
 
-	    	<%= link_to "Confirm", subscribe_path(:username=>@predictor.username), {:class=>"subscribe_cta" }%>
+	    	<%= link_to "Confirm", subscribe_path(:username=>@predictor.username), {:class=>"subscribe_cta", :id=>"current-card" }%>
+
+	    	<%# link_to "Confirm", subscribe_path(:username=>@predictor.username, :new_card=>true), {:class=>"subscribe_cta", :id=>"new-card", :style=>"display:none;" }%>
 
 		</div>
 

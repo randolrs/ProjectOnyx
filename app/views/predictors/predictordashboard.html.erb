@@ -44,11 +44,6 @@
 				<%else%>
 
 					<% @predictions_recent.each do |hash| %>
-						<%# @prediction = hash[:prediction] %>
-
-						<%# @game = hash[:game] %>
-
-        				<%# render partial: 'prediction_games/list_show', locals: {prediction: hash[:prediction], game: hash[:game], predictor: @predictor} %>
 
         				<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
 

@@ -1,51 +1,53 @@
-<%= render 'predictors/predictorcover' %>
+<div class="confirm-wrap">
 
-<div class="content-panel-wrap">
-
-	<div class="content-panel">
-
-	  <div class="content-panel-container">
-	    
+	<div class="confirm-container">
+		    
 	    <h1>Confirm Premium Upgrade</h1>
 
-	    <h3 style="color:#11a657;"><%=number_to_currency(@price).to_s + "/month"%></h3>
 
+	    <h1><%= image_tag @predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-name"%></h1>
+
+	    <% if @price > 0 %>
 	    
+	    	<h3 style="color:#11a657;"><%=number_to_currency(@price).to_s + "/month"%></h3>
 
-<!-- 	    <div class="large-table-container"> -->
+	    <%else%>
 
-<!-- 	    	<%# if @displaycard %>
+	    	<h3 style="color:#11a657;">Free!</h3>
 
-	    		<input type="radio" name="payment_type" value="current"  id="currentPaymentLink"  checked="checked"><b>Current Payment Method</b> (<%#@displaycard.brand + " ending in " + @displaycard.last4 %>)
+	    <%end%>
 
-				<br><br>
 
-				<input type="radio" name="payment_type" value="add" id="addCardLink"><b>Add a Credit Card</b
-				><br><br>
+	<!-- 	    <div class="large-table-container"> -->
 
-				<div class="add-card-container" style="display:none">
+	<!-- 	    	<%# if @displaycard %>
+
+		    		<input type="radio" name="payment_type" value="current"  id="currentPaymentLink"  checked="checked"><b>Current Payment Method</b> (<%#@displaycard.brand + " ending in " + @displaycard.last4 %>)
+
+					<br><br>
+
+					<input type="radio" name="payment_type" value="add" id="addCardLink"><b>Add a Credit Card</b
+					><br><br>
+
+					<div class="add-card-container" style="display:none">
+						<%#render 'cards/newcardform' %>
+					</div>
+
+				<%# else %>
+			      		
+					<input type="radio" name="payment_type" value="add" id="addCardLink" checked="checked"><b>Add a Credit Card</b><br>
+
 					<%#render 'cards/newcardform' %>
-				</div>
 
-			<%# else %>
-		      		
-				<input type="radio" name="payment_type" value="add" id="addCardLink" checked="checked"><b>Add a Credit Card</b><br>
+				<%# end %>
 
-				<%#render 'cards/newcardform' %>
+		    </div> -->
 
-			<%# end %>
+	    <div class="confirm-button">
 
-	    </div> -->
-
-	    <div style="text-align:center;">
-
-	    	<%= link_to "Confirm", subscribe_path(:username=>@predictor.username), {:class=>"subscribe_cta", :id=>"current-card" }%>
-
-	    	<%# link_to "Confirm", subscribe_path(:username=>@predictor.username, :new_card=>true), {:class=>"subscribe_cta", :id=>"new-card", :style=>"display:none;" }%>
+	    	<%= link_to "Confirm", subscribe_path(:username=>@predictor.username), {:class=>"hero_cta" }%>
 
 		</div>
-
-	  </div>
 
 	</div>
 

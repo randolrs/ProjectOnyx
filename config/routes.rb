@@ -138,10 +138,12 @@ Rails.application.routes.draw do
 
   get '/:username/:type/new/sports/' => 'games#sportsgamesselect', as: 'sportsgamesselect'
 
-  get '/:predictor_id/sports/:league/:id' => 'prediction_games#show', as: 'show_prediction_games'
-
   get '/:username/predictions/sports/:id' => 'prediction_games#show', as: 'predictiongamesshow'
 
+
+  get 'prediction/sports/new/:id' => 'prediction_games#new', as: 'newpredictiongame'
+
+  
   get '/:username/subscribers' => 'predictors#subscriberindex', as: 'predictorsubscriberindex'
 
   get ':league/posts/all/index' => 'pages#leaguearticleindex', as: 'leaguearticleindex'
@@ -203,7 +205,7 @@ Rails.application.routes.draw do
 
   get 'gameselect' => 'games#gameselect'
 
-  get 'prediction/sports/new/:id' => 'prediction_games#new', as: 'newpredictiongame'
+ 
 
   get '/buyprediction/sports/:id' => 'prediction_games#show', as: 'showpredictiongame'
 

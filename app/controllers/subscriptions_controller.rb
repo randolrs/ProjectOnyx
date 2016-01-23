@@ -14,7 +14,10 @@ class SubscriptionsController < ApplicationController
 
 		      	customer = Stripe::Customer.retrieve(@user.customer_id)
 
-		      	price = (@price * 100).to_i
+		      	###This price setting works for now; however, it should be reworked later to freeze the price 
+		      	###at time of confirmation
+		      	
+		      	price = (@predictor.subscription_price * 100).to_i
 
 		      	customer_subscriptions = customer.subscriptions.all
 

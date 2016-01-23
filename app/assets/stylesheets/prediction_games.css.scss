@@ -403,6 +403,11 @@ a.full-name{
   color: #292f33;
 }
 
+a.full-name:hover{
+  text-decoration:none;
+  
+}
+
 a.team-name{
   line-height:40px;
   margin-left:5px;

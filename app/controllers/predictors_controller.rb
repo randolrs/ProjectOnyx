@@ -201,9 +201,9 @@ class PredictorsController < ApplicationController
 
      if user_signed_in?
 
-        unless current_user.customer_id
+      Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-          Stripe.api_key = Rails.configuration.stripe[:secret_key]
+        unless current_user.customer_id
 
           customer = Stripe::Customer.create(
                     :description => "Customer for Futable"

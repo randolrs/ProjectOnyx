@@ -20,7 +20,7 @@ class CardsController < ApplicationController
     unless current_user.customer_id
 
       customer = Stripe::Customer.create(
-                :description => "Customer for Onyx",
+                :description => "Customer for Futable",
                 #:source => params[:stripeToken] # obtained with Stripe.js
                 )
 
@@ -39,12 +39,12 @@ class CardsController < ApplicationController
   #   redirect_to charges_path
   # end
 
-    if @predictor
-      customer.subscriptions.create(:plan => @predictor.subscription_id)
+    # if @predictor
+    #   customer.subscriptions.create(:plan => @predictor.subscription_id)
 
-      current_user.predictors << @predictor
+    #   current_user.predictors << @predictor
 
-    end
+    # end
 
   end
 
@@ -70,7 +70,7 @@ class CardsController < ApplicationController
     unless current_user.customer_id
 
       customer = Stripe::Customer.create(
-                :description => "Customer for Onyx",
+                :description => "Customer for Futable",
                 #:source => params[:stripeToken] # obtained with Stripe.js
                 )
 
@@ -89,39 +89,39 @@ class CardsController < ApplicationController
   #   redirect_to charges_path
   # end
 
-    if @predictor
+    # if @predictor
         
-        if Purchase.exists?(:user_id=> @user.id,:predictor_id=>@predictor.id)
+    #     if Purchase.exists?(:user_id=> @user.id,:predictor_id=>@predictor.id)
 
-          @purchase = Purchase.where(:user_id=> @user.id,:predictor_id=>@predictor.id)
+    #       @purchase = Purchase.where(:user_id=> @user.id,:predictor_id=>@predictor.id)
 
-          @purchase.each do |purchase|
-            purchase.update(:premium => true)
-          end
+    #       @purchase.each do |purchase|
+    #         purchase.update(:premium => true)
+    #       end
 
-        else
+    #     else
 
-          @purchase = Purchase.new
+    #       @purchase = Purchase.new
 
-          @purchase.user_id = @user.id
+    #       @purchase.user_id = @user.id
 
-          @purchase.predictor_id = @predictor.id
+    #       @purchase.predictor_id = @predictor.id
 
-          @purchase.premium = true
+    #       @purchase.premium = true
 
-          customer.subscriptions.create(:plan => @predictor.subscription_id)
+    #       customer.subscriptions.create(:plan => @predictor.subscription_id)
 
-          @purchase.save        
+    #       @purchase.save        
 
-        end
+    #     end
 
-      redirect_to root_path
+    #   redirect_to root_path
 
-    else
+    # else
 
       redirect_to payments_path
 
-    end
+    # end
 
   end
 

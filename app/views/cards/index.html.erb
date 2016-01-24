@@ -6,15 +6,14 @@ $(document).ready(function(){
 });
 </script>
 
-<%= render 'predictors/editnavside' %>
 
-<div class = "edit-container">
+<div class="confirm-wrap">
 
-	<div class="edit-panel">
+  <div class="confirm-container">
+        
+      <h1>Payment Information</h1>
 
-		<h2>Payment Information</h2>
-
-			<% if @displaycard %>
+        <% if @displaycard %>
 				
 				<b>Current Payment Method:</b> <br>
 				<%=@displaycard.brand + " •••• •••• •••• " + @displaycard.last4 %> <br>
@@ -59,11 +58,7 @@ $(document).ready(function(){
 				<div class="add-card-container" style="display:none">
 					<%=render 'cards/addcardform' %>
 				</div>
-			
-			  <!-- <form action="" method="POST" id="payment-form"> -->
-      <!-- Add a section to display errors if you want -->
 
-		
+  </div>
 
-	</div>
 </div>

@@ -65,6 +65,8 @@ Rails.application.routes.draw do
 
   post 'cards_default' => 'cards#make_default'
 
+  post 'subscribe_new_card' => 'subscriptions#create'
+
   post 'update_predictor_price' => 'predictors#update_predictor_price'
 
   post 'bank_account_default' => 'bank_accounts#make_default'

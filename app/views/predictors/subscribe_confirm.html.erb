@@ -4,7 +4,6 @@
 		    
 	    <h1>Confirm Premium Upgrade</h1>
 
-
 	    <h1><%= image_tag @predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-name"%></h1>
 
 	    <% if @price > 0 %>
@@ -18,25 +17,19 @@
 	    <%end%>
 
 
-	<!-- 	    <div class="large-table-container"> -->
+		<% if @payment_source == false %>
 
-			<% if @payment_source == false %>
+			<%= render 'cards/newcardform' %>
 
-				<div class="card-form-container">
+		<%else%>
 
-					<%= render 'cards/newcardform' %>
+			<div class="confirm-button">
 
-				</div>
+    			<%= link_to "Confirm", subscribe_path(:username=>@predictor.username), {:class=>"hero_cta" }%>
 
-			<% end %>
+			</div>
 
-		    
-
-	    <div class="confirm-button">
-
-	    	<%= link_to "Confirm", subscribe_path(:username=>@predictor.username), {:class=>"hero_cta" }%>
-
-		</div>
+		<% end %>
 
 	</div>
 

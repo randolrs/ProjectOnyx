@@ -134,9 +134,18 @@ html, body {
     display:inline;
 }
 
+.card-form-container{
+    margin:30px 0px;
+    padding: 20px;
+    border: 2px solid #999;
+    border-radius: 2px;
+}
 
-
-
+.card-form-container h3{
+    font-size:16px;
+    color:#333;
+    display:inline;
+}
 
 
 .header-list li{

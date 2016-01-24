@@ -20,28 +20,17 @@
 
 	<!-- 	    <div class="large-table-container"> -->
 
-	<!-- 	    	<%# if @displaycard %>
+			<% if @payment_source == false %>
 
-		    		<input type="radio" name="payment_type" value="current"  id="currentPaymentLink"  checked="checked"><b>Current Payment Method</b> (<%#@displaycard.brand + " ending in " + @displaycard.last4 %>)
+				<div class="card-form-container">
 
-					<br><br>
+					<%= render 'cards/newcardform' %>
 
-					<input type="radio" name="payment_type" value="add" id="addCardLink"><b>Add a Credit Card</b
-					><br><br>
+				</div>
 
-					<div class="add-card-container" style="display:none">
-						<%#render 'cards/newcardform' %>
-					</div>
+			<% end %>
 
-				<%# else %>
-			      		
-					<input type="radio" name="payment_type" value="add" id="addCardLink" checked="checked"><b>Add a Credit Card</b><br>
-
-					<%#render 'cards/newcardform' %>
-
-				<%# end %>
-
-		    </div> -->
+		    
 
 	    <div class="confirm-button">
 

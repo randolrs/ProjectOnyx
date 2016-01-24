@@ -203,6 +203,8 @@ class PredictorsController < ApplicationController
 
       Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
+      @payment_source = false
+
         unless current_user.customer_id
 
           customer = Stripe::Customer.create(
@@ -217,13 +219,15 @@ class PredictorsController < ApplicationController
 
           if customer.default_source
 
-            @defaultcard = customer.default_source
+            # @defaultcard = customer.default_source
 
-            @displaycard = customer.sources.retrieve(@defaultcard)
+            @payment_source = true
 
-            @list = customer.sources.all(:limit => 5, :object => "card")
+            # @displaycard = customer.sources.retrieve(@defaultcard)
 
-            @cards = @list.data
+            # @list = customer.sources.all(:limit => 5, :object => "card")
+
+            # @cards = @list.data
 
           end
 

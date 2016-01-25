@@ -100,6 +100,18 @@
 
                   <%end%>
 
+                <%elsif admin_signed_in?%>
+
+                  <%= @prediction_game.teama_score%> - <%= @prediction_game.teamh_score%>
+
+                <%else%>
+
+                  <% if @prediction_game.visible("none", "none") %>
+
+                    <%= @prediction_game.teama_score%> - <%= @prediction_game.teamh_score%>
+
+                  <%end%>
+
                 <%end%>
                 
               </td>
@@ -150,6 +162,19 @@
 
                   <%end%>
 
+
+                <%elsif admin_signed_in?%>
+
+                  <%if @prediction_game.game_winner == @prediction_game.teama %>+<%else%>-<%end%><%=@prediction_game.spread%>
+
+                <%else%>
+
+                  <% if @prediction_game.visible("none", "none") %>
+
+                    <%if @prediction_game.game_winner == @prediction_game.teama %>+<%else%>-<%end%><%=@prediction_game.spread%>
+
+                  <%end%>
+
                 <%end%>
 
               </td>
@@ -173,6 +198,18 @@
                 <%elsif predictor_signed_in?%>
 
                   <%if current_predictor.id == @predictor.id %>
+
+                    <%if @prediction_game.game_winner == @prediction_game.teamh %>+<%else%>-<%end%><%=@prediction_game.spread%>
+
+                  <%end%>
+
+                <%elsif admin_signed_in?%>
+
+                  <%if @prediction_game.game_winner == @prediction_game.teamh %>+<%else%>-<%end%><%=@prediction_game.spread%>
+
+                <%else%>
+
+                  <% if @prediction_game.visible("none", "none") %>
 
                     <%if @prediction_game.game_winner == @prediction_game.teamh %>+<%else%>-<%end%><%=@prediction_game.spread%>
 
@@ -221,6 +258,18 @@
                 <%elsif predictor_signed_in?%>
 
                   <%if current_predictor.id == @predictor.id %>
+
+                    <%= @prediction_game.overunder%>
+
+                  <%end%>
+
+                <%elsif admin_signed_in?%>
+
+                    <%= @prediction_game.overunder%>
+
+                <%else%>
+
+                  <% if @prediction_game.visible("none", "none") %>
 
                     <%= @prediction_game.overunder%>
 

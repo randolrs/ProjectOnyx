@@ -28,7 +28,7 @@
 
 				<% @predictions.each do |hash| %>
 	        
-	          		<%= render partial: 'prediction_games/list_show', locals: {predictor: hash[:predictor], prediction: hash[:prediction], game: hash[:game]} %>
+	          		<%= render partial: 'prediction_games/list_show', locals: {predictor: hash[:predictor], prediction: hash[:prediction], game: @game} %>
 
 	        	<%end%>
 

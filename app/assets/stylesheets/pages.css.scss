@@ -572,7 +572,8 @@ h2{
 
     button.signup-submit{
     background: linear-gradient(#13BD63, #11A657);
-    width:350px;
+    width:100%;
+    max-width:350px;
     height:36px;
     color:white;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;

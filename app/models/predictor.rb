@@ -104,6 +104,20 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def sport_predictions_rating(league)
+
+    sport = Sport.find_by_subcat(league)
+
+    predictions = self.prediction_games.where("league = :sport and status > :closed", {sport: league, closed: "c"})
+
+    if predictions.count > 0
+      return predictions.average(:onyx)
+    else
+      return "N/A"
+    end
+
+  end
+
   
   def my_prediction_games_upcoming(premium_access)
 

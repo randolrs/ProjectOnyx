@@ -51,6 +51,12 @@ $(document).ready(function(){
 
 			<% end %>
 
+			<% if flash[:error].present? %>
+      			<div id="error_explanation">
+        			<p><%= flash[:error] %></p>
+      			</div>
+    		<% end %>
+
 			<a id="addCardLink">Add a Credit Card</a>
 
 			<Br><BR>

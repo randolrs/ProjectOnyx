@@ -80,7 +80,15 @@ class CardsController < ApplicationController
 
     customer = Stripe::Customer.retrieve(current_user.customer_id)
 
-    customer.sources.create(:source => token.id)
+
+    begin
+
+      customer.sources.create(:source => token.id)
+
+    rescue Stripe::CardError => e
+              flash[:error] = e.message
+              redirect_to :back and return
+        end
 
     customer.save
 

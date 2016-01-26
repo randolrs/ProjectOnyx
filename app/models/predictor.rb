@@ -108,11 +108,14 @@ class Predictor < ActiveRecord::Base
 
     sport = Sport.find_by_subcat(league)
 
-    predictions = self.prediction_games.where("league = :sport and status > :closed", {sport: league, closed: "c"})
+    predictions = self.prediction_games.where("onyx IS NOT NULL")
 
     if predictions.count > 0
-      return predictions.average(:onyx)
+
+      return  (predictions.collect(&:onyx).sum / predictions.count).to_i
+
     else
+
       return "N/A"
     end
 

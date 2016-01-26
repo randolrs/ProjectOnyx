@@ -121,6 +121,21 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def team_predictions_rating(team)
+
+    predictions = self.prediction_games.where("teama = :team or teamh = :team and onyx IS NOT NULL", {team: team.name})
+
+    if predictions.count > 0
+
+      return  (predictions.collect(&:onyx).sum / predictions.count).to_i
+
+    else
+
+      return "N/A"
+    end
+
+  end
+
   
   def my_prediction_games_upcoming(premium_access)
 

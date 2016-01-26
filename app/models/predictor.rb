@@ -76,7 +76,7 @@ class Predictor < ActiveRecord::Base
 
     predictions = Array.new 
     
-    self.prediction_games.each do |prediction_game|
+    self.prediction_games.where("onyx IS NOT NULL").each do |prediction_game|
 
       if prediction_game.status = "c"
 
@@ -123,7 +123,7 @@ class Predictor < ActiveRecord::Base
 
   def team_predictions_rating(team)
 
-    predictions = self.prediction_games.where("teama = :team or teamh = :team and onyx IS NOT NULL", {team: team.name})
+    predictions = self.prediction_games.where("(teama = :team or teamh = :team) and onyx IS NOT NULL", {team: team.name})
 
     if predictions.count > 0
 

@@ -1,38 +1,14 @@
-<div class="outline-shadow">
+<tr data-link="<%=predictiongamesshow_path(predictor.username, prediction.id)%>", class="table-cta-hover">
+  <td>
+    <%= image_tag Team.find(game.teama_id).image.url(:medium), class: "predictor-image-tiny"%><a class="team-name"><%= prediction.teama %></a>
+  </td>
 
-    <h3>Top Predictions</h3>
+  <td>
+    <a class="team-name"><%= prediction.teamh %></a> <%= image_tag Team.find(game.teamh_id).image.url(:medium), class: "predictor-image-tiny"%>
+  </td>
 
-    <table class="user-dashboard-table">
-      <% if @predictions_top.count == 0 %>
-        <tr>
-          <td class="no-top-predictions">
-            <%=@predictor.username%> does not yet have any rated predictions.
+  <td>
+    <%= prediction.onyx.to_i %>
+  </td>
 
-          </td>
-
-        </tr>
-      <% else %>
-        <% @predictions_top.each do |prediction_top|%>
-        	
-          <tr data-link="<%=predictiongamesshow_path(@predictor.username, prediction_top.id)%>", class="table-cta-hover">
-            <td>
-              <%= image_tag Team.find_by_name(prediction_top.teama).image.url(:medium), class: "predictor-image-tiny"%><a class="team-name"><%= prediction_top.teama %></a>
-            </td>
-
-            <td>
-              <%= image_tag Team.find_by_name(prediction_top.teamh).image.url(:medium), class: "predictor-image-tiny"%> <a class="team-name"><%= prediction_top.teamh %></a>
-            </td>
-
-            <td>
-              <%= prediction_top.onyx %>
-            </td>
-
-          </tr>
-        
-        <%end%>
-      
-    <%end%>
-
-  </table>
-
-</div>
+</tr>

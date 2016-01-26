@@ -16,7 +16,33 @@
 
 		<div class ="user-dashboard-card">
 
-			<%= render 'prediction_games/predictor_top_prediction_games'%>
+			<div class="outline-shadow">
+
+				<h3>Top Predictions</h3>
+
+				<% if @predictions_top.empty? %>
+
+					<div class ="prediction-game-index-show empty">
+
+						<%= @predictor.username %> has not yet made any predictions      
+
+	  				</div>
+
+				<%else%>
+
+					<table class="user-dashboard-table">
+
+						<% @predictions_top.each do |hash| %>
+
+	        				<%= render partial: 'prediction_games/predictor_top_prediction_games', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
+
+	        			<%end%>
+
+        			</table>
+
+        		<%end%>
+
+        	</div>
 
 			<%= render 'prediction_games/predictor_rating_distribution' %>
 

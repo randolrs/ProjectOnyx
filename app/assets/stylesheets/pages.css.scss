@@ -302,6 +302,7 @@ a.hero_cta{
   box-shadow: 0px 3px 5px rgba(0,0,0,.1);
   text-shadow: 0px 0px 5px #888;
   white-space:nowrap;
+
 }
 
 a.hero_cta:hover{
@@ -379,13 +380,25 @@ a.subscribe_cta{
   -moz-box-shadow: 0px 3px 5px rgba(0,0,0,.1);
   box-shadow: 0px 3px 5px rgba(0,0,0,.1);
   white-space:nowrap;
+
+  background: -webkit-linear-gradient(#5db6e8,#168eda 85%,#168eda 90%,#1d93dd);
+    background: -moz-linear-gradient(#5db6e8,#168eda 85%,#168eda 90%,#1d93dd);
+    background: -o-linear-gradient(#5db6e8,#168eda 85%,#168eda 90%,#1d93dd);
+    background: -ms-linear-gradient(#5db6e8,#168eda 85%,#168eda 90%,#1d93dd);
+    background: linear-gradient(#5db6e8,#168eda 85%,#168eda 90%,#1d93dd);
+
+  webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 a.subscribe_cta:hover{
   cursor:pointer;
-  background: linear-gradient(#11A657, #109C52);
-  webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  border:1px solid #5db6e8;
+  background: #fff;
+  color:#1d93dd;
+  webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  text-shadow: none;
 
 }
 

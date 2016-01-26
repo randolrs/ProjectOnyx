@@ -86,7 +86,9 @@ class PredictorsController < ApplicationController
     @predictions_recent = Array.new
     @predictions_recent = @predictor.recent_prediction_games
 
-    @predictions_top = @predictor.prediction_games.where("onyx > :zero", {zero: 0}).limit(5)
+    @predictions_top = @predictions_rated.sort_by {|k| k[:prediction].onyx}
+
+    @predictions_top = @predictions_top.take(5)
 
   end
 

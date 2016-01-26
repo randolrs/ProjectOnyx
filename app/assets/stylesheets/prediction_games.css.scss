@@ -405,7 +405,7 @@ a.full-name{
 
 a.full-name:hover{
   text-decoration:none;
-  
+
 }
 
 a.team-name{
@@ -442,9 +442,9 @@ a.team-name{
 .prediction-game-index-show{
   padding:10px;
   background-color: #fff;
-  text-align:center;
-  margin: 0px auto 15px auto;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  border: 1px solid #ccc;
+  text-align: center;
+  margin: 0px auto -1px auto;
   max-width:500px;
 
 }

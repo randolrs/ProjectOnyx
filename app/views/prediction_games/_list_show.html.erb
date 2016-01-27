@@ -83,7 +83,7 @@
 
             <% if user_signed_in? %>
             
-              <% if prediction.paid and not current_user.subscribed(predictor.id) and predictor.subscription_price > 0 %>
+              <% if prediction.paid and not current_user.subscribed(predictor.id) %>
 
                 <%= render partial: 'predictors/predictor_subscribe_cta', locals: {predictor: predictor} %>
 
@@ -111,7 +111,7 @@
 
             <% else %>
 
-              <% unless prediction.paid %>
+              <% unless prediction.paid and not prediction.status=="c" %>
 
                 <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 

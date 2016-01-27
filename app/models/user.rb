@@ -215,7 +215,7 @@ class User < ActiveRecord::Base
 
   def subscribed(predictor_id)
 
-    if Purchase.exists?(:user_id=> self.id,:predictor_id=>predictor_id, :premium=>true)
+    if Purchase.exists?(:user_id=> self.id, :predictor_id=>predictor_id, :premium=>true)
 
       true
 

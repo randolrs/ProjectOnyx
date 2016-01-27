@@ -22,11 +22,9 @@
 
 				<% if @predictions_top.empty? %>
 
-					<div class ="prediction-game-index-show empty">
-
-						<%= @predictor.username %> has not yet made any predictions      
-
-	  				</div>
+					<div style="font-size: 12px; color: #999; text-align:center; padding: 0px 10px 10px 10px;">
+						<%= @predictor.username %> has not yet made any predictions
+					</div>
 
 				<%else%>
 

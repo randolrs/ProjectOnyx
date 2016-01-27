@@ -1,18 +1,24 @@
 <%= render 'predictors/predictorcover' %>
 
-<div class="user-dashboard-wrap">
+<% if predictor_signed_in? %>
+  <%# render 'layouts/header_sub_import' %>
+  <%# render 'layouts/header_sub' %>
 
-	<div class ="user-dashboard-container">
+  <div class="user-dashboard-wrap">
 
-		<div class="user-dashboard-left">
+    <div class ="user-dashboard-container">
 
-			<%= render 'predictors/subscriber_summary' %>
+      <div class ="user-dashboard-card">
 
-			<%= render 'predictors/subscription_rate' %>
+		<%= render 'predictors/subscriber_summary' %>
 
-			<%= render 'predictors/next_payment_date' %>
-			
-		</div>
+		<%= render 'predictors/subscription_rate' %>
+
+		<%= render 'predictors/next_payment_date' %>
+
+        <%= render 'layouts/footer_float'%>
+
+      </div>
 
 		<div class ="user-dashboard-predictions">
 			
@@ -20,6 +26,8 @@
 
 		</div>
 
-	  </div>
+    </div>
 
-</div>
+  </div>
+
+<%end%>

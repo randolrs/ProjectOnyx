@@ -41,6 +41,9 @@ Rails.application.routes.draw do
 
   get 'gamedash' => "games#index"
 
+
+  get 'user_dashboard' => "pages#user_index"
+
   get "about" => "pages#about"
 
   get "login" => "devise/sessions#new"

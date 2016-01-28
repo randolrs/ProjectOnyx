@@ -374,7 +374,6 @@ a.subscribe_cta{
   position:relative;
   margin-left:auto;
   margin-right:auto;
-  text-shadow: 0px 0px 1px #555;
   border: 1px solid rgba(0,0,0,.2);
   -webkit-box-shadow: 0px 3px 5px rgba(0,0,0,.1);
   -moz-box-shadow: 0px 3px 5px rgba(0,0,0,.1);
@@ -390,6 +389,7 @@ a.subscribe_cta{
   webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset,0 1px 1px rgba(100,100,100,0.3);
+  text-shadow: 0px 0px 1px rgba(0,0,0,0.9);
 }
 
 a.subscribe_cta:hover{
@@ -562,7 +562,7 @@ h2{
   }
 
   .signup-form{
-    padding:50px;
+    padding:30px 50px;
 
   }
 
@@ -707,6 +707,8 @@ a.cancel-card-submit{
   color: #3e4552;
   font-size: 14px;
   z-index:10;
+  padding:5px;
+
 }
 
 .add-funds-container{

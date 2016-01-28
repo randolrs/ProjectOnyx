@@ -238,4 +238,15 @@ class PagesController < ApplicationController
     @predictions = PredictionGame.all.order("created_at DESC").limit(10)
   end
 
+  def user_index
+    if admin_signed_in?
+
+      @users = User.all
+
+    else
+
+      redirect_to root_path
+    end
+  end
+
 end

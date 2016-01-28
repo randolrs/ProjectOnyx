@@ -6,8 +6,8 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Username</th>
         <th>Email</th>
+        <th>Joined</th>
         <th>Access Code</th>
         <th>Customer ID</th>
         <th>Payment/month</th>
@@ -19,8 +19,8 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.id %></td>
-          <td><%= user.username %></td>
           <td><%= user.email %></td>
+          <td><%= user.created_at %></td>
           <td><%= user.access_code %></td>
           <td><%= user.customer_id %></td>
           <td><%= number_to_currency(user.per_month)%></td>

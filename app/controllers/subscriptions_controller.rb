@@ -49,9 +49,9 @@ class SubscriptionsController < ApplicationController
 
 		    	has_universal_subscription = false
 
-		      	customer_subscriptions.each do |subscriptions|
+		      	customer_subscriptions.each do |subscription|
 
-		      		if subscriptions.id == "futaversal"
+		      		if subscriptions.plan.id == "futaversal"
 
 		      			has_universal_subscription = true
 

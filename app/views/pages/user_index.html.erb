@@ -23,7 +23,7 @@
           <td><%= user.email %></td>
           <td><%= user.access_code %></td>
           <td><%= user.customer_id %></td>
-          <td><%= user.per_month%></td>
+          <td><%= number_to_currency(user.per_month)%></td>
         </tr>
       <% end %>
     </tbody>

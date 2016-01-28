@@ -304,15 +304,21 @@ class User < ActiveRecord::Base
 
       has_universal_subscription = false
 
-      if customer_subscriptions.length > 0
+
+
+
+
+      if customer_subscriptions.count > 0
 
         customer_subscriptions.each do |subscription|
 
-          if subscription.id == "futaversal"
+          if subscription.plan.id == "futaversal"
 
             has_universal_subscription = true
 
-            universal_subscription = subscription
+            universal_subscription = "cvc"
+
+            return subscription.quantity / 100
 
           end
 
@@ -320,9 +326,13 @@ class User < ActiveRecord::Base
 
       end
 
+
+
+
+
       if has_universal_subscription
 
-        return "got it"
+        return universal_subscription
 
       else
 

@@ -5,10 +5,12 @@
   <table>
     <thead>
       <tr>
+        <th>ID</th>
         <th>Username</th>
         <th>Email</th>
         <th>Access Code</th>
         <th>Customer ID</th>
+        <th>Payment/month</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -16,10 +18,12 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
+          <td><%= user.id %></td>
           <td><%= user.username %></td>
           <td><%= user.email %></td>
           <td><%= user.access_code %></td>
           <td><%= user.customer_id %></td>
+          <td><%= user.per_month%></td>
         </tr>
       <% end %>
     </tbody>

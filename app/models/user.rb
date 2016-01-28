@@ -292,5 +292,50 @@ class User < ActiveRecord::Base
 
   end
 
+  def per_month
+
+    if self.customer_id
+
+      Stripe.api_key = Rails.configuration.stripe[:secret_key]
+      
+      customer = Stripe::Customer.retrieve(self.customer_id)
+
+      customer_subscriptions = customer.subscriptions.all.data
+
+      has_universal_subscription = false
+
+      if customer_subscriptions.length > 0
+
+        customer_subscriptions.each do |subscription|
+
+          if subscription.id == "futaversal"
+
+            has_universal_subscription = true
+
+            universal_subscription = subscription
+
+          end
+
+        end
+
+      end
+
+      if has_universal_subscription
+
+        return "got it"
+
+      else
+
+        return "No universal subscription"
+
+      end
+
+    else
+
+      return "No customer ID"      
+
+    end
+
+  end
 
 end

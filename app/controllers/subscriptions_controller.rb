@@ -51,9 +51,11 @@ class SubscriptionsController < ApplicationController
 
 		      	customer_subscriptions.each do |subscription|
 
-		      		if subscriptions.plan.id == "futaversal"
+		      		if subscription.plan.id == "futaversal"
 
 		      			has_universal_subscription = true
+
+		      			@universal_subscription = subscription
 
 		      		end
 
@@ -64,9 +66,8 @@ class SubscriptionsController < ApplicationController
 
 				  	if has_universal_subscription
 
-				  		subscription = customer.subscriptions.retrieve(@user.subscription_id)
-						subscription.quantity = subscription.quantity + price
-						subscription.save
+						@universal_subscription.quantity = @universal_subscription.quantity + price
+						@universal_subscription.save
 
 				  	else
 

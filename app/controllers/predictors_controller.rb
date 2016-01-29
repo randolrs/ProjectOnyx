@@ -209,8 +209,10 @@ class PredictorsController < ApplicationController
 
         unless current_user.customer_id
 
+          email = current_user.email
+
           customer = Stripe::Customer.create(
-                    :description => "Customer for Futable"
+                    :description => email
                     )
 
           current_user.update(:customer_id => customer.id)

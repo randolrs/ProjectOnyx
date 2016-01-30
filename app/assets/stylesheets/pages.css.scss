@@ -462,13 +462,13 @@ a.subscribe_cta_float_right{
 }
 
 a.follow_cta{
-  padding: 10px 20px;
+  padding: 10px 16px;
   line-height:20px;
   text-decoration:none;
-  font-size: 18px;
+  font-size: 14px;
   color:#666;
-  border-radius: 19px;
-  border: 1px solid #e1e8ed;
+  border-radius: 17px;
+  border: 1px solid rgba(0,0,0,0.15);;
   text-align:center;
   position:relative;
   margin-left:auto;
@@ -479,8 +479,8 @@ a.follow_cta{
 
 
 a.follow_cta:hover{
-  border-color: orange;
-  color: orange;
+  border-color: #7400FF;
+  color: #7400FF;
   webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
@@ -541,13 +541,7 @@ h2{
 
 .signup-container{
 	width: 100%;
-	position:relative;
   text-align:center;
-
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-
-  color:#333;
-  text-shadow: 0 1px 0 #ddd, 0 0 0 #ddd;
   
 	}
 
@@ -1942,4 +1936,16 @@ ul.dropdown-menu li {
     background-color:#FF3C1E;
     color:white;
     border-radius: 2px;
+  }
+
+  .select-category-container{
+    width: 100%;
+    text-align:center;
+    padding:50px;
+    max-width:900px;
+    margin:0 auto;
+  }
+
+  .select-category{
+
   }

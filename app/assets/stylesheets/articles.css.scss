@@ -130,3 +130,59 @@ td.article-index-title{
 	text-align:left;
 	
 }
+
+
+.category-types{
+    position:relative;
+    margin:0 auto;
+    min-height: 200px;
+    width: auto;
+    height: auto;
+    position:relative;
+    padding:50px 0px;
+    max-width:900px;
+  
+}
+
+.category-types h1{
+    text-align:center; 
+}
+
+
+
+.category-types-container{
+    position: relative;
+    margin:0 auto;
+    clear: both;
+    display: inline-block;
+    width:100%;
+    
+}
+
+
+.category-types-float{
+  float:left;
+  padding:10px;
+  max-width:225px;
+  width:25%;
+  text-align:center;
+}
+
+.category-types-wrap{
+  width:100%;
+  height:100%;
+  border:2px solid #bbb;
+  background-color:white;
+  webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  }
+
+.category-types-wrap:hover{
+  cursor:pointer;
+  border:2px solid #7400FF;
+}
+
+.category-types-header{
+  text-align:center;
+  font-size:18px;
+}

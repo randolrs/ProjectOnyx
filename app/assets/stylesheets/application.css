@@ -260,10 +260,6 @@ select#team_filter_team{
   box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
 }
 
-.predictor-cover a{
-  color:#333;
-  text-decoration: NONE;
-}
 
 .predictor-cover-container{
   margin-left: auto;

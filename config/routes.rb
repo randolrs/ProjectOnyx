@@ -56,6 +56,8 @@ Rails.application.routes.draw do
 
   get 'predictoradminindex' => 'predictors#index'
 
+  get 'select_category' => 'articles#select_category'
+
   get 'posts' => 'articles#index'
 
   get 'experts' => 'predictors#predictorindex', as: 'predictorindex'

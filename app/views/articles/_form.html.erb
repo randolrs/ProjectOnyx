@@ -1,4 +1,11 @@
+<%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
+            <b><%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %></b>
+
 <%= form_for(@article) do |f| %>
+
+    <div class="actions">
+    <%= f.submit %>
+  </div>
   
   <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -12,27 +19,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, autofocus: true, class: "article-title-text" %>
+  <div class="article-form-container">
+
+    <div class="field">
+      <%= f.text_field :title, placeholder: "Title", autofocus: true, class: "article-title-text" %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :event_time, as: :datetime, :label => false, :placeholder => @article.event_time %>
+      <%= f.text_area :body, placeholder: "Your analysis...", :rows => "10", class: "article-body-text" %>
+      <%# f.hidden_field :event_id, as: :integer, :label => false, :placeholder => @game.id %>
+    </div>
+
   </div>
-  <div class="field">
-    <%= f.hidden_field :event_time, as: :datetime, :label => false, :placeholder => @article.event_time %>
-    <%= f.label :body %><br>
-    <%= f.text_area :body, :rows => "10", class: "article-title-text" %>
-    <%= f.hidden_field :event_id, as: :integer, :label => false, :placeholder => @game.id %>
+
+  <div class="article-prediction-container">
+
+    <h3>Add a Prediction</h3>
+
+    <%= f.fields_for :prediction_games do |builder| %>
+
+      <%= render "articles/predictiongames_fields", :f => builder %>
+      
+    <% end %>
+
   </div>
 
-
-  <%= f.fields_for :prediction_games do |builder| %>
-
-    <%= render "articles/predictiongames_fields", :f => builder %>
-    
-  <% end %>
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
   
 <% end %>

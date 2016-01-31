@@ -1,13 +1,8 @@
-<%= render 'predictors/predictorcover' %>
-<%= render 'predictors/predictorcovernav' %>
+<div class="article-panel">
 
-<div class="content-panel">
-
-	<%=render 'games/gameshowcover'%>
-	
-	<h1>New Post</h1>
-
-	<%= render 'articles/form' %>
+	<div class="article-panel-container">
+		<%= render partial: 'articles/form', locals: {predictor: current_predictor} %>
+	</div>
 	
 </div>
 	

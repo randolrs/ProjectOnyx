@@ -10,15 +10,15 @@
 
 <div class ="select-category-container">
 
-	<div class="select-category">
+	<div class="select-category" id="main-category">
 
-		<h1>Select Post Category</h1>
+		<h1>1. Select Category</h1>
 
 		<div class="category-types-container">
 		
 			<div class="category-types-float">
 				
-				<a class="no-style" href="<%=root_path%>">
+				<a class="no-style" href="<%= new_post_path("sports")%>">
 					<div class="category-types-wrap" id="category-types-sports">
 
 						<h3 class="category-types-header">SPORTS</h3>
@@ -72,6 +72,14 @@
 	
 		</div>
 
+
+	</div>
+
+	<div class="select-category" id="select-game">
+
+
+
+		<%# render partial: 'games/index_select', locals: {games: Game.all.where("event_time > :time and status = :open", {time: Time.now, open: "o"})} %>
 
 	</div>
 

@@ -82,35 +82,35 @@ class ArticlesController < ApplicationController
 
     @predictor = current_predictor
 
-    @game = Game.find(params[:game])
+    # @game = Game.find(params[:game])
 
-    @league = @game.league
+    # @league = @game.league
 
-    @teama = Team.find_by_name(@game.teama)
-    @teamh = Team.find_by_name(@game.teamh)
+    # @teama = Team.find_by_name(@game.teama)
+    # @teamh = Team.find_by_name(@game.teamh)
 
-    @prediction_game = @article.prediction_games.build 
+    # @prediction_game = @article.prediction_games.build 
 
-    @prediction_game.game_id = @game.id
+    # @prediction_game.game_id = @game.id
 
-    @prediction_game.predictor_id = @predictor.id
+    # @prediction_game.predictor_id = @predictor.id
 
-    @prediction_game.teama = @game.teama
+    # @prediction_game.teama = @game.teama
 
-    @prediction_game.teamh = @game.teamh
+    # @prediction_game.teamh = @game.teamh
 
-    @prediction_game.league = @game.league
+    # @prediction_game.league = @game.league
 
-    @prediction_game.event_time = @game.event_time
+    # @prediction_game.event_time = @game.event_time
 
-    @prediction_game.status = "o"
+    # @prediction_game.status = "o"
 
-    @prediction_game.league = @game.league
+    # @prediction_game.league = @game.league
 
-    @article.event_id = @game.id
-    @article.event_time = @game.event_time
-    @article.teama = @teama.name
-    @article.teamh = @teamh.name
+    # @article.event_id = @game.id
+    # @article.event_time = @game.event_time
+    # @article.teama = @teama.name
+    # @article.teamh = @teamh.name
 
     respond_to do |format|
     format.html # new.html.erb

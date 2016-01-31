@@ -135,7 +135,7 @@ Rails.application.routes.draw do
 
   get '/:username/posts' => 'predictors#articleindex', as: 'predictorindexarticlessall'
 
-  get '/:username/posts/new/sports/:game' => 'articles#new', as: 'predictorarticlenew'
+  get '/posts/:type/new/' => 'articles#new', as: 'new_post'
 
   get '/:username/posts/:id' => 'articles#show', as: 'predictorarticleshow'
 

@@ -10,7 +10,11 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-      @team = Team.find(params[:id])
+      if params[:id]
+        @team = Team.find(params[:id])
+      elsif params[:team]
+        @team = team.find_by_name(params[:team])
+      end
       @league = @team.league
       @teams = Team.all.where(:league=>@league)
       @games = @team.upcoming_games

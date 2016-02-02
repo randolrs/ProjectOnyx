@@ -28,6 +28,9 @@
     <%= f.label :league %><br>
     <%= collection_select(:team, :league, Sport.all, :subcat, :subcat) %>
 
+    <%= f.label :sport_id %><br>
+    <%= collection_select(:team, :sport_id, Sport.all, :id, :subcat) %>
+
     <%= f.label :image %>
     <%= f.file_field :image, class: "form-control" %>
 

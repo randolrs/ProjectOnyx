@@ -8,14 +8,6 @@
             });
         });
 
-
-        $(document).ready(function(leagueFilter){
-            $("#add-prediction").click(function(){
-              $('#league-select').show(750)
-              $("#rated").removeClass("active");
-            });
-        });
-
   </script>
 
 </header>
@@ -59,21 +51,9 @@
 
     <a class="add-prediction" id="add-prediction">+ Add a Prediction</a><a>Cancel</a>
 
-    <div id="league-select" style="display: none;">
-      
-      <select name="teamschedules" onchange="leagueFilter()>
-            
-            <option value selected="selected" disabled="disabled">Select League</option>
+    <%= link_to_add_fields "Add Answer", f, :prediction_games %>
 
-            <% Sport.all.each do |sport| %>
-
-              <option><%=sport.subcat%></option>
-
-            <%end%>
-
-      </select>
-
-    </div>
+    
 
     <div id="team-select" style="display: none;">
       

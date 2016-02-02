@@ -25,6 +25,8 @@ class SportsController < ApplicationController
       
       @league = params[:league]
 
+      @sport = Sport.find_by_subcat(@league)
+
       @teams = Team.all.where(:league => @league).sort_by {|k| k.name} 
 
   end

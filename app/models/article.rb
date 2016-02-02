@@ -4,5 +4,5 @@ class Article < ActiveRecord::Base
 
 	has_many :prediction_games
 
-	accepts_nested_attributes_for :prediction_games
+	accepts_nested_attributes_for :prediction_games, allow_destroy: true
 end

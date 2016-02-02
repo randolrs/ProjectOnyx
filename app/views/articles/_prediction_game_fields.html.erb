@@ -1,0 +1,5 @@
+<%= f.collection_select( :league, Sport.all, :subcat, :subcat)%>
+
+<%= f.grouped_collection_select(:teamh, Sport.all, :teams, :subcat, :id, :name)%>
+
+<%= f.check_box :_destroy %>

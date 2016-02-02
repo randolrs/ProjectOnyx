@@ -1,5 +1,9 @@
+<div id="sport-select">
 <%= f.collection_select( :league, Sport.all, :subcat, :subcat, include_blank: true)%>
+</div>
 
-<%= f.grouped_collection_select(:teamh, Sport.all, :teams, :subcat, :id, :name, include_blank: true)%>
+<div class="team-select">
+  <%= f.grouped_collection_select(:teamh, Sport.all, :teams, :subcat, :id, :name, include_blank: true)%>
+</div>
 
 <%= f.check_box :_destroy %>

@@ -1,5 +1,5 @@
 <div id="sport-select">
-<%= f.collection_select( :league, Sport.all, :subcat, :subcat, include_blank: true)%>
+<%= f.collection_select(:league, Sport.all, :subcat, :subcat, include_blank: true, :id=>'my-custom-class')%>
 </div>
 
 <div class="team-select">

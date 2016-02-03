@@ -9,12 +9,29 @@ jQuery ->
     event.preventDefault()
 
   $('form').on 'click', '.add_fields', (event) ->
-    time = new Date().getTime()
+    time = 'fuckouttahere'
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
-jQuery ->
-  $('#sport_select').parent().hide()
+
+   $('form').on 'change', '#article_prediction_games_attributes_fuckouttahere_league', (event) ->
+   	teams = $('#article_prediction_games_attributes_fuckouttahere_teamh').html()
+   	league = $('#article_prediction_games_attributes_fuckouttahere_league :selected').text()				
+   	$('#test-area').text(league)
+   	options = $(teams).filter("optgroup[label='#{league}']").html()
+   	if options
+      $('#article_prediction_games_attributes_fuckouttahere_teamh').show()
+   	  $('#article_prediction_games_attributes_fuckouttahere_teamh').html(options)
+    else
+      $('#article_prediction_games_attributes_fuckouttahere_teamh').hide()
+      $('#article_prediction_games_attributes_fuckouttahere_teamh').empty()
+      
+
+
+    
+
+
+  $('#team_select').parent().hide()
   teams = $('#person_state_id').html()
   $('#person_country_id').change ->
     country = $('#person_country_id :selected').text()

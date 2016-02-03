@@ -13,11 +13,10 @@
 </header>
 
 
-<%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
-            <b><%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %></b>
-
 <%= form_for(@article) do |f| %>
 
+  <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
+  <b><%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %></b>
   <%= f.submit "Publish", class: "publish" %>
   
   <% if @article.errors.any? %>

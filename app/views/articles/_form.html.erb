@@ -13,8 +13,6 @@
 </header>
 
 
-
-
 <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
             <b><%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %></b>
 
@@ -49,31 +47,7 @@
 
   <div class="article-prediction-container">
 
-    <a class="add-prediction" id="add-prediction">+ Add a Prediction</a><a>Cancel</a>
-
-    <%= link_to_add_fields "Add Prediction", f, :prediction_games %>
-
-    <div id="team-select" style="display: none;">
-      
-      <select name="teamschedules" id="team-select-box">
-            
-            <option value selected="selected" disabled="disabled">Select League</option>
-
-            <% Team.all.each do |team| %>
-
-              <option><%=team.full_name%></option>
-
-            <%end%>
-
-      </select>
-
-    </div>
-
-    <%= f.fields_for :prediction_games do |builder| %>
-
-      <%= render "articles/predictiongames_fields", :f => builder %>
-      
-    <% end %>
+    <%= link_to_add_fields "+ Add Prediction", f, :prediction_games %>
 
     <a id="test-area">Rooooar</a>
 

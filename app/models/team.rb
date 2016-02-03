@@ -114,4 +114,9 @@ class Team < ActiveRecord::Base
 
     end
 
+    def team_games
+
+        return Game.all.where("(teama = :team or teamh = :team)", {team: self.name})
+    end
+
 end

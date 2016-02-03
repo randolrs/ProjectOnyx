@@ -6,4 +6,24 @@
   <%= f.grouped_collection_select(:teamh, Sport.all, :teams, :subcat, :id, :name, include_blank: true)%>
 </div>
 
+  <select id="article_game_select">
+
+    <option value></option>
+
+    <% Team.all.each do |team| %>
+      
+      <optgroup label="<%= team.name%>">
+
+        <% team.team_games.each do |game| %>
+
+          <option value="<%=game.id%>"><%=game.id%></option>
+
+        <%end%>
+
+      </optgroup>
+
+    <%end%>
+
+  </select>
+
 <%= f.check_box :_destroy %>

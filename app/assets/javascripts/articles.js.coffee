@@ -20,15 +20,22 @@ jQuery ->
    	$('#test-area').text(league)
    	options = $(teams).filter("optgroup[label='#{league}']").html()
    	if options
-      $('#article_prediction_games_attributes_fuckouttahere_teamh').show()
    	  $('#article_prediction_games_attributes_fuckouttahere_teamh').html(options)
+   	  $('#article_prediction_games_attributes_fuckouttahere_teamh').show()
     else
-      $('#article_prediction_games_attributes_fuckouttahere_teamh').hide()
       $('#article_prediction_games_attributes_fuckouttahere_teamh').empty()
-      
+      $('#article_prediction_games_attributes_fuckouttahere_teamh').hide()
 
-
-    
+   $('form').on 'change', '#article_prediction_games_attributes_fuckouttahere_teamh', (event) ->
+   	games = $('#article_game_select').html()
+   	team = $('#article_prediction_games_attributes_fuckouttahere_teamh :selected').text()			
+   	options = $(games).filter("optgroup[label='#{team}']").html()
+   	if options
+   	  $('#article_game_select').html(options)
+   	  $('#article_game_select').show()
+    else
+      $('#article_game_select').empty()
+      $('#article_game_select').hide()
 
 
   $('#team_select').parent().hide()

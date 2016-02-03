@@ -5,11 +5,11 @@
 .article-panel{
     width:100%;
     height:100%;
-    padding:20px 0px;
+    padding:30px;
     margin-left: auto;
     margin-right: auto;
     background-color: #fff;
-    min-width: 960px;
+    
 }
 
 .article-panel-container{
@@ -119,6 +119,25 @@ input[type="submit"].publish:hover{
   border: 1px solid #00D43C;
   webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+a.add_fields{
+	background-color:#1d93dd;
+	color:#FFF;
+	border-radius:14px;
+	padding:5px;
+	border:1px solid #1d93dd;
+	webkit-transition: all 0.5s ease;
+  	transition: all 0.5s ease;
+}
+
+a.add_fields:hover{
+	text-decoration:none;
+	cursor:pointer;
+	color:#1d93dd;
+	background-color:white;
+	webkit-transition: all 0.5s ease;
+  	transition: all 0.5s ease;
 }
 
 

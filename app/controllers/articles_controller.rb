@@ -124,7 +124,15 @@ class ArticlesController < ApplicationController
   end
 
   def ajax_league
-    @teams = Team.find_by_league(params[:league])
+    
+    if params[:game]
+    
+      @game = Game.find(params[:game])
+      @team_away = Team.find(@game.teama_id)
+      @team_home = Team.find(@game.teamh_id)
+
+    end
+
   end
 
   # POST /articles

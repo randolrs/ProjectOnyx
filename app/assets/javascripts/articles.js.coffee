@@ -42,8 +42,10 @@ jQuery ->
 
    $('form').on 'change', '#article_game_select', (event) ->
    	$('#final-score-select').show()
+   	game = $('#article_game_select :selected').val()
+   	alert(game)
    	$.ajax
-   		url: "/article/league_ajax"
+   		url: "/article/league_ajax/#{game}"
    		type: "GET"
    		success: (data) ->
    			console.log(data)

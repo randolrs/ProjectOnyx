@@ -1,1 +1,8 @@
- alert('Hey, it worked!');
+ <%if @game%>
+
+	 alert(<%=@game.id.to_s%>);
+	 alert(<%=@team_home.name.to_s%>);
+	 $("#article_prediction_game_teamh").text(<%= @team_home.name%>);
+	 $("#article_prediction_game_teama").text = <%=@team_away.name%>;
+
+ <%end%>

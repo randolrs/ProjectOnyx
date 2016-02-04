@@ -1,69 +1,78 @@
-<div id="sport-select">
-<%= f.collection_select(:league, Sport.all, :subcat, :subcat, include_blank: true, :id=>'my-custom-class')%>
+<!-- <div id="sport-select">
+<%# f.collection_select(:league, Sport.all, :subcat, :subcat, include_blank: true, :id=>'my-custom-class')%>
+</div> -->
+
+<div class="article-prediction-game-form">
+
+  <select id="article_league_select">
+
+      <option value></option>
+
+        <% Sport.all.each do |league| %>
+
+            <option value="<%=league.id%>"><%= league.subcat%></option>
+
+          <%end%>
+
+    </select>
+
+  <!-- <div class="team-select">
+    <%# f.grouped_collection_select(:teamh, Sport.all, :teams, :subcat, :id, :name, include_blank: true)%>
+  </div> -->
+
+    <select id="article_team_select">
+
+      <option value></option>
+
+      <% Sport.all.each do |sport| %>
+        
+        <optgroup label="<%=sport.subcat%>">
+
+          <% sport.teams.each do |team| %>
+
+            <option value="<%=team.id%>"><%= team.name%></option>
+
+          <%end%>
+
+        </optgroup>
+
+      <%end%>
+
+    </select>
+
+
+    <select id="article_game_select">
+
+      <option value></option>
+
+      <% Team.all.each do |team| %>
+        
+        <optgroup label="<%= team.name%>">
+
+          <% team.team_games.each do |game| %>
+
+            <option value="<%=game.id%>"><%= game.event_time.strftime("%m/%d/%g")%>: <%=game.teama%> @ <%=game.teamh%></option>
+
+          <%end%>
+
+        </optgroup>
+
+      <%end%>
+
+    </select>
+
+    <%= f.hidden_field :game_id, as: :integer, :label => false, :placeholder => 2 %>
+
+    <div class="final-score-select" id="final-score-select" style="display:none">
+      <h4>Final Score Prediction</h4>
+      <div style="height:40px;">
+        <a>Home Team</a><%= f.number_field :teamh_score, :maxlength=>"3" %><br><br>
+      </div>
+
+      <div style="height:40px;">
+        <a>Away Team</a><%= f.number_field :teama_score, :maxlength=>"3" %>
+      </div>
+
+    </div>
+
 </div>
-
-<select id="article_league_select">
-
-    <option value></option>
-
-      <% Sport.all.each do |league| %>
-
-          <option value="<%=league.id%>"><%= league.subcat%></option>
-
-        <%end%>
-
-  </select>
-
-<div class="team-select">
-  <%= f.grouped_collection_select(:teamh, Sport.all, :teams, :subcat, :id, :name, include_blank: true)%>
-</div>
-
-  <select id="article_team_select">
-
-    <option value></option>
-
-    <% Sport.all.each do |sport| %>
-      
-      <optgroup label="<%=sport.subcat%>">
-
-        <% sport.teams.each do |team| %>
-
-          <option value="<%=team.id%>"><%= team.name%></option>
-
-        <%end%>
-
-      </optgroup>
-
-    <%end%>
-
-  </select>
-
-
-  <select id="article_game_select">
-
-    <option value></option>
-
-    <% Team.all.each do |team| %>
-      
-      <optgroup label="<%= team.name%>">
-
-        <% team.team_games.each do |game| %>
-
-          <option value="<%=game.id%>"><%= game.event_time.strftime("%m/%d/%g")%>: <%=game.teama%> @ <%=game.teamh%></option>
-
-        <%end%>
-
-      </optgroup>
-
-    <%end%>
-
-  </select>
-
-  <div class="final-score-select">
-    Final Score Prediction
-    <a>Home Team</a><%= f.number_field :teamh_score, :maxlength=>"3" %><br>
-    <a>Away Team</a><%= f.number_field :teama_score, :maxlength=>"3" %>
-    <%= f.grouped_collection_select(:teamh, Sport.all, :teams, :subcat, :id, :name, include_blank: true)%>
-  </div>
-
-<%= f.check_box :_destroy %>

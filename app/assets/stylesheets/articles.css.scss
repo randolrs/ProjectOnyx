@@ -49,17 +49,12 @@
 
 input[type="text"].article-title-text{
 	width:100%;
-	font-family: "medium-content-sans-serif-font","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 36px;
     height:36px;
-
     line-height: 1.15;
     letter-spacing: -0.02em;    font-family: "medium-content-sans-serif-font","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 36px;
+    font-size: 30px;
     margin-left: -2.25px;
     line-height: 1.15;
     letter-spacing: -0.02em;
@@ -337,4 +332,17 @@ td.article-index-title{
 
 h3.category-types-header{
   margin:15px 0px;
+}
+
+
+.final-score-select input[type="number"]{
+	width:30px;
+	float:right;
+	text-align:center;
+}
+
+.article-prediction-game-form{
+	border:1px solid #ccc;
+	margin-bottom:40px;
+	padding:10px;
 }

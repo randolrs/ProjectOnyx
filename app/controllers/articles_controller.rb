@@ -123,6 +123,10 @@ class ArticlesController < ApplicationController
   def edit
   end
 
+  def ajax_league
+    @teams = Team.find_by_league(params[:league])
+  end
+
   # POST /articles
   # POST /articles.json
   def create
@@ -132,8 +136,6 @@ class ArticlesController < ApplicationController
       @article = Article.new(article_params)
       @article.predictor_id = current_predictor.id
       @article.hits = 0
-
-      @game = Game.find(@article.event_id)
 
       for prediction_game in @article.prediction_games
         prediction_game.predictor_id = current_predictor.id
@@ -145,7 +147,7 @@ class ArticlesController < ApplicationController
           prediction_game.status = "o"
         end
 
-        prediction_game.league = @game.league
+        #prediction_game.league = @game.league
 
         if prediction_game.teama_score > prediction_game.teamh_score
           prediction_game.game_winner = prediction_game.teama
@@ -167,7 +169,7 @@ class ArticlesController < ApplicationController
 
             Stripe.api_key = Rails.configuration.stripe[:secret_key]
             account = Stripe::Account.create(
-              {:country => "US", :managed => true, :email => @predictor.email, :transfer_schedule["interval"] => "manual"}
+              {:country => "US", :managed => true, :email => current_predictor.email, :transfer_schedule["interval"] => "manual"}
             )
 
             current_predictor.update(:account => true)

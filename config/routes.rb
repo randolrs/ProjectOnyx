@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   get 'gamedash' => "games#index"
 
+  get '/article/league_ajax', :to => 'articles#ajax_league'
 
   get 'user_dashboard' => "pages#user_index"
 

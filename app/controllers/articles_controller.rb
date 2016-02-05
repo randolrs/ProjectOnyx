@@ -52,16 +52,6 @@ class ArticlesController < ApplicationController
     @article.update(hits: @article.hits+1)
     @predictor = Predictor.find(@article.predictor_id)
 
-    for prediction_game in @article.prediction_games
-      @prediction_game = prediction_game
-    end
-
-    @league = @prediction_game.league
-    @teams = Team.all.where(:league=>@league)
-    @games = Game.all.where(:league=>@league).order("event_time DESC").paginate(:page => params[:page], :per_page => 4)
-    @game = Game.find(@article.event_id)
-    @teama = Team.find_by_name(@game.teama)
-    @teamh = Team.find_by_name(@game.teamh)
 
     if user_signed_in?
       @usertype = "user"
@@ -142,38 +132,19 @@ class ArticlesController < ApplicationController
     if predictor_signed_in?
 
       @article = Article.new(article_params)
+      @article.prediction_games.build
       @article.predictor_id = current_predictor.id
       @article.hits = 0
 
       for prediction_game in @article.prediction_games
         prediction_game.predictor_id = current_predictor.id
-        prediction_game.game_id = @article.event_id
-        prediction_game.event_time = @article.event_time
-        prediction_game.teama = @game.teama
-        prediction_game.teamh = @game.teamh
-        if Time.now > prediction_game.event_time
-          prediction_game.status = "o"
-        end
-
-        #prediction_game.league = @game.league
-
-        if prediction_game.teama_score > prediction_game.teamh_score
-          prediction_game.game_winner = prediction_game.teama
-          prediction_game.spread = prediction_game.teama_score - prediction_game.teamh_score
-        elsif prediction_game.teama_score < prediction_game.teamh_score
-          prediction_game.game_winner = prediction_game.teamh
-          prediction_game.spread = prediction_game.teamh_score - prediction_game.teama_score
-        elsif prediction_game.teama_score == prediction_game.teamh_score
-          prediction_game.game_winner = "N/A"
-          prediction_game.spread = 0
-        end
 
       end
 
       respond_to do |format|
         if @article.save
 
-          unless current_predictor.account
+          unless current_predictor.account ###make this check a partial
 
             Stripe.api_key = Rails.configuration.stripe[:secret_key]
             account = Stripe::Account.create(

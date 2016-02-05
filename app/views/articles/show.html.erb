@@ -1,8 +1,4 @@
-<%= render 'pages/league_home_header' %>
-
 <div class="content-panel">
-
-	<%=render 'games/gameshowcover'%>
 
 	<div class="article-top">
 		<%= render 'articles/articleshow' %>
@@ -10,6 +6,12 @@
 
 	<h3 class="article-prediction-header"><u>Prediction</u></h3>
 
-	<%= render 'prediction_games/predictiongameshowgamedetails'%>
+	Header
+
+	<% @article.prediction_games.each do |prediction|%>
+		here
+		<%= prediction.id%>
+		<%= prediction.teama_score%>
+	<%end%>
 
 </div>

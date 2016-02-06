@@ -15,34 +15,34 @@ jQuery ->
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
-   $('form').on 'change', '#article_league_select', (event) ->
-   	teams = $('#article_team_select').html()
-   	league = $('#article_league_select :selected').text()				
+   $('form').on 'change', '.article_league_select', (event) ->
+   	teams = $(@).nextAll('.article_team_select').html()
+   	league = $(@).nextAll('.article_league_select :selected').text()				
    	$('#test-area').text(league)
    	options = $(teams).filter("optgroup[label='#{league}']").html()
    	if options
-   	  $('#article_team_select').html(options)
-   	  $('#article_team_select').show()
+   	  $(@).nextAll('.article_team_select').html(options)
+   	  $(@).nextAll('.article_team_select').show()
     else
-      $('#article_team_select').empty()
-      $('#article_prediction_games_attributes_fuckouttahere_teamh').hide()
+      $(@).nextAll('.article_team_select').empty()
+      $(@).nextAll('.article_prediction_games_attributes_fuckouttahere_teamh').hide()
 
 
-   $('form').on 'change', '#article_team_select', (event) ->
-   	games = $('#article_game_select').html()
-   	team = $('#article_team_select :selected').text()			
+   $('form').on 'change', '.article_team_select', (event) ->
+   	games = $(@).nextAll('.article_game_select').html()
+   	team = $(@).val()			
    	options = $(games).filter("optgroup[label='#{team}']").html()
-   	alert "Stop"
+   	alert team
    	if options
-   	  $('#article_game_select').html(options)
-   	  $('#article_game_select').show()
+   	  $(@).nextAll('.article_game_select').html(options)
+   	  $(@).nextAll('.article_game_select').show()
     else
-      $('#article_game_select').empty()
-      $('#article_game_select').hide()
+      $(@).nextAll('.article_game_select').empty()
+      $(@).nextAll('.article_game_select').hide()
 
-   $('form').on 'change', '#article_game_select', (event) ->
-   	$('#final-score-select').show()
-   	game = $('#article_game_select :selected').val()
+   $('form').on 'change', '.article_game_select', (event) ->
+   	$(@).nextAll('.final-score-select').slideDown()
+   	game = $(@).val()
    	alert(game)
    	$.ajax
    		url: "/article/league_ajax/#{game}"

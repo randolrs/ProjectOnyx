@@ -4,7 +4,7 @@
 
 <div class="article-prediction-game-form">
 
-  <select id="article_league_select">
+  <select class="article_league_select">
 
       <option value></option>
 
@@ -20,7 +20,7 @@
     <%# f.grouped_collection_select(:teamh, Sport.all, :teams, :subcat, :id, :name, include_blank: true)%>
   </div> -->
 
-    <select id="article_team_select">
+    <select class="article_team_select">
 
       <option value></option>
 
@@ -30,7 +30,7 @@
 
           <% sport.teams.each do |team| %>
 
-            <option value="<%=team.id%>"><%= team.name%></option>
+            <option value="<%=team.name%>"><%= team.name%></option>
 
           <%end%>
 
@@ -41,7 +41,7 @@
     </select>
 
 
-    <select id="article_game_select">
+    <select class="article_game_select">
 
       <option value></option>
 
@@ -63,14 +63,14 @@
 
     <%= f.hidden_field :game_id, as: :integer, :label => false, :placeholder => 2 %>
 
-    <div class="final-score-select" id="final-score-select" style="display:none">
+    <div class="final-score-select" style="display:none">
       <h4>Final Score Prediction</h4>
       <div style="height:40px;">
-        <a id="article_prediction_game_teamh">Home Team</a><%= f.number_field :teamh_score, :maxlength=>"3" %><br><br>
+        <a class="article_prediction_game_teamh">Home Team</a><%= f.number_field :teamh_score, :maxlength=>"3" %><br><br>
       </div>
 
       <div style="height:40px;">
-        <a id="article_prediction_game_teama">Away Team</a><%= f.number_field :teama_score, :maxlength=>"3" %>
+        <a class="article_prediction_game_teama">Away Team</a><%= f.number_field :teama_score, :maxlength=>"3" %>
       </div>
 
     </div>

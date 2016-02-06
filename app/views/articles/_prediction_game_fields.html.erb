@@ -61,18 +61,20 @@
 
     </select>
 
-    <%= f.hidden_field :game_id, as: :integer, :label => false, :placeholder => 2 %>
+    <fieldset class="final-score-select" style="display:none">
 
-    <div class="final-score-select" style="display:none">
+      <%= f.hidden_field :game_id, as: :integer, :label => false, :placeholder => 2 %>
+
       <h4>Final Score Prediction</h4>
       <div style="height:40px;">
         <a class="article_prediction_game_teamh">Home Team</a><%= f.number_field :teamh_score, :maxlength=>"3" %><br><br>
-      </div>
 
       <div style="height:40px;">
         <a class="article_prediction_game_teama">Away Team</a><%= f.number_field :teama_score, :maxlength=>"3" %>
       </div>
 
-    </div>
+      </div>
+
+    </fieldset>
 
 </div>

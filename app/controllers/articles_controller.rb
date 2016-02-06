@@ -132,13 +132,11 @@ class ArticlesController < ApplicationController
     if predictor_signed_in?
 
       @article = Article.new(article_params)
-      @article.prediction_games.build
       @article.predictor_id = current_predictor.id
       @article.hits = 0
 
-      for prediction_game in @article.prediction_games
+      @article.prediction_games.each do |prediction_game|
         prediction_game.predictor_id = current_predictor.id
-
       end
 
       respond_to do |format|

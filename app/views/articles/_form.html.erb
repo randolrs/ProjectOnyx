@@ -45,7 +45,13 @@
   </div>
 
   <div class="article-prediction-container">
+    
+    <%# f.fields_for :prediction_games do |builder| %>
       
+      <%#render 'prediction_games_fields', f: builder%>
+    
+    <%#end%>
+
     <%= link_to_add_fields "+ Add Prediction", f, :prediction_games %>
     
     <a id="test-area">Rooooar</a>

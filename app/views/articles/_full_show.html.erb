@@ -1,6 +1,7 @@
-
-  <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
-  <b><%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %></b>
+  <div class="article-show-header">
+    <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
+    <%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
+  </div>
 
   <div class="article-form-container">
 

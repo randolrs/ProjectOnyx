@@ -1,0 +1,26 @@
+
+  <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
+  <b><%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %></b>
+
+  <div class="article-form-container">
+
+    <div class="article-title-text">
+      <%=@article.title%>
+    </div>
+
+    <div class="article-body-text">
+        <%=@article.body%>
+    </div>
+
+  </div>
+
+  <div class="article-prediction-container">
+    
+    <%article.prediction_games.each do |prediction|%>
+      <%=prediction.id%><br>
+      <%=prediction.league%><br>
+      <%=prediction.game_id%><br>
+
+    <%end%>
+
+  </div>

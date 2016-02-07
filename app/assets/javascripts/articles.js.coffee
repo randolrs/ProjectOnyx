@@ -17,7 +17,7 @@ jQuery ->
 
    $('form').on 'change', '.article_league_select', (event) ->
    	teams = $(@).nextAll('.article_team_select').html()
-   	league = $(@).nextAll('.article_league_select :selected').text()				
+   	league = $(@).val()				
    	$('#test-area').text(league)
    	options = $(teams).filter("optgroup[label='#{league}']").html()
    	if options
@@ -25,27 +25,35 @@ jQuery ->
    	  $(@).nextAll('.article_team_select').show()
     else
       $(@).nextAll('.article_team_select').empty()
-      $(@).nextAll('.article_prediction_games_attributes_fuckouttahere_teamh').hide()
+      $(@).nextAll('.article_team_select').hide()
 
 
    $('form').on 'change', '.article_team_select', (event) ->
-   	games = $(@).nextAll('.article_game_select').html()
+   	gameSelect = $(@).next('.article_game_select')
+   	games = gameSelect.html()
    	team = $(@).val()			
    	options = $(games).filter("optgroup[label='#{team}']").html()
-   	alert team
    	if options
-   	  $(@).nextAll('.article_game_select').html(options)
-   	  $(@).nextAll('.article_game_select').show()
+   	  gameSelect.html(options)
+   	  gameSelect.show()
     else
-      $(@).nextAll('.article_game_select').empty()
-      $(@).nextAll('.article_game_select').hide()
+      gameSelect.empty()
+      gameSelect.hide()
 
    $('form').on 'change', '.article_game_select', (event) ->
-   	$(@).nextAll('.final-score-select').slideDown()
+   	scoreForm = $(@).next('.final-score-select')
+   	teamHomeLabel = $(@).next('.final-score-select').children('.team-container').children('.article_prediction_game_teamh')
+   	teamAwayLabel = $(@).next('.final-score-select').children('.team-container').children('.article_prediction_game_teama')
+   	gameIdInput = $(@).next('.final-score-select').children('.game-id-input')
+   	food = $(@).nextAll('.final-score-select')
+   	food.next().slideUp()
    	game = $(@).val()
-   	alert(game)
    	$.ajax
    		url: "/article/league_ajax/#{game}"
    		type: "GET"
    		success: (data) ->
    			console.log(data)
+   			teamHomeLabel.text(data.teamh)
+   			teamAwayLabel.text(data.teama)
+   			gameIdInput.val(data.game_id)
+   			scoreForm.slideDown()

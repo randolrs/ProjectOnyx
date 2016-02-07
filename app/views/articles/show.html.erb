@@ -1,17 +1,8 @@
-<div class="content-panel">
+<div class="article-panel">
 
-	<div class="article-top">
-		<%= render 'articles/articleshow' %>
+	<div class="article-panel-container">
+		<%= render partial: 'articles/full_show', locals: {article: @article, predictor: @predictor} %>
 	</div>
-
-	<h3 class="article-prediction-header"><u>Prediction</u></h3>
-
-	Header <%= @article.prediction_games.count %>
-
-	<% @article.prediction_games.each do |prediction|%>
-		here
-		<%= prediction.id%>
-		<%= prediction.teama_score%>
-	<%end%>
-
+	
 </div>
+

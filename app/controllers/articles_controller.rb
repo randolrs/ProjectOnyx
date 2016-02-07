@@ -121,6 +121,10 @@ class ArticlesController < ApplicationController
       @team_away = Team.find(@game.teama_id)
       @team_home = Team.find(@game.teamh_id)
 
+      respond_to do |format|
+        format.js { render json: { :teama => @team_away.name, :teamh => @team_home.name, :game_id => @game.id } , content_type: 'text/json' }
+      end
+
     end
 
   end
@@ -136,7 +140,10 @@ class ArticlesController < ApplicationController
       @article.hits = 0
 
       @article.prediction_games.each do |prediction_game|
-        prediction_game.predictor_id = current_predictor.id
+        prediction_game.update(:predictor_id => current_predictor.id)
+        game = Game.find(prediction_game.game_id)
+        prediction_game.update(:league => game.league)
+        prediction_game.update(:event_time => game.event_time)
       end
 
       respond_to do |format|

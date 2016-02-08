@@ -143,6 +143,19 @@ class ArticlesController < ApplicationController
         prediction_game.update(:predictor_id => current_predictor.id)
         game = Game.find(prediction_game.game_id)
         prediction_game.update(:league => game.league)
+        overunder = prediction_game.teama_score + prediction_game.teamh_score
+        prediction_game.update(:overunder => overunder)
+          
+        if prediction_game.teama_score > prediction_game.teamh_score
+          prediction_game.update(:game_winner => prediction_game.teama)
+          prediction_game.update(:spread => prediction_game.teama_score - prediction_game.teamh_score)
+
+        elsif prediction_game.teama_score < prediction_game.teamh_score
+          prediction_game.update(:game_winner => prediction_game.teamh)
+          prediction_game.update(:spread => prediction_game.teamh_score - prediction_game.teama_score)
+
+        end
+
         prediction_game.update(:event_time => game.event_time)
       end
 

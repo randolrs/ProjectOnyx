@@ -64,8 +64,9 @@
     <fieldset class="final-score-select" style="display:none">
 
       <%= f.hidden_field :game_id, as: :integer, :label => false, :placeholder => 2, :class => 'game-id-input' %>
-      <%= f.hidden_field :teamh, as: :integer, :label => false, :placeholder => 2, :class => 'teamh-input' %>
-      <%= f.hidden_field :teama, as: :integer, :label => false, :placeholder => 2, :class => 'teama-input' %>
+      <%= f.hidden_field :teamh, as: :string, :label => false, :placeholder => 2, :class => 'teamh-input' %>
+      <%= f.hidden_field :teama, as: :string, :label => false, :placeholder => 2, :class => 'teama-input' %>
+      <%= f.hidden_field :event_time, as: :datetime, :label => false, :placeholder => 2, :class => 'event-time-input' %>
 
       <h4>Final Score Prediction</h4>
       <div class="team-container" style="height:80px;">

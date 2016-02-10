@@ -122,7 +122,7 @@ class ArticlesController < ApplicationController
       @team_home = Team.find(@game.teamh_id)
 
       respond_to do |format|
-        format.js { render json: { :teama => @team_away.name, :teamh => @team_home.name, :game_id => @game.id } , content_type: 'text/json' }
+        format.js { render json: { :teama => @team_away.name, :teamh => @team_home.name, :game_id => @game.id, :event_time => @game.event_time } , content_type: 'text/json' }
       end
 
     end
@@ -157,6 +157,7 @@ class ArticlesController < ApplicationController
         end
 
         prediction_game.update(:event_time => game.event_time)
+
       end
 
       respond_to do |format|

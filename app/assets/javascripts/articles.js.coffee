@@ -47,6 +47,7 @@ jQuery ->
    	gameIdInput = $(@).next('.final-score-select').children('.game-id-input')
    	teamHInput = $(@).next('.final-score-select').children('.teamh-input')
    	teamAInput = $(@).next('.final-score-select').children('.teama-input')
+   	eventTimeInput = $(@).next('.final-score-select').children('.event-time-input')
    	game = $(@).val()
    	$.ajax
    		url: "/article/league_ajax/#{game}"
@@ -56,7 +57,8 @@ jQuery ->
    			teamHomeLabel.text(data.teamh)
    			teamAwayLabel.text(data.teama)
    			scoreForm.slideDown()
-   			teamHInput.text(data.teamh)
-   			teamAInput.text(data.teama)
+   			teamHInput.val(data.teamh)
+   			teamAInput.val(data.teama)
+   			eventTimeInput.val(data.event_time)
    			gameIdInput.val(data.game_id)
    			

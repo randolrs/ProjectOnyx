@@ -17,9 +17,9 @@ jQuery ->
 
    $('form').on 'change', '.article_league_select', (event) ->
    	teams = $(@).nextAll('.article_team_select').html()
+   	teams_default = $(@).nextAll('.article_team_select_default').html()
    	league = $(@).val()				
-   	$('#test-area').text(league)
-   	options = $(teams).filter("optgroup[label='#{league}']").html()
+   	options = $(teams_default).filter("optgroup[label='#{league}']").html()
    	if options
    	  $(@).nextAll('.article_team_select').html(options)
    	  $(@).nextAll('.article_team_select').show()
@@ -27,12 +27,12 @@ jQuery ->
       $(@).nextAll('.article_team_select').empty()
       $(@).nextAll('.article_team_select').hide()
 
-
    $('form').on 'change', '.article_team_select', (event) ->
-   	gameSelect = $(@).next('.article_game_select')
-   	games = gameSelect.html()
-   	team = $(@).val()			
-   	options = $(games).filter("optgroup[label='#{team}']").html()
+   	games = $(@).nextAll('.article_game_select').html()
+   	gameSelect = $(@).nextAll('.article_game_select')
+   	games_default = $(@).nextAll('.article_game_select_default').html()
+   	team = $(@).val()
+    options = $(games_default).filter("optgroup[label='#{team}']").html()
    	if options
    	  gameSelect.html(options)
    	  gameSelect.show()
@@ -41,24 +41,24 @@ jQuery ->
       gameSelect.hide()
 
    $('form').on 'change', '.article_game_select', (event) ->
-   	scoreForm = $(@).next('.final-score-select')
-   	teamHomeLabel = $(@).next('.final-score-select').children('.team-container').children('.article_prediction_game_teamh')
-   	teamAwayLabel = $(@).next('.final-score-select').children('.team-container').children('.article_prediction_game_teama')
-   	gameIdInput = $(@).next('.final-score-select').children('.game-id-input')
-   	teamHInput = $(@).next('.final-score-select').children('.teamh-input')
-   	teamAInput = $(@).next('.final-score-select').children('.teama-input')
-   	eventTimeInput = $(@).next('.final-score-select').children('.event-time-input')
+   	scoreForm = $(@).nextAll('.final-score-select')
+   	teamHomeLabel = scoreForm.children('.team-container').children('.article_prediction_game_teamh')
+   	teamAwayLabel = scoreForm.children('.team-container').children('.article_prediction_game_teama')
+   	gameIdInput = scoreForm.children('.game-id-input')
+   	teamHInput = scoreForm.children('.teamh-input')
+   	teamAInput = scoreForm.children('.teama-input')
+   	eventTimeInput = scoreForm.children('.event-time-input')
    	game = $(@).val()
    	$.ajax
-   		url: "/article/league_ajax/#{game}"
+   		url: "/article/ajax_league/#{game}"
    		type: "GET"
    		success: (data) ->
    			console.log(data)
    			teamHomeLabel.text(data.teamh)
    			teamAwayLabel.text(data.teama)
-   			scoreForm.slideDown()
    			teamHInput.val(data.teamh)
    			teamAInput.val(data.teama)
    			eventTimeInput.val(data.event_time)
    			gameIdInput.val(data.game_id)
+   			scoreForm.slideDown()
    			

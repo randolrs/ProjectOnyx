@@ -16,10 +16,6 @@
 
     </select>
 
-  <!-- <div class="team-select">
-    <%# f.grouped_collection_select(:teamh, Sport.all, :teams, :subcat, :id, :name, include_blank: true)%>
-  </div> -->
-
     <select class="article_team_select">
 
       <option value="" disabled selected>Select a Team</option>
@@ -40,8 +36,48 @@
 
     </select>
 
+    <select class="article_team_select_default" style="display:none;">
+
+      <option value="" disabled selected>Select a Team</option>
+
+      <% Sport.all.each do |sport| %>
+        
+        <optgroup label="<%=sport.subcat%>">
+
+          <% sport.teams.each do |team| %>
+
+            <option value="<%=team.id%>"><%= team.name%></option>
+
+          <%end%>
+
+        </optgroup>
+
+      <%end%>
+
+    </select>
+
 
     <select class="article_game_select">
+
+      <option value></option>
+
+      <% Team.all.each do |team| %>
+        
+        <optgroup label="<%= team.name%>">
+
+          <% team.team_games.each do |game| %>
+
+            <option value="<%=game.id%>"><%= game.event_time.strftime("%m/%d/%g")%>: <%=game.teama%> @ <%=game.teamh%></option>
+
+          <%end%>
+
+        </optgroup>
+
+      <%end%>
+
+    </select>
+
+    <select class="article_game_select_default" style="display:none;">
 
       <option value></option>
 

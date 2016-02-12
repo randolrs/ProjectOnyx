@@ -111,6 +111,22 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+  
+
+  end
+
+  def ajax_team
+
+    if params[:team]
+
+      @team = Team.find(params[:team])
+
+      respond_to do |format|
+        format.js { render json: { :team_id => "test-holder" } , content_type: 'text/json' }
+      end
+
+    end
+
   end
 
   def ajax_league

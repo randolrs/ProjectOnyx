@@ -16,8 +16,8 @@
 body{
   background-color:#fafafa;
   
-  background-image: url("https://s3.amazonaws.com/futable/backgrounds/handmadepaper.png");
-  background-image: url("/assets/handmadepaper.png");
+  /*background-image: url("https://s3.amazonaws.com/futable/backgrounds/handmadepaper.png");
+  background-image: url("/assets/handmadepaper.png");*/
 
 }
 

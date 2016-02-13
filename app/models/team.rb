@@ -119,4 +119,9 @@ class Team < ActiveRecord::Base
         return Game.all.where("(teama = :team or teamh = :team)", {team: self.name})
     end
 
+    def team_games_predictable
+
+        return Game.all.where("(teama = :team or teamh = :team) and event_time > :time and status = :open", {team: self.name, time: Time.now, open: "o"})
+    end
+
 end

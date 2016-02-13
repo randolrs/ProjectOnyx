@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :category, as: :string, :label => false, :placeholder => params[:type], :class => 'type-input' %>
+
   <div class="article-form-header">
     <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
     <b><%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %></b>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127183310) do
+ActiveRecord::Schema.define(version: 20160213020236) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160127183310) do
     t.datetime "event_time"
     t.string   "teama"
     t.string   "teamh"
+    t.string   "category",     default: ""
   end
 
   create_table "charges", force: true do |t|

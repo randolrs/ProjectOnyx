@@ -59,19 +59,23 @@
 
     <select class="article_game_select">
 
-      <option value></option>
+      <option value>Select a Game</option>
 
       <% Team.all.each do |team| %>
         
-        <optgroup label="<%= team.name%>">
+        <% if team.team_games_predictable.count > 0 %>
 
-          <% team.team_games.each do |game| %>
+          <optgroup label="<%= team.name%>">
 
-            <option value="<%=game.id%>"><%= game.event_time.strftime("%m/%d/%g")%>: <%=game.teama%> @ <%=game.teamh%></option>
+            <% team.team_games_predictable.each do |game| %>
 
-          <%end%>
+              <option value="<%=game.id%>"><%= game.event_time.strftime("%m/%d/%g")%>: <%=game.teama%> @ <%=game.teamh%></option>
 
-        </optgroup>
+            <%end%>
+
+          </optgroup>
+
+        <%end%>
 
       <%end%>
 
@@ -112,6 +116,9 @@
       </div>
 
       </div>
+
+      <%= f.hidden_field :_destroy %>
+      <%= link_to "Cancel", '#', class: "remove_fields" %>
 
     </fieldset>
 

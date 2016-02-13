@@ -1,0 +1,15 @@
+
+<div class = "content-panel">
+ 
+ 	<div class="article-show-detail">
+ 		<h3><%= link_to article.title, predictorarticleshow_path(predictor.username,article.id), class: "article-show-title" %></h3>
+		
+ 		<div class="article-show-sub-detail">
+			submitted <%= article.created_at.strftime("%D") %> by <%= link_to predictor.username, predictordashboard_path(predictor.username) %>
+		</div>
+
+		<br>
+
+	</div>
+</div>
+ 	

@@ -6,13 +6,11 @@
 
       <div class ="main-content">
 
-    		<%= render 'predictors/subscriber_summary' %>
+        <% @articles.each do |article|%>
 
-    		<%= render 'predictors/subscription_rate' %>
+          <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
 
-    		<%= render 'predictors/next_payment_date' %>
-
-        <%= render 'layouts/footer_float'%>
+        <%end%>
 
       </div>
 

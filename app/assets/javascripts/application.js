@@ -18,13 +18,6 @@
 //= require turbolinks
 //= require_tree .
 
-// require webcomponentsjs/webcomponents
-// require webcomponentsjs/webcomponents-lite
-// require webcomponentsjs/webcomponents-lite.min.js
-// require platform/platform
-
-//Bower packages
-
 
 function toggleModal() {
     var divModal = document.getElementById("divModal");

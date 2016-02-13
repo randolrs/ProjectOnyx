@@ -1949,3 +1949,22 @@ ul.dropdown-menu li {
   .select-category{
 
   }
+
+  .content-wrap{
+      max-width: 1000px!important;
+      min-width: 600px;
+      margin:0 auto;
+      padding:30px;
+  }
+
+  .main-content{
+    float:left;
+    width: 60%;
+    padding:10px;
+  }
+
+  .side-panel-content{
+    float:left;
+    width:40%;
+    padding:10px;
+  }

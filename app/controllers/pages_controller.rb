@@ -26,6 +26,8 @@ class PagesController < ApplicationController
       @subscriptions_count = @predictor.purchases.all.where(:premium => true).count
       @current_balance = 0
 
+      @articles = Article.all
+
     end
 
   end

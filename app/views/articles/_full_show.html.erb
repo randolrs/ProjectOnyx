@@ -17,15 +17,20 @@
 
   <div class="article-prediction-container">
 
-    <h3><u>Predictions</u></h3>
+    <h3>Predictions</h3>
     
     <%article.prediction_games.each do |prediction|%>
 
       <% @game = Game.find(prediction.game_id)%>
       <div class="article-prediction-list">
       <%= prediction.event_time.strftime("%-m/%-d")%> <%= image_tag Team.find_by_name(@game.teama).image.url(:medium), class: "predictor-image-tiny"%> <%= @game.teama %> <%= prediction.teama_score%> @ <%= prediction.teamh_score%> <%= @game.teamh %> <%= image_tag Team.find_by_name(@game.teamh).image.url(:medium), class: "predictor-image-tiny"%> <br>
+      <%=prediction.article_id%>
       </div>
 
     <%end%>
+
+    <h3>Tags</h3>
+    
+    <%=@article.category%><br>
 
   </div>

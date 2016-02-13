@@ -1,0 +1,27 @@
+<% if predictor_signed_in? %>
+  <%# render 'layouts/header_sub_import' %>
+  <%# render 'layouts/header_sub' %>
+
+  <div class="content-wrap">
+
+      <div class ="main-content">
+
+    		<%= render 'predictors/subscriber_summary' %>
+
+    		<%= render 'predictors/subscription_rate' %>
+
+    		<%= render 'predictors/next_payment_date' %>
+
+        <%= render 'layouts/footer_float'%>
+
+      </div>
+
+		  <div class ="side-panel-content">
+			
+			   <%= render 'predictors/transactions' %>
+
+		  </div>
+
+  </div>
+
+<%end%>

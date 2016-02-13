@@ -72,36 +72,6 @@ class ArticlesController < ApplicationController
 
     @predictor = current_predictor
 
-    # @game = Game.find(params[:game])
-
-    # @league = @game.league
-
-    # @teama = Team.find_by_name(@game.teama)
-    # @teamh = Team.find_by_name(@game.teamh)
-
-    # @prediction_game = @article.prediction_games.build 
-
-    # @prediction_game.game_id = @game.id
-
-    # @prediction_game.predictor_id = @predictor.id
-
-    # @prediction_game.teama = @game.teama
-
-    # @prediction_game.teamh = @game.teamh
-
-    # @prediction_game.league = @game.league
-
-    # @prediction_game.event_time = @game.event_time
-
-    # @prediction_game.status = "o"
-
-    # @prediction_game.league = @game.league
-
-    # @article.event_id = @game.id
-    # @article.event_time = @game.event_time
-    # @article.teama = @teama.name
-    # @article.teamh = @teamh.name
-
     respond_to do |format|
     format.html # new.html.erb
     format.json { render json: @article }
@@ -154,25 +124,33 @@ class ArticlesController < ApplicationController
       @article = Article.new(article_params)
       @article.predictor_id = current_predictor.id
       @article.hits = 0
+      
 
-      @article.prediction_games.each do |prediction_game|
-        prediction_game.update(:predictor_id => current_predictor.id)
-        game = Game.find(prediction_game.game_id)
-        prediction_game.update(:league => game.league)
-        overunder = prediction_game.teama_score + prediction_game.teamh_score
-        prediction_game.update(:overunder => overunder)
-          
-        if prediction_game.teama_score > prediction_game.teamh_score
-          prediction_game.update(:game_winner => prediction_game.teama)
-          prediction_game.update(:spread => prediction_game.teama_score - prediction_game.teamh_score)
+      if @article.prediction_games.count > 0
+        crashme.fuck
+        #@article.update(category: "Sports")
 
-        elsif prediction_game.teama_score < prediction_game.teamh_score
-          prediction_game.update(:game_winner => prediction_game.teamh)
-          prediction_game.update(:spread => prediction_game.teamh_score - prediction_game.teama_score)
+        @article.prediction_games.each do |prediction_game|
+          prediction_game.update(:predictor_id => current_predictor.id)
+          game = Game.find(prediction_game.game_id)
+          prediction_game.update(:league => game.league)
+          overunder = prediction_game.teama_score + prediction_game.teamh_score
+          prediction_game.update(:overunder => overunder)
+          prediction_game.update(:article_id => @article.id)
+            
+          if prediction_game.teama_score > prediction_game.teamh_score
+            prediction_game.update(:game_winner => prediction_game.teama)
+            prediction_game.update(:spread => prediction_game.teama_score - prediction_game.teamh_score)
+
+          elsif prediction_game.teama_score < prediction_game.teamh_score
+            prediction_game.update(:game_winner => prediction_game.teamh)
+            prediction_game.update(:spread => prediction_game.teamh_score - prediction_game.teama_score)
+
+          end
+
+          prediction_game.update(:event_time => game.event_time)
 
         end
-
-        prediction_game.update(:event_time => game.event_time)
 
       end
 
@@ -210,7 +188,7 @@ class ArticlesController < ApplicationController
 
           end
 
-          format.html { redirect_to @article, notice: 'Article was successfully created.' }
+          format.html { redirect_to @article, notice: 'Article was successfully published.' }
           format.json { render :show, status: :created, location: @article }
 
         else

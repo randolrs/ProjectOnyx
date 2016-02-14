@@ -1,15 +1,25 @@
+<div class = "content-panel sub">
+ 	
+ 	<div class="article-show-header">
+    	<%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
+    	<%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
+    	<%= article.created_at.strftime("%D") %>
+  	</div>
 
-<div class = "content-panel">
- 
  	<div class="article-show-detail">
- 		<h3><%= link_to article.title, predictorarticleshow_path(predictor.username,article.id), class: "article-show-title" %></h3>
+ 		<div class="article-title-text">
+ 		<%= link_to article.title, predictorarticleshow_path(predictor.username,article.id), class: "article-show-title" %>
+ 		</div>
 		
- 		<div class="article-show-sub-detail">
-			submitted <%= article.created_at.strftime("%D") %> by <%= link_to predictor.username, predictordashboard_path(predictor.username) %>
+ 		<div class="article-body-text">
+			<%= article.body %>
 		</div>
 
-		<br>
+		<div class="article-read-more">
+			<%= link_to "Read more...", predictorarticleshow_path(predictor.username,article.id) %>
+		</div>
 
 	</div>
+
 </div>
  	

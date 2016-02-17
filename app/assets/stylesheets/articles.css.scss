@@ -66,10 +66,13 @@
 .article-prediction-container h3{
     line-height: 1.15;
     letter-spacing: -0.02em;    font-family: "medium-content-sans-serif-font","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-style: normal;
     letter-spacing: -0.02em;
-    color: rgba(0,0,0,0.8);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #281e1e;
+    font-family: "Fira Sans",Helvetica,Arial;
 }
 
 .article-field{
@@ -109,20 +112,25 @@ input[type="text"].article-title-text{
     border:none;
     box-shadow:none;
     text-indent: 5px;
-    color: rgba(0,0,0,0.75);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #281e1e;
+    font-family: "Fira Sans",Helvetica,Arial;
     }
 
   .article-title-text a{
     height:36px;
-    font-family: "medium-content-sans-serif-font","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
     font-style: normal;
     font-size: 30px;
     line-height: 1.15;
     letter-spacing: -0.02em;
     margin-top:12px;
     border:none;
-    color: rgba(0,0,0,0.75);
     margin:12px auto 0px auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #281e1e;
+    font-family: "Fira Sans",Helvetica,Arial;
     }
 
   .article-title-text a:hover{

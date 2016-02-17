@@ -1057,6 +1057,16 @@ a.no-style:hover{
   color:#333;
 }
 
+@media only screen and (max-device-width: 960px) {
+
+
+
+}
+
+
+
+
+
 
 @media only screen and (max-device-width: 960px) {
     .user-dashboard-card{
@@ -1234,6 +1244,14 @@ a.no-style:hover{
    
     }
 
+    .main-content{
+      width:100%;
+    }
+
+    .side-panel-content{
+      display:none;
+    }
+
 }
 
 
@@ -1241,7 +1259,14 @@ a.no-style:hover{
 
     .premium-content-float{
       width: 100%;
-   
+    }
+
+    .main-content{
+      width:100%;
+    }
+
+    .side-panel-content{
+      display:none;
     }
   }
   

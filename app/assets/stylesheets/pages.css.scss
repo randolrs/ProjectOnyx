@@ -1130,13 +1130,6 @@ th.prediction-summary-index{
   margin-right:auto;
 }
 
-.content-wrap{
-  width:1000px;
-  margin-left:auto;
-  margin-right:auto;
-  color: #3e4552;
-}
-
 .content-wrap-outline{
   padding-left:40px;
   padding-right:40px;
@@ -1955,6 +1948,7 @@ ul.dropdown-menu li {
       min-width: 600px;
       margin:0 auto;
       padding:30px;
+      width:100%;
   }
 
   .main-content{

@@ -1239,6 +1239,10 @@ a.no-style:hover{
 
 @media only screen and (max-device-width: 600px) {
 
+    .content-wrap{
+      padding:30px 0px;
+    }
+    
     .premium-content-float{
       width: 100%;
    
@@ -1257,6 +1261,10 @@ a.no-style:hover{
 
 
 @media only screen and (max-width: 600px) {
+
+    .content-wrap{
+      padding:30px 0px;
+    }
 
     .premium-content-float{
       width: 100%;

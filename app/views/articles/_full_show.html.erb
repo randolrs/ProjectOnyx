@@ -22,9 +22,32 @@
     <%article.prediction_games.each do |prediction|%>
 
       <% @game = Game.find(prediction.game_id)%>
+      
       <div class="article-prediction-list">
-      <%= prediction.event_time.strftime("%-m/%-d")%> <%= image_tag Team.find_by_name(@game.teama).image.url(:medium), class: "predictor-image-tiny"%> <%= @game.teama %> <%= prediction.teama_score%> @ <%= prediction.teamh_score%> <%= @game.teamh %> <%= image_tag Team.find_by_name(@game.teamh).image.url(:medium), class: "predictor-image-tiny"%> <br>
-      <%=prediction.article_id%>
+
+        <table style="width:100%;">
+          <tr>
+            <td colspan="3" style="text-align:center;"><%= @game.event_time.strftime("%a, %b %e, %Y")%></td>
+          </tr>
+
+          <tr>
+
+            <td><%= image_tag Team.find_by_name(@game.teamh).image.url(:medium), class: "predictor-image-tiny"%></td>
+            <td><%= @game.teamh %></td>
+            <td><%= prediction.teamh_score%></td>
+
+          </tr>
+
+          <tr>
+
+            <td><%= image_tag Team.find_by_name(@game.teama).image.url(:medium), class: "predictor-image-tiny"%></td>
+            <td><%= @game.teama %></td>
+            <td><%= prediction.teama_score%></td>
+
+          </tr>
+
+        </table>
+
       </div>
 
     <%end%>

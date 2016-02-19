@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213020236) do
+ActiveRecord::Schema.define(version: 20160219011151) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(version: 20160213020236) do
     t.string   "teamh"
     t.string   "category",     default: ""
   end
+
+  create_table "articles_tags", id: false, force: true do |t|
+    t.integer "article_id", null: false
+    t.integer "tag_id",     null: false
+  end
+
+  add_index "articles_tags", ["article_id", "tag_id"], name: "index_articles_tags_on_article_id_and_tag_id"
+  add_index "articles_tags", ["tag_id", "article_id"], name: "index_articles_tags_on_tag_id_and_article_id"
 
   create_table "charges", force: true do |t|
     t.integer  "user_id"
@@ -301,6 +309,13 @@ ActiveRecord::Schema.define(version: 20160213020236) do
     t.string   "string",                              default: ""
     t.string   "description",                         default: ""
     t.decimal  "cost",        precision: 8, scale: 2, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name",       default: ""
+    t.string   "url",        default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -30,6 +30,8 @@ class PagesController < ApplicationController
 
       @articles = Article.all
 
+      @top_articles = Article.all.limit(5)
+
     end
 
   end

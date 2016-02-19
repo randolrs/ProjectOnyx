@@ -1,0 +1,11 @@
+<h4>Top Articles</h4>
+
+	<ol type="1">
+		
+		<% @top_articles.each do |article| %>
+
+			<li><a class="top-article-list"><%= article.title %></a></li>
+
+		<%end%>
+
+	</ol>

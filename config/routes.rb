@@ -105,7 +105,8 @@ Rails.application.routes.draw do
 
   get '/users/edit/payments' => 'cards#index', as: 'payments'
 
-  
+  get '/tags/:tag' => 'pages#tag_show', as: 'tag_show'
+
   get '/events/sports/:league' => 'games#findgames', as: 'find_prediction_games'
 
   get 'sports/leagues/:league/games/:id' => 'games#show', as: 'gameshow'

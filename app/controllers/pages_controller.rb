@@ -26,6 +26,8 @@ class PagesController < ApplicationController
       @subscriptions_count = @predictor.purchases.all.where(:premium => true).count
       @current_balance = 0
 
+      @featured_tags = Tag.all
+
       @articles = Article.all
 
     end
@@ -249,6 +251,13 @@ class PagesController < ApplicationController
 
       redirect_to root_path
     end
+  end
+
+  def tag_show
+
+    @tag = Tag.find_by_url(params[:tag])
+    @articles = Article.all
+
   end
 
 end

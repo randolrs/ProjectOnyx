@@ -1,0 +1,11 @@
+<h4>Featured Tags</h4>
+
+	<ul class="category-header-items">
+		
+		<% @featured_tags.each do |tag| %>
+
+			<li class="tag-items"><a href="<%= tag_show_path(tag.url)%>"><%= tag.name %></a></li>
+
+		<%end%>
+
+	</ul>

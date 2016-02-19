@@ -1087,6 +1087,24 @@ a.category-item:hover{
   padding: 10px 0px;
 }
 
+.tag-items{
+  display: inline;
+  padding: 10px 0px;
+  line-height: 50px;
+  margin: 0 5px;
+}
+
+.tag-items a{
+  padding: 10px;
+  border:1px solid #eee;
+}
+
+.tag-items a:hover{
+  text-decoration: none;
+  cursor: pointer;
+  color: #36c;
+}
+
 @media only screen and (max-device-width: 960px) {
 
 

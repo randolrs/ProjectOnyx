@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219011151) do
+ActiveRecord::Schema.define(version: 20160219044212) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -314,10 +314,11 @@ ActiveRecord::Schema.define(version: 20160219011151) do
   end
 
   create_table "tags", force: true do |t|
-    t.string   "name",       default: ""
-    t.string   "url",        default: ""
+    t.string   "name",          default: ""
+    t.string   "url",           default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_tag_id", default: 0
   end
 
   create_table "teams", force: true do |t|

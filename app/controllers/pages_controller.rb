@@ -4,6 +4,13 @@ class PagesController < ApplicationController
 
     @page = "dashboard"
 
+    @featured_tags = Tag.all
+
+    @articles = Article.all.order("created_at DESC")
+
+    @top_articles = @articles.limit(5)
+
+
     if user_signed_in?
 
       @displaypredictor = true

@@ -1,6 +1,8 @@
 <% if predictor_signed_in? %>
   <%# render 'layouts/category_header' %> <!-- might need a sub category -->
 
+  <%= render 'pages/tag_header' %>
+
   <div style="float:right; left:-50%; position: relative;">
 
 	<div class="content-wrap">
@@ -18,14 +20,14 @@
 		<div class ="side-panel-content">
 
 	        <div class="content-panel sub">
-
-	          
+	        	
+	        	<h4>Top <%= @tag.name %> Posts</h4>
 
 	        </div>
 
-	        <div class="side-panel-group">
+	        <div class="content-panel sub">
 
-	          
+	          <h4>Related Tags</h4>
 
 	        </div>
 				

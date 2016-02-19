@@ -4,7 +4,7 @@
 		
 		<% @top_articles.each do |article| %>
 
-			<li class="top-article-item"><a class="top-article-list"><%= article.title %></a></li>
+			<li class="top-article-item"><%= link_to article.title, predictorarticleshow_path(Predictor.find(article.predictor_id).username,article.id), class: "top-article-list" %></li>
 
 		<%end%>
 

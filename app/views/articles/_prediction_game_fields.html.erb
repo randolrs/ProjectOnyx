@@ -86,17 +86,21 @@
       <option value></option>
 
       <% Team.all.each do |team| %>
+
+        <% if team.team_games_predictable.count > 0 %>
         
-        <optgroup label="<%= team.name%>">
+          <optgroup label="<%= team.name%>">
 
-          <% team.team_games.each do |game| %>
+            <% team.team_games.each do |game| %>
 
-            <option value="<%=game.id%>"><%= game.event_time.strftime("%m/%d/%g")%>: <%=game.teama%> @ <%=game.teamh%></option>
+              <option value="<%=game.id%>"><%= game.event_time.strftime("%m/%d/%g")%>: <%=game.teama%> @ <%=game.teamh%></option>
 
-          <%end%>
+            <%end%>
 
-        </optgroup>
+          </optgroup>
 
+        <%end%>
+        
       <%end%>
 
     </select>

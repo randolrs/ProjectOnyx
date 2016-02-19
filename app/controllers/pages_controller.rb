@@ -28,9 +28,9 @@ class PagesController < ApplicationController
 
       @featured_tags = Tag.all
 
-      @articles = Article.all
+      @articles = Article.all.order("created_at DESC")
 
-      @top_articles = Article.all.limit(5)
+      @top_articles = @articles.limit(5)
 
     end
 

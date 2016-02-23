@@ -108,7 +108,7 @@ class ArticlesController < ApplicationController
       @team_home = Team.find(@game.teamh_id)
 
       respond_to do |format|
-        format.js { render json: { :teama => @team_away.name, :teamh => @team_home.name, :game_id => @game.id, :event_time => @game.event_time } , content_type: 'text/json' }
+        format.js { render json: { :teama => @team_away.name, :teamh => @team_home.name, :game_id => @game.id, :event_time => @game.event_time, :league => @game.league } , content_type: 'text/json' }
       end
 
     end
@@ -128,9 +128,9 @@ class ArticlesController < ApplicationController
 
       if @article.prediction_games.count > 0
         crashme.fuck
-        #@article.update(category: "Sports")
 
         @article.prediction_games.each do |prediction_game|
+          crash.heya
           prediction_game.update(:predictor_id => current_predictor.id)
           game = Game.find(prediction_game.game_id)
           prediction_game.update(:league => game.league)

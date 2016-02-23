@@ -1943,6 +1943,16 @@ ul.dropdown-menu li {
 
   }
 
+  .content-wrap-outer{
+      max-width: 1000px!important;
+      margin:0 auto;
+      width:100%;
+      display: block;
+      float:right;
+      left:-50%;
+      position: relative;
+  }
+
   .content-wrap{
       max-width: 1000px!important;
       margin:0 auto;

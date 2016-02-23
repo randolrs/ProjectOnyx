@@ -44,6 +44,7 @@ jQuery ->
    	scoreForm = $(@).nextAll('.final-score-select')
    	teamHomeLabel = scoreForm.children('.team-container').children('.article_prediction_game_teamh')
    	teamAwayLabel = scoreForm.children('.team-container').children('.article_prediction_game_teama')
+    leagueInput = scoreForm.children('.league-input')
    	gameIdInput = scoreForm.children('.game-id-input')
    	teamHInput = scoreForm.children('.teamh-input')
    	teamAInput = scoreForm.children('.teama-input')
@@ -61,4 +62,5 @@ jQuery ->
    			eventTimeInput.val(data.event_time)
    			gameIdInput.val(data.game_id)
    			scoreForm.slideDown()
+
    			

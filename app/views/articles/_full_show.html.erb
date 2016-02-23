@@ -1,59 +1,79 @@
-  <div class="article-show-header">
-    <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
-    <%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
-  </div>
+  <div class="content-wrap-outer">
+  
+    <div class="content-wrap">
 
-  <div class="article-form-container">
+      <div class ="main-content">
 
-    <div class="article-title-text">
-      <%=@article.title%>
-    </div>
+        <div class = "content-panel sub">
+  
+          <div class="article-show-header">
+              <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
+              <%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
+              <%= article.created_at.strftime("%D") %>
+          </div>
 
-    <div class="article-body-text">
-        <%=@article.body%>
-    </div>
+          <div class="article-show-detail">
+            
+            <div class="article-title-text">
+              <h1><%= link_to article.title, predictorarticleshow_path(predictor.username,article.id), class: "article-show-title" %></h1>
+            </div>
+            
+            <div class="article-body-text">
+              <p><%= article.body %></p>
+            </div>
 
-  </div>
+          </div>
 
-  <div class="article-prediction-container">
-
-    <h3>Predictions</h3>
-    
-    <%article.prediction_games.each do |prediction|%>
-
-      <% @game = Game.find(prediction.game_id)%>
-      
-      <div class="article-prediction-list">
-
-        <table style="width:100%;">
-          <tr>
-            <td colspan="3" style="text-align:center;"><%= @game.event_time.strftime("%a, %b %e, %Y")%></td>
-          </tr>
-
-          <tr>
-
-            <td><%= image_tag Team.find_by_name(@game.teamh).image.url(:medium), class: "predictor-image-tiny"%></td>
-            <td><%= @game.teamh %></td>
-            <td><%= prediction.teamh_score%></td>
-
-          </tr>
-
-          <tr>
-
-            <td><%= image_tag Team.find_by_name(@game.teama).image.url(:medium), class: "predictor-image-tiny"%></td>
-            <td><%= @game.teama %></td>
-            <td><%= prediction.teama_score%></td>
-
-          </tr>
-
-        </table>
+        </div>
 
       </div>
 
-    <%end%>
+      <div class ="side-panel-content">
 
-    <h3>Tags</h3>
-    
-    <%=@article.category%><br>
+        <div class="content-panel sub">
+          
+          <h3>Predictions</h3>
+
+          <%article.prediction_games.each do |prediction|%>
+
+            <% @game = Game.find(prediction.game_id)%>
+            
+            <div class="article-prediction-list">
+
+              <table style="width:100%;">
+                <tr>
+                  <td colspan="3" style="text-align:center;"><%= @game.event_time.strftime("%a, %b %e, %Y")%></td>
+                </tr>
+
+                <tr>
+
+                  <td><%= image_tag Team.find_by_name(@game.teamh).image.url(:medium), class: "predictor-image-tiny"%><%= @game.teamh %></td>
+                  <td><%= prediction.teamh_score%></td>
+
+                </tr>
+
+                <tr>
+
+                  <td><%= image_tag Team.find_by_name(@game.teama).image.url(:medium), class: "predictor-image-tiny"%><%= @game.teama %></td>
+                  <td><%= prediction.teama_score%></td>
+
+                </tr>
+
+              </table>
+
+            </div>
+
+        <%end%>
+
+        </div>
+
+        <div class="content-panel sub">
+
+          <h3>Related Tags</h3>
+
+        </div>
+      
+      </div>
 
   </div>
+</div>

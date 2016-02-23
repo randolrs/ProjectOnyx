@@ -91,7 +91,7 @@
         
           <optgroup label="<%= team.name%>">
 
-            <% team.team_games.each do |game| %>
+            <% team.team_games_predictable.each do |game| %>
 
               <option value="<%=game.id%>"><%= game.event_time.strftime("%m/%d/%g")%>: <%=game.teama%> @ <%=game.teamh%></option>
 
@@ -100,13 +100,16 @@
           </optgroup>
 
         <%end%>
-        
+
       <%end%>
 
     </select>
 
     <fieldset class="final-score-select" style="display:none">
 
+      <%= f.hidden_field :predictor_id, as: :integer, :label => false, :placeholder => current_predictor.id, :value => current_predictor.id %>
+
+      <%= f.hidden_field :league, as: :string, :label => false, :placeholder => "NBA", :class => 'league-input' %>
       <%= f.hidden_field :game_id, as: :integer, :label => false, :placeholder => 2, :class => 'game-id-input' %>
       <%= f.hidden_field :teamh, as: :string, :label => false, :placeholder => 2, :class => 'teamh-input' %>
       <%= f.hidden_field :teama, as: :string, :label => false, :placeholder => 2, :class => 'teama-input' %>

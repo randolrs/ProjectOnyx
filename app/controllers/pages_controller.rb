@@ -4,7 +4,9 @@ class PagesController < ApplicationController
 
     @page = "dashboard"
 
-    @featured_topics = Topic.all.where("parent_tag_id = :all_id", {all_id: => 1})
+    #@featured_topics = Topic.all.where("parent_tag_id = :all_id", {all_id: => 1})
+
+    @featured_topics = Topic.all
 
     @articles = Article.all.order("created_at DESC")
 

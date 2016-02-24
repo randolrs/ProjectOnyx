@@ -23,14 +23,6 @@
           </td>
         </tr>
 
-        <% if prediction.article_id %>
-            <tr>
-              <td>
-                From <i><%= link_to Article.find(prediction.article_id).title, predictorarticleshow_path(predictor.username,prediction.article_id)%></i>
-              </td>
-            </tr>
-
-          <%end%>
     </table>
 
   </div>
@@ -163,6 +155,15 @@
             (Home)
           </td>
         </tr>
+
+        <% if prediction.article_id %>
+          <tr>
+            <td>
+              From <i><%= link_to Article.find(prediction.article_id).title, predictorarticleshow_path(predictor.username,prediction.article_id)%></i>
+            </td>
+          </tr>
+
+        <%end%>
 
       </table>
 

@@ -124,9 +124,6 @@ class ArticlesController < ApplicationController
       @article = Article.new(article_params)
       @article.predictor_id = current_predictor.id
       @article.hits = 0
-      
-
-      if @article.prediction_games.count > 0
 
         @article.prediction_games.each do |prediction_game|
           prediction_game.update(:predictor_id => current_predictor.id)
@@ -149,8 +146,6 @@ class ArticlesController < ApplicationController
           prediction_game.update(:event_time => game.event_time)
 
         end
-
-      end
 
       respond_to do |format|
         if @article.save

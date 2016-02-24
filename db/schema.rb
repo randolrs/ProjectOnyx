@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219044212) do
+ActiveRecord::Schema.define(version: 20160224011905) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -311,6 +311,11 @@ ActiveRecord::Schema.define(version: 20160219044212) do
     t.decimal  "cost",        precision: 8, scale: 2, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "taggings", force: true do |t|
+    t.integer "tag_id"
+    t.integer "article_id"
   end
 
   create_table "tags", force: true do |t|

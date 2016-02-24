@@ -310,7 +310,15 @@
 
               </tr>
 
-
             <% end %>   
+
+          </table>
+
+          <% if prediction.article_id %>
+            <tr>
+                From <i><%= link_to Article.find(prediction.article_id).title, predictorarticleshow_path(predictor.username,prediction.article_id)%></i>
+            </tr>
+
+          <%end%>
 
 </div>

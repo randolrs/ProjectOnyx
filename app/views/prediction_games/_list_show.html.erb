@@ -12,7 +12,7 @@
 
             &#183; <%= prediction.created_at.strftime("%b %e") %> 
 
-            &#183; <%= image_tag Sport.find_by_subcat(prediction.league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-tiny"%><%= prediction.league %> Prediction
+            &#183; <%= image_tag Sport.find_by_subcat(game.league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-tiny"%><%= game.league %> Prediction
 
             <%if prediction.paid %>
               

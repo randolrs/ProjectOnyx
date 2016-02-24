@@ -39,10 +39,11 @@
 .article-prediction-list{
 	padding:3px;
   margin:3px;
+  border:1px solid #fff;
 }
 
 .article-prediction-list:hover{
-	background-color:#eee;
+	border:1px solid #4C3BFF;
 	cursor:pointer;
 }
 

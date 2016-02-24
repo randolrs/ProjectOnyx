@@ -6,14 +6,14 @@
           <table>
               <tr>
                 <td> 
-                  <%= image_tag @predictor.image.url(:medium), class: "predictor-image-tiny"%>
-                  <b><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "full-name" %></b> 
+                  <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
+                  <b><%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %></b> 
 
-                  &#183; <%= @prediction_game.created_at.strftime("%b %e") %> 
+                  &#183; <%= prediction.created_at.strftime("%b %e") %> 
 
-                  &#183; <%= image_tag Sport.find_by_subcat(@prediction_game.league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-tiny"%><%= @prediction_game.league %> Prediction
+                  &#183; <%= image_tag Sport.find_by_subcat(game.league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-tiny"%><%= game.league %> Prediction
 
-                  <%if @prediction_game.paid %>
+                  <%if prediction.paid %>
                     &#183; <img src="https://s3.amazonaws.com/projectonyx/Premium-Star.png" height="16" width="16"></img> Premium
                   <%end%>
 
@@ -33,7 +33,7 @@
               </td>
 
               <td colspan="1" class="prediction-game-date">
-                <b>Game Date: </b><%= @prediction_game.event_time.strftime("%a, %b %d, %Y ") %>
+                <b>Game Date: </b><%= prediction.event_time.strftime("%a, %b %d, %Y ") %>
               </td>
 
               <td colspan="2" class="prediction-game-team-header">
@@ -44,12 +44,12 @@
             <tr>
               <td rowspan="3" class="prediction-game-team-image">
                 
-                <%= image_tag @teama.image.url(:medium), class: "team-image-tiny"%>
+                <%= image_tag teama.image.url(:medium), class: "team-image-tiny"%>
                 
               </td>
 
               <td class="prediction-game-minor">
-                <%= @teama.sub_name%>
+                <%= teama.sub_name%>
               </td>
 
               <td width="250px">
@@ -57,12 +57,12 @@
               </td>
 
               <td class="prediction-game-minor">
-                <%= @teamh.sub_name%>
+                <%= teamh.sub_name%>
               </td>
 
               <td rowspan="3" class="prediction-game-team-image">
                 
-                <%= image_tag @teamh.image.url(:medium), class: "team-image-tiny"%>
+                <%= image_tag teamh.image.url(:medium), class: "team-image-tiny"%>
                 
               </td>
 
@@ -71,16 +71,16 @@
             <tr>
               
               <td class="prediction-game-show-center">
-                <%= @teama.name%>
+                <%= teama.name%>
               </td>
 
               <td class="prediction-game-show-center" height="50">
                 
                 <% if user_signed_in? %>
                 
-                  <% if @prediction_game.visible("user", current_user) %>
+                  <% if prediction.visible("user", current_user) %>
 
-                    <%= @prediction_game.teama_score%> - <%= @prediction_game.teamh_score%>
+                    <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
                   <%else%>
 
@@ -90,9 +90,9 @@
                 
                 <%elsif predictor_signed_in?%>
 
-                  <%if current_predictor.id == @predictor.id %>
+                  <%if current_predictor.id == predictor.id %>
 
-                    <%= @prediction_game.teama_score%> - <%= @prediction_game.teamh_score%>
+                    <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
                   <%else%>
 
@@ -102,13 +102,13 @@
 
                 <%elsif admin_signed_in?%>
 
-                  <%= @prediction_game.teama_score%> - <%= @prediction_game.teamh_score%>
+                  <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
                 <%else%>
 
-                  <% if @prediction_game.visible("none", "none") %>
+                  <% if prediction.visible("none", "none") %>
 
-                    <%= @prediction_game.teama_score%> - <%= @prediction_game.teamh_score%>
+                    <%= prediction.teama_score%> - <%= prediction.teamh_score%>
 
                   <%end%>
 
@@ -117,7 +117,7 @@
               </td>
 
               <td class="prediction-game-show-center">
-                <%= @teamh.name%>
+                <%= teamh.name%>
               </td>
             </tr>
 
@@ -148,29 +148,29 @@
 
                 <% if user_signed_in? %>
                 
-                  <% if @prediction_game.visible("user", current_user) %>
+                  <% if prediction.visible("user", current_user) %>
 
-                    <%if @prediction_game.game_winner == @prediction_game.teama %>+<%else%>-<%end%><%=@prediction_game.spread%>
+                    <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%=prediction.spread%>
 
                   <%end%>
                 
                 <%elsif predictor_signed_in?%>
 
-                  <%if current_predictor.id == @predictor.id %>
+                  <%if current_predictor.id == predictor.id %>
 
-                    <%if @prediction_game.game_winner == @prediction_game.teama %>+<%else%>-<%end%><%=@prediction_game.spread%>
+                    <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%= prediction.spread%>
 
                   <%end%>
 
                 <%elsif admin_signed_in?%>
 
-                  <%if @prediction_game.game_winner == @prediction_game.teama %>+<%else%>-<%end%><%=@prediction_game.spread%>
+                  <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%=prediction.spread%>
 
                 <%else%>
 
-                  <% if @prediction_game.visible("none", "none") %>
+                  <% if prediction.visible("none", "none") %>
 
-                    <%if @prediction_game.game_winner == @prediction_game.teama %>+<%else%>-<%end%><%=@prediction_game.spread%>
+                    <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%=prediction.spread%>
 
                   <%end%>
 
@@ -188,29 +188,29 @@
 
                 <% if user_signed_in? %>
                 
-                  <% if @prediction_game.visible("user", current_user) %>
+                  <% if prediction.visible("user", current_user) %>
 
-                    <%if @prediction_game.game_winner == @prediction_game.teamh %>+<%else%>-<%end%><%=@prediction_game.spread%>
+                    <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%= prediction.spread%>
 
                   <%end%>
                 
                 <%elsif predictor_signed_in?%>
 
-                  <%if current_predictor.id == @predictor.id %>
+                  <%if current_predictor.id == predictor.id %>
 
-                    <%if @prediction_game.game_winner == @prediction_game.teamh %>+<%else%>-<%end%><%=@prediction_game.spread%>
+                    <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%= prediction.spread%>
 
                   <%end%>
 
                 <%elsif admin_signed_in?%>
 
-                  <%if @prediction_game.game_winner == @prediction_game.teamh %>+<%else%>-<%end%><%=@prediction_game.spread%>
+                  <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%= prediction.spread%>
 
                 <%else%>
 
-                  <% if @prediction_game.visible("none", "none") %>
+                  <% if prediction.visible("none", "none") %>
 
-                    <%if @prediction_game.game_winner == @prediction_game.teamh %>+<%else%>-<%end%><%=@prediction_game.spread%>
+                    <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%= prediction.spread%>
 
                   <%end%>
 
@@ -248,29 +248,29 @@
 
                 <% if user_signed_in? %>
                 
-                  <% if @prediction_game.visible("user", current_user) %>
+                  <% if prediction.visible("user", current_user) %>
 
-                    <%= @prediction_game.overunder%>
+                    <%= prediction.overunder%>
 
                   <%end%>
                 
                 <%elsif predictor_signed_in?%>
 
-                  <%if current_predictor.id == @predictor.id %>
+                  <%if current_predictor.id == predictor.id %>
 
-                    <%= @prediction_game.overunder%>
+                    <%= prediction.overunder%>
 
                   <%end%>
 
                 <%elsif admin_signed_in?%>
 
-                    <%= @prediction_game.overunder%>
+                    <%= prediction.overunder%>
 
                 <%else%>
 
-                  <% if @prediction_game.visible("none", "none") %>
+                  <% if prediction.visible("none", "none") %>
 
-                    <%= @prediction_game.overunder%>
+                    <%= prediction.overunder%>
 
                   <%end%>
 
@@ -283,7 +283,7 @@
 
             </tr>     
 
-            <% if @prediction_game.onyx %>
+            <% if prediction.onyx %>
 
               <tr>
               
@@ -292,7 +292,7 @@
                 </td>
 
                 <td class="prediction-game-minor" style="border:1px solid #ccc; padding:5px;">
-                    <%=@prediction_game.teama_tscore%> - <%=@prediction_game.teamh_tscore%>
+                    <%= prediction.teama_tscore%> - <%= prediction.teamh_tscore%>
                     
                     <br>
 
@@ -300,7 +300,7 @@
 
                     <br>
 
-                    <a class="no-style" style="background-color:#00D43C; color:white; padding: 5px;">Futable Rating: <%=@prediction_game.onyx%></a>
+                    <a class="no-style" style="background-color:#00D43C; color:white; padding: 5px;">Futable Rating: <%= prediction.onyx%></a>
                   
                 </td>
 

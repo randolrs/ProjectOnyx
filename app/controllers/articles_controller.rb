@@ -127,10 +127,8 @@ class ArticlesController < ApplicationController
       
 
       if @article.prediction_games.count > 0
-        crashme.fuck
 
         @article.prediction_games.each do |prediction_game|
-          crash.heya
           prediction_game.update(:predictor_id => current_predictor.id)
           game = Game.find(prediction_game.game_id)
           prediction_game.update(:league => game.league)
@@ -188,8 +186,7 @@ class ArticlesController < ApplicationController
 
           end
 
-          format.html { redirect_to @article, notice: 'Article was successfully published.' }
-          format.json { render :show, status: :created, location: @article }
+          format.html { redirect_to predictorarticleshow_path(current_predictor.username, @article.id), notice: 'Article was successfully published.' }
 
         else
 

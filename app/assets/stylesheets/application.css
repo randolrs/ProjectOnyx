@@ -113,6 +113,10 @@ html, body {
     font-weight:bold;
 }
 
+ .content-panel.sub h3{
+    margin:10px 0px;
+}
+
  .content-panel h5{
     color:#999;
 }
@@ -1303,6 +1307,11 @@ a.category-item:hover{
       display:none;
     }
 
+    .side-panel-content.article{
+      width:100%;
+      display:block;
+    }
+
 }
 
 
@@ -1324,6 +1333,12 @@ a.category-item:hover{
     .side-panel-content{
       display:none;
     }
+
+    .side-panel-content.article{
+      width:100%;
+      display:block;
+    }
+
   }
   
 

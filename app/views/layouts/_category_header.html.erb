@@ -2,9 +2,9 @@
 
   <ul class="category-header-items">
 
-    <% @featured_tags.each do |tag| %>
+    <% @featured_topics.each do |topic| %>
 
-      <li><a class="category-item" style="padding:10px" href="<%= tag_show_path(tag.url)%>"><%= tag.name %></a></li>
+      <li><a class="category-item" style="padding:10px" href="<%= topic_show_page_path(topic.url)%>"><%= topic.name %></a></li>
 
     <%end%>
 

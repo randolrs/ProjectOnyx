@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
     @page = "dashboard"
 
-    @featured_tags = Tag.all
+    @featured_topics = Topic.all.where(:parent_tag_id => 1)
 
     @articles = Article.all.order("created_at DESC")
 
@@ -32,12 +32,6 @@ class PagesController < ApplicationController
       @followers_count = @predictor.purchases.count
       @subscriptions_count = @predictor.purchases.all.where(:premium => true).count
       @current_balance = 0
-
-      @featured_tags = Tag.all
-
-      @articles = Article.all.order("created_at DESC")
-
-      @top_articles = @articles.limit(5)
 
     end
 
@@ -265,6 +259,13 @@ class PagesController < ApplicationController
   def tag_show
 
     @tag = Tag.find_by_url(params[:tag])
+    @articles = Article.all
+
+  end
+
+  def topic_show
+
+    @topic = Topic.find_by_url(params[:topic])
     @articles = Article.all
 
   end

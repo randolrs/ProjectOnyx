@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :topics
+
   resources :plans
 
   resources :prediction_economies
@@ -23,6 +25,8 @@ Rails.application.routes.draw do
   resources :sports
 
   resources :predictions
+
+  resources :topics
 
 #  resources :predictors
 
@@ -106,6 +110,8 @@ Rails.application.routes.draw do
   get '/users/edit/payments' => 'cards#index', as: 'payments'
 
   get '/tags/:tag' => 'pages#tag_show', as: 'tag_show'
+
+  get '/topic/:topic' => 'pages#topic_show', as: 'topic_show_page'
 
   get '/events/sports/:league' => 'games#findgames', as: 'find_prediction_games'
 

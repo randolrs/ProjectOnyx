@@ -132,6 +132,18 @@ class ArticlesController < ApplicationController
           overunder = prediction_game.teama_score + prediction_game.teamh_score
           prediction_game.update(:overunder => overunder)
           prediction_game.update(:article_id => @article.id)
+
+          unless @article.has_topic(Topic.find_by_name("Sports").id)
+
+            @tagging = Tagging.new
+
+            @tagging.article_id = @article.id
+
+            @tagging.tag_id = Topic.find_by_name("Sports").id
+
+            @tagging.save
+
+          end
             
           if prediction_game.teama_score > prediction_game.teamh_score
             prediction_game.update(:game_winner => prediction_game.teama)

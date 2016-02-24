@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224011905) do
+ActiveRecord::Schema.define(version: 20160224024054) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -342,6 +342,14 @@ ActiveRecord::Schema.define(version: 20160224011905) do
   end
 
   add_index "teams", ["sport_id"], name: "index_teams_on_sport_id"
+
+  create_table "topics", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "parent_tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_prediction_games", id: false, force: true do |t|
     t.string  "user_id"

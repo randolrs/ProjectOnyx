@@ -34,6 +34,16 @@
           
           <h3>Predictions</h3>
 
+          <% if article.prediction_games.count == 0 %>
+
+            <div style="font-size: 12px; color: #999; text-align:center; padding: 0px 10px 10px 10px;">
+              
+              No predictions for this article.
+
+            </div>
+
+          <% end %>
+
           <%article.prediction_games.each do |prediction|%>
 
             <% @game = Game.find(prediction.game_id)%>
@@ -67,7 +77,7 @@
 
             </a>
 
-        <%end%>
+          <%end%>
 
         </div>
 

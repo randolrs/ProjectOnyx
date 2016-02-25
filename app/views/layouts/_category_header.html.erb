@@ -1,16 +1,22 @@
-<div class="category-header">
+<div class="category-header-container">
 
-  <ul class="category-header-items">
+	<div class="category-header">
 
-    <% @featured_topics.each do |topic| %>
+	  <ul class="category-header-items">
 
-      <li><a class="category-item" style="padding:10px" href="<%= topic_show_page_path(topic.url)%>"><%= topic.name %></a></li>
+	      <li><a class="category-item" style="padding:10px" href="<%= root_path %>">Top Articles</a></li>
 
-    <%end%>
+	      <li><a class="category-item" style="padding:10px" href="<%= root_path %>">Recommended</a></li>
 
-  </ul>
+	      <li><a class="category-item" style="padding:10px" href="<%= root_path %>">Bookmarked</a></li>
+
+	  </ul>
+
+	</div>
 
 </div>
+
+
 
 
 

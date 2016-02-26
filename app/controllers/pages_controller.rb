@@ -274,4 +274,25 @@ class PagesController < ApplicationController
 
   end
 
+  def top_posts
+
+    @featured_topics = Topic.all.where("parent_tag_id = :all_id", {:all_id => @parent_tag_id})
+
+    #@featured_topics = Topic.all
+
+    @articles = Article.all.order("created_at DESC")
+
+  end
+
+
+  def bookmarks
+
+    @featured_topics = Topic.all.where("parent_tag_id = :all_id", {:all_id => @parent_tag_id})
+
+    #@featured_topics = Topic.all
+
+    @articles = Article.all.order("created_at DESC")
+
+  end
+
 end

@@ -45,6 +45,10 @@ Rails.application.routes.draw do
 
   get 'gamedash' => "games#index"
 
+  get 'top-posts' => 'pages#top_posts', as: 'top_posts'
+
+  get '/me/bookmarks' => 'pages#bookmarks', as: 'bookmarks'
+
   get '/article/ajax_team/:team', :to => 'articles#ajax_team'
 
   get '/article/ajax_league/:game', :to => 'articles#ajax_league'

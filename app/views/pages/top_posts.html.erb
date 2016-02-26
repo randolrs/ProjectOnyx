@@ -1,0 +1,28 @@
+
+<div style="float:right; left:-50%; position: relative;">
+
+	<div class="content-wrap">
+
+		<div class ="main-content">
+
+		<% @articles.each do |article|%>
+
+		  <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
+
+		<%end%>
+
+		</div>
+
+		<div class="side-panel-content">
+
+			<div class="content-panel sub">
+
+			  <%= render 'pages/featured_tags' %>
+
+			</div>
+
+		</div>			
+	
+	</div>
+
+</div>

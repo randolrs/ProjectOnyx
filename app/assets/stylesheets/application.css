@@ -1339,6 +1339,22 @@ a.category-item:hover{
       display:none;
     }
 
+    .main-content.article{
+      width:100%;
+      max-width:600px;
+      min-width:1px;
+      margin:0 auto;
+      display:block;
+    }
+
+    .side-panel-content.article{
+      width:100%;
+      max-width:600px;
+      min-width:1px;
+      margin:0 auto;
+      display:block;
+    }
+
 }
 
 @media only screen and (max-width: 1000px) {
@@ -1358,6 +1374,22 @@ a.category-item:hover{
 
     .side-panel-content.index{
       display:none;
+    }
+
+    .main-content.article{
+      width:100%;
+      max-width:600px;
+      min-width:1px;
+      margin:0 auto;
+      display:block;
+    }
+
+    .side-panel-content.article{
+      width:100%;
+      max-width:600px;
+      min-width:1px;
+      margin:0 auto;
+      display:block;
     }
 
 }

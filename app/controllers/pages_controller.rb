@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   
   def home
 
-    @page = "dashboard"
+    @page = "home"
 
     @parent_tag_id = Topic.find_by_name("All").id.to_s
     
@@ -276,6 +276,7 @@ class PagesController < ApplicationController
 
   def top_posts
 
+    @page = "top_posts"
     @featured_topics = Topic.all.where("parent_tag_id = :all_id", {:all_id => @parent_tag_id})
 
     #@featured_topics = Topic.all
@@ -286,6 +287,8 @@ class PagesController < ApplicationController
 
 
   def bookmarks
+
+    @page = "bookmarks"
 
     @featured_topics = Topic.all.where("parent_tag_id = :all_id", {:all_id => @parent_tag_id})
 

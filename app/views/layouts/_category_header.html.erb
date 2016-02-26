@@ -4,11 +4,11 @@
 
 	  <ul class="category-header-items">
 
-	      <li><a class="category-item" style="padding:10px" href="<%= root_path %>">Home</a></li>
+	      <li><a class="category-item" style="padding:10px; <% if @page=="home"%>color:#36c;<%end%>" href="<%= root_path %>">Home</a></li>
 
-	      <li><a class="category-item" style="padding:10px" href="<%= top_posts_path %>">Top Posts</a></li>
+	      <li><a class="category-item" style="padding:10px; <% if @page=="top_posts"%>color:#36c;<%end%>" href="<%= top_posts_path %>">Top Posts</a></li>
 
-	      <li><a class="category-item" style="padding:10px" href="<%= bookmarks_path %>">Bookmarked</a></li>
+	      <li><a class="category-item" style="padding:10px; <% if @page=="bookmarks"%>color:#36c;<%end%>" href="<%= bookmarks_path %>">Bookmarks</a></li>
 
 	  </ul>
 

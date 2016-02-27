@@ -1075,6 +1075,7 @@ a.category-item:hover{
   background-color:#fff;
   padding: 10px 0px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #ccc;
 }
 
 .category-header{

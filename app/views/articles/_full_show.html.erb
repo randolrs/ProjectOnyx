@@ -85,6 +85,12 @@
 
           <h3>Related Tags</h3>
 
+          <% article.taggings.each do |tagging| %>
+
+            <%= Tag.find(tagging.tag_id).name %>
+
+          <% end %>
+
         </div>
       
       </div>

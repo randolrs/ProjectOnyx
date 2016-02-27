@@ -125,39 +125,40 @@ class ArticlesController < ApplicationController
       @article.predictor_id = current_predictor.id
       @article.hits = 0
 
-        @article.prediction_games.each do |prediction_game|
-          prediction_game.update(:predictor_id => current_predictor.id)
-          game = Game.find(prediction_game.game_id)
-          prediction_game.update(:league => game.league)
-          overunder = prediction_game.teama_score + prediction_game.teamh_score
-          prediction_game.update(:overunder => overunder)
-          prediction_game.update(:article_id => @article.id)
+      @article.prediction_games.each do |prediction_game|
+        
+        prediction_game.update(:predictor_id => current_predictor.id)
+        game = Game.find(prediction_game.game_id)
+        prediction_game.update(:league => game.league)
+        overunder = prediction_game.teama_score + prediction_game.teamh_score
+        prediction_game.update(:overunder => overunder)
+        prediction_game.update(:article_id => @article.id)
 
-          unless @article.has_topic(Topic.find_by_name("Sports").id)
+        if !@article.has_topic(@article.id, Topic.find_by_name("Sports").id)
 
-            @tagging = Tagging.new
+          @tagging = Tagging.new
 
-            @tagging.article_id = @article.id
+          @tagging.update(:article_id => @article.id)
 
-            @tagging.tag_id = Topic.find_by_name("Sports").id
+          @tagging.update(:tag_id => Topic.find_by_name("Sports").id)
 
-            @tagging.save
-
-          end
-            
-          if prediction_game.teama_score > prediction_game.teamh_score
-            prediction_game.update(:game_winner => prediction_game.teama)
-            prediction_game.update(:spread => prediction_game.teama_score - prediction_game.teamh_score)
-
-          elsif prediction_game.teama_score < prediction_game.teamh_score
-            prediction_game.update(:game_winner => prediction_game.teamh)
-            prediction_game.update(:spread => prediction_game.teamh_score - prediction_game.teama_score)
-
-          end
-
-          prediction_game.update(:event_time => game.event_time)
+          @tagging.save
 
         end
+            
+        if prediction_game.teama_score > prediction_game.teamh_score
+          prediction_game.update(:game_winner => prediction_game.teama)
+          prediction_game.update(:spread => prediction_game.teama_score - prediction_game.teamh_score)
+
+        elsif prediction_game.teama_score < prediction_game.teamh_score
+          prediction_game.update(:game_winner => prediction_game.teamh)
+          prediction_game.update(:spread => prediction_game.teamh_score - prediction_game.teama_score)
+
+        end
+
+        prediction_game.update(:event_time => game.event_time)
+
+      end
 
       respond_to do |format|
         if @article.save

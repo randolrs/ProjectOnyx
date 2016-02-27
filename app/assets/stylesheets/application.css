@@ -1345,6 +1345,7 @@ a.category-item:hover{
       min-width:1px;
       margin:0 auto;
       display:block;
+      float:none;
     }
 
     .side-panel-content.article{
@@ -1353,6 +1354,7 @@ a.category-item:hover{
       min-width:1px;
       margin:0 auto;
       display:block;
+      float:none;
     }
 
 }
@@ -1382,6 +1384,7 @@ a.category-item:hover{
       min-width:1px;
       margin:0 auto;
       display:block;
+      float:none;
     }
 
     .side-panel-content.article{
@@ -1390,6 +1393,7 @@ a.category-item:hover{
       min-width:1px;
       margin:0 auto;
       display:block;
+      float:none;
     }
 
 }

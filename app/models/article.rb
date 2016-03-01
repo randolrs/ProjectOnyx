@@ -15,7 +15,7 @@ class Article < ActiveRecord::Base
 			return true
 
 		else
-	
+			
 			return false
 
 		end

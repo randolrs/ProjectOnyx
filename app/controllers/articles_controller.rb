@@ -125,6 +125,16 @@ class ArticlesController < ApplicationController
       @article.predictor_id = current_predictor.id
       @article.hits = 0
 
+      @tagging = Tagging.new
+
+      #@tagging.article_id = @article.id
+
+      @tagging.update(:article_id => @article.id)
+
+      @tagging.update(:tag_id => Topic.find_by_name("Sports").id)
+
+      
+
       @article.prediction_games.each do |prediction_game|
         
         prediction_game.update(:predictor_id => current_predictor.id)
@@ -134,17 +144,17 @@ class ArticlesController < ApplicationController
         prediction_game.update(:overunder => overunder)
         prediction_game.update(:article_id => @article.id)
 
-        if !@article.has_topic(@article.id, Topic.find_by_name("Sports").id)
+        #if !@article.has_topic(89, Topic.find_by_name("Sports").id)
 
-          @tagging = Tagging.new
+          # @tagging = Tagging.new
 
-          @tagging.update(:article_id => @article.id)
+          # @tagging.article_id = @article.id
 
-          @tagging.update(:tag_id => Topic.find_by_name("Sports").id)
+          # @tagging.tag_id = Topic.find_by_name("Sports").id
 
-          @tagging.save
+          # @tagging.save
 
-        end
+        #end
             
         if prediction_game.teama_score > prediction_game.teamh_score
           prediction_game.update(:game_winner => prediction_game.teama)
@@ -237,6 +247,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body, :hits, :event_id, :event_type, :event_time, :category, :teama, :teamh, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :spread, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id, :cost])
+      params.require(:article).permit(:id, :title, :body, :hits, :event_id, :event_type, :event_time, :category, :teama, :teamh, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :spread, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id, :cost])
     end
 end

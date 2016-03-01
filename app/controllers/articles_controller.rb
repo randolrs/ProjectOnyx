@@ -125,15 +125,6 @@ class ArticlesController < ApplicationController
       @article.predictor_id = current_predictor.id
       @article.hits = 0
 
-      @tagging = Tagging.new
-
-      #@tagging.article_id = @article.id
-
-      @tagging.update(:article_id => @article.id)
-
-      @tagging.update(:tag_id => Topic.find_by_name("Sports").id)
-
-
       @article.prediction_games.each do |prediction_game|
         
         prediction_game.update(:predictor_id => current_predictor.id)
@@ -141,19 +132,7 @@ class ArticlesController < ApplicationController
         prediction_game.update(:league => game.league)
         overunder = prediction_game.teama_score + prediction_game.teamh_score
         prediction_game.update(:overunder => overunder)
-        prediction_game.update(:article_id => @article.id)
-
-        #if !@article.has_topic(89, Topic.find_by_name("Sports").id)
-
-          # @tagging = Tagging.new
-
-          # @tagging.article_id = @article.id
-
-          # @tagging.tag_id = Topic.find_by_name("Sports").id
-
-          # @tagging.save
-
-        #end
+        #prediction_game.update(:article_id => @article.id)
             
         if prediction_game.teama_score > prediction_game.teamh_score
           prediction_game.update(:game_winner => prediction_game.teama)
@@ -171,6 +150,16 @@ class ArticlesController < ApplicationController
 
       respond_to do |format|
         if @article.save
+
+          if @article.prediction_games.count > 0
+
+            @tagging = Tagging.new
+
+            @tagging.update(:article_id => @article.id)
+
+            @tagging.update(:tag_id => Topic.find_by_name("Sports").id)
+
+          end
 
           unless current_predictor.account ###make this check a partial
 

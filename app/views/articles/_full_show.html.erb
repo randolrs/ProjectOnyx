@@ -91,6 +91,18 @@
 
           <% end %>
 
+          <ul class="category-header-items">
+    
+            <% article.taggings.each do |tagging| %>
+
+              <% @topic = Topic.find(tagging.tag_id).name %>
+
+              <li class="tag-items"><a href="<%= topic_show_page_path(@topic.url)%>"><%= @topic.name %></a></li>
+
+            <%end%>
+
+          </ul>
+
         </div>
       
       </div>

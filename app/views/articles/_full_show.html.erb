@@ -87,7 +87,7 @@
 
           <% article.taggings.each do |tagging| %>
 
-            <%= Tag.find(tagging.tag_id).name %>
+            <%= Topic.find(tagging.tag_id).name %>
 
           <% end %>
 

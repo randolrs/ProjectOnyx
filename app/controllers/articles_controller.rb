@@ -48,10 +48,10 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    
     @article = Article.find(params[:id])
     @article.update(hits: @article.hits+1)
     @predictor = Predictor.find(@article.predictor_id)
-
 
     if user_signed_in?
       @usertype = "user"
@@ -133,7 +133,6 @@ class ArticlesController < ApplicationController
 
       @tagging.update(:tag_id => Topic.find_by_name("Sports").id)
 
-      
 
       @article.prediction_games.each do |prediction_game|
         

@@ -85,12 +85,6 @@
 
           <h3>Related Tags</h3>
 
-          <% article.taggings.each do |tagging| %>
-
-            <%= Topic.find(tagging.tag_id).name %>
-
-          <% end %>
-
           <ul class="category-header-items">
     
             <% article.taggings.each do |tagging| %>

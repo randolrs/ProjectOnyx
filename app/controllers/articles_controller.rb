@@ -159,6 +159,28 @@ class ArticlesController < ApplicationController
 
             @tagging.update(:tag_id => Topic.find_by_name("Sports").id)
 
+            @article.prediction_games.each do |prediction_game|
+
+              @game_league_tag_id = Topic.find_by_name(prediction_game.league).id
+
+              unless @game_league_tag_id.nil?
+
+                unless @article.has_topic(@article.id, @game_league_tag_id)
+                  
+                  @tagging = Tagging.new
+
+                  @tagging.update(:article_id => @article.id)
+
+                  @tagging.update(:tag_id => @game_league_tag_id)
+
+                end
+
+              end
+
+
+
+            end
+
           end
 
           unless current_predictor.account ###make this check a partial

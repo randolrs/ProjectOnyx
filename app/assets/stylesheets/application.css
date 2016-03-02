@@ -1319,7 +1319,7 @@ a.category-item:hover{
     }
 
     .category-header{
-      width:600px;
+      max-width:600px;
     }
 
     .main-content.index{
@@ -1361,7 +1361,7 @@ a.category-item:hover{
     }
 
     .category-header{
-      width:600px;
+      max-width:600px;
     }
 
     .main-content.index{

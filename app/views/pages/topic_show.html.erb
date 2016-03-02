@@ -9,11 +9,29 @@
 
 	      <div class ="main-content index">
 
-	        <% @articles.each do |article|%>
+	      	<% if @articles.count == 0 %>
 
-	          <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
+	      		<div class="content-panel sub">
 
-	        <%end%>
+	      			<div style="font-size: 12px; color: #999; text-align:center; padding: 0px 10px 10px 10px;">
+              
+              			No predictions for this article.
+
+              		</div>
+
+            </div>
+
+	      		</div>
+
+	      	<%else%>
+
+		        <% @articles.each do |article|%>
+
+		          <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
+
+		        <%end%>
+
+		    <%end%>
 
 	      </div>
 
@@ -36,7 +54,7 @@
 						<li class="tag-items"><a href="<%= topic_show_page_path(topic.url)%>"><%= topic.name %></a></li>
 
 					<%end%>
-					
+
 				</ul>
 
 	        </div>

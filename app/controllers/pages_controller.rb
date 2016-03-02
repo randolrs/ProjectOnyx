@@ -279,7 +279,7 @@ class PagesController < ApplicationController
 
       if @related_topics.count == 0
 
-        @related_topics = Topic.all.where("parent_tag_id = :topic_id", {:topic_id => @topic.parent_tag_id.to_s})
+        @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.parent_tag_id.to_s, :this_id => @topic.id.to_s})
 
       end
 

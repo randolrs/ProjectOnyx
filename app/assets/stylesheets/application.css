@@ -1318,6 +1318,10 @@ a.category-item:hover{
       padding:10px 0px;
     }
 
+    .category-header{
+      width:600px;
+    }
+
     .main-content.index{
       width:100%;
       max-width:600px;
@@ -1354,6 +1358,10 @@ a.category-item:hover{
 
     .content-wrap{
       padding:10px 0px;
+    }
+
+    .category-header{
+      width:600px;
     }
 
     .main-content.index{

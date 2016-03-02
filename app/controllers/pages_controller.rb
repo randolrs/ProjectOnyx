@@ -270,18 +270,22 @@ class PagesController < ApplicationController
   def topic_show
 
     @topic = Topic.find_by_url(params[:topic])
+    
     @articles = Article.all
 
-    @related_topics = Topic.all.where("parent_tag_id = :topic_id", {:topic_id => @topic.id})
+    if @topic
+
+      @related_topics = Topic.all.where("parent_tag_id = :topic_id", {:topic_id => @topic.id})
+
+    end
 
   end
 
   def top_posts
 
     @page = "top_posts"
+    
     @featured_topics = Topic.all.where("parent_tag_id = :all_id", {:all_id => @parent_tag_id})
-
-    #@featured_topics = Topic.all
 
     @articles = Article.all.order("created_at DESC")
 

@@ -272,6 +272,8 @@ class PagesController < ApplicationController
     @topic = Topic.find_by_url(params[:topic])
     @articles = Article.all
 
+    @related_topics = Topic.all.where("parent_tag_id = :topic_id", {:topic_id => @topic.id})
+
   end
 
   def top_posts

@@ -27,7 +27,17 @@
 
 	        <div class="content-panel sub">
 
-	          <h4>Related Tags</h4>
+				<h4>Related Tags</h4>
+
+				<ul class="category-header-items">
+		
+					<% @related_topics.each do |topic| %>
+
+						<li class="tag-items"><a href="<%= topic_show_page_path(topic.url)%>"><%= topic.name %></a></li>
+
+					<%end%>
+					
+				</ul>
 
 	        </div>
 				

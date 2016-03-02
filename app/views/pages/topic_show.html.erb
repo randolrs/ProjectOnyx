@@ -49,6 +49,16 @@
 
               	<%else%>
 
+              	<ol type="1" style="font-size: 16px;">
+		
+					<% @top_articles.each do |article| %>
+
+						<li class="top-article-item"><%= link_to article.title, predictorarticleshow_path(Predictor.find(article.predictor_id).username,article.id), class: "top-article-list" %></li>
+
+					<%end%>
+
+				</ol>
+
 
               	<%end%>
 

@@ -271,9 +271,11 @@ class PagesController < ApplicationController
 
     @topic = Topic.find_by_url(params[:topic])
 
-    @articles = @topic.articles
-
     if @topic
+
+      @articles = @topic.articles
+
+      @top_articles = @articles.take(5)
 
       @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
 

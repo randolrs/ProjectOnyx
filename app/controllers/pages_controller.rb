@@ -270,12 +270,12 @@ class PagesController < ApplicationController
   def topic_show
 
     @topic = Topic.find_by_url(params[:topic])
-    
-    @articles = Article.all
+
+    @articles = @topic.articles
 
     if @topic
 
-      @related_topics = Topic.all.where("parent_tag_id = :topic_id", {:topic_id => @topic.id.to_s})
+      @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
 
       if @related_topics.count == 0
 

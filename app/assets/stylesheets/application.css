@@ -1117,6 +1117,29 @@ a.category-item:hover{
   color: #36c;
 }
 
+a.follow-button{
+  border-radius: 20px;
+  border: 1px solid #00ab6b;
+  color: #00ab6b;
+  padding: 8px 15px;
+  webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+a.follow-button:hover{
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  background-color: #00ab6b;
+  webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+a.follow-button.following{
+  color: white;
+  background-color: #00ab6b;
+}
+
 
 @media only screen and (max-device-width: 960px) {
     .user-dashboard-card{

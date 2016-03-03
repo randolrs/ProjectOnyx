@@ -82,5 +82,7 @@ jQuery ->
       success: (data) ->
         console.log(data)
         alert("through it")
+        alert($(this).text())
+        $(this).text("Following")
 
    			

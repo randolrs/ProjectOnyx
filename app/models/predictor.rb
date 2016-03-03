@@ -275,4 +275,19 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def has_follower(follower_id)
+
+    if Following.where(:follower_id => follower_id, :following_id => self.id, :active=> true).present?
+      
+      return true
+
+    else
+      
+      return false
+
+    end 
+
+
+  end
+
 end

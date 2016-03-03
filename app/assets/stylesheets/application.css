@@ -1138,6 +1138,12 @@ a.follow-button:hover{
 a.follow-button.following{
   color: white;
   background-color: #00ab6b;
+  border:none;
+}
+
+a.follow-button.following:hover{
+  color: white;
+  background-color: red;
 }
 
 

@@ -74,15 +74,18 @@ jQuery ->
 
   $(".follow-button").click (event), ->
     event.preventDefault()
-    alert("flag")
-    $following_id = $(this).attr 'id'
+    $following_button = $(this)
+    $following_id = $following_button.attr 'id'
     $.ajax
       url: "/predictor/follow/#{$following_id}"
       type: "GET"
       success: (data) ->
         console.log(data)
-        alert("through it")
-        alert($(this).text())
-        $(this).text("Following")
+        if data.now_following
+          $following_button.addClass('following')
+          $following_button.text("Following")
+        else
+          $following_button.removeClass('following')
+          $following_button.text("Follow")
 
    			

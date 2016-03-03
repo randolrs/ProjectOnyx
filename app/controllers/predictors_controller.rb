@@ -297,4 +297,24 @@ class PredictorsController < ApplicationController
 
   end
 
+  def ajax_following
+
+    if predictor_signed_in?
+
+      if params[:following_id]
+
+        @predictor = Predictor.find(params[:following_id])
+
+        @following = Following.new
+
+        @following.update(:follower_id => current_predictor.id, :following_id =>@predictor.id)
+
+        @following.save
+
+      end
+
+    end
+
+  end
+
 end

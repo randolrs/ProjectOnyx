@@ -63,4 +63,24 @@ jQuery ->
    			gameIdInput.val(data.game_id)
    			scoreForm.slideDown()
 
+  $(".recommend-button").click (event), ->
+    event.preventDefault()
+    $article = $(this).attr 'id'
+    $.ajax
+      url: "/article/recommend/#{$article}"
+      type: "GET"
+      success: (data) ->
+        console.log(data)
+
+  $(".follow-button").click (event), ->
+    event.preventDefault()
+    alert("flag")
+    $following_id = $(this).attr 'id'
+    $.ajax
+      url: "/predictor/follow/#{$following_id}"
+      type: "GET"
+      success: (data) ->
+        console.log(data)
+        alert("through it")
+
    			

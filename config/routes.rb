@@ -53,6 +53,10 @@ Rails.application.routes.draw do
 
   get '/article/ajax_league/:game', :to => 'articles#ajax_league'
 
+  get '/article/recommend/:article', :to => 'articles#ajax_recommend'
+
+  get '/predictor/follow/:following_id', :to => 'predictors#ajax_following'
+
   get 'user_dashboard' => "pages#user_index"
 
   get "about" => "pages#about"

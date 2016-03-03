@@ -261,4 +261,18 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def has_recommendation(article_id)
+
+    if Recommendation.where(:article_id => article_id, :user_id => self.id).present?
+      
+      return true
+
+    else
+      
+      return false
+
+    end
+
+  end
+
 end

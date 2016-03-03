@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225041716) do
+ActiveRecord::Schema.define(version: 20160303023756) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -72,6 +72,13 @@ ActiveRecord::Schema.define(version: 20160225041716) do
   create_table "descriptions", force: true do |t|
     t.string   "title"
     t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "followings", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "following_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -282,6 +289,13 @@ ActiveRecord::Schema.define(version: 20160225041716) do
     t.decimal  "price",        precision: 8, scale: 0, default: 0
     t.datetime "next_payment"
     t.boolean  "active"
+  end
+
+  create_table "recommendations", force: true do |t|
+    t.integer  "article_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sports", force: true do |t|

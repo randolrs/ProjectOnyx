@@ -115,6 +115,30 @@ class ArticlesController < ApplicationController
 
   end
 
+  def ajax_recommend
+
+    if predictor_signed_in?
+
+      if params[:article]
+
+        @article = Article.find(params[:article])
+
+        unless current_predictor.has_recommendation(@article.id)
+
+          @recommendation = Recommendation.new
+
+          @recommendation.update(:article_id => @article.id, :user_id =>current_predictor.id)
+
+          @recommendation.save
+
+        end
+
+      end
+
+    end
+
+  end
+
   # POST /articles
   # POST /articles.json
   def create
@@ -166,7 +190,7 @@ class ArticlesController < ApplicationController
               unless @game_league_tag_id.nil?
 
                 unless @article.has_topic(@article.id, @game_league_tag_id)
-                  
+
                   @tagging = Tagging.new
 
                   @tagging.update(:article_id => @article.id)

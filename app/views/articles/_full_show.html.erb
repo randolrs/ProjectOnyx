@@ -9,7 +9,7 @@
           <div class="article-show-header">
               <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
               <%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
-              <%= article.created_at.strftime("%D") %>
+              <%= article.created_at.strftime("%-m/%-d/%Y") %>
           </div>
 
           <div class="article-show-detail">
@@ -21,6 +21,9 @@
             <div class="article-body-text">
               <p><%= article.body %></p>
             </div>
+
+            <a class="recommend-button" id="<%=article.id %>">&#10084;</a>
+            <a class="follow-button" id="<%=predictor.id %>">Follow</a>
 
           </div>
 

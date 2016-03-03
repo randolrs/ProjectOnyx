@@ -469,3 +469,22 @@ a.top-article-list:hover{
   background:#eee;
   cursor:pointer;
 }
+
+.recommend-button{
+  color:white;
+  text-shadow: #960906 0px 0px 3px;
+    -webkit-font-smoothing: antialiased;
+  font-size:26px;
+  webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+
+}
+
+.recommend-button:hover{
+  text-decoration:none;
+  color:red;
+  cursor:pointer;
+  webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+
+}

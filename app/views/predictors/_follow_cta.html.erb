@@ -1,0 +1,12 @@
+<% if predictor_signed_in?%>
+
+	<% unless predictor.has_follower(current_predictor.id) %>
+
+  		<a class="follow-button" id="<%=predictor.id %>">Follow</a>
+
+  	<% else %>
+
+  		<a class="follow-button following" id="<%=predictor.id %>">Following</a>
+  		
+	<% end %>
+<%end%>

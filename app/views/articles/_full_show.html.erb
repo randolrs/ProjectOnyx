@@ -9,7 +9,7 @@
           <div class="article-show-header">
               <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
               <%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
-              <a class="follow-button" id="<%=predictor.id %>">Follow</a>
+              <%= render partial: 'predictors/follow_cta', locals: {predictor: predictor} %>
           </div>
 
           <div class="article-show-detail">

@@ -294,7 +294,6 @@ class PredictorsController < ApplicationController
 
     redirect_to root_path
 
-
   end
 
   def ajax_following
@@ -305,13 +304,23 @@ class PredictorsController < ApplicationController
 
         @predictor = Predictor.find(params[:following_id])
 
-        unless @predictor.has_follower(current_predictor.id)
+        unless @predictor.has_follower_active(current_predictor.id)
+
+          unless @predictor.has_follower_inactive(current_predictor.id)
         
-          @following = Following.new
+            @following = Following.new
 
-          @following.update(:follower_id => current_predictor.id, :following_id =>@predictor.id, :active => true)
+            @following.update(:follower_id => current_predictor.id, :following_id => @predictor.id, :active => true)
 
-          @following.save
+            @following.save
+
+          else
+
+            @following = Following.where(:follower_id => current_predictor.id, :following_id => @predictor.id).first
+
+            @following.update(:active => true)
+
+          end
 
           respond_to do |format|
             format.js { render json: { :now_following => true } , content_type: 'text/json' }

@@ -65,12 +65,17 @@ jQuery ->
 
   $(".recommend-button").click (event), ->
     event.preventDefault()
-    $article = $(this).attr 'id'
+    $recommend_button = $(this)
+    $article = $recommend_button.attr 'id'
     $.ajax
       url: "/article/recommend/#{$article}"
       type: "GET"
       success: (data) ->
         console.log(data)
+        if data.now_recommending
+          alert("true")
+        else
+          alert("false")
 
   $(".follow-button").click (event), ->
     event.preventDefault()

@@ -117,25 +117,49 @@ class ArticlesController < ApplicationController
 
   def ajax_recommend
 
-    if predictor_signed_in?
+    # if predictor_signed_in?
 
-      if params[:article]
+    #   if params[:article]
 
-        @article = Article.find(params[:article])
+    #     @article = Article.find(params[:article])
 
-        unless current_predictor.has_recommendation(@article.id)
+    #     unless current_predictor.has_recommendation_active(@article.id)
 
-          @recommendation = Recommendation.new
+    #       unless current_predictor.has_recommendation_inactive(@article.id)
 
-          @recommendation.update(:article_id => @article.id, :user_id =>current_predictor.id)
+    #         @recommendation = Recommendation.new
 
-          @recommendation.save
+    #         @recommendation.update(:article_id => @article.id, :user_id =>current_predictor.id)
 
-        end
+    #         @recommendation.save
 
-      end
+    #       else
 
-    end
+    #         @recommendation = Recommendation.where(:article_id => @article.id, :user_id =>current_predictor.id).first
+
+    #         @recommendation.update(:active => true)
+
+    #       end
+
+          respond_to do |format|
+            format.js { render json: { :now_recommending => true } , content_type: 'text/json' }
+          end
+
+    #     else
+
+    #       @recommendation = Recommendation.where(:article_id => @article.id, :user_id =>current_predictor.id).first
+
+    #       @recommendation.update(:active => false)
+
+    #       respond_to do |format|
+    #         format.js { render json: { :now_recommending => false } , content_type: 'text/json' }
+    #       end
+
+    #     end
+
+    #   end
+
+    # end
 
   end
 

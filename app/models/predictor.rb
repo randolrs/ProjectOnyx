@@ -261,9 +261,37 @@ class Predictor < ActiveRecord::Base
 
   end
 
-  def has_recommendation(article_id)
+  def has_recommendation_inactive(article_id)
 
-    if Recommendation.where(:article_id => article_id, :user_id => self.id).present?
+    if Recommendation.where(:article_id => article_id, :user_id => self.id, :active => false).present?
+      
+      return true
+
+    else
+      
+      return true
+
+    end
+
+  end
+
+  def has_recommendation_active(article_id)
+
+    if Recommendation.where(:article_id => article_id, :user_id => self.id, :active => true).present?
+      
+      return true
+
+    else
+      
+      return true
+
+    end
+
+  end
+
+  def has_follower_inactive(follower_id)
+
+    if Following.where(:follower_id => follower_id, :following_id => self.id, :active => false).present?
       
       return true
 
@@ -271,11 +299,11 @@ class Predictor < ActiveRecord::Base
       
       return false
 
-    end
+    end 
 
   end
 
-  def has_follower(follower_id)
+  def has_follower_active(follower_id)
 
     if Following.where(:follower_id => follower_id, :following_id => self.id, :active=> true).present?
       

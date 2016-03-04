@@ -18,7 +18,7 @@
               <h1><%= link_to article.title, predictorarticleshow_path(predictor.username,article.id), class: "article-show-title" %></h1>
             </div>
 
-            <%= article.created_at.strftime("%-m/%-d/%Y") %>
+            <div class="article-date"><a class="article-date-text"><%= article.created_at.strftime("%B %e, %Y") %></a></div>
             
             <div class="article-body-text">
               <p><%= article.body %></p>

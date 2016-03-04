@@ -269,7 +269,7 @@ class Predictor < ActiveRecord::Base
 
     else
       
-      return true
+      return false
 
     end
 
@@ -283,7 +283,7 @@ class Predictor < ActiveRecord::Base
 
     else
       
-      return true
+      return false
 
     end
 

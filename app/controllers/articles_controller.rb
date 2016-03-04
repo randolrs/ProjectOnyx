@@ -119,47 +119,47 @@ class ArticlesController < ApplicationController
 
     # if predictor_signed_in?
 
-    #   if params[:article]
+      if params[:article_id]
 
-    #     @article = Article.find(params[:article])
+        @article_object = Article.find(params[:article_id])
 
-    #     unless current_predictor.has_recommendation_active(@article.id)
+        unless current_predictor.has_recommendation_active(@article_object.id)
 
-    #       unless current_predictor.has_recommendation_inactive(@article.id)
+           unless current_predictor.has_recommendation_inactive(@article_object.id)
 
-    #         @recommendation = Recommendation.new
+            @recommendation = Recommendation.new
 
-    #         @recommendation.update(:article_id => @article.id, :user_id =>current_predictor.id)
+            @recommendation.update(:article_id => @article_object.id, :user_id =>current_predictor.id)
 
-    #         @recommendation.save
+            @recommendation.save
 
-    #       else
+          else
 
-    #         @recommendation = Recommendation.where(:article_id => @article.id, :user_id =>current_predictor.id).first
+            @recommendation = Recommendation.where(:article_id => @article_object.id, :user_id =>current_predictor.id).first
 
-    #         @recommendation.update(:active => true)
+            @recommendation.update(:active => true)
 
-    #       end
+           end
 
           respond_to do |format|
             format.js { render json: { :now_recommending => true } , content_type: 'text/json' }
           end
 
-    #     else
+        else
 
-    #       @recommendation = Recommendation.where(:article_id => @article.id, :user_id =>current_predictor.id).first
+           @recommendation = Recommendation.where(:article_id => @article_object.id, :user_id =>current_predictor.id).first
 
-    #       @recommendation.update(:active => false)
+           @recommendation.update(:active => false)
 
-    #       respond_to do |format|
-    #         format.js { render json: { :now_recommending => false } , content_type: 'text/json' }
-    #       end
+          respond_to do |format|
+            format.js { render json: { :now_recommending => false } , content_type: 'text/json' }
+          end
 
     #     end
 
-    #   end
+        end
 
-    # end
+    end
 
   end
 

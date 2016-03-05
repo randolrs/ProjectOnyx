@@ -3,13 +3,14 @@
  	<div class="article-show-header">
     	<%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
     	<%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
-    	<%= article.created_at.strftime("%D") %>
   	</div>
 
  	<div class="article-show-detail">
  		<div class="article-title-text">
  		<%= link_to article.title, predictorarticleshow_path(predictor.username,article.id), class: "article-show-title" %>
  		</div>
+
+ 		<div class="article-date"><a class="article-date-text"><%= article.created_at.strftime("%B %e, %Y") %></a></div>
 		
  		<div class="article-body-text">
 			<%= article.body %>

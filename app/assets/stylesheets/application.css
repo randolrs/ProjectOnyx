@@ -1122,8 +1122,8 @@ a.follow-button{
   border: 1px solid #00ab6b;
   color: #00ab6b;
   padding: 8px 15px;
-  webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -1131,16 +1131,13 @@ a.follow-button:hover{
   text-decoration: none;
   cursor: pointer;
   box-shadow: none;
-  webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 a.follow-button.following{
   color: white;
   background-color: #00ab6b;
-  border:none;
-  webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 
 

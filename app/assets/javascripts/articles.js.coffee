@@ -67,7 +67,6 @@ jQuery ->
     event.preventDefault()
     $recommend_button = $(this)
     $article_id = $recommend_button.attr 'id'
-    alert($article_id)
     $.ajax
       url: "/article/recommend/#{$article_id}"
       type: "GET"

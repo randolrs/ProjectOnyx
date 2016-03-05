@@ -295,7 +295,24 @@ class PagesController < ApplicationController
     
     @featured_topics = Topic.all.where("parent_tag_id = :all_id", {:all_id => @parent_tag_id})
 
-    @articles = Article.all.order("created_at DESC")
+    @top_articles = Article.all #for now
+
+    #@article_recommendations = Array.new
+
+
+
+    # Article.all.each do |article|
+
+    #   hash = {:article=> article, :recommendations_count=>article.recommendations_count}
+
+    #   @article_recommendations << hash 
+
+    # end
+
+    # @article_recommendations.each do |hash|
+
+
+    # end
 
   end
 

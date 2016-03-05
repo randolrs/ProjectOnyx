@@ -6,11 +6,13 @@
 
 		<div class ="main-content index">
 
-		<% @articles.each do |article|%>
+			<h3>Most Recommended This Week</h3>
 
-		  <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
+			<% @top_articles.each do |article|%>
 
-		<%end%>
+			  <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
+
+			<%end%>
 
 		</div>
 

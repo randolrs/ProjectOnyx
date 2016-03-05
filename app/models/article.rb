@@ -21,4 +21,11 @@ class Article < ActiveRecord::Base
 		end
 
 	end
+
+	def recommendations_count
+
+		return Recommendations.all.where(:article_id => self.id).count
+
+
+	end
 end

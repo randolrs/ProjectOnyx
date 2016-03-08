@@ -66,6 +66,8 @@ jQuery ->
   $(".recommend-button").click (event), ->
     event.preventDefault()
     $recommend_button = $(this)
+    $recommend_count = $(this).nextAll('.recommend-button.count')
+    $recommend_count_value = parseInt($recommend_count.html(),10)
     $article_id = $recommend_button.attr 'id'
     $.ajax
       url: "/article/recommend/#{$article_id}"
@@ -73,9 +75,13 @@ jQuery ->
       success: (data) ->
         console.log(data)
         if data.now_recommending
-          alert("true")
+          $recommend_button.addClass('recommended')
+          $newValue = $recommend_count_value + 1
+          $recommend_count.text($newValue)
         else
-          alert("false")
+          $recommend_button.removeClass('recommended')
+          $newValue = $recommend_count_value - 1
+          $recommend_count.text($newValue)
 
   $(".follow-button").click (event), ->
     event.preventDefault()

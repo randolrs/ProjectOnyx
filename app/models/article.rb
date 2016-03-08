@@ -22,10 +22,17 @@ class Article < ActiveRecord::Base
 
 	end
 
-	def recommendations_count
+	def recommendation_count
 
-		return Recommendations.all.where(:article_id => self.id).count
+		return Recommendation.all.where(:article_id => self.id, :active => true).count
 
 
 	end
+
+	# def bookmark_count
+
+	# 	return Bookmark.all.where(:article_id => self.id, :active => true).count
+
+
+	# end
 end

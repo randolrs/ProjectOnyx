@@ -295,24 +295,22 @@ class PagesController < ApplicationController
     
     @featured_topics = Topic.all.where("parent_tag_id = :all_id", {:all_id => @parent_tag_id})
 
-    @top_articles = Article.all #for now
+    #@top_articles = Article.all #for now
 
-    #@article_recommendations = Array.new
-
-
-
-    # Article.all.each do |article|
-
-    #   hash = {:article=> article, :recommendations_count=>article.recommendations_count}
-
-    #   @article_recommendations << hash 
-
-    # end
-
-    # @article_recommendations.each do |hash|
+    @article_recommendations = Array.new
 
 
-    # end
+    Article.all.each do |article|
+
+      hash = {:article=> article, :recommendation_count=>article.recommendation_count}
+
+      @article_recommendations << hash 
+
+    end
+
+    
+
+    @top_articles = @article_recommendations.sort_by {|k| k["recommendation_count"]}
 
   end
 

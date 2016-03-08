@@ -12,7 +12,6 @@
 
 			  <%= render partial: 'articles/summary_index', locals: {article: article[:article], predictor: Predictor.find(article[:article].predictor_id)} %>
 
-			  <%= article[:recommendation_count] %>
 			<%end%>
 
 		</div>

@@ -55,6 +55,8 @@ Rails.application.routes.draw do
 
   get '/article/recommend/:article_id', :to => 'articles#ajax_recommend'
 
+  get '/article/bookmark/:article_id', :to => 'articles#ajax_bookmark'
+
   get '/predictor/follow/:following_id', :to => 'predictors#ajax_following'
 
   get 'user_dashboard' => "pages#user_index"

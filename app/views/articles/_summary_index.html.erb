@@ -21,9 +21,10 @@
 		</div>
 
 		<div class="article-show-actions">
-            <a title="Recommend to share this post with your followers and let the author know you liked it." class="recommend-button <% if current_predictor.has_recommendation_active(article.id)%>recommended<%end%>" id="<%=article.id %>">&#10084;</a> <a class="recommend-button count"><%= article.recommendation_count %></a>
+            
+            <%= render partial: 'articles/recommend_cta', locals: {article: article}%>
 
-            <a title="Bookmark this post to read later." class="bookmark-button" id="<%=article.id %>">&#128278;</a>
+            <%= render partial: 'articles/bookmark_cta', locals: {article: article}%>
 
           </div>
 

@@ -302,13 +302,15 @@ class PagesController < ApplicationController
 
     Article.all.each do |article|
 
-      hash = {:article=> article, :recommendation_count=>article.recommendation_count}
+      if article.recommendation_count > 0
 
-      @article_recommendations << hash 
+        hash = {:article=> article, :recommendation_count=>article.recommendation_count}
+
+        @article_recommendations << hash 
+
+      end
 
     end
-
-    
 
     @top_articles = @article_recommendations.sort_by {|k| k["recommendation_count"]}
 
@@ -323,7 +325,9 @@ class PagesController < ApplicationController
 
     #@featured_topics = Topic.all
 
-    @articles = Article.all.order("created_at DESC")
+    if predictor_signed_in?
+      @articles = current_predictor.bookmarked_articles
+    end
 
   end
 

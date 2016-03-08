@@ -470,6 +470,21 @@ a.top-article-list:hover{
   cursor:pointer;
 }
 
+a.top-article-link{
+  color:#333;
+  cursor:pointer;
+  text-decoration:none;
+  font-size:18px;
+
+}
+
+a.top-article-link:hover{
+  color:#333;
+  cursor:pointer;
+  text-decoration:none;
+
+}
+
 .recommend-button{
   color: #999;
     -webkit-font-smoothing: antialiased;
@@ -478,6 +493,7 @@ a.top-article-list:hover{
   transition: all 0.2s ease;
   float:left;
   margin-right:3px;
+  line-height: 28px;
 }
 
 .recommend-button.recommended{
@@ -513,9 +529,26 @@ a.top-article-list:hover{
 
 .bookmark-button{
   float:right;
+  font-size:20px;
+  color: #999;
+    -webkit-font-smoothing: antialiased;
+  font-size:20px;
+  webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  margin-right:3px;
+  line-height: 28px;
+}
+
+.bookmark-button.bookmarked{
+  color:blue;
+  text-shadow: #2B36A1 0px 3px 2px;
   font-size:26px;
-  color:#4555FF;
-  text-shadow: #bbb 0px 3px 2px;
+
+}
+
+.bookmark-button.count{
+    font-weight:700;
+    font-size:16px;
 }
 
 .bookmark-button:hover{

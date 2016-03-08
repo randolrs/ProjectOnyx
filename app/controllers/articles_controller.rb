@@ -163,6 +163,52 @@ class ArticlesController < ApplicationController
 
   end
 
+  def ajax_bookmark
+
+    # if predictor_signed_in?
+
+      if params[:article_id]
+
+        @article_object = Article.find(params[:article_id])
+
+        unless current_predictor.has_bookmark_active(@article_object.id)
+
+           unless current_predictor.has_bookmark_inactive(@article_object.id)
+
+            @bookmark = Bookmark.new
+
+            @bookmark.update(:article_id => @article_object.id, :user_id =>current_predictor.id)
+
+            @bookmark.save
+
+          else
+
+            @bookmark = Bookmark.where(:article_id => @article_object.id, :user_id =>current_predictor.id).first
+
+            @bookmark.update(:active => true)
+
+           end
+
+          respond_to do |format|
+            format.js { render json: { :now_bookmarked => true } , content_type: 'text/json' }
+          end
+
+        else
+
+           @bookmark = Bookmark.where(:article_id => @article_object.id, :user_id =>current_predictor.id).first
+
+           @bookmark.update(:active => false)
+
+          respond_to do |format|
+            format.js { render json: { :now_bookmarked => false } , content_type: 'text/json' }
+          end
+
+        end
+
+    end
+
+  end
+
   # POST /articles
   # POST /articles.json
   def create

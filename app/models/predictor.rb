@@ -315,6 +315,49 @@ class Predictor < ActiveRecord::Base
 
     end 
 
+  end
+
+  def has_bookmark_active(article_id)
+
+    if Bookmark.where(:user_id => self.id, :article_id => article_id, :active=> true).present?
+      
+      return true
+
+    else
+      
+      return false
+
+    end 
+
+  end
+
+  def has_bookmark_inactive(article_id)
+
+    if Bookmark.where(:user_id => self.id, :article_id => article_id, :active=> false).present?
+      
+      return true
+
+    else
+      
+      return false
+
+    end 
+
+  end
+
+  def bookmarked_articles
+
+    article_bookmarks = Array.new
+
+    bookmarks = Bookmark.all.where(:user_id => self.id, :active => true)
+
+    bookmarks.each do |bookmark|
+
+      article_bookmarks << Article.find(bookmark.article_id)
+
+    end
+
+    return article_bookmarks
 
   end
 

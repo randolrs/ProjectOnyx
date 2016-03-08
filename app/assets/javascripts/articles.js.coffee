@@ -83,6 +83,20 @@ jQuery ->
           $newValue = $recommend_count_value - 1
           $recommend_count.text($newValue)
 
+  $(".bookmark-button").click (event), ->
+    event.preventDefault()
+    $bookmark_button = $(this)
+    $article_id = $bookmark_button.attr 'id'
+    $.ajax
+      url: "/article/bookmark/#{$article_id}"
+      type: "GET"
+      success: (data) ->
+        console.log(data)
+        if data.now_bookmarked
+          $bookmark_button.addClass('bookmarked')
+        else
+          $bookmark_button.removeClass('bookmarked')
+
   $(".follow-button").click (event), ->
     event.preventDefault()
     $following_button = $(this)

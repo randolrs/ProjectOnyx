@@ -32,8 +32,8 @@
             
             <%= render partial: 'articles/recommend_cta', locals: {article: article}%>
 
-            <a title="Bookmark this post to read later." class="bookmark-button" id="<%=article.id %>">&#128278;</a>
-
+            <%= render partial: 'articles/bookmark_cta', locals: {article: article}%>
+            
           </div>
 
         </div>

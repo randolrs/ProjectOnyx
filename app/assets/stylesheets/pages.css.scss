@@ -1569,24 +1569,77 @@ ul.dropdown-menu li {
   
   min-width: 100%;
   min-height: 100%;
-  padding: 50px 0px 50px 0px;
+  padding: 150px 0px 50px 0px;
   background:#333;
+  background-image: url("https://www.fhi.ox.ac.uk/wp-content/uploads/earth.jpg");
 }
 
-.intro-container h1{
-  font-size:80px;
+.intro-link{
+  max-width:600px;
+  width:100%;
+  margin:0 auto;  
+}
+
+.intro-link h1{
+  font-size:44px;
   text-align:center;
   color:white;
-  line-height: 80px;
+  line-height: 44px;
   padding:0px 10px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-weight:100;
 }
 
-.intro-container h2{
-  font-size:40px;
+.intro-link h2{
+  font-size:24px;
   text-align:center;
   color:#eee;
-  line-height: 40px;
-  margin:50px 0px;
+  line-height: 24px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-weight:100;
+}
+
+.intro-link h3{
+  font-size:18px;
+  text-align:center;
+  color:#eee;
+  line-height: 18px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-weight:100;
+}
+
+.get-started-intro{
+  padding:10px 20px;
+  background-color:red;
+  color:white;
+  font-size:16px;
+  border-radius: 20px;
+}
+
+.get-started-intro:hover{
+  padding:10px 20px;
+  background-color:red;
+  text-decoration:none;
+  color:white;
+  cursor:pointer;
+}
+
+.learn-more-intro{
+  padding:10px 20px;
+  background-color:blue;
+  color:white;
+  font-size:16px;
+  border-radius: 20px; 
+}
+
+.learn-more-intro:hover{
+  text-decoration:none;
+  cursor:pointer; 
+}
+
+.landing-buttons{
+  margin: 0 auto;
+  text-align:center;
 }
 
 .expert-types{

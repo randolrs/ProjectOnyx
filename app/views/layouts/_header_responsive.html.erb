@@ -32,35 +32,14 @@
 <div id='cssmenu'>
 <ul>
    <li><a href='<%=root_path%>'><span>Futable</span></a></li>
-<!--    <%# unless predictor_signed_in? %>
-      <li class='has-sub'><a href='#'><span>Browse</span></a>
-         <ul>
-            <li class='has-sub'><a href='#'><span>Sports</span></a>
-               <ul>
-                  <li><a href='<%#leaguehome_path("NBA")%>'><span>NBA</span></a></li>
-                  <li><a href='<%#leaguehome_path("NFL")%>'><span>NFL</span></a></li>
-                  <li><a href='<%#leaguehome_path("MLB")%>'><span>MLB</span></a></li>
-                  <li><a href='<%#leaguehome_path("NHL")%>'><span>NHL</span></a></li>
-               </ul>
-            </li>
-            <li class='has-sub'><a href='#'><span>Finance</span></a>
-               <ul>
-                  <li><a href='<%#leaguehome_path("NBA")%>'><span>Stocks Markets</span></a></li>
-                  <li><a href='<%#leaguehome_path("NFL")%>'><span>Currencies</span></a></li>
-                  <li><a href='<%#leaguehome_path("NFL")%>'><span>Commodities</span></a></li>
-                  <li><a href='<%#leaguehome_path("NFL")%>'><span>Bonds</span></a></li>
-                  <li><a href='<%#leaguehome_path("NFL")%>'><span>Corporate Earnings</span></a></li>
-               </ul>
-            </li>
-            <li class='has-sub'><a href='#'><span>Economics</span></a>
-               <ul>
-                  <li><a href='<%#prediction_economies_index_path("GDP")%>'><span>GDP</span></a></li>
-                  <li><a href='<%#prediction_economies_index_path("Employment")%>'><span>Employment</span></a></li>
-               </ul>
-            </li>
-         </ul>
-      </li>
-   <%#end%> -->
+
+   <% unless predictor_signed_in? %>
+
+      <li><a href='<%=root_path%>'><span>Staff Picks</span></a></li>
+      <li><a href='<%= top_posts_path %>'><span>Top Posts</span></a></li>
+      <li><a href='<%= new_predictor_session_path %>'><span>Bookmarks</span></a></li>
+
+   <%end%>
 
    <%if user_signed_in?%>
       

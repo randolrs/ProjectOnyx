@@ -1,15 +1,41 @@
-<% if user_signed_in? %>
+<% unless predictor_signed_in? %>
+	
+	<%= render 'pages/home_landing' %>
+	
+<% end %>
 
-	<%= render 'pages/dashboard'%>
+<%= render 'layouts/category_header' %>
 
-<%elsif predictor_signed_in?%>
+  Time Now: <%= Time.current.in_time_zone %>
 
-	<%= render 'predictors/home'%>
+<div class="content-wrap-outer">
+    
+  <div class="content-wrap">
 
-<%else%>
+      <div class ="main-content index">
 
-	<%= render 'pages/home_landing'%>
+        <% @articles.each do |article|%>
 
-<%end%>
+          <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
 
-<!-- <link rel="import" href="/assets/paper-button/paper-button.html"> -->
+        <%end%>
+
+      </div>
+
+	<div class ="side-panel-content index">
+
+        <div class="content-panel sub">
+
+          <%= render 'pages/top_articles' %>
+
+        </div>
+
+        <div class="content-panel sub">
+
+          <%= render 'pages/featured_tags' %>
+
+        </div>
+			
+	</div>
+
+ </div>

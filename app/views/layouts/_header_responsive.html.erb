@@ -33,14 +33,6 @@
 <ul>
    <li><a href='<%=root_path%>'><span>Futable</span></a></li>
 
-   <% unless predictor_signed_in? %>
-
-      <li><a href='<%=root_path%>'><span>Staff Picks</span></a></li>
-      <li><a href='<%= top_posts_path %>'><span>Top Posts</span></a></li>
-      <li><a href='<%= new_predictor_session_path %>'><span>Bookmarks</span></a></li>
-
-   <%end%>
-
    <%if user_signed_in?%>
       
       <li class='has-sub right'><a href='#'><span><%= current_user.email %></span></a>

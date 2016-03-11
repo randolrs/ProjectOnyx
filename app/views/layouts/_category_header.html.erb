@@ -1,21 +1,17 @@
-<% if predictor_signed_in?%>
+<div class="category-header-container">
 
-	<div class="category-header-container">
+	<div class="category-header">
 
-		<div class="category-header">
+	  <ul class="category-header-items">
 
-		  <ul class="category-header-items">
+	      <li><a class="category-item" style="padding:10px; <% if @page=="home"%>color:#36c;<%end%>" href="<%= root_path %>"><%if predictor_signed_in?%>Home<%else%>Staff Picks<%end%></a></li>
 
-		      <li><a class="category-item" style="padding:10px; <% if @page=="home"%>color:#36c;<%end%>" href="<%= root_path %>">Home</a></li>
+	      <li><a class="category-item" style="padding:10px; <% if @page=="top_posts"%>color:#36c;<%end%>" href="<%= top_posts_path %>">Top Posts</a></li>
 
-		      <li><a class="category-item" style="padding:10px; <% if @page=="top_posts"%>color:#36c;<%end%>" href="<%= top_posts_path %>">Top Posts</a></li>
+	      <li><a class="category-item" style="padding:10px; <% if @page=="bookmarks"%>color:#36c;<%end%>" href="<%= bookmarks_path %>">Bookmarks</a></li>
 
-		      <li><a class="category-item" style="padding:10px; <% if @page=="bookmarks"%>color:#36c;<%end%>" href="<%= bookmarks_path %>">Bookmarks</a></li>
-
-		  </ul>
-
-		</div>
+	  </ul>
 
 	</div>
 
-<%end%>
+</div>

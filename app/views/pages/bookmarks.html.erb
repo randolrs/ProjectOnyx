@@ -5,12 +5,27 @@
 	<div class="content-wrap">
 
 		<div class ="main-content index">
+		
+			<% if @articles.count > 0 %>
 
-		<% @articles.each do |article|%>
+				<% @articles.each do |article|%>
 
-		  <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
+				  <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
 
-		<%end%>
+				<%end%>
+			
+			<%else%>
+
+				<div class="content-panel sub">
+					
+					<div style="font-size: 12px; color: #999; text-align:center; padding: 10px;">
+	              			No Bookmarks Yet. Make Bookmarks to Save Posts to Read Later.
+	              	</div>
+
+	            </div>
+
+
+			<%end%>
 
 		</div>
 

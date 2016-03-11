@@ -12,9 +12,13 @@
 
       <div class ="main-content index">
 
-        <% @articles.each do |article|%>
+      	<% if @articles %>
+      	
+	        <% @articles.each do |article|%>
 
-          <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
+	          <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
+
+	        <%end%>
 
         <%end%>
 

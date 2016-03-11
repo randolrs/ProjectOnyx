@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308030356) do
+ActiveRecord::Schema.define(version: 20160311022308) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -253,6 +253,7 @@ ActiveRecord::Schema.define(version: 20160308030356) do
     t.string   "type",                                                       default: ""
     t.decimal  "credit_balance",                     precision: 8, scale: 2, default: 0.0
     t.string   "access_code",                                                default: ""
+    t.boolean  "staff",                                                      default: false
   end
 
   add_index "predictors", ["email"], name: "index_predictors_on_email", unique: true

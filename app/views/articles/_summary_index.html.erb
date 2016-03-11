@@ -1,5 +1,10 @@
 <div class = "content-panel sub">
- 	
+ 	<% if article.staff_recommendations.present? %>
+	 	<div class="article-show-reason">
+	 		Recommended by Futable staff and <%=article.recommendation_count - 1 %> others
+	 	</div>
+ 	<%end%>
+
  	<div class="article-show-header">
     	<%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
     	<%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>

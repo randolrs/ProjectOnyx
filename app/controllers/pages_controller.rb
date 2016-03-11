@@ -10,9 +10,17 @@ class PagesController < ApplicationController
 
     #@featured_topics = Topic.all
 
-    @articles = Article.all.order("created_at DESC")
+    if predictor_signed_in?
 
-    @top_articles = @articles.limit(5)
+      @articles = Article.all.order("created_at DESC")
+
+    else
+
+      @articles = Article.find(200).staff_recommended_articles
+
+    end
+
+    @top_articles = @articles.take(5)
 
 
     if user_signed_in?

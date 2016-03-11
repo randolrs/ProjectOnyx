@@ -16,7 +16,7 @@ class PagesController < ApplicationController
 
     else
 
-      @articles = Article.find(200).staff_recommended_articles
+      @articles = Article.find(1).staff_recommended_articles
 
     end
 

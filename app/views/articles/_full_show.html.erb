@@ -109,58 +109,7 @@
       </div>
 
       <div class ="side-panel-content article">
-
-        <div class="content-panel sub">
-          
-          <h3>Predictions</h3>
-
-          <% if article.prediction_games.count == 0 %>
-
-            <div style="font-size: 12px; color: #999; text-align:center; padding: 0px 10px 10px 10px;">
-              
-              No predictions for this article.
-
-            </div>
-
-          <% end %>
-
-          <%article.prediction_games.each do |prediction|%>
-
-            <% @game = Game.find(prediction.game_id)%>
-            
-            <a class="no-style" href = "<%= predictiongamesshow_path(predictor.username, prediction.id)%>">
-
-              <div class="article-prediction-list">
-
-                <table style="width:100%;">
-                  <tr>
-                    <td colspan="3" style="text-align:center;"><%= @game.event_time.strftime("%a, %b %e, %Y")%>(<%=prediction.league%>)</td>
-                  </tr>
-
-                  <tr>
-
-                    <td><%= image_tag Team.find_by_name(@game.teamh).image.url(:medium), class: "predictor-image-tiny"%><%= Team.find_by_name(@game.teamh).full_name %></td>
-                    <td style="text-align:center;"><%= prediction.teamh_score%></td>
-
-                  </tr>
-
-                  <tr>
-
-                    <td><%= image_tag Team.find_by_name(@game.teama).image.url(:medium), class: "predictor-image-tiny"%><%= Team.find_by_name(@game.teama).full_name %></td>
-                    <td style="text-align:center;"><%= prediction.teama_score%></td>
-
-                  </tr>
-
-                </table>
-
-              </div>
-
-            </a>
-
-          <%end%>
-
-        </div>
-
+        
         <div class="content-panel sub">
 
           <h3>Related Topics</h3>

@@ -9,7 +9,7 @@
           <div class="article-show-header">
               <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
               <%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
-              <%= render partial: 'predictors/follow_cta', locals: {predictor: predictor} %>
+              <%# render partial: 'predictors/follow_cta', locals: {predictor: predictor} %>
           </div>
 
           <div class="article-show-detail">
@@ -24,8 +24,6 @@
               <p><%= article.body %></p>
             </div>
 
-            
-
           </div>
 
           <div class="article-show-actions">
@@ -34,6 +32,30 @@
 
             <%= render partial: 'articles/bookmark_cta', locals: {article: article}%>
             
+          </div>
+
+          <div class="article-show-author">
+
+            <div class="article-card-image">
+
+              <%= image_tag predictor.image.url(:medium, :width => 60, :height => 60), class: "predictor-image-small"%>
+
+            </div>
+
+            <div class="article-card-content">
+
+              <%= link_to predictor.username, predictordashboard_path(predictor.username), class: "article-show-author-name"%>
+              <br>
+              <p>Some fun things about me admmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmonongonoiunsunoinffannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnoanfonoinfoainfofnofnfaonafonfaonfaonfaofanofanfaoanfof</p>
+
+            </div>
+
+            <div class="article-card-follow">
+
+              <div style="float:right;"><%= render partial: 'predictors/follow_cta', locals: {predictor: predictor} %></div>
+
+            </div>
+
           </div>
 
         </div>

@@ -16,7 +16,21 @@ class PagesController < ApplicationController
 
     else
 
-      @articles = Article.find(1).staff_recommended_articles
+      staff_recommended = Array.new
+
+      recommendations = Recommendation.all.where(:active => true)
+
+      recommendations.each do |recommendation|
+
+        if Predictor.find(recommendation.user_id).staff
+
+            staff_recommended << Article.find(recommendation.article_id)
+
+          end
+
+      end
+
+      @articles = staff_recommended
 
     end
 

@@ -1,7 +1,7 @@
 <div class = "content-panel sub">
  	<% if article.staff_recommendations.present? %>
 	 	<div class="article-show-reason">
-	 		Recommended by Futable staff and <%=article.recommendation_count - 1 %> others
+	 		Recommended by Futable staff <% if article.recommendation_count > 2 %>and <%=article.recommendation_count - 1 %> others<%end%>
 	 	</div>
  	<%end%>
 

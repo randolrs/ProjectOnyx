@@ -361,4 +361,16 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def followers
+
+    return Following.where(:following_id => self.id, :active => false)
+
+  end
+
+  def followings
+
+    return Following.where(:follower_id => self.id, :active => false)
+
+  end
+
 end

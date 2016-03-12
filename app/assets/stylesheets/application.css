@@ -327,7 +327,11 @@ select#team_filter_team{
 }
 
 p.bio{
-  color:#ccc;
+  color:#666;
+}
+
+.follower-count{
+  color:#888;
 }
 
 .predictor-edit-basic{

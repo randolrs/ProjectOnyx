@@ -9,11 +9,9 @@
 
   		<p class="bio"><%= @predictor.bio %></p>
 
-  		<br>
-
-  		Follower count/Following count
-
-  		<br>
+  		<div class="follower-count">
+  			<b><%= @predictor.followers.count %></b> Followers | <b><%= @predictor.followings.count %></b> Following
+  		</div>
 
   		<%= render partial: 'predictors/follow_cta', locals: {predictor: @predictor} %>
 

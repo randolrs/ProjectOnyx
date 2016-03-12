@@ -9,4 +9,9 @@
   		<a class="follow-button following" id="<%=predictor.id %>">Following</a>
 
 	<% end %>
+
+<%else%>
+
+	<a href="<%=new_predictor_session_path%>" class="follow-button-no-js" id="<%=predictor.id %>">Follow</a>
+
 <%end%>

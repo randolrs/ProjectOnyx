@@ -44,15 +44,9 @@
 
             <div class="article-card-content">
 
-              <%= link_to predictor.username, predictordashboard_path(predictor.username), class: "article-show-author-name"%>
+              <%= link_to predictor.username, predictordashboard_path(predictor.username), class: "article-show-author-name"%><%= render partial: 'predictors/follow_cta', locals: {predictor: predictor} %>
               <br>
               <p>Some fun things about me admmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmonongonoiunsunoinffannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnoanfonoinfoainfofnofnfaonafonfaonfaonfaofanofanfaoanfof</p>
-
-            </div>
-
-            <div class="article-card-follow">
-
-              <div style="float:right;"><%= render partial: 'predictors/follow_cta', locals: {predictor: predictor} %></div>
 
             </div>
 

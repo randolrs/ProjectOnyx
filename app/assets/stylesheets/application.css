@@ -1129,8 +1129,10 @@ a.category-item:hover{
 a.follow-button{
   border-radius: 20px;
   border: 1px solid #00ab6b;
+  margin:0px 5px;
+  line-height: 30px;
   color: #00ab6b;
-  padding: 8px 15px;
+  padding: 5px 15px;
   height:32px;
   line-height:31px;
   webkit-transition: all 0.2s ease;

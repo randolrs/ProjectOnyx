@@ -37,13 +37,17 @@
 }
 
 .article-prediction-list{
-	padding:3px;
+	padding:20px;
   width:50%;
+  float:left;
+  font-family: "medium-content-sans-serif-font","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
 }
 
 .article-prediction-list:hover{
 	cursor:pointer;
+  background-color: #eee
 }
+
 
 .article-prediction-container{
 	width:33.33%;
@@ -64,7 +68,8 @@
 
 .article-prediction-container h3{
     line-height: 1.15;
-    letter-spacing: -0.02em;    font-family: "medium-content-sans-serif-font","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+    letter-spacing: -0.02em;    
+    font-family: "medium-content-sans-serif-font","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
     font-weight: 500;
     font-style: normal;
     letter-spacing: -0.02em;
@@ -351,6 +356,12 @@ a.add_fields:hover{
   border-top: 1px solid #ddd;
   width: 100%; 
   padding: 10px 0px;
+}
+
+.article-prediction-show:after{
+  clear: both;
+  display: table;
+  content: "";
 }
 
 .article-prediction-section-header{

@@ -4,14 +4,22 @@
 
   	<div class="predictor-cover-name">
 
-  		<%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "article-show-author-name"%><%= render partial: 'predictors/follow_cta', locals: {predictor: @predictor} %>
+  		<%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "article-show-author-name profile"%>
   		<br>
 
   		<p><%= @predictor.bio %></p>
 
+  		<br>
+
+  		Follower count/Following count
+
+  		<br>
+
+  		<%= render partial: 'predictors/follow_cta', locals: {predictor: @predictor} %>
+
   	</div>
 
-  	<div style="float:right">
+  	<div class="predictor-cover-img">
 
   		<%= image_tag @predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%>
   	</div>

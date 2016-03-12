@@ -430,8 +430,15 @@ a.article-show-author-name{
 a.article-show-author-name:hover{
   text-decoration:none;
   color: #00ab6b;
+}
 
-  
+a.article-show-author-name.profile{
+  font-size:36px;
+  letter-spacing: 0;
+  font-weight: 700;
+  font-style: normal;
+  color:#333;
+
 }
 
 .article-show-sub-detail{

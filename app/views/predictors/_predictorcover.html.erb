@@ -2,13 +2,19 @@
   
   <div class="predictor-cover-container"> 
 
-    <h1><%= image_tag @predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%><%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "predictor-name"%></h1><%= render partial: 'predictors/follow_cta', locals: {predictor: @predictor} %>
+  	<div class="predictor-cover-name">
 
-    <br>
-    
-    <a><%=@predictor.bio%></a>
+  		<%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "article-show-author-name"%><%= render partial: 'predictors/follow_cta', locals: {predictor: @predictor} %>
+  		<br>
 
-    <%# bar_chart Predictor.group(:balance).sum(:balance) %>
+  		<p><%= @predictor.bio %></p>
+
+  	</div>
+
+  	<div style="float:right">
+
+  		<%= image_tag @predictor.image.url(:medium, :width => 50, :height => 50), class: "predictor-image-small"%>
+  	</div>
 
   </div>
 

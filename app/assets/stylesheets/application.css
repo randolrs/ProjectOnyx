@@ -1366,6 +1366,10 @@ a.follow-button-no-js:hover{
       display:block;
     }
 
+    .article-prediction-list{
+      width:100%;
+    }
+
 }
 
 @media only screen and (max-device-width: 1050px) {
@@ -1464,6 +1468,10 @@ a.follow-button-no-js:hover{
     .side-panel-content.article{
       width:100%;
       display:block;
+    }
+
+    .article-prediction-list{
+      width:100%;
     }
 
   }

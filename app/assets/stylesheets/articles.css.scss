@@ -38,12 +38,10 @@
 
 .article-prediction-list{
 	padding:3px;
-  margin:3px;
-  border:1px solid #fff;
+  width:50%;
 }
 
 .article-prediction-list:hover{
-	border:1px solid #4C3BFF;
 	cursor:pointer;
 }
 
@@ -173,7 +171,6 @@ textarea.article-body-text{
 
 .article-read-more{
   color:#bbb;
-  text-indent: 5px;
   webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
@@ -348,6 +345,16 @@ a.add_fields:hover{
 .article-show-title{
 	
 
+}
+
+.article-prediction-show{
+  border-top: 1px solid #ddd;
+  width: 100%; 
+  padding: 10px 0px;
+}
+
+.article-prediction-section-header{
+  text-align:left;
 }
 
 .article-show-reason{

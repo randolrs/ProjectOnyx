@@ -45,6 +45,15 @@
 
 			</div>
 
+			<div class="content-panel sub">
+
+				<h3>Top Predictions</h3>
+				<% @predictions_top.each do |prediction| %>	
+					<%= render partial: 'prediction_games/predictor_top_prediction_games', locals: {predictor: @predictor, prediction: prediction[:prediction], game: prediction[:game]} %>
+				<%end%>
+
+			</div>
+
 		</div>			
 	
 	</div>

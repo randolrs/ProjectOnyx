@@ -8,7 +8,7 @@
 
 			<h3>Recent Articles</h3>
 
-			<% @articles_recent.each do |article|%>
+			<% @articles_recent.take(5).each do |article|%>
 
 			  <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
 
@@ -26,7 +26,7 @@
 
 				<%else%>
 
-					<% @predictions_recent.each do |hash| %>
+					<% @predictions_recent.take(5).each do |hash| %>
 
         				<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
 

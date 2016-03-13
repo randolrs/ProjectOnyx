@@ -1,57 +1,22 @@
 <%= render 'predictors/predictorcover' %>
 
-<%# render 'predictors/predictorcover_sub' %>
+<div class="content-wrap-outer">
 
-<%# render 'layouts/header_sub' %>
+	<div class="content-wrap">
 
-<div class="user-dashboard-wrap">
-
-	<div class ="user-dashboard-container">
-
-		<div class ="user-dashboard-card">
-
-			<div class="outline-shadow">
-
-				<h3>Top Predictions</h3>
-
-				<% if @predictions_top.empty? %>
-
-					<div style="font-size: 12px; color: #999; text-align:center; padding: 0px 10px 10px 10px;">
-						<%= @predictor.username %> has not yet made any predictions
-					</div>
-
-				<%else%>
-
-					<table class="user-dashboard-table">
-
-						<% @predictions_top.each do |hash| %>
-
-	        				<%= render partial: 'prediction_games/predictor_top_prediction_games', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
-
-	        			<%end%>
-
-        			</table>
-
-        		<%end%>
-
-        	</div>
-
-			<%= render 'prediction_games/predictor_rating_distribution' %>
-
-			<%= render 'layouts/footer_float'%>
-
-		</div>
-
-		<div class ="user-dashboard-predictions">
+		<div class ="main-content index">
 
 			<h3>Recent Articles</h3>
 
+			<% @articles_recent.each do |article|%>
 
-			<div id="divRecentIndex">
-				<%# @predictions_recent %>
-        		<%# render 'prediction_games/indexshow' %>
+			  <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
 
-				<% if @predictions_recent.empty? %>
+			<%end%>
+
+			<h3>Recent Predictions</h3>
+
+			<% if @predictions_recent.empty? %>
 
 					<div class ="prediction-game-index-show empty">
 
@@ -69,32 +34,19 @@
 
         		<%end%>
 
-			</div>
-
-			<div id="divTopIndex" style="display: none;">
-				
-				<% if @predictions_rated.empty? %>
-
-					<div class ="prediction-game-index-show empty">
-
-						<%= @predictor.username %> does not yet have any rated predictions.      
-
-	  				</div>
-
-				<%else%>
-
-					<% @predictions_rated.each do |hash| %>
-
-						<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
-
-        			<%end%>
-
-        		<%end%>
-
-			</div>
 
 		</div>
 
+		<div class="side-panel-content index">
+
+			<div class="content-panel sub">
+
+			  <%# render 'pages/featured_tags' %>
+
+			</div>
+
+		</div>			
+	
 	</div>
 
 </div>

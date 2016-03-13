@@ -363,13 +363,13 @@ class Predictor < ActiveRecord::Base
 
   def followers
 
-    return Following.where(:following_id => self.id, :active => false)
+    return Following.where(:following_id => self.id, :active => true)
 
   end
 
   def followings
 
-    return Following.where(:follower_id => self.id, :active => false)
+    return Following.where(:follower_id => self.id, :active => true)
 
   end
 

@@ -49,7 +49,7 @@
 
 				<h3>Top Predictions</h3>
 				
-				<table>
+				<table style="width: 100%;">
 					<% @predictions_top.each do |prediction| %>	
 						<%= render partial: 'prediction_games/predictor_top_prediction_games', locals: {predictor: @predictor, prediction: prediction[:prediction], game: prediction[:game]} %>
 					<%end%>

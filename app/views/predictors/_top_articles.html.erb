@@ -1,0 +1,12 @@
+<h4>Top <%=@predictor.name%> Posts</h4>
+
+	<ol type="1" style="font-size: 16px;">
+		
+		<% @top_articles.each do |article| %>
+			<a class ="top-article-link" href="<%=predictorarticleshow_path(Predictor.find(article.predictor_id).username, article.id)%>">
+				<li class="top-article-item"><%= article.title %></li>
+			</a>
+
+		<%end%>
+
+	</ol>

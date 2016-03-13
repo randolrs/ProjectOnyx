@@ -92,6 +92,8 @@ class PredictorsController < ApplicationController
 
     @articles_recent = @predictor.articles
 
+    @top_articles = @articles_recent.take(5)
+
   end
 
   def predictorpaymentedit

@@ -90,7 +90,7 @@ class PredictorsController < ApplicationController
 
     @predictions_top = @predictions_top.take(5)
 
-    @articles_recent = Article.all
+    @articles_recent = @predictor.articles
 
   end
 

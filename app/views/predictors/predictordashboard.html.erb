@@ -57,6 +57,26 @@
 
 			</div>
 
+			<div class="content-panel sub">
+
+				<h4>Recommendations</h4>
+
+				<ol type="1" style="font-size: 16px;">
+		
+					<% @predictor.recommendations.each do |recommendation| %>
+
+						<% article = Article.find(recommendation.article_id) %>
+
+						<a class ="top-article-link" href="<%=predictorarticleshow_path(Predictor.find(article.predictor_id).username, article.id)%>">
+							<li class="top-article-item"><%= article.title %></li>
+						</a>
+
+					<%end%>
+
+				</ol>
+
+			</div>
+
 		</div>			
 	
 	</div>

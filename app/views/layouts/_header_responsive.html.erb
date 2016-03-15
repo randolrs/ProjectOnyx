@@ -46,7 +46,7 @@
 
    <%elsif predictor_signed_in?%>
 
-      <li class="right" class='active has-sub'><a href='#'><span><%= current_predictor.username %></span></a>
+      <li class="right" class='active has-sub'><a href='#'><span><%= image_tag current_predictor.image.url(:medium), class: "predictor-image-tiny"%><%= current_predictor.username %></span></a>
          <ul>
             <li><a href='<%=edit_predictor_registration_path%>'><span>Account Settings</span></a>
             <li><a href='<%=root_path%>'><span>Feedback/Support</span></a>
@@ -54,7 +54,7 @@
          </ul>
       </li>  
 
-      <li class="right"><a href='<%=select_category_path%>'><span>New Post</span></a></li>  
+      <li class="right"><a href='<%=new_post_path%>'><span>New Post</span></a></li>  
 
    <%elsif admin_signed_in?%>  
 

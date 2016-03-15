@@ -1405,6 +1405,10 @@ a.follow-button-no-js:hover{
       display:block;
     }
 
+    .main-content.index h3{
+      font-size: 20px;
+    }
+
     .side-panel-content.index{
       display:none;
     }
@@ -1442,6 +1446,10 @@ a.follow-button-no-js:hover{
       margin:0 auto;
       display:block;
       float:none;
+    }
+
+    .main-content.index h3{
+      font-size: 20px;
     }
 
     .side-panel-content.index{

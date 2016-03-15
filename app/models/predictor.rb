@@ -15,8 +15,6 @@ class Predictor < ActiveRecord::Base
     :styles => { :medium => "194x194#", :small => "70x70#", :thumb => "30x30#"}, 
     :default_url => 'missing_:style.png',
     :s3_protocol => :https,
-    :path => "predictor/default/:style.:extension",
-    :bucket => "projectonyx"
 
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
@@ -262,7 +260,7 @@ class Predictor < ActiveRecord::Base
   end
 
   def recommendations
-
+   
     return Recommendation.where(:user_id => self.id, :active => true)
 
   end

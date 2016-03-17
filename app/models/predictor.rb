@@ -187,9 +187,13 @@ class Predictor < ActiveRecord::Base
     
     self.prediction_games.each do |prediction_game|
 
-      hash = {:prediction=>prediction_game, :predictor=>self, :game=> Game.find(prediction_game.game_id)}
+      if prediction_game.game_id
 
-      predictions << hash
+        hash = {:prediction=>prediction_game, :predictor=>self, :game=> Game.find(prediction_game.game_id)}
+
+        predictions << hash
+
+      end
 
     end  
     

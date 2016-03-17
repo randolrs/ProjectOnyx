@@ -1367,6 +1367,10 @@ a.follow-button-no-js:hover{
 
 @media only screen and (max-device-width: 600px) {
 
+    .content-wrap{
+      padding:10px 0px;
+    }
+
     .premium-content-float{
       width: 100%;
     }
@@ -1471,6 +1475,10 @@ a.follow-button-no-js:hover{
 
 @media only screen and (max-width: 600px) {
 
+    .content-wrap{
+      padding:10px 0px;
+    }
+    
     .premium-content-float{
       width: 100%;
     }

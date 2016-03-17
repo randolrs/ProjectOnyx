@@ -1393,10 +1393,6 @@ a.follow-button-no-js:hover{
 
 @media only screen and (max-device-width: 1050px) {
 
-    .content-wrap{
-      padding:10px 0px;
-    }
-
     .main-content.index{
       width:100%;
       max-width:600px;
@@ -1434,10 +1430,6 @@ a.follow-button-no-js:hover{
 }
 
 @media only screen and (max-width: 1050px) {
-
-    .content-wrap{
-      padding:10px 0px;
-    }
 
     .main-content.index{
       width:100%;

@@ -1385,9 +1385,14 @@ a.follow-button-no-js:hover{
       display:none;
     }
 
+    .main-content.article{
+      padding:0px;
+    }
+
     .side-panel-content.article{
       width:100%;
       display:block;
+      padding:10px 0px;
     }
 
     .article-prediction-list{

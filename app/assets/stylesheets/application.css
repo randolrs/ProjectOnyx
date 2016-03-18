@@ -1372,7 +1372,8 @@ a.follow-button-no-js:hover{
     }
 
     .main-content.index h3 {
-    padding: 5px 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     }
 
     .premium-content-float{

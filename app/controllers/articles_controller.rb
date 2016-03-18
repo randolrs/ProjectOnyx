@@ -223,24 +223,29 @@ class ArticlesController < ApplicationController
 
       @article.prediction_games.each do |prediction_game|
         
-        prediction_game.update(:predictor_id => current_predictor.id)
-        game = Game.find(prediction_game.game_id)
-        prediction_game.update(:league => game.league)
-        overunder = prediction_game.teama_score + prediction_game.teamh_score
-        prediction_game.update(:overunder => overunder)
-        #prediction_game.update(:article_id => @article.id)
-            
-        if prediction_game.teama_score > prediction_game.teamh_score
-          prediction_game.update(:game_winner => prediction_game.teama)
-          prediction_game.update(:spread => prediction_game.teama_score - prediction_game.teamh_score)
+        if prediction_game.game_id.nil?
+            prediction_game.destroy
+        else
+          prediction_game.update(:predictor_id => current_predictor.id)
+          game = Game.find(prediction_game.game_id)
+          prediction_game.update(:league => game.league)
+          overunder = prediction_game.teama_score + prediction_game.teamh_score
+          prediction_game.update(:overunder => overunder)
+          #prediction_game.update(:article_id => @article.id)
+              
+          if prediction_game.teama_score > prediction_game.teamh_score
+            prediction_game.update(:game_winner => prediction_game.teama)
+            prediction_game.update(:spread => prediction_game.teama_score - prediction_game.teamh_score)
 
-        elsif prediction_game.teama_score < prediction_game.teamh_score
-          prediction_game.update(:game_winner => prediction_game.teamh)
-          prediction_game.update(:spread => prediction_game.teamh_score - prediction_game.teama_score)
+          elsif prediction_game.teama_score < prediction_game.teamh_score
+            prediction_game.update(:game_winner => prediction_game.teamh)
+            prediction_game.update(:spread => prediction_game.teamh_score - prediction_game.teama_score)
 
+          end
+
+          prediction_game.update(:event_time => game.event_time)
+          
         end
-
-        prediction_game.update(:event_time => game.event_time)
 
       end
 

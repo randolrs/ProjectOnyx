@@ -1378,6 +1378,7 @@ a.follow-button-no-js:hover{
     .main-content{
       width:100%;
       min-width:1px;
+      padding:10px 0px;
     }
 
     .side-panel-content{
@@ -1478,7 +1479,7 @@ a.follow-button-no-js:hover{
     .content-wrap{
       padding:10px 0px;
     }
-    
+
     .premium-content-float{
       width: 100%;
     }

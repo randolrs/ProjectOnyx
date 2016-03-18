@@ -1371,6 +1371,10 @@ a.follow-button-no-js:hover{
       padding:10px 0px;
     }
 
+    .main-content.index h3 {
+    padding: 5px 10px;
+    }
+
     .premium-content-float{
       width: 100%;
     }
@@ -1386,7 +1390,7 @@ a.follow-button-no-js:hover{
     }
 
     .main-content.article{
-      padding:0px;
+
     }
 
     .side-panel-content.article{

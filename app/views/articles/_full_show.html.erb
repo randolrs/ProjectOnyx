@@ -26,6 +26,22 @@
 
           </div>
 
+          <div>
+
+            <ul class="category-header-items">
+    
+              <% article.taggings.each do |tagging| %>
+
+                <% @topic = Topic.find(tagging.tag_id) %>
+
+                <li class="tag-items"><a href="<%= topic_show_page_path(@topic.url)%>"><%= @topic.name %></a></li>
+
+              <%end%>
+
+            </ul>
+
+          </div>
+
           <div class="article-prediction-show">
 
             <h4 class="article-prediction-section-header">Predictions:</h4>
@@ -114,23 +130,23 @@
 
       <div class ="side-panel-content article">
         
-        <div class="content-panel sub">
+<!--         <div class="content-panel sub">
 
           <h3>Related Topics</h3>
 
           <ul class="category-header-items">
     
-            <% article.taggings.each do |tagging| %>
+            <%# article.taggings.each do |tagging| %>
 
-              <% @topic = Topic.find(tagging.tag_id) %>
+              <%# @topic = Topic.find(tagging.tag_id) %>
 
               <li class="tag-items"><a href="<%= topic_show_page_path(@topic.url)%>"><%= @topic.name %></a></li>
 
-            <%end%>
+            <%#end%>
 
           </ul>
 
-        </div>
+        </div> -->
       
       </div>
 

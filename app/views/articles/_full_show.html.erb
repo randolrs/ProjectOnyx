@@ -130,23 +130,43 @@
 
       <div class ="side-panel-content article">
         
-<!--         <div class="content-panel sub">
+        <div class="content-panel sub">
 
-          <h3>Related Topics</h3>
+          <h3>More Posts from <%= predictor.username%></h3>
 
-          <ul class="category-header-items">
+            <ol type="1" style="font-size: 16px;">
     
-            <%# article.taggings.each do |tagging| %>
+              <% @predictor_other_articles.each do |article| %>
+                <a class ="top-article-link" href="<%=predictorarticleshow_path(predictor.username, article.id)%>">
+                  <li class="top-article-item"><%= article.title %></li>
+                </a>
 
-              <%# @topic = Topic.find(tagging.tag_id) %>
+              <%end%>
 
-              <li class="tag-items"><a href="<%= topic_show_page_path(@topic.url)%>"><%= @topic.name %></a></li>
+            </ol>
 
-            <%#end%>
+        </div>
 
-          </ul>
+        <% if article.taggings.count > 0 %>
 
-        </div> -->
+          <div class="content-panel sub">
+
+            <h3>Most Popular <%= Topic.find(article.taggings.first.tag_id).name %> Posts</h3>
+
+              <ol type="1" style="font-size: 16px;">
+      
+                <% @predictor_other_articles.each do |article| %>
+                  <a class ="top-article-link" href="<%=predictorarticleshow_path(predictor.username, article.id)%>">
+                    <li class="top-article-item"><%= article.title %></li>
+                  </a>
+
+                <%end%>
+
+              </ol>
+
+          </div>
+
+        <%end%>
       
       </div>
 

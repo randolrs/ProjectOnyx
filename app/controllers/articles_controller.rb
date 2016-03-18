@@ -64,6 +64,8 @@ class ArticlesController < ApplicationController
     else
       @usertype = "none"
     end
+
+    @predictor_other_articles = Article.where(:predictor_id => @predictor.id).where.not(:id => @article.id).order(created_at: :desc).take(3)
   end
 
   # GET /articles/new

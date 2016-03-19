@@ -322,7 +322,7 @@
     display: block;
     content: '';
     position: absolute;
-    height: 3px;
+    height: 4px;
     width: 22px;
     border-top: 2px solid #666;
     border-bottom: 2px solid #666;
@@ -342,7 +342,7 @@
     width: 22px;
     border-top: 2px solid #666;
     right: 25px;
-    top: 28px;
+    top: 30px;
   }
   #cssmenu > ul > li.has-sub > a::after,
   #cssmenu ul ul li.has-sub > a::after {

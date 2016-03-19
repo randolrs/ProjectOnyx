@@ -34,18 +34,22 @@
 }
 #cssmenu {
   width: auto;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  background: #111;
-  background: -moz-linear-gradient(top, #111 0%, #000 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #111), color-stop(100%, #000));
-  background: -webkit-linear-gradient(top, #111 0%, #000 100%);
-  background: -o-linear-gradient(top, #111 0%, #000 100%);
-  background: -ms-linear-gradient(top, #111 0%, #000 100%);
-  background: linear-gradient(to bottom, #111 0%, #000 100%);
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  background: #fff;
+  background: -moz-linear-gradient(top, #fff 0%, #fefefe 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #fefefe));
+  background: -webkit-linear-gradient(top, #fff 0%, #fefefe 100%);
+  background: -o-linear-gradient(top, #fff 0%, #fefefe 100%);
+  background: -ms-linear-gradient(top, #fff 0%, #fefefe 100%);
+  background: linear-gradient(to bottom, #fff 0%, #fefefe 100%);
+
+  background: linear-gradient(#fefefe, #fff);
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  border-bottom: 1px solid #ddd;
+
 }
 #cssmenu > ul {
   background: url('images/bg.png');
-  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.05);
 }
 #cssmenu.align-right > ul > li {
   float: right;
@@ -72,11 +76,11 @@
 }
 #cssmenu > ul > li > a {
   padding: 18px 25px 21px 25px;
-  border-right: 1px solid rgba(80, 80, 80, 0.12);
   text-decoration: none;
   font-size: 13px;
-  font-weight: 700;
-  color: #fff;
+  font-weight: 500;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  color: #666;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -99,7 +103,7 @@
   width: 0;
   height: 0;
   border: 6px solid transparent;
-  border-top-color: #d3eced;
+  border-top-color: #666;
   right: 17px;
   top: 22px;
 }
@@ -143,13 +147,11 @@
   width: 0;
   height: 0;
   border: 5px solid transparent;
-  border-right-color: #ffffff;
   top: 11px;
   left: -4px;
 }
 #cssmenu.align-right ul ul ul::after {
   border-right-color: transparent;
-  border-left-color: #ffffff;
   left: auto;
   right: -4px;
 }
@@ -189,7 +191,6 @@
   width: 180px;
   color: #777777;
   background: #ffffff;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1), -1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 #cssmenu ul ul li:hover > a,
 #cssmenu ul ul li.active > a {
@@ -234,7 +235,7 @@
 }
 @media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
   #cssmenu {
-    background: #111;
+    background: #fff;
   }
   #cssmenu > ul {
     display: none;
@@ -266,8 +267,9 @@
     display: block;
     text-decoration: none;
     font-size: 13px;
-    font-weight: 700;
-    color: #fff;
+    font-weight: 500;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    color: #666;
     padding: 18px 25px 18px 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -314,8 +316,8 @@
     position: absolute;
     height: 3px;
     width: 22px;
-    border-top: 2px solid #d3eced;
-    border-bottom: 2px solid #d3eced;
+    border-top: 2px solid #666;
+    border-bottom: 2px solid #666;
     right: 25px;
     top: 18px;
   }
@@ -330,7 +332,7 @@
     position: absolute;
     height: 3px;
     width: 22px;
-    border-top: 2px solid #d3eced;
+    border-top: 2px solid #666;
     right: 25px;
     top: 28px;
   }

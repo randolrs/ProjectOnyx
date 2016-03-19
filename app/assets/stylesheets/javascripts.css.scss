@@ -92,6 +92,11 @@
   
 }
 
+p.header-username{
+    display:none;
+
+  }
+
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li > a:hover,
 #cssmenu > ul > li.active > a {
@@ -328,6 +333,12 @@
     border-bottom: 2px solid #666;
     right: 25px;
     top: 18px;
+  }
+
+  p.header-username{
+    display:inline;
+    margin:0px 3px;
+
   }
 
   #cssmenu > ul > li.right{

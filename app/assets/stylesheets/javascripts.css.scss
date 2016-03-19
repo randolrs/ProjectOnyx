@@ -97,6 +97,16 @@ p.header-username{
 
   }
 
+  p.header-home{
+    display:none;
+
+  }
+
+p.header-app-name{
+  margin:0px;
+  display:inline;
+}
+
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li > a:hover,
 #cssmenu > ul > li.active > a {
@@ -340,6 +350,17 @@ p.header-username{
     margin:0px 3px;
 
   }
+
+  p.header-home{
+    display:inline;
+    margin:0px;
+
+  }
+
+  p.header-app-name{
+  display:none;
+  }
+
 
   #cssmenu > ul > li.right{
   float:none;

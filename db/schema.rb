@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311022308) do
+ActiveRecord::Schema.define(version: 20160319223438) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20160311022308) do
     t.string   "event_city"
     t.string   "event_venue"
     t.string   "season",       default: ""
+    t.string   "title"
   end
 
   create_table "plans", force: true do |t|

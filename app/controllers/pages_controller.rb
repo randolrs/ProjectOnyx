@@ -30,7 +30,7 @@ class PagesController < ApplicationController
 
       end
 
-      @articles = staff_recommended
+      @articles = staff_recommended.sort_by{ |k| k.created_at}.reverse
 
     end
 

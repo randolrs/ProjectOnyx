@@ -295,9 +295,9 @@ class PagesController < ApplicationController
 
     if @topic
 
-      @articles = @topic.articles
+      @articles = @topic.articles.sort_by{ |k| k.created_at}.reverse
 
-      @top_articles = @articles.take(5)
+      @top_articles = @articles.sort_by{ |k| k.recommendation_count}.reverse.take(5)
 
       @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
 

@@ -59,7 +59,7 @@
 
 			<div class="content-panel sub">
 
-				<h4>Top Predictions</h4>
+				<h4>Top Predictions by <%= @predictor.name%></h4>
 				
 				<table style="width: 100%;">
 					<% @predictions_top.each do |prediction| %>	
@@ -71,11 +71,11 @@
 
 			<div class="content-panel sub">
 
-				<h4>Recommendations</h4>
+				<h4>Recent Recommendations</h4>
 
 				<ol type="1" style="font-size: 16px;">
 		
-					<% @predictor.recommendations.each do |recommendation| %>
+					<% @predictor.recommendations.sort_by {|k| k.created_at }.reverse.each do |recommendation| %>
 
 						<% article = Article.find(recommendation.article_id) %>
 

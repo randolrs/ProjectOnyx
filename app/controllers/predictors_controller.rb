@@ -81,16 +81,17 @@ class PredictorsController < ApplicationController
     @predictions = Array.new 
 
     @predictions_rated = Array.new
-    @predictions_rated = @predictor.rated_predictions 
+    @predictions_rated = @predictor.rated_predictions
 
     @predictions_recent = Array.new
-    @predictions_recent = @predictor.recent_prediction_games
+
+    @predictions_recent = @predictor.recent_prediction_games.sort_by {|k| k[:prediction].created_at}.reverse
 
     @predictions_top = @predictions_rated.sort_by {|k| k[:prediction].onyx}.reverse
 
     @predictions_top = @predictions_top.take(5)
 
-    @articles_recent = @predictor.articles
+    @articles_recent = @predictor.articles.order("created_at DESC")
 
     @top_articles = @articles_recent.take(5)
 

@@ -1376,8 +1376,10 @@ a.follow-button-no-js:hover{
     }
 
     .main-content.index h3 {
-    margin-left: 5px;
-    margin-right: 5px;
+      border-bottom: none;
+      text-align: center;
+      display:inline;
+      margin:0 auto;
     }
 
     .premium-content-float{
@@ -1502,6 +1504,7 @@ a.follow-button-no-js:hover{
       width:100%;
       min-width:1px;
     }
+
 
     .side-panel-content{
       display:none;

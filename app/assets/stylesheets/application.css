@@ -1096,6 +1096,11 @@ a.category-item:hover{
   color: #36c;
 }
 
+a.category-item.header{
+    font-size: 30px;
+    padding:10px;
+  }
+
 .category-header-container{
   width:100%;
   background-color:#fff;

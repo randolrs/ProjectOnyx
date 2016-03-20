@@ -406,7 +406,10 @@ a.full-name{
 
 a.full-name:hover{
   text-decoration:none;
+}
 
+a.full-name.in-text{
+  margin:0px
 }
 
 a.team-name{

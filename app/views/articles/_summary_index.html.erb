@@ -1,9 +1,38 @@
 <div class = "content-panel sub">
- 	<% if article.staff_recommendations.present? %>
-	 	<div class="article-show-reason">
-	 		Recommended by Futable staff <% if article.recommendation_count > 2 %>and <%=article.recommendation_count - 1 %> others<%end%>
-	 	</div>
- 	<%end%>
+	 	
+	 	<% if predictor_signed_in? %>
+
+		 	<% if article.recommended_by_user_I_follow(current_predictor.id).present? %>
+	 			
+	 			<div class="article-show-reason">
+	 			Recommended by <%= link_to article.recommended_by_user_I_follow(current_predictor.id).username, predictordashboard_path(article.recommended_by_user_I_follow(current_predictor.id).username), class: "full-name in-text" %> <% if article.recommendation_count > 2 %>and <%=article.recommendation_count - 1 %> others<%elsif article.recommendation_count == 2%>and 1 other<%end%>
+
+	 			</div>
+
+	 		<%else%>
+
+	 			<% if article.recommended_by_staff %>
+
+	 				<div class="article-show-reason">
+	 					Recommended by Futable staff <% if article.recommendation_count > 2 %>and <%=article.recommendation_count - 1 %> others<%elsif article.recommendation_count == 2%>and 1 other<%end%>
+	 				</div>
+
+	 			<%end%>
+
+
+	 		<%end%>
+
+	 	<%else%>
+
+	 		<% if article.recommended_by_staff %>
+
+ 				<div class="article-show-reason">
+ 					Recommended by Futable staff <% if article.recommendation_count > 2 %>and <%=article.recommendation_count - 1 %> others<%elsif article.recommendation_count == 2%>and 1 other<%end%>
+ 				</div>
+
+	 		<%end%>
+
+ 		<%end%>
 
  	<div class="article-show-header">
     	<%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>

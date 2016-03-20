@@ -22,19 +22,67 @@ class Article < ActiveRecord::Base
 
 	end
 
-	def recommendation_count
-
-		return Recommendation.all.where(:article_id => self.id, :active => true).count
-
-	end
-
 	def bookmark_count
 
 		return Bookmark.all.where(:article_id => self.id, :active => true).count
 
 	end
 
-	def staff_recommended_articles
+	def recommendation_count
+
+		return Recommendation.all.where(:article_id => self.id, :active => true).count
+
+	end
+
+	def recommendation_count_week
+
+		#return Recommendation.all.where(:article_id => self.id, :active => true).count
+
+		time_week = Time.now - 60*60*24*7 #time is in seconds, 60 seconds times 60 minutes times 24 hours times 7 days
+
+		return Recommendation.all.where("article_id = :article_id and active = :active and created_at > :time_week", {article_id: self.id, active: true, time_week: time_week }).count
+          
+
+	end
+
+	def recommended_by_user_I_follow(current_user_id)
+
+		recommendations = Recommendation.all.where(:article_id => self.id, :active => true)
+
+		follows = Following.all.where(:follower_id => current_user_id)
+
+		recommender_followers = Array.new
+
+		recommendations.each do |recommendation|
+
+			follows.each do |follow|
+
+				if follow.following_id == recommendation.user_id and not recommendation.user_id == self.predictor_id
+
+					recommender = Predictor.find(recommendation.user_id)
+					hash = {:recommender => recommender, :followers => recommender.followers.count}
+					recommender_followers << hash
+					
+				end
+
+			end
+
+		end
+
+		unless recommender_followers.empty?
+
+			recommender_followers.sort_by {|k| k[:followers]}.reverse
+
+			return recommender_followers.first[:recommender]
+
+		end
+
+
+
+	end
+
+
+	def recommended_by_staff
 
 		staff_recommended = Array.new
 

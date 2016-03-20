@@ -324,9 +324,9 @@ class PagesController < ApplicationController
 
     Article.all.each do |article|
 
-      if article.recommendation_count > 0
+      if article.recommendation_count_week > 0
 
-        hash = {:article=> article, :recommendation_count=>article.recommendation_count}
+        hash = {:article=> article, :recommendation_count=>article.recommendation_count_week}
 
         @article_recommendations << hash 
 
@@ -334,7 +334,7 @@ class PagesController < ApplicationController
 
     end
 
-    @top_articles = @article_recommendations.sort_by {|k| k["recommendation_count"]}
+    @top_articles = @article_recommendations.sort_by {|k| k[:recommendation_count]}.reverse
 
   end
 

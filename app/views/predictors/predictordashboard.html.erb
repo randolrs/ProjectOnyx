@@ -6,11 +6,23 @@
 
 		<div class ="main-content index">
 
-			<h3>Recent Articles</h3>
+			<h3>Recent Posts</h3>
 
-			<% @articles_recent.take(5).each do |article|%>
+			<% if @articles_recent.empty?%>
 
-			  <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
+				<div class ="prediction-game-index-show empty">
+
+						<%= @predictor.username %> has not yet made any posts.      
+
+	  			</div>
+
+	  		<%else%>
+
+				<% @articles_recent.take(5).each do |article|%>
+
+				  <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
+
+				<%end%>
 
 			<%end%>
 
@@ -20,7 +32,7 @@
 
 					<div class ="prediction-game-index-show empty">
 
-						<%= @predictor.username %> has not yet made any predictions      
+						<%= @predictor.username %> has not yet made any predictions.      
 
 	  				</div>
 

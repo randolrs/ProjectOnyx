@@ -68,7 +68,7 @@
 
                   <table style="width:100%;">
                     <tr>
-                      <td colspan="3" style="text-align:center;"><u><%= image_tag Sport.find_by_subcat(@game.league).image.url(:medium, :width => 30, :height => 30), class: "sport-image-tiny"%><%= @game.league %>&#183;<%= @game.event_time.strftime("%a, %b %e, %Y")%></u></td>
+                      <td colspan="3" style="text-align:center;"><u><%= @game.league %>&#183;<%= @game.event_time.strftime("%a, %b %e")%></u></td>
                     </tr>
 
                     <tr>

@@ -5,7 +5,7 @@
 		<ul class="horizontal-cover">
 
 			<li class="subheader-league">
-				<%= image_tag @team.image.url(:medium, :width => 30, :height => 30), class: "predictor-image-tiny"%><%= link_to @team.name, teamshow_path(@league, @team.id), class: "subheader-league"  %>
+				<%= image_tag @team.image.url(:medium, :width => 30, :height => 30), class: "team-image-tiny"%><%= link_to @team.name, teamshow_path(@league, @team.id), class: "subheader-league"  %>
 			</li>
 
 			<li id="home"><%= link_to "Home", teamshow_path(@league, @team.name), {:class=>"subheader"} %></li>

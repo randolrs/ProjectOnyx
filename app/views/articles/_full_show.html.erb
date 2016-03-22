@@ -73,14 +73,14 @@
 
                     <tr>
 
-                      <td><%= image_tag Team.find_by_name(@game.teamh).image.url(:medium), class: "predictor-image-tiny"%><%= Team.find_by_name(@game.teamh).full_name %></td>
+                      <td><%= image_tag Team.find_by_name(@game.teamh).image.url(:medium), class: "team-image-tiny"%><%= Team.find_by_name(@game.teamh).full_name %></td>
                       <td style="text-align:right;"><%= prediction.teamh_score%></td>
 
                     </tr>
 
                     <tr>
 
-                      <td><%= image_tag Team.find_by_name(@game.teama).image.url(:medium), class: "predictor-image-tiny"%><%= Team.find_by_name(@game.teama).full_name %></td>
+                      <td><%= image_tag Team.find_by_name(@game.teama).image.url(:medium), class: "team-image-tiny"%><%= Team.find_by_name(@game.teama).full_name %></td>
                       <td style="text-align:right;"><%= prediction.teama_score%></td>
 
                     </tr>

@@ -70,13 +70,13 @@ gem 'possessive'
 
 gem 'polymer-rails'
 
-gem 'nokogiri', '~> 1.6' 
+#gem 'nokogiri', '~> 1.6' 
 
 gem 'sprockets', '2.11.0'
 
-gem 'polymer-elements-rails'
+#gem 'polymer-elements-rails'
 
-gem 'polymer-paper-rails'
+#gem 'polymer-paper-rails'
 
 gem 'emcee'
 

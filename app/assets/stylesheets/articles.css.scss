@@ -161,6 +161,10 @@ textarea.article-body-text{
   border:none;
   box-shadow:none;
   color: rgba(0,0,0,0.7);
+  
+  text-align: justify;
+  text-justify: inter-word;
+
 }
 
 .article-read-more{

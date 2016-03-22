@@ -3,21 +3,36 @@
 	<div class="about-page-container">
 
 		<h1>Futable</h1>
-		<p>The World's First IM </p>
 
-		Thousands of individuals make their living predicting the future. Whether its sports, finance, politics, or ... the formula is always the same --individuals pay, either with money, as in the instance of subscription based sports picks or stock picks, or with attention, the radio host or television personality... These professional predictors are consistenly proud of the picks they get correct -- invariably there are a few (as my dad says, even a blind squirrel finds a nut once in awhile). However, these same professionals are always very quick to disregard and disavow their incorrect picks. If one was a fool, and only bought into the marketing of these so-called prognostiacators, he could only reasonably conclude that anyone that making predictions is always right.
+		<h2>Accurate Predictions and Analysis from Proven Experts.</h2>
 
-		But we're not fools.
+		<p>Futable is based on the simple principle that an expert has the ability to produce desired results.  When it comes to being an expert about the future, the desired result is predictions that match closely the actual results of the event in question.  <i>An expert is only someone who can consistently get it right.</i></p>
 
-		That's why Onyx is flipping the prediction world on its head and putting the power back in the hands of the consumer.  By creating an marketplace for predictions, where every predictors prediction history and the outcome, right or wrong, spot on or off by a mile, is fully documented for you to see. No more cleverly manipulated statistics on their track record -- just cold hard facts for you to examine and make the best informed decision about who you believe.
+		<p>Futable is a platform designed to make it easy to identify those experts whose predictions are usually accurate and take with a grain of salt those so-called "experts" whose predictions that are usually wrong.  For each post on Futable, a fully transparent record of the author's past predictions and accuracy are accesible.</p>
 
-		If a predictor is worth their salt, they will welcome the opportunity to access a transparent market where their track record is fully known. It helps them and it helps our customers. On the flip-side, expect everyone charlatan that could not predict their way out of a paper bag to run from an market for information with a transparent track record like ..... -- don't be surprised if your favorite personality chooses not to join -- at least we know the reason.
+		<p>Futable was created to seperate the chaff from the whey in; or, in this case, the flashy idea salesmen from experts who make consistently good predictions in their field over a long period of time.  From the internet to radio and television, the world is awash in authorataive proclaimations about what <i>will</i> happen tomorrow -- now Futable gives you the ability to identify how many of those predictions actually pan out.
 
-		Here's to a better market for predictions. Whether you're thing is sports picks, financial [theories], or political races you can be more confident in the information you purchase here because you have a full, non-biased record of each predictors past record of predictions.
+		<p>When accurate information about the future counts -- Sports, Finance, Economics, Fantasy Sports, Politics, etc. -- if it isn't from Futable, it isn't reliable.</p>
 
-		Use the information for whatever you wish -- we don't portend to blah blah
+		<div class="article-show-author">
 
-		Welcome to ONYX.
+            <div class="article-card-image">
+
+              <%= image_tag @predictor.image.url(:medium, :width => 60, :height => 60), class: "predictor-image-small"%>
+
+            </div>
+
+            <div class="article-card-content">
+
+              <%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "article-show-author-name"%><%= render partial: 'predictors/follow_cta', locals: {predictor: @predictor} %>
+              <br>
+              <p><%= @predictor.bio %></p>
+
+            </div>
+
+          </div>
+
+        </div>
 
 
 	</div>

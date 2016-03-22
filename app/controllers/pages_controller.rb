@@ -90,6 +90,9 @@ class PagesController < ApplicationController
   end
 
   def about
+  
+    @predictor = Predictor.find_by_username("Shane Randolph")
+
   end
 
   def mywatchlist

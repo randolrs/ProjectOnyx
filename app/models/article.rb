@@ -71,7 +71,7 @@ class Article < ActiveRecord::Base
 
 		unless recommender_followers.empty?
 
-			recommender_followers.sort_by {|k| k[:followers]}.reverse
+			return recommender_followers.sort_by {|k| k[:followers]}
 
 			return recommender_followers.first[:recommender]
 

@@ -91,9 +91,9 @@ class PredictorsController < ApplicationController
 
     @predictions_top = @predictions_top.take(5)
 
-    @articles_recent = @predictor.articles.order("created_at DESC")
+    @articles_recent = @predictor.articles.sort_by {|k| k.created_at}.reverse
 
-    @top_articles = @articles_recent = @predictor.articles.sort_by {|k| k.recommendation_count}.take(5)
+    @top_articles = @predictor.articles.sort_by {|k| k.recommendation_count}.take(5)
 
   end
 

@@ -75,6 +75,10 @@ class Article < ActiveRecord::Base
 
 			return recommender_followers.first[:recommender]
 
+		else
+
+			return nil
+
 		end
 
 

@@ -90,15 +90,7 @@
                 
                 <%elsif predictor_signed_in?%>
 
-                  <%if current_predictor.id == predictor.id %>
-
                     <%= prediction.teama_score%> - <%= prediction.teamh_score%>
-
-                  <%else%>
-
-                    nope
-
-                  <%end%>
 
                 <%elsif admin_signed_in?%>
 
@@ -156,11 +148,7 @@
                 
                 <%elsif predictor_signed_in?%>
 
-                  <%if current_predictor.id == predictor.id %>
-
                     <%if prediction.game_winner == prediction.teama %>+<%else%>-<%end%><%= prediction.spread%>
-
-                  <%end%>
 
                 <%elsif admin_signed_in?%>
 
@@ -196,11 +184,7 @@
                 
                 <%elsif predictor_signed_in?%>
 
-                  <%if current_predictor.id == predictor.id %>
-
                     <%if prediction.game_winner == prediction.teamh %>+<%else%>-<%end%><%= prediction.spread%>
-
-                  <%end%>
 
                 <%elsif admin_signed_in?%>
 
@@ -256,11 +240,7 @@
                 
                 <%elsif predictor_signed_in?%>
 
-                  <%if current_predictor.id == predictor.id %>
-
                     <%= prediction.overunder%>
-
-                  <%end%>
 
                 <%elsif admin_signed_in?%>
 

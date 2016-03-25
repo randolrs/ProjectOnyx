@@ -100,7 +100,7 @@ class Article < ActiveRecord::Base
 
       		end
 
-    	end
+    	end 
 
     	return staff_recommended
 

@@ -1118,11 +1118,12 @@ a.category-item.header{
 }
 
 .category-header-container.dark{
-  background-color:#333;
+  background-color:#222;
   padding:0px;
   text-align: center;
   box-shadow: none;
   border-bottom: none;
+  display:none;
 }
 
 .category-header{
@@ -1544,6 +1545,18 @@ a.follow-button-no-js:hover{
     padding: 0px 10px;
     margin: 0px 5px;
     }
+
+  }
+
+  @media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+
+    .category-header-container.dark{
+      display:block;
+    }
+
+  a.category-header{
+    display:none;
+  }
 
   }
   

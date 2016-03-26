@@ -142,7 +142,7 @@ a.app-name{
   width: 0;
   height: 0;
   border: 6px solid transparent;
-  border-top-color: #666;
+  border-top-color: #fff;
   right: 17px;
   top: 22px;
 }
@@ -171,8 +171,7 @@ a.app-name{
   position: absolute;
   width: 0;
   height: 0;
-  border: 5px solid transparent;
-  border-bottom-color: #ffffff;
+  
   top: -4px;
   right: 40px;
 }
@@ -342,7 +341,14 @@ a.app-name{
     width: 100%;
     box-shadow: none;
     padding-left: 35px;
-    display: none;
+    background: #222;
+    color: #fff;
+    
+  }
+
+  #cssmenu ul ul li a:hover {
+    color: #00D43C;
+    
   }
 
   #cssmenu ul ul li a.category-header-sub {

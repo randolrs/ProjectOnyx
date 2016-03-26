@@ -1093,8 +1093,8 @@ a.category-item{
 
 a.category-item.light{
     font-size: 14px;
-    padding: 0px 15px;
-    margin: 0px 15px;
+    padding: 0px 5px;
+    margin: 0px 5px;
     color: #fff;
 }
 
@@ -1425,12 +1425,6 @@ a.follow-button-no-js:hover{
       width:100%;
     }
 
-    a.category-item.light{
-    font-size: 12px;
-    padding: 0px 10px;
-    margin: 0px 5px;
-    }
-
 }
 
 @media only screen and (max-device-width: 1050px) {
@@ -1540,11 +1534,8 @@ a.follow-button-no-js:hover{
       width:100%;
     }
 
-    a.category-item.light{
-    font-size: 12px;
-    padding: 0px 10px;
-    margin: 0px 5px;
-    }
+
+
 
   }
 
@@ -1554,9 +1545,9 @@ a.follow-button-no-js:hover{
       display:block;
     }
 
-  a.category-header{
-    display:none;
-  }
+    a.category-header{
+      display:none;
+    }
 
   }
   

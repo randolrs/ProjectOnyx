@@ -4,6 +4,16 @@
 
 	  <ul class="category-header-items">
 
+	  	<% unless @related_topics.nil? %>
+
+	  		<% @related_topics.each do |topic| %>
+
+	  			<li ><a class="category-item light" href="<%= topic_show_page_path(topic.url)%>"><%= topic.name %></a></li>
+
+	  		<% end %>
+
+	  	<%else%>
+
 	      <li><a class="category-item light" href="<%= topic_show_page_path("sports")%>">Sports</a></li>
 
 	      <li><a class="category-item light" href="<%= topic_show_page_path("finance")%>">Finance</a></li>
@@ -11,6 +21,8 @@
 	      <li><a class="category-item light" href="<%= topic_show_page_path("economics")%>">Economics</a></li>
 
 	      <li><a class="category-item light" href="<%= topic_show_page_path("fantasy_sports")%>">Fantasy Sports</a></li>
+
+		<%end%>
 
 	  </ul>
 

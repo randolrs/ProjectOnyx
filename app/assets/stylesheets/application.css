@@ -1424,6 +1424,12 @@ a.follow-button-no-js:hover{
       width:100%;
     }
 
+    a.category-item.light{
+    font-size: 12px;
+    padding: 0px 10px;
+    margin: 0px 5px;
+    }
+
 }
 
 @media only screen and (max-device-width: 1050px) {
@@ -1531,6 +1537,12 @@ a.follow-button-no-js:hover{
 
     .article-prediction-list{
       width:100%;
+    }
+
+    a.category-item.light{
+    font-size: 12px;
+    padding: 0px 10px;
+    margin: 0px 5px;
     }
 
   }

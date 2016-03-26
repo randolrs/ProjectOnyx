@@ -31,7 +31,19 @@
 
 <div id='cssmenu'>
 <ul>
-   <li><a href='<%=root_path%>'><span><p class="header-app-name">Futable</p><p class="header-home">Home</p></span></a></li>
+   <li><a href='<%=root_path%>' class="app-name"><span><p class="header-app-name">Futable</p><p class="header-home">Home</p></span></a></li>
+
+   <li><a href='<%= topic_show_page_path("sports")%>'><span>Sports</span></a></li>
+
+   <li><a href='<%= topic_show_page_path("finance")%>'><span>Finance</span></a></li>
+
+   <li class='has-sub'><a href='#'><span>More</span></a>
+         <ul>
+            <li><a href='<%= topic_show_page_path("economics")%>'><span>Economics</span></a>
+            <li><a href='<%= topic_show_page_path("fantasy_sports")%>'><span>Fantasy Sports</span></a>
+            <li><a href='<%= topic_show_page_path("politics")%>'><span>Politics</span></a>
+         </ul>
+      </li>
 
    <%if user_signed_in?%>
       

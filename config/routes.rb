@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :topic_copies
+
   resources :topics
 
   resources :plans
@@ -74,6 +76,8 @@ Rails.application.routes.draw do
   get 'predictoradminindex' => 'predictors#index'
 
   get 'select_category' => 'articles#select_category'
+
+  get 'topic_copy_dashboard' => 'topic_copies#index'
 
   get 'posts' => 'articles#index'
 

@@ -6,9 +6,20 @@
 
 	<div class="intro-link">
 
-		<h1>Tomorrow's Results, Today.</h1>
-		<h2>Futable is a platform for publishing and discovering the best predictions about future events.</h2>
-		<h3>Signup to join a growing community of top experts.</h3>
+		<% if @topic_copy %>
+
+			<h1><%=@topic_copy.headline_1%></h1>
+			<h2><%=@topic_copy.headline_2%></h2>
+			<h3><%=@topic_copy.headline_3%></h3>
+
+		<% else %>
+		
+			<h1>Tomorrow's Results, Today.</h1>
+			<h2>Futable is a platform for publishing and discovering the best predictions about future events.</h2>
+			<h3>Signup to join a growing community of top experts.</h3>
+
+		<% end %>
+
 
 		<div class="landing-buttons">
 

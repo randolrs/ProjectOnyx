@@ -8,6 +8,12 @@ class PagesController < ApplicationController
     
     @featured_topics = Topic.all.where("parent_tag_id = :all_id", {:all_id => @parent_tag_id})
 
+    if TopicCopy.where(:topic_id => 1).present?
+
+      @topic_copy = TopicCopy.find_by_topic_id(1)
+
+    end
+
     #@featured_topics = Topic.all
 
     if predictor_signed_in?

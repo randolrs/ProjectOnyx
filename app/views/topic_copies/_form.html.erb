@@ -1,0 +1,35 @@
+<%= form_for(@topic_copy) do |f| %>
+  <% if @topic_copy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@topic_copy.errors.count, "error") %> prohibited this topic_copy from being saved:</h2>
+
+      <ul>
+      <% @topic_copy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <h4>Topic</h4><br>
+    <%= collection_select(:topic_copy, :topic_id, Topic.all, :id, :name) %>
+  </div>
+  
+  <div class="field">
+    <h4>Main Headline</h4><br>
+    <%= f.text_field :headline_1, :class => "headline-input" %>
+  </div>
+  <div class="field">
+    <h4>Sub Headline</h4><br>
+    <%= f.text_field :headline_2, :class => "headline-input" %>
+  </div>
+  <div class="field">
+    <h4>Call to Action Text</h4><br>
+    <%= f.text_field :headline_3, :class => "headline-input" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

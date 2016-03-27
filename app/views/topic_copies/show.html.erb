@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Headline 1:</strong>
+  <%= @topic_copy.headline_1 %>
+</p>
+
+<p>
+  <strong>Headline 2:</strong>
+  <%= @topic_copy.headline_2 %>
+</p>
+
+<p>
+  <strong>Headline 3:</strong>
+  <%= @topic_copy.headline_3 %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @topic_copy.topic_id %>
+</p>
+
+<%= link_to 'Edit', edit_topic_copy_path(@topic_copy) %> |
+<%= link_to 'Back', topic_copies_path %>

@@ -306,9 +306,9 @@ class PagesController < ApplicationController
 
       @articles = @topic.articles.sort_by{ |k| k.created_at}.reverse
 
-      if TopicCopy.where(:topic_id => 1).present?
+      if TopicCopy.where(:topic_id => @topic.id).present?
 
-        @topic_copy = TopicCopy.find_by_topic_id(1)
+        @topic_copy = TopicCopy.find_by_topic_id(@topic.id)
 
       end
 

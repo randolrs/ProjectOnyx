@@ -306,6 +306,12 @@ class PagesController < ApplicationController
 
       @articles = @topic.articles.sort_by{ |k| k.created_at}.reverse
 
+      if TopicCopy.where(:topic_id => 1).present?
+
+        @topic_copy = TopicCopy.find_by_topic_id(1)
+
+      end
+
       @top_articles = @articles.sort_by{ |k| k.recommendation_count}.reverse.take(5)  
 
       @child_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})

@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
     @page = "home"
 
-    @parent_tag_id = Topic.find_by_name("All").id.to_s
+    @parent_tag_id = Topic.find_by_name("Home").id.to_s
     
     @featured_topics = Topic.all.where("parent_tag_id = :all_id", {:all_id => @parent_tag_id})
 

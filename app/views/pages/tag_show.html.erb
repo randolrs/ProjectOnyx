@@ -1,3 +1,9 @@
+<% unless predictor_signed_in? %>
+	
+	<%= render 'pages/home_landing' %>
+
+<%end%>
+
 <% if predictor_signed_in? %>
   <%# render 'layouts/category_header' %> <!-- might need a sub category -->
 

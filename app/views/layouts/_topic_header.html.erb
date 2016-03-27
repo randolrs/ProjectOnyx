@@ -4,13 +4,17 @@
 
 	  <ul class="category-header-items">
 
-	  	<% unless @related_topics.nil? %>
+	  	<% if @child_topics.present? %>
 
-	  		<% @related_topics.each do |topic| %>
+	  		<% @child_topics.each do |topic| %>
 
 	  			<li ><a class="category-item light" href="<%= topic_show_page_path(topic.url)%>"><%= topic.name %></a></li>
 
 	  		<% end %>
+
+	  	<%elsif @parent_topic %>
+
+	  		<li ><a class="category-item light" href="<%= topic_show_page_path(@parent_topic.url)%>"><%= @parent_topic.name %></a></li>
 
 	  	<%else%>
 

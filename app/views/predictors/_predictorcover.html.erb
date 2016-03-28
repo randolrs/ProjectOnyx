@@ -4,7 +4,7 @@
 
   	<div class="predictor-cover-name">
 
-  		<%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "article-show-author-name profile"%><a class="onyx-rating"><%= @predictor.onyx_rating.to_i %></a>
+  		<%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "article-show-author-name profile"%><a class="onyx-rating" title="Predictive Accuracy Rating"><%= @predictor.onyx_rating.to_i %></a>
   		<br>
 
   		<p class="bio"><%= @predictor.bio %></p>

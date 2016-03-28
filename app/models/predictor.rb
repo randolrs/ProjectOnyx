@@ -90,6 +90,12 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def onyx_rating
+
+    return self.prediction_games.where("onyx IS NOT NULL").average(:onyx)
+
+  end
+
   def league_predictions(league)
 
     return self.prediction_games.where(:league => league)

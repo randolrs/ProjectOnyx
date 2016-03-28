@@ -37,7 +37,7 @@
  	<div class="article-show-header">
     	<%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
     	<%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
-    	<%= predictor.onyx_rating %>
+    	<%= predictor.onyx_rating.to_i,, class: "onyx-rating" %>
   	</div>
 
  	<div class="article-show-detail">

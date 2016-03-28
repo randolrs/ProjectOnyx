@@ -1085,6 +1085,11 @@ a.no-style:hover{
   color:#333;
 }
 
+.onyx-rating{
+  color:red;
+  
+}
+
 a.category-item{
     font-size: 16px;
     color: #333;

@@ -40,6 +40,8 @@
     	<a class="onyx-rating" title="Predictive Accuracy Rating"><%= predictor.onyx_rating.to_i %></a>
   	</div>
 
+  	<a class="no-style" href="<%=predictorarticleshow_path(predictor.username,article.id)%>">
+
  	<div class="article-show-detail">
  		<div class="article-title-text">
  		<%= link_to article.title, predictorarticleshow_path(predictor.username,article.id), class: "article-show-title" %>
@@ -64,6 +66,8 @@
           </div>
 
 	</div>
+
+	</a>
 
 </div>
  	

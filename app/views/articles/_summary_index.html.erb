@@ -41,31 +41,33 @@
   	</div>
 
   	<a class="no-style" href="<%=predictorarticleshow_path(predictor.username,article.id)%>">
+  		<table>
+		 	<div class="article-show-detail">
+		 		<div class="article-title-text">
+		 		<%= link_to article.title, predictorarticleshow_path(predictor.username,article.id), class: "article-show-title" %>
+		 		</div>
 
- 	<div class="article-show-detail">
- 		<div class="article-title-text">
- 		<%= link_to article.title, predictorarticleshow_path(predictor.username,article.id), class: "article-show-title" %>
- 		</div>
+		 		<div class="article-date"><a class="article-date-text"><%= article.created_at.strftime("%B %e, %Y") %></a></div>
+				
+		 		<div class="article-body-text">
+					<%= article.body %>
+				</div>
 
- 		<div class="article-date"><a class="article-date-text"><%= article.created_at.strftime("%B %e, %Y") %></a></div>
-		
- 		<div class="article-body-text">
-			<%= article.body %>
-		</div>
+				<div class="article-read-more">
+					<%= link_to "Read more...", predictorarticleshow_path(predictor.username,article.id) %>
+				</div>
 
-		<div class="article-read-more">
-			<%= link_to "Read more...", predictorarticleshow_path(predictor.username,article.id) %>
-		</div>
+				<div class="article-show-actions">
+		            
+		            <%= render partial: 'articles/recommend_cta', locals: {article: article}%>
 
-		<div class="article-show-actions">
-            
-            <%= render partial: 'articles/recommend_cta', locals: {article: article}%>
+		            <%= render partial: 'articles/bookmark_cta', locals: {article: article}%>
 
-            <%= render partial: 'articles/bookmark_cta', locals: {article: article}%>
+		          </div>
 
-          </div>
+			</div>
 
-	</div>
+		</table>
 
 	</a>
 

@@ -60,6 +60,9 @@
 					<%= link_to "Read more...", predictorarticleshow_path(predictor.username,article.id) %>
 				</div>
 
+			</table>
+
+		</a>
 				<div class="article-show-actions">
 		            
 		            <%= render partial: 'articles/recommend_cta', locals: {article: article}%>
@@ -68,9 +71,7 @@
 
 		          </div>
 
-			</table>
-
-		</a>
+		
 
 	</div>
 

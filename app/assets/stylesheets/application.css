@@ -1315,10 +1315,6 @@ a.follow-button-no-js:hover{
       font-size:50px;
     }
 
-    .category-header {
-      text-align: center;
-    }
-
 }
 
 @media only screen and (max-width: 960px) {
@@ -1402,10 +1398,6 @@ a.follow-button-no-js:hover{
       font-size:50px;
     }
 
-    .category-header {
-      text-align: center;
-    }
-
 }
 
 @media only screen and (max-device-width: 600px) {
@@ -1485,6 +1477,10 @@ a.follow-button-no-js:hover{
       float:none;
     }
 
+    .category-header {
+      text-align: center;
+    }
+
 }
 
 @media only screen and (max-width: 1050px) {
@@ -1522,6 +1518,10 @@ a.follow-button-no-js:hover{
       margin:0 auto;
       display:block;
       float:none;
+    }
+
+    .category-header {
+      text-align: center;
     }
 
 }

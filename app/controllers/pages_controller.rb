@@ -302,6 +302,8 @@ class PagesController < ApplicationController
 
     @topic = Topic.find_by_url(params[:topic])
 
+    @page = "topic_home"
+
     if @topic
 
       @articles = @topic.articles.sort_by{ |k| k.created_at}.reverse
@@ -313,6 +315,84 @@ class PagesController < ApplicationController
       end
 
       @top_articles = @articles.sort_by{ |k| k.recommendation_count}.reverse.take(5)  
+
+      @child_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
+
+      if @child_topics.count == 0
+
+        @parent_topic = Topic.find(@topic.parent_tag_id)
+
+      end
+
+
+      @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
+
+      if @related_topics.count == 0
+
+        @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.parent_tag_id.to_s, :this_id => @topic.id.to_s})
+
+      end
+
+    end
+
+  end
+
+  def topic_top_articles
+
+    @topic = Topic.find_by_url(params[:topic])
+
+    @page = "topic_top"
+
+    if @topic
+
+      @articles = @topic.articles.sort_by{ |k| k.created_at}.reverse
+
+      if TopicCopy.where(:topic_id => @topic.id).present?
+
+        @topic_copy = TopicCopy.find_by_topic_id(@topic.id)
+
+      end
+
+      @top_articles = @articles.sort_by{ |k| k.recommendation_count}.reverse.take(20)  
+
+      @child_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
+
+      if @child_topics.count == 0
+
+        @parent_topic = Topic.find(@topic.parent_tag_id)
+
+      end
+
+
+      @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
+
+      if @related_topics.count == 0
+
+        @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.parent_tag_id.to_s, :this_id => @topic.id.to_s})
+
+      end
+
+    end
+
+  end
+
+    def topic_latest_articles
+
+    @topic = Topic.find_by_url(params[:topic])
+
+    @page = "topic_latest"
+
+    if @topic
+
+      @articles = @topic.articles.sort_by{ |k| k.created_at}.reverse
+
+      if TopicCopy.where(:topic_id => @topic.id).present?
+
+        @topic_copy = TopicCopy.find_by_topic_id(@topic.id)
+
+      end
+
+      @top_articles = @articles.sort_by{ |k| k.recommendation_count}.reverse.take(20)  
 
       @child_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
 

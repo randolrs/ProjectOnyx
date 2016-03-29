@@ -127,6 +127,10 @@ Rails.application.routes.draw do
 
   get '/topic/:topic' => 'pages#topic_show', as: 'topic_show_page'
 
+  get '/topic/:topic/top' => 'pages#topic_top_articles', as: 'topic_top_articles'
+
+  get '/topic/:topic/latest' => 'pages#topic_latest_articles', as: 'topic_latest_articles'
+
   get '/events/sports/:league' => 'games#findgames', as: 'find_prediction_games'
 
   get 'sports/leagues/:league/games/:id' => 'games#show', as: 'gameshow'

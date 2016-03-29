@@ -1315,6 +1315,10 @@ a.follow-button-no-js:hover{
       font-size:50px;
     }
 
+    .category-header {
+      text-align: center;
+    }
+
 }
 
 @media only screen and (max-width: 960px) {
@@ -1396,6 +1400,10 @@ a.follow-button-no-js:hover{
 
     .intro-container h1{
       font-size:50px;
+    }
+
+    .category-header {
+      text-align: center;
     }
 
 }

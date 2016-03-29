@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
     @parent_tag_id = Topic.find_by_name("Home").id.to_s
     
-    @featured_topics = Topic.all.where("parent_tag_id = :all_id", {:all_id => @parent_tag_id})
+    @featured_topics = Topic.all.where("parent_tag_id = :all_id and id > :home_id", {:all_id => @parent_tag_id, :home_id => 1})
 
     if TopicCopy.where(:topic_id => 1).present?
 
@@ -324,12 +324,11 @@ class PagesController < ApplicationController
 
       end
 
-
-      @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
+      @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id and id > :home_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s, :home_id => 1})
 
       if @related_topics.count == 0
 
-        @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.parent_tag_id.to_s, :this_id => @topic.id.to_s})
+        @related_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id and id > :home_id", {:topic_id => @topic.parent_tag_id.to_s, :this_id => @topic.id.to_s, :home_id => 1})
 
       end
 

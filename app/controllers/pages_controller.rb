@@ -4,6 +4,8 @@ class PagesController < ApplicationController
 
     @page = "home"
 
+    @page_title = "Credible Predictions"
+
     @parent_tag_id = Topic.find_by_name("Home").id.to_s
     
     @featured_topics = Topic.all.where("parent_tag_id = :all_id and id > :home_id", {:all_id => @parent_tag_id, :home_id => 1})
@@ -305,6 +307,8 @@ class PagesController < ApplicationController
     @page = "topic_home"
 
     if @topic
+
+      @page_title = @topic.name + " Predictions & Analysis"
 
       @articles = @topic.articles.sort_by{ |k| k.created_at}.reverse
 

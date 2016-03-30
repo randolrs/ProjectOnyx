@@ -1092,12 +1092,18 @@ a.onyx-rating{
     padding: 5px 10px;
     border-radius: 20px;
     background: #00ab6b;
-
+    text-shadow: 0px 1px #333;
 }
 
 a.onyx-rating:hover{
     text-decoration: none;
 
+}
+
+a.onyx-rating.predictor-profile{
+  vertical-align: super;
+  font-size:16px;
+  margin:0px 5px;
 }
 
 a.category-item{
@@ -1144,7 +1150,11 @@ a.category-item.header{
   margin:0 auto;
   max-width:1000px;
   width:100%;
-  padding:0px 10px;
+}
+
+.category-header.predictor-profile{
+  max-width: 600px;
+  background-color: #fff;
 }
 
 .category-header-items {
@@ -1152,11 +1162,15 @@ a.category-item.header{
   display:inline;
   text-align:center;
   padding: 0px;
+
 }
 
 .category-header-items li{
   display: inline;
-  padding: 10px 0px;
+}
+
+a.category-item {
+  padding:10px;
 }
 
 .tag-items{

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Futable</title>
+  <title>Futable <% if @page_title %>| <%= @page_title %><%end%></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= html_import_tag 'application', "data-turbolinks-track" => true %>

@@ -14,7 +14,7 @@
 	 			<% if article.recommended_by_staff %>
 
 	 				<div class="article-show-reason">
-	 					Recommended by Futable staff <% if article.recommendation_count > 2 %>and <%=article.recommendation_count - 1 %> others<%elsif article.recommendation_count == 2%>and 1 other<%end%>
+	 					Recommended by Futable Staff <% if article.recommendation_count > 2 %>and <%=article.recommendation_count - 1 %> others<%elsif article.recommendation_count == 2%>and 1 other<%end%>
 	 				</div>
 
 	 			<%end%>
@@ -27,7 +27,7 @@
 	 		<% if article.recommended_by_staff %>
 
  				<div class="article-show-reason">
- 					Recommended by Futable staff <% if article.recommendation_count > 2 %>and <%=article.recommendation_count - 1 %> others<%elsif article.recommendation_count == 2%>and 1 other<%end%>
+ 					Recommended by Futable Staff <% if article.recommendation_count > 2 %>and <%=article.recommendation_count - 1 %> others<%elsif article.recommendation_count == 2%>and 1 other<%end%>
  				</div>
 
 	 		<%end%>
@@ -37,7 +37,7 @@
  	<div class="article-show-header">
     	<%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
     	<%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
-    	<a class="onyx-rating" title="Predictive Accuracy Rating"><%= predictor.onyx_rating.to_i %></a>
+    	<%= render partial: 'predictors/futable_rating', locals: {predictor: predictor}%>
   	</div>
 
 	<div class="article-show-detail">

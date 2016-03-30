@@ -81,22 +81,20 @@ class Article < ActiveRecord::Base
 
 		end
 
-
-
 	end
 
 
 	def recommended_by_staff
 
-		staff_recommended = Array.new
+    	recommendations = Recommendation.all.where(:active => true, :article_id => self.id)
 
-    	recommendations = Recommendation.all.where(:active => true)
+    	staff_recommended = false
 
     	recommendations.each do |recommendation|
 
     		if Predictor.find(recommendation.user_id).staff
 
-      			staff_recommended << Article.find(recommendation.article_id)
+      			staff_recommended = true
 
       		end
 
@@ -127,7 +125,6 @@ class Article < ActiveRecord::Base
 		end
 
 		return staff_recommendations
-
 
 	end
 

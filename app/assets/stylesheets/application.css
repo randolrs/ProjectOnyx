@@ -1454,6 +1454,10 @@ a.follow-button-no-js:hover{
       width:100%;
     }
 
+    .category-header.predictor-profile {
+      text-align: center;
+    }
+
 }
 
 @media only screen and (max-device-width: 1050px) {
@@ -1494,6 +1498,10 @@ a.follow-button-no-js:hover{
 
     .category-header {
       text-align: center;
+    }
+
+    .category-header.predictor-profile {
+      text-align: left;
     }
 
 }
@@ -1539,6 +1547,10 @@ a.follow-button-no-js:hover{
       text-align: center;
     }
 
+    .category-header.predictor-profile {
+      text-align: left;
+    }
+
 }
 
 
@@ -1571,8 +1583,9 @@ a.follow-button-no-js:hover{
       width:100%;
     }
 
-
-
+    .category-header.predictor-profile {
+      text-align: center;
+    }
 
   }
 

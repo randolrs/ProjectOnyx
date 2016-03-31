@@ -1,14 +1,35 @@
 <%= render 'predictors/predictorcover' %>
-<%= render 'predictors/predictorcovernav' %>
 
-<div class="content-panel">
+<%= render partial: 'predictors/cover_nav_header', locals: {predictor: @predictor} %>
 
-	<div class ="content-title-header">
-		<h3><%=@predictor.username.humanize%>'s Predictions</h3>
-		<h5><%= link_to @predictor.username.humanize + "'s Profile »", predictordashboard_path(@predictor.username) %></h5>
+<div class="content-wrap-outer">
+
+	<div class="content-wrap">
+
+		<div class ="main-content index solo">
+
+			<h3>Latest Predictions</h3>
+
+			<% if @predictions_recent.empty? %>
+
+				<div class ="prediction-game-index-show empty">
+
+					<%= @predictor.username %> has not yet made any predictions.      
+
+  				</div>
+
+			<%else%>
+
+				<% @predictions_recent.take(5).each do |hash| %>
+
+    				<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
+
+    			<%end%>
+
+        	<%end%>
+
+		</div>			
+	
 	</div>
 
-	<%# render 'prediction_games/predictiongameheadernav' %>
-	<%= render 'prediction_games/index' %>
-	
 </div>

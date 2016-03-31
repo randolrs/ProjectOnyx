@@ -1,0 +1,43 @@
+<%= render 'predictors/predictorcover' %>
+
+<%= render partial: 'predictors/cover_nav_header', locals: {predictor: @predictor} %>
+
+<div class="content-wrap-outer">
+
+	<div class="content-wrap">
+
+		<div class ="main-content index solo">
+
+			<h3>Rating</h3>
+
+			<div class = "content-panel sub">
+
+				Futable Rating: <%= @predictor.onyx_rating.to_i %>
+
+			</div>
+
+			<h3>Rated Predictions</h3>
+
+			<% if @predictions_rated.empty? %>
+
+				<div class ="prediction-game-index-show empty">
+
+					<%= @predictor.username %> has not yet made any predictions.      
+
+  				</div>
+
+			<%else%>
+
+				<% @predictions_rated.each do |hash| %>
+
+    				<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
+
+    			<%end%>
+
+    		<%end%>
+
+		</div>			
+	
+	</div>
+
+</div>

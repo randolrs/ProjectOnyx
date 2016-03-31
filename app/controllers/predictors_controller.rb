@@ -7,62 +7,36 @@ class PredictorsController < ApplicationController
 
   def predictionindex
 
-    @action = 'predictionindex'
+    @page="predictions"
+    @predictor = Predictor.find_by_username(params[:username])
+    @displaypredictor = false
 
-    #params[:username] = params[:username].downcase
+    @predictions = Array.new 
 
-    #@predictor = Predictor.find(:first, :conditions => ["lower(username) = ?", params[:username].downcase]) 
+    @predictions_rated = Array.new
+    @predictions_rated = @predictor.rated_predictions
+
+    @predictions_recent = Array.new
+
+    @predictions_recent = @predictor.recent_prediction_games.sort_by {|k| k[:prediction].created_at}.reverse
+
+
+  end
+
+  def rating
+
+    @page="rating"
     @predictor = Predictor.find_by_username(params[:username])
 
-    if params[:category] 
+    @predictions = Array.new 
 
-      if params[:category] = "sports"
+    @predictions_rated = Array.new
+    @predictions_rated = @predictor.rated_predictions
 
-        @predictions = @predictor.prediction_games
+    @predictions_recent = Array.new
 
-        if params[:league]
+    @predictions_recent = @predictor.recent_prediction_games.sort_by {|k| k[:prediction].created_at}.reverse
 
-            if params[:league] == "NBA"
-
-              @predictions = @predictor.prediction_games.where(:league => "NBA")
-
-            elsif params[:league] == "NFL"
-
-              @predictions = @predictor.prediction_games.where(:league => "NFL")
-
-            elsif params[:league] == "MLB"
-
-              @predictions = @predictor.prediction_games.where(:league => "MLB")
-
-            elsif params[:league] == "NHL"
-
-              @predictions = @predictor.prediction_games.where(:league => "NHL")
-
-            end
-        end
-            
-          if params[:team_filter]
-            #@predictions = @predictions.all.where(:teama => params[:prediction_game][:team])
-
-            @predictions = @predictions.where("teama = :team or teamh = :team", {team: params[:team_filter][:team]})
-          end
-
-      elsif params[:category] = "finance"
-
-      elsif params[:category] = "politics"
-
-      elsif params[:category] = "weather"
-
-      end
-
-    else
-        @predictions = @predictor.prediction_games
-
-    end
-
-       @predictions = @predictions.order("created_at DESC").paginate(:page =>params[:page], :per_page => 10)
-
-       @displaypredictor = false
 
   end
 
@@ -75,6 +49,7 @@ class PredictorsController < ApplicationController
 
   def predictordashboard
     @action = 'predictordashboard'
+    @page="posts"
     @predictor = Predictor.find_by_username(params[:username])
     @displaypredictor = false
 

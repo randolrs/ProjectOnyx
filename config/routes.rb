@@ -155,7 +155,9 @@ Rails.application.routes.draw do
   
   get '/predictors/sports/:league' => 'predictors#findsportspredictors', as: 'find_sports_predictors'
 
-  get '/:username/predictions' => 'predictors#predictionindex', as: 'predictorindexpredictionsall'
+  get '/:username/predictions' => 'predictors#predictionindex', as: 'predictorindexpredictions'
+
+  get '/:username/rating' => 'predictors#rating', as: 'predictor_rating'
 
   get '/:username/predictions/:category' => 'predictors#predictionindex', as: 'predictorindexpredictionscategory'
 

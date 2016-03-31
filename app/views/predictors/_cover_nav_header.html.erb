@@ -4,11 +4,11 @@
 
 	  <ul class="category-header-items">
 
-	      <li><a class="category-item" style="<% if @page=="latest"%>color:#36c;<%end%>" href="<%= root_path %>">Latest</a></li>
+	      <li><a class="category-item" style="<% if @page=="posts"%>color:#36c;<%end%>" href="<%= predictordashboard_path(predictor.username) %>">Posts</a></li>
 
-	      <li><a class="category-item" style="<% if @page=="predictions"%>color:#36c;<%end%>" href="<%= root_path %>">Predictions</a></li>
+	      <li><a class="category-item" style="<% if @page=="predictions"%>color:#36c;<%end%>" href="<%= predictorindexpredictions_path(predictor.username) %>">Predictions</a></li>
 
-	      <li><a class="category-item" style="<% if @page=="rating"%>color:#36c;<%end%>" href="<%= root_path %>">Rating</a></li>
+	      <li><a class="category-item" style="<% if @page=="rating"%>color:#36c;<%end%>" href="<%= predictor_rating_path(predictor.username) %>">Rating</a></li>
 
 	  </ul>
 

@@ -1,14 +1,14 @@
 <%= render 'predictors/predictorcover' %>
 
-<%= render 'predictors/cover_nav_header'%>
+<%= render partial: 'predictors/cover_nav_header', locals: {predictor: @predictor} %>
 
 <div class="content-wrap-outer">
 
 	<div class="content-wrap">
 
-		<div class ="main-content index">
+		<div class ="main-content index solo">
 
-			<h3>Recent Posts</h3>
+			<h3>Latest Posts</h3>
 
 			<% if @articles_recent.empty?%>
 
@@ -32,64 +32,21 @@
 
 			<% if @predictions_recent.empty? %>
 
-					<div class ="prediction-game-index-show empty">
+				<div class ="prediction-game-index-show empty">
 
-						<%= @predictor.username %> has not yet made any predictions.      
+					<%= @predictor.username %> has not yet made any predictions.      
 
-	  				</div>
+  				</div>
 
-				<%else%>
+			<%else%>
 
-					<% @predictions_recent.take(5).each do |hash| %>
+				<% @predictions_recent.take(5).each do |hash| %>
 
-        				<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
+    				<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
 
-        			<%end%>
+    			<%end%>
 
-        		<%end%>
-
-
-		</div>
-
-		<div class="side-panel-content index">
-
-			<div class="content-panel sub" style="margin-top: 35px;">
-
-			  <%= render 'predictors/top_articles' %>
-
-			</div>
-
-			<div class="content-panel sub">
-
-				<h4>Top Predictions by <%= @predictor.username%></h4>
-				
-				<table style="width: 100%;">
-					<% @predictions_top.each do |prediction| %>	
-						<%= render partial: 'prediction_games/predictor_top_prediction_games', locals: {predictor: @predictor, prediction: prediction[:prediction], game: prediction[:game]} %>
-					<%end%>
-				</table>
-
-			</div>
-
-			<div class="content-panel sub">
-
-				<h4>Recent Recommendations</h4>
-
-				<ol type="1" style="font-size: 16px;">
-		
-					<% @predictor.recommendations.sort_by {|k| k.created_at }.reverse.each do |recommendation| %>
-
-						<% article = Article.find(recommendation.article_id) %>
-
-						<a class ="top-article-link" href="<%=predictorarticleshow_path(Predictor.find(article.predictor_id).username, article.id)%>">
-							<li class="top-article-item"><%= article.title %></li>
-						</a>
-
-					<%end%>
-
-				</ol>
-
-			</div>
+        	<%end%>
 
 		</div>			
 	

@@ -96,15 +96,7 @@
             
             <%elsif predictor_signed_in?%>
 
-              <%if current_predictor.id == predictor.id %>
-
                 <%= prediction.teama_score%> - <%= prediction.teamh_score%>
-
-              <%else%>
-
-                nope
-
-              <%end%>
 
             <% elsif admin_signed_in? %>
 

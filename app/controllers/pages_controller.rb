@@ -322,7 +322,7 @@ class PagesController < ApplicationController
 
       @child_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
 
-      if @child_topics.count == 0 and @topic.parent_tag_id > 1
+      if @child_topics.count == 0
 
         @parent_topic = Topic.find(@topic.parent_tag_id)
 
@@ -360,7 +360,7 @@ class PagesController < ApplicationController
 
       @child_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
 
-      if @child_topics.count == 0 and @topic.parent_tag_id > 1
+      if @child_topics.count == 0
 
         @parent_topic = Topic.find(@topic.parent_tag_id)
 
@@ -399,7 +399,7 @@ class PagesController < ApplicationController
 
       @child_topics = Topic.all.where("parent_tag_id = :topic_id and id != :this_id", {:topic_id => @topic.id.to_s, :this_id => @topic.id.to_s})
 
-      if @child_topics.count == 0 and @topic.parent_tag_id > 1
+      if @child_topics.count == 0
 
         @parent_topic = Topic.find(@topic.parent_tag_id)
 

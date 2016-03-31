@@ -1,1 +1,1 @@
-<a class="onyx-rating" title="Predictive Accuracy Rating"><% if predictor.onyx_rating.to_i > 0 %><%= predictor.onyx_rating.to_i %><%else%>Unrated<%end%></a>
+<a class="onyx-rating" title="Predictive Accuracy Rating" href="<%=predictor_rating_path(predictor.username)%>"><% if predictor.onyx_rating.to_i > 0 %><%= predictor.onyx_rating.to_i %><%else%>Unrated<%end%></a>

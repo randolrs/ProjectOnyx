@@ -1204,6 +1204,7 @@ a.follow-button{
   padding: 5px 15px;
   height:32px;
   line-height:31px;
+  background-color: #fff;
   webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -1221,6 +1222,10 @@ a.follow-button:hover{
 a.follow-button.following{
   color: white;
   background-color: #00ab6b;
+}
+
+a.follow-button.predictor-profile{
+  margin: 0px;
 }
 
 a.follow-button-no-js{
@@ -1244,6 +1249,10 @@ a.follow-button-no-js:hover{
   box-shadow: none;
   webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
+}
+
+a.follow-button-no-js.predictor-profile{
+  margin:0px;
 }
 
 

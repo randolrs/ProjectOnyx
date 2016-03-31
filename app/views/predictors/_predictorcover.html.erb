@@ -13,7 +13,31 @@
   			<b><%= @predictor.followers.count %></b> Followers | <b><%= @predictor.followings.count %></b> Following
   		</div>
 
-  		<%= render partial: 'predictors/follow_cta', locals: {predictor: @predictor} %>
+  		<% if predictor_signed_in?%>
+
+        <% unless @predictor.id == current_predictor.id %>
+
+          <% unless @predictor.has_follower_active(current_predictor.id) %>
+
+              <a class="follow-button predictor-profile" id="<%=@predictor.id %>">Follow</a>
+
+            <% else %>
+
+              <a class="follow-button following predictor-profile" id="<%=@predictor.id %>">Following</a>
+
+          <% end %>
+
+        <%else%>
+
+          (You)
+
+        <%end%>
+
+    <%else%>
+
+      <a href="<%=new_predictor_session_path%>" class="follow-button-no-js predictor-profile" id="<%=@predictor.id %>">Follow</a>
+
+    <%end%>
 
   	</div>
 

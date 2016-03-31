@@ -270,6 +270,7 @@ select#team_filter_team{
 .predictor-cover{
   background-color: #fff;
   width:100%;
+  border-bottom: 1px solid #ccc;
   -webkit-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.3);
@@ -278,7 +279,7 @@ select#team_filter_team{
 
 .predictor-cover-container{
   margin:0 auto;
-  max-width: 600px;
+  max-width: 1000px;
   width:100%;
   padding:20px;
 }
@@ -1153,7 +1154,6 @@ a.category-item.header{
 }
 
 .category-header.predictor-profile{
-  max-width: 600px;
   background-color: #fff;
 }
 

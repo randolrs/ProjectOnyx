@@ -14,6 +14,15 @@ class Topic < ActiveRecord::Base
 
 		return articles.uniq
 
+	end
+
+	def related_topics
+
+
+	end
+
+	def child_topics
+
 
 
 	end

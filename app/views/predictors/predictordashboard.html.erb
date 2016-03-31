@@ -28,26 +28,6 @@
 
 			<%end%>
 
-			<h3>Recent Predictions</h3>
-
-			<% if @predictions_recent.empty? %>
-
-				<div class ="prediction-game-index-show empty">
-
-					<%= @predictor.username %> has not yet made any predictions.      
-
-  				</div>
-
-			<%else%>
-
-				<% @predictions_recent.take(5).each do |hash| %>
-
-    				<%= render partial: 'prediction_games/list_show', locals: {predictor: @predictor, prediction: hash[:prediction], game: hash[:game]} %>
-
-    			<%end%>
-
-        	<%end%>
-
 		</div>			
 	
 	</div>

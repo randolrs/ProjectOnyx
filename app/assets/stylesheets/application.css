@@ -1115,7 +1115,6 @@ a.onyx-rating.unrated{
     box-shadow: none;
     border:1px solid #666;
     text-shadow: none;
-    vertical-align: super;
 }
 
 a.category-item{

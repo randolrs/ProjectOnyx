@@ -1108,6 +1108,15 @@ a.onyx-rating.predictor-profile{
   margin:0px 5px;
 }
 
+a.onyx-rating.unrated{
+    color: #666;
+    font-weight: 600;
+    background: #fff;
+    box-shadow: none;
+    border:1px solid #666;
+    text-shadow: none;
+}
+
 a.category-item{
     font-size: 16px;
     color: #333;

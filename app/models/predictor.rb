@@ -106,23 +106,23 @@ class Predictor < ActiveRecord::Base
 
       if rating < 20
 
-        hash = {:rating_string=>"Terrible", :style_code => "background-color:red;"}
+        hash = {:rating_string=>"Terrible", :style_code => "background-color:#F02414;"}
 
       elsif rating < 40
 
-        hash = {:rating_string=>"Unreliable", :style_code => "background-color:orange;"}
+        hash = {:rating_string=>"Unreliable", :style_code => "background-color:#F05B1B;"}
 
       elsif rating < 60
 
-        hash = {:rating_string=>"Questionable", :style_code => "background-color:yellow;"}
+        hash = {:rating_string=>"Questionable", :style_code => "background-color:#F0CC1F;"}
 
       elsif rating < 80
 
-        hash = {:rating_string=>"Reliable", :style_code => "background-color:green;"}
+        hash = {:rating_string=>"Reliable", :style_code => "background-color:#05BA28;"}
 
       else
 
-        hash = {:rating_string=>"Superlative", :style_code => "background-color:blue;"}
+        hash = {:rating_string=>"Superlative", :style_code => "background-color:#8210A1; color:#FFBC19"}
 
       end
         

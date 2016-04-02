@@ -122,7 +122,7 @@ class Predictor < ActiveRecord::Base
 
       else
 
-        hash = {:rating_string=>"Superlative", :style_code => "background-color:#8210A1; color:#FFBC19"}
+        hash = {:rating_string=>"Superlative", :style_code => "background-color:#8210A1; color:#FFF71F"}
 
       end
         

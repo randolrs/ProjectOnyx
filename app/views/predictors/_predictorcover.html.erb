@@ -4,7 +4,18 @@
 
   	<div class="predictor-cover-name">
 
-  		<%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "article-show-author-name profile"%><a class="onyx-rating predictor-profile" title="Predictive Accuracy Rating"><% if @predictor.onyx_rating.to_i > 0 %><%= @predictor.onyx_rating.to_i %><%else%>Unrated<%end%></a>
+  		<%= link_to @predictor.username, predictordashboard_path(@predictor.username), class: "article-show-author-name profile"%>
+
+      <% if @predictor.onyx_rating.to_i > 0 %>
+
+        <a class="onyx-rating predictor-profile" title="Predictive Accuracy Rating" style="<%= @predictor.onyx_rating_category[:style_code] %>" href="<%=predictor_rating_path(@predictor.username)%>"><%= @predictor.onyx_rating_category[:rating_string] %></a>
+
+      <%else%>
+
+        <a class="onyx-rating unrated" title="Predictive Accuracy Rating" href="<%=predictor_rating_path(@predictor.username)%>">Unrated</a>
+
+      <%end%>
+
   		<br>
 
   		<p class="bio"><%= @predictor.bio %></p>

@@ -96,6 +96,46 @@ class Predictor < ActiveRecord::Base
 
   end
 
+  def onyx_rating_category
+
+    rating = self.prediction_games.where("onyx IS NOT NULL").average(:onyx)
+
+    hash = Array.new
+
+    if rating > 0
+
+      if rating < 20
+
+        hash = {:rating_string=>"Terrible", :style_code => "background-color:red;"}
+
+      elsif rating < 40
+
+        hash = {:rating_string=>"Unreliable", :style_code => "background-color:orange;"}
+
+      elsif rating < 60
+
+        hash = {:rating_string=>"Questionable", :style_code => "background-color:yellow;"}
+
+      elsif rating < 80
+
+        hash = {:rating_string=>"Reliable", :style_code => "background-color:green;"}
+
+      else
+
+        hash = {:rating_string=>"Superlative", :style_code => "background-color:blue;"}
+
+      end
+        
+    else
+
+      hash = {:rating_string=>"Unrated", :color_code=> "#666"}
+
+    end
+
+    return hash
+
+  end
+
   def league_predictions(league)
 
     return self.prediction_games.where(:league => league)

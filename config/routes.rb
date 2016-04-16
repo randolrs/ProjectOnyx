@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :price_items
+
   resources :topic_copies
 
   resources :topics
@@ -47,6 +49,8 @@ Rails.application.routes.draw do
 
   get 'gamedash' => "games#index"
 
+  get 'price_items' => "price_items#index"
+
   get 'top-posts' => 'pages#top_posts', as: 'top_posts'
 
   get '/me/bookmarks' => 'pages#bookmarks', as: 'bookmarks'
@@ -54,6 +58,8 @@ Rails.application.routes.draw do
   get '/article/ajax_team/:team', :to => 'articles#ajax_team'
 
   get '/article/ajax_league/:game', :to => 'articles#ajax_league'
+
+  get '/article/ajax_indicator/:typeId', :to => 'articles#ajax_indicator'
 
   get '/article/recommend/:article_id', :to => 'articles#ajax_recommend'
 

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @price_item.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @price_item.category %>
+</p>
+
+<p>
+  <strong>Strike date:</strong>
+  <%= @price_item.strike_date %>
+</p>
+
+<p>
+  <strong>Strike description:</strong>
+  <%= @price_item.strike_description %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @price_item.country %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @price_item.value %>
+</p>
+
+<%= link_to 'Edit', edit_price_item_path(@price_item) %> |
+<%= link_to 'Back', price_items_path %>

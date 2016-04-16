@@ -4,9 +4,13 @@ class Article < ActiveRecord::Base
 
 	has_many :prediction_games
 
+	has_many :prediction_economies
+
 	has_many :taggings
 
 	accepts_nested_attributes_for :prediction_games, allow_destroy: true
+
+	accepts_nested_attributes_for :prediction_economies, allow_destroy: true
 
 	def has_topic(article_id, topic_id)
 

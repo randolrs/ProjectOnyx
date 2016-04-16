@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160327002659) do
+ActiveRecord::Schema.define(version: 20160409155014) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -159,6 +159,11 @@ ActiveRecord::Schema.define(version: 20160327002659) do
     t.integer  "integer"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "status"
+    t.decimal  "onyx"
+    t.string   "category"
+    t.integer  "article_id"
+    t.string   "sub_category",                                default: ""
   end
 
   create_table "prediction_games", force: true do |t|
@@ -269,6 +274,20 @@ ActiveRecord::Schema.define(version: 20160327002659) do
   create_table "predictors_users_join", id: false, force: true do |t|
     t.integer "predictor_id"
     t.integer "user_id"
+  end
+
+  create_table "price_items", force: true do |t|
+    t.string   "type",                                        default: ""
+    t.datetime "strike_date"
+    t.string   "strike_description",                          default: ""
+    t.string   "country",                                     default: ""
+    t.decimal  "value",              precision: 10, scale: 6
+    t.string   "category",                                    default: ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "status"
+    t.string   "description"
+    t.string   "sub_category",                                default: ""
   end
 
   create_table "prognosticators", force: true do |t|

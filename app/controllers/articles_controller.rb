@@ -74,6 +74,20 @@ class ArticlesController < ApplicationController
 
     @predictor = current_predictor
 
+    @country_list = Array.new
+
+    PriceItem.select(:country).distinct.each do |country_item|
+
+      @country_list << country_item.country
+
+    end
+
+
+
+    @sub_category_list = PriceItem.select(:sub_category).distinct
+
+    @strike_description_list = PriceItem.select(:strike_description).distinct
+
     respond_to do |format|
     format.html # new.html.erb
     format.json { render json: @article }
@@ -111,6 +125,20 @@ class ArticlesController < ApplicationController
 
       respond_to do |format|
         format.js { render json: { :teama => @team_away.name, :teamh => @team_home.name, :game_id => @game.id, :event_time => @game.event_time, :league => @game.league } , content_type: 'text/json' }
+      end
+
+    end
+
+  end
+
+  def ajax_indicator
+
+    if params[:typeId]
+
+      @priceItem = PriceItem.find(params[:typeId])
+
+      respond_to do |format|
+        format.js { render json: { :type_id => @priceItem.id, :country => @priceItem.country, :sub_category => @priceItem.sub_category, :strike_description => @priceItem.strike_description } , content_type: 'text/json' }
       end
 
     end
@@ -356,6 +384,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:id, :title, :body, :hits, :event_id, :event_type, :event_time, :category, :teama, :teamh, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :spread, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id, :cost])
+      params.require(:article).permit(:id, :title, :body, :hits, :event_id, :event_type, :event_time, :category, :teama, :teamh, prediction_games_attributes:[:game_winner, :teama_score, :teamh_score, :spread, :game_id, :event_time, :status, :teama, :teamh, :league, :article_id, :predictor_id, :cost], prediction_economies_attributes:[:type, :type_id, :strike_date, :strike_description, :value])
     end
 end

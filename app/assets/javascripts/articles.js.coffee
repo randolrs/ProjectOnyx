@@ -64,6 +64,74 @@ $(document).ready ->
      			eventTimeInput.val(data.event_time)
      			gameIdInput.val(data.game_id)
      			scoreForm.slideDown()
+    
+     $('form').on 'change', '.article_country_select', (event) ->
+      timeContainer = $(@).nextAll('.article_time_select_container')
+      timeContainer.hide()
+      indicatorContainer = $(@).nextAll('.article_indicator_select_container')
+      indicatorSelect = indicatorContainer.children('.article_indicator_select')
+      indicatorDefault = indicatorContainer.children('.article_indicator_select_default')
+      indicators = indicatorSelect.html()
+      indicators_default = indicatorDefault.html()
+      country = $(@).val()
+      options = $(indicators_default).filter("optgroup[label='#{country}']").html()
+      if options
+        indicatorSelect.html(options)
+        indicatorContainer.slideDown()
+      else
+        indicatorSelect.empty()
+        indicatorContainer.hide()
+
+     $('form').on 'change', '.article_indicator_select', (event) ->
+      timeContainer = $(@).parent().nextAll('.article_time_select_container')
+      timeSelect = timeContainer.children('.article_time_select')
+      timeDefault = timeContainer.children('.article_time_select_default')
+      times = timeSelect.html()
+      times_default = timeDefault.html()
+      indicator = $(@).val()
+      country = $(@).parent().prevAll('.article_country_select').val()
+      country_indicator_string = country + " " + indicator
+      options = $(times_default).filter("optgroup[label='#{country_indicator_string}']").html()
+      if options
+        timeSelect.html(options)
+        timeContainer.slideDown()
+      else
+        timeSelect.empty()
+        timeContainer.hide()
+
+    $('form').on 'change', '.article_time_select', (event) ->
+      priceForm = $(@).parent().nextAll('.price-select')
+      indicatorLabel = priceForm.children('.article_prediction_economy_indicator')
+      typeIdInput = priceForm.children('.type-id-input')
+      typeId = $(@).val()
+      $.ajax
+        url: "/article/ajax_indicator/#{typeId}"
+        type: "GET"
+        success: (data) ->
+          console.log(data)
+          indicatorString = data.country + " " + data.sub_category + " " + data.strike_description + " Prediction:"
+          indicatorLabel.text(indicatorString)
+          typeIdInput.val(data.type_id)
+          priceForm.slideDown()
+
+    $('form').on 'click', '.prediction-save-button', (event), ->
+      alert("tear drips")
+      priceForm = $(@).parent()
+      indicatorLabel = priceForm.children('.article_prediction_economy_indicator')
+      predictionInput = priceForm.children('.article_prediction_economy_prediction')
+      predictionFilterContainer = $(@).parent().parent()
+      predictionSummaryContainer = $(@).parent().parent().prevAll('.article-prediction-summary')
+      predictionSummaryLabel = predictionSummaryContainer.children('.article_prediction_economy_indicator_summary')
+      predictionSummaryString = indicatorLabel.text() + " " + predictionInput.val()
+      predictionSummaryLabel.text(predictionSummaryString)
+      predictionFilterContainer.slideUp()
+      predictionSummaryContainer.slideDown()
+
+    $('form').on 'click', '.edit-prediction', (event), ->
+      predictionFilterContainer = $(@).prevAll('.article-prediction-filters')
+      predictionSummaryContainer = $(@).prevAll('.article-prediction-summary')
+      predictionSummaryContainer.slideUp()
+      predictionFilterContainer.slideDown()
 
     $(".recommend-button").click (event), ->
       event.preventDefault()

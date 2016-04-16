@@ -2,7 +2,7 @@
 <%# f.collection_select(:league, Sport.all, :subcat, :subcat, include_blank: true, :id=>'my-custom-class')%>
 </div> -->
 
-<div class="article-prediction-game-form">
+<div class="article-prediction-form">
 
   <select class="article_league_select">
 
@@ -116,6 +116,7 @@
       <%= f.hidden_field :event_time, as: :datetime, :label => false, :placeholder => 2, :class => 'event-time-input' %>
 
       <h4>Final Score Prediction</h4>
+
       <div class="team-container" style="height:80px;">
         <a class="article_prediction_game_teamh">Home Team</a><%= f.number_field :teamh_score, :maxlength=>"3" %><br><br>
 

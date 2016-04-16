@@ -69,6 +69,6 @@ class PredictionEconomiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prediction_economy_params
-      params.require(:prediction_economy).permit(:type, :type_id, :strike_date, :strike_description, :country, :value)
+      params.require(:prediction_economy).permit(:type, :type_id, :strike_date, :strike_description, :country, :value, :status, :category, :sub_category)
     end
 end

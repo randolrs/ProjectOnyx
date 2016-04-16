@@ -1,0 +1,154 @@
+
+<div class="article-prediction-form">
+
+		<a class="cancel-prediction">
+			+
+		</a>
+	
+	<div class="article-prediction-summary" style="display:none;">
+
+		<h5 class="article_prediction_economy_indicator_summary">Prediction:</h5>
+
+	</div>
+
+	<div class="article-prediction-filters">
+
+	    <h5>Country</h5>
+
+	    <select class="article_country_select">
+
+	      <option value="" disabled selected>Select a Country</option>
+
+	        <% @country_list.each do |country| %>
+
+	            <option value="<%=country%>"><%= country %></option>
+
+	          <%end%>
+
+	    </select>
+
+	    <div class ="article_indicator_select_container" style="display:none;">
+
+		    <h5>Indicator</h5>
+
+		    <select class="article_indicator_select">
+
+		      <option value="" disabled selected>Select an Indicator</option>
+
+		      <% @country_list.each do |country| %>
+
+		          <optgroup label="<%= country %>">
+
+		          	<option value="" disabled selected>Select an Indicator</option>
+
+		            <% PriceItem.where(:country => country).each do |price_item| %>
+
+		              	<option value="<%=price_item.sub_category%>"><%= price_item.sub_category %></option>
+
+		            <%end%>
+
+		          </optgroup>
+
+		        <%#end%>
+
+		      <%end%>
+
+		    </select>
+
+		    <select class="article_indicator_select_default" style="display:none;">
+
+		      <option value></option>
+
+		      <% @country_list.each do |country| %>
+		        
+		        <%# if team.team_games_predictable.count > 0 %>
+
+		          <optgroup label="<%= country %>">
+
+		          	<option value="" disabled selected>Select an Indicator</option>
+
+		            <% PriceItem.where(:country => country).each do |price_item| %>
+
+		              	<option value="<%=price_item.sub_category%>"><%= price_item.sub_category %></option>
+
+		            <%end%>
+
+		          </optgroup>
+
+		      <%end%>
+
+		    </select>
+
+	    </div>
+
+
+	    <div class ="article_time_select_container" style="display:none;">
+
+		    <h5>Time Period</h5>
+
+		    <select class="article_time_select">
+
+		      <option value="" disabled selected>Select a Time Period</option>
+
+		      <% PriceItem.all.each do |price_item| %>
+
+		          <optgroup label="<%= price_item.country %> <%=price_item.sub_category%>">
+
+		          	<option value="" disabled selected>Select a Time Period</option>
+
+			            <% PriceItem.where(:country => price_item.country, :sub_category => price_item.sub_category).each do |sub_price_item| %>
+
+			              	<option value="<%= sub_price_item.id%>"><%= sub_price_item.strike_description %></option>
+
+			            <%end%>
+
+		          </optgroup>
+
+		      <%end%>
+
+		    </select>
+
+		    <select class="article_time_select_default" style="display:none;">
+
+		      <option value="" disabled selected>Select a Time Period</option>
+
+		      <% PriceItem.all.each do |price_item| %>
+
+				<optgroup label="<%= price_item.country %> <%=price_item.sub_category%>">
+
+		          	<option value="" disabled selected>Select a Time Period</option>
+
+			            <% PriceItem.where(:country => price_item.country, :sub_category => price_item.sub_category).each do |sub_price_item| %>
+
+			              	<option value="<%= sub_price_item.id%>"><%= sub_price_item.strike_description %></option>
+
+			            <%end%>
+
+		          </optgroup>
+
+		      <%end%>
+
+		    </select>
+
+	    </div>
+
+
+	    <fieldset class="price-select" style="display:none">
+	    	
+	    	<%= f.hidden_field :type_id, as: :integer, :label => false, :placeholder => 2, :class => 'type-id-input' %>
+
+	    	<h5 class="article_prediction_economy_indicator">Prediction:</h5>
+	    	
+	    	<%= f.text_field :value, :placeholder=> nil, class: "article_prediction_economy_prediction" %>
+
+	    	<a class ="prediction-save-button">Save</a>
+
+	    </fieldset>
+
+	    <%= f.hidden_field :_destroy %>
+	    <%= link_to "Cancel", '#', class: "remove_fields" %>
+
+    </div>
+
+    <a class ="edit-prediction">Edit</a>
+</div>

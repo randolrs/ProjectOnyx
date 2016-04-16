@@ -1,0 +1,57 @@
+<%= form_for(@price_item) do |f| %>
+  <% if @price_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@price_item.errors.count, "error") %> prohibited this price_item from being saved:</h2>
+
+      <ul>
+      <% @price_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <h5>Description</h5>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <h5>Category</h5>
+    <%= f.select :category, [['Economics','economics'],['Finance','finance']] %>
+  </div>
+  
+  <div class="field">
+    <h5>Country</h5>
+    <%= f.select :country, [['United States','US'],['Canada','CA']] %>
+  </div>
+  
+  <div class="field">
+    <h5>Sub Category</h5>
+    <%= f.text_field :sub_category %>
+  </div>
+  
+  <div class="field">
+    <h5>Time Period Description</h5>
+    <%= f.text_field :strike_description %>
+  </div>
+  
+  <div class="field">
+    <h5>Strike Date</h5>
+    <%= f.datetime_select :strike_date %>
+  </div>
+
+  <div class="field">
+    <h5>Value</h5>
+    <%= f.text_field :value %>
+  </div>
+
+  <div class="field">
+    <h5>Status</h5>
+    <%= f.select :status, [['Open',true],['Closed',false]] %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

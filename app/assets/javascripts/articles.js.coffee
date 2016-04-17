@@ -128,10 +128,15 @@ $(document).ready ->
       predictionSummaryContainer.slideDown()
 
     $('form').on 'click', '.edit-prediction', (event), ->
-      predictionFilterContainer = $(@).prevAll('.article-prediction-filters')
-      predictionSummaryContainer = $(@).prevAll('.article-prediction-summary')
+      predictionFilterContainer = $(@).parent().nextAll('.article-prediction-filters')
+      predictionSummaryContainer = $(@).parent()
       predictionSummaryContainer.slideUp()
       predictionFilterContainer.slideDown()
+
+    $('form').on 'click', '.remove_fields', (event) ->
+      $(@).prev('input[type=hidden]').val('1')
+      $(@).parent().hide()
+      event.preventDefault()
 
     $(".recommend-button").click (event), ->
       event.preventDefault()

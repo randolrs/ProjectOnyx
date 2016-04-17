@@ -1,13 +1,18 @@
 
 <div class="article-prediction-form">
 
-		<a class="cancel-prediction">
+<!-- 		<a class="cancel-prediction">
 			+
-		</a>
+		</a> -->
+
+		<%= f.hidden_field :_destroy %>
+	    <%= link_to "+", '#', class: "remove_fields cancel-prediction" %>
 	
 	<div class="article-prediction-summary" style="display:none;">
 
 		<h5 class="article_prediction_economy_indicator_summary">Prediction:</h5>
+
+		<a class ="edit-prediction">Edit</a>
 
 	</div>
 
@@ -145,10 +150,6 @@
 
 	    </fieldset>
 
-	    <%= f.hidden_field :_destroy %>
-	    <%= link_to "Cancel", '#', class: "remove_fields" %>
-
     </div>
 
-    <a class ="edit-prediction">Edit</a>
 </div>

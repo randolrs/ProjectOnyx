@@ -310,6 +310,18 @@ class ArticlesController < ApplicationController
 
           end
 
+          if @article.prediction_economies.count > 0
+
+            @tagging = Tagging.new
+
+            @tagging.update(:article_id => @article.id)
+
+            @tagging.update(:tag_id => Topic.find_by_name("Economics").id)
+
+            #need to add sub-category tags
+            
+          end
+
           unless current_predictor.account ###make this check a partial
 
             Stripe.api_key = Rails.configuration.stripe[:secret_key]

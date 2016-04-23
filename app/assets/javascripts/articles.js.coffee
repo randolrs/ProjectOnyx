@@ -115,12 +115,11 @@ $(document).ready ->
           priceForm.slideDown()
 
     $('form').on 'click', '.prediction-save-button', (event), ->
-      alert("tear drips")
-      priceForm = $(@).parent()
+      priceForm = $(@).parent().parent()
       indicatorLabel = priceForm.children('.article_prediction_economy_indicator')
       predictionInput = priceForm.children('.article_prediction_economy_prediction')
-      predictionFilterContainer = $(@).parent().parent()
-      predictionSummaryContainer = $(@).parent().parent().prevAll('.article-prediction-summary')
+      predictionFilterContainer = $(@).parent().parent().parent()
+      predictionSummaryContainer = $(@).parent().parent().parent().prevAll('.article-prediction-summary')
       predictionSummaryLabel = predictionSummaryContainer.children('.article_prediction_economy_indicator_summary')
       predictionSummaryString = indicatorLabel.text() + " " + predictionInput.val()
       predictionSummaryLabel.text(predictionSummaryString)

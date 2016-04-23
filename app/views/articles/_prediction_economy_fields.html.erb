@@ -1,10 +1,6 @@
 
 <div class="article-prediction-form">
 
-<!-- 		<a class="cancel-prediction">
-			+
-		</a> -->
-
 		<%= f.hidden_field :_destroy %>
 	    <%= link_to "+", '#', class: "remove_fields cancel-prediction" %>
 	
@@ -146,7 +142,9 @@
 	    	
 	    	<%= f.text_field :value, :placeholder=> nil, class: "article_prediction_economy_prediction" %>
 
-	    	<a class ="prediction-save-button">Save</a>
+	    	<div class="prediction-save-button-container">
+	    		<a class ="prediction-save-button">Save</a>
+	    	</div>
 
 	    </fieldset>
 

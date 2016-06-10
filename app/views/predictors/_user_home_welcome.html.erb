@@ -37,14 +37,13 @@
 
         <%= f.text_area :title, placeholder: "Share a forecast (use $ before ticker: e.g., $AAPL)", :rows => "2", autofocus: true, class: "message-text" %>
 
-        <br>
-
-        <%= link_to_add_fields "+ Add Forecast", f, :prediction_games %>
-
-        <%= f.submit "Share", class: "publish" %>
-
     </div>
 
   </div>
 
+  <br>
+
+        <%= link_to_add_fields "+ Add Forecast", f, :prediction_games %>
+
+        <%= f.submit "Share", class: "publish" %>
 <% end %>

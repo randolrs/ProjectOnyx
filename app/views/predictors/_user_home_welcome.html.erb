@@ -1,6 +1,6 @@
 <div>
 
-  <h1>Hello <%= link_to predictor.name, predictordashboard_path(current_predictor.username) %></h1>
+  <h1 class="home-hello">Hello <a href='<%=predictordashboard_path(predictor.username)%>' class="no-style"><%= predictor.name%></a></h1>
 
 </div>
 
@@ -35,12 +35,7 @@
 
         <% end %>
 
-        <div class="message-caret">
-
-          
-        </div>
-        
-        <%= f.text_field :title, placeholder: "Title", autofocus: true, class: "article-title-text" %>
+        <%= f.text_area :title, placeholder: "Share a forecast (use $ before ticker: e.g., $AAPL)", :rows => "2", autofocus: true, class: "message-text" %>
 
         <br>
 
@@ -49,5 +44,7 @@
         <%= f.submit "Share", class: "publish" %>
 
     </div>
+
+  </div>
 
 <% end %>

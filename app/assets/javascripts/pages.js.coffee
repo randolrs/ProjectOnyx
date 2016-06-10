@@ -10,3 +10,14 @@ $(document).ready ->
       event.preventDefault()
       introPanel = $(@).parent('.intro-container')
       introPanel.slideUp()
+
+    $('form').on 'focusin', '.message-text', (event), ->
+      publishContainer = $(@).parent().parent().nextAll('.home-publish-container')
+      publishContainer.slideDown()
+
+    $('form').on 'focusout', '.message-text', (event), ->
+      message = $(@).val()
+      publishContainer = $(@).parent().parent().nextAll('.home-publish-container')
+      if message == ""
+      	publishContainer.slideUp()
+      

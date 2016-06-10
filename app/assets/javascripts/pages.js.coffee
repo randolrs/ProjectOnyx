@@ -13,7 +13,7 @@ $(document).ready ->
 
     $('form').on 'focusin', '.message-text', (event), ->
       publishContainer = $(@).parent().parent().nextAll('.home-publish-container')
-      publishContainer.slideDown()
+      publishContainer.css("display", "table-row")
 
     $('form').on 'focusout', '.message-text', (event), ->
       message = $(@).val()

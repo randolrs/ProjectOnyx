@@ -2182,7 +2182,7 @@ ul.dropdown-menu li {
     padding-left:10px;
     display:table-cell;
     float:left;
-    width:80%;
+    width:81%;
   }
 
   textarea.message-text{
@@ -2227,8 +2227,24 @@ h1.home-hello{
 }
 
 .home-publish-container{
-  margin-left:70px;
   display:none;
+  float:left;
+  width:100%;
+}
+
+.home-under-image{
+  display:table-cell;
+  min-width:50px;
+  min-height:50px;
+  width:10%;
+  float:left;
+}
+
+.home-publish-button{
+  display: table-cell;
+  padding-left:10px;
+  width:81%;
+  float:left;
 }
 
 input[type="submit"].publish-message{

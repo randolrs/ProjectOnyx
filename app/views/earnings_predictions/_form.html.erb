@@ -1,0 +1,53 @@
+<%= form_for(@earnings_prediction) do |f| %>
+  <% if @earnings_prediction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@earnings_prediction.errors.count, "error") %> prohibited this earnings_prediction from being saved:</h2>
+
+      <ul>
+      <% @earnings_prediction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :company_id %><br>
+    <%= f.number_field :company_id %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br>
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :ticker %><br>
+    <%= f.text_field :ticker %>
+  </div>
+  <div class="field">
+    <%= f.label :eps_estimate %><br>
+    <%= f.text_field :eps_estimate %>
+  </div>
+  <div class="field">
+    <%= f.label :quarter %><br>
+    <%= f.text_field :quarter %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.text_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :eps_actual %><br>
+    <%= f.text_field :eps_actual %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.text_field :rating %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

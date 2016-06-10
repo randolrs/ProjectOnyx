@@ -1,0 +1,127 @@
+<!-- <div id="sport-select">
+<%# f.collection_select(:league, Sport.all, :subcat, :subcat, include_blank: true, :id=>'my-custom-class')%>
+</div> -->
+
+<div class="article-prediction-form">
+
+  <select class="article_league_select">
+
+      <option value="" disabled selected>Select a League</option>
+
+        <% Sport.all.each do |league| %>
+
+            <option value="<%=league.subcat%>"><%= league.subcat%></option>
+
+          <%end%>
+
+    </select>
+
+    <select class="article_team_select">
+
+      <option value="" disabled selected>Select a Team</option>
+
+      <% Sport.all.each do |sport| %>
+        
+        <optgroup label="<%=sport.subcat%>">
+
+          <% sport.teams.each do |team| %>
+
+            <option value="<%=team.name%>"><%= team.name%></option>
+
+          <%end%>
+
+        </optgroup>
+
+      <%end%>
+
+    </select>
+
+    <select class="article_team_select_default" style="display:none;">
+
+      <option value="" disabled selected>Select a Team</option>
+
+      <% Sport.all.each do |sport| %>
+        
+        <optgroup label="<%=sport.subcat%>">
+
+          <% sport.teams.each do |team| %>
+
+            <option value="<%=team.name%>"><%= team.name%></option>
+
+          <%end%>
+
+        </optgroup>
+
+      <%end%>
+
+    </select>
+
+
+    <select class="article_game_select">
+
+      <option value>Select a Game</option>
+
+      <% Team.all.each do |team| %>
+        
+        <% if team.team_games_predictable.count > 0 %>
+
+          <optgroup label="<%= team.name%>">
+
+            <% team.team_games_predictable.each do |game| %>
+
+              <option value="<%=game.id%>"><%= game.event_time.strftime("%m/%d/%g")%>: <%=game.teama%> @ <%=game.teamh%></option>
+
+            <%end%>
+
+          </optgroup>
+
+        <%end%>
+
+      <%end%>
+
+    </select>
+
+    <select class="article_game_select_default" style="display:none;">
+
+      <option value></option>
+
+      <% Team.all.each do |team| %>
+
+        <% if team.team_games_predictable.count > 0 %>
+        
+          <optgroup label="<%= team.name%>">
+
+            <% team.team_games_predictable.each do |game| %>
+
+              <option value="<%=game.id%>"><%= game.event_time.strftime("%m/%d/%g")%>: <%=game.teama%> @ <%=game.teamh%></option>
+
+            <%end%>
+
+          </optgroup>
+
+        <%end%>
+
+      <%end%>
+
+    </select>
+
+    <fieldset class="final-score-select" style="display:none">
+
+      <h4>Final Score Prediction</h4>
+
+      <div class="team-container" style="height:80px;">
+        <a class="article_prediction_game_teamh">Home Team</a><br>
+
+        <a class="article_prediction_game_teama">Away Team</a><br>
+      </div>
+
+      </div>
+
+      <%= f.hidden_field :_destroy %>
+      <%= link_to "Cancel", '#', class: "remove_fields" %>
+
+    </fieldset>
+
+
+
+</div>

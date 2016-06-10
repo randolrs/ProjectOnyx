@@ -1,0 +1,41 @@
+<h1>Listing earnings_predictions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Company</th>
+      <th>Ticker</th>
+      <th>Eps estimate</th>
+      <th>Quarter</th>
+      <th>Year</th>
+      <th>Status</th>
+      <th>Eps actual</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @earnings_predictions.each do |earnings_prediction| %>
+      <tr>
+        <td><%= earnings_prediction.company_id %></td>
+        <td><%= earnings_prediction.company %></td>
+        <td><%= earnings_prediction.ticker %></td>
+        <td><%= earnings_prediction.eps_estimate %></td>
+        <td><%= earnings_prediction.quarter %></td>
+        <td><%= earnings_prediction.year %></td>
+        <td><%= earnings_prediction.status %></td>
+        <td><%= earnings_prediction.eps_actual %></td>
+        <td><%= earnings_prediction.rating %></td>
+        <td><%= link_to 'Show', earnings_prediction %></td>
+        <td><%= link_to 'Edit', edit_earnings_prediction_path(earnings_prediction) %></td>
+        <td><%= link_to 'Destroy', earnings_prediction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Earnings prediction', new_earnings_prediction_path %>

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Ticker:</strong>
+  <%= @company.ticker %>
+</p>
+
+<p>
+  <strong>Exchange:</strong>
+  <%= @company.exchange %>
+</p>
+
+<p>
+  <strong>Sector:</strong>
+  <%= @company.sector %>
+</p>
+
+<p>
+  <strong>Sub sector:</strong>
+  <%= @company.sub_sector %>
+</p>
+
+<p>
+  <strong>Industry group:</strong>
+  <%= @company.industry_group %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @company.country %>
+</p>
+
+<p>
+  <strong>Next filing date:</strong>
+  <%= @company.next_filing_date %>
+</p>
+
+<p>
+  <strong>Datetime:</strong>
+  <%= @company.datetime %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @company.status %>
+</p>
+
+<p>
+  <strong>Ein:</strong>
+  <%= @company.ein %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

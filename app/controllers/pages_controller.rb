@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
     @page = "home"
 
-    @article = Article.new
+    @message = Message.new
 
     @page_title = "Credible Predictions"
 

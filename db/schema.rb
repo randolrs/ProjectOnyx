@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409155014) do
+ActiveRecord::Schema.define(version: 20160610045134) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -77,9 +77,39 @@ ActiveRecord::Schema.define(version: 20160409155014) do
     t.datetime "updated_at"
   end
 
+  create_table "companies", force: true do |t|
+    t.string   "name"
+    t.string   "ticker"
+    t.string   "exchange"
+    t.string   "sector"
+    t.string   "sub_sector"
+    t.string   "industry_group"
+    t.string   "country"
+    t.string   "next_filing_date"
+    t.string   "datetime"
+    t.string   "status"
+    t.string   "ein"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "descriptions", force: true do |t|
     t.string   "title"
     t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "earnings_predictions", force: true do |t|
+    t.integer  "company_id"
+    t.string   "company"
+    t.string   "ticker"
+    t.decimal  "eps_estimate"
+    t.string   "quarter"
+    t.string   "year"
+    t.string   "status"
+    t.decimal  "eps_actual"
+    t.decimal  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -110,6 +140,12 @@ ActiveRecord::Schema.define(version: 20160409155014) do
     t.string   "event_venue"
     t.string   "season",       default: ""
     t.string   "title"
+  end
+
+  create_table "messages", force: true do |t|
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "plans", force: true do |t|

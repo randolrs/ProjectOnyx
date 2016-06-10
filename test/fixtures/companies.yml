@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ticker: MyString
+  exchange: MyString
+  sector: MyString
+  sub_sector: MyString
+  industry_group: MyString
+  country: MyString
+  next_filing_date: MyString
+  datetime: MyString
+  status: MyString
+  ein: MyString
+
+two:
+  name: MyString
+  ticker: MyString
+  exchange: MyString
+  sector: MyString
+  sub_sector: MyString
+  industry_group: MyString
+  country: MyString
+  next_filing_date: MyString
+  datetime: MyString
+  status: MyString
+  ein: MyString

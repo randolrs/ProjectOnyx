@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @earnings_prediction.company_id %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @earnings_prediction.company %>
+</p>
+
+<p>
+  <strong>Ticker:</strong>
+  <%= @earnings_prediction.ticker %>
+</p>
+
+<p>
+  <strong>Eps estimate:</strong>
+  <%= @earnings_prediction.eps_estimate %>
+</p>
+
+<p>
+  <strong>Quarter:</strong>
+  <%= @earnings_prediction.quarter %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @earnings_prediction.year %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @earnings_prediction.status %>
+</p>
+
+<p>
+  <strong>Eps actual:</strong>
+  <%= @earnings_prediction.eps_actual %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @earnings_prediction.rating %>
+</p>
+
+<%= link_to 'Edit', edit_earnings_prediction_path(@earnings_prediction) %> |
+<%= link_to 'Back', earnings_predictions_path %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id: 1
+  company: MyString
+  ticker: MyString
+  eps_estimate: 9.99
+  quarter: MyString
+  year: MyString
+  status: MyString
+  eps_actual: 9.99
+  rating: 9.99
+
+two:
+  company_id: 1
+  company: MyString
+  ticker: MyString
+  eps_estimate: 9.99
+  quarter: MyString
+  year: MyString
+  status: MyString
+  eps_actual: 9.99
+  rating: 9.99

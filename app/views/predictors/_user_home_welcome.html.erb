@@ -4,7 +4,7 @@
 
 </div>
 
-<%= form_for(@article) do |f| %>
+<%= form_for(@message) do |f| %>
 
   <div class="home-message-container">
 
@@ -16,15 +16,15 @@
 
       <div class="home-message">
 
-        <% if @article.errors.any? %>
+        <% if @message.errors.any? %>
 
           <div id="error_explanation">
 
-            <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+            <h2><%= pluralize(@message.errors.count, "error") %> prohibited this article from being saved:</h2>
 
             <ul>
 
-            <% @article.errors.full_messages.each do |message| %>
+            <% @message.errors.full_messages.each do |message| %>
               <li><%= message %></li>
 
             <% end %>
@@ -35,7 +35,7 @@
 
         <% end %>
 
-        <%= f.text_area :title, placeholder: "Share a forecast (use $ before ticker: e.g., $AAPL)", :rows => "2", autofocus: false, class: "message-text" %>
+        <%= f.text_area :body, placeholder: "Share a forecast (use $ before ticker: e.g., $AAPL)", :rows => "2", autofocus: false, class: "message-text" %>
 
     </div>
 
@@ -49,6 +49,6 @@
 
   <br>
 
-  <%= link_to_add_fields "+ Add Forecast", f, :prediction_games %>
+  <%= link_to_add_fields "+ Add Forecast", f, :earnings_predictions %>
 
 <% end %>

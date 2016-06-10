@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :messages
+
+  resources :earnings_predictions
+
+  resources :companies
+
   resources :price_items
 
   resources :topic_copies

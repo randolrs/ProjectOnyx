@@ -12,6 +12,10 @@
 				</div>
 
 				<div>
+					<%= f.text_field :name, placeholder: "Name", pattern: /\A[a-zA-Z0-9 ]*\z/, class: "signup-text"  %>
+				</div>
+
+				<div>
 				  <%= f.email_field :email, placeholder: "Email", class: "signup-text"  %>
 				</div>
 

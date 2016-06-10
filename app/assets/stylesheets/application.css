@@ -141,6 +141,7 @@ html, body {
  .content-panel.sub{
     margin-bottom: 10px;
     padding:10px;
+    float:left;
 }
 
 .large-table-container{

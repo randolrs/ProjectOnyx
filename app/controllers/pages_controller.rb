@@ -4,6 +4,8 @@ class PagesController < ApplicationController
 
     @page = "home"
 
+    @article = Article.new
+
     @page_title = "Credible Predictions"
 
     @parent_tag_id = Topic.find_by_name("Home").id.to_s

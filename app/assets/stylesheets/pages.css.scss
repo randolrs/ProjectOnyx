@@ -15,8 +15,6 @@
 }
 
 
-
-
 .header-container.sub{
   background-color:white;
   padding:0px;
@@ -2160,4 +2158,27 @@ ul.dropdown-menu li {
   .content-wrap h3{
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
     font-size:20px;
+  }
+
+  .profile-image-float{
+    width:40px;
+    height:40px;
+    display:inline;
+    
+  }
+
+  .home-message{
+    margin-left:20px;
+    width:200px;
+    display:inline;
+  }
+
+  .message-caret{
+    background: url(https://assets3.stocktwits.net/assets/web2/stw-sprite-3-e0819b04431c1c6bccdf944a41e02b72.png) top left no-repeat;
+    background-position: 0 -209px;
+    width: 10px;
+    height: 15px;
+    left: 65px;
+    position: absolute;
+    top: 110px;
   }

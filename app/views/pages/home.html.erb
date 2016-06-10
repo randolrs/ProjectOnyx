@@ -12,7 +12,13 @@
 
       <div class ="main-content index">
 
-      	<% if @articles %>
+        <% if predictor_signed_in? %>
+      	
+          <%= render partial: 'predictors/user_home_welcome', locals: {predictor: current_predictor} %>
+
+        <%end%>
+
+        <% if @articles %>
       	
 	        <% @articles.each do |article|%>
 

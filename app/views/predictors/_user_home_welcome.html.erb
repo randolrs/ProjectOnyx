@@ -1,0 +1,53 @@
+<div>
+
+  <h1>Hello <%= link_to predictor.name, predictordashboard_path(current_predictor.username) %></h1>
+
+</div>
+
+<%= form_for(@article) do |f| %>
+
+  <div class="home-message-container">
+
+      <div class="profile-image-float">
+
+        <a href='#' class="profile-image" title="Futable Account: <%= current_predictor.username %> (You)"><span><%= image_tag current_predictor.image.url(:medium), class: "predictor-image-tiny"%></span></a>
+
+      </div>
+
+      <div class="home-message">
+
+        <% if @article.errors.any? %>
+
+          <div id="error_explanation">
+
+            <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+            <ul>
+
+            <% @article.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+
+            <% end %>
+
+            </ul>
+
+          </div>
+
+        <% end %>
+
+        <div class="message-caret">
+
+          
+        </div>
+        
+        <%= f.text_field :title, placeholder: "Title", autofocus: true, class: "article-title-text" %>
+
+        <br>
+
+        <%= link_to_add_fields "+ Add Forecast", f, :prediction_games %>
+
+        <%= f.submit "Share", class: "publish" %>
+
+    </div>
+
+<% end %>

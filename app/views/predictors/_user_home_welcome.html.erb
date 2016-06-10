@@ -10,7 +10,7 @@
 
       <div class="profile-image-float">
 
-        <a href='#' class="profile-image" title="Futable Account: <%= current_predictor.username %> (You)"><span><%= image_tag current_predictor.image.url(:medium), class: "predictor-image-tiny"%></span></a>
+        <a href='#' class="profile-image" title="Futable Account: <%= current_predictor.username %> (You)"><span><%= image_tag current_predictor.image.url(:medium), class: "predictor-image-home"%></span></a>
 
       </div>
 
@@ -43,7 +43,8 @@
 
   <br>
 
-        <%= link_to_add_fields "+ Add Forecast", f, :prediction_games %>
+  <%= link_to_add_fields "+ Add Forecast", f, :prediction_games %>
 
-        <%= f.submit "Share", class: "publish" %>
+  <%= f.submit "Share", class: "publish" %>
+
 <% end %>

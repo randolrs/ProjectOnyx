@@ -1283,6 +1283,15 @@ th.prediction-summary-index{
   
 }
 
+.predictor-image-home{
+  margin-left:auto;
+  margin-right:auto;
+  width:50px;
+  height:50px;
+  border-radius:25px;
+  
+}
+
 .team-image-small{
   margin-left:auto;
   margin-right:auto;
@@ -2161,11 +2170,10 @@ ul.dropdown-menu li {
   }
 
   .profile-image-float{
-    width:40px;
-    height:40px;
+    width:50px;
+    height:50px;
     display:inline;
     float:left;
-    margin: 10px auto;
     
   }
 
@@ -2206,4 +2214,8 @@ h1.home-hello{
   font-weight: 500;
   font-size: 28px;
   text-shadow: 1px 1px 0px #FFF;
+}
+
+.home-message-container{
+  margin-bottom: 10px;
 }

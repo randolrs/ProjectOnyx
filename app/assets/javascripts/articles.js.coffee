@@ -15,6 +15,9 @@ $(document).ready ->
       time = new Date().getTime()
       regexp = new RegExp($(this).data('id'), 'g')
       $(this).before($(this).data('fields').replace(regexp, time))
+      publishContainer = $(@).nextAll('.home-publish-container')
+      publishContainer.css("display", "table-row")
+      $(@).hide()
       event.preventDefault()
 
      $('form').on 'change', '.article_league_select', (event) ->
@@ -134,7 +137,12 @@ $(document).ready ->
 
     $('form').on 'click', '.remove_fields', (event) ->
       $(@).prev('input[type=hidden]').val('1')
-      $(@).parent().hide()
+      $(@).parent().slideUp()
+      $(@).parent().nextAll('.add_fields').slideDown()
+      homePublishContainer = $(@).parent().nextAll('.home-publish-container')
+      messageText = homePublishContainer.parent().find('.home-message-container').children('.home-message').children('.message-text').val()
+      if messageText == ""
+        homePublishContainer.slideUp()
       event.preventDefault()
 
     $(".recommend-button").click (event), ->

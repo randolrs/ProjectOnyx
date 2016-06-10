@@ -18,6 +18,7 @@ $(document).ready ->
     $('form').on 'focusout', '.message-text', (event), ->
       message = $(@).val()
       publishContainer = $(@).parent().parent().nextAll('.home-publish-container')
-      if message == ""
+      forecastContainer = $(@).parent().parent().parent().find('.home-forecast-form').css('display')
+      if message == "" && forecastContainer != "block"
       	publishContainer.slideUp()
       

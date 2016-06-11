@@ -2188,11 +2188,6 @@ ul.dropdown-menu li {
     display:table-cell;
     float:left;
     width:81%;
-    border: 1px solid #a0a0a0;
-    border-color: #a0a0a0 #a0a0a0 #cfcfcf;
-    border-radius: 4px;
-    box-shadow: 0 1px 0 #f6f6f6, inset 1px 1px 1px #dfdfdf;
-    background-color: #fff;
   }
 
   input[type="textarea"].message-text:focus{
@@ -2210,9 +2205,11 @@ ul.dropdown-menu li {
     font-size: 18px;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    border:none;
-
-    background: #fff;
+    border: 1px solid #a0a0a0;
+    border-color: #a0a0a0 #a0a0a0 #cfcfcf;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 #f6f6f6, inset 1px 1px 1px #dfdfdf;
+    background-color: #fff;
     overflow: hidden;
     resize: none;
 }
@@ -2222,6 +2219,11 @@ textarea.message-text:focus{
   border-color: #a0a0a0 #a0a0a0 #cfcfcf;
   border-radius: 4px;
   box-shadow: 0 1px 0 #f6f6f6, inset 1px 1px 1px #dfdfdf;
+}
+
+.forecast-fields-container{
+  margin-top:15px;
+  padding:5px;
 }
 
 h1.home-hello{

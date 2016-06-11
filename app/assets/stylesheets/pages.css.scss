@@ -2185,10 +2185,13 @@ ul.dropdown-menu li {
   }
 
   .home-message{
-    padding-left:10px;
     display:table-cell;
     float:left;
     width:81%;
+    border: 1px solid #a0a0a0;
+    border-color: #a0a0a0 #a0a0a0 #cfcfcf;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 #f6f6f6, inset 1px 1px 1px #dfdfdf;
   }
 
   textarea.message-text{
@@ -2204,10 +2207,6 @@ ul.dropdown-menu li {
     letter-spacing: -0.02em;
 
     background: #fff;
-    border: 1px solid #a0a0a0;
-    border-color: #a0a0a0 #a0a0a0 #cfcfcf;
-    border-radius: 4px;
-    box-shadow: 0 1px 0 #f6f6f6, inset 1px 1px 1px #dfdfdf;
     overflow: hidden;
     resize: none;
 }
@@ -2322,4 +2321,5 @@ h4.forecast-form-header {
   background: yellow;
   width:100%;
   height:15px;
+  margin-top: -5px;
 }

@@ -37,9 +37,8 @@
 
         <%= f.text_area :body, placeholder: "Share a forecast (use $ before ticker: e.g., $AAPL)", :rows => "2", autofocus: false, class: "message-text" %>
         
-        <div class="forecast-input">
 
-        </div>
+        <%= link_to_add_fields "+ Add Forecast", f, :earnings_predictions %>
 
       </div>
 

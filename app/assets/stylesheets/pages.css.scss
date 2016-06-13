@@ -2226,6 +2226,7 @@ textarea.message-text:focus{
 .forecast-fields-container{
   float: left;
   width: 100%;
+
 }
 
 input[type="text"].forecast_company_text{
@@ -2282,6 +2283,9 @@ h1.home-hello{
   margin-bottom: 10px;
   float:left;
   width:100%;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 1px 1px #fff;
+  padding-bottom: 20px;
 }
 
 .home-publish-container{

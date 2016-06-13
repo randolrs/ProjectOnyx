@@ -24,7 +24,7 @@ $(document).ready ->
       forecastContainer = $(@).parent().parent().parent().find('.home-forecast-form').css('display')
       if message == "" && forecastContainer != "block"
       	publishContainer.slideUp()
-      	publishButton.slideUp()
+      	publishButton.show()
 
     $('form').on 'click', '.forecast-save-button.cancel', (event) ->
       $(@).prev('input[type=hidden]').val('1')

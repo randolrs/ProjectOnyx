@@ -14,7 +14,7 @@ $(document).ready ->
     $('form').on 'focusin', '.message-text', (event), ->
       publishContainer = $(@).parent().parent().nextAll('.home-publish-container')
       publishButton = $(@).nextAll('.forecast-fields-container').find('.publish-message')
-      publishButton.slideDown()
+      publishButton.show()
       publishContainer.css("display", "table-row")
 
     $('form').on 'focusout', '.message-text', (event), ->

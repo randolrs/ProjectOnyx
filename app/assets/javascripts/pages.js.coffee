@@ -29,11 +29,7 @@ $(document).ready ->
     $('form').on 'click', '.forecast-save-button.cancel', (event) ->
       $(@).prev('input[type=hidden]').val('1')
       forecastForm = $(@).parent().parent().parent().parent().parent()
-      forecastForm.hide()
+      forecastForm.slideUp()
       forecastForm.nextAll('.add_fields').show()
-      homePublishContainer = $(@).parent().nextAll('.home-publish-container')
-      messageText = homePublishContainer.parent().find('.home-message-container').children('.home-message').children('.message-text').val()
-      if messageText == ""
-        homePublishContainer.slideUp()
       event.preventDefault()
       

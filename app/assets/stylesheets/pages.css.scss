@@ -2386,10 +2386,14 @@ h4.forecast-form-header {
 .home-forecast-form{
   width:100%;
   float:left;
-  border:1px solid #ccc;
   padding:10px;
   text-align:center;
   box-shadow: inset 0px 0px 2px #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  padding-bottom: 30px;
+  background: #fff;
+  margin-top: 30px;
+  background: #fdf;
 }
 
 td.forecast-save-button-container{

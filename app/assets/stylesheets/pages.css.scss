@@ -2243,10 +2243,10 @@ input[type="text"].forecast_company_text:focus{
 }
 
 input[type="number"].forecast_eps_estimate_number{
-    width:40px;
     margin-bottom: 0px;
     text-align: center;
     height: 30px;
+    width:80px;
     }
 
 input[type="number"].forecast_eps_estimate_number:focus{
@@ -2397,7 +2397,6 @@ h4.forecast-form-header {
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
   padding-bottom: 30px;
   background: #fff;
-  margin-top: 30px;
   background: #fdf;
 }
 

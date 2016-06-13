@@ -39,7 +39,7 @@
         
         <div class="forecast-fields-container">
 
-          <%= f.submit "Share", class: "publish-message default-off" %><%= link_to_add_fields "+ Add Forecast", f, :earnings_predictions %>
+          <%= link_to_add_fields "+ Add Forecast", f, :earnings_predictions %><%= f.submit "Publish", class: "publish-message default-off" %>
 
         </div>
 
@@ -55,7 +55,7 @@
     </div>
 
     <div class="home-publish-button">
-      <span><%= f.submit "Share", class: "publish-message" %></span><span><%= link_to_add_fields "+ Add Forecast", f, :earnings_predictions %></span>
+      
     </div>
 
   </div>

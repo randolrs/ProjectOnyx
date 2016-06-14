@@ -11,15 +11,6 @@ $(document).ready ->
       $(@).closest('fieldset').hide()
       event.preventDefault()
 
-    $('form').on 'click', '.add_fields', (event) ->
-      time = new Date().getTime()
-      regexp = new RegExp($(this).data('id'), 'g')
-      $(this).before($(this).data('fields').replace(regexp, time))
-      publishContainer = $(@).nextAll('.home-publish-container')
-      publishContainer.css("display", "table-row")
-      $(@).hide()
-      event.preventDefault()
-
      $('form').on 'change', '.article_league_select', (event) ->
      	teams = $(@).nextAll('.article_team_select').html()
      	teams_default = $(@).nextAll('.article_team_select_default').html()

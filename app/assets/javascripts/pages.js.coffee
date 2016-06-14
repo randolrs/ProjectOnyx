@@ -32,4 +32,18 @@ $(document).ready ->
       forecastForm.slideUp()
       forecastForm.nextAll('.add_fields').show()
       event.preventDefault()
+
+    $('form').on 'click', '.add_fields', (event) ->
+      if $(@).attr('id') == "active"
+        $(@).prevAll('.home-forecast-form').slideDown()
+        alert("hi")
+      else
+        $(@).attr('id', 'active')
+        time = new Date().getTime()
+        regexp = new RegExp($(this).data('id'), 'g')
+        $(this).before($(this).data('fields').replace(regexp, time))
+        publishContainer = $(@).nextAll('.home-publish-container')
+        publishContainer.css("display", "table-row")
+        $(@).hide()
+      event.preventDefault()
       

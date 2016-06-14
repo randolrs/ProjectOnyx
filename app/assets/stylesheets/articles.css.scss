@@ -270,6 +270,10 @@ a.add_fields:hover, a.save-prediction-button:hover{
   background-image: linear-gradient(top, #fff, #fff);
 }
 
+a.add_fields:focus {
+  text-decoration:none;
+}
+
 a.prediction-save-button{
   display: inline-block;
   border-radius:2px;

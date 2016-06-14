@@ -126,16 +126,6 @@ $(document).ready ->
       predictionSummaryContainer.slideUp()
       predictionFilterContainer.slideDown()
 
-    $('form').on 'click', '.remove_fields', (event) ->
-      $(@).prev('input[type=hidden]').val('1')
-      $(@).parent().hide()
-      $(@).parent().nextAll('.add_fields').show()
-      homePublishContainer = $(@).parent().nextAll('.home-publish-container')
-      messageText = homePublishContainer.parent().find('.home-message-container').children('.home-message').children('.message-text').val()
-      if messageText == ""
-        homePublishContainer.slideUp()
-      event.preventDefault()
-
     $(".recommend-button").click (event), ->
       event.preventDefault()
       $recommend_button = $(this)

@@ -219,7 +219,7 @@ input[type="submit"].publish:hover{
   transition: all 0.5s ease;
 }
 
-a.add_fields, a.save-prediction-button{
+a.save-prediction-button{
   float:left;
   margin-top:15px;
   padding: 10px 16px;
@@ -252,7 +252,7 @@ a.add_fields, a.save-prediction-button{
   border-color: #4d90fe;
 }
 
-a.add_fields:hover, a.save-prediction-button:hover{
+a.save-prediction-button:hover{
 	
   color:#4d90fe;
   cursor: pointer;

@@ -2512,3 +2512,13 @@ a.forecast-save-button.cancel:hover{
 h4.forecast-form-header{
   text-shadow: 1px 1px 0px #FFF;
 }
+
+.forecast-fields-summary{
+  width:100%;
+  background: #ccc;
+  float:left;
+}
+
+.forecast-fields-summary.default-off{
+  display: none;
+}

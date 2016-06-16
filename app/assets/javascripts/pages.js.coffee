@@ -30,7 +30,21 @@ $(document).ready ->
       $(@).prev('input[type=hidden]').val('1')
       forecastForm = $(@).parent().parent().parent().parent().parent()
       forecastForm.slideUp()
-      forecastForm.nextAll('.add_fields').show()
+      companyInput = forecastForm.find('.company-input').find('input[type=text], textarea')
+      quarterInput = forecastForm.find('.quarter-input').find('.forecast_quarter_select')
+      yearInput = forecastForm.find('.year-input').find('.forecast_year_select')
+      forecastInput = forecastForm.find('.forecast-input').find('input[type=number]')
+      companyInput.val("")
+      quarterInput[0].selectedIndex = 0
+      yearInput[0].selectedIndex = 0
+      forecastInput.val("")
+      forecastFieldsSummary = forecastForm.parent().prevAll('.forecast-fields-summary')
+      if forecastFieldsSummary.find('.forecast-header').text().length != 0
+        forecastFieldsSummary.slideUp()
+        forecastFieldsSummary.find('.forecast-header').text("")
+        forecastFieldsSummary.find('.forecast-details').text("")
+      editForecast = forecastForm.nextAll('.edit-forecast')
+      editForecast.show()
       event.preventDefault()
 
     $('form').on 'click', '.add_fields', (event) ->
@@ -39,32 +53,46 @@ $(document).ready ->
       	$(@).hide()
       	$(@).prevAll('.home-forecast-form').slideDown()
       else
-      	$(@).attr('id', 'active')
+        $(@).attr('id', 'active')
       	time = new Date().getTime()
       	regexp = new RegExp($(this).data('id'), 'g')
       	$(this).before($(this).data('fields').replace(regexp, time))
       	$(@).hide()
 
+    $('form').on 'click', '.edit-forecast', (event) ->
+      event.preventDefault()
+      $(@).hide()
+      $(@).prevAll('.home-forecast-form').slideDown()
+
     $('form').on 'click', '.remove_fields', (event) ->
       $(@).prev('input[type=hidden]').val('1')
       forecastForm = $(@).parent()
       forecastForm.slideUp()
-      forecastForm.nextAll('.add_fields').show()
+      forecastFieldsSummary = forecastForm.parent().prevAll('.forecast-fields-summary').find('.forecast-header')
+      if forecastFieldsSummary.text().length == 0
+        editForecastButton = forecastForm.nextAll('.edit-forecast')
+        editForecastButton.show()
       event.preventDefault()
 
     $('form').on 'click', '.forecast-save-button.add', (event) ->
       forecastForm = $(@).parent().parent().parent().parent().parent()
       forecastForm.slideUp()
-      forecastInputs = forecastForm.find('.company-quarter-year-cell')
       companyInput = forecastForm.find('.company-input').find('input[type=text], textarea').val()
       quarterInput = forecastForm.find('.quarter-input').find(":selected").text()
       forecastInput = forecastForm.find('.forecast-input').find('input[type=number]').val()
       yearInput = forecastForm.find('.year-input').find(":selected").text()
-      forecastForm.nextAll('.add_fields').show()
       forecastFieldsSummary = forecastForm.parent().prevAll('.forecast-fields-summary')
       messageTextArea = forecastForm.parent().prevAll('.message-text')
       forecastFieldsSummary.slideDown()
       messageTextArea.text("Hello")
-      forecastSummaryString = "EPS Forecast: $" + companyInput + " " + quarterInput + " " + yearInput + " " + forecastInput
-      forecastFieldsSummary.text(forecastSummaryString)
+      forecastSummaryString = "$" + companyInput + " " + quarterInput + " " + yearInput + " " + forecastInput
+      forecastFieldsSummary.find('.forecast-header').text("EPS Forecast: ")
+      forecastFieldsSummary.find('.forecast-details').text(forecastSummaryString)
+      $(@).text("Update")
+      $(@).nextAll('.forecast-save-button.cancel').text("Remove")
+      event.preventDefault()
+
+    $('form').on 'click', '.forecast-fields-summary', (event) ->
+      forecastForm = $(@).nextAll('.forecast-fields-container').find('.home-forecast-form')
+      forecastForm.slideDown()
       event.preventDefault()

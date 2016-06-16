@@ -39,13 +39,15 @@
 
         <div class="forecast-fields-summary default-off">
 
-          Hello
+          <span class="forecast-header"></span><span class="forecast-details"></span>
 
         </div>
         
         <div class="forecast-fields-container">
 
           <%= link_to_add_fields "+ Add Forecast", f, :earnings_predictions %><%= f.submit "Publish", class: "publish-message default-off" %>
+
+          <a class="edit-forecast default-off">+ Add Forecast</a>
 
         </div>
 

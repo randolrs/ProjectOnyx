@@ -21,10 +21,9 @@ $(document).ready ->
       message = $(@).val()
       publishContainer = $(@).parent().parent().nextAll('.home-publish-container')
       publishButton = $(@).nextAll('.forecast-fields-container').find('.publish-message')
-      forecastContainer = $(@).parent().parent().parent().find('.home-forecast-form').css('display')
-      if message == "" && forecastContainer != "block"
-      	publishContainer.slideUp()
-      	publishButton.show()
+      forecastFieldsSummary = $(@).nextAll('.forecast-fields-summary')
+      if $(@).text().length == 0 && forecastFieldsSummary.find('.forecast-header').text().length == 0
+      	publishButton.hide()
 
     $('form').on 'click', '.forecast-save-button.cancel', (event) ->
       $(@).prev('input[type=hidden]').val('1')
@@ -102,7 +101,7 @@ $(document).ready ->
       $(@).text("Update")
       $(@).nextAll('.forecast-save-button.cancel').text("Remove")
       publishButton = forecastForm.nextAll('.publish-message')
-      publishButton.fadeIn()
+      publishButton.show()
       event.preventDefault()
 
     $('form').on 'click', '.forecast-fields-summary', (event) ->

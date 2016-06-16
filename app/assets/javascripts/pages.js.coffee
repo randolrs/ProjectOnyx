@@ -38,6 +38,7 @@ $(document).ready ->
       yearInput[0].selectedIndex = 0
       forecastInput.val("")
       forecastFieldsSummary = forecastForm.parent().prevAll('.forecast-fields-summary')
+      messageText = forecastFieldsSummary.prevAll('.message-text')
       if forecastFieldsSummary.find('.forecast-header').text().length != 0
         forecastFieldsSummary.slideUp()
         forecastFieldsSummary.find('.forecast-header').text("")
@@ -47,8 +48,10 @@ $(document).ready ->
         forecastForm.hide()
         $(@).prevAll('.forecast-save-button.add').text("Add")
         $(@).text("Cancel")
+        if messageText.text().length == 0
+          publishButton = forecastForm.nextAll('.publish-message')
+          publishButton.hide()
       else
-        alert("hi")
         forecastForm.hide()
         forecastFieldsSummary.hide()
       editForecast = forecastForm.nextAll('.edit-forecast')
@@ -93,12 +96,13 @@ $(document).ready ->
       forecastFieldsSummary = forecastForm.parent().prevAll('.forecast-fields-summary')
       messageTextArea = forecastForm.parent().prevAll('.message-text')
       forecastFieldsSummary.fadeIn()
-      messageTextArea.text("Hello")
       forecastSummaryString = "$" + companyInput + " " + quarterInput + " " + yearInput + " " + forecastInput
       forecastFieldsSummary.find('.forecast-header').text("EPS Forecast: ")
       forecastFieldsSummary.find('.forecast-details').text(forecastSummaryString)
       $(@).text("Update")
       $(@).nextAll('.forecast-save-button.cancel').text("Remove")
+      publishButton = forecastForm.nextAll('.publish-message')
+      publishButton.fadeIn()
       event.preventDefault()
 
     $('form').on 'click', '.forecast-fields-summary', (event) ->

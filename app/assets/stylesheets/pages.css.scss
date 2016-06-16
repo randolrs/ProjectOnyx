@@ -2518,6 +2518,7 @@ h4.forecast-form-header{
   text-align: center;
   text-shadow: 0px 1px #eee;
   font-size: 20px;
+  color: #394de3;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
   width:100%;
   background: #ccc;
@@ -2532,13 +2533,39 @@ h4.forecast-form-header{
   background: linear-gradient(top,#eee,#bbb);
   border-color: #a0a0a0 #a0a0a0 #cfcfcf;
   border: 1px solid #a0a0a0;
-  border-top: none;
   margin-top:-1px;
+
+  background: #eee;
+  background-image: -moz-linear-gradient(top,#fbfbfb,#dcdcdc);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#fbfbfb),to(#dcdcdc));
+  background-image: -webkit-linear-gradient(top,#fbfbfb,#dcdcdc);
+  background-image: -o-linear-gradient(top,#fbfbfb,#dcdcdc);
+  background-image: -ms-linear-gradient(top,#fbfbfb,#dcdcdc);
+  background: linear-gradient(top,#fbfbfb,#dcdcdc);
+  border-color: #4d90fe;
+
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 
 }
 
 .forecast-fields-summary.default-off{
   display: none;
+}
+
+.forecast-fields-summary:hover{
+  cursor: pointer;
+  background: #fff;
+  background-image: -moz-linear-gradient(top,#fff,#fff);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#fff));
+  background-image: -webkit-linear-gradient(top,#fff,#fff);
+  background-image: -o-linear-gradient(top,#fff,#fff);
+  background-image: -ms-linear-gradient(top,#fff,#fff);
+  background: linear-gradient(top,#fff,#fff);
+  webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  color:#4d90fe;
+  text-shadow: 0px 1px #fff;
+  text-decoration: none;
 }
 
 a.add_fields{

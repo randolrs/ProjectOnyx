@@ -65,10 +65,6 @@ $(document).ready ->
       messageTextArea = forecastForm.parent().prevAll('.message-text')
       forecastFieldsSummary.slideDown()
       messageTextArea.text("Hello")
-      alert(forecastInput)
-      forecastSummaryString = "EPS Forecast $" + companyInput + " " + quarterInput + " " + yearInput + " " + forecastInput
-      alert(companyInput)
-      alert(quarterInput)
-      alert(yearInput)
+      forecastSummaryString = "EPS Forecast: $" + companyInput + " " + quarterInput + " " + yearInput + " " + forecastInput
       forecastFieldsSummary.text(forecastSummaryString)
       event.preventDefault()

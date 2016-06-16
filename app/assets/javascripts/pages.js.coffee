@@ -29,7 +29,6 @@ $(document).ready ->
     $('form').on 'click', '.forecast-save-button.cancel', (event) ->
       $(@).prev('input[type=hidden]').val('1')
       forecastForm = $(@).parent().parent().parent().parent().parent()
-      forecastForm.slideUp()
       companyInput = forecastForm.find('.company-input').find('input[type=text], textarea')
       quarterInput = forecastForm.find('.quarter-input').find('.forecast_quarter_select')
       yearInput = forecastForm.find('.year-input').find('.forecast_year_select')
@@ -43,6 +42,15 @@ $(document).ready ->
         forecastFieldsSummary.slideUp()
         forecastFieldsSummary.find('.forecast-header').text("")
         forecastFieldsSummary.find('.forecast-details').text("")
+      if $(@).text() == "Remove"
+        forecastFieldsSummary.fadeOut()
+        forecastForm.hide()
+        $(@).prevAll('.forecast-save-button.add').text("Add")
+        $(@).text("Cancel")
+      else
+        alert("hi")
+        forecastForm.hide()
+        forecastFieldsSummary.hide()
       editForecast = forecastForm.nextAll('.edit-forecast')
       editForecast.show()
       event.preventDefault()
@@ -65,25 +73,26 @@ $(document).ready ->
       $(@).prevAll('.home-forecast-form').slideDown()
 
     $('form').on 'click', '.remove_fields', (event) ->
-      $(@).prev('input[type=hidden]').val('1')
       forecastForm = $(@).parent()
-      forecastForm.slideUp()
-      forecastFieldsSummary = forecastForm.parent().prevAll('.forecast-fields-summary').find('.forecast-header')
-      if forecastFieldsSummary.text().length == 0
+      forecastForm.hide()
+      forecastFieldsSummary = forecastForm.parent().prevAll('.forecast-fields-summary')
+      if forecastFieldsSummary.find('.forecast-header').text().length == 0
         editForecastButton = forecastForm.nextAll('.edit-forecast')
         editForecastButton.show()
+      else
+        forecastFieldsSummary.fadeIn()
       event.preventDefault()
 
     $('form').on 'click', '.forecast-save-button.add', (event) ->
       forecastForm = $(@).parent().parent().parent().parent().parent()
-      forecastForm.slideUp()
+      forecastForm.hide()
       companyInput = forecastForm.find('.company-input').find('input[type=text], textarea').val()
       quarterInput = forecastForm.find('.quarter-input').find(":selected").text()
       forecastInput = forecastForm.find('.forecast-input').find('input[type=number]').val()
       yearInput = forecastForm.find('.year-input').find(":selected").text()
       forecastFieldsSummary = forecastForm.parent().prevAll('.forecast-fields-summary')
       messageTextArea = forecastForm.parent().prevAll('.message-text')
-      forecastFieldsSummary.slideDown()
+      forecastFieldsSummary.fadeIn()
       messageTextArea.text("Hello")
       forecastSummaryString = "$" + companyInput + " " + quarterInput + " " + yearInput + " " + forecastInput
       forecastFieldsSummary.find('.forecast-header').text("EPS Forecast: ")
@@ -93,6 +102,7 @@ $(document).ready ->
       event.preventDefault()
 
     $('form').on 'click', '.forecast-fields-summary', (event) ->
+      $(@).hide()
       forecastForm = $(@).nextAll('.forecast-fields-container').find('.home-forecast-form')
       forecastForm.slideDown()
       event.preventDefault()

@@ -5,56 +5,62 @@
   <%= link_to "+", '#', class: "remove_fields cancel-prediction" %>
 
   <table class="forecast-form-table">
-    <tr>
-      <td colspan="2"><h4 class="forecast-form-header">Earnings Per Share Forecast</h4></td>
-    </tr>
 
-    <tr>
-      <td colspan="2">
+    <tbody class="forecast-form-body">
 
-          <span><%= f.text_field :company, placeholder: "Company", autofocus: false, class: "forecast_company_text"%></span>
+      <tr>
+        <td colspan="2"><h4 class="forecast-form-header">Earnings Per Share Forecast</h4></td>
+      </tr>
 
-          <span>
-    
-            <select class="forecast_quarter_select">
-
-              <option value="Q1">Q1</option>
-              <option value="Q2">Q2</option>
-              <option value="Q3">Q3</option>
-              <option value="Q4">Q4</option>
-
-            </select>
-
-          </span>
-
-          <span>
-
-            <select class="forecast_year_select">
+      <tr class = "company-quarter-year-input">
         
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
+        <td class="company-quarter-year-cell" colspan="2">
 
-            </select>
+            <span class="company-input"><%= f.text_field :company, placeholder: "Company", autofocus: false, class: "forecast_company_text"%></span>
 
-          </span>
+            <span class="quarter-input">
+      
+              <select class="forecast_quarter_select">
 
-      </td>
+                <option value="Q1">Q1</option>
+                <option value="Q2">Q2</option>
+                <option value="Q3">Q3</option>
+                <option value="Q4">Q4</option>
 
-    </tr>
+              </select>
 
-    <tr>
-      <td colspan="2"><h5>Forecast</h5></td>
-    </tr>
+            </span>
 
-    <tr>
-      <td colspan="2"><span><%= f.number_field :eps_estimate, placeholder: "$0.00", autofocus: false, class: "forecast_eps_estimate_number" %></span></td>
-    </tr>
+            <span class="year-input">
 
-    <tr>
-      <td colspan="2" class="forecast-save-button-container"><a class ="forecast-save-button add">Add</a><a class ="forecast-save-button cancel">Cancel</a></td>
-    </tr>
+              <select class="forecast_year_select">
+          
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+
+              </select>
+
+            </span>
+
+        </td>
+
+      </tr>
+
+      <tr>
+        <td colspan="2"><h5>Forecast</h5></td>
+      </tr>
+
+      <tr>
+        <td colspan="2"><span class="forecast-input"><%= f.number_field :eps_estimate, placeholder: "$0.00", autofocus: false, class: "forecast_eps_estimate_number" %></span></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="forecast-save-button-container"><a class ="forecast-save-button add">Add</a><a class ="forecast-save-button cancel">Cancel</a></td>
+      </tr>
+
+    </tbody>
 
   </table>
 

@@ -22,7 +22,7 @@ $(document).ready ->
       publishContainer = $(@).parent().parent().nextAll('.home-publish-container')
       publishButton = $(@).nextAll('.forecast-fields-container').find('.publish-message')
       forecastFieldsSummary = $(@).nextAll('.forecast-fields-summary')
-      if $(@).text().length == 0 && forecastFieldsSummary.find('.forecast-header').text().length == 0
+      if message.length == 0 && forecastFieldsSummary.find('.forecast-header').text().length == 0
       	publishButton.hide()
 
     $('form').on 'click', '.forecast-save-button.cancel', (event) ->
@@ -90,12 +90,13 @@ $(document).ready ->
       forecastForm.hide()
       companyInput = forecastForm.find('.company-input').find('input[type=text], textarea').val()
       quarterInput = forecastForm.find('.quarter-input').find(":selected").text()
-      forecastInput = forecastForm.find('.forecast-input').find('input[type=number]').val()
       yearInput = forecastForm.find('.year-input').find(":selected").text()
+      forecastInput = forecastForm.find('.forecast-input').find('input[type=text]').val()
+      forecastInputFormatted = parseFloat(forecastInput.replace('$', '')).toFixed(2)
       forecastFieldsSummary = forecastForm.parent().prevAll('.forecast-fields-summary')
       messageTextArea = forecastForm.parent().prevAll('.message-text')
       forecastFieldsSummary.fadeIn()
-      forecastSummaryString = "$" + companyInput + " " + quarterInput + " " + yearInput + " " + forecastInput
+      forecastSummaryString = "$" + companyInput + " " + quarterInput + " " + yearInput + " $" + forecastInputFormatted
       forecastFieldsSummary.find('.forecast-header').text("EPS Forecast: ")
       forecastFieldsSummary.find('.forecast-details').text(forecastSummaryString)
       $(@).text("Update")

@@ -5,11 +5,17 @@
   <%= @message.body %>
 </p>
 
-<% if @message.earnings_predictions.count > 0 %>
+<%= @message.earnings_predictions.count %>
+
+<% if @earnings_prediction %>
 
 	<p>
 		<strong>Forecast</strong>
-		<%= @message.company + " " + @message.quarter + " " + @message.year%>
+
+		<%= @earnings_prediction.company  %>
+		<%= @earnings_prediction.quarter %>
+		<%= @earnings_prediction.year %>
+		<%= number_to_currency(@earnings_prediction.eps_estimate).to_s %>
 	</p>
 
 <%end%>

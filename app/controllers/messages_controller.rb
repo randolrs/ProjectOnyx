@@ -10,6 +10,14 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
+    
+    @message = Message.find(params[:id])
+
+    if @message.earnings_predictions.count > 0
+
+      @earnings_prediction = @message.earnings_predictions.first
+
+    end
   end
 
   # GET /messages/new

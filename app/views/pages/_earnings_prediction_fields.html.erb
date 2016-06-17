@@ -19,28 +19,14 @@
             <span class="company-input"><%= f.text_field :company, placeholder: "Company", autofocus: false, class: "forecast_company_text", id: "forecast_company_text"%> <input id="field_id" name="link[origin_id]" type="hidden"/></span>
 
             <span class="quarter-input">
-      
-              <select class="forecast_quarter_select">
 
-                <option value="Q1">Q1</option>
-                <option value="Q2">Q2</option>
-                <option value="Q3">Q3</option>
-                <option value="Q4">Q4</option>
-
-              </select>
+              <%= f.select :quarter, ["Q1", "Q2", "Q3", "Q4"], {}, { :class => 'forecast_quarter_select' } %>
 
             </span>
 
             <span class="year-input">
-
-              <select class="forecast_year_select">
-          
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-
-              </select>
+              
+              <%= f.select :year, ["2016", "2017", "2018"], {}, { :class => 'forecast_year_select' } %>
 
             </span>
 
@@ -53,7 +39,7 @@
       </tr>
 
       <tr>
-        <td colspan="2"><span class="forecast-input"><%= f.number_field :eps_estimate, placeholder: "$0.00", autofocus: false, class: "forecast_eps_estimate_number" %></span></td>
+        <td colspan="2"><span class="forecast-input"><%= f.text_field :eps_estimate, placeholder: "$0.00", autofocus: false, class: "forecast_eps_estimate_number", :value => (number_with_precision(f.object.eps_estimate, :precision => 2) || 0) %></span></td>
       </tr>
 
       <tr>

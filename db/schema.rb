@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610045134) do
+ActiveRecord::Schema.define(version: 20160617180721) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20160610045134) do
     t.decimal  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "message_id"
   end
 
   create_table "followings", force: true do |t|

@@ -5,6 +5,19 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.all
+
+    # I will explain this part in a moment.
+    if params[:term]
+      @companies = Company.find(:all,:conditions => ['name LIKE ?', "#{params[:term]}%"])
+    else
+      @company = Company.all
+    end
+
+    respond_to do |format|  
+      format.html # index.html.erb  
+    # Here is where you can specify how to handle the request for "/company.json"
+      format.json { render :json => @company.to_json }
+      end
   end
 
   # GET /companies/1

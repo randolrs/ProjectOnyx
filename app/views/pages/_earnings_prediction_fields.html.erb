@@ -16,7 +16,7 @@
         
         <td class="company-quarter-year-cell" colspan="2">
 
-            <span class="company-input"><%= f.text_field :company, placeholder: "Company", autofocus: false, class: "forecast_company_text"%></span>
+            <span class="company-input"><%= f.text_field :company, placeholder: "Company", autofocus: false, class: "forecast_company_text", id: "forecast_company_text"%> <input id="field_id" name="link[origin_id]" type="hidden"/></span>
 
             <span class="quarter-input">
       

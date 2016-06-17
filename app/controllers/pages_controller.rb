@@ -71,6 +71,11 @@ class PagesController < ApplicationController
 
     end
 
+    respond_to do |format|
+      format.html
+      format.json { @companies = Company.search(params[:term]) }
+    end
+
   end
 
   def dashboard

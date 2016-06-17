@@ -5,5 +5,14 @@
   <%= @message.body %>
 </p>
 
+<% if @message.earnings_predictions.count > 0 %>
+
+	<p>
+		<strong>Forecast</strong>
+		<%= @message.company + " " + @message.quarter + " " + @message.year%>
+	</p>
+
+<%end%>
+
 <%= link_to 'Edit', edit_message_path(@message) %> |
 <%= link_to 'Back', messages_path %>

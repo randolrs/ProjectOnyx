@@ -244,6 +244,8 @@ Rails.application.routes.draw do
 
   get 'teamedit' => 'teams#index'
 
+  get 'companies_index' => 'companies#index'
+
   get 'add_teams' => 'teams#new'
 
   get 'gamescore' => 'games#score'

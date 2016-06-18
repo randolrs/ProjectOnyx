@@ -55,6 +55,8 @@ Rails.application.routes.draw do
 
   get 'gamedash' => "games#index"
 
+  get 'companies_index' => 'companies#index'
+
   get 'price_items' => "price_items#index"
 
   get 'top-posts' => 'pages#top_posts', as: 'top_posts'
@@ -243,8 +245,6 @@ Rails.application.routes.draw do
   get 'sportedit' => 'sports#index'
 
   get 'teamedit' => 'teams#index'
-
-  get 'companies_index' => 'companies#index'
 
   get 'add_teams' => 'teams#new'
 

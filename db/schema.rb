@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617180721) do
+ActiveRecord::Schema.define(version: 20160619204454) do
 
   create_table "access_codes", force: true do |t|
     t.string   "description", default: ""
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 20160617180721) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "has_forecast", default: false
   end
 
   create_table "plans", force: true do |t|

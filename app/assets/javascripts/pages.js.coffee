@@ -31,11 +31,11 @@ $(document).ready ->
       companyInput = forecastForm.find('.company-input').find('input[type=text], textarea')
       quarterInput = forecastForm.find('.quarter-input').find('.forecast_quarter_select')
       yearInput = forecastForm.find('.year-input').find('.forecast_year_select')
-      forecastInput = forecastForm.find('.forecast-input').find('input[type=number]')
+      forecastInput = forecastForm.find('.forecast-input').find('input[type=text]')
       companyInput.val("")
       quarterInput[0].selectedIndex = 0
       yearInput[0].selectedIndex = 0
-      forecastInput.val("")
+      forecastInput.text("")
       forecastFieldsSummary = forecastForm.parent().prevAll('.forecast-fields-summary')
       messageText = forecastFieldsSummary.prevAll('.message-text')
       if forecastFieldsSummary.find('.forecast-header').text().length != 0
@@ -110,3 +110,8 @@ $(document).ready ->
       forecastForm = $(@).nextAll('.forecast-fields-container').find('.home-forecast-form')
       forecastForm.slideDown()
       event.preventDefault()
+
+    $('.forecast_company_text').autocomplete
+      source: $('.forecast_company_text').data('autocomplete-source')
+      minLength: 2
+      

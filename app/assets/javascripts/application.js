@@ -12,11 +12,9 @@
 //
 
 //= require jquery
-//= require jquery_ujs
 //= require jquery-ui
-//= require jquery.turbolinks
+//= require jquery_ujs
 //= require bootstrap
-//= require turbolinks
 //= require_tree .
 
 
@@ -29,3 +27,4 @@ function toggleTable() {
     var lTable = document.getElementById("addCardTable");
     lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
 }
+

@@ -30,6 +30,13 @@ class CompaniesController < ApplicationController
     @company = Company.new
   end
 
+  def quicksearch
+
+    @companies = Company.order(:name).where("name like ?", "%#{params[:term]}%")
+    render json: @companies.map(&:name)
+
+  end
+
   # GET /companies/1/edit
   def edit
   end

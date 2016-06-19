@@ -55,6 +55,8 @@ Rails.application.routes.draw do
 
   get 'gamedash' => "games#index"
 
+  get 'companies_quicksearch', :to => 'companies#quicksearch'
+
   get 'companies_index' => 'companies#index'
 
   get 'price_items' => "price_items#index"

@@ -18,6 +18,16 @@
 
         <%end%>
 
+        <% if @messages %>
+        
+          <% @messages.each do |message|%>
+
+            <%= render partial: 'message/index_show', locals: {message: message, predictor: Predictor.find(message.predictor_id)} %>
+
+          <%end%>
+
+        <%end%>
+
         <% if @articles %>
       	
 	        <% @articles.each do |article|%>

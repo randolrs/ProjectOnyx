@@ -32,7 +32,14 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+    
     @message = Message.new(message_params)
+
+    if @message.earnings_predictions.count > 0
+
+      @message.update(:has_forecast => true)
+
+    end
 
     respond_to do |format|
       if @message.save

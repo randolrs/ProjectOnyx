@@ -1,21 +1,66 @@
-<%= form_for(@message) do |f| %>
-  <% if @message.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+<div class = "content-panel sub">
+    
+    <% if predictor_signed_in? %>
 
-      <ul>
-      <% @message.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <%# if article.recommended_by_user_I_follow(current_predictor.id).present? %>
+        
+        <div class="article-show-reason">
+
+        </div>
+
+      <%#else%>
+
+        <%# if article.recommended_by_staff %>
+
+          <div class="article-show-reason">
+            
+          </div>
+
+        <%#end%>
+
+
+      <%#end%>
+
+    <%else%>
+
+      <%# if article.recommended_by_staff %>
+
+        <div class="article-show-reason">
+          
+        </div>
+
+      <%#end%>
+
+    <%end%>
+
+  <div class="article-show-header">
+      <%= image_tag predictor.image.url(:medium), class: "predictor-image-tiny"%>
+      <%= link_to predictor.username, predictordashboard_path(predictor.username), class: "full-name" %>
+      <%= render partial: 'predictors/futable_rating', locals: {predictor: predictor}%>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+  <div class="article-show-detail">
+
+    <a class="no-style" href="<%#predictorarticleshow_path(predictor.username,article.id)%>">
+      
+        <table>
+
+          <div class="article-date"><a class="article-date-text"><%= message.created_at.strftime("%B %e, %Y") %></a></div>
+          
+          <div class="article-body-text">
+            <%= message.body %>
+          </div>
+
+      </table>
+
+    </a>
+
+    <div class="article-show-actions">
+            
+            
+    </div>
+
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+</div>
+  

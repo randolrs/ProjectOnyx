@@ -6,6 +6,8 @@ class PagesController < ApplicationController
 
     @message = Message.new
 
+    @messages = Message.order(created_at: :desc)
+
     @page_title = "Credible Predictions"
 
     @parent_tag_id = Topic.find_by_name("Home").id.to_s

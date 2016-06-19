@@ -22,21 +22,21 @@
         
           <% @messages.each do |message|%>
 
-            <%= render partial: 'message/index_show', locals: {message: message, predictor: Predictor.find(message.predictor_id)} %>
+            <%= render partial: 'messages/index_show', locals: {message: message, predictor: Predictor.find(message.predictor_id)} %>
 
           <%end%>
 
         <%end%>
 
-        <% if @articles %>
+        <%# if @articles %>
       	
-	        <% @articles.each do |article|%>
+	        <%# @articles.each do |article|%>
 
-	          <%= render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
+	          <%# render partial: 'articles/summary_index', locals: {article: article, predictor: Predictor.find(article.predictor_id)} %>
 
-	        <%end%>
+	        <%#end%>
 
-        <%end%>
+        <%#end%>
 
       </div>
 
